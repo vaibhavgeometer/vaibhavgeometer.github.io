@@ -1,0 +1,2290 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+
+% Define Palette
+\definecolor{primary}{RGB}{20, 45, 85}
+\definecolor{secondary}{RGB}{41, 128, 185}
+\definecolor{badgebg}{RGB}{240, 243, 246}
+\definecolor{badgetext}{RGB}{40, 40, 40}
+
+% Section Styling
+\titleformat{\section}{\Large\bfseries\color{primary}}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\large\bfseries\color{secondary}}{\thesubsection}{1em}{}
+
+% Custom Question Badge Environment
+\newcommand{\pyqheader}[4]{%
+    \noindent\begin{tcolorbox}[
+        colback=badgebg,
+        colframe=secondary,
+        arc=2mm,
+        boxrule=0.6pt,
+        top=1.5mm,bottom=1.5mm,left=2mm,right=2mm
+    ]
+        \textbf{\textcolor{primary}{JAM #1}} \hfill \textbf{Q.#2} \hfill \textsc{\textbf{#3}} \hfill \textbf{[#4 Mark\ifnum#4>1s\fi]}
+    \end{tcolorbox}\vspace{-1mm}
+}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{\color{primary}IIT JAM Mathematics (MA)}}\\[2mm]
+    {\Large \textbf{Topic-Wise Question Bank (2022 -- 2026)}}\\[1.5mm]
+    {\normalsize Categorized by Official Syllabus with Complete Master Answer Key}
+\end{center}
+
+\tableofcontents
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+
+% ==============================================================================
+% SECTION 1: REAL ANALYSIS
+% ==============================================================================
+\section{Real Analysis}
+
+\subsection{Sequences and Series of Real Numbers}
+
+\pyqheader{2026}{1}{MCQ}{1}
+For each positive integer $n$, let $x_{n}=1-(-1)^{n}+\frac{1}{n}$ and $y_{n}=\left(1+\frac{1}{2n}\right)^{3n}$. Which ONE of the following statements about the sequences $(x_{n})$ and $(y_{n})$ is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $(x_{n})$ and $(y_{n})$ are convergent.
+    \item $(x_{n})$ is not convergent and $(y_{n})$ is not convergent.
+    \item $(x_{n})$ is convergent and $(y_{n})$ is not convergent.
+    \item $(x_{n})$ is not convergent and $(y_{n})$ is convergent.
+\end{enumerate}
+
+\pyqheader{2026}{2}{MCQ}{1}
+For each positive integer $n$, define $x_{n}=(-1)^{n}$. Which ONE of the following statements about the sequence $(x_{n})$ is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item There exists $\epsilon>0$ such that $|x_{n}-1| < \epsilon$ for all positive integers $n$.
+    \item There exists $\epsilon>0$ such that for all $M>0$ there exists a positive integer $N>M$ for which $|x_{N}-1|>\epsilon$.
+    \item For all $\epsilon>0$ and $M>0$ there exists a positive integer $N$ such that $N>M$ and $|x_{N}-1|<\epsilon$.
+    \item For all $\epsilon>0$ and $M>0$ there exists a positive integer $N$ such that $N>M$ and $|x_{N}-1|>\epsilon$.
+\end{enumerate}
+
+\pyqheader{2026}{11}{MCQ}{2}
+Given a sequence of real numbers $(a_{n})$, define $b_{n}=\begin{cases}a_{n},& \text{if } a_{n}\ge 0\\ 0,& \text{if } a_{n}<0\end{cases}$ and $c_{n}=\begin{cases}a_{n},& \text{if } a_{n}< 0\\ 0,& \text{if } a_{n}\ge 0\end{cases}$ for each positive integer $n$. Which ONE of the following statements is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item If $\sum_{n=1}^{\infty}a_{n}$ does not converge, then $\sum_{n=1}^{\infty}b_{n}$ does not converge.
+    \item If $\sum_{n=1}^{\infty}a_{n}$ converges but $\sum_{n=1}^{\infty}|a_{n}|$ does not converge, then $\sum_{n=1}^{\infty}b_{n}$ converges.
+    \item If $\sum_{n=1}^{\infty}a_{n}$ converges but $\sum_{n=1}^{\infty}|a_{n}|$ does not converge, then $\sum_{n=1}^{\infty}b_{n}$ does not converge.
+    \item If $\sum_{n=1}^{\infty}a_{n}$ converges, then $\sum_{n=1}^{\infty}b_{n}$ converges or $\sum_{n=1}^{\infty}c_{n}$ converges.
+\end{enumerate}
+
+\pyqheader{2026}{12}{MCQ}{2}
+For which one of the following pairs of values of $a$ and $b$, does the series $\sum_{k=1}^{\infty}\frac{(3x)^{k}}{2^{\sqrt{k}}(1-x)^{k}}$ converge for all $x\in(a,b)$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $a=-\frac{1}{4}$ and $b=\frac{1}{2}$
+    \item $a=-1$ and $b=\frac{1}{5}$
+    \item $a=-\frac{1}{2}$ and $b=\frac{1}{4}$
+    \item $a=-\frac{1}{4}$ and $b=\frac{1}{3}$
+\end{enumerate}
+
+\pyqheader{2026}{29}{MCQ}{2}
+For each positive integer $n$, let $x_{n}=1+\frac{1}{2}+\cdots+\frac{1}{n}-\log_{e}n$ and $y_{n}=\int_{1}^{n}\frac{\cos t}{t^{2}}dt$. Which ONE of the following statements about $(x_{n})$ and $(y_{n})$ is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $(x_{n})$ and $(y_{n})$ are convergent.
+    \item $(x_{n})$ is convergent and $(y_{n})$ is not convergent.
+    \item $(x_{n})$ is not convergent and $(y_{n})$ is convergent.
+    \item $(x_{n})$ is not convergent and $(y_{n})$ is not convergent.
+\end{enumerate}
+
+\pyqheader{2026}{32}{MSQ}{2}
+Which of the following statements is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item There exists a monotone sequence that does not converge but has a convergent subsequence.
+    \item There exists a sequence that has a bounded subsequence but does not have any convergent subsequence.
+    \item There exists a sequence $(x_{n})$ such that given any positive integer $m$, $(x_{n})$ has a subsequence converging to $m$.
+    \item There exists a sequence $(x_{n})$ such that $(|x_{n+1}-x_{n}|)$ converges to 0 but $(x_{n})$ does not converge.
+\end{enumerate}
+
+\pyqheader{2026}{41}{NAT}{1}
+The radius of convergence of the series $\sum_{n=1}^{\infty}\frac{(n!)^{2}}{(2n)!}(\log_{e}n)^{-1}x^{n}$ is \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2026}{42}{NAT}{1}
+$\int_{0}^{1}\left(\sum_{k=1}^{\infty}\frac{(\log_{e}2)^{k}x^{k-1}}{(k-1)!}\right)dx=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2026}{43}{NAT}{1}
+$\lim_{n\rightarrow\infty}\left(\frac{n^{2}+1}{\sqrt{n^{6}+1}}+\cdots+\frac{n^{2}+n}{\sqrt{n^{6}+n}}\right)=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2025}{1}{MCQ}{1}
+The sum of the infinite series $\sum_{n=1}^{\infty}(-1)^{n+1}\frac{\pi^{2n+1}}{2^{2n+1}(2n)!}$ is equal to:
+\begin{enumerate}[label=(\Alph*)]
+    \item $-\pi$
+    \item $\frac{\pi}{4}$
+    \item $\frac{\pi}{2}$
+    \item $-\frac{\pi}{4}$
+\end{enumerate}
+
+\pyqheader{2025}{18}{MCQ}{2}
+For $n\in\mathbb{N}$, define $x_{n}=(-1)^{n}\cos\frac{1}{n}$ and $y_{n}=\sum_{k=1}^{n}\frac{1}{n+k}$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{n=1}^{\infty} x_n$ converges, and $\sum_{n=1}^{\infty} y_n$ does NOT converge
+    \item $\sum_{n=1}^{\infty} x_n$ does NOT converge, and $\sum_{n=1}^{\infty} y_n$ converges
+    \item $\sum_{n=1}^{\infty} x_n$ converges, and $\sum_{n=1}^{\infty} y_n$ converges
+    \item $\sum_{n=1}^{\infty} x_n$ does NOT converge, and $\sum_{n=1}^{\infty} y_n$ does NOT converge
+\end{enumerate}
+
+\pyqheader{2025}{19}{MCQ}{2}
+Let $x_{1}=\frac{5}{2}$. For $n\in\mathbb{N}$, define $x_{n+1}=\frac{1}{5}(x_{n}^{2}+6)$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $(x_{n})$ is an increasing sequence, and $(x_{n})$ is NOT a bounded sequence
+    \item $(x_{n})$ is NOT an increasing sequence, and $(x_{n})$ is NOT a bounded sequence
+    \item $(x_{n})$ is NOT a decreasing sequence, and $(x_{n})$ is a bounded sequence
+    \item $(x_{n})$ is a decreasing sequence, and $(x_{n})$ is a bounded sequence
+\end{enumerate}
+
+\pyqheader{2025}{20}{MCQ}{2}
+Let $x_{1}=2$ and $x_{n+1}=2+\frac{1}{2x_{n}}$ for all $n\in\mathbb{N}$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $x_{n+1}\ge\frac{4}{x_{n}}$ for all $n\in\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence
+    \item $x_{n+1}<\frac{4}{x_{n}}$ for some $n\in\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence
+    \item $x_{n+1}\ge\frac{4}{x_{n}}$ for all $n\in\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence
+    \item $x_{n+1}<\frac{4}{x_{n}}$ for some $n\in\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence
+\end{enumerate}
+
+\pyqheader{2025}{21}{MCQ}{2}
+For $n\in\mathbb{N}$, define $x_{n}=(-1)^{n}\frac{3^{n}}{n^{3}}$ and $y_{n}=(4^{n}+(-1)^{n}3^{n})^{1/n}$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $(x_{n})$ has a convergent subsequence, and NO subsequence of $(y_{n})$ is convergent
+    \item NO subsequence of $(x_{n})$ is convergent, and $(y_{n})$ has a convergent subsequence
+    \item $(x_{n})$ has a convergent subsequence, and $(y_{n})$ has a convergent subsequence
+    \item NO subsequence of $(x_{n})$ is convergent, and NO subsequence of $(y_{n})$ is convergent
+\end{enumerate}
+
+\pyqheader{2025}{25}{MCQ}{2}
+Let $x_{1}=1$. For $n\in\mathbb{N}$, define $x_{n+1}=\left(\frac{1}{2}+\frac{\sin^{2}n}{n}\right)x_{n}$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{n=1}^{\infty}x_{n}$ converges
+    \item $\sum_{n=1}^{\infty}x_{n}$ does NOT converge
+    \item $\sum_{n=1}^{\infty}x_{n}^{2}$ does NOT converge
+    \item $\sum_{n=1}^{\infty}x_{n}x_{n+1}$ does NOT converge
+\end{enumerate}
+
+\pyqheader{2025}{26}{MCQ}{2}
+Let $x_{1}>0$. For $n\in\mathbb{N}$, define $x_{n+1}=x_{n}+4$. If $\lim_{n\rightarrow\infty}\left(\frac{1}{x_{2}x_{3}}+\frac{1}{x_{3}x_{4}}+\cdots+\frac{1}{x_{n+1}x_{n+2}}\right)=\frac{1}{24}$, then the value of $x_{1}$ is equal to:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 3
+    \item 4
+\end{enumerate}
+
+\pyqheader{2025}{36}{MSQ}{2}
+For $n\in\mathbb{N}$, define $x_{n}=\sum_{k=1}^{n}\frac{k}{n^{2}+k}$. Then, which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item The sequence $(x_{n})$ converges
+    \item The series $\sum_{n=1}^{\infty}x_{n}$ converges
+    \item The series $\sum_{n=1}^{\infty}x_{n}$ does NOT converge
+    \item The series $\sum_{n=1}^{\infty}\frac{x_{n}}{n}$ converges
+\end{enumerate}
+
+\pyqheader{2025}{41}{NAT}{1}
+The radius of convergence of the power series $\sum_{n=1}^{\infty}\frac{(x+\frac{1}{4})^{n}}{(-2)^{n}n^{2}}$ about $x=-\frac{1}{4}$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{54}{NAT}{2}
+$\sum_{n=1}^{\infty}n\left(\frac{3}{4}\right)^{2(n-1)}=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{14}{MCQ}{2}
+For $n\in\mathbb{N}$, let $a_{n}=\frac{1}{(3n+2)(3n+4)}$ and $b_{n}=\frac{n^{3}+\cos(3^{n})}{3^{n}+n^{3}}$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{n=1}^{\infty} a_n$ is convergent but $\sum_{n=1}^{\infty} b_n$ is divergent
+    \item $\sum_{n=1}^{\infty} a_n$ is divergent but $\sum_{n=1}^{\infty} b_n$ is convergent
+    \item Both $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are divergent
+    \item Both $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are convergent
+\end{enumerate}
+
+\pyqheader{2024}{20}{MCQ}{2}
+Define the sequences $\{a_{n}\}_{n=3}^{\infty}$ and $\{b_{n}\}_{n=3}^{\infty}$ as $a_{n}=(\log n+\log\log n)^{\log n}$ and $b_{n}=n^{(1+\frac{1}{\log n})}$. Which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{n=3}^{\infty} \frac{1}{a_n}$ is convergent but $\sum_{n=3}^{\infty} \frac{1}{b_n}$ is divergent
+    \item $\sum_{n=3}^{\infty} \frac{1}{a_n}$ is divergent but $\sum_{n=3}^{\infty} \frac{1}{b_n}$ is convergent
+    \item Both $\sum_{n=3}^{\infty} \frac{1}{a_n}$ and $\sum_{n=3}^{\infty} \frac{1}{b_n}$ are divergent
+    \item Both $\sum_{n=3}^{\infty} \frac{1}{a_n}$ and $\sum_{n=3}^{\infty} \frac{1}{b_n}$ are convergent
+\end{enumerate}
+
+\pyqheader{2024}{21}{MCQ}{2}
+For $p,q,r\in\mathbb{R}$, $r\ne 0$ and $n\in\mathbb{N}$, let $a_{n}=p^{n}n^{q}\left(\frac{n}{n+2}\right)^{n^{2}}$ and $b_{n}=\frac{n^{n}}{n!r^{n}}\left(\sqrt{\frac{n+2}{n}}\right)$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item If $1<p<e^{2}$ and $q>1$, then $\sum_{n=1}^{\infty} a_{n}$ is convergent
+    \item If $e^{2}<p<e^{4}$ and $q>1$, then $\sum_{n=1}^{\infty} a_{n}$ is convergent
+    \item If $1<r<e$, then $\sum_{n=1}^{\infty} b_{n}$ is convergent
+    \item If $\frac{1}{e}<r<1$, then $\sum_{n=1}^{\infty} b_{n}$ is convergent
+\end{enumerate}
+
+\pyqheader{2024}{28}{MCQ}{2}
+For $n\ge 3$, let a regular $n$-sided polygon $P_{n}$ be circumscribed by a circle of radius $R_{n}$ and let $r_{n}$ be the radius of the circle inscribed in $P_{n}$. Then $\lim_{n\rightarrow\infty}\left(\frac{R_{n}}{r_{n}}\right)^{n^{2}}$ equals:
+\begin{enumerate}[label=(\Alph*)]
+    \item $e^{(\pi^{2})}$
+    \item $e^{(\frac{\pi^{2}}{2})}$
+    \item $e^{(\frac{\pi^{2}}{3})}$
+    \item $e^{(2\pi^{2})}$
+\end{enumerate}
+
+\pyqheader{2024}{31}{MSQ}{2}
+Let $\{a_{n}\}_{n=1}^{\infty}$ be a sequence of real numbers. Then, which of the following statements is/are always TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item If $\sum_{n=1}^{\infty} a_{n}$ converges absolutely, then $\sum_{n=1}^{\infty} a_{n}^{2}$ converges absolutely
+    \item If $\sum_{n=1}^{\infty} a_{n}$ converges absolutely, then $\sum_{n=1}^{\infty} a_{n}^{3}$ converges absolutely
+    \item If $\sum_{n=1}^{\infty} a_{n}$ converges, then $\sum_{n=1}^{\infty} a_{n}^{2}$ converges
+    \item If $\sum_{n=1}^{\infty} a_{n}$ converges, then $\sum_{n=1}^{\infty} a_{n}^{3}$ converges
+\end{enumerate}
+
+\pyqheader{2024}{32}{MSQ}{2}
+Which of the following statements is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{n=1}^{\infty}n\log(1+\frac{1}{n^{3}})$ is convergent
+    \item $\sum_{n=1}^{\infty}(1-\cos(\frac{1}{n}))\log n$ is convergent
+    \item $\sum_{n=1}^{\infty}n^{2}\log(1+\frac{1}{n^{3}})$ is convergent
+    \item $\sum_{n=1}^{\infty}(1-\cos(\frac{1}{\sqrt{n}}))\log n$ is convergent
+\end{enumerate}
+
+\pyqheader{2024}{39}{MSQ}{2}
+For $0<\alpha<4$, define the sequence $\{x_{n}\}_{n=1}^{\infty}$ as $x_{1}=\alpha$ and $x_{n+1}+2=-x_{n}(x_{n}-4)$ for $n\in\mathbb{N}$. Which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\{x_{n}\}$ converges for at least three distinct values of $\alpha\in(0,1)$
+    \item $\{x_{n}\}$ converges for at least three distinct values of $\alpha\in(1,2)$
+    \item $\{x_{n}\}$ converges for at least three distinct values of $\alpha\in(2,3)$
+    \item $\{x_{n}\}$ converges for at least three distinct values of $\alpha\in(3,4)$
+\end{enumerate}
+
+\pyqheader{2024}{47}{NAT}{1}
+Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\frac{a_n+b_n}{2}, b_{n+1}=\frac{b_n+c_n}{2}, c_{n+1}=\frac{c_n+a_n}{2}$. Then,
+\[
+\sum_{n=1}^{\infty}b_n c_n(a_{n+1}-a_n) + \sum_{n=1}^{\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = \underline{\hspace{1.5cm}}
+\]
+(rounded off to two decimal places).
+
+\pyqheader{2024}{55}{NAT}{2}
+If $a_{n}=\frac{1}{n^{3}+1}+\frac{2^{2}}{n^{3}+2}+\cdots+\frac{n^{2}}{n^{3}+n}$, then the sequence $\{a_{n}\}$ converges to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{59}{NAT}{2}
+Let $a_{n}=\frac{1}{n^{n-1}}\sum_{k=0}^{n}\frac{n!}{k!(n-k)!}\frac{n^{k}}{k+1}$ and $\beta=\lim_{n\rightarrow\infty}a_{n}$. Then, the value of $\log\beta$ equals \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{9}{MCQ}{1}
+Let $a_{n}=(1+\frac{1}{n})^{n}$ and $b_{n}=n\cos(\frac{n!\pi}{2^{10}})$ for $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $(a_{n})$ is convergent and $(b_{n})$ is bounded
+    \item $(a_{n})$ is NOT convergent and $(b_{n})$ is bounded
+    \item $(a_{n})$ is convergent and $(b_{n})$ is unbounded
+    \item $(a_{n})$ is NOT convergent and $(b_{n})$ is unbounded
+\end{enumerate}
+
+\pyqheader{2023}{10}{MCQ}{1}
+Let $(a_{n})$ be a sequence of real numbers defined by $a_{n}=\begin{cases}1,& \text{if } n \text{ is prime}\\ -1,& \text{if } n \text{ is not prime}\end{cases}$. Let $b_{n}=\frac{a_{n}}{n}$ for $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item both $(a_{n})$ and $(b_{n})$ are convergent
+    \item $(a_{n})$ is convergent but $(b_{n})$ is NOT convergent
+    \item $(a_{n})$ is NOT convergent but $(b_{n})$ is convergent
+    \item both $(a_{n})$ and $(b_{n})$ are NOT convergent
+\end{enumerate}
+
+\pyqheader{2023}{11}{MCQ}{2}
+Let $a_{n}=\sin(\frac{1}{n^{3}})$ and $b_{n}=\sin(\frac{1}{n})$ for $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item both $\sum_{n=1}^{\infty} a_{n}$ and $\sum_{n=1}^{\infty} b_{n}$ are convergent
+    \item $\sum_{n=1}^{\infty} a_{n}$ is convergent but $\sum_{n=1}^{\infty} b_{n}$ is NOT convergent
+    \item $\sum_{n=1}^{\infty} a_{n}$ is NOT convergent but $\sum_{n=1}^{\infty} b_{n}$ is convergent
+    \item both $\sum_{n=1}^{\infty} a_{n}$ and $\sum_{n=1}^{\infty} b_{n}$ are NOT convergent
+\end{enumerate}
+
+\pyqheader{2023}{19}{MCQ}{2}
+Let $a_{n}=\frac{1+2^{-2}+\cdots+n^{-2}}{n}$ for $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item both $(a_{n})$ and $\sum_{n=1}^{\infty} a_{n}$ are convergent
+    \item $(a_{n})$ is convergent but $\sum_{n=1}^{\infty} a_{n}$ is NOT convergent
+    \item both $(a_{n})$ and $\sum_{n=1}^{\infty} a_{n}$ are NOT convergent
+    \item $(a_{n})$ is NOT convergent but $\sum_{n=1}^{\infty} a_{n}$ is convergent
+\end{enumerate}
+
+\pyqheader{2023}{20}{MCQ}{2}
+Let $(a_{n})$ be a sequence of real numbers such that $\sum_{n=0}^{\infty}a_{n}(x-2)^{n}$ converges at $x=-5$. Then this series also converges at:
+\begin{enumerate}[label=(\Alph*)]
+    \item $x=9$
+    \item $x=12$
+    \item $x=5$
+    \item $x=-6$
+\end{enumerate}
+
+\pyqheader{2023}{21}{MCQ}{2}
+Let $(a_{n})$ and $(b_{n})$ be sequences of real numbers such that $|a_{n}-a_{n+1}|=\frac{1}{2^{n}}$ and $|b_{n}-b_{n+1}|=\frac{1}{\sqrt{n}}$ for $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item both $(a_{n})$ and $(b_{n})$ are Cauchy sequences
+    \item $(a_{n})$ is a Cauchy sequence but $(b_{n})$ need NOT be a Cauchy sequence
+    \item $(a_{n})$ need NOT be a Cauchy sequence but $(b_{n})$ is a Cauchy sequence
+    \item both $(a_{n})$ and $(b_{n})$ need NOT be Cauchy sequences
+\end{enumerate}
+
+\pyqheader{2023}{24}{MCQ}{2}
+Suppose $f:(-1,1)\rightarrow\mathbb{R}$ is an infinitely differentiable function such that $\sum_{j=0}^{\infty}a_{j}\frac{x^{j}}{j!}$ converges to $f(x)$ for each $x\in(-1,1)$, where $a_{j}=\int_{0}^{\pi/2}\theta^{j}\cos^{j}(\tan\theta)d\theta + \int_{\pi/2}^{\pi}(\theta-\pi)^{j}\cos^{j}(\tan\theta)d\theta$ for $j\ge 0$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(x)=0$ for all $x\in(-1,1)$
+    \item $f$ is a non-constant even function on $(-1,1)$
+    \item $f$ is a non-constant odd function on $(-1,1)$
+    \item $f$ is NEITHER an odd function NOR an even function on $(-1,1)$
+\end{enumerate}
+
+\pyqheader{2023}{40}{MSQ}{2}
+Let $R_{1}$ and $R_{2}$ be the radii of convergence of $\sum_{n=1}^{\infty}(-1)^{n}x^{n-1}$ and $\sum_{n=1}^{\infty}(-1)^{n}\frac{x^{n+1}}{n(n+1)}$, respectively. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $R_{1}=R_{2}$
+    \item $R_{2}>1$
+    \item $\sum_{n=1}^{\infty}(-1)^{n}x^{n-1}$ converges for all $x\in[-1,1]$
+    \item $\sum_{n=1}^{\infty}(-1)^{n}\frac{x^{n+1}}{n(n+1)}$ converges for all $x\in[-1,1]$
+\end{enumerate}
+
+\pyqheader{2023}{49}{NAT}{1}
+The sum of the series $\sum_{n=1}^{\infty}\frac{2n+1}{(n^{2}+1)(n^{2}+2n+2)}$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{50}{NAT}{1}
+$\lim_{n\rightarrow\infty}\left(1+\frac{1}{2^{n}}+\frac{1}{3^{n}}+\cdots+\frac{1}{(2023)^{n}}\right)^{\frac{1}{n}}=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{5}{MCQ}{1}
+The radius of convergence of the power series $\sum_{n=1}^{\infty}\left(\frac{n^{3}}{4^{n}}\right)x^{5n}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 4
+    \item $\sqrt[5]{4}$
+    \item $\frac{1}{4}$
+    \item $\frac{1}{\sqrt[5]{4}}$
+\end{enumerate}
+
+\pyqheader{2022}{6}{MCQ}{1}
+Let $(x_{n})$ and $(y_{n})$ be defined by $x_{1}=1, y_{1}=\frac{1}{2}, x_{n+1}=\frac{x_{n}+y_{n}}{2}$, and $y_{n+1}=\sqrt{x_{n}y_{n}}$ for all $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $(x_{n})$ is convergent, but $(y_{n})$ is not convergent.
+    \item $(x_{n})$ is not convergent, but $(y_{n})$ is convergent.
+    \item Both $(x_{n})$ and $(y_{n})$ are convergent and $\lim_{n\rightarrow\infty}x_{n}>\lim_{n\rightarrow\infty}y_{n}$.
+    \item Both $(x_{n})$ and $(y_{n})$ are convergent and $\lim_{n\rightarrow\infty}x_{n}=\lim_{n\rightarrow\infty}y_{n}$.
+\end{enumerate}
+
+\pyqheader{2022}{7}{MCQ}{1}
+Suppose $a_{n}=\frac{3^{n}+3}{5^{n}-5}$ and $b_{n}=\frac{1}{(1+n^{2})^{\frac{1}{4}}}$ for $n=2,3,4,\dots$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{n=2}^{\infty} a_{n}$ is convergent and $\sum_{n=2}^{\infty} b_{n}$ is convergent.
+    \item $\sum_{n=2}^{\infty} a_{n}$ is convergent and $\sum_{n=2}^{\infty} b_{n}$ is divergent.
+    \item $\sum_{n=2}^{\infty} a_{n}$ is divergent and $\sum_{n=2}^{\infty} b_{n}$ is convergent.
+    \item $\sum_{n=2}^{\infty} a_{n}$ is divergent and $\sum_{n=2}^{\infty} b_{n}$ is divergent.
+\end{enumerate}
+
+\pyqheader{2022}{8}{MCQ}{1}
+Consider the series $\sum_{n=1}^{\infty}\frac{1}{n^{m}(1+\frac{1}{n^{p}})}$, where $m$ and $p$ are real numbers. Under which of the following conditions does the above series converge?
+\begin{enumerate}[label=(\Alph*)]
+    \item $m>1$
+    \item $0<m<1$ and $p>1$
+    \item $0<m\le 1$ and $0\le p\le 1$
+    \item $m=1$ and $p>1$
+\end{enumerate}
+
+\pyqheader{2022}{12}{MCQ}{2}
+Let $T = 1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\dots$ and $S = 1-\frac{1}{2}-\frac{1}{4}+\frac{1}{3}-\frac{1}{6}-\frac{1}{8}+\dots$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $T=S$ and $S\ne 0$
+    \item $2T=S$ and $S\ne 0$
+    \item $T=2S$ and $S\ne 0$
+    \item $T=S=0$
+\end{enumerate}
+
+\pyqheader{2022}{14}{MCQ}{2}
+The value of $\lim_{n\rightarrow\infty}\sum_{k=2}^{n}\frac{\sqrt{n+1}-\sqrt{n}}{k(\ln k)^{2}}$ is equal to:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\infty$
+    \item 1
+    \item $e$
+    \item 0
+\end{enumerate}
+
+\pyqheader{2022}{28}{MCQ}{2}
+For $-1\le x\le 1$, if $f(x)$ is the sum of the convergent power series $x+\frac{x^2}{2^2}+\frac{x^3}{3^2}+\dots+\frac{x^n}{n^2}+\dots$, then $f(\frac{1}{2})$ is equal to:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\int_{0}^{1/2}\frac{\ln(1-t)}{t}dt$
+    \item $-\int_{0}^{1/2}\frac{\ln(1-t)}{t}dt$
+    \item $\int_{0}^{1/2}t\ln(1+t)dt$
+    \item $\int_{0}^{1/2}t\ln(1-t)dt$
+\end{enumerate}
+
+\pyqheader{2022}{38}{MSQ}{2}
+Let $(x_{n})$ be a sequence of real numbers. Consider $P=\{n\in\mathbb{N}: x_{n}>x_{m}\text{ for all } m>n\}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item If $P$ is finite, then $(x_{n})$ has a monotonically increasing subsequence.
+    \item If $P$ is finite, then no subsequence of $(x_{n})$ is monotonically increasing.
+    \item If $P$ is infinite, then $(x_{n})$ has a monotonically decreasing subsequence.
+    \item If $P$ is infinite, then no subsequence of $(x_{n})$ is monotonically decreasing.
+\end{enumerate}
+
+\pyqheader{2022}{44}{NAT}{1}
+The sum of the series $\sum_{n=1}^{\infty}\frac{1}{(4n-3)(4n+1)}$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{55}{NAT}{2}
+Let $r$ be the radius of convergence of $\frac{1}{3}+\frac{x}{5}+\frac{x^{2}}{3^{2}}+\frac{x^{3}}{5^{2}}+\frac{x^{4}}{3^{3}}+\cdots$. Then the value of $r^{2}$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+% ------------------------------------------------------------------------------
+\subsection{Functions of One Real Variable}
+
+\pyqheader{2026}{3}{MCQ}{1}
+Let $f:(1,4)\rightarrow\mathbb{R}$ be a differentiable function such that $f^{\prime}(x)=(f(x)-\pi x)^{2}+\pi$ for all $x\in(1,4)$. Which ONE of the following is a possible value of $f(3)-f(2)$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\pi+\frac{1}{6}$
+    \item $\pi-\frac{1}{6}$
+    \item $\frac{\pi}{2}+\frac{1}{3}$
+    \item $\frac{\pi}{2}+\frac{1}{2}$
+\end{enumerate}
+
+\pyqheader{2026}{6}{MCQ}{1}
+Let $f:(1,2)\rightarrow\mathbb{R}$ be a continuous function satisfying $\lim_{x\rightarrow 1+}f(x)=3$ and $\lim_{x\rightarrow 2-}f(x)=3$. Then which ONE of the following is necessarily TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ is bounded and $f$ has a maximum or a minimum but not both.
+    \item $f$ is bounded and $f$ has a maximum or a minimum or both.
+    \item $f$ is bounded and $f$ has neither a maximum nor a minimum.
+    \item $f$ is unbounded and $f$ has either no maximum or no minimum.
+\end{enumerate}
+
+\pyqheader{2026}{7}{MCQ}{1}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a twice differentiable function such that $f(n)=1$ for all $n\in\mathbb{Z}$. Which ONE of the following statements is necessarily TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f^{\prime}(n)=0$ for all $n\in\mathbb{Z}$
+    \item $f^{\prime}(x)=0$ for infinitely many $x\in\mathbb{R}\setminus\mathbb{Z}$
+    \item $f^{\prime\prime}(n)=0$ for all $n\in\mathbb{Z}$
+    \item $f^{\prime\prime}(x)=0$ for infinitely many $x\in\mathbb{R}\setminus\mathbb{Z}$
+\end{enumerate}
+
+\pyqheader{2026}{13}{MCQ}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a function that has derivatives of all orders. Which ONE of the following statements is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item If $f$ is a polynomial in $x$ of degree at most 5, then $f^{(6)}(x)=0$ for all $x\in\mathbb{R}$.
+    \item If $f^{(6)}(x)=0$ for all $x\in\mathbb{R}$, then $f$ is a polynomial in $x$ of degree at most 5.
+    \item If $f^{(k)}(a)=0$ for all $1\le k\le 5$ and $f^{(6)}(a)>0$ for some $a\in\mathbb{R}$, then $f(x)$ has a local minimum at $a$.
+    \item If $f^{(k)}(a)=0$ for all $1\le k\le 6$ and $f^{(7)}(a)<0$ for some $a\in\mathbb{R}$, then $f(x)$ has a local maximum at $a$.
+\end{enumerate}
+
+\pyqheader{2026}{19}{MCQ}{2}
+The value of $\lim_{x\rightarrow\infty}\int_{0}^{x}e^{-t}|\sin t|\,dt$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\frac{e^{\pi}+1}{2(e^{\pi}-1)}$
+    \item $\frac{e^{\pi}-1}{2(e^{\pi}+1)}$
+    \item $\frac{2(e^{\pi}+1)}{e^{\pi}-1}$
+    \item $\frac{2(e^{\pi}-1)}{e^{\pi}+1}$
+\end{enumerate}
+
+\pyqheader{2026}{21}{MCQ}{2}
+Let $f:[1,9]\rightarrow\mathbb{R}$ be a non-constant continuous function such that $f(1)=f(9)$. Which ONE of the following statements is necessarily TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item There exists $c\in[4,8]$ such that $f(c)=f(c+1)$.
+    \item There exists $c\in[3,7]$ such that $f(c)=f(c+2)$.
+    \item There exists $c\in[2,6]$ such that $f(c)=f(c+3)$.
+    \item There exists $c\in[1,5]$ such that $f(c)=f(c+4)$.
+\end{enumerate}
+
+\pyqheader{2026}{31}{MSQ}{2}
+Which of the following functions $f:\mathbb{R}\rightarrow\mathbb{R}$ has/have a local minimum at $x=0$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(x)=\sin|x|$
+    \item $f(x)=\sin x+\frac{x^{3}}{6}$
+    \item $f(x)=x^{4}+x^{2}+3$
+    \item $f(x)=\min\{x-[x],1-x+[x]\}$
+\end{enumerate}
+
+\pyqheader{2026}{33}{MSQ}{2}
+Which of the following functions is/are differentiable at $x=1$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(x)=|x-1|^{3}$
+    \item $f(x)=|x^{2}-1|$
+    \item $f(x)=\begin{cases}x^{2}e^{-x^{2}},& |x|\le 1\\ e^{-1},& |x|>1\end{cases}$
+    \item $f(x)=[x]$
+\end{enumerate}
+
+\pyqheader{2026}{34}{MSQ}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be given by $f(x)=\begin{cases}\cos x,& x\in\mathbb{Q}\\ 0,& x\notin\mathbb{Q}\end{cases}$. Which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(x)$ is continuous at 0.
+    \item $f(x)$ is continuous at $\frac{\pi}{2}$.
+    \item $f(x)$ is Riemann integrable on $[0,1]$ and $\int_{0}^{1}f(x)dx=\sin 1$.
+    \item $f(x)$ is Riemann integrable on $[0,1]$ and $\int_{0}^{1}f(x)dx=0$.
+\end{enumerate}
+
+\pyqheader{2026}{44}{NAT}{1}
+$\lim_{x\rightarrow 0}\left(\frac{1}{x}-\frac{1}{\sin x}+e^{\frac{1-\cos x}{x}}\right)=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2026}{48}{NAT}{1}
+$\int_{0}^{3}(|x-1|-x[x])\,dx=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2026}{54}{NAT}{2}
+Let $f(x)=\int_{0}^{e^{\sin x}}\int_{0}^{\log_{e}y}e^{-(\frac{1}{\sqrt{2}})}(1-t^{2})dt\,dy$. Then $f^{\prime}(\pi/4)=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2025}{3}{MCQ}{1}
+Let $f,g:\mathbb{R}\rightarrow\mathbb{R}$ be defined by $f(x)=\begin{cases}x|x|\sin\frac{1}{x},& x\ne 0\\ 0,& x=0\end{cases}$ and $g(x)=\begin{cases}x^{2}\sin\frac{1}{x}+x\cos\frac{1}{x},& x\ne 0\\ 0,& x=0\end{cases}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ is differentiable at $x=0$, and $g$ is NOT differentiable at $x=0$
+    \item $f$ is NOT differentiable at $x=0$, and $g$ is differentiable at $x=0$
+    \item $f$ is differentiable at $x=0$ and $g$ is differentiable at $x=0$
+    \item $f$ is NOT differentiable at $x=0$, and $g$ is NOT differentiable at $x=0$
+\end{enumerate}
+
+\pyqheader{2025}{4}{MCQ}{1}
+Let $f,g:\mathbb{R}\rightarrow\mathbb{R}$ be defined by $f(x)=\begin{cases}|x|^{1/3}|\sin\frac{1}{x}|\cos x,& x\ne 0\\ 0,& x=0\end{cases}$ and $g(x)=\begin{cases}e^{x}\cos\frac{1}{x},& x\ne 0\\ 1,& x=0\end{cases}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ is continuous at $x=0$, and $g$ is NOT continuous at $x=0$
+    \item $f$ is NOT continuous at $x=0$, and $g$ is continuous at $x=0$
+    \item $f$ is continuous at $x=0$, and $g$ is continuous at $x=0$
+    \item $f$ is NOT continuous at $x=0$, and $g$ is NOT continuous at $x=0$
+\end{enumerate}
+
+\pyqheader{2025}{17}{MCQ}{2}
+Let $f(x)=10x^{2}+e^{x}-\sin(2x)-\cos x, x\in\mathbb{R}$. The number of points at which the function $f$ has a local minimum is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 0
+    \item 1
+    \item 2
+    \item greater than or equal to 3
+\end{enumerate}
+
+\pyqheader{2025}{30}{MCQ}{2}
+The number of elements in the set $\{x\in\mathbb{R}: 8x^{2}+x^{4}+x^{8}=\cos x\}$ is equal to:
+\begin{enumerate}[label=(\Alph*)]
+    \item 0
+    \item 1
+    \item 2
+    \item greater than or equal to 3
+\end{enumerate}
+
+\pyqheader{2025}{37}{MSQ}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a twice differentiable function such that $f(0)=0, f^{\prime}(0)=2$ and $f(1)=-3$. Then, which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $|f^{\prime}(x)|\le 2$ for all $x\in[0,1]$
+    \item $|f^{\prime}(x_{1})|>2$ for some $x_{1}\in[0,1]$
+    \item $|f^{\prime\prime}(x)|<10$ for all $x\in[0,1]$
+    \item $|f^{\prime\prime}(x_{2})|\ge 10$ for some $x_{2}\in[0,1]$
+\end{enumerate}
+
+\pyqheader{2025}{38}{MSQ}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be a twice differentiable function such that $f(0)=4, f(1)=-2, f(2)=8$ and $f(3)=2$. Then, which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $|f^{\prime}(x)|<5$ for all $x\in[0,1]$
+    \item $|f^{\prime}(x_{1})|\ge 5$ for some $x_{1}\in[0,1]$
+    \item $f^{\prime}(x_{2})=0$ for some $x_{2}\in[0,3]$
+    \item $f^{\prime\prime}(x_{3})=0$ for some $x_{3}\in[0,3]$
+\end{enumerate}
+
+\pyqheader{2025}{42}{NAT}{1}
+$\lim_{n\rightarrow\infty}8n\left(e^{(\frac{1}{2n})}-1\right)\left(\sin\frac{1}{2n}+\left|\cos\frac{1}{2n}\right|\right)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{43}{NAT}{1}
+Let $\alpha$ be the real number such that $\lim_{x\rightarrow 0}\frac{(1-\cos x)(2^{2+x}-4)}{x^{3}}=\alpha\ln 2$. Then, $\alpha=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{51}{NAT}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be continuous satisfying $\int_{0}^{\pi/4}\left(\sin(x)f(x)+\cos(x)\int_{0}^{x}f(t)dt\right)dx=\sqrt{2}$. Then, $\int_{0}^{\pi/4}f(x)\,dx=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{53}{NAT}{2}
+Let $f(x)=2x-\sin x$ for $x\in\mathbb{R}$. If $\lim_{x\rightarrow 0}\left(\frac{1}{x}\sum_{i=1}^{k}i^{2}f(\frac{x}{i})\right)=45$, then $k=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{19}{MCQ}{2}
+Let $f:[-2\pi,2\pi]\rightarrow\mathbb{R}$ be defined by $f(x)=\sin(\min\{x, x-[x]\})$. Consider the set $S=\{x\in[-2\pi,2\pi]: f \text{ is discontinuous at } x\}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $S$ has 13 elements
+    \item $S$ has 7 elements
+    \item $S$ is infinite
+    \item $S$ has 6 elements
+\end{enumerate}
+
+\pyqheader{2024}{24}{MCQ}{2}
+Consider the statements:
+\begin{itemize}
+    \item[P:] $\exists f,g$ such that $f$ is continuous at $x=1$, $g$ is discontinuous at $x=1$, but $g\circ f$ is continuous at $x=1$.
+    \item[Q:] $\exists f,g$ such that both $f,g$ are discontinuous at $x=1$, but $g\circ f$ is continuous at $x=1$.
+\end{itemize}
+\begin{enumerate}[label=(\Alph*)]
+    \item Both P and Q are true
+    \item Both false
+    \item P true, Q false
+    \item P false, Q true
+\end{enumerate}
+
+\pyqheader{2024}{25}{MCQ}{2}
+Let $f(x)=\frac{(x^{2}+1)^{2}}{x^{4}+x^{2}+1}$ for $x\in\mathbb{R}$. Then $f$ has:
+\begin{enumerate}[label=(\Alph*)]
+    \item exactly 2 local maxima and 3 local minima
+    \item exactly 3 local maxima and 2 local minima
+    \item exactly 1 local maximum and 2 local minima
+    \item exactly 2 local maxima and 1 local minimum
+\end{enumerate}
+
+\pyqheader{2024}{29}{MCQ}{2}
+Let $L_{1}: y=3x+2$ and $L_{2}: y=4x+3$. Suppose $f:\mathbb{R}\rightarrow\mathbb{R}$ is $C^{4}$ such that $L_{1}$ intersects $y=f(x)$ at 3 distinct points and $L_{2}$ intersects $y=f(x)$ at 4 distinct points. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\frac{df}{dx}$ does not attain 3 on $\mathbb{R}$
+    \item $\frac{d^{2}f}{dx^{2}}$ vanishes at most once
+    \item $\frac{d^{3}f}{dx^{3}}$ vanishes at least once
+    \item $\frac{df}{dx}$ does not attain $\frac{7}{2}$
+\end{enumerate}
+
+\pyqheader{2024}{34}{MSQ}{2}
+Let $f:(1,\infty)\rightarrow(0,\infty)$ be a continuous function such that $f(n)=n!$ for all $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{x\rightarrow\infty}f(x)$ does not exist
+    \item $\lim_{x\rightarrow\infty}f(x)=\infty$
+    \item The set of solutions to $f(x)=2024$ is finite
+    \item The set of solutions to $f(x)=2024$ is infinite
+\end{enumerate}
+
+\pyqheader{2024}{38}{MSQ}{2}
+Define $f(x)=\sum_{m=0}^{\infty}\frac{(-1)^{m}x^{2m}}{2^{2m}(m!)^{2}}$ and $g(x)=\frac{x}{2}\sum_{m=0}^{\infty}\frac{(-1)^{m}x^{2m}}{2^{2m}(m+1)!m!}$. Let $0<x_{1}<x_{2}, 0<x_{3}<x_{4}$ with $f(x_{1})=f(x_{2})=0$, $f(x)\ne 0$ on $(x_1,x_2)$, and $g(x_3)=g(x_4)=0$, $g(x)\ne 0$ on $(x_3,x_4)$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ does not vanish in $(x_3,x_4)$
+    \item $f$ vanishes exactly once in $(x_3,x_4)$
+    \item $g$ does not vanish in $(x_1,x_2)$
+    \item $g$ vanishes exactly once in $(x_1,x_2)$
+\end{enumerate}
+
+\pyqheader{2024}{46}{NAT}{1}
+Let $S=\{f:\mathbb{R}\rightarrow\mathbb{R}: f \text{ is a polynomial and } f(f(x))=(f(x))^{2024} \text{ for } x\in\mathbb{R}\}$. The number of elements in $S$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{52}{NAT}{2}
+$\lim_{t\rightarrow\infty}\left(\left(\log(t^{2}+\frac{1}{t^{2}})\right)^{-1}\int_{1}^{\pi t}\frac{\sin^{2}5x}{x}dx\right)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{56}{NAT}{2}
+Let $f(x)=x^{3}-4x^{2}+4x-6$ and $S(c)=\{x\in\mathbb{R}: f(x)=c\}$. Then $|S(-7)|+|S(-5)|+|S(3)|=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{60}{NAT}{2}
+Let $f(x)=\sin^{-1}x$. If $a_{6}$ denotes the coefficient of $x^{6}$ in the Taylor series of $(f(x))^{2}$ about $x=0$, then $9a_{6}=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{5}{MCQ}{1}
+Let $p(x)=x^{57}+3x^{10}-21x^{3}+x^{2}+21$ and $q(x)=p(x)+\sum_{j=1}^{57}p^{(j)}(x)$ for all $x\in\mathbb{R}$. Then $q$ admits:
+\begin{enumerate}[label=(\Alph*)]
+    \item NEITHER a global maximum NOR a global minimum on $\mathbb{R}$
+    \item a global maximum but NOT a global minimum on $\mathbb{R}$
+    \item a global minimum but NOT a global maximum on $\mathbb{R}$
+    \item a global minimum and a global maximum on $\mathbb{R}$
+\end{enumerate}
+
+\pyqheader{2023}{6}{MCQ}{1}
+The limit $\lim_{x\rightarrow 0}\frac{\int_{0}^{x}\sin(t^{2})dt}{\int_{0}^{x}(\ln(t+1))^{2}dt}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 0
+    \item 1
+    \item $\frac{\pi}{e}$
+    \item non-existent
+\end{enumerate}
+
+\pyqheader{2023}{25}{MCQ}{2}
+Let $f(x)=\cos(x)$ and $g(x)=1-\frac{x^{2}}{2}$ for $x\in(-\frac{\pi}{2},\frac{\pi}{2})$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(x)\ge g(x)$ for all $x\in(-\frac{\pi}{2},\frac{\pi}{2})$
+    \item $f(x)\le g(x)$ for all $x\in(-\frac{\pi}{2},\frac{\pi}{2})$
+    \item $f(x)-g(x)$ changes sign exactly once on $(-\frac{\pi}{2},\frac{\pi}{2})$
+    \item $f(x)-g(x)$ changes sign more than once on $(-\frac{\pi}{2},\frac{\pi}{2})$
+\end{enumerate}
+
+\pyqheader{2023}{28}{MCQ}{2}
+Let $y:\mathbb{R}\rightarrow\mathbb{R}$ be $C^2$ such that $y(0)=y(1)=0$ and $y^{\prime\prime}(x)+x^{2}<0$ for all $x\in[0,1]$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $y(x)>0$ for all $x\in(0,1)$
+    \item $y(x)<0$ for all $x\in(0,1)$
+    \item $y(x)=0$ has exactly one solution in $(0,1)$
+    \item $y(x)=0$ has more than one solution in $(0,1)$
+\end{enumerate}
+
+\pyqheader{2023}{30}{MCQ}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be an infinitely differentiable function such that $f^{\prime\prime}$ has exactly two distinct zeroes. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f^{\prime}$ has at most 3 distinct zeroes
+    \item $f^{\prime}$ has at least 1 zero
+    \item $f$ has at most 3 distinct zeroes
+    \item $f$ has at least 2 distinct zeroes
+\end{enumerate}
+
+\pyqheader{2023}{34}{MSQ}{2}
+Let $f:(-1,1)\rightarrow\mathbb{R}$ be differentiable satisfying $f(0)=0$ and $|f^{\prime}(x)|\le M|x|$ for all $x\in(-1,1)$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f^{\prime}$ is continuous at $x=0$
+    \item $f^{\prime}$ is differentiable at $x=0$
+    \item $ff^{\prime}$ is differentiable at $x=0$
+    \item $(f^{\prime})^{2}$ is differentiable at $x=0$
+\end{enumerate}
+
+\pyqheader{2023}{35}{MSQ}{2}
+Which of the following functions is/are Riemann integrable on $[0,1]$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(x)=\int_{0}^{x}|\frac{1}{2}-t|dt$
+    \item $f(x)=\begin{cases}x\sin(1/x),& \text{if } x\ne 0\\ 0,& \text{if } x=0\end{cases}$
+    \item $f(x)=\begin{cases}1,& \text{if } x\in\mathbb{Q}\cap[0,1]\\ -1,& \text{otherwise}\end{cases}$
+    \item $f(x)=\begin{cases}x,& \text{if } x\in[0,1)\\ 0,& \text{if } x=1\end{cases}$
+\end{enumerate}
+
+\pyqheader{2023}{44}{NAT}{1}
+$\lim_{n\rightarrow\infty}\left(n\int_{0}^{1}\frac{x^{n}}{x+1}dx\right)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{47}{NAT}{1}
+Let $f(x)=\sqrt[3]{x}$ for $x>0$, and $\theta(h)$ satisfy $f(3+h)-f(3)=hf^{\prime}(3+\theta(h)h)$ for $h\in(-1,1)$. Then $\lim_{h\rightarrow 0}\theta(h)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{52}{NAT}{2}
+The global minimum value of $f(x)=|x-1|+|x-2|^{2}$ on $\mathbb{R}$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{60}{NAT}{2}
+Let $f:\mathbb{R}\rightarrow\mathbb{R}$ be bijective with $f(x)=\sum_{n=1}^{\infty}a_{n}x^{n}$ and $f^{-1}(x)=\sum_{n=1}^{\infty}b_{n}x^{n}$. If $a_{1}=2$ and $a_{2}=4$, then $b_{1}=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{22}{MCQ}{2}
+Let $H(x)=\frac{1}{2}(e^{x}+e^{-x})$ and $f(x)=\int_{0}^{\pi}H(x\sin\theta)d\theta$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $xf^{\prime\prime}(x)+f^{\prime}(x)+xf(x)=0$
+    \item $xf^{\prime\prime}(x)-f^{\prime}(x)+xf(x)=0$
+    \item $xf^{\prime\prime}(x)+f^{\prime}(x)-xf(x)=0$
+    \item $xf^{\prime\prime}(x)-f^{\prime}(x)-xf(x)=0$
+\end{enumerate}
+
+\pyqheader{2022}{27}{MCQ}{2}
+Given $\lim_{N\rightarrow\infty}\int_{0}^{N}e^{-t^{2}}dt=\frac{\sqrt{\pi}}{2}$, the value of $\lim_{N\rightarrow\infty}\int_{0}^{N}\frac{1}{t^{2}}(e^{-at^{2}}-e^{-bt^{2}})dt$ ($0<a<b$) is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sqrt{\pi}(\sqrt{a}-\sqrt{b})$
+    \item $\sqrt{\pi}(\sqrt{a}+\sqrt{b})$
+    \item $-\sqrt{\pi}(\sqrt{a}+\sqrt{b})$
+    \item $\sqrt{\pi}(\sqrt{b}-\sqrt{a})$
+\end{enumerate}
+
+\pyqheader{2022}{29}{MCQ}{2}
+For $n\in\mathbb{N}$ and $x\ge 1$, let $f_{n}(x)=\int_{0}^{\pi}(x^{2}+(\cos\theta)\sqrt{x^{2}-1})^{n}d\theta$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f_{n}(x)$ is not a polynomial in $x$ if $n$ is odd and $n\ge 3$.
+    \item $f_{n}(x)$ is not a polynomial in $x$ if $n$ is even and $n\ge 4$.
+    \item $f_{n}(x)$ is a polynomial in $x$ for all $n\in\mathbb{N}$.
+    \item $f_{n}(x)$ is not a polynomial in $x$ for any $n\ge 3$.
+\end{enumerate}
+
+\pyqheader{2022}{32}{MSQ}{2}
+Let $S$ be the set of continuous $f:[-1,1]\rightarrow\mathbb{R}$ that are analytic on $(-1,1)$ with Taylor series converging to $f(x)$, and $f(1/n)=0$ for all $n\in\mathbb{N}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f(0)=0$ for every $f\in S$.
+    \item $f^{\prime}(1/2)=0$ for every $f\in S$.
+    \item There exists $f\in S$ such that $f^{\prime}(1/2)\ne 0$.
+    \item There exists $f\in S$ such that $f(x)\ne 0$ for some $x\in[-1,1]$.
+\end{enumerate}
+
+\pyqheader{2022}{33}{MSQ}{2}
+Define $f:[0,1]\rightarrow[0,1]$ by $f(x)=\begin{cases}1/2,& x=0\\ 1/n,& x=m/n \text{ in lowest terms}\\ 0,& x\text{ irrational}\end{cases}$ and $g(x)=\begin{cases}0,& x=0\\ 1,& x\in(0,1]\end{cases}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ is Riemann integrable on $[0,1]$.
+    \item $g$ is Riemann integrable on $[0,1]$.
+    \item $f\circ g$ is Riemann integrable on $[0,1]$.
+    \item $g\circ f$ is Riemann integrable on $[0,1]$.
+\end{enumerate}
+
+\pyqheader{2022}{34}{MSQ}{2}
+Let $S=\{f:\mathbb{R}\rightarrow\mathbb{R} : |f(x)-f(y)|^{2}\le |x-y|^{3} \text{ for all } x,y\in\mathbb{R}\}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item Every function in $S$ is differentiable.
+    \item There exists $f\in S$ such that $f$ is differentiable, but not twice differentiable.
+    \item There exists $f\in S$ such that $f$ is twice differentiable, but not thrice differentiable.
+    \item Every function in $S$ is infinitely differentiable.
+\end{enumerate}
+
+\pyqheader{2022}{41}{NAT}{1}
+$\lim_{n\rightarrow\infty}\left(\frac{1^{4}+2^{4}+\cdots+n^{4}}{n^{5}}+\frac{1}{\sqrt{n}}\left(\frac{1}{\sqrt{n+1}}+\cdots+\frac{1}{\sqrt{4n}}\right)\right)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{54}{NAT}{2}
+Let $f(x)=\begin{cases}(x-\pi)e^{\sin x},& 0\le x\le\pi/2\\ xe^{\sin x}+\frac{4}{\pi},& \pi/2<x\le\pi\end{cases}$. Then $\int_{0}^{\pi}f(x)\,dx=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{59}{NAT}{2}
+Let $f,g:(-1,1)\rightarrow\mathbb{R}$ be $C^3$ with $f(x)\ne g(x)$ for $x\ne 0$, and $f(0)=g(0)=\ln 2, f^{\prime}(0)=g^{\prime}(0)=\pi, f^{\prime\prime}(0)=g^{\prime\prime}(0)=\pi^2, f^{\prime\prime\prime}(0)=\pi^9, g^{\prime\prime\prime}(0)=\pi^3$. Then $\lim_{x\rightarrow 0}\frac{e^{f(x)}-e^{g(x)}}{f(x)-g(x)}=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{60}{NAT}{2}
+If $\int_{0}^{x^{3}+x^{2}}f(t)dt=x^{2}$ and $\int_{0}^{g(x)}t^{2}dt=9(x+1)^{3}$, then $f(2)+g(2)+16f(12)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+% ==============================================================================
+% SECTION 2: MULTIVARIABLE CALCULUS & DIFFERENTIAL EQUATIONS
+% ==============================================================================
+\section{Multivariable Calculus and Differential Equations}
+
+\subsection{Functions of Two or Three Real Variables}
+
+\pyqheader{2026}{15}{MCQ}{2}
+Let $f:\mathbb{R}^{2}\rightarrow\mathbb{R}$ be given by $f(x,y)=(x^{2}-1)^{2}+(y^{2}-1)^{2}$. Which ONE of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ has local maxima at exactly two points.
+    \item $f$ has local minima at exactly two points.
+    \item $f$ has local minima at exactly three points.
+    \item $f$ has exactly four saddle points.
+\end{enumerate}
+
+\pyqheader{2026}{17}{MCQ}{2}
+Let $f(x,y)=\begin{cases}\frac{5x^{2}y-4y^{3}}{x^{2}+y^{2}},& (x,y)\ne(0,0)\\ 0,& (x,y)=(0,0)\end{cases}$. Which ONE of the following statements is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ is continuous at $(0,0)$
+    \item $\frac{\partial f}{\partial x}$ at $(0,1)=0$
+    \item $\frac{\partial f}{\partial y}$ at $(1,0)=5$
+    \item $\frac{\partial f}{\partial y}$ is continuous at $(0,0)$
+\end{enumerate}
+
+\pyqheader{2026}{36}{MSQ}{2}
+Let $f(x,y)=\begin{cases}\frac{x^{2}y}{1+x^{2}}\sin(1/x),& x\ne 0\\ 0,& x=0\end{cases}$. Which of the following statements is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{y\rightarrow 0}\lim_{x\rightarrow 0}f(x,y)$ exists.
+    \item $\frac{\partial f}{\partial x}$ is continuous at the point $(0,1)$.
+    \item $\frac{\partial f}{\partial y}$ is continuous at the point $(0,1)$.
+    \item $\lim_{(x,y)\rightarrow(0,0)}\frac{f(x,y)}{\sqrt{x^{2}+y^{2}}}$ does not exist.
+\end{enumerate}
+
+\pyqheader{2026}{46}{NAT}{1}
+Let $z=\cos(4x+5y)$, where $x=\frac{\pi}{2}+2\theta, y=-(\frac{\pi}{4}+\theta)$. Then $\frac{dz}{d\theta}\Big|_{\theta=\frac{\pi}{4}}=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2026}{52}{NAT}{2}
+Let $f(x,y)=\begin{cases}4x^{2}\tan^{-1}(\frac{y}{2x})+y^{3}\tan^{-1}(\frac{x}{4y^{2}}),& xy\ne 0\\ 0,& \text{otherwise}\end{cases}$. Then $\frac{\partial^{2}f}{\partial y\partial x}(0,0)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{27}{MCQ}{2}
+Let $f:\mathbb{R}^{2}\rightarrow\mathbb{R}$ be defined by $f(x,y)=e^{y}(x^{2}+y^{2})$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $f$ has 2 local minima
+    \item $f$ has 2 local maxima
+    \item $f$ has 1 local minimum
+    \item $f$ has 1 local maximum
+\end{enumerate}
+
+\pyqheader{2025}{31}{MSQ}{2}
+Let $f(x,y)=\begin{cases}\frac{xy^{2}+y^{5}}{x^{2}+y^{4}},& (x,y)\ne(0,0)\\ 0,& (x,y)=(0,0)\end{cases}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item The iterated limits $\lim_{x\rightarrow 0}\lim_{y\rightarrow 0}f(x,y)$ and $\lim_{y\rightarrow 0}\lim_{x\rightarrow 0}f(x,y)$ exist
+    \item Exactly one of $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ exists at $(0,0)$
+    \item Both partial derivatives $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ exist at $(0,0)$
+    \item $f$ is NOT differentiable at $(0,0)$
+\end{enumerate}
+
+\pyqheader{2025}{34}{MSQ}{2}
+Let $f(x,y)=\begin{cases}\frac{(x^{2}+\sin x)y^{2}}{x^{2}+y^{2}},& (x,y)\ne(0,0)\\ 0,& (x,y)=(0,0)\end{cases}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{(x,y)\rightarrow(0,0)}f(x,y)=1$
+    \item $\lim_{(x,y)\rightarrow(0,0)}f(x,y)=0$
+    \item $f$ is differentiable at $(0,0)$
+    \item $f$ is NOT differentiable at $(0,0)$
+\end{enumerate}
+
+\pyqheader{2025}{50}{NAT}{1}
+Let $f(x,y)=\begin{cases}\frac{(x^{2}-y^{2})xy}{x^{2}+y^{2}},& (x,y)\ne(0,0)\\ 0,& (x,y)=(0,0)\end{cases}$. Then $\frac{\partial f}{\partial y}(1,0)-\frac{\partial f}{\partial x}(0,2)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{2}{MCQ}{1}
+For a $C^2$ function $g:\mathbb{R}\rightarrow\mathbb{R}$, define $u_{g}(x,y)=\frac{1}{y}\int_{-y}^{y}g(x+t)dt$ for $y>0$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\frac{\partial^{2}u_{g}}{\partial x^{2}}=\frac{2}{y}\frac{\partial u_{g}}{\partial y}+\frac{\partial^{2}u_{g}}{\partial y^{2}}$
+    \item $\frac{\partial^{2}u_{g}}{\partial x^{2}}=\frac{1}{y}\frac{\partial u_{g}}{\partial y}+\frac{\partial^{2}u_{g}}{\partial y^{2}}$
+    \item $\frac{\partial^{2}u_{g}}{\partial x^{2}}=\frac{2}{y}\frac{\partial u_{g}}{\partial y}-\frac{\partial^{2}u_{g}}{\partial y^{2}}$
+    \item $\frac{\partial^{2}u_{g}}{\partial x^{2}}=\frac{1}{y}\frac{\partial u_{g}}{\partial y}-\frac{\partial^{2}u_{g}}{\partial y^{2}}$
+\end{enumerate}
+
+\pyqheader{2024}{30}{MCQ}{2}
+Define $f(x,y)=12xy e^{-(2x+3y-2)}$. If $(a,b)$ is the local maximum point, then $f(a,b)$ equals:
+\begin{enumerate}[label=(\Alph*)]
+    \item 2
+    \item 6
+    \item 12
+    \item 0
+\end{enumerate}
+
+\pyqheader{2024}{35}{MSQ}{2}
+Let $S=\{(x,y)\in\mathbb{R}^{2}: x>0, y>0\}$ and $f(x,y)=2x^{2}+3y^{2}-\log x-\frac{1}{6}\log y$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item Unique local maximum point in $S$
+    \item Unique local minimum point in $S$
+    \item For each $(x_{0},y_{0})\in S$, the set $\{(x,y)\in S: f(x,y)=f(x_{0},y_{0})\}$ is bounded
+    \item For each $(x_{0},y_{0})\in S$, the set $\{(x,y)\in S: f(x,y)=f(x_{0},y_{0})\}$ is unbounded
+\end{enumerate}
+
+\pyqheader{2023}{8}{MCQ}{1}
+Let $f:\mathbb{R}^{2}\rightarrow\mathbb{R}^{2}$ be defined by $f(x,y)=(e^{x}\cos y, e^{x}\sin y)$. Then the number of points in $\mathbb{R}^{2}$ that do NOT lie in the range of $f$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 0
+    \item 1
+    \item 2
+    \item infinite
+\end{enumerate}
+
+\pyqheader{2023}{16}{MCQ}{2}
+Let $f(x,y)=e^{x^{2}+y^{2}}$ for $(x,y)\in\mathbb{R}^{2}$, and $a_{n}$ be the determinant of the matrix $\begin{pmatrix}f_{xx} & f_{xy}\\ f_{yx} & f_{yy}\end{pmatrix}$ evaluated at $(\cos n, \sin n)$. Then the limit $\lim_{n\rightarrow\infty}a_{n}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item non-existent
+    \item 0
+    \item $6e^{2}$
+    \item $12e^{2}$
+\end{enumerate}
+
+\pyqheader{2023}{17}{MCQ}{2}
+Let $f(x,y)=\ln(1+x^{2}+y^{2})$. Let $P=f_{xx}, Q=f_{xy}, R=f_{yx}, S=f_{yy}$ at $(0,0)$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $PS-QR>0$ and $P<0$
+    \item $PS-QR>0$ and $P>0$
+    \item $PS-QR<0$ and $P>0$
+    \item $PS-QR<0$ and $P<0$
+\end{enumerate}
+
+\pyqheader{2023}{36}{MSQ}{2}
+Which of the following subsets of $\mathbb{R}^{2}$ is/are bounded?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\{(x,y)\in\mathbb{R}^{2}: e^{x^{2}}+y^{2}\le 4\}$
+    \item $\{(x,y)\in\mathbb{R}^{2}: |x|+|y|\le 4\}$
+    \item $\{(x,y)\in\mathbb{R}^{2}: x^{4}+y^{2}\le 4\}$
+    \item $\{(x,y)\in\mathbb{R}^{2}: e^{x^{3}}+y^{2}\le 4\}$
+\end{enumerate}
+
+\pyqheader{2023}{37}{MSQ}{2}
+Let $f(x,y)=\begin{cases}\frac{x^{4}y^{3}}{x^{6}+y^{6}},& \text{if } (x,y)\ne(0,0)\\ 0,& \text{if } (x,y)=(0,0)\end{cases}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{t\rightarrow 0}\frac{f(t,t)-f(0,0)}{t}$ exists and equals $\frac{1}{2}$
+    \item $\frac{\partial f}{\partial x}\Big|_{(0,0)}$ exists and equals 0
+    \item $\frac{\partial f}{\partial y}\Big|_{(0,0)}$ exists and equals 0
+    \item $\lim_{t\rightarrow 0}\frac{f(t,2t)-f(0,0)}{t}$ exists and equals $\frac{1}{3}$
+\end{enumerate}
+
+\pyqheader{2023}{41}{NAT}{1}
+Let $f(x,y)=\begin{cases}(x^{2}-1)^{2}\cos^{2}(\frac{y^{2}}{x^{2}-1}),& x\ne\pm 1\\ 0,& x=\pm 1\end{cases}$. The number of points of discontinuity of $f(x,y)$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{51}{NAT}{2}
+Let $f:\mathbb{R}^{3}\rightarrow\mathbb{R}$ be defined as $f(x,y,z)=x^{3}+y^{3}+z^{3}$, and let $L:\mathbb{R}^{3}\rightarrow\mathbb{R}$ be the linear map satisfying
+\[
+\lim_{(x,y,z)\rightarrow(0,0,0)}\frac{f(1+x,1+y,1+z)-f(1,1,1)-L(x,y,z)}{\sqrt{x^{2}+y^{2}+z^{2}}}=0.
+\]
+Then $L(1,2,4)$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{9}{MCQ}{1}
+Let $u(x,t)=\frac{1}{2c}\int_{x-ct}^{x+ct}e^{s^{2}}ds$ on $\mathbb{R}^{2}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\frac{\partial^{2}u}{\partial t^{2}}=c^{2}\frac{\partial^{2}u}{\partial x^{2}}$
+    \item $\frac{\partial u}{\partial t}=c^{2}\frac{\partial^{2}u}{\partial x^{2}}$
+    \item $\frac{\partial u}{\partial t}\frac{\partial u}{\partial x}=0$
+    \item $\frac{\partial^{2}u}{\partial t\partial x}=0$
+\end{enumerate}
+
+\pyqheader{2022}{10}{MCQ}{1}
+Let $u(x,y)=x-\frac{x}{x^{2}+y^{2}}$ and $v(x,y)=y+\frac{y}{x^{2}+y^{2}}$. The value of the Jacobian determinant $\left|\begin{smallmatrix}u_x & u_y\\ v_x & v_y\end{smallmatrix}\right|$ at $(\cos\theta,\sin\theta)$ ($\theta\in(\pi/4,\pi/2)$) is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $4\sin\theta$
+    \item $4\cos\theta$
+    \item $4\sin^{2}\theta$
+    \item $4\cos^{2}\theta$
+\end{enumerate}
+
+\pyqheader{2022}{15}{MCQ}{2}
+For $t\in\mathbb{R}$, let $[t]$ denote the floor function. Define $h(x,y)=\begin{cases}\frac{-1}{x^{2}-y},& x^{2}\ne y\\ 0,& x^{2}=y\end{cases}$ and $g(x)=\begin{cases}\frac{\sin x}{x},& x\ne 0\\ 0,& x=0\end{cases}$. Which ONE is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{(x,y)\rightarrow(\sqrt{2},\pi)}\cos(\frac{x^{2}y}{x^{2}+1})=-\frac{1}{2}$
+    \item $\lim_{(x,y)\rightarrow(\sqrt{2},2)}e^{h(x,y)}=0$
+    \item $\lim_{(x,y)\rightarrow(e,e)}\ln(x^{y-[y]})=e-2$
+    \item $\lim_{(x,y)\rightarrow(0,0)}e^{2y}g(x)=1$
+\end{enumerate}
+
+\pyqheader{2022}{36}{MSQ}{2}
+Let $M$ be a positive real number and let $u,v:\mathbb{R}^{2}\rightarrow\mathbb{R}$ be continuous functions satisfying $\sqrt{(u(x,y))^{2}+(v(x,y))^{2}}\ge M\sqrt{x^{2}+y^{2}}$ for all $(x,y)\in\mathbb{R}^{2}$. Let $F:\mathbb{R}^{2}\rightarrow\mathbb{R}^{2}$ be given by $F(x,y)=(u(x,y),v(x,y))$. Then which of the following is/are true?
+\begin{enumerate}[label=(\Alph*)]
+    \item $F$ is injective.
+    \item If $K$ is open in $\mathbb{R}^{2}$, then $F(K)$ is open in $\mathbb{R}^{2}$.
+    \item If $K$ is closed in $\mathbb{R}^{2}$, then $F(K)$ is closed in $\mathbb{R}^{2}$.
+    \item If $E$ is closed and bounded in $\mathbb{R}^{2}$, then $F^{-1}(E)$ is closed and bounded in $\mathbb{R}^{2}$.
+\end{enumerate}
+
+\pyqheader{2022}{42}{NAT}{1}
+Let $u(x_{1},x_{2},x_{3})=x_{1}x_{2}^{4}x_{3}^{2}-x_{1}^{3}x_{3}^{4}-26x_{1}^{2}x_{2}^{2}x_{3}^{3}$. Let $x_{1}\frac{\partial u}{\partial x_{2}}+2x_{2}\frac{\partial u}{\partial x_{3}}$ at $(t,t^2,t^3)$ be $ct^k$. Then $k=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{51}{NAT}{2}
+Let $D=\{(x,y)\in\mathbb{R}^{2}: x^{2}+y^{2}<4\}$. Define $f(x,y)=[x^{2}+y^{2}]\frac{x^{2}y^{2}}{x^{4}+y^{4}}$ and $g(x,y)=[y^{2}]\frac{xy}{x^{2}+y^{2}}$ with $f(0,0)=g(0,0)=0$. The number of points in $D$ at which both $f$ and $g$ are discontinuous is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{56}{NAT}{2}
+Let $f(x,y)=x^{2}+2y^{2}-x$. Let $D=\{(x,y): x^{2}+y^{2}\le 1\}$ and $E=\{(x,y): \frac{x^2}{4}+\frac{y^2}{9}\le 1\}$. The total number of elements in $D_{\max}\cup D_{\min}\cup E_{\max}\cup E_{\min}$ is \underline{\hspace{1.5cm}}.
+
+% ------------------------------------------------------------------------------
+\subsection{Integral Calculus}
+
+\pyqheader{2026}{5}{MCQ}{1}
+Let $f:\mathbb{R}^{3}\rightarrow\mathbb{R}$ be continuous. Then $\int_{0}^{2}\int_{0}^{x}\int_{0}^{y}f(x,y,z)\,dz\,dy\,dx =$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\int_{0}^{2}\int_{0}^{y}\int_{y}^{2}f(x,y,z)\,dx\,dz\,dy$
+    \item $\int_{0}^{2}\int_{0}^{x}\int_{z}^{2}f(x,y,z)\,dy\,dz\,dx$
+    \item $\int_{0}^{2}\int_{y}^{2}\int_{0}^{x}f(x,y,z)\,dz\,dx\,dy$
+    \item $\int_{0}^{2}\int_{z}^{2}\int_{0}^{x}f(x,y,z)\,dy\,dx\,dz$
+\end{enumerate}
+
+\pyqheader{2026}{10}{MCQ}{1}
+Let $T$ be the triangular region in the plane with vertices $(0,0), (1,0), (1,1)$. Double integral of $f$ over $T$ in polar coordinates equals:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\int_{0}^{\sqrt{2}}\left(\int_{0}^{\pi/4}f\,d\theta\right)r\,dr + \int_{1}^{\sqrt{2}}\left(\int_{0}^{\cos^{-1}(1/r)}f\,d\theta\right)r\,dr$
+    \item $\int_{0}^{\sqrt{2}}\left(\int_{0}^{\pi/4}f\,d\theta\right)r\,dr - \int_{1}^{\sqrt{2}}\left(\int_{0}^{\cos^{-1}(1/r)}f\,d\theta\right)r\,dr$
+    \item $\int_{0}^{\sqrt{2}}\left(\int_{0}^{\pi/4}f\,d\theta\right)r\,dr + \int_{1}^{\sqrt{2}}\left(\int_{0}^{\sin^{-1}(1/r)}f\,d\theta\right)r\,dr$
+    \item $\int_{0}^{\sqrt{2}}\left(\int_{0}^{\pi/4}f\,d\theta\right)r\,dr - \int_{1}^{\sqrt{2}}\left(\int_{0}^{\sin^{-1}(1/r)}f\,d\theta\right)r\,dr$
+\end{enumerate}
+
+\pyqheader{2026}{20}{MCQ}{2}
+The semi-circle $y=\sqrt{6x-5-x^{2}}$ is rotated clockwise by $\frac{\pi}{2}$ in the plane about the origin. The area of the planar region traced out is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $6\pi$
+    \item $4\pi$
+    \item $2\pi$
+    \item $\pi$
+\end{enumerate}
+
+\pyqheader{2026}{22}{MCQ}{2}
+Let $S$ be the solid intersection of $S_{1}: x^{2}+y^{2}+(z-1)^{2}\le 4$ and $S_{2}: x^{2}+y^{2}+(z+1)^{2}\le 4$. The volume of $S$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $8\int_{0}^{\sqrt{3}}\int_{0}^{\sqrt{3-x^{2}}}(\sqrt{4-x^{2}-y^{2}}-1)\,dy\,dx$
+    \item $8\int_{0}^{2}\int_{0}^{\sqrt{4-x^{2}}}(\sqrt{4-x^{2}-y^{2}}-1)\,dy\,dx$
+    \item $2\int_{0}^{2}\int_{0}^{\sqrt{4-x^{2}}}(\sqrt{4-x^{2}-y^{2}}-1)\,dy\,dx$
+    \item $2\int_{0}^{\sqrt{3}}\int_{0}^{\sqrt{3-x^{2}}}(\sqrt{4-x^{2}-y^{2}}-1)\,dy\,dx$
+\end{enumerate}
+
+\pyqheader{2026}{53}{NAT}{2}
+The double integral of $f(x,y)=x$ over the triangular region with vertices $(-\frac{1}{2},\frac{1}{2}), (1,2)$ and $(1,-1)$ is \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2026}{55}{NAT}{2}
+The volume of the tetrahedron bounded by $x=1, y=2, z=3$ and $12x+8y+6z=70$ is \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2025}{10}{MCQ}{1}
+The value of $\int_{0}^{1}\left(\int_{\sqrt{y}}^{1}3e^{x^{3}}dx\right)dy$ is equal to:
+\begin{enumerate}[label=(\Alph*)]
+    \item $e-1$
+    \item $\frac{e-1}{2}$
+    \item $\sqrt{e}-1$
+    \item $\frac{\sqrt{e}-1}{2}$
+\end{enumerate}
+
+\pyqheader{2025}{28}{MCQ}{2}
+Let $\Omega$ be the bounded region in $\mathbb{R}^{3}$ in the first octant bounded by $z=x^{2}+y^{2}, z=4, x=0, y=0$. The volume of $\Omega$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\pi$
+    \item $2\pi$
+    \item $3\pi$
+    \item $4\pi$
+\end{enumerate}
+
+\pyqheader{2025}{45}{NAT}{1}
+Let $S$ be the surface area of the portion of the plane $z=x+y+3$ inside $x^{2}+y^{2}=1$. Then $(\frac{S}{\pi})^{2}=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{48}{NAT}{1}
+Let $T$ denote the triangle bounded by the $x$-axis, $y=x$ and $x=1$. Then $\iint_{T}(5-y)dx\,dy=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{57}{NAT}{2}
+Let $\Omega$ be the solid bounded by $z=0, y=0, x=\frac{1}{2}, 2y=x$ and $2x+y+z=4$. If $V$ is the volume, then $64V=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{27}{MCQ}{2}
+For $a>b>0$, let $D=\{(x,y,z)\in\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}\le a^{2} \text{ and } x^{2}+y^{2}\ge b^{2}\}$. The surface area of the boundary of $D$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $4\pi(a+b)\sqrt{a^{2}-b^{2}}$
+    \item $4\pi(a^{2}-b\sqrt{a^{2}-b^{2}})$
+    \item $4\pi(a-b)\sqrt{a^{2}-b^{2}}$
+    \item $4\pi(a^{2}+b\sqrt{a^{2}-b^{2}})$
+\end{enumerate}
+
+\pyqheader{2024}{41}{NAT}{1}
+The area of the region $R=\{(x,y)\in\mathbb{R}^{2}: 0\le x\le 1, 0\le y\le 1, \frac{1}{4}\le xy\le\frac{1}{2}\}$ is \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{48}{NAT}{1}
+Let $S=\{(x,y,z)\in\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}=4, (x-1)^{2}+y^{2}\le 1, z\ge 0\}$. The surface area of $S$ equals \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{53}{NAT}{2}
+Let $T$ be the square region enclosed by $(0,1), (1,0), (0,-1), (-1,0)$. Then $\iint_{T}(\cos(\pi(x-y))-\cos(\pi(x+y)))^{2}dx\,dy=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{54}{NAT}{2}
+Let $S=\{(x,y,z)\in\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}<1\}$. Then $\frac{1}{\pi}\iiint_{S}((x-2y+z)^{2}+(2x-y-z)^{2}+(x-y+2z)^{2})dx\,dy\,dz=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{57}{NAT}{2}
+Let $c>0$ be such that $\int_{0}^{c}e^{s^{2}}ds=3$. Then $\int_{0}^{c}\left(\int_{x}^{c}e^{x^{2}+y^{2}}dy\right)dx=$ \underline{\hspace{1.5cm}} (rounded off to one decimal place).
+
+\pyqheader{2023}{7}{MCQ}{1}
+$\int_{0}^{1}\int_{0}^{1-x}\cos(x^{3}+y^{2})dy\,dx - \int_{0}^{1}\int_{0}^{1-y}\cos(x^{3}+y^{2})dx\,dy=$:
+\begin{enumerate}[label=(\Alph*)]
+    \item 0
+    \item $\frac{\cos 1}{2}$
+    \item $\frac{\sin 1}{2}$
+    \item $\cos(\frac{1}{2})-\sin(\frac{1}{2})$
+\end{enumerate}
+
+\pyqheader{2023}{18}{MCQ}{2}
+The curved surface area of $S=\{(x,y,z)\in\mathbb{R}^{3}: z^{2}=(x-1)^{2}+(y-2)^{2}\}$ between $z=2$ and $z=3$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $4\pi\sqrt{2}$
+    \item $5\pi\sqrt{2}$
+    \item $9\pi$
+    \item $9\pi\sqrt{2}$
+\end{enumerate}
+
+\pyqheader{2023}{26}{MCQ}{2}
+Let $f(x,y)=\iint_{(u-x)^{2}+(v-y)^{2}\le 1}e^{-\sqrt{(u-x)^{2}+(v-y)^{2}}}du\,dv$. Then $\lim_{n\rightarrow\infty}f(n,n^{2})$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item non-existent
+    \item 0
+    \item $\pi(1-e^{-1})$
+    \item $2\pi(1-2e^{-1})$
+\end{enumerate}
+
+\pyqheader{2023}{31}{MSQ}{2}
+For $t\in(0,1)$, let $P_{t}=\{(x,y,z): (x^{2}+y^{2})z=1, t^{2}\le x^{2}+y^{2}\le 1\}$ and $a_{t}$ be its surface area. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $a_{t}=\iint_{t^{2}\le x^{2}+y^{2}\le 1}\sqrt{1+\frac{4x^{2}}{(x^{2}+y^{2})^{4}}+\frac{4y^{2}}{(x^{2}+y^{2})^{4}}}\,dx\,dy$
+    \item $a_{t}=\iint_{t^{2}\le x^{2}+y^{2}\le 1}\sqrt{1+\frac{4x^{2}}{(x^{2}+y^{2})^{2}}+\frac{4y^{2}}{(x^{2}+y^{2})^{2}}}\,dx\,dy$
+    \item $\lim_{t\rightarrow 0^{+}}a_{t}$ does NOT exist
+    \item $\lim_{t\rightarrow 0^{+}}a_{t}$ exists
+\end{enumerate}
+
+\pyqheader{2023}{48}{NAT}{1}
+Let $V$ be the volume of $S=\{(x,y,z): xy\le z\le 4, x^{2}+y^{2}\le 1\}$. Then $\frac{V}{\pi}=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{55}{NAT}{2}
+Let $S$ be the triangular region with vertices $(0,0), (0,\frac{\pi}{2})$ and $(\frac{\pi}{2},0)$. Then $\iint_{S}\sin x\cos y\,dx\,dy=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{11}{MCQ}{2}
+Let $G=\{(s,t): 0<s<1, 0<t<1\}$ and $T(s,t)=(\frac{\pi s(1-t)}{2},\frac{\pi(1-s)}{2})$. The area of $T(G)$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\frac{\pi}{4}$
+    \item $\frac{\pi^{2}}{4}$
+    \item $\frac{\pi^{2}}{8}$
+    \item 1
+\end{enumerate}
+
+\pyqheader{2022}{48}{NAT}{1}
+Consider the region $G=\{(x,y,z)\in\mathbb{R}^{3}: 0<z<x^{2}-y^{2}, x^{2}+y^{2}<1\}$. Then the volume of $G$ is equal to \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{52}{NAT}{2}
+If $G=\{(x,y): x^{2}+y^{2}<1, \frac{x}{\sqrt{3}}<y<\sqrt{3}x, x>0, y>0\}$, then $\frac{200}{\pi}\iint_{G}x^{2}dx\,dy=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+% ------------------------------------------------------------------------------
+\subsection{Differential Equations}
+
+\pyqheader{2026}{4}{MCQ}{1}
+The general solution of $x\sin(\frac{y}{x})\frac{dy}{dx}=y\sin(\frac{y}{x})+\frac{x}{2}$ ($x>0$) is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\cos(\frac{x}{y})+\log_{e}(x^{2})=K$
+    \item $\cos(\frac{y}{x})+\log_{e}(x^{2})=K$
+    \item $\cos(\frac{x}{y})+\log_{e}(\sqrt{x})=K$
+    \item $\cos(\frac{y}{x})+\log_{e}(\sqrt{x})=K$
+\end{enumerate}
+
+\pyqheader{2026}{16}{MCQ}{2}
+The orthogonal trajectories of the family $y=-3x-3+me^{x}$ are given by:
+\begin{enumerate}[label=(\Alph*)]
+    \item $x=\frac{y}{3}-\frac{1}{9}+ke^{-3y}$
+    \item $x=\frac{y}{3}-\frac{1}{9}+ke^{3y}$
+    \item $x=-\frac{y}{3}+\frac{1}{9}+ke^{-3y}$
+    \item $x=-\frac{y}{3}+\frac{1}{9}+ke^{3y}$
+\end{enumerate}
+
+\pyqheader{2026}{18}{MCQ}{2}
+Let $\phi:(-\frac{\pi}{2},\frac{\pi}{2})\rightarrow\mathbb{R}$ solve $(\cos x)\frac{dy}{dx}-y=2y^{2}(\sin x-1)\cos x$ with $\phi(0)=\frac{1}{2}$. Then $\phi(\frac{\pi}{4})=$:
+\begin{enumerate}[label=(\Alph*)]
+    \item 2
+    \item $\frac{3+2\sqrt{2}}{2}$
+    \item $\frac{1}{2}$
+    \item $\frac{1}{\sqrt{2}}$
+\end{enumerate}
+
+\pyqheader{2026}{23}{MCQ}{2}
+A particular solution of $\frac{d^{2}y}{dx^{2}}+3\frac{dy}{dx}+2y=\sin(e^{x})$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $-e^{-x}\sin(e^{x})$
+    \item $-e^{-2x}\sin(e^{x})$
+    \item $-e^{-x}(\sin(e^{x})+\cos(e^{x}))$
+    \item $-e^{-2x}(\sin(e^{x})+\cos(e^{x}))$
+\end{enumerate}
+
+\pyqheader{2026}{35}{MSQ}{2}
+Integrating factor(s) for $(2y\cos x-xy\sin x)dx + 2x\cos x\,dy=0$ on $x\in(0,\frac{\pi}{4})$ is/are:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\frac{1}{xy}$
+    \item $xy$
+    \item $\sec x$
+    \item $\sqrt{\sec x}$
+\end{enumerate}
+
+\pyqheader{2026}{45}{NAT}{1}
+If $(y^{3}+\alpha xy^{4}-5x+\cos 2y)dx + (3xy^{2}+20x^{2}y^{3}+\beta x\sin 2y)dy=0$ is exact, then $\alpha+\beta=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2026}{51}{NAT}{2}
+If $y(x)=C_{1}e^{-x}+C_{2}e^{2x}+\alpha xe^{-x}$ is the general solution of $\frac{d^{2}y}{dx^{2}}+\beta\frac{dy}{dx}+\gamma y=-e^{-x}$, then $\alpha(\beta+\gamma)=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{2}{MCQ}{1}
+For which choice of $N(x,y)$ is $(e^{x}\sin y-2y\sin x)dx + N(x,y)dy=0$ exact?
+\begin{enumerate}[label=(\Alph*)]
+    \item $e^{x}\sin y+2\cos x$
+    \item $e^{x}\cos y+2\cos x$
+    \item $e^{x}\cos y+2\sin x$
+    \item $e^{x}\sin y+2\sin x$
+\end{enumerate}
+
+\pyqheader{2025}{5}{MCQ}{1}
+General solution of $\frac{d^{2}y}{dx^{2}}-8\frac{dy}{dx}+16y=2e^{4x}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\alpha_{1}e^{4x}+\alpha_{2}xe^{4x}+x^{2}e^{4x}$
+    \item $\alpha_{1}e^{4x}+\alpha_{2}xe^{4x}+2x^{2}e^{4x}$
+    \item $\alpha_{1}e^{-4x}+\alpha_{2}e^{4x}+2x^{2}e^{4x}$
+    \item $\alpha_{1}xe^{-4x}+\alpha_{2}x^{2}e^{-4x}+x^{2}e^{4x}$
+\end{enumerate}
+
+\pyqheader{2025}{11}{MCQ}{2}
+Orthogonal trajectory to $yx^{2}=\lambda$ passing through $(2,1)$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $y=\frac{x^{2}}{4}$
+    \item $x^{2}-2y^{2}=2$
+    \item $x-y=1$
+    \item $2x-y^{2}=3$
+\end{enumerate}
+
+\pyqheader{2025}{12}{MCQ}{2}
+Let $\phi$ solve $x\frac{dy}{dx}=(\ln y-\ln x)y$ with $\phi(1)=e^{2}$. Then $\phi(2)=$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $e^{2}$
+    \item $2e^{3}$
+    \item $3e^{2}$
+    \item $6e^{3}$
+\end{enumerate}
+
+\pyqheader{2025}{14}{MCQ}{2}
+Let $\phi$ solve $\frac{dy}{dx}=(y-1)(y-3)$ with $\phi(0)=2$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{x\rightarrow\infty}\phi(x)=0$
+    \item $\lim_{x\rightarrow\ln\sqrt{2}}\phi(x)=1$
+    \item $\lim_{x\rightarrow-\infty}\phi(x)=3$
+    \item $\lim_{x\rightarrow\ln(1/\sqrt{2})}\phi(x)=6$
+\end{enumerate}
+
+\pyqheader{2025}{29}{MCQ}{2}
+Let $\phi(x)=\int_{0}^{x}\phi(t)dt+\sin x$. Then $\lim_{x\rightarrow\pi/2}(\phi(x)-e^{x})=$:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 3
+    \item 4
+\end{enumerate}
+
+\pyqheader{2025}{32}{MSQ}{2}
+If $\mu M dx + \mu N dy = dw$, which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\mu w$ is an integrating factor for $Mdx+Ndy=0$
+    \item $\mu w^{2}$ is an integrating factor for $Mdx+Ndy=0$
+    \item $w(x,y)=w(0,0)+\int_{0}^{x}(\mu M)(s,0)ds+\int_{0}^{y}(\mu N)(x,t)dt$
+    \item $w(x,y)=w(0,0)+\int_{0}^{x}(\mu M)(s,y)ds+\int_{0}^{x}(\mu N)(0,t)dt$
+\end{enumerate}
+
+\pyqheader{2025}{33}{MSQ}{2}
+Let $\phi:(-1,\infty)\rightarrow(0,\infty)$ solve $\frac{dy}{dx}-2ye^{x}=2e^{x}\sqrt{y}$ with $\phi(0)=1$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\phi$ is unbounded
+    \item $\lim_{x\rightarrow\ln 2}\phi(x)=(2e-1)^{2}$
+    \item $\lim_{x\rightarrow\ln 2}\phi(x)=\sqrt{2e-1}$
+    \item $\phi$ is strictly increasing on $(0,\infty)$
+\end{enumerate}
+
+\pyqheader{2025}{44}{NAT}{1}
+Let $\phi$ solve $4y^{\prime\prime}+16y^{\prime}+25y=0$ with $\phi(0)=1, \phi^{\prime}(0)=-\frac{1}{2}$. Then $\lim_{x\rightarrow\pi/6}e^{2x}\phi(x)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{55}{NAT}{2}
+Let $\phi$ solve $x^{2}y^{\prime\prime}-xy^{\prime}+y=6x\ln x$ on $(0,\infty)$ with $\phi(1)=-3, \phi(e)=0$. Then $|\phi^{\prime}(1)|=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2025}{56}{NAT}{2}
+Let $\phi$ solve $\frac{dy}{dx}+2xy=2+4x^{2}$ with $\phi(0)=0$. Then $\phi(2)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{1}{MCQ}{1}
+Let $y_{c}$ solve $\frac{dy}{dx}-y+y^{3}=0, y(0)=c>0$. Then for every $c>0$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{x\rightarrow\infty}y_{c}(x)=0$
+    \item $\lim_{x\rightarrow\infty}y_{c}(x)=1$
+    \item $\lim_{x\rightarrow\infty}y_{c}(x)=e$
+    \item limit does not exist
+\end{enumerate}
+
+\pyqheader{2024}{3}{MCQ}{1}
+Let $y(x)$ solve $\frac{dy}{dx}=1+y\sec x$ on $(-\pi/2,\pi/2)$ with $y(0)=0$. Then $y(\pi/6)=$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sqrt{3}\log(\frac{3}{2})$
+    \item $(\frac{\sqrt{3}}{2})\log(\frac{3}{2})$
+    \item $(\frac{\sqrt{3}}{2})\log 3$
+    \item $\sqrt{3}\log 3$
+\end{enumerate}
+
+\pyqheader{2024}{4}{MCQ}{1}
+Differential equation for orthogonal trajectories of $x^{2}+2hxy+y^{2}=1$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $(x^{2}y-y^{3}+y)\frac{dy}{dx}-(xy^{2}-x^{3}+x)=0$
+    \item $(x^{2}y-y^{3}+y)\frac{dy}{dx}+(xy^{2}-x^{3}+x)=0$
+    \item $(x^{2}y+y^{3}+y)\frac{dy}{dx}-(xy^{2}+x^{3}+x)=0$
+    \item $(x^{2}y+y^{3}+y)\frac{dy}{dx}+(xy^{2}+x^{3}+x)=0$
+\end{enumerate}
+
+\pyqheader{2024}{10}{MCQ}{1}
+Solution of $y^{\prime\prime}+y=g(x)$ with $y(0)=0, y^{\prime}(0)=1$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item $y(x)=\sin x-\int_{0}^{x}\sin(x-t)g(t)dt$
+    \item $y(x)=\sin x+\int_{0}^{x}\sin(x-t)g(t)dt$
+    \item $y(x)=\sin x-\int_{0}^{x}\cos(x-t)g(t)dt$
+    \item $y(x)=\sin x+\int_{0}^{x}\cos(x-t)g(t)dt$
+\end{enumerate}
+
+\pyqheader{2024}{18}{MCQ}{2}
+For $y(8x-9y)dx+2x(x-3y)dy=0$:
+\begin{enumerate}[label=(\Alph*)]
+    \item Not exact, has $x^{2}$ as integrating factor
+    \item Exact and homogeneous
+    \item Not exact, does not have $x^2$ as I.F.
+    \item Not homogeneous, has $x^2$ as I.F.
+\end{enumerate}
+
+\pyqheader{2024}{23}{MCQ}{2}
+Let $y_{\alpha}$ solve $\frac{dy}{dx}+2y=\frac{1}{1+x^{2}}$ with $y(0)=\alpha$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\lim_{x\rightarrow\infty}y_{\alpha}(x)=0$ for every $\alpha\in\mathbb{R}$
+    \item $\lim_{x\rightarrow\infty}y_{\alpha}(x)=1$ for every $\alpha\in\mathbb{R}$
+    \item $\exists\alpha$ such that limit exists and $\ne 0,1$
+    \item $\exists\alpha$ for which limit does not exist
+\end{enumerate}
+
+\pyqheader{2024}{26}{MCQ}{2}
+Let $y^{\prime\prime}-2y^{\prime}+y=2e^{x}$. P: $f>0\implies f^{\prime}>0$. Q: $f^{\prime}>0\implies f>0$.
+\begin{enumerate}[label=(\Alph*)]
+    \item P true, Q false
+    \item P false, Q true
+    \item Both true
+    \item Both false
+\end{enumerate}
+
+\pyqheader{2024}{42}{NAT}{1}
+Let $y:\mathbb{R}\rightarrow\mathbb{R}$ be the solution to the differential equation $\frac{d^{2}y}{dx^{2}}+2\frac{dy}{dx}+5y=1$ satisfying $y(0)=0$ and $y^{\prime}(0)=1$. Then, $\lim_{x\rightarrow\infty}y(x)$ equals \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{43}{NAT}{1}
+Let $y_{\alpha}$ solve $2y^{\prime\prime}-y^{\prime}-y=0, y(0)=1, y^{\prime}(0)=\alpha>0$. Smallest $\alpha$ for which $y_{\alpha}$ has no critical points in $\mathbb{R}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{51}{NAT}{2}
+Number of $\alpha\in(-2\pi,0)\cap\mathbb{Z}$ for which all real solutions of $x^{2}y^{\prime\prime}+\alpha xy^{\prime}+y=0$ approach 0 as $x\rightarrow 0^{+}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{4}{MCQ}{1}
+Consider the initial value problem $\frac{dy}{dx}+\alpha y=0, y(0)=1$, where $\alpha\in\mathbb{R}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item there is an $\alpha$ such that $y(1)=0$
+    \item there is a unique $\alpha$ such that $\lim_{x\rightarrow\infty}y(x)=0$
+    \item there is NO $\alpha$ such that $y(2)=1$
+    \item there is a unique $\alpha$ such that $y(1)=2$
+\end{enumerate}
+
+\pyqheader{2023}{22}{MCQ}{2}
+Orthogonal trajectory to $x^{2}+y^{2}=2x+4y+k$ passing through $(2,3)$ also passes through:
+\begin{enumerate}[label=(\Alph*)]
+    \item $(3,4)$
+    \item $(-1,1)$
+    \item $(1,0)$
+    \item $(3,5)$
+\end{enumerate}
+
+\pyqheader{2023}{33}{MSQ}{2}
+Let $y:(\sqrt{2/3},\infty)\rightarrow\mathbb{R}$ solve $(2x-y)y^{\prime}+(2y-x)=0$ with $y(1)=3$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $y(3)=1$
+    \item $y(2)=4+\sqrt{10}$
+    \item $y^{\prime}$ bounded on $(\sqrt{2/3},1)$
+    \item $y^{\prime}$ bounded on $(1,\infty)$
+\end{enumerate}
+
+\pyqheader{2023}{43}{NAT}{1}
+If $y^{\prime\prime}-2y^{\prime}+y=e^{x}, y(0)=0, y^{\prime}(0)=-1/2$, then $y(1)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{53}{NAT}{2}
+Let $y:(1,\infty)\rightarrow\mathbb{R}$ solve $y^{\prime\prime}-\frac{2y}{(1-x)^{2}}=0$ with $y(2)=1$ and $\lim_{x\rightarrow\infty}y(x)=0$. Then $y(3)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2023}{59}{NAT}{2}
+Let $S=\{\alpha\in\mathbb{R} : \text{solution of } y^{\prime}=y(2-y), y(0)=\alpha \text{ exists on } [0,\infty)\}$. Then $\min S=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{13}{MCQ}{2}
+Let $u^{\prime\prime}(x)=\frac{u(x)}{1+x^{2}}$ on $\mathbb{R}$ with $u(0)>0, u^{\prime}(0)>0$. I: $uu^{\prime}$ is increasing on $[0,\infty)$. II: $u$ is increasing on $[0,\infty)$.
+\begin{enumerate}[label=(\Alph*)]
+    \item Both false
+    \item Both true
+    \item I false, II true
+    \item I true, II false
+\end{enumerate}
+
+\pyqheader{2022}{21}{MCQ}{2}
+On $(-c,c)$, let $y(x)$ solve $\frac{dy}{dx}=y^{2}-1+\cos x, y(0)=0$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item Local max at origin
+    \item Local min at origin
+    \item Strictly increasing on $(-\delta,\delta)$
+    \item Strictly decreasing on $(-\delta,\delta)$
+\end{enumerate}
+
+\pyqheader{2022}{23}{MCQ}{2}
+Consider $y^{\prime\prime}+ay^{\prime}+y=\sin x$.
+\begin{enumerate}[label=(\Alph*)]
+    \item If $a=0$, all solutions unbounded over $\mathbb{R}$
+    \item If $a=1$, all solutions unbounded over $(0,\infty)$
+    \item If $a=1$, all solutions tend to 0 as $x\rightarrow\infty$
+    \item If $a=2$, all solutions bounded over $(-\infty,0)$
+\end{enumerate}
+
+\pyqheader{2022}{25}{MCQ}{2}
+Let $\phi$ solve $(x^{2}+y^{2})dx-4xy\,dy=0$ with $\phi(1)=1$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $(3\phi^{2}+x^{2})^{2}=4x$
+    \item $(3\phi^{2}-x^{2})^{2}=4x$
+    \item $(3\phi^{2}+x^{2})^{2}=4\phi$
+    \item $(3\phi^{2}-x^{2})^{2}=4\phi$
+\end{enumerate}
+
+\pyqheader{2022}{31}{MSQ}{2}
+Let $y^{\prime}=x^{2}+y^{2}+1$ with $y(0)=0$ on $(-c,c)$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $y(x)$ is odd
+    \item $y(x)$ is even
+    \item $(y(x))^{2}$ has local min at 0
+    \item $(y(x))^{2}$ has local max at 0
+\end{enumerate}
+
+\pyqheader{2022}{35}{MSQ}{2}
+Consider $y^{\prime\prime}+4y=\sin(ax), x\in\mathbb{R}$.
+\begin{enumerate}[label=(\Alph*)]
+    \item All solutions periodic for every $a$
+    \item All solutions periodic for $a\in\mathbb{R}\setminus\{-2,2\}$
+    \item All solutions periodic for $a\in\mathbb{Q}\setminus\{-2,2\}$
+    \item If $a\in\mathbb{R}\setminus\mathbb{Q}$, then unique periodic solution
+\end{enumerate}
+
+\pyqheader{2022}{43}{NAT}{1}
+Let $y^{\prime}+3x^{2}y=x^{2}, y(0)=4$. Then $\lim_{x\rightarrow\infty}y(x)=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{47}{NAT}{1}
+Let $xy^{2}y^{\prime}+y^{3}=\frac{\sin x}{x}, y(\frac{\pi}{2})=0$. Then $y(\frac{5\pi}{2})=$ \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2022}{49}{NAT}{1}
+Let $x^{2}y^{\prime\prime}+xy^{\prime}-4y=x^{2}$ on $(0,\infty)$ such that $\lim_{x\rightarrow 0^{+}}y(x)$ exists and $y(1)=1$. Then $y^{\prime}(1)=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{50}{NAT}{1}
+Orthogonal trajectory to $y=\frac{c(1-\cos x)}{\sin x}$ passing through $(\frac{\pi}{3},1)$. If $(\frac{\pi}{4},a)$ lies on it, then $a^{4}=$ \underline{\hspace{1.5cm}}.
+
+% ==============================================================================
+% SECTION 3: LINEAR ALGEBRA AND ALGEBRA
+% ==============================================================================
+\section{Linear Algebra and Algebra}
+
+\subsection{Basic Algebra}
+
+\pyqheader{2026}{38}{MSQ}{2}
+Let $\binom{n}{r}$ denote the number of ways of choosing $r$ distinct objects out of $n$ distinct objects. Which of the following statements is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\sum_{k=0}^{6}(-1)^{k}\binom{13}{2k}=-64$
+    \item $\sum_{k=0}^{6}(-1)^{k}\binom{13}{2k+1}=128$
+    \item $\sum_{k=0}^{6}(-1)^{k}\binom{13}{2k}=64$
+    \item $\sum_{k=0}^{6}(-1)^{k}\binom{13}{2k+1}=-128$
+\end{enumerate}
+
+\pyqheader{2026}{58}{NAT}{2}
+A fruit shop has 4 different types of bananas. The number of ways in which 12 bananas can be bought with at least one banana from each type, is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2026}{60}{NAT}{2}
+$\binom{5}{0}+\binom{6}{1}+\binom{7}{2}+\binom{8}{3}+\binom{9}{4}+\binom{10}{5}+\binom{11}{6}=$ \underline{\hspace{1.5cm}}.
+
+% ------------------------------------------------------------------------------
+\subsection{Matrices and Systems of Linear Equations}
+
+\pyqheader{2026}{8}{MCQ}{1}
+Let $A$ be an invertible $5\times 5$ real matrix. $B$ is obtained by swapping columns 2 and 3 of $A$, then adding 3 times column 3 to column 5. Then $B^{-1}$ is obtained by:
+\begin{enumerate}[label=(\Alph*)]
+    \item swapping rows 2 and 3 of $A^{-1}$, then adding 3 times row 3 to row 5
+    \item swapping rows 2 and 3 of $A^{-1}$, then adding $-3$ times row 5 to row 3
+    \item adding $-3$ times row 3 to row 5, then swapping rows 2 and 3 of $A^{-1}$
+    \item adding 3 times row 5 to row 3, then swapping rows 2 and 3 of $A^{-1}$
+\end{enumerate}
+
+\pyqheader{2026}{14}{MCQ}{2}
+Let $A$ be a $5\times 3$ real matrix of rank 2 and $b$ be a non-zero $5\times 1$ real column vector. Suppose $\begin{pmatrix}1\\2\\3\end{pmatrix}$ and $\begin{pmatrix}4\\5\\6\end{pmatrix}$ are two solutions of the system of linear equations $Ax=b$. Which ONE of the following is also a solution of $Ax=b$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\begin{pmatrix}3\\3\\3\end{pmatrix}$
+    \item $\begin{pmatrix}5\\7\\9\end{pmatrix}$
+    \item $\begin{pmatrix}5\\6\\9\end{pmatrix}$
+    \item $\begin{pmatrix}7\\8\\9\end{pmatrix}$
+\end{enumerate}
+
+\pyqheader{2026}{25}{MCQ}{2}
+Let $P$ be a nonzero $n\times n$ complex matrix such that $v^{*}Pv\ge 0$ for all $v\in\mathbb{C}^{n}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item All eigenvalues of $P$ are negative
+    \item If $Pv_{1}=v_{2}$ and $Pv_{2}=v_{1}$, then $v_{1}=v_{2}$
+    \item $v^{*}Pv\ne 0$ for all nonzero $v$
+    \item All eigenvalues of $P^{*}$ are negative
+\end{enumerate}
+
+\pyqheader{2026}{37}{MSQ}{2}
+Let $P=\begin{pmatrix}0&1&0&0&0\\ 1&0&0&0&0\\ 0&0&0&1&0\\ 0&0&0&0&1\\ 0&0&1&0&0\end{pmatrix}\in M_{5}(\mathbb{C})$. Which of the following is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\text{nullity}(P-I)\ge 2$
+    \item $P$ has 4 distinct eigenvalues in $\mathbb{C}$
+    \item $P$ has 3 distinct eigenvalues in $\mathbb{R}$
+    \item If $\lambda$ is an eigenvalue, $\exists n\in\mathbb{N}$ such that $\lambda^{n}=1$
+\end{enumerate}
+
+\pyqheader{2026}{39}{MSQ}{2}
+Let $P\in M_{4,6}(\mathbb{R})$ and $Q\in M_{6,4}(\mathbb{R})$ such that $PQ=0$ and $QP=0$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\text{range}(P)\subseteq\text{null}(Q)$ and $\text{range}(Q)\subseteq\text{null}(P)$
+    \item $\text{rank}(P)+\text{rank}(Q)\le 4$
+    \item If $\text{range}(P)=\text{null}(Q)$, then $\text{rank}(P)+\text{rank}(Q)=4$
+    \item $\text{range}(Q)=\text{null}(P)$
+\end{enumerate}
+
+\pyqheader{2026}{49}{NAT}{1}
+Let $A\in M_{3}(\mathbb{C})$. Suppose $v=\begin{pmatrix}\sqrt{5}i\\ 2i\\ x\end{pmatrix}\in\text{null}(A)\cap\text{range}(A^{T})$. Then $|x|=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2026}{50}{NAT}{1}
+Let $P$ be a $5\times 5$ real matrix with $\det(P)=2$. Let $Q$ be the matrix of cofactors of $P$. Then $\det(Q)=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2026}{56}{NAT}{2}
+Let $M\in M_{3}(\mathbb{R})$ satisfy $M\begin{pmatrix}\sqrt{15}\\ \sqrt{15}\\ 0\end{pmatrix}=\begin{pmatrix}\sqrt{3}\\ \sqrt{2}\\ -5\end{pmatrix}$, $M\begin{pmatrix}0\\ 0\\ \sqrt{30}\end{pmatrix}=\begin{pmatrix}\sqrt{15}\\ \sqrt{10}\\ \sqrt{5}\end{pmatrix}$, $M\begin{pmatrix}-\sqrt{15}\\ \sqrt{15}\\ 0\end{pmatrix}=\begin{pmatrix}\sqrt{12}\\ -\sqrt{18}\\ 0\end{pmatrix}$. Then $\det(M)=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2026}{57}{NAT}{2}
+If $x+2y+2z=1, 2x+3y+z=2, ax+5y+bz=b$ has infinitely many solutions, then $a+b=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2026}{59}{NAT}{2}
+Let $A\in M_{3}(\mathbb{R})$ represent reflection about $\{(a,b,-a-b): a,b\in\mathbb{R}\}$. Sum of diagonal elements of $A$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{7}{MCQ}{1}
+Let $M=\begin{pmatrix}2&0&-1\\ 4&1&-4\\ 2&0&x\end{pmatrix}$. If 0 is an eigenvalue of $M$, then $(M^{4}+M)\begin{pmatrix}1\\ 0\\ 1\end{pmatrix}$ equals:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\begin{pmatrix}1\\ 0\\ 1\end{pmatrix}$
+    \item $\begin{pmatrix}2\\ 0\\ 2\end{pmatrix}$
+    \item $\begin{pmatrix}5\\ 0\\ 5\end{pmatrix}$
+    \item $\begin{pmatrix}17\\ 0\\ 17\end{pmatrix}$
+\end{enumerate}
+
+\pyqheader{2025}{15}{MCQ}{2}
+Let $M=\begin{pmatrix}6&2&-6&8\\ 5&3&-9&8\\ 3&1&-2&4\end{pmatrix}$ and system $6x_1+2x_2-6x_3+8x_4=8, 5x_1+3x_2-9x_3+8x_4=16, 3x_1+x_2-2x_3+4x_4=32$.
+\begin{enumerate}[label=(\Alph*)]
+    \item $\text{rank}(M)=3$, system has solution
+    \item $\text{rank}(M)=3$, no solution
+    \item $\text{rank}(M)=2$, has solution
+    \item $\text{rank}(M)=2$, no solution
+\end{enumerate}
+
+\pyqheader{2025}{16}{MCQ}{2}
+Let $M=\begin{pmatrix}-2&0&0\\ 3&2&3\\ 4&-1&x\end{pmatrix}$ have eigenvalues $-2, 3$. If $M^{3}\begin{pmatrix}0\\ 1\\ 1\end{pmatrix}=\begin{pmatrix}0\\ 125\\ 125\end{pmatrix}$, then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $x=5$, $M^{2}+M$ invertible
+    \item $x\ne 5$, $M^{2}+M$ invertible
+    \item $x=5$, $M^{2}+M$ not invertible
+    \item $x\ne 5$, $M^{2}+M$ not invertible
+\end{enumerate}
+
+\pyqheader{2025}{22}{MCQ}{2}
+Let $M=(m_{ij})_{3\times 3}$ be invertible, $\sigma=(1\,2\,3)\in S_3$, and $M_{\sigma}=(m_{i\sigma(j)})$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\det(M)=\det(M_\sigma), \text{nullity}(M-M_\sigma)=0$
+    \item $\det(M)=-\det(M_\sigma), \text{nullity}(M-M_\sigma)=1$
+    \item $\det(M)=\det(M_\sigma), \text{nullity}(M-M_\sigma)=1$
+    \item $\det(M)=-\det(M_\sigma), \text{nullity}(M-M_\sigma)=0$
+\end{enumerate}
+
+\pyqheader{2024}{9}{MCQ}{1}
+P: Unique solution to $Ax=b$ ($m\times n$) $\implies m=n$. Q: $u,v\in V\setminus W \implies u+v\in V\setminus W$.
+\begin{enumerate}[label=(\Alph*)]
+    \item Both true
+    \item P true, Q false
+    \item P false, Q true
+    \item Both false
+\end{enumerate}
+
+\pyqheader{2024}{15}{MCQ}{2}
+Let $a=\begin{pmatrix}\frac{1}{\sqrt{3}}\\ -\frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{6}}\\ 0\end{pmatrix}$. Consider the following two statements.
+\begin{itemize}
+    \item[P:] The matrix $I_4-aa^{T}$ is invertible.
+    \item[Q:] The matrix $I_4-2aa^{T}$ is invertible.
+\end{itemize}
+Then, which one of the following holds?
+\begin{enumerate}[label=(\Alph*)]
+    \item P is false but Q is true
+    \item P is true but Q is false
+    \item Both P and Q are true
+    \item Both P and Q are false
+\end{enumerate}
+
+\pyqheader{2024}{16}{MCQ}{2}
+$A_{6\times 5}, B_{5\times 4}$. P: $\exists Z\ne 0$ s.t. $AZB=0$. Q: $\exists Y\ne 0$ s.t. $BYA=0$.
+\begin{enumerate}[label=(\Alph*)]
+    \item Both true
+    \item P true, Q false
+    \item P false, Q true
+    \item Both false
+\end{enumerate}
+
+\pyqheader{2024}{37}{MSQ}{2}
+For $A,B,C\in M_{10}(\mathbb{R})$ with $A=BC$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\text{Rowspace}(A)\subseteq\text{Rowspace}(B)$
+    \item $\text{Rowspace}(A)\subseteq\text{Rowspace}(C)$
+    \item $\text{Colspace}(A)\subseteq\text{Colspace}(B)$
+    \item $\text{Colspace}(A)\subseteq\text{Colspace}(C)$
+\end{enumerate}
+
+\pyqheader{2024}{44}{NAT}{1}
+Let $M=\begin{pmatrix}0&1&2&3\\ 1&0&1&2\\ 2&1&0&1\\ 3&2&1&0\end{pmatrix}$. The $(4,1)$-entry of $M^{-1}$ is \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{50}{NAT}{1}
+Let $M=\begin{pmatrix}0&0&0&0&-1\\ 2&0&0&0&-4\\ 0&2&0&0&0\\ 0&0&2&0&3\\ 0&0&0&2&2\end{pmatrix}$. If $p(x)$ is char. poly, then $p(2)-1=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{2}{MCQ}{1}
+Let $v_1,\dots,v_9$ be columns of $9\times 9$ matrix $A$ with $\sum a_i v_i = 0$ (not all $a_i=0$). Then $Ax=\sum v_i$ has:
+\begin{enumerate}[label=(\Alph*)]
+    \item no solution
+    \item a unique solution
+    \item more than one but only finitely many solutions
+    \item infinitely many solutions
+\end{enumerate}
+
+\pyqheader{2023}{13}{MCQ}{2}
+Let $A=\begin{pmatrix}1&-1&0\\ 0&0&0\\ -2&2&2\end{pmatrix}$ and $B=A^{5}+A^{4}+I_{3}$. Which is NOT an eigenvalue of $B$?
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 49
+    \item 3
+\end{enumerate}
+
+\pyqheader{2023}{14}{MCQ}{2}
+The system of linear equations in $x_1, x_2, x_3$:
+$\begin{pmatrix}1&1&1\\ 0&-1&1\\ 2&3&\alpha\end{pmatrix}\begin{pmatrix}x_1\\ x_2\\ x_3\end{pmatrix}=\begin{pmatrix}3\\ 1\\ \beta\end{pmatrix}$, where $\alpha, \beta\in\mathbb{R}$, has:
+\begin{enumerate}[label=(\Alph*)]
+    \item at least one solution for any $\alpha$ and $\beta$
+    \item a unique solution for any $\beta$ when $\alpha\ne 1$
+    \item NO solution for any $\alpha$ when $\beta\ne 5$
+    \item infinitely many solutions for any $\alpha$ when $\beta=5$
+\end{enumerate}
+
+\pyqheader{2023}{56}{NAT}{2}
+Let $A=\begin{pmatrix}1&1&0&0&1\\ 1&1&1&1&3\\ 1&1&4&4&4\end{pmatrix}$ and $AB=0$ for $5\times 5$ matrix $B$. Max rank of $B$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{58}{NAT}{2}
+Max number of linearly independent eigenvectors of $\begin{pmatrix}1&1&0&0\\ 2&2&0&0\\ 0&0&3&0\\ 0&0&1&3\end{pmatrix}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{1}{MCQ}{1}
+Let $M=\begin{pmatrix}1&1\\ 1&0\end{pmatrix}$. If $M^{8}\begin{pmatrix}1\\ 0\end{pmatrix}=\begin{pmatrix}x\\ y\end{pmatrix}$, then $x=$:
+\begin{enumerate}[label=(\Alph*)]
+    \item 21
+    \item 22
+    \item 34
+    \item 35
+\end{enumerate}
+
+\pyqheader{2022}{2}{MCQ}{1}
+Rank of $\begin{pmatrix}1&1&1&0&0&0\\ 1&0&0&1&1&0\\ 0&1&0&1&0&1\\ 0&0&1&0&1&1\end{pmatrix}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 3
+    \item 4
+\end{enumerate}
+
+\pyqheader{2022}{16}{MCQ}{2}
+Let $P\in M_{4}(\mathbb{R})$ with $P^{4}=0, P^{3}\ne 0$. Which ONE is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\forall v\ne 0, \{v,Pv,P^{2}v,P^{3}v\}$ is linearly independent.
+    \item $\text{rank}(P^{k})=4-k$ for $k=1,2,3,4$.
+    \item 0 is an eigenvalue of $P$.
+    \item If $Q^{4}=0, Q^{3}\ne 0$, then $\exists S$ nonsingular such that $S^{-1}QS=P$.
+\end{enumerate}
+
+\pyqheader{2022}{17}{MCQ}{2}
+For $(X,Y)=XY-YX$. P: $(X,(Y,Z))+(Y,(Z,X))+(Z,(X,Y))=0$. Q: $(X,(Y,Z))=((X,Y),Z)$.
+\begin{enumerate}[label=(\Alph*)]
+    \item Both true
+    \item P true, Q false
+    \item P false, Q true
+    \item Both false
+\end{enumerate}
+
+\pyqheader{2022}{18}{MCQ}{2}
+Consider the system of linear equations:
+$x+y+t=4, 2x-4t=7, x+y+z=5, x-3y-z-10t=\lambda$,
+where $x,y,z,t$ are variables and $\lambda$ is a constant. Then which one of the following is true?
+\begin{enumerate}[label=(\Alph*)]
+    \item If $\lambda=1$, then the system has a unique solution.
+    \item If $\lambda=2$, then the system has infinitely many solutions.
+    \item If $\lambda=1$, then the system has infinitely many solutions.
+    \item If $\lambda=2$, then the system has a unique solution.
+\end{enumerate}
+
+\pyqheader{2022}{30}{MCQ}{2}
+Let $P$ be a $3\times 3$ real matrix having eigenvalues $\lambda_1=0, \lambda_2=1$ and $\lambda_3=-1$. Further, $v_1=\begin{pmatrix}1\\0\\0\end{pmatrix}, v_2=\begin{pmatrix}1\\1\\0\end{pmatrix}$ and $v_3=\begin{pmatrix}1\\0\\1\end{pmatrix}$ are eigenvectors of $P$ corresponding to $\lambda_1, \lambda_2$ and $\lambda_3$, respectively. Then the entry in the first row and the third column of $P$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 0
+    \item 1
+    \item $-1$
+    \item 2
+\end{enumerate}
+
+\pyqheader{2022}{53}{NAT}{2}
+Let $A=\begin{pmatrix}1&1\\ 0&1\\ -1&1\end{pmatrix}, \|u\|=1, \|v\|=1$. If $Au=\sqrt{2}v$ and $A^{T}v=\sqrt{2}u$, then $|u_1+2\sqrt{2}v_1|=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{57}{NAT}{2}
+$\det\begin{pmatrix}11&10&10&10\\ 10&11&10&10\\ 10&10&11&10\\ 10&10&10&11\end{pmatrix}=$ \underline{\hspace{1.5cm}}.
+
+% ------------------------------------------------------------------------------
+\subsection{Finite Dimensional Vector Spaces}
+
+\pyqheader{2026}{24}{MCQ}{2}
+Let $V=\text{span}\{e_1+e_2, e_2+e_3, e_3+e_4+e_5\}\subset\mathbb{R}^{5}$. Let $S=\{P\in M_{2,5}(\mathbb{R}) : \text{null}(P)=V\}$.
+\begin{enumerate}[label=(\Alph*)]
+    \item $S=\emptyset$
+    \item $S=\{0\}$
+    \item $S$ is nonempty and $S$ is not a subspace of $M_{2,5}(\mathbb{R})$
+    \item $S$ is a nonzero subspace of $M_{2,5}(\mathbb{R})$
+\end{enumerate}
+
+\pyqheader{2026}{28}{MCQ}{2}
+Let $F:\mathbb{R}^{3}\rightarrow\mathbb{R}^{3}$ be linear preserving distances $d(F(P),F(Q))=d(P,Q)$. Which ONE is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $F$ is an injective map.
+    \item $F$ is a surjective map.
+    \item $\text{vect}(F(P),F(Q))\cdot\text{vect}(F(R),F(S))=\text{vect}(P,Q)\cdot\text{vect}(R,S)$
+    \item $\text{vect}(F(P),F(Q))\times\text{vect}(F(R),F(S))=\text{vect}(P,Q)\times\text{vect}(R,S)$
+\end{enumerate}
+
+\pyqheader{2026}{40}{MSQ}{2}
+Let $V=\{\frac{a+b\sqrt{2}}{c+d\sqrt{2}}: a,b,c,d\in\mathbb{Q}, c^{2}+d^{2}\ne 0\}$. Which of the following is/are FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $V$ is closed under the usual addition in $\mathbb{R}$.
+    \item $V$ is a subspace of the real vector space $\mathbb{R}$.
+    \item $V$ is a two dimensional subspace of the vector space $\mathbb{R}$ over $\mathbb{Q}$.
+    \item $V$ is a four dimensional subspace of the vector space $\mathbb{R}$ over $\mathbb{Q}$.
+\end{enumerate}
+
+\pyqheader{2025}{6}{MCQ}{1}
+Define $T:\mathbb{R}^{3}\rightarrow\mathbb{R}^{3}$ by $T(x,y,z)=(x+z, 2x+3y+5z, 2y+2z)$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item $T$ is one-one and $T$ is NOT onto
+    \item $T$ is NOT one-one and $T$ is onto
+    \item $T$ is one-one and $T$ is onto
+    \item $T$ is NOT one-one and $T$ is NOT onto
+\end{enumerate}
+
+\pyqheader{2025}{8}{MCQ}{1}
+Let $T:P_{2}(\mathbb{R})\rightarrow P_{2}(\mathbb{R})$ be $T(p(x))=p(x+1)$ with matrix $M$ w.r.t. $\{1,x,x^{2}\}$. Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item The determinant of $M$ is 2
+    \item The rank of $M$ is 2
+    \item 1 is the only eigenvalue of $M$
+    \item The nullity of $M$ is 2
+\end{enumerate}
+
+\pyqheader{2025}{24}{MCQ}{2}
+Let $f_1,f_2,f_3:\mathbb{R}^{4}\rightarrow\mathbb{R}$ linear with $\ker(f_1)\subseteq\ker(f_2)\cap\ker(f_3)$. Let $T(v)=(f_1(v),f_2(v),f_3(v))$. Nullity of $T$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 3
+    \item 4
+\end{enumerate}
+
+\pyqheader{2025}{35}{MSQ}{2}
+For $u_1=(1,0,0,-1), u_2=(0,2,0,-1), u_3=(0,0,1,-1), u_4=(0,0,0,1)$ in $\mathbb{R}^{4}$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $\{u_1,u_2,u_3,u_4\}$ is a linearly independent set in $\mathbb{R}^4$
+    \item $\{u_1-u_2, u_2-u_3, u_3-u_4, u_4-u_1\}$ is NOT a linearly independent set in $\mathbb{R}^4$
+    \item $\{u_1,-u_2, u_3,-u_4\}$ is NOT a linearly independent set in $\mathbb{R}^4$
+    \item $\{u_1+u_2, u_2+u_3, u_3+u_4, u_4+u_1\}$ is a linearly independent set in $\mathbb{R}^4$
+\end{enumerate}
+
+\pyqheader{2025}{40}{MSQ}{2}
+$V_1=\text{span}\{(1,2,3),(1,1,0)\}, V_2=\text{span}\{(1,-1,0)\}, V_3=\text{span}\{(1,1,1)\}, V_4=\text{span}\{(1,3,6)\}, V_5=\text{span}\{(1,0,-3)\}$.
+\begin{enumerate}[label=(\Alph*)]
+    \item $V_1\cup V_2$ is a subspace of $\mathbb{R}^3$
+    \item $V_1\cup V_3$ is a subspace of $\mathbb{R}^3$
+    \item $V_1\cup V_4$ is a subspace of $\mathbb{R}^3$
+    \item $V_1\cup V_5$ is a subspace of $\mathbb{R}^3$
+\end{enumerate}
+
+\pyqheader{2025}{46}{NAT}{1}
+$\dim(V_1\cap V_2\cap V_3)$ for $V_1: x+y+2w=0, V_2: 2y+z+w=0, V_3: x+3y+z+3w=0$ in $\mathbb{R}^{4}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{47}{NAT}{1}
+Let $T:\mathbb{R}^{3}\rightarrow\mathbb{R}$ linear with $T(1,1,1)=0, T(1,-1,1)=0, T(0,0,1)=16$. Then $T(\frac{1}{2},\frac{2}{3},\frac{3}{4})=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{49}{NAT}{1}
+$T(p(x))=xp^{\prime}(x)$ and $S(p(x))=(x+1)p^{\prime}(x)$ on $P_{4}(\mathbb{R})$. Nullity of $S\circ T$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{58}{NAT}{2}
+Dimension of $H=\{p(x)\in P_{3}(\mathbb{R}): xp^{\prime}(x)=3p(x)\}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{13}{MCQ}{2}
+Nonzero subspace $V\subseteq M_{7}(\mathbb{C})$ where every non-zero matrix is invertible. $\dim(V)$ over $\mathbb{C}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 7
+    \item 49
+\end{enumerate}
+
+\pyqheader{2024}{17}{MCQ}{2}
+Let $P_{11}(x)$ be the real vector space of polynomials in $x$ with real coefficients and having degree at most 11, together with the zero polynomial. Let $E=\{s_0(x), s_1(x), \dots, s_{11}(x)\}$ and $F=\{r_0(x), r_1(x), \dots, r_{11}(x)\}$ be subsets of $P_{11}(x)$ having 12 elements each and satisfying $s_0(3)=s_1(3)=\dots=s_{11}(3)=0$ and $r_0(4)=r_1(4)=\dots=r_{11}(4)=1$. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item Any such $E$ is not necessarily linearly dependent and any such $F$ is not necessarily linearly dependent
+    \item Any such $E$ is necessarily linearly dependent but any such $F$ is not necessarily linearly dependent
+    \item Any such $E$ is not necessarily linearly dependent but any such $F$ is necessarily linearly dependent
+    \item Any such $E$ is necessarily linearly dependent and any such $F$ is necessarily linearly dependent
+\end{enumerate}
+
+\pyqheader{2024}{22}{MCQ}{2}
+$T(f(x))=f(x)+f^{\prime}(x)$ on $P_{7}(x)$.
+\begin{enumerate}[label=(\Alph*)]
+    \item $T$ is not a surjective linear transformation
+    \item There exists $k\in\mathbb{N}$ such that $T^k$ is the zero linear transformation
+    \item 1 and 2 are the eigenvalues of $T$
+    \item There exists $r\in\mathbb{N}$ such that $(T-I)^{r}$ is the zero linear transformation
+\end{enumerate}
+
+\pyqheader{2024}{45}{NAT}{1}
+$\dim(\{f\in P_{12}(x): f(-x)=f(x) \text{ and } f(2024)=0\})=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{49}{NAT}{1}
+Let $P_7(x)$ be the real vector space of polynomials in $x$ with degree at most 7, together with the zero polynomial. For $r=1,2,\dots,7$, define $s_r(x)=x(x-1)\cdots(x-(r-1))$ and $s_0(x)=1$. If $x^{5}=\sum_{k=0}^{7}\alpha_{5,k}s_k(x)$, where $\alpha_{5,k}\in\mathbb{R}$, then $\alpha_{5,2}$ equals \underline{\hspace{1.5cm}} (rounded off to two decimal places).
+
+\pyqheader{2024}{58}{NAT}{2}
+Dimension of continuous piecewise linear functions on $[0,1]$ with nodes $\frac{1}{4}, \frac{1}{2}, \frac{3}{4}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{3}{MCQ}{1}
+Which is a subspace of $\mathbb{R}^{3}$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\{(x,y,z): (y+z)^{2}+(2x-3y)^{2}=0\}$
+    \item $\{(x,y,z): y\in\mathbb{Q}\}$
+    \item $\{(x,y,z): yz=0\}$
+    \item $\{(x,y,z): x+2y-3z+1=0\}$
+\end{enumerate}
+
+\pyqheader{2023}{12}{MCQ}{2}
+I: Linear map on $\mathbb{R}^{3}$ with $\text{range}=\text{null}$. II: Linear map on $\mathbb{R}^{2}$ with $\text{range}=\text{null}$.
+\begin{enumerate}[label=(\Alph*)]
+    \item Both I and II are TRUE
+    \item I is TRUE but II is FALSE
+    \item II is TRUE but I is FALSE
+    \item Both I and II are FALSE
+\end{enumerate}
+
+\pyqheader{2023}{15}{MCQ}{2}
+I: $\text{span}(S)=\mathbb{R}^{2}\implies\text{span}(S\cap W)=W$. II: $\text{span}(S\cup T)=\text{span}(S)\cup\text{span}(T)$.
+\begin{enumerate}[label=(\Alph*)]
+    \item Both I and II are TRUE
+    \item I is TRUE but II is FALSE
+    \item II is TRUE but I is FALSE
+    \item Both I and II are FALSE
+\end{enumerate}
+
+\pyqheader{2023}{38}{MSQ}{2}
+Which of the following is/are true?
+\begin{enumerate}[label=(\Alph*)]
+    \item Every linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$ maps lines onto points or lines
+    \item Every surjective linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$ maps lines onto lines
+    \item Every bijective linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$ maps pairs of parallel lines to pairs of parallel lines
+    \item Every bijective linear transformation from $\mathbb{R}^2$ to $\mathbb{R}^2$ maps pairs of perpendicular lines to pairs of perpendicular lines
+\end{enumerate}
+
+\pyqheader{2023}{39}{MSQ}{2}
+Which of the following is/are linear transformations?
+\begin{enumerate}[label=(\Alph*)]
+    \item $T(x)=\sin x$
+    \item $T(A)=\text{trace}(A)$
+    \item $T(x,y)=x+y+1$
+    \item $T(p(x))=p(1)$
+\end{enumerate}
+
+\pyqheader{2023}{42}{NAT}{1}
+Rank of $T:P_2(\mathbb{R})\rightarrow P_4(\mathbb{R})$ given by $T(p(x))=p(x^{2})$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{57}{NAT}{2}
+Dimension of matrices in $M_3(\mathbb{R})$ with each row sum and column sum equal to zero is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{3}{MCQ}{1}
+Which is a subspace of $P_{6}(\mathbb{R})$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\{f: f(1/2)\notin\mathbb{Q}\}$
+    \item $\{f: f(1/2)=1\}$
+    \item $\{f: f(1/2)=f(1)\}$
+    \item $\{f: f^{\prime}(1/2)=1\}$
+\end{enumerate}
+
+\pyqheader{2022}{20}{MCQ}{2}
+Let $S=\{P\in M_5(\mathbb{R}): p_{ij}=p_{rs} \text{ for } i+r=j+s\}$. Which is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $S$ is a subspace of symmetric matrices
+    \item $\dim(S)=5$
+    \item $\dim(S)=11$
+    \item 5 divides diagonal sum if entries are integers
+\end{enumerate}
+
+\pyqheader{2022}{26}{MCQ}{2}
+Dimension of $H=\{M\in M_{4}(\mathbb{C}): M^{T}=\overline{M}\}$ over $\mathbb{R}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 6
+    \item 16
+    \item 15
+    \item 12
+\end{enumerate}
+
+\pyqheader{2022}{39}{MSQ}{2}
+Let $T:P_{5}\rightarrow\mathbb{R}$ linear with $T(1)=1$ and $T(x(x-1)\cdots(x-k+1))=1$ for $1\le k\le 5$.
+\begin{enumerate}[label=(\Alph*)]
+    \item $T(x^{4})=15$
+    \item $T(x^{3})=5$
+    \item $T(x^{4})=14$
+    \item $T(x^{3})=3$
+\end{enumerate}
+
+\pyqheader{2022}{40}{MSQ}{2}
+Let $P$ be a fixed $3\times 3$ matrix with entries in $\mathbb{R}$. Which of the following maps from $M_3(\mathbb{R})$ to $M_3(\mathbb{R})$ is/are linear?
+\begin{enumerate}[label=(\Alph*)]
+    \item $T_1(M)=MP-PM$
+    \item $T_2(M)=M^{2}P-P^{2}M$
+    \item $T_3(M)=MP^{2}+P^{2}M$
+    \item $T_4(M)=MP^{2}-PM^{2}$
+\end{enumerate}
+
+% ------------------------------------------------------------------------------
+\subsection{Groups}
+
+\pyqheader{2026}{9}{MCQ}{1}
+Which ONE of the following statements is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $S_{3}$ is isomorphic to a subgroup of $S_{4}$.
+    \item $\mathbb{Z}_{3}$ is isomorphic to a subgroup of $S_{4}$.
+    \item $S_{3}$ is isomorphic to a quotient group of $S_{4}$.
+    \item $\mathbb{Z}_{6}$ is isomorphic to a quotient group of $S_{4}$.
+\end{enumerate}
+
+\pyqheader{2026}{26}{MCQ}{2}
+Let $f:G\rightarrow\mathbb{Z}$ be a surjective homomorphism from abelian group $G$, kernel $K$. Which ONE is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\exists\phi:\mathbb{Z}\rightarrow G$ such that $f\circ\phi=\text{id}_{\mathbb{Z}}$
+    \item $K$ is isomorphic to a quotient group of $G$
+    \item For all non-zero $\alpha:\mathbb{Z}\rightarrow G$ and $\beta:G\rightarrow K$, $\beta\circ\alpha\ne 0$
+    \item $G$ has a subgroup isomorphic to $\mathbb{Z}$
+\end{enumerate}
+
+\pyqheader{2026}{27}{MCQ}{2}
+Which ONE of the following statements is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item There is a surjective group homomorphism from the additive group of rational numbers to the multiplicative group of all complex roots of unity.
+    \item The multiplicative group of complex numbers of modulus one is isomorphic to a quotient group of the additive group of real numbers.
+    \item Any group homomorphism from the multiplicative group of nonzero complex numbers into the group of all invertible $2\times 2$ matrices with real entries has nontrivial kernel.
+    \item There exists a group homomorphism from the symmetric group on $n$ symbols into the multiplicative group of all invertible $n\times n$ matrices with real entries, which has a trivial kernel.
+\end{enumerate}
+
+\pyqheader{2026}{30}{MCQ}{2}
+Let $G=\mathcal{P}(\{1,2,3,4\})$ with $A\Delta B=(A\setminus B)\cup(B\setminus A)$. Which ONE is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\{1\}$ is an identity element of $(G,\Delta)$.
+    \item $(G,\Delta)$ is an abelian group but not cyclic.
+    \item $(G,\Delta)$ is a group and has an element of order 4.
+    \item $(G,\Delta)$ is a group and has an element of order 8.
+\end{enumerate}
+
+\pyqheader{2026}{47}{NAT}{1}
+Let $C_n$ denote a cyclic group having $n$ elements. If there is a surjective group homomorphism from $C_n$ to $C_{30}$, then the total number of such distinct surjective homomorphisms is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{9}{MCQ}{1}
+Let $G$ be a finite abelian group of order 10. Let $x_{0}$ be an element of order 2 in $G$. Number of elements in $\{x\in G: x^{3}=x_{0}\}$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 3
+    \item 0
+\end{enumerate}
+
+\pyqheader{2025}{13}{MCQ}{2}
+Let $X=\{x\in S_{4}: x^{3}=\text{id}\}$ and $Y=\{x\in S_{4}: x^{2}\ne\text{id}\}$. If $|X|=m, |Y|=n$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $m$ is even and $n$ is even
+    \item $m$ is odd and $n$ is even
+    \item $m$ is even and $n$ is odd
+    \item $m$ is odd and $n$ is odd
+\end{enumerate}
+
+\pyqheader{2025}{23}{MCQ}{2}
+Let $m=$ number of injective homomorphisms from $\mathbb{Z}_3\rightarrow\mathbb{R}/\mathbb{Z}$, and $n=$ number of homomorphisms from $\mathbb{R}/\mathbb{Z}\rightarrow\mathbb{Z}_3$.
+\begin{enumerate}[label=(\Alph*)]
+    \item $m=2, n=1$
+    \item $m=3, n=3$
+    \item $m=2, n=3$
+    \item $m=1, n=1$
+\end{enumerate}
+
+\pyqheader{2025}{39}{MSQ}{2}
+For $U(n)=\{x\in\mathbb{Z}_{n}: \gcd(x,n)=1\}$:
+\begin{enumerate}[label=(\Alph*)]
+    \item $U(8)$ is a cyclic group
+    \item $U(5)$ is a cyclic group
+    \item $U(12)$ is a cyclic group
+    \item $U(9)$ is a cyclic group
+\end{enumerate}
+
+\pyqheader{2025}{52}{NAT}{2}
+For $\sigma=(1\,2\,3)\in S_{4}$, $|\{\tau\in S_{4}: \tau\sigma\tau^{-1}=\sigma\}|=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{59}{NAT}{2}
+Let $G$ be an abelian group of order 35. Let $m$ denote the number of elements of order 5 in $G$, and let $n$ denote the number of elements of order 7 in $G$. Then $m+n=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2025}{60}{NAT}{2}
+The number of surjective group homomorphisms from $S_4$ to $\mathbb{Z}_6$ is equal to \underline{\hspace{1.5cm}}.
+
+\pyqheader{2024}{5}{MCQ}{1}
+Let $G$ be a group of order 39 such that it has exactly one subgroup of order 3 and exactly one subgroup of order 13. Then, which one of the following statements is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $G$ is necessarily cyclic
+    \item $G$ is abelian but need not be cyclic
+    \item $G$ need not be abelian
+    \item $G$ has 13 elements of order 13
+\end{enumerate}
+
+\pyqheader{2024}{6}{MCQ}{1}
+Which one of the following is TRUE for $U(n)$ groups?
+\begin{enumerate}[label=(\Alph*)]
+    \item $U(5)$ is isomorphic to $U(8)$
+    \item $U(10)$ is isomorphic to $U(12)$
+    \item $U(8)$ is isomorphic to $U(10)$
+    \item $U(8)$ is isomorphic to $U(12)$
+\end{enumerate}
+
+\pyqheader{2024}{7}{MCQ}{1}
+Which one of the following is TRUE for the symmetric group $S_{13}$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $S_{13}$ has an element of order 42
+    \item $S_{13}$ has no element of order 35
+    \item $S_{13}$ has an element of order 27
+    \item $S_{13}$ has no element of order 60
+\end{enumerate}
+
+\pyqheader{2024}{8}{MCQ}{1}
+Let $G$ be a finite group containing a non-identity element which is conjugate to its inverse. Then, which one of the following is TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item The order of $G$ is necessarily even
+    \item The order of $G$ is not necessarily even
+    \item $G$ is necessarily cyclic
+    \item $G$ is necessarily abelian but need not be cyclic
+\end{enumerate}
+
+\pyqheader{2024}{11}{MCQ}{2}
+Which one of the following groups has elements of order 1, 2, 3, 4, 5 but does not have an element of order greater than or equal to 6?
+\begin{enumerate}[label=(\Alph*)]
+    \item The alternating group $A_6$
+    \item The alternating group $A_5$
+    \item $S_6$
+    \item $S_5$
+\end{enumerate}
+
+\pyqheader{2024}{12}{MCQ}{2}
+Consider the group $G=\{A\in M_2(\mathbb{R}): AA^{T}=I_2\}$ with respect to matrix multiplication. The center $Z(G)$ has order:
+\begin{enumerate}[label=(\Alph*)]
+    \item 1
+    \item 2
+    \item 4
+    \item Infinite
+\end{enumerate}
+
+\pyqheader{2024}{33}{MSQ}{2}
+Which of the following statements is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item The additive group of real numbers is isomorphic to the multiplicative group of positive real numbers
+    \item The multiplicative group of nonzero real numbers is isomorphic to the multiplicative group of nonzero complex numbers
+    \item The additive group of rational numbers is isomorphic to the multiplicative group of positive rational numbers
+    \item The multiplicative group of positive rational numbers is isomorphic to the multiplicative group of nonzero complex numbers
+\end{enumerate}
+
+\pyqheader{2024}{36}{MSQ}{2}
+Which of the following is/are TRUE for any group $G$?
+\begin{enumerate}[label=(\Alph*)]
+    \item If $G$ is non-abelian and $Z(G)$ contains more than one element, then the center of the quotient group $G/Z(G)$ contains only one element
+    \item If $|G|\ge 2$, then there exists a non-trivial homomorphism from $\mathbb{Z}$ to $G$
+    \item If $|G|\ge 2$ and $G$ is non-abelian, then there exists a non-identity isomorphism from $G$ to itself
+    \item If $|G|=p^3$, where $p$ is a prime number, then $G$ is necessarily abelian
+\end{enumerate}
+
+\pyqheader{2024}{40}{MSQ}{2}
+Consider $G=\{m+n\sqrt{2}: m,n\in\mathbb{Z}\}$ as a subgroup of the additive group $\mathbb{R}$. Which of the following statements is/are TRUE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $G$ is a cyclic subgroup of $\mathbb{R}$ under addition
+    \item $G\cap I$ is non-empty for every non-empty open interval $I\subseteq\mathbb{R}$
+    \item $G$ is a closed subset of $\mathbb{R}$
+    \item $G$ is isomorphic to the group $\mathbb{Z}\times\mathbb{Z}$, where $(m_1,n_1)+(m_2,n_2)=(m_1+m_2, n_1+n_2)$
+\end{enumerate}
+
+\pyqheader{2023}{1}{MCQ}{1}
+Let $G$ be a finite group. Then $G$ is necessarily a cyclic group if the order of $G$ is:
+\begin{enumerate}[label=(\Alph*)]
+    \item 4
+    \item 7
+    \item 6
+    \item 10
+\end{enumerate}
+
+\pyqheader{2023}{23}{MCQ}{2}
+Consider the following statements:
+\begin{itemize}
+    \item[I.] Every infinite group has infinitely many subgroups.
+    \item[II.] There are only finitely many non-isomorphic groups of a given finite order.
+\end{itemize}
+Then:
+\begin{enumerate}[label=(\Alph*)]
+    \item both I and II are TRUE
+    \item I is TRUE but II is FALSE
+    \item I is FALSE but II is TRUE
+    \item both I and II are FALSE
+\end{enumerate}
+
+\pyqheader{2023}{27}{MCQ}{2}
+How many group homomorphisms are there from $\mathbb{Z}_2$ to $S_5$?
+\begin{enumerate}[label=(\Alph*)]
+    \item 40
+    \item 41
+    \item 26
+    \item 25
+\end{enumerate}
+
+\pyqheader{2023}{29}{MCQ}{2}
+From the additive group $(\mathbb{Q},+)$, to which one of the following groups does there exist a non-trivial group homomorphism?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\mathbb{R}^{\times}$, the multiplicative group of non-zero real numbers
+    \item $(\mathbb{Z},+)$, the additive group of integers
+    \item $\mathbb{Z}_2$, the additive group of integers modulo 2
+    \item $\mathbb{Q}^{\times}$, the multiplicative group of non-zero rational numbers
+\end{enumerate}
+
+\pyqheader{2023}{32}{MSQ}{2}
+Let $0\in A\subseteq\mathbb{Z}$. Which of the following conditions imply that $A$ is a subgroup of $(\mathbb{Z},+)$?
+\begin{enumerate}[label=(\Alph*)]
+    \item $-2A\subseteq A, A+A=A$
+    \item $A=-A, A+2A=A$
+    \item $A=-A, A+A=A$
+    \item $2A\subseteq A, A+A=A$
+\end{enumerate}
+
+\pyqheader{2023}{45}{NAT}{1}
+For $\sigma\in S_8$, let $o(\sigma)$ denote the order of $\sigma$. Then $\max\{o(\sigma): \sigma\in S_8\}=$ \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{46}{NAT}{1}
+The number of group isomorphisms from $\mathbb{Z}_8^{\times}$ onto itself is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2023}{54}{NAT}{2}
+The number of permutations in $S_4$ that have exactly 2 cycles in their cycle decomposition is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{4}{MCQ}{1}
+Let $G$ be a group of order 2022. Let $H$ and $K$ be subgroups of $G$ of order 337 and 674, respectively. If $H\cup K$ is also a subgroup of $G$, then which one of the following is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $H$ is a normal subgroup of $H\cup K$.
+    \item The order of $H\cup K$ is 1011.
+    \item The order of $H\cup K$ is 674.
+    \item $K$ is a normal subgroup of $H\cup K$.
+\end{enumerate}
+
+\pyqheader{2022}{19}{MCQ}{2}
+Consider the group $(\mathbb{Q},+)$ and its subgroup $(\mathbb{Z},+)$. For the quotient group $\mathbb{Q}/\mathbb{Z}$, which one of the following is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item $\mathbb{Q}/\mathbb{Z}$ contains a subgroup isomorphic to $(\mathbb{Z},+)$.
+    \item There is exactly one group homomorphism from $\mathbb{Q}/\mathbb{Z}$ to $(\mathbb{Q},+)$.
+    \item For all $n\in\mathbb{N}$, there exists $g\in\mathbb{Q}/\mathbb{Z}$ such that the order of $g$ is $n$.
+    \item $\mathbb{Q}/\mathbb{Z}$ is not a cyclic group.
+\end{enumerate}
+
+\pyqheader{2022}{24}{MCQ}{2}
+For the group $U_{37}=\{g\in\mathbb{Z}_{37}: \gcd(g,37)=1\}$ under multiplication modulo 37. Which ONE of the following is FALSE?
+\begin{enumerate}[label=(\Alph*)]
+    \item The set $\{\bar{g}\in U_{37}: \bar{g}=\bar{g}^{-1}\}$ contains exactly 2 elements.
+    \item The order of the element 10 in $U_{37}$ is 36.
+    \item There is exactly one group homomorphism from $U_{37}$ to $(\mathbb{Z},+)$.
+    \item There is exactly one group homomorphism from $U_{37}$ to $(\mathbb{Q},+)$.
+\end{enumerate}
+
+\pyqheader{2022}{37}{MSQ}{2}
+Let $G$ be a finite group of order at least two. Let $\sigma:G\rightarrow G$ be a bijective group homomorphism such that $\sigma(g)=g\implies g=e$, and $\sigma\circ\sigma=\text{id}$. Which of the following is/are correct?
+\begin{enumerate}[label=(\Alph*)]
+    \item For each $g\in G$, there exists $h\in G$ such that $h^{-1}\sigma(h)=g$.
+    \item There exists $x\in G$ such that $x\sigma(x)\ne e$.
+    \item The map $\sigma$ satisfies $\sigma(x)=x^{-1}$ for every $x\in G$.
+    \item The order of the group $G$ is an odd number.
+\end{enumerate}
+
+\pyqheader{2022}{45}{NAT}{1}
+The number of distinct subgroups of $\mathbb{Z}_{999}$ is \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{46}{NAT}{1}
+The number of elements of order 12 in the symmetric group $S_7$ is equal to \underline{\hspace{1.5cm}}.
+
+\pyqheader{2022}{58}{NAT}{2}
+Let $\sigma$ be the permutation in the symmetric group $S_5$ given by $\sigma(1)=2, \sigma(2)=3, \sigma(3)=1, \sigma(4)=5, \sigma(5)=4$. Then the number of elements in the centralizer $N(\sigma)=\{\tau\in S_5: \sigma\circ\tau=\tau\circ\sigma\}$ is equal to \underline{\hspace{1.5cm}}.
+
+% ==============================================================================
+% MASTER ANSWER KEY
+% ==============================================================================
+\newpage
+\section{Master Answer Key (2022 -- 2026)}
+
+\begin{center}
+\footnotesize
+\begin{tabularx}{\textwidth}{ccc|ccc|ccc|ccc|ccc}
+\toprule
+\multicolumn{3}{c|}{\textbf{JAM 2026}} & \multicolumn{3}{c|}{\textbf{JAM 2025}} & \multicolumn{3}{c|}{\textbf{JAM 2024}} & \multicolumn{3}{c|}{\textbf{JAM 2023}} & \multicolumn{3}{c}{\textbf{JAM 2022}} \\
+\textbf{Q\#} & \textbf{Type} & \textbf{Key} & \textbf{Q\#} & \textbf{Type} & \textbf{Key} & \textbf{Q\#} & \textbf{Type} & \textbf{Key} & \textbf{Q\#} & \textbf{Type} & \textbf{Key} & \textbf{Q\#} & \textbf{Type} & \textbf{Key} \\
+\midrule
+1 & MCQ & D & 1 & MCQ & C & 1 & MCQ & B & 1 & MCQ & B & 1 & MCQ & C \\
+2 & MCQ & D & 2 & MCQ & B & 2 & MCQ & A & 2 & MCQ & D & 2 & MCQ & D \\
+3 & MCQ & A & 3 & MCQ & A & 3 & MCQ & A & 3 & MCQ & A & 3 & MCQ & C \\
+4 & MCQ & D & 4 & MCQ & A & 4 & MCQ & A & 4 & MCQ & D & 4 & MCQ & B \\
+5 & MCQ & A & 5 & MCQ & A & 5 & MCQ & A & 5 & MCQ & A & 5 & MCQ & B \\
+6 & MCQ & B & 6 & MCQ & D & 6 & MCQ & D & 6 & MCQ & B & 6 & MCQ & D \\
+7 & MCQ & B & 7 & MCQ & B & 7 & MCQ & A & 7 & MCQ & A & 7 & MCQ & C \\
+8 & MCQ & B & 8 & MCQ & C & 8 & MCQ & A & 8 & MCQ & B & 8 & MCQ & A \\
+9 & MCQ & D & 9 & MCQ & A & 9 & MCQ & D & 9 & MCQ & C & 9 & MCQ & A \\
+10 & MCQ & MTA & 10 & MCQ & A & 10 & MCQ & B & 10 & MCQ & C & 10 & MCQ & D \\
+11 & MCQ & C & 11 & MCQ & B & 11 & MCQ & A & 11 & MCQ & B & 11 & MCQ & C \\
+12 & MCQ & C & 12 & MCQ & B & 12 & MCQ & B & 12 & MCQ & C & 12 & MCQ & C \\
+13 & MCQ & D & 13 & MCQ & B & 13 & MCQ & A & 13 & MCQ & B & 13 & MCQ & B \\
+14 & MCQ & D & 14 & MCQ & C & 14 & MCQ & D & 14 & MCQ & B & 14 & MCQ & D \\
+15 & MCQ & D & 15 & MCQ & A & 15 & MCQ & A & 15 & MCQ & D & 15 & MCQ & MTA \\
+16 & MCQ & C & 16 & MCQ & B & 16 & MCQ & A & 16 & MCQ & D & 16 & MCQ & A \\
+17 & MCQ & D & 17 & MCQ & B & 17 & MCQ & B & 17 & MCQ & B & 17 & MCQ & B \\
+18 & MCQ & D & 18 & MCQ & D & 18 & MCQ & A & 18 & MCQ & B & 18 & MCQ & C \\
+19 & MCQ & A & 19 & MCQ & D & 19 & MCQ & D & 19 & MCQ & B & 19 & MCQ & A \\
+20 & MCQ & A & 20 & MCQ & A & 20 & MCQ & A & 20 & MCQ & C & 20 & MCQ & C \\
+21 & MCQ & D & 21 & MCQ & B & 21 & MCQ & A & 21 & MCQ & B & 21 & MCQ & D \\
+22 & MCQ & A & 22 & MCQ & C & 22 & MCQ & D & 22 & MCQ & A & 22 & MCQ & C \\
+23 & MCQ & B & 23 & MCQ & A & 23 & MCQ & A & 23 & MCQ & A & 23 & MCQ & A \\
+24 & MCQ & C & 24 & MCQ & C & 24 & MCQ & A & 24 & MCQ & B & 24 & MCQ & B \\
+25 & MCQ & B & 25 & MCQ & A & 25 & MCQ & D & 25 & MCQ & A & 25 & MCQ & B \\
+26 & MCQ & C & 26 & MCQ & B & 26 & MCQ & B & 26 & MCQ & D & 26 & MCQ & B \\
+27 & MCQ & C & 27 & MCQ & C & 27 & MCQ & A & 27 & MCQ & C & 27 & MCQ & D \\
+28 & MCQ & D & 28 & MCQ & B & 28 & MCQ & B & 28 & MCQ & A & 28 & MCQ & B \\
+29 & MCQ & A & 29 & MCQ & A & 29 & MCQ & C & 29 & MCQ & A & 29 & MCQ & C \\
+30 & MCQ & B & 30 & MCQ & C & 30 & MCQ & A & 30 & MCQ & A & 30 & MCQ & C \\
+31 & MSQ & A,C,D & 31 & MSQ & A,C,D & 31 & MSQ & A,B & 31 & MSQ & A,C & 31 & MSQ & A,C \\
+32 & MSQ & C,D & 32 & MSQ & A,B,C & 32 & MSQ & A,B & 32 & MSQ & A,B,C & 32 & MSQ & A,B \\
+33 & MSQ & A,C & 33 & MSQ & A,B,D & 33 & MSQ & A & 33 & MSQ & B,D & 33 & MSQ & A,B,C \\
+34 & MSQ & B & 34 & MSQ & B,D & 34 & MSQ & B,D & 34 & MSQ & A,C,D & 34 & MSQ & A,D \\
+35 & MSQ & B,D & 35 & MSQ & A,B & 35 & MSQ & B,C & 35 & MSQ & A,B,D & 35 & MSQ & C,D \\
+36 & MSQ & A,C & 36 & MSQ & A,C,D & 36 & MSQ & B,C & 36 & MSQ & A,B,C & 36 & MSQ & C,D \\
+37 & MSQ & A,B,D & 37 & MSQ & B,D & 37 & MSQ & B,C & 37 & MSQ & A,B,C & 37 & MSQ & A,C,D \\
+38 & MSQ & A & 38 & MSQ & B,C,D & 38 & MSQ & B,D & 38 & MSQ & A,B,C & 38 & MSQ & A,C \\
+39 & MSQ & A,B,C & 39 & MSQ & B,D & 39 & MSQ & B,C & 39 & MSQ & B,D & 39 & MSQ & A,B \\
+40 & MSQ & B,D & 40 & MSQ & C,D & 40 & MSQ & B,D & 40 & MSQ & A,D & 40 & MSQ & A,C \\
+41 & NAT & 4.0 & 41 & NAT & 2.0 & 41 & NAT & 0.25 & 41 & NAT & 0 & 41 & NAT & 2.20 \\
+42 & NAT & 1.0 & 42 & NAT & 4.0 & 42 & NAT & 0.20 & 42 & NAT & 3 & 42 & NAT & 14 \\
+43 & NAT & 1.0 & 43 & NAT & 2.0 & 43 & NAT & 1.0 & 43 & NAT & 0 & 43 & NAT & 0.33 \\
+44 & NAT & 1.0 & 44 & NAT & 1.41 & 44 & NAT & 0.17 & 44 & NAT & 0.50 & 44 & NAT & 0.25 \\
+45 & NAT & 8.0 & 45 & NAT & 3.0 & 45 & NAT & 6 & 45 & NAT & 15 & 45 & NAT & 8 \\
+46 & NAT & 3.0 & 46 & NAT & 2 & 46 & NAT & 3 & 46 & NAT & 6 & 46 & NAT & 420 \\
+47 & NAT & 8 & 47 & NAT & 4.0 & 47 & NAT & 2.0 & 47 & NAT & 0.50 & 47 & NAT & 0 \\
+48 & NAT & -4.0 & 48 & NAT & 2.33 & 48 & NAT & 4.56 & 48 & NAT & 4.0 & 48 & NAT & 0.50 \\
+49 & NAT & 3.0 & 49 & NAT & 1 & 49 & NAT & 15 & 49 & NAT & 0.50 & 49 & NAT & 2.25 \\
+50 & NAT & 16.0 & 50 & NAT & 3.0 & 50 & NAT & 31 & 50 & NAT & 1.0 & 50 & NAT & 2.00 \\
+51 & NAT & -1.0 & 51 & NAT & 2.0 & 51 & NAT & 6 & 51 & NAT & 21.0 & 51 & NAT & 18 \\
+52 & NAT & 0.25 & 52 & NAT & 3 & 52 & NAT & 0.25 & 52 & NAT & 0.75 & 52 & NAT & 4.16 \\
+53 & NAT & 1.25 & 53 & NAT & 9 & 53 & NAT & 2.0 & 53 & NAT & 0.50 & 53 & NAT & 3.00 \\
+54 & NAT & 0.45 & 54 & NAT & 5.22 & 54 & NAT & 4.80 & 54 & NAT & 11 & 54 & NAT & 2.00 \\
+55 & NAT & 4.0 & 55 & NAT & 1.0 & 55 & NAT & 0.33 & 55 & NAT & 0.50 & 55 & NAT & 3.00 \\
+56 & NAT & -1.0 & 56 & NAT & 4.0 & 56 & NAT & 5 & 56 & NAT & 2 & 56 & NAT & 5 \\
+57 & NAT & 6.0 & 57 & NAT & MTA & 57 & NAT & 4.5 & 57 & NAT & 4 & 57 & NAT & 41 \\
+58 & NAT & 165 & 58 & NAT & 1 & 58 & NAT & 5 & 58 & NAT & 3 & 58 & NAT & 6 \\
+59 & NAT & 1.0 & 59 & NAT & 10 & 59 & NAT & 1.0 & 59 & NAT & 0 & 59 & NAT & 2.00 \\
+60 & NAT & 924 & 60 & NAT & 0 & 60 & NAT & 1.60 & 60 & NAT & 0.50 & 60 & NAT & 13.40 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\end{document}

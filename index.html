@@ -3,446 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaibhav Geometer • Mathematics, Research & IIT JAM Mock Test Series</title>
-  <meta name="description" content="Personal portal of Vaibhav Geometer — Explorer of Differential Geometry, Topology, and higher mathematics. Features the official IIT JAM Mathematics (MA) Topic-Wise Mock Test Series (2022–2026), 3D geometry sandbox, and formula vault.">
-  <meta name="keywords" content="Vaibhav Geometer, Mathematics, Differential Geometry, Topology, IIT JAM Mathematics Mock Test, IIT JAM MA, Computer Based Test, MathJax, LaTeX">
+  <title>IIT JAM Mathematics (MA) — Mock Test Series</title>
+  <meta name="description" content="Free IIT JAM Mathematics (MA) Mock Test Series covering 300 official PYQs (2022–2026). Authentic CBT simulation with MathJax LaTeX, scientific calculator, and instant analytics.">
+  <meta name="keywords" content="IIT JAM Mathematics Mock Test, IIT JAM MA, PYQ, Computer Based Test, MathJax, LaTeX, Real Analysis, Linear Algebra, Group Theory">
   <meta name="author" content="Vaibhav Geometer">
-  
-  <!-- Favicon / Icon -->
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
 
-  <!-- MathJax 3 Configuration -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- MathJax 3 -->
   <script src="mock-test/js/mathjax_config.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-  <!-- Portal Stylesheets -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="mock-test/app.css">
 </head>
 <body>
 
-  <!-- Ambient Visual Canvas & Mesh Background -->
-  <div class="ambient-bg"></div>
-  <div class="grid-overlay"></div>
-
-  <!-- Header Navigation -->
+  <!-- Header -->
   <header class="site-header">
     <nav class="nav-container">
-      <a href="#hero" class="brand-logo">
-        <div class="brand-icon-box">📐</div>
-        <div class="brand-text-wrap">
-          <span class="brand-name">Vaibhav Geometer</span>
-          <span class="brand-tagline">Geometry • Research • IIT JAM Hub</span>
-        </div>
+      <a href="#" class="brand-logo">
+        <span class="brand-icon">📐</span>
+        <span class="brand-name">IIT JAM Mock Tests</span>
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#hero" class="nav-link">Home</a></li>
-        <li><a href="#mock-tests" class="nav-link">Mock Tests</a></li>
-        <li><a href="#geometry-sandbox" class="nav-link">3D Sandbox</a></li>
-        <li><a href="#formula-vault" class="nav-link">Formula Vault</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-      </ul>
-
       <div class="nav-actions">
-        <button class="btn-theme-toggle" onclick="window.toggleTheme()" title="Toggle Dark/Light Mode">☀</button>
-        <button class="btn-theme-toggle" onclick="window.toggleCalculator()" title="Virtual Scientific Calculator">🖩</button>
-        <a href="#mock-tests" class="btn-primary-nav">
-          <span>⚡</span> Take Mock Test
+        <a href="mock-test/Topic-Wise Question Bank (2022 – 2026).pdf" target="_blank" class="nav-link-btn" download>
+          📥 PDF
         </a>
-        <button class="mobile-menu-btn" onclick="window.toggleMobileMenu()" title="Toggle Menu">☰</button>
+        <button class="icon-btn" onclick="window.toggleTheme()" title="Toggle Theme" id="theme-btn">☀</button>
       </div>
     </nav>
-
-    <!-- Mobile Drawer -->
-    <div id="mobile-nav-drawer" class="mobile-nav-drawer">
-      <a href="#hero" onclick="window.toggleMobileMenu()">🏠 Home</a>
-      <a href="#mock-tests" onclick="window.toggleMobileMenu()">📝 IIT JAM Mock Tests</a>
-      <a href="#geometry-sandbox" onclick="window.toggleMobileMenu()">🌌 3D Geometry Sandbox</a>
-      <a href="#formula-vault" onclick="window.toggleMobileMenu()">📖 Formula & Concept Vault</a>
-      <a href="#about" onclick="window.toggleMobileMenu()">👨‍🔬 About & Research</a>
-      <button class="btn-cta-primary" style="margin-top: 10px; width: 100%; justify-content: center;" onclick="window.toggleCalculator(); window.toggleMobileMenu();">
-        🖩 Open Scientific Calculator
-      </button>
-    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge-pill">
-            <span class="hero-badge-dot"></span>
-            Official Syllabus Simulation & Research Portal
-          </div>
-          
-          <h1 class="hero-title">
-            Exploring <span class="gradient-text">Geometry</span>, Manifolds & Mathematical Rigor
-          </h1>
-
-          <p class="hero-description">
-            Welcome to the academic and problem-solving hub of <strong>Vaibhav Geometer</strong>. Master competitive higher mathematics with our complete <strong>IIT JAM Mathematics (MA) Mock Test Series</strong> covering 300 official questions (2022–2026) with full CBT interface, instant analytics, and step-by-step LaTeX explanations.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="#mock-tests" class="btn-cta-primary">
-              <span>🚀</span> Launch Mock Tests
-            </a>
-            <a href="#geometry-sandbox" class="btn-cta-secondary">
-              <span>🌌</span> 3D Geometry Sandbox
-            </a>
-            <a href="mock-test/Topic-Wise Question Bank (2022 – 2026).pdf" target="_blank" class="btn-cta-secondary" download>
-              <span>📥</span> Download PYQ PDF
-            </a>
-          </div>
-        </div>
-
-        <!-- 3D Interactive Hero Canvas -->
-        <div class="hero-canvas-wrap">
-          <div class="hero-canvas-header">
-            <span>✨ Interactive 3D Manifold</span>
-            <span class="canvas-tag">Torus Knot (3, 7)</span>
-          </div>
-          <div class="hero-canvas-viewport">
-            <canvas id="hero-geometry-canvas"></canvas>
-          </div>
-          <div class="hero-canvas-controls">
-            <span>👆 Drag to rotate 3D space</span>
-            <button class="btn-theme-toggle" style="width: 28px; height: 28px; font-size: 0.75rem;" onclick="window.toggleCalculator()" title="Calculator">🖩</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live Statistics Strip -->
-      <div class="stats-strip">
-        <div class="stat-item-card">
-          <div class="stat-icon-circle">📚</div>
-          <div class="stat-info">
-            <span class="stat-number">9</span>
-            <span class="stat-label">Syllabus Topics</span>
-          </div>
-        </div>
-        <div class="stat-item-card">
-          <div class="stat-icon-circle">🎯</div>
-          <div class="stat-info">
-            <span class="stat-number">300</span>
-            <span class="stat-label">Official PYQs</span>
-          </div>
-        </div>
-        <div class="stat-item-card">
-          <div class="stat-icon-circle">💯</div>
-          <div class="stat-info">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Simulated Marks</span>
-          </div>
-        </div>
-        <div class="stat-item-card">
-          <div class="stat-icon-circle">📐</div>
-          <div class="stat-info">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">LaTeX Formatted</span>
-          </div>
-        </div>
-      </div>
+      <h1>IIT JAM Mathematics <span class="accent">(MA)</span></h1>
+      <p class="hero-sub">Topic-Wise Mock Test Series · 300 Official PYQs · 2022–2026</p>
+      <p class="hero-desc">Authentic Computer Based Test simulation with MCQ, MSQ & NAT formats, official marking scheme, built-in scientific calculator, and LaTeX-rendered questions.</p>
     </div>
   </section>
 
-  <!-- Featured Mock Tests Section -->
-  <section class="section-wrapper" id="mock-tests">
+  <!-- Mock Tests -->
+  <main class="main-content">
     <div class="container">
-      <div class="section-header-block">
-        <div class="section-pill">⚡ Exam Simulator</div>
-        <h2 class="section-main-title">IIT JAM Mathematics Mock Test Series</h2>
-        <p class="section-subtitle">
-          Authentic Computer Based Test (CBT) simulation covering all 9 modules from official IIT JAM Mathematics papers (2022 through 2026). Features official marking schemes, MCQ/MSQ/NAT formats, built-in scientific calculator, and comprehensive step-by-step solutions.
-        </p>
-      </div>
 
       <!-- Filter Tabs -->
-      <div class="category-filter-tabs">
-        <button class="cat-filter-btn active" onclick="window.filterTopics('ALL', this)">All 9 Modules</button>
-        <button class="cat-filter-btn" onclick="window.filterTopics('Real Analysis', this)">1. Real Analysis</button>
-        <button class="cat-filter-btn" onclick="window.filterTopics('Multivariable Calculus and Differential Equations', this)">2. Calculus & ODE</button>
-        <button class="cat-filter-btn" onclick="window.filterTopics('Linear Algebra and Algebra', this)">3. Linear Algebra & Groups</button>
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="window.filterTopics('ALL', this)">All Topics</button>
+        <button class="filter-btn" onclick="window.filterTopics('Real Analysis', this)">Real Analysis</button>
+        <button class="filter-btn" onclick="window.filterTopics('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
+        <button class="filter-btn" onclick="window.filterTopics('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
       </div>
 
-      <!-- Dynamic Topic Cards Grid -->
+      <!-- Topic Cards Grid -->
       <div class="topics-grid" id="topics-container">
-        <!-- Injected dynamically by main.js from questions_data.js -->
+        <!-- Injected by main.js -->
       </div>
     </div>
-  </section>
-
-  <!-- Interactive 3D Geometry Sandbox -->
-  <section class="section-wrapper" id="geometry-sandbox">
-    <div class="container">
-      <div class="section-header-block">
-        <div class="section-pill">🌌 Interactive Math</div>
-        <h2 class="section-main-title">3D Differential Geometry Sandbox</h2>
-        <p class="section-subtitle">
-          Explore geometric structures, minimal surfaces, non-orientable manifolds, and parametric curvature directly in your browser. Rotate with mouse/touch and dynamically inspect parametric equations.
-        </p>
-      </div>
-
-      <div class="sandbox-card">
-        <div class="sandbox-canvas-viewport">
-          <canvas id="sandbox-canvas"></canvas>
-        </div>
-
-        <div class="sandbox-controls-panel">
-          <div class="control-group">
-            <div class="control-label-row">
-              <span>Select Parametric Manifold:</span>
-              <strong id="sandbox-surface-name" style="color: var(--brand-primary);">Möbius Strip</strong>
-            </div>
-            <select id="sandbox-surface-select" class="control-select">
-              <option value="mobius">Möbius Strip (Non-Orientable Manifold)</option>
-              <option value="torus_knot">Torus Knot (3, 7)</option>
-              <option value="enneper">Enneper's Minimal Surface (H = 0)</option>
-              <option value="hyperbolic_paraboloid">Hyperbolic Paraboloid (K < 0)</option>
-              <option value="clifford_torus">Clifford Torus in 3D Projection</option>
-            </select>
-          </div>
-
-          <div class="control-group">
-            <div class="control-label-row">
-              <span>Curvature / Twist Factor ($k$):</span>
-              <span id="sandbox-curvature-val" style="font-family: var(--font-mono); font-weight:700;">1.0</span>
-            </div>
-            <input type="range" id="sandbox-curvature-slider" class="control-slider" min="0.2" max="2.5" step="0.1" value="1.0">
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.9rem;">
-            <span>Auto-Rotation</span>
-            <input type="checkbox" id="sandbox-autorotate-check" checked style="transform: scale(1.3); cursor: pointer;">
-          </div>
-
-          <div class="formula-display-box">
-            <div class="formula-display-label">Active Parametric Representation:</div>
-            <div id="sandbox-formula-text">
-              $$\vec{r}(u,v) = \begin{pmatrix} \left(1 + \frac{v}{2}\cos\frac{u}{2}\right)\cos u \\ \left(1 + \frac{v}{2}\cos\frac{u}{2}\right)\sin u \\ \frac{v}{2}\sin\frac{u}{2} \end{pmatrix}$$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- High-Yield Formula Vault -->
-  <section class="section-wrapper" id="formula-vault">
-    <div class="container">
-      <div class="section-header-block">
-        <div class="section-pill">📖 High-Yield Revision</div>
-        <h2 class="section-main-title">IIT JAM Core Formula & Theorem Vault</h2>
-        <p class="section-subtitle">
-          Essential formulas, convergence tests, differential equations shortcuts, and linear algebra invariants for rapid revision.
-        </p>
-      </div>
-
-      <!-- Formula Vault Search & Filter Bar -->
-      <div style="max-width: 500px; margin: 0 auto 24px; position: relative;">
-        <input type="text" id="vault-search-input" placeholder="🔍 Search theorem, formula, keyword (e.g. Green, Cayley, Cauchy)..." 
-               style="width: 100%; padding: 12px 18px; border-radius: var(--radius-full); background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-main); font-size: 0.95rem; outline: none; box-shadow: var(--shadow-sm); transition: border-color 0.2s;"
-               oninput="window.searchVault(this.value)">
-      </div>
-
-      <div class="category-filter-tabs">
-        <button class="cat-filter-btn vault-filter-btn active" onclick="window.filterVault('ALL', this)">All Topics</button>
-        <button class="cat-filter-btn vault-filter-btn" onclick="window.filterVault('analysis', this)">Real Analysis</button>
-        <button class="cat-filter-btn vault-filter-btn" onclick="window.filterVault('calculus', this)">Multivariable & ODE</button>
-        <button class="cat-filter-btn vault-filter-btn" onclick="window.filterVault('algebra', this)">Linear Algebra & Groups</button>
-      </div>
-
-      <div class="vault-grid">
-        <!-- Real Analysis Card -->
-        <div class="vault-card" data-category="analysis">
-          <div class="vault-card-header">
-            <span class="vault-icon">📈</span>
-            <h3 class="vault-card-title">Sequences & Series of Reals</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Cauchy-Hadamard Radius of Convergence:</div>
-            <div>$$\frac{1}{R} = \limsup_{n \to \infty} |a_n|^{1/n} = \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right|$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Weierstrass M-Test for Uniform Convergence:</div>
-            <div>$$\text{If } |f_n(x)| \le M_n \text{ and } \sum M_n < \infty \implies \sum f_n(x) \text{ converges uniformly.}$$</div>
-          </div>
-        </div>
-
-        <!-- Multivariable Calculus Card -->
-        <div class="vault-card" data-category="calculus">
-          <div class="vault-card-header">
-            <span class="vault-icon">🌊</span>
-            <h3 class="vault-card-title">Vector Calculus & Integral Theorems</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Green's & Stokes' Theorem:</div>
-            <div>$$\oint_{\partial D} (P\,dx + Q\,dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Gauss Divergence Theorem:</div>
-            <div>$$\iint_{\partial V} \vec{F} \cdot \hat{n}\,dS = \iiint_V (\nabla \cdot \vec{F})\,dV$$</div>
-          </div>
-        </div>
-
-        <!-- ODE Card -->
-        <div class="vault-card" data-category="calculus">
-          <div class="vault-card-header">
-            <span class="vault-icon">⚙️</span>
-            <h3 class="vault-card-title">Ordinary Differential Equations</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Abel's Formula for Wronskian $W(x)$:</div>
-            <div>$$y'' + P(x)y' + Q(x)y = 0 \implies W(x) = W(x_0)\exp\left(-\int_{x_0}^x P(t)\,dt\right)$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Cauchy-Euler Equidimensional Form:</div>
-            <div>$$x^2 y'' + ax y' + by = 0 \implies m(m-1) + am + b = 0 \quad (x = e^z)$$</div>
-          </div>
-        </div>
-
-        <!-- Linear Algebra Card -->
-        <div class="vault-card" data-category="algebra">
-          <div class="vault-card-header">
-            <span class="vault-icon">🔢</span>
-            <h3 class="vault-card-title">Linear Algebra & Matrix Theory</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Rank-Nullity Theorem:</div>
-            <div>$$\dim(\text{domain } V) = \operatorname{rank}(T) + \operatorname{nullity}(T)$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Cayley-Hamilton & Minimal Polynomial:</div>
-            <div>$$\chi_A(A) = 0, \quad m_A(\lambda) \mid \chi_A(\lambda), \quad A \text{ is diagonalizable} \iff m_A(\lambda) \text{ has distinct linear factors.}$$</div>
-          </div>
-        </div>
-
-        <!-- Group Theory Card -->
-        <div class="vault-card" data-category="algebra">
-          <div class="vault-card-header">
-            <span class="vault-icon">💎</span>
-            <h3 class="vault-card-title">Modern & Finite Group Theory</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Lagrange's Theorem & Class Equation:</div>
-            <div>$$|G| = |Z(G)| + \sum_{i} [G : C_G(x_i)], \quad |H| \text{ divides } |G|$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Number of Homomorphisms:</div>
-            <div>$$|\operatorname{Hom}(\mathbb{Z}_m, \mathbb{Z}_n)| = \gcd(m, n), \quad |\operatorname{Aut}(\mathbb{Z}_n)| = \phi(n)$$</div>
-          </div>
-        </div>
-
-        <!-- Functions of Several Variables -->
-        <div class="vault-card" data-category="calculus">
-          <div class="vault-card-header">
-            <span class="vault-icon">📐</span>
-            <h3 class="vault-card-title">Multivariable Optimization</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Hessian Discriminant ($D = f_{xx}f_{yy} - f_{xy}^2$):</div>
-            <div>$$D > 0, f_{xx} > 0 \implies \text{Local Min}; \quad D > 0, f_{xx} < 0 \implies \text{Local Max}; \quad D < 0 \implies \text{Saddle Point}$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Directional Derivative:</div>
-            <div>$$D_{\hat{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \hat{u}$$</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Vaibhav & Research Section -->
-  <section class="section-wrapper" id="about">
-    <div class="container">
-      <div class="about-card">
-        <div class="about-avatar-wrap">
-          <div class="about-avatar">📐</div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;">Vaibhav Geometer</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600;">Differential Geometer • Educator • Problem Solver</p>
-          <div class="about-interests-wrap">
-            <span class="interest-pill">Riemannian Geometry</span>
-            <span class="interest-pill">Differential Topology</span>
-            <span class="interest-pill">Minimal Surfaces</span>
-            <span class="interest-pill">Competitive Math</span>
-            <span class="interest-pill">LaTeX & MathJax</span>
-          </div>
-        </div>
-
-        <div class="about-bio">
-          <h2 style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; line-height: 1.2;">
-            Bridging Geometric Intuition & Rigorous Mathematics
-          </h2>
-          <p>
-            I am a mathematical researcher and mentor with deep interests in <strong>Riemannian manifolds</strong>, <strong>curvature tensors</strong>, <strong>differential topology</strong>, and structural analysis.
-          </p>
-          <p>
-            This portal was built to provide competitive mathematical aspirants (IIT JAM, GATE, CSIR-NET, TIFR) with the most rigorous, authentic, and beautiful testing environment available on the web — complete with 300 categorized official PYQs, step-by-step proofs, and clean LaTeX formatting.
-          </p>
-          
-          <div class="social-links-row">
-            <a href="https://github.com/vaibhavgeometer" target="_blank" class="social-btn">
-              <span>🐙</span> GitHub
-            </a>
-            <a href="mock-test/Topic-Wise Question Bank (2022 – 2026).pdf" target="_blank" class="social-btn">
-              <span>📄</span> Question Bank PDF
-            </a>
-            <a href="mock-test/index.html" class="social-btn" style="border-color: var(--brand-primary); color: var(--brand-primary);">
-              <span>⚡</span> Mock Test Portal
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="brand-logo" style="margin-bottom: 8px;">
-            <div class="brand-icon-box" style="width: 36px; height: 36px; font-size: 1.1rem;">📐</div>
-            <span class="brand-name" style="font-size: 1.1rem;">Vaibhav Geometer</span>
-          </div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; max-width: 360px;">
-            Dedicated to higher mathematical exploration, differential geometry visualization, and authentic examination preparation for IIT JAM Mathematics.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-col-title">Mock Test Series</h4>
-          <ul class="footer-links-list">
-            <li><a href="mock-test/test.html?topic=1.1&mode=official">1.1 Sequences & Series of Real Numbers</a></li>
-            <li><a href="mock-test/test.html?topic=1.2&mode=official">1.2 Functions of One Real Variable</a></li>
-            <li><a href="mock-test/test.html?topic=2.1&mode=official">2.1 Multivariable Calculus</a></li>
-            <li><a href="mock-test/test.html?topic=2.3&mode=official">2.3 Ordinary Differential Equations</a></li>
-            <li><a href="mock-test/test.html?topic=3.1&mode=official">3.1 Matrices & Vector Spaces</a></li>
-            <li><a href="mock-test/test.html?topic=3.4&mode=official">3.4 Groups & Finite Groups</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-col-title">Quick Resources</h4>
-          <ul class="footer-links-list">
-            <li><a href="#geometry-sandbox">3D Geometry Sandbox</a></li>
-            <li><a href="#formula-vault">Formula & Theorem Vault</a></li>
-            <li><a href="javascript:void(0)" onclick="window.toggleCalculator()">Virtual Scientific Calculator</a></li>
-            <li><a href="mock-test/Topic-Wise Question Bank (2022 – 2026).pdf" target="_blank">Download Question Bank PDF</a></li>
-            <li><a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank">GitHub Repository</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Vaibhav Geometer. All rights reserved. • Hosted on GitHub Pages.</div>
-        <div style="display:flex; align-items:center; gap:16px;">
-          <span>Math rendered via <strong style="color: var(--brand-accent);">MathJax 3</strong></span>
-          <a href="#hero" style="color: var(--brand-primary); font-weight:700; text-decoration:none;">↑ Back to Top</a>
-        </div>
-      </div>
+      <p>© 2026 · IIT JAM Mathematics Mock Tests · Math rendered via <strong>MathJax 3</strong></p>
     </div>
   </footer>
 

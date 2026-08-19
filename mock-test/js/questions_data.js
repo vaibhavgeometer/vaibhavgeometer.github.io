@@ -1,5 +1,6 @@
 // Topic-Wise IIT JAM Mathematics (MA) Question Bank (2022-2026)
 // Complete 300 Official Questions with Master Answer Keys & LaTeX Solutions
+// AUTO-GENERATED from v3.tex - DO NOT EDIT MANUALLY
 
 window.MOCK_TESTS_DATA = {
   "1.1": {
@@ -20,15 +21,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "For each positive integer n, let xn = 1 −(−1)n + 1 n and yn = \u00001 + 1 2n \u00013n. Which ONE of the following statements about the sequences $(xn)$ and $(yn)$ is TRUE?",
+        "question": "For each positive integer $n$, let $x_{n}=1-(-1)^{n}+\\frac{1}{n}$ and $y_{n}=\\left(1+\\frac{1}{2n}\\right)^{3n}$. Which ONE of the following statements about the sequences $(x_{n})$ and $(y_{n})$ is TRUE?",
         "options": {
-          "A": "$(xn)$ and $(yn)$ are convergent.",
-          "B": "$(xn)$ is not convergent and $(yn)$ is not convergent.",
-          "C": "$(xn)$ is convergent and $(yn)$ is not convergent.",
-          "D": "$(xn)$ is not convergent and $(yn)$ is convergent."
+          "A": "$(x_{n})$ and $(y_{n})$ are convergent.",
+          "B": "$(x_{n})$ is not convergent and $(y_{n})$ is not convergent.",
+          "C": "$(x_{n})$ is convergent and $(y_{n})$ is not convergent.",
+          "D": "$(x_{n})$ is not convergent and $(y_{n})$ is convergent."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.1)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.1)"
       },
       {
         "id": "JAM_2026_Q2",
@@ -39,15 +40,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "For each positive integer n, define xn = (−1)n. Which ONE of the following statements about the sequence $(xn)$ is FALSE?",
+        "question": "For each positive integer $n$, define $x_{n}=(-1)^{n}$. Which ONE of the following statements about the sequence $(x_{n})$ is FALSE?",
         "options": {
-          "A": "There exists $\\epsilon $ > 0 such that |xn −1| < $\\epsilon for all positive integers n$ .",
-          "B": "There exists $\\epsilon $ > 0 such that for all M > 0 there exists a positive integer N > M for which |xN −1| > $\\epsilon $ .",
-          "C": "For all $\\epsilon $ > 0 and M > 0 there exists a positive integer N such that N > M and |xN −1| < $\\epsilon $ .",
-          "D": "For all $\\epsilon $ > 0 and M > 0 there exists a positive integer N such that N > M and |xN −1| > $\\epsilon $ ."
+          "A": "There exists $\\epsilon>0$ such that $|x_{n}-1| < \\epsilon$ for all positive integers $n$.",
+          "B": "There exists $\\epsilon>0$ such that for all $M>0$ there exists a positive integer $N>M$ for which $|x_{N}-1|>\\epsilon$.",
+          "C": "For all $\\epsilon>0$ and $M>0$ there exists a positive integer $N$ such that $N>M$ and $|x_{N}-1|<\\epsilon$.",
+          "D": "For all $\\epsilon>0$ and $M>0$ there exists a positive integer $N$ such that $N>M$ and $|x_{N}-1|>\\epsilon$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.2)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.2)"
       },
       {
         "id": "JAM_2026_Q11",
@@ -58,15 +59,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Given a sequence of real numbers $(an)$, define bn = \\begin{cases} an & \\text{if } an \\ge 0 \\\\ 0 & \\text{if } an < 0 and cn = \\end{cases} \\begin{cases} an & \\text{if } an < 0 \\\\ 0 & \\text{if } an \\ge 0 for \\end{cases} each positive integer n. Which ONE of the following statements is TRUE?",
+        "question": "Given a sequence of real numbers $(a_{n})$, define $b_{n}=\\begin{cases}a_{n},& \\text{if } a_{n}\\ge 0\\\\ 0,& \\text{if } a_{n}<0\\end{cases}$ and $c_{n}=\\begin{cases}a_{n},& \\text{if } a_{n}< 0\\\\ 0,& \\text{if } a_{n}\\ge 0\\end{cases}$ for each positive integer $n$. Which ONE of the following statements is TRUE?",
         "options": {
-          "A": "If $\\sum_{n=1$ }^{ $\\infty$ } an does not converge, then $\\sum_{n=1$ }^{ $\\infty$ } bn does not converge.",
-          "B": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges but $\\sum_{n=1$ }^{ $\\infty$ } |an| does not converge, then $\\sum_{n=1$ }^{ $\\infty$ } bn converges.",
-          "C": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges but $\\sum_{n=1$ }^{ $\\infty$ } |an| does not converge, then $\\sum_{n=1$ }^{ $\\infty$ } bn does not converge.",
-          "D": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges, then $\\sum_{n=1$ }^{ $\\infty$ } bn converges or $\\sum_{n=1$ }^{ $\\infty$ } cn converges."
+          "A": "If $\\sum_{n=1}^{\\infty}a_{n}$ does not converge, then $\\sum_{n=1}^{\\infty}b_{n}$ does not converge.",
+          "B": "If $\\sum_{n=1}^{\\infty}a_{n}$ converges but $\\sum_{n=1}^{\\infty}|a_{n}|$ does not converge, then $\\sum_{n=1}^{\\infty}b_{n}$ converges.",
+          "C": "If $\\sum_{n=1}^{\\infty}a_{n}$ converges but $\\sum_{n=1}^{\\infty}|a_{n}|$ does not converge, then $\\sum_{n=1}^{\\infty}b_{n}$ does not converge.",
+          "D": "If $\\sum_{n=1}^{\\infty}a_{n}$ converges, then $\\sum_{n=1}^{\\infty}b_{n}$ converges or $\\sum_{n=1}^{\\infty}c_{n}$ converges."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.11)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.11)"
       },
       {
         "id": "JAM_2026_Q12",
@@ -77,15 +78,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For which one of the following pairs of values of a and b, does the series $\\sum_{k=1$ }^{ $\\infty$ } (3x)k $\\sqrt{k}(1$ −x)k converge for all x $\\in (a$ , b)?",
+        "question": "For which one of the following pairs of values of $a$ and $b$, does the series $\\sum_{k=1}^{\\infty}\\frac{(3x)^{k}}{2^{\\sqrt{k}}(1-x)^{k}}$ converge for all $x\\in(a,b)$?",
         "options": {
-          "A": "$a = −1 4 and b = 1$",
-          "B": "$a = −1 and b = 1$",
-          "C": "$a = −1 2 and b = 1$",
-          "D": "$a = −1 4 and b = 1$"
+          "A": "$a=-\\frac{1}{4}$ and $b=\\frac{1}{2}$",
+          "B": "$a=-1$ and $b=\\frac{1}{5}$",
+          "C": "$a=-\\frac{1}{2}$ and $b=\\frac{1}{4}$",
+          "D": "$a=-\\frac{1}{4}$ and $b=\\frac{1}{3}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.12)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.12)"
       },
       {
         "id": "JAM_2026_Q29",
@@ -96,15 +97,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For each positive integer n, let xn = 1 + $\\binom{1}{2} + \\cdots + 1 n $ −loge n and yn = $\\int_{cos}^{n} t $t_{2}$ dt$ . Which ONE of the following statements about $(xn)$ and $(yn)$ is TRUE?",
+        "question": "For each positive integer $n$, let $x_{n}=1+\\frac{1}{2}+\\cdots+\\frac{1}{n}-\\log_{e}n$ and $y_{n}=\\int_{1}^{n}\\frac{\\cos t}{t^{2}}dt$. Which ONE of the following statements about $(x_{n})$ and $(y_{n})$ is TRUE?",
         "options": {
-          "A": "$(xn)$ and $(yn)$ are convergent.",
-          "B": "$(xn)$ is convergent and $(yn)$ is not convergent.",
-          "C": "$(xn)$ is not convergent and $(yn)$ is convergent.",
-          "D": "$(xn)$ is not convergent and $(yn)$ is not convergent."
+          "A": "$(x_{n})$ and $(y_{n})$ are convergent.",
+          "B": "$(x_{n})$ is convergent and $(y_{n})$ is not convergent.",
+          "C": "$(x_{n})$ is not convergent and $(y_{n})$ is convergent.",
+          "D": "$(x_{n})$ is not convergent and $(y_{n})$ is not convergent."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.29)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.29)"
       },
       {
         "id": "JAM_2026_Q32",
@@ -119,11 +120,11 @@ window.MOCK_TESTS_DATA = {
         "options": {
           "A": "There exists a monotone sequence that does not converge but has a convergent subsequence.",
           "B": "There exists a sequence that has a bounded subsequence but does not have any convergent subsequence.",
-          "C": "There exists a sequence $(xn)$ such that given any positive integer m, $(xn)$ has a subsequence converging to m.",
-          "D": "There exists a sequence $(xn)$ such that (|xn+1 −xn|) converges to 0 but $(xn)$ does not converge."
+          "C": "There exists a sequence $(x_{n})$ such that given any positive integer $m$, $(x_{n})$ has a subsequence converging to $m$.",
+          "D": "There exists a sequence $(x_{n})$ such that $(|x_{n+1}-x_{n}|)$ converges to 0 but $(x_{n})$ does not converge."
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.32)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.32)"
       },
       {
         "id": "JAM_2026_Q41",
@@ -134,10 +135,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The radius of convergence of the series $\\sum_{n=1$ }^{ $\\infty$ } (n!)2 (2n)!(loge n)−1xn is (rounded off to one decimal place).",
+        "question": "The radius of convergence of the series $\\sum_{n=1}^{\\infty}\\frac{(n!)^{2}}{(2n)!}(\\log_{e}n)^{-1}x^{n}$ is \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.41)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.41)"
       },
       {
         "id": "JAM_2026_Q42",
@@ -148,10 +149,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$\\int_{\u0010\\sum_{k=1}^{\\infty}}^{\\binom{1}{0}} (loge 2)kxk−1 (k−1)! \u0011 dx = (rounded off to one decimal place).$",
+        "question": "$\\int_{0}^{1}\\left(\\sum_{k=1}^{\\infty}\\frac{(\\log_{e}2)^{k}x^{k-1}}{(k-1)!}\\right)dx=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.42)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.42)"
       },
       {
         "id": "JAM_2026_Q43",
@@ -162,10 +163,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$limn \\to \\infty \u0010 n2+1 \\sqrt{n6}+1 + \\cdots + n2+n \\sqrt{n6}+n \u0011 = (rounded off to one decimal place).$",
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{n^{2}+1}{\\sqrt{n^{6}+1}}+\\cdots+\\frac{n^{2}+n}{\\sqrt{n^{6}+n}}\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.43)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.43)"
       },
       {
         "id": "JAM_2025_Q1",
@@ -176,15 +177,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "The sum of the infinite series $\\sum_{n=1$ }^{ $\\infty$ } (−1)n+1 π2n+1 22n+1(2n)! is equal to:",
+        "question": "The sum of the infinite series $\\sum_{n=1}^{\\infty}(-1)^{n+1}\\frac{\\pi^{2n+1}}{2^{2n+1}(2n)!}$ is equal to:",
         "options": {
-          "A": "−π",
-          "B": "π",
-          "C": "π",
-          "D": "−π"
+          "A": "$-\\pi$",
+          "B": "$\\frac{\\pi}{4}$",
+          "C": "$\\frac{\\pi}{2}$",
+          "D": "$-\\frac{\\pi}{4}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.1)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.1)"
       },
       {
         "id": "JAM_2025_Q18",
@@ -195,15 +196,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For n $\\in N$ , define xn = (−1)n cos 1 n and yn = $\\sum_{k=1$ }^{n} n+k. Then, which one of the following is TRUE?",
+        "question": "For $n\\in\\mathbb{N}$, define $x_{n}=(-1)^{n}\\cos\\frac{1}{n}$ and $y_{n}=\\sum_{k=1}^{n}\\frac{1}{n+k}$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "$\\sum_{n=1$ }^{ $\\infty$ } xn converges, and $\\sum_{n=1$ }^{ $\\infty$ } yn does NOT converge",
-          "B": "$\\sum_{n=1$ }^{ $\\infty$ } xn does NOT converge, and $\\sum_{n=1$ }^{ $\\infty$ } yn converges",
-          "C": "$\\sum_{n=1$ }^{ $\\infty$ } xn converges, and $\\sum_{n=1$ }^{ $\\infty$ } yn converges",
-          "D": "$\\sum_{n=1$ }^{ $\\infty$ } xn does NOT converge, and $\\sum_{n=1$ }^{ $\\infty$ } yn does NOT converge"
+          "A": "$\\sum_{n=1}^{\\infty} x_n$ converges, and $\\sum_{n=1}^{\\infty} y_n$ does NOT converge",
+          "B": "$\\sum_{n=1}^{\\infty} x_n$ does NOT converge, and $\\sum_{n=1}^{\\infty} y_n$ converges",
+          "C": "$\\sum_{n=1}^{\\infty} x_n$ converges, and $\\sum_{n=1}^{\\infty} y_n$ converges",
+          "D": "$\\sum_{n=1}^{\\infty} x_n$ does NOT converge, and $\\sum_{n=1}^{\\infty} y_n$ does NOT converge"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.18)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.18)"
       },
       {
         "id": "JAM_2025_Q19",
@@ -214,15 +215,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $x_{1}$ = 5 2. For n $\\in N$ , define xn+1 = 1 5($x_{2}$ n + 6). Then, which one of the following is TRUE?",
+        "question": "Let $x_{1}=\\frac{5}{2}$. For $n\\in\\mathbb{N}$, define $x_{n+1}=\\frac{1}{5}(x_{n}^{2}+6)$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "$(xn)$ is an increasing sequence, and $(xn)$ is NOT a bounded sequence",
-          "B": "$(xn)$ is NOT an increasing sequence, and $(xn)$ is NOT a bounded sequence",
-          "C": "$(xn)$ is NOT a decreasing sequence, and $(xn)$ is a bounded sequence",
-          "D": "$(xn)$ is a decreasing sequence, and $(xn)$ is a bounded sequence"
+          "A": "$(x_{n})$ is an increasing sequence, and $(x_{n})$ is NOT a bounded sequence",
+          "B": "$(x_{n})$ is NOT an increasing sequence, and $(x_{n})$ is NOT a bounded sequence",
+          "C": "$(x_{n})$ is NOT a decreasing sequence, and $(x_{n})$ is a bounded sequence",
+          "D": "$(x_{n})$ is a decreasing sequence, and $(x_{n})$ is a bounded sequence"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.19)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.19)"
       },
       {
         "id": "JAM_2025_Q20",
@@ -233,15 +234,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $x_{1}$ = 2 and xn+1 = 2 + 2xn for all n $\\in N$ . Then, which one of the following is TRUE?",
+        "question": "Let $x_{1}=2$ and $x_{n+1}=2+\\frac{1}{2x_{n}}$ for all $n\\in\\mathbb{N}$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "xn+1 $\\ge xn for all n \\in N$ , and $(xn)$ is a Cauchy sequence",
-          "B": "xn+1 < xn for some n $\\in N$ , and $(xn)$ is a Cauchy sequence",
-          "C": "xn+1 $\\ge xn for all n \\in N$ , and $(xn)$ is NOT a Cauchy sequence",
-          "D": "xn+1 < xn for some n $\\in N$ , and $(xn)$ is NOT a Cauchy sequence"
+          "A": "$x_{n+1}\\ge\\frac{4}{x_{n}}$ for all $n\\in\\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence",
+          "B": "$x_{n+1}<\\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence",
+          "C": "$x_{n+1}\\ge\\frac{4}{x_{n}}$ for all $n\\in\\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence",
+          "D": "$x_{n+1}<\\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.20)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.20)"
       },
       {
         "id": "JAM_2025_Q21",
@@ -252,15 +253,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For n $\\in N$ , define xn = (−1)n 3n n3 and yn = (4n + (−1)n3n)1/n. Then, which one of the following is TRUE?",
+        "question": "For $n\\in\\mathbb{N}$, define $x_{n}=(-1)^{n}\\frac{3^{n}}{n^{3}}$ and $y_{n}=(4^{n}+(-1)^{n}3^{n})^{1/n}$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "$(xn)$ has a convergent subsequence, and NO subsequence of $(yn)$ is convergent",
-          "B": "NO subsequence of $(xn)$ is convergent, and $(yn)$ has a convergent subsequence",
-          "C": "$(xn)$ has a convergent subsequence, and $(yn)$ has a convergent subsequence",
-          "D": "NO subsequence of $(xn)$ is convergent, and NO subsequence of $(yn)$ is convergent"
+          "A": "$(x_{n})$ has a convergent subsequence, and NO subsequence of $(y_{n})$ is convergent",
+          "B": "NO subsequence of $(x_{n})$ is convergent, and $(y_{n})$ has a convergent subsequence",
+          "C": "$(x_{n})$ has a convergent subsequence, and $(y_{n})$ has a convergent subsequence",
+          "D": "NO subsequence of $(x_{n})$ is convergent, and NO subsequence of $(y_{n})$ is convergent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.21)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.21)"
       },
       {
         "id": "JAM_2025_Q25",
@@ -271,15 +272,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $x_{1}$ = 1. For n $\\in N$ , define xn+1 = \u0010 2 + sin2 n n \u0011 xn. Then, which one of the following is TRUE?",
+        "question": "Let $x_{1}=1$. For $n\\in\\mathbb{N}$, define $x_{n+1}=\\left(\\frac{1}{2}+\\frac{\\sin^{2}n}{n}\\right)x_{n}$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "$\\sum_{n=1$ }^{ $\\infty$ } xn converges",
-          "B": "$\\sum_{n=1$ }^{ $\\infty$ } xn does NOT converge",
-          "C": "$\\sum_{n=1$ }^{ $\\infty$ } $x_{2}$ n does NOT converge",
-          "D": "$\\sum_{n=1$ }^{ $\\infty$ } xnxn+1 does NOT converge"
+          "A": "$\\sum_{n=1}^{\\infty}x_{n}$ converges",
+          "B": "$\\sum_{n=1}^{\\infty}x_{n}$ does NOT converge",
+          "C": "$\\sum_{n=1}^{\\infty}x_{n}^{2}$ does NOT converge",
+          "D": "$\\sum_{n=1}^{\\infty}x_{n}x_{n+1}$ does NOT converge"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.25)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.25)"
       },
       {
         "id": "JAM_2025_Q26",
@@ -290,15 +291,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $x_{1}$ > 0. For n $\\in N$ , define xn+1 = xn + 4. If limn $\\to \\infty $ \u0010 x2x3 + x3x4 + $\\cdots + xn+1xn+2 $ \u0011 = 1 24, then the value of $x_{1}$ is equal to:",
+        "question": "Let $x_{1}>0$. For $n\\in\\mathbb{N}$, define $x_{n+1}=x_{n}+4$. If $\\lim_{n\\rightarrow\\infty}\\left(\\frac{1}{x_{2}x_{3}}+\\frac{1}{x_{3}x_{4}}+\\cdots+\\frac{1}{x_{n+1}x_{n+2}}\\right)=\\frac{1}{24}$, then the value of $x_{1}$ is equal to:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.26)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.26)"
       },
       {
         "id": "JAM_2025_Q36",
@@ -309,15 +310,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "For n $\\in N$ , define xn = $\\sum_{k=1$ }^{n} k n2+k. Then, which of the following is/are TRUE?",
+        "question": "For $n\\in\\mathbb{N}$, define $x_{n}=\\sum_{k=1}^{n}\\frac{k}{n^{2}+k}$. Then, which of the following is/are TRUE?",
         "options": {
-          "A": "The sequence $(xn)$ converges",
-          "B": "The series $\\sum_{n=1$ }^{ $\\infty$ } xn converges",
-          "C": "The series $\\sum_{n=1$ }^{ $\\infty$ } xn does NOT converge",
-          "D": "The series $\\sum_{n=1$ }^{ $\\infty$ } xn n converges"
+          "A": "The sequence $(x_{n})$ converges",
+          "B": "The series $\\sum_{n=1}^{\\infty}x_{n}$ converges",
+          "C": "The series $\\sum_{n=1}^{\\infty}x_{n}$ does NOT converge",
+          "D": "The series $\\sum_{n=1}^{\\infty}\\frac{x_{n}}{n}$ converges"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.36)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.36)"
       },
       {
         "id": "JAM_2025_Q41",
@@ -328,10 +329,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The radius of convergence of the power series $\\sum_{n=1$ }^{ $\\infty$ } (x+ $\\binom{1}{4} )n ($ −2)nn2 about x = −1 4 is equal to (rounded off to two decimal places).",
+        "question": "The radius of convergence of the power series $\\sum_{n=1}^{\\infty}\\frac{(x+\\frac{1}{4})^{n}}{(-2)^{n}n^{2}}$ about $x=-\\frac{1}{4}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.41)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{2.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.41)"
       },
       {
         "id": "JAM_2025_Q54",
@@ -342,10 +343,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$\\sum_{n=1}^{\\infty} n \u0000 3 \u00012(n−1) = (rounded off to two decimal places).$",
+        "question": "$\\sum_{n=1}^{\\infty}n\\left(\\frac{3}{4}\\right)^{2(n-1)}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "5.22",
-        "explanation": "**Correct Numerical Answer: 5.22**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.54)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{5.22}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 5.22**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.54)"
       },
       {
         "id": "JAM_2024_Q14",
@@ -356,15 +357,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For n $\\in N$ , let an = (3n+2)(3n+4) and bn = n3+cos(3n) 3n+n3 . Then, which one of the following is TRUE?",
+        "question": "For $n\\in\\mathbb{N}$, let $a_{n}=\\frac{1}{(3n+2)(3n+4)}$ and $b_{n}=\\frac{n^{3}+\\cos(3^{n})}{3^{n}+n^{3}}$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "$\\sum_{n=1$ }^{ $\\infty$ } an is convergent but $\\sum_{n=1$ }^{ $\\infty$ } bn is divergent",
-          "B": "$\\sum_{n=1$ }^{ $\\infty$ } an is divergent but $\\sum_{n=1$ }^{ $\\infty$ } bn is convergent",
-          "C": "Both $\\sum_{n=1$ }^{ $\\infty$ } an and $\\sum_{n=1$ }^{ $\\infty$ } bn are divergent",
-          "D": "Both $\\sum_{n=1$ }^{ $\\infty$ } an and $\\sum_{n=1$ }^{ $\\infty$ } bn are convergent"
+          "A": "$\\sum_{n=1}^{\\infty} a_n$ is convergent but $\\sum_{n=1}^{\\infty} b_n$ is divergent",
+          "B": "$\\sum_{n=1}^{\\infty} a_n$ is divergent but $\\sum_{n=1}^{\\infty} b_n$ is convergent",
+          "C": "Both $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are divergent",
+          "D": "Both $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are convergent"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.14)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.14)"
       },
       {
         "id": "JAM_2024_Q20",
@@ -375,15 +376,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Define the sequences {an} $\\infty n=3 and $ {bn} $\\infty n=3 as an = (log n+log log n)log n and bn = n(1+ log n )$ . Which one of the following is TRUE?",
+        "question": "Define the sequences $\\{a_{n}\\}_{n=3}^{\\infty}$ and $\\{b_{n}\\}_{n=3}^{\\infty}$ as $a_{n}=(\\log n+\\log\\log n)^{\\log n}$ and $b_{n}=n^{(1+\\frac{1}{\\log n})}$. Which one of the following is TRUE?",
         "options": {
-          "A": "$\\sum_{n=3$ }^{ $\\infty$ } an is convergent but $\\sum_{n=3$ }^{ $\\infty$ } bn is divergent",
-          "B": "$\\sum_{n=3$ }^{ $\\infty$ } an is divergent but $\\sum_{n=3$ }^{ $\\infty$ } bn is convergent",
-          "C": "Both $\\sum_{n=3$ }^{ $\\infty$ } an and $\\sum_{n=3$ }^{ $\\infty$ } bn are divergent",
-          "D": "Both $\\sum_{n=3$ }^{ $\\infty$ } an and $\\sum_{n=3$ }^{ $\\infty$ } bn are convergent"
+          "A": "$\\sum_{n=3}^{\\infty} \\frac{1}{a_n}$ is convergent but $\\sum_{n=3}^{\\infty} \\frac{1}{b_n}$ is divergent",
+          "B": "$\\sum_{n=3}^{\\infty} \\frac{1}{a_n}$ is divergent but $\\sum_{n=3}^{\\infty} \\frac{1}{b_n}$ is convergent",
+          "C": "Both $\\sum_{n=3}^{\\infty} \\frac{1}{a_n}$ and $\\sum_{n=3}^{\\infty} \\frac{1}{b_n}$ are divergent",
+          "D": "Both $\\sum_{n=3}^{\\infty} \\frac{1}{a_n}$ and $\\sum_{n=3}^{\\infty} \\frac{1}{b_n}$ are convergent"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.20)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.20)"
       },
       {
         "id": "JAM_2024_Q21",
@@ -394,15 +395,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For p, q, r $\\in R$ , r $\\neq 0 and n \\in N$ , let an = pnnq \u0010 n n+2 \u0011n2 and bn = nn n!rn \u0010q n+2 n \u0011 . Then:",
+        "question": "For $p,q,r\\in\\mathbb{R}$, $r\\ne 0$ and $n\\in\\mathbb{N}$, let $a_{n}=p^{n}n^{q}\\left(\\frac{n}{n+2}\\right)^{n^{2}}$ and $b_{n}=\\frac{n^{n}}{n!r^{n}}\\left(\\sqrt{\\frac{n+2}{n}}\\right)$. Then:",
         "options": {
-          "A": "If 1 < p < e2 and q > 1, then $\\sum_{n=1$ }^{ $\\infty$ } an is convergent",
-          "B": "If e2 < p < e4 and q > 1, then $\\sum_{n=1$ }^{ $\\infty$ } an is convergent",
-          "C": "If 1 < r < e, then $\\sum_{n=1$ }^{ $\\infty$ } bn is convergent",
-          "D": "If 1 e < r < 1, then $\\sum_{n=1$ }^{ $\\infty$ } bn is convergent"
+          "A": "If $1<p<e^{2}$ and $q>1$, then $\\sum_{n=1}^{\\infty} a_{n}$ is convergent",
+          "B": "If $e^{2}<p<e^{4}$ and $q>1$, then $\\sum_{n=1}^{\\infty} a_{n}$ is convergent",
+          "C": "If $1<r<e$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent",
+          "D": "If $\\frac{1}{e}<r<1$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.21)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.21)"
       },
       {
         "id": "JAM_2024_Q28",
@@ -413,15 +414,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For n $\\ge 3$ , let a regular n-sided polygon Pn be circumscribed by a circle of radius Rn and let rn be the radius of the circle inscribed in Pn. Then limn $\\to \\infty $ \u0010 Rn rn \u0011n2 equals:",
+        "question": "For $n\\ge 3$, let a regular $n$-sided polygon $P_{n}$ be circumscribed by a circle of radius $R_{n}$ and let $r_{n}$ be the radius of the circle inscribed in $P_{n}$. Then $\\lim_{n\\rightarrow\\infty}\\left(\\frac{R_{n}}{r_{n}}\\right)^{n^{2}}$ equals:",
         "options": {
-          "A": "e(π2)",
-          "B": "e( π2 2 )",
-          "C": "e( π2 3 )",
-          "D": "e(2π2)"
+          "A": "$e^{(\\pi^{2})}$",
+          "B": "$e^{(\\frac{\\pi^{2}}{2})}$",
+          "C": "$e^{(\\frac{\\pi^{2}}{3})}$",
+          "D": "$e^{(2\\pi^{2})}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.28)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.28)"
       },
       {
         "id": "JAM_2024_Q31",
@@ -432,15 +433,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let {an} $\\infty n=1 be a sequence of real numbers$ . Then, which of the following statements is/are always TRUE?",
+        "question": "Let $\\{a_{n}\\}_{n=1}^{\\infty}$ be a sequence of real numbers. Then, which of the following statements is/are always TRUE?",
         "options": {
-          "A": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges absolutely, then $\\sum_{n=1$ }^{ $\\infty$ } a2 n converges absolutely",
-          "B": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges absolutely, then $\\sum_{n=1$ }^{ $\\infty$ } a3 n converges absolutely",
-          "C": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges, then $\\sum_{n=1$ }^{ $\\infty$ } a2 n converges",
-          "D": "If $\\sum_{n=1$ }^{ $\\infty$ } an converges, then $\\sum_{n=1$ }^{ $\\infty$ } a3 n converges"
+          "A": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges absolutely, then $\\sum_{n=1}^{\\infty} a_{n}^{2}$ converges absolutely",
+          "B": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges absolutely, then $\\sum_{n=1}^{\\infty} a_{n}^{3}$ converges absolutely",
+          "C": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges, then $\\sum_{n=1}^{\\infty} a_{n}^{2}$ converges",
+          "D": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges, then $\\sum_{n=1}^{\\infty} a_{n}^{3}$ converges"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.31)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.31)"
       },
       {
         "id": "JAM_2024_Q32",
@@ -453,13 +454,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.0,
         "question": "Which of the following statements is/are TRUE?",
         "options": {
-          "A": "$\\sum_{n=1$ }^{ $\\infty$ } n log(1 + 1 n3 ) is convergent",
-          "B": "$\\sum_{n=1$ }^{ $\\infty$ } (1 −cos( 1 n)) log n is convergent",
-          "C": "$\\sum_{n=1$ }^{ $\\infty$ } n2 log(1 + 1 n3 ) is convergent",
-          "D": "$\\sum_{n=1$ }^{ $\\infty$ } (1 −cos( 1 $\\sqrt{n})) log n is convergent$"
+          "A": "$\\sum_{n=1}^{\\infty}n\\log(1+\\frac{1}{n^{3}})$ is convergent",
+          "B": "$\\sum_{n=1}^{\\infty}(1-\\cos(\\frac{1}{n}))\\log n$ is convergent",
+          "C": "$\\sum_{n=1}^{\\infty}n^{2}\\log(1+\\frac{1}{n^{3}})$ is convergent",
+          "D": "$\\sum_{n=1}^{\\infty}(1-\\cos(\\frac{1}{\\sqrt{n}}))\\log n$ is convergent"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.32)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.32)"
       },
       {
         "id": "JAM_2024_Q39",
@@ -470,15 +471,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "For 0 < $\\alpha $ < 4, define the sequence {xn} $\\infty n=1 as $x_{1}$ = \\alpha and xn+1 + 2 = $ −xn(xn −4) for n $\\in N$ . Which of the following is/are TRUE?",
+        "question": "For $0<\\alpha<4$, define the sequence $\\{x_{n}\\}_{n=1}^{\\infty}$ as $x_{1}=\\alpha$ and $x_{n+1}+2=-x_{n}(x_{n}-4)$ for $n\\in\\mathbb{N}$. Which of the following is/are TRUE?",
         "options": {
-          "A": "{xn} converges for at least three distinct values of $\\alpha \\in (0$ , 1)",
-          "B": "{xn} converges for at least three distinct values of $\\alpha \\in (1$ , 2)",
-          "C": "{xn} converges for at least three distinct values of $\\alpha \\in (2$ , 3)",
-          "D": "{xn} converges for at least three distinct values of $\\alpha \\in (3$ , 4)"
+          "A": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(0,1)$",
+          "B": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(1,2)$",
+          "C": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(2,3)$",
+          "D": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(3,4)$"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.39)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.39)"
       },
       {
         "id": "JAM_2024_Q47",
@@ -489,10 +490,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let a1 = 1, b1 = 2, c1 = 3. Define an+1 = an+bn , bn+1 = bn+cn , cn+1 = cn+an . Then, $\\infty X n=1 bncn(an+1 $ −an) + $\\infty X n=1 (bn+1cn+1 $ −bncn)an+1 = (rounded off to two decimal places).",
+        "question": "Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\\frac{a_n+b_n}{2}, b_{n+1}=\\frac{b_n+c_n}{2}, c_{n+1}=\\frac{c_n+a_n}{2}$. Then, \n$$ \\sum_{n=1}^{\\infty}b_n c_n(a_{n+1}-a_n) + \\sum_{n=1}^{\\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = \\underline{\\hspace{1.5cm}} $$\n (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.47)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{2.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.47)"
       },
       {
         "id": "JAM_2024_Q55",
@@ -503,10 +504,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "If an = n3+1 + n3+2 + $\\cdots + n2 n3+n$ , then the sequence {an} converges to (rounded off to two decimal places).",
+        "question": "If $a_{n}=\\frac{1}{n^{3}+1}+\\frac{2^{2}}{n^{3}+2}+\\cdots+\\frac{n^{2}}{n^{3}+n}$, then the sequence $\\{a_{n}\\}$ converges to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.33",
-        "explanation": "**Correct Numerical Answer: 0.33**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.55)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{0.33}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.33**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.55)"
       },
       {
         "id": "JAM_2024_Q59",
@@ -517,10 +518,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let an = nn−1 $\\sum_{k=0$ }^{n} n! k!(n−k)! nk k+1 and $\\beta = limn \\to \\infty an$ . Then, the value of log $\\beta equals (rounded off to two decimal places)$ .",
+        "question": "Let $a_{n}=\\frac{1}{n^{n-1}}\\sum_{k=0}^{n}\\frac{n!}{k!(n-k)!}\\frac{n^{k}}{k+1}$ and $\\beta=\\lim_{n\\rightarrow\\infty}a_{n}$. Then, the value of $\\log\\beta$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.59)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.59)"
       },
       {
         "id": "JAM_2023_Q9",
@@ -531,15 +532,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let an = (1 + 1 n)n and bn = n cos( n!π 210 ) for n $\\in N$ . Then:",
+        "question": "Let $a_{n}=(1+\\frac{1}{n})^{n}$ and $b_{n}=n\\cos(\\frac{n!\\pi}{2^{10}})$ for $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "$(an)$ is convergent and $(bn)$ is bounded",
-          "B": "$(an)$ is NOT convergent and $(bn)$ is bounded",
-          "C": "$(an)$ is convergent and $(bn)$ is unbounded",
-          "D": "$(an)$ is NOT convergent and $(bn)$ is unbounded"
+          "A": "$(a_{n})$ is convergent and $(b_{n})$ is bounded",
+          "B": "$(a_{n})$ is NOT convergent and $(b_{n})$ is bounded",
+          "C": "$(a_{n})$ is convergent and $(b_{n})$ is unbounded",
+          "D": "$(a_{n})$ is NOT convergent and $(b_{n})$ is unbounded"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.9)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.9)"
       },
       {
         "id": "JAM_2023_Q10",
@@ -550,15 +551,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let $(an)$ be a sequence of real numbers defined by an = \\begin{cases} 1 & \\text{if } n is prime \\\\ −1 & \\text{if } n is not prime. Let bn = an \\end{cases} n for n $\\in N$ . Then:",
+        "question": "Let $(a_{n})$ be a sequence of real numbers defined by $a_{n}=\\begin{cases}1,& \\text{if } n \\text{ is prime}\\\\ -1,& \\text{if } n \\text{ is not prime}\\end{cases}$. Let $b_{n}=\\frac{a_{n}}{n}$ for $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "both $(an)$ and $(bn)$ are convergent",
-          "B": "$(an)$ is convergent but $(bn)$ is NOT convergent",
-          "C": "$(an)$ is NOT convergent but $(bn)$ is convergent",
-          "D": "both $(an)$ and $(bn)$ are NOT convergent"
+          "A": "both $(a_{n})$ and $(b_{n})$ are convergent",
+          "B": "$(a_{n})$ is convergent but $(b_{n})$ is NOT convergent",
+          "C": "$(a_{n})$ is NOT convergent but $(b_{n})$ is convergent",
+          "D": "both $(a_{n})$ and $(b_{n})$ are NOT convergent"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.10)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.10)"
       },
       {
         "id": "JAM_2023_Q11",
@@ -569,15 +570,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let an = sin( 1 n3 ) and bn = sin( 1 n) for n $\\in N$ . Then:",
+        "question": "Let $a_{n}=\\sin(\\frac{1}{n^{3}})$ and $b_{n}=\\sin(\\frac{1}{n})$ for $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "both $\\sum_{n=1$ }^{ $\\infty$ } an and $\\sum_{n=1$ }^{ $\\infty$ } bn are convergent",
-          "B": "$\\sum_{n=1$ }^{ $\\infty$ } an is convergent but $\\sum_{n=1$ }^{ $\\infty$ } bn is NOT convergent",
-          "C": "$\\sum_{n=1$ }^{ $\\infty$ } an is NOT convergent but $\\sum_{n=1$ }^{ $\\infty$ } bn is convergent",
-          "D": "both $\\sum_{n=1$ }^{ $\\infty$ } an and $\\sum_{n=1$ }^{ $\\infty$ } bn are NOT convergent"
+          "A": "both $\\sum_{n=1}^{\\infty} a_{n}$ and $\\sum_{n=1}^{\\infty} b_{n}$ are convergent",
+          "B": "$\\sum_{n=1}^{\\infty} a_{n}$ is convergent but $\\sum_{n=1}^{\\infty} b_{n}$ is NOT convergent",
+          "C": "$\\sum_{n=1}^{\\infty} a_{n}$ is NOT convergent but $\\sum_{n=1}^{\\infty} b_{n}$ is convergent",
+          "D": "both $\\sum_{n=1}^{\\infty} a_{n}$ and $\\sum_{n=1}^{\\infty} b_{n}$ are NOT convergent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.11)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.11)"
       },
       {
         "id": "JAM_2023_Q19",
@@ -588,15 +589,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let an = 1+2−2+ $\\cdots +n$ −2 n for n $\\in N$ . Then:",
+        "question": "Let $a_{n}=\\frac{1+2^{-2}+\\cdots+n^{-2}}{n}$ for $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "both $(an)$ and $\\sum_{n=1$ }^{ $\\infty$ } an are convergent",
-          "B": "$(an)$ is convergent but $\\sum_{n=1$ }^{ $\\infty$ } an is NOT convergent",
-          "C": "both $(an)$ and $\\sum_{n=1$ }^{ $\\infty$ } an are NOT convergent",
-          "D": "$(an)$ is NOT convergent but $\\sum_{n=1$ }^{ $\\infty$ } an is convergent"
+          "A": "both $(a_{n})$ and $\\sum_{n=1}^{\\infty} a_{n}$ are convergent",
+          "B": "$(a_{n})$ is convergent but $\\sum_{n=1}^{\\infty} a_{n}$ is NOT convergent",
+          "C": "both $(a_{n})$ and $\\sum_{n=1}^{\\infty} a_{n}$ are NOT convergent",
+          "D": "$(a_{n})$ is NOT convergent but $\\sum_{n=1}^{\\infty} a_{n}$ is convergent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.19)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.19)"
       },
       {
         "id": "JAM_2023_Q20",
@@ -607,15 +608,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $(an)$ be a sequence of real numbers such that $\\sum_{n=0$ }^{ $\\infty$ } an(x −2)n converges at x = −5. Then this series also converges at:",
+        "question": "Let $(a_{n})$ be a sequence of real numbers such that $\\sum_{n=0}^{\\infty}a_{n}(x-2)^{n}$ converges at $x=-5$. Then this series also converges at:",
         "options": {
-          "A": "$x = 9$",
-          "B": "$x = 12$",
-          "C": "$x = 5$",
-          "D": "$x = −6$"
+          "A": "$x=9$",
+          "B": "$x=12$",
+          "C": "$x=5$",
+          "D": "$x=-6$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.20)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.20)"
       },
       {
         "id": "JAM_2023_Q21",
@@ -626,15 +627,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $(an)$ and $(bn)$ be sequences of real numbers such that |an −an+1| = 2n and |bn −bn+1| = $\\sqrt{n} for n \\in N$ . Then:",
+        "question": "Let $(a_{n})$ and $(b_{n})$ be sequences of real numbers such that $|a_{n}-a_{n+1}|=\\frac{1}{2^{n}}$ and $|b_{n}-b_{n+1}|=\\frac{1}{\\sqrt{n}}$ for $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "both $(an)$ and $(bn)$ are Cauchy sequences",
-          "B": "$(an)$ is a Cauchy sequence but $(bn)$ need NOT be a Cauchy sequence",
-          "C": "$(an)$ need NOT be a Cauchy sequence but $(bn)$ is a Cauchy sequence",
-          "D": "both $(an)$ and $(bn)$ need NOT be Cauchy sequences"
+          "A": "both $(a_{n})$ and $(b_{n})$ are Cauchy sequences",
+          "B": "$(a_{n})$ is a Cauchy sequence but $(b_{n})$ need NOT be a Cauchy sequence",
+          "C": "$(a_{n})$ need NOT be a Cauchy sequence but $(b_{n})$ is a Cauchy sequence",
+          "D": "both $(a_{n})$ and $(b_{n})$ need NOT be Cauchy sequences"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.21)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.21)"
       },
       {
         "id": "JAM_2023_Q24",
@@ -645,15 +646,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Suppose f : (−1, 1) $\\to \\int^{is} an infinitely differentiable function such that \\sum_{j=0$ }^{ $\\infty$ } aj xj j! converges to $f$(x) for each x $\\in ($ −1, 1), where aj = $\\int_{0}^{$ π/2} $\\theta j cosj(tan \\theta )d \\theta + \\int_{$ π/2( $\\theta $ }^{π} −π)j cosj(tan $\\theta )d \\theta for j \\ge 0$ . Then:",
+        "question": "Suppose $f:(-1,1)\\rightarrow\\mathbb{R}$ is an infinitely differentiable function such that $\\sum_{j=0}^{\\infty}a_{j}\\frac{x^{j}}{j!}$ converges to $f(x)$ for each $x\\in(-1,1)$, where $a_{j}=\\int_{0}^{\\pi/2}\\theta^{j}\\cos^{j}(\\tan\\theta)d\\theta + \\int_{\\pi/2}^{\\pi}(\\theta-\\pi)^{j}\\cos^{j}(\\tan\\theta)d\\theta$ for $j\\ge 0$. Then:",
         "options": {
-          "A": "$f(x) = 0 for all x \\in (−1, 1)$",
-          "B": "f is a non-constant even function on (−1, 1)",
-          "C": "f is a non-constant odd function on (−1, 1)",
-          "D": "f is NEITHE $\\int^{an} odd function NO\\int^{an} even function on ($ −1, 1)"
+          "A": "$f(x)=0$ for all $x\\in(-1,1)$",
+          "B": "$f$ is a non-constant even function on $(-1,1)$",
+          "C": "$f$ is a non-constant odd function on $(-1,1)$",
+          "D": "$f$ is NEITHER an odd function NOR an even function on $(-1,1)$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.24)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.24)"
       },
       {
         "id": "JAM_2023_Q40",
@@ -664,15 +665,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $R_{1}$ and $R_{2}$ be the radii of convergence of $\\sum_{n=1$ }^{ $\\infty$ } (−1)nxn−1 and $\\sum_{n=1$ }^{ $\\infty$ } (−1)n xn+1 n(n+1), respectively. Then:",
+        "question": "Let $R_{1}$ and $R_{2}$ be the radii of convergence of $\\sum_{n=1}^{\\infty}(-1)^{n}x^{n-1}$ and $\\sum_{n=1}^{\\infty}(-1)^{n}\\frac{x^{n+1}}{n(n+1)}$, respectively. Then:",
         "options": {
-          "A": "$R1 = R2$",
-          "B": "$R2 > 1$",
-          "C": "$\\sum_{n=1$ }^{ $\\infty$ } (−1)nxn−1 converges for all x $\\in $ [−1, 1]",
-          "D": "$\\sum_{n=1$ }^{ $\\infty$ } (−1)n xn+1 n(n+1) converges for all x $\\in $ [−1, 1]"
+          "A": "$R_{1}=R_{2}$",
+          "B": "$R_{2}>1$",
+          "C": "$\\sum_{n=1}^{\\infty}(-1)^{n}x^{n-1}$ converges for all $x\\in[-1,1]$",
+          "D": "$\\sum_{n=1}^{\\infty}(-1)^{n}\\frac{x^{n+1}}{n(n+1)}$ converges for all $x\\in[-1,1]$"
         },
         "answer_key": "A,D",
-        "explanation": "**Correct Options: A,D**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.40)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,D**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.40)"
       },
       {
         "id": "JAM_2023_Q49",
@@ -683,10 +684,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The sum of the series $\\sum_{n=1$ }^{ $\\infty$ } 2n+1 (n2+1)(n2+2n+2) is equal to (rounded off to two decimal places).",
+        "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{2n+1}{(n^{2}+1)(n^{2}+2n+2)}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.49)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.49)"
       },
       {
         "id": "JAM_2023_Q50",
@@ -697,10 +698,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$limn \\to \\infty \u0010 1 + 1 2n + 1 3n + \\cdots + (2023)n \u0011 1 n = (rounded off to two decimal places).$",
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(1+\\frac{1}{2^{n}}+\\frac{1}{3^{n}}+\\cdots+\\frac{1}{(2023)^{n}}\\right)^{\\frac{1}{n}}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.50)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.50)"
       },
       {
         "id": "JAM_2022_Q5",
@@ -711,10 +712,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "The radius of convergence of the power series $\\sum_{n=1$ }^{ $\\infty$ } \u0010 n3 4n \u0011 x5n is: (A) 4 (B) 5 $\\sqrt (C) (D) 5\\sqrt$",
-        "options": null,
+        "question": "The radius of convergence of the power series $\\sum_{n=1}^{\\infty}\\left(\\frac{n^{3}}{4^{n}}\\right)x^{5n}$ is:",
+        "options": {
+          "A": "4",
+          "B": "$\\sqrt[5]{4}$",
+          "C": "$\\frac{1}{4}$",
+          "D": "$\\frac{1}{\\sqrt[5]{4}}$"
+        },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.5)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.5)"
       },
       {
         "id": "JAM_2022_Q6",
@@ -725,15 +731,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let $(xn)$ and $(yn)$ be defined by $x_{1}$ = 1, $y_{1}$ = 1 2, xn+1 = xn+yn , and yn+1 = $\\sqrt{xnyn} for all n \\in N$ . Then:",
+        "question": "Let $(x_{n})$ and $(y_{n})$ be defined by $x_{1}=1, y_{1}=\\frac{1}{2}, x_{n+1}=\\frac{x_{n}+y_{n}}{2}$, and $y_{n+1}=\\sqrt{x_{n}y_{n}}$ for all $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "$(xn)$ is convergent, but $(yn)$ is not convergent.",
-          "B": "$(xn)$ is not convergent, but $(yn)$ is convergent.",
-          "C": "Both $(xn)$ and $(yn)$ are convergent and limn $\\to \\infty xn $ > limn $\\to \\infty yn$ .",
-          "D": "Both $(xn)$ and $(yn)$ are convergent and limn $\\to \\infty xn = limn \\to \\infty yn$ ."
+          "A": "$(x_{n})$ is convergent, but $(y_{n})$ is not convergent.",
+          "B": "$(x_{n})$ is not convergent, but $(y_{n})$ is convergent.",
+          "C": "Both $(x_{n})$ and $(y_{n})$ are convergent and $\\lim_{n\\rightarrow\\infty}x_{n}>\\lim_{n\\rightarrow\\infty}y_{n}$.",
+          "D": "Both $(x_{n})$ and $(y_{n})$ are convergent and $\\lim_{n\\rightarrow\\infty}x_{n}=\\lim_{n\\rightarrow\\infty}y_{n}$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.6)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.6)"
       },
       {
         "id": "JAM_2022_Q7",
@@ -744,15 +750,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Suppose an = 3n+3 5n−5 and bn = (1+n2) 4 for n = 2, 3, 4, . . . . Then:",
+        "question": "Suppose $a_{n}=\\frac{3^{n}+3}{5^{n}-5}$ and $b_{n}=\\frac{1}{(1+n^{2})^{\\frac{1}{4}}}$ for $n=2,3,4,\\dots$. Then:",
         "options": {
-          "A": "$\\sum_{n=2$ }^{ $\\infty$ } an is convergent and $\\sum_{n=2$ }^{ $\\infty$ } bn is convergent.",
-          "B": "$\\sum_{n=2$ }^{ $\\infty$ } an is convergent and $\\sum_{n=2$ }^{ $\\infty$ } bn is divergent.",
-          "C": "$\\sum_{n=2$ }^{ $\\infty$ } an is divergent and $\\sum_{n=2$ }^{ $\\infty$ } bn is convergent.",
-          "D": "$\\sum_{n=2$ }^{ $\\infty$ } an is divergent and $\\sum_{n=2$ }^{ $\\infty$ } bn is divergent."
+          "A": "$\\sum_{n=2}^{\\infty} a_{n}$ is convergent and $\\sum_{n=2}^{\\infty} b_{n}$ is convergent.",
+          "B": "$\\sum_{n=2}^{\\infty} a_{n}$ is convergent and $\\sum_{n=2}^{\\infty} b_{n}$ is divergent.",
+          "C": "$\\sum_{n=2}^{\\infty} a_{n}$ is divergent and $\\sum_{n=2}^{\\infty} b_{n}$ is convergent.",
+          "D": "$\\sum_{n=2}^{\\infty} a_{n}$ is divergent and $\\sum_{n=2}^{\\infty} b_{n}$ is divergent."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.7)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.7)"
       },
       {
         "id": "JAM_2022_Q8",
@@ -763,15 +769,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Consider the series $\\sum_{n=1$ }^{ $\\infty$ } nm(1+ 1 np ), where m and p are real numbers. Under which of the following conditions does the above series converge?",
+        "question": "Consider the series $\\sum_{n=1}^{\\infty}\\frac{1}{n^{m}(1+\\frac{1}{n^{p}})}$, where $m$ and $p$ are real numbers. Under which of the following conditions does the above series converge?",
         "options": {
-          "A": "$m > 1$",
-          "B": "$0 < m < 1 and p > 1$",
-          "C": "$0 < m \\le 1 and 0 \\le p \\le 1$",
-          "D": "$m = 1 and p > 1$"
+          "A": "$m>1$",
+          "B": "$0<m<1$ and $p>1$",
+          "C": "$0<m\\le 1$ and $0\\le p\\le 1$",
+          "D": "$m=1$ and $p>1$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.8)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.8)"
       },
       {
         "id": "JAM_2022_Q12",
@@ -782,15 +788,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let T = 1 −1 2 + $\\binom{1}{3} $ −1 4 + . . . and S = 1 −1 2 −1 4 + $\\binom{1}{3} $ −1 6 −1 8 + . . . . Then:",
+        "question": "Let $T = 1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+\\dots$ and $S = 1-\\frac{1}{2}-\\frac{1}{4}+\\frac{1}{3}-\\frac{1}{6}-\\frac{1}{8}+\\dots$. Then:",
         "options": {
-          "A": "$T = S and S \\neq 0$",
-          "B": "$2T = S and S \\neq 0$",
-          "C": "$T = 2S and S \\neq 0$",
-          "D": "$T = S = 0$"
+          "A": "$T=S$ and $S\\ne 0$",
+          "B": "$2T=S$ and $S\\ne 0$",
+          "C": "$T=2S$ and $S\\ne 0$",
+          "D": "$T=S=0$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.12)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.12)"
       },
       {
         "id": "JAM_2022_Q14",
@@ -801,15 +807,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The value of limn $\\to \\infty \\sum_{k=2$ }^{n} $\\sqrt{n}+1$ − $\\sqrt{n} k(ln k)2 is equal to$ :",
+        "question": "The value of $\\lim_{n\\rightarrow\\infty}\\sum_{k=2}^{n}\\frac{\\sqrt{n+1}-\\sqrt{n}}{k(\\ln k)^{2}}$ is equal to:",
         "options": {
           "A": "$\\infty$",
-          "B": "",
-          "C": "e",
+          "B": "1",
+          "C": "$e$",
           "D": "0"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.14)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.14)"
       },
       {
         "id": "JAM_2022_Q28",
@@ -820,15 +826,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For −1 $\\le x \\le 1$ , if $f$(x) is the sum of the convergent power series x + $x_{2}$ 22 + $x_{3}$ 32 + $\\cdots + xn n2 + $ . . . , then $f( 1 2)$ is equal to:",
+        "question": "For $-1\\le x\\le 1$, if $f(x)$ is the sum of the convergent power series $x+\\frac{x^2}{2^2}+\\frac{x^3}{3^2}+\\dots+\\frac{x^n}{n^2}+\\dots$, then $f(\\frac{1}{2})$ is equal to:",
         "options": {
-          "A": "$\\int_{0}^{1/2} ln(1−t) t dt$",
-          "B": "$− \\int_{0}^{1/2} ln(1−t) t dt$",
-          "C": "$\\int_{0}^{1/2} t ln(1 + t)dt$",
-          "D": "$\\int_{0}^{1/2} t ln(1 −t)dt$"
+          "A": "$\\int_{0}^{1/2}\\frac{\\ln(1-t)}{t}dt$",
+          "B": "$-\\int_{0}^{1/2}\\frac{\\ln(1-t)}{t}dt$",
+          "C": "$\\int_{0}^{1/2}t\\ln(1+t)dt$",
+          "D": "$\\int_{0}^{1/2}t\\ln(1-t)dt$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.28)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Sequences and Series of Real Numbers$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.28)"
       },
       {
         "id": "JAM_2022_Q38",
@@ -839,15 +845,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $(xn)$ be a sequence of real numbers. Consider P = {n $\\in N $ : xn > xm for all m > n}. Then:",
+        "question": "Let $(x_{n})$ be a sequence of real numbers. Consider $P=\\{n\\in\\mathbb{N}: x_{n}>x_{m}\\text{ for all } m>n\\}$. Then:",
         "options": {
-          "A": "If P is finite, then $(xn)$ has a monotonically increasing subsequence.",
-          "B": "If P is finite, then no subsequence of $(xn)$ is monotonically increasing.",
-          "C": "If P is infinite, then $(xn)$ has a monotonically decreasing subsequence.",
-          "D": "If P is infinite, then no subsequence of $(xn)$ is monotonically decreasing."
+          "A": "If $P$ is finite, then $(x_{n})$ has a monotonically increasing subsequence.",
+          "B": "If $P$ is finite, then no subsequence of $(x_{n})$ is monotonically increasing.",
+          "C": "If $P$ is infinite, then $(x_{n})$ has a monotonically decreasing subsequence.",
+          "D": "If $P$ is infinite, then no subsequence of $(x_{n})$ is monotonically decreasing."
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.38)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.38)"
       },
       {
         "id": "JAM_2022_Q44",
@@ -858,10 +864,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The sum of the series $\\sum_{n=1$ }^{ $\\infty$ } (4n−3)(4n+1) is equal to (rounded off to two decimal places).",
+        "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{1}{(4n-3)(4n+1)}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.44)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{0.25}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.44)"
       },
       {
         "id": "JAM_2022_Q55",
@@ -872,10 +878,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let r be the radius of convergence of $\\binom{1}{3} + x 5 + $x_{2}$ 32 + $x_{3}$ 52 + $x_{4}$ 33 + \\cdots $ . Then the value of r2 is equal to (rounded off to two decimal places).",
+        "question": "Let $r$ be the radius of convergence of $\\frac{1}{3}+\\frac{x}{5}+\\frac{x^{2}}{3^{2}}+\\frac{x^{3}}{5^{2}}+\\frac{x^{4}}{3^{3}}+\\cdots$. Then the value of $r^{2}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.00",
-        "explanation": "**Correct Numerical Answer: 3.00**\n\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.55)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Sequences and Series of Real Numbers$, we obtain the exact evaluated value: $$\\mathbf{3.00}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3.00**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.55)"
       }
     ]
   },
@@ -897,15 +903,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f : (1, 4) $\\to \\int^{be} a differentiable function such that f$ ′$(x)$ = ($f$(x) −πx)2 + π for all x $\\in (1$ , 4). Which ONE of the following is a possible value of $f(3)$ −$f(2)$?",
+        "question": "Let $f:(1,4)\\rightarrow\\mathbb{R}$ be a differentiable function such that $f^{\\prime}(x)=(f(x)-\\pi x)^{2}+\\pi$ for all $x\\in(1,4)$. Which ONE of the following is a possible value of $f(3)-f(2)$?",
         "options": {
-          "A": "$π + 1$",
-          "B": "π −1",
-          "C": "$π 2 + 1$",
-          "D": "$π 2 + 1$"
+          "A": "$\\pi+\\frac{1}{6}$",
+          "B": "$\\pi-\\frac{1}{6}$",
+          "C": "$\\frac{\\pi}{2}+\\frac{1}{3}$",
+          "D": "$\\frac{\\pi}{2}+\\frac{1}{2}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.3)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.3)"
       },
       {
         "id": "JAM_2026_Q6",
@@ -916,15 +922,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f : (1, 2) $\\to \\int^{be} a continuous function satisfying limx \\to 1+ $f$(x) = 3 and limx \\to 2$ −$f$(x) = 3. Then which ONE of the following is necessarily TRUE?",
+        "question": "Let $f:(1,2)\\rightarrow\\mathbb{R}$ be a continuous function satisfying $\\lim_{x\\rightarrow 1+}f(x)=3$ and $\\lim_{x\\rightarrow 2-}f(x)=3$. Then which ONE of the following is necessarily TRUE?",
         "options": {
-          "A": "f is bounded and f has a maximum or a minimum but not both.",
-          "B": "f is bounded and f has a maximum or a minimum or both.",
-          "C": "f is bounded and f has neither a maximum nor a minimum.",
-          "D": "f is unbounded and f has either no maximum or no minimum."
+          "A": "$f$ is bounded and $f$ has a maximum or a minimum but not both.",
+          "B": "$f$ is bounded and $f$ has a maximum or a minimum or both.",
+          "C": "$f$ is bounded and $f$ has neither a maximum nor a minimum.",
+          "D": "$f$ is unbounded and $f$ has either no maximum or no minimum."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.6)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.6)"
       },
       {
         "id": "JAM_2026_Q7",
@@ -935,15 +941,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f : $\\int^{ \\to R$ } be a twice differentiable function such that f$(n)$ = 1 for all n $\\in Z$ . Which ONE of the following statements is necessarily TRUE?",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be a twice differentiable function such that $f(n)=1$ for all $n\\in\\mathbb{Z}$. Which ONE of the following statements is necessarily TRUE?",
         "options": {
-          "A": "$f′(n) = 0 for all n \\in Z$",
-          "B": "$f′(x) = 0 for infinitely many x \\in \\int^{\\} Z$",
-          "C": "$f′′(n) = 0 for all n \\in Z$",
-          "D": "$f′′(x) = 0 for infinitely many x \\in \\int^{\\} Z$"
+          "A": "$f^{\\prime}(n)=0$ for all $n\\in\\mathbb{Z}$",
+          "B": "$f^{\\prime}(x)=0$ for infinitely many $x\\in\\mathbb{R}\\setminus\\mathbb{Z}$",
+          "C": "$f^{\\prime\\prime}(n)=0$ for all $n\\in\\mathbb{Z}$",
+          "D": "$f^{\\prime\\prime}(x)=0$ for infinitely many $x\\in\\mathbb{R}\\setminus\\mathbb{Z}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.7)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.7)"
       },
       {
         "id": "JAM_2026_Q13",
@@ -954,15 +960,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : $\\int^{ \\to R$ } be a function that has derivatives of all orders. Which ONE of the following statements is FALSE?",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be a function that has derivatives of all orders. Which ONE of the following statements is FALSE?",
         "options": {
-          "A": "If f is a polynomial in x of degree at most 5, then $f(6)(x)$ = 0 for all x $\\in R$ .",
-          "B": "If $f(6)(x)$ = 0 for all x $\\in R$ , then f is a polynomial in x of degree at most 5.",
-          "C": "If f$(k)(a)$ = 0 for all 1 $\\le k \\le 5 and $f(6)(a) > 0 for some a $\\in R$ , then $f$(x) has a local minimum at a.",
-          "D": "If f$(k)(a)$ = 0 for all 1 $\\le k \\le 6 and $f(7)(a) < 0 for some a $\\in R$ , then $f$(x) has a local maximum at a."
+          "A": "If $f$ is a polynomial in $x$ of degree at most 5, then $f^{(6)}(x)=0$ for all $x\\in\\mathbb{R}$.",
+          "B": "If $f^{(6)}(x)=0$ for all $x\\in\\mathbb{R}$, then $f$ is a polynomial in $x$ of degree at most 5.",
+          "C": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 5$ and $f^{(6)}(a)>0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local minimum at $a$.",
+          "D": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 6$ and $f^{(7)}(a)<0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local maximum at $a$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.13)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.13)"
       },
       {
         "id": "JAM_2026_Q19",
@@ -973,15 +979,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The value of limx $\\to \\infty \\int_{0}^{x} e$ −t| sin t| dt is:",
+        "question": "The value of $\\lim_{x\\rightarrow\\infty}\\int_{0}^{x}e^{-t}|\\sin t|\\,dt$ is:",
         "options": {
-          "A": "$eπ+1 2(eπ−1)$",
-          "B": "$eπ−1 2(eπ+1)$",
-          "C": "$2(eπ+1) eπ−1$",
-          "D": "$2(eπ−1) eπ+1$"
+          "A": "$\\frac{e^{\\pi}+1}{2(e^{\\pi}-1)}$",
+          "B": "$\\frac{e^{\\pi}-1}{2(e^{\\pi}+1)}$",
+          "C": "$\\frac{2(e^{\\pi}+1)}{e^{\\pi}-1}$",
+          "D": "$\\frac{2(e^{\\pi}-1)}{e^{\\pi}+1}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.19)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.19)"
       },
       {
         "id": "JAM_2026_Q21",
@@ -992,15 +998,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : [1, 9] $\\to \\int^{be} a non-constant continuous function such that $f(1)$ = $f(9) . Which ONE of the following statements is necessarily TRUE?",
+        "question": "Let $f:[1,9]\\rightarrow\\mathbb{R}$ be a non-constant continuous function such that $f(1)=f(9)$. Which ONE of the following statements is necessarily TRUE?",
         "options": {
-          "A": "There exists c $\\in $ [4, 8] such that f$(c)$ = f(c + 1).",
-          "B": "There exists c $\\in $ [3, 7] such that f$(c)$ = f(c + 2).",
-          "C": "There exists c $\\in $ [2, 6] such that f$(c)$ = f(c + 3).",
-          "D": "There exists c $\\in $ [1, 5] such that f$(c)$ = f(c + 4)."
+          "A": "There exists $c\\in[4,8]$ such that $f(c)=f(c+1)$.",
+          "B": "There exists $c\\in[3,7]$ such that $f(c)=f(c+2)$.",
+          "C": "There exists $c\\in[2,6]$ such that $f(c)=f(c+3)$.",
+          "D": "There exists $c\\in[1,5]$ such that $f(c)=f(c+4)$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.21)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.21)"
       },
       {
         "id": "JAM_2026_Q31",
@@ -1011,15 +1017,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Which of the following functions f : $\\int^{ \\to R$ } has/have a local minimum at x = 0?",
+        "question": "Which of the following functions $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ has/have a local minimum at $x=0$?",
         "options": {
-          "A": "$f(x) = sin |x|$",
-          "B": "$f(x) = sin x + x3$",
-          "C": "$f(x) = x4 + x2 + 3$",
-          "D": "$f(x) = min{x −[x], 1 −x + [x]}$"
+          "A": "$f(x)=\\sin|x|$",
+          "B": "$f(x)=\\sin x+\\frac{x^{3}}{6}$",
+          "C": "$f(x)=x^{4}+x^{2}+3$",
+          "D": "$f(x)=\\min\\{x-[x],1-x+[x]\\}$"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.31)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.31)"
       },
       {
         "id": "JAM_2026_Q33",
@@ -1030,15 +1036,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Which of the following functions is/are differentiable at x = 1?",
+        "question": "Which of the following functions is/are differentiable at $x=1$?",
         "options": {
-          "A": "$f(x) = |x −1|3$",
-          "B": "$f(x) = |x2 −1|$",
-          "C": "$f(x) = ( x2e−x2, |x| \\le 1 e−1, |x| > 1$",
-          "D": "$f(x) = [x]$"
+          "A": "$f(x)=|x-1|^{3}$",
+          "B": "$f(x)=|x^{2}-1|$",
+          "C": "$f(x)=\\begin{cases}x^{2}e^{-x^{2}},& |x|\\le 1\\\\ e^{-1},& |x|>1\\end{cases}$",
+          "D": "$f(x)=[x]$"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.33)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.33)"
       },
       {
         "id": "JAM_2026_Q34",
@@ -1049,15 +1055,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : $\\int^{ \\to R$ } be given by $f$(x) = ( cos x, x $\\in Q 0$ , x / $\\in Q$ . Which of the following is/are TRUE?",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be given by $f(x)=\\begin{cases}\\cos x,& x\\in\\mathbb{Q}\\\\ 0,& x\\notin\\mathbb{Q}\\end{cases}$. Which of the following is/are TRUE?",
         "options": {
-          "A": "$f$(x) is continuous at 0.",
-          "B": "$f$(x) is continuous at π 2 .",
-          "C": "$f$(x) is Riemann integrable on [0, 1] and $\\int^{\\binom{1}{0}$ } $f$(x)dx = sin 1.",
-          "D": "$f$(x) is Riemann integrable on [0, 1] and $\\int^{\\binom{1}{0}$ } $f$(x)dx = 0."
+          "A": "$f(x)$ is continuous at 0.",
+          "B": "$f(x)$ is continuous at $\\frac{\\pi}{2}$.",
+          "C": "$f(x)$ is Riemann integrable on $[0,1]$ and $\\int_{0}^{1}f(x)dx=\\sin 1$.",
+          "D": "$f(x)$ is Riemann integrable on $[0,1]$ and $\\int_{0}^{1}f(x)dx=0$."
         },
         "answer_key": "B",
-        "explanation": "**Correct Options: B**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.34)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.34)"
       },
       {
         "id": "JAM_2026_Q44",
@@ -1068,10 +1074,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$limx \\to 0 \u0010 x − sin x + e 1−cos x x \u0011 = (rounded off to one decimal place).$",
+        "question": "$\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}-\\frac{1}{\\sin x}+e^{\\frac{1-\\cos x}{x}}\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.44)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.44)"
       },
       {
         "id": "JAM_2026_Q48",
@@ -1082,10 +1088,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$\\int^{\\binom{3}{0}} (|x −1| −x[x]) dx = (rounded off to one decimal place).$",
+        "question": "$\\int_{0}^{3}(|x-1|-x[x])\\,dx=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "-4.0",
-        "explanation": "**Correct Numerical Answer: -4.0**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.48)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{-4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: -4.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.48)"
       },
       {
         "id": "JAM_2026_Q54",
@@ -1096,10 +1102,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f$(x) = $\\int^{esin} x 0 \\int^{loge} y 0 e$ −( 1 $\\sqrt{2} )(1 $ −$t_{2}$)dt dy. Then f′(π/4) = (rounded off to one decimal place).",
+        "question": "Let $f(x)=\\int_{0}^{e^{\\sin x}}\\int_{0}^{\\log_{e}y}e^{-(\\frac{1}{\\sqrt{2}})}(1-t^{2})dt\\,dy$. Then $f^{\\prime}(\\pi/4)=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "0.45",
-        "explanation": "**Correct Numerical Answer: 0.45**\n\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.54)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{0.45}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.45**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.54)"
       },
       {
         "id": "JAM_2025_Q3",
@@ -1110,15 +1116,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f, g : $\\int^{ \\to R$ } be defined by $f$(x) = ( x|x| sin 1 x, x $\\neq 0 0$ , x = 0 and $g$(x) = ( $x_{2}$ sin 1 x + x cos 1 x, x $\\neq 0 0$ , x = 0. Then:",
+        "question": "Let $f,g:\\mathbb{R}\\rightarrow\\mathbb{R}$ be defined by $f(x)=\\begin{cases}x|x|\\sin\\frac{1}{x},& x\\ne 0\\\\ 0,& x=0\\end{cases}$ and $g(x)=\\begin{cases}x^{2}\\sin\\frac{1}{x}+x\\cos\\frac{1}{x},& x\\ne 0\\\\ 0,& x=0\\end{cases}$. Then:",
         "options": {
-          "A": "f is differentiable at x = 0, and g is NOT differentiable at x = 0",
-          "B": "f is NOT differentiable at x = 0, and g is differentiable at x = 0",
-          "C": "f is differentiable at x = 0 and g is differentiable at x = 0",
-          "D": "f is NOT differentiable at x = 0, and g is NOT differentiable at x = 0"
+          "A": "$f$ is differentiable at $x=0$, and $g$ is NOT differentiable at $x=0$",
+          "B": "$f$ is NOT differentiable at $x=0$, and $g$ is differentiable at $x=0$",
+          "C": "$f$ is differentiable at $x=0$ and $g$ is differentiable at $x=0$",
+          "D": "$f$ is NOT differentiable at $x=0$, and $g$ is NOT differentiable at $x=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.3)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.3)"
       },
       {
         "id": "JAM_2025_Q4",
@@ -1129,15 +1135,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f, g : $\\int^{ \\to R$ } be defined by $f$(x) = ( |x|1/3| sin 1 x| cos x, x $\\neq 0 0$ , x = 0 and $g$(x) = ( ex cos 1 x, x $\\neq 0 1$ , x = 0. Then:",
+        "question": "Let $f,g:\\mathbb{R}\\rightarrow\\mathbb{R}$ be defined by $f(x)=\\begin{cases}|x|^{1/3}|\\sin\\frac{1}{x}|\\cos x,& x\\ne 0\\\\ 0,& x=0\\end{cases}$ and $g(x)=\\begin{cases}e^{x}\\cos\\frac{1}{x},& x\\ne 0\\\\ 1,& x=0\\end{cases}$. Then:",
         "options": {
-          "A": "f is continuous at x = 0, and g is NOT continuous at x = 0",
-          "B": "f is NOT continuous at x = 0, and g is continuous at x = 0",
-          "C": "f is continuous at x = 0, and g is continuous at x = 0",
-          "D": "f is NOT continuous at x = 0, and g is NOT continuous at x = 0"
+          "A": "$f$ is continuous at $x=0$, and $g$ is NOT continuous at $x=0$",
+          "B": "$f$ is NOT continuous at $x=0$, and $g$ is continuous at $x=0$",
+          "C": "$f$ is continuous at $x=0$, and $g$ is continuous at $x=0$",
+          "D": "$f$ is NOT continuous at $x=0$, and $g$ is NOT continuous at $x=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.4)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.4)"
       },
       {
         "id": "JAM_2025_Q17",
@@ -1148,15 +1154,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f$(x) = 10x2 + ex −sin(2x) −cos x, x $\\in R$ . The number of points at which the function f has a local minimum is:",
+        "question": "Let $f(x)=10x^{2}+e^{x}-\\sin(2x)-\\cos x, x\\in\\mathbb{R}$. The number of points at which the function $f$ has a local minimum is:",
         "options": {
           "A": "0",
-          "B": "",
-          "C": "",
+          "B": "1",
+          "C": "2",
           "D": "greater than or equal to 3"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.17)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.17)"
       },
       {
         "id": "JAM_2025_Q30",
@@ -1167,15 +1173,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The number of elements in the set {x $\\in \\int^{$ :} 8x2 + $x_{4}$ + $x_{8}$ = cos x} is equal to:",
+        "question": "The number of elements in the set $\\{x\\in\\mathbb{R}: 8x^{2}+x^{4}+x^{8}=\\cos x\\}$ is equal to:",
         "options": {
           "A": "0",
-          "B": "",
-          "C": "",
+          "B": "1",
+          "C": "2",
           "D": "greater than or equal to 3"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.30)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.30)"
       },
       {
         "id": "JAM_2025_Q37",
@@ -1186,15 +1192,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : $\\int^{ \\to R$ } be a twice differentiable function such that $f(0)$ = 0, f ′(0) = 2 and $f(1)$ = −3. Then, which of the following is/are TRUE?",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be a twice differentiable function such that $f(0)=0, f^{\\prime}(0)=2$ and $f(1)=-3$. Then, which of the following is/are TRUE?",
         "options": {
-          "A": "$|f′(x)| \\le 2 for all x \\in [0, 1]$",
-          "B": "$|f′(x1)| > 2 for some x1 \\in [0, 1]$",
-          "C": "$|f′′(x)| < 10 for all x \\in [0, 1]$",
-          "D": "$|f′′(x2)| \\ge 10 for some x2 \\in [0, 1]$"
+          "A": "$|f^{\\prime}(x)|\\le 2$ for all $x\\in[0,1]$",
+          "B": "$|f^{\\prime}(x_{1})|>2$ for some $x_{1}\\in[0,1]$",
+          "C": "$|f^{\\prime\\prime}(x)|<10$ for all $x\\in[0,1]$",
+          "D": "$|f^{\\prime\\prime}(x_{2})|\\ge 10$ for some $x_{2}\\in[0,1]$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.37)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.37)"
       },
       {
         "id": "JAM_2025_Q38",
@@ -1205,15 +1211,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : $\\int^{ \\to R$ } be a twice differentiable function such that $f(0)$ = 4, $f(1)$ = −2, $f(2)$ = 8 and $f(3)$ = 2. Then, which of the following is/are TRUE?",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be a twice differentiable function such that $f(0)=4, f(1)=-2, f(2)=8$ and $f(3)=2$. Then, which of the following is/are TRUE?",
         "options": {
-          "A": "$|f′(x)| < 5 for all x \\in [0, 1]$",
-          "B": "$|f′(x1)| \\ge 5 for some x1 \\in [0, 1]$",
-          "C": "$f′(x2) = 0 for some x2 \\in [0, 3]$",
-          "D": "$f′′(x3) = 0 for some x3 \\in [0, 3]$"
+          "A": "$|f^{\\prime}(x)|<5$ for all $x\\in[0,1]$",
+          "B": "$|f^{\\prime}(x_{1})|\\ge 5$ for some $x_{1}\\in[0,1]$",
+          "C": "$f^{\\prime}(x_{2})=0$ for some $x_{2}\\in[0,3]$",
+          "D": "$f^{\\prime\\prime}(x_{3})=0$ for some $x_{3}\\in[0,3]$"
         },
         "answer_key": "B,C,D",
-        "explanation": "**Correct Options: B,C,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.38)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,C,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.38)"
       },
       {
         "id": "JAM_2025_Q42",
@@ -1224,10 +1230,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$limn \\to \\infty 8n \u0010 e( 1 2n ) −1 \u0011 \u0000sin 1 2n + cos 1 2n \u0001 = (rounded off to two decimal places).$",
+        "question": "$\\lim_{n\\rightarrow\\infty}8n\\left(e^{(\\frac{1}{2n})}-1\\right)\\left(\\sin\\frac{1}{2n}+\\left|\\cos\\frac{1}{2n}\\right|\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.42)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.42)"
       },
       {
         "id": "JAM_2025_Q43",
@@ -1238,10 +1244,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $\\alpha be the real number such that limx \\to 0 (1$ −cos x)(22+x−4) $x_{3}$ = $\\alpha ln 2$ . Then, $\\alpha = (rounded off to two decimal places)$ .",
+        "question": "Let $\\alpha$ be the real number such that $\\lim_{x\\rightarrow 0}\\frac{(1-\\cos x)(2^{2+x}-4)}{x^{3}}=\\alpha\\ln 2$. Then, $\\alpha=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.43)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{2.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.43)"
       },
       {
         "id": "JAM_2025_Q51",
@@ -1252,10 +1258,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : $\\int^{ \\to R$ } be continuous satisfying $\\int_{0}^{$ π/4} \u0000sin$(x)f$(x) + cos$(x)\\int_{0}^{x} f$(t)$dt $ \u0001 dx = $\\sqrt{2}$ . Then, $\\int_{0}^{$ π/4} $f$(x) dx = (rounded off to two decimal places).",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be continuous satisfying $\\int_{0}^{\\pi/4}\\left(\\sin(x)f(x)+\\cos(x)\\int_{0}^{x}f(t)dt\\right)dx=\\sqrt{2}$. Then, $\\int_{0}^{\\pi/4}f(x)\\,dx=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.51)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{2.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.51)"
       },
       {
         "id": "JAM_2025_Q53",
@@ -1266,10 +1272,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f$(x) = 2x −sin x for x $\\in R$ . If limx $\\to 0 $ \u0010 x $\\sum_{i=1$ }^{k} i2f( x i ) \u0011 = 45, then k = .",
+        "question": "Let $f(x)=2x-\\sin x$ for $x\\in\\mathbb{R}$. If $\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}\\sum_{i=1}^{k}i^{2}f(\\frac{x}{i})\\right)=45$, then $k=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "9",
-        "explanation": "**Correct Numerical Answer: 9**\n\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.53)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{9}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 9**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.53)"
       },
       {
         "id": "JAM_2024_Q19",
@@ -1280,15 +1286,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : [−2π, 2π] $\\to \\int^{be} defined by $f$(x) = sin(min$ {x, x −[x]}). Consider the set S = {x $\\in $ [−2π, 2π] : f is discontinuous at x}. Then:",
+        "question": "Let $f:[-2\\pi,2\\pi]\\rightarrow\\mathbb{R}$ be defined by $f(x)=\\sin(\\min\\{x, x-[x]\\})$. Consider the set $S=\\{x\\in[-2\\pi,2\\pi]: f \\text{ is discontinuous at } x\\}$. Then:",
         "options": {
-          "A": "S has 13 elements",
-          "B": "S has 7 elements",
-          "C": "S is infinite",
-          "D": "S has 6 elements"
+          "A": "$S$ has 13 elements",
+          "B": "$S$ has 7 elements",
+          "C": "$S$ is infinite",
+          "D": "$S$ has 6 elements"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.19)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.19)"
       },
       {
         "id": "JAM_2024_Q24",
@@ -1299,7 +1305,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the statements: P: $\\exists f$ , g such that f is continuous at x = 1, g is discontinuous at x = 1, but g $\\circ f is continuous at x = 1$ . Q: $\\exists f$ , g such that both f, g are discontinuous at x = 1, but g $\\circ f is continuous at x = 1$ .",
+        "question": "Consider the statements: P: $\\exists f,g$ such that $f$ is continuous at $x=1$, $g$ is discontinuous at $x=1$, but $g\\circ f$ is continuous at $x=1$. Q: $\\exists f,g$ such that both $f,g$ are discontinuous at $x=1$, but $g\\circ f$ is continuous at $x=1$.",
         "options": {
           "A": "Both P and Q are true",
           "B": "Both false",
@@ -1307,7 +1313,7 @@ window.MOCK_TESTS_DATA = {
           "D": "P false, Q true"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.24)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.24)"
       },
       {
         "id": "JAM_2024_Q25",
@@ -1318,7 +1324,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f$(x) = ($x_{2}$+1)2 $x_{4}$+$x_{2}$+1 for x $\\in R$ . Then f has:",
+        "question": "Let $f(x)=\\frac{(x^{2}+1)^{2}}{x^{4}+x^{2}+1}$ for $x\\in\\mathbb{R}$. Then $f$ has:",
         "options": {
           "A": "exactly 2 local maxima and 3 local minima",
           "B": "exactly 3 local maxima and 2 local minima",
@@ -1326,7 +1332,7 @@ window.MOCK_TESTS_DATA = {
           "D": "exactly 2 local maxima and 1 local minimum"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.25)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.25)"
       },
       {
         "id": "JAM_2024_Q29",
@@ -1337,15 +1343,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let L1 : y = 3x + 2 and L2 : y = 4x + 3. Suppose f : $\\int^{ \\to R$ } is $C_{4}$ such that L1 intersects y = $f$(x) at 3 distinct points and L2 intersects y = $f$(x) at 4 distinct points. Then:",
+        "question": "Let $L_{1}: y=3x+2$ and $L_{2}: y=4x+3$. Suppose $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ is $C^{4}$ such that $L_{1}$ intersects $y=f(x)$ at 3 distinct points and $L_{2}$ intersects $y=f(x)$ at 4 distinct points. Then:",
         "options": {
-          "A": "$\\frac{df}{dx} does not attain 3 on R$",
-          "B": "$\\frac{d^2f}{dx^2} vanishes at most once$",
-          "C": "$\\frac{d3f}{dx}3 vanishes at least once$",
-          "D": "$\\frac{df}{dx} does not attain 7$"
+          "A": "$\\frac{df}{dx}$ does not attain 3 on $\\mathbb{R}$",
+          "B": "$\\frac{d^{2}f}{dx^{2}}$ vanishes at most once",
+          "C": "$\\frac{d^{3}f}{dx^{3}}$ vanishes at least once",
+          "D": "$\\frac{df}{dx}$ does not attain $\\frac{7}{2}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.29)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.29)"
       },
       {
         "id": "JAM_2024_Q34",
@@ -1356,15 +1362,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : (1, $\\infty ) \\to (0$ , $\\infty ) be a continuous function such that f$(n)$ = n$ ! for all n $\\in N$ . Then:",
+        "question": "Let $f:(1,\\infty)\\rightarrow(0,\\infty)$ be a continuous function such that $f(n)=n!$ for all $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "limx $\\to \\infty $f$(x) does not exist$",
-          "B": "$limx \\to \\infty f(x) = \\infty$",
-          "C": "The set of solutions to $f$(x) = 2024 is finite",
-          "D": "The set of solutions to $f$(x) = 2024 is infinite"
+          "A": "$\\lim_{x\\rightarrow\\infty}f(x)$ does not exist",
+          "B": "$\\lim_{x\\rightarrow\\infty}f(x)=\\infty$",
+          "C": "The set of solutions to $f(x)=2024$ is finite",
+          "D": "The set of solutions to $f(x)=2024$ is infinite"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.34)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.34)"
       },
       {
         "id": "JAM_2024_Q38",
@@ -1375,15 +1381,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Define $f$(x) = $\\sum_{m=0$ }^{ $\\infty$ } (−1)mx2m 22m(m!)2 and $g$(x) = x $\\sum_{m=0$ }^{ $\\infty$ } (−1)mx2m 22m(m+1)!m!. Let 0 < $x_{1}$ < $x_{2}$, 0 < $x_{3}$ < $x_{4}$ with $f($x_{1}$)$ = $f($x_{2}$)$ = 0, $f$(x) $\\neq 0 on ($x_{1} , $x_{2}$), and $g($x_{3}$)$ = $g($x_{4}$)$ = 0, $g$(x) $\\neq 0 on ($x_{3} , $x_{4}$). Then:",
+        "question": "Define $f(x)=\\sum_{m=0}^{\\infty}\\frac{(-1)^{m}x^{2m}}{2^{2m}(m!)^{2}}$ and $g(x)=\\frac{x}{2}\\sum_{m=0}^{\\infty}\\frac{(-1)^{m}x^{2m}}{2^{2m}(m+1)!m!}$. Let $0<x_{1}<x_{2}, 0<x_{3}<x_{4}$ with $f(x_{1})=f(x_{2})=0$, $f(x)\\ne 0$ on $(x_1,x_2)$, and $g(x_3)=g(x_4)=0$, $g(x)\\ne 0$ on $(x_3,x_4)$. Then:",
         "options": {
-          "A": "f does not vanish in ($x_{3}$, $x_{4}$)",
-          "B": "f vanishes exactly once in ($x_{3}$, $x_{4}$)",
-          "C": "g does not vanish in ($x_{1}$, $x_{2}$)",
-          "D": "g vanishes exactly once in ($x_{1}$, $x_{2}$)"
+          "A": "$f$ does not vanish in $(x_3,x_4)$",
+          "B": "$f$ vanishes exactly once in $(x_3,x_4)$",
+          "C": "$g$ does not vanish in $(x_1,x_2)$",
+          "D": "$g$ vanishes exactly once in $(x_1,x_2)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.38)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.38)"
       },
       {
         "id": "JAM_2024_Q46",
@@ -1394,10 +1400,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let S = {f : $\\int^{ \\to R$ } : f is a polynomial and f($f$(x)) = ($f$(x))2024 for x $\\in R$ }. The number of elements in S is .",
+        "question": "Let $S=\\{f:\\mathbb{R}\\rightarrow\\mathbb{R}: f \\text{ is a polynomial and } f(f(x))=(f(x))^{2024} \\text{ for } x\\in\\mathbb{R}\\}$. The number of elements in $S$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.46)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{3}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.46)"
       },
       {
         "id": "JAM_2024_Q52",
@@ -1408,10 +1414,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$limt \\to \\infty \u0010\u0000log(t2 + 1 t2 ) \u0001−1 \\int_{sin2}^{πt} 5x x dx \u0011 = (rounded off to two decimal places).$",
+        "question": "$\\lim_{t\\rightarrow\\infty}\\left(\\left(\\log(t^{2}+\\frac{1}{t^{2}})\\right)^{-1}\\int_{1}^{\\pi t}\\frac{\\sin^{2}5x}{x}dx\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.52)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{0.25}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.52)"
       },
       {
         "id": "JAM_2024_Q56",
@@ -1422,10 +1428,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f$(x) = $x_{3}$ −4x2 + 4x −6 and S$(c)$ = {x $\\in \\int^{$ :} $f$(x) = c}. Then |S(−7)| + |S(−5)| + |$S(3)$| = .",
+        "question": "Let $f(x)=x^{3}-4x^{2}+4x-6$ and $S(c)=\\{x\\in\\mathbb{R}: f(x)=c\\}$. Then $|S(-7)|+|S(-5)|+|S(3)|=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "5",
-        "explanation": "**Correct Numerical Answer: 5**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.56)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{5}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 5**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.56)"
       },
       {
         "id": "JAM_2024_Q60",
@@ -1436,10 +1442,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f$(x) = sin−1 x. If a6 denotes the coeﬀicient of $x_{6}$ in the Taylor series of ($f$(x))2 about x = 0, then 9a6 = (rounded off to two decimal places).",
+        "question": "Let $f(x)=\\sin^{-1}x$. If $a_{6}$ denotes the coefficient of $x^{6}$ in the Taylor series of $(f(x))^{2}$ about $x=0$, then $9a_{6}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.60",
-        "explanation": "**Correct Numerical Answer: 1.60**\n\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.60)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{1.60}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.60**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.60)"
       },
       {
         "id": "JAM_2023_Q5",
@@ -1450,15 +1456,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let p$(x)$ = $x_{57}$ +3x10 −21x3 +$x_{2}$ +21 and q$(x)$ = p$(x)$+ $\\sum_{j=1$ }^{57} p(j)$(x)$ for all x $\\in R$ . Then q admits:",
+        "question": "Let $p(x)=x^{57}+3x^{10}-21x^{3}+x^{2}+21$ and $q(x)=p(x)+\\sum_{j=1}^{57}p^{(j)}(x)$ for all $x\\in\\mathbb{R}$. Then $q$ admits:",
         "options": {
-          "A": "$NEITHE\\int^{a} global maximum NO\\int^{a} global minimum on R$",
-          "B": "a global maximum but NOT a global minimum on R",
-          "C": "a global minimum but NOT a global maximum on R",
-          "D": "a global minimum and a global maximum on R"
+          "A": "NEITHER a global maximum NOR a global minimum on $\\mathbb{R}$",
+          "B": "a global maximum but NOT a global minimum on $\\mathbb{R}$",
+          "C": "a global minimum but NOT a global maximum on $\\mathbb{R}$",
+          "D": "a global minimum and a global maximum on $\\mathbb{R}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.5)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.5)"
       },
       {
         "id": "JAM_2023_Q6",
@@ -1469,15 +1475,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "The limit limx $\\to 0 $ ∫x 0 sin($t_{2}$)dt ∫x 0 (ln(t+1))2dt is:",
+        "question": "The limit $\\lim_{x\\rightarrow 0}\\frac{\\int_{0}^{x}\\sin(t^{2})dt}{\\int_{0}^{x}(\\ln(t+1))^{2}dt}$ is:",
         "options": {
           "A": "0",
-          "B": "",
-          "C": "π e",
-          "D": "$non-existent$"
+          "B": "1",
+          "C": "$\\frac{\\pi}{e}$",
+          "D": "non-existent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.6)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.6)"
       },
       {
         "id": "JAM_2023_Q25",
@@ -1488,15 +1494,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f$(x) = cos$(x)$ and $g$(x) = 1 −$x_{2}$ 2 for x $\\in ($ −π 2 , π 2 ). Then:",
+        "question": "Let $f(x)=\\cos(x)$ and $g(x)=1-\\frac{x^{2}}{2}$ for $x\\in(-\\frac{\\pi}{2},\\frac{\\pi}{2})$. Then:",
         "options": {
-          "A": "$f(x) \\ge g(x) for all x \\in (−π 2 , π 2 )$",
-          "B": "$f(x) \\le g(x) for all x \\in (−π 2 , π 2 )$",
-          "C": "$f$(x) −$g$(x) changes sign exactly once on (−π 2 , π 2 )",
-          "D": "$f$(x) −$g$(x) changes sign more than once on (−π 2 , π 2 )"
+          "A": "$f(x)\\ge g(x)$ for all $x\\in(-\\frac{\\pi}{2},\\frac{\\pi}{2})$",
+          "B": "$f(x)\\le g(x)$ for all $x\\in(-\\frac{\\pi}{2},\\frac{\\pi}{2})$",
+          "C": "$f(x)-g(x)$ changes sign exactly once on $(-\\frac{\\pi}{2},\\frac{\\pi}{2})$",
+          "D": "$f(x)-g(x)$ changes sign more than once on $(-\\frac{\\pi}{2},\\frac{\\pi}{2})$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.25)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.25)"
       },
       {
         "id": "JAM_2023_Q28",
@@ -1507,15 +1513,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let y : $\\int^{ \\to R$ } be $C_{2}$ such that $y(0)$ = $y(1)$ = 0 and y′′$(x)$ + $x_{2}$ < 0 for all x $\\in $ [0, 1]. Then:",
+        "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be $C^2$ such that $y(0)=y(1)=0$ and $y^{\\prime\\prime}(x)+x^{2}<0$ for all $x\\in[0,1]$. Then:",
         "options": {
-          "A": "$y(x) > 0 for all x \\in (0, 1)$",
-          "B": "$y(x) < 0 for all x \\in (0, 1)$",
-          "C": "$y$(x) = 0 has exactly one solution in (0, 1)",
-          "D": "$y$(x) = 0 has more than one solution in (0, 1)"
+          "A": "$y(x)>0$ for all $x\\in(0,1)$",
+          "B": "$y(x)<0$ for all $x\\in(0,1)$",
+          "C": "$y(x)=0$ has exactly one solution in $(0,1)$",
+          "D": "$y(x)=0$ has more than one solution in $(0,1)$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.28)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.28)"
       },
       {
         "id": "JAM_2023_Q30",
@@ -1526,15 +1532,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : $\\int^{ \\to R$ } be an infinitely differentiable function such that f′′ has exactly two distinct zeroes. Then:",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be an infinitely differentiable function such that $f^{\\prime\\prime}$ has exactly two distinct zeroes. Then:",
         "options": {
-          "A": "f′ has at most 3 distinct zeroes",
-          "B": "f′ has at least 1 zero",
-          "C": "f has at most 3 distinct zeroes",
-          "D": "f has at least 2 distinct zeroes"
+          "A": "$f^{\\prime}$ has at most 3 distinct zeroes",
+          "B": "$f^{\\prime}$ has at least 1 zero",
+          "C": "$f$ has at most 3 distinct zeroes",
+          "D": "$f$ has at least 2 distinct zeroes"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.30)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.30)"
       },
       {
         "id": "JAM_2023_Q34",
@@ -1545,15 +1551,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : (−1, 1) $\\to \\int^{be} differentiable satisfying $f(0)$ = 0 and $ |f′$(x)$| $\\le M$ |x| for all x $\\in ($ −1, 1). Then:",
+        "question": "Let $f:(-1,1)\\rightarrow\\mathbb{R}$ be differentiable satisfying $f(0)=0$ and $|f^{\\prime}(x)|\\le M|x|$ for all $x\\in(-1,1)$. Then:",
         "options": {
-          "A": "f′ is continuous at x = 0",
-          "B": "f′ is differentiable at x = 0",
-          "C": "ff′ is differentiable at x = 0",
-          "D": "(f′)2 is differentiable at x = 0"
+          "A": "$f^{\\prime}$ is continuous at $x=0$",
+          "B": "$f^{\\prime}$ is differentiable at $x=0$",
+          "C": "$ff^{\\prime}$ is differentiable at $x=0$",
+          "D": "$(f^{\\prime})^{2}$ is differentiable at $x=0$"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.34)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.34)"
       },
       {
         "id": "JAM_2023_Q35",
@@ -1564,15 +1570,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Which of the following functions is/are Riemann integrable on [0, 1]?",
+        "question": "Which of the following functions is/are Riemann integrable on $[0,1]$?",
         "options": {
-          "A": "$f(x) = \\int_{0}^{x} | \\binom{1}{2} −t|dt$",
-          "B": "$f(x) = \\begin{cases} x sin(1/x) & \\text{if } x \\neq 0 \\\\ 0 & \\text{if } x = 0 \\end{cases}$",
-          "C": "$f(x) = ( 1, if x \\in Q \\cap [0, 1] −1, otherwise$",
-          "D": "$f(x) = \\begin{cases} x & \\text{if } x \\in [0, 1) \\\\ 0 & \\text{if } x = 1 \\end{cases}$"
+          "A": "$f(x)=\\int_{0}^{x}|\\frac{1}{2}-t|dt$",
+          "B": "$f(x)=\\begin{cases}x\\sin(1/x),& \\text{if } x\\ne 0\\\\ 0,& \\text{if } x=0\\end{cases}$",
+          "C": "$f(x)=\\begin{cases}1,& \\text{if } x\\in\\mathbb{Q}\\cap[0,1]\\\\ -1,& \\text{otherwise}\\end{cases}$",
+          "D": "$f(x)=\\begin{cases}x,& \\text{if } x\\in[0,1)\\\\ 0,& \\text{if } x=1\\end{cases}$"
         },
         "answer_key": "A,B,D",
-        "explanation": "**Correct Options: A,B,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.35)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.35)"
       },
       {
         "id": "JAM_2023_Q44",
@@ -1583,10 +1589,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$limn \\to \\infty \u0010 n \\int_{xn}^{\\binom{1}{0}} x+1dx \u0011 = (rounded off to two decimal places).$",
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(n\\int_{0}^{1}\\frac{x^{n}}{x+1}dx\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.44)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.44)"
       },
       {
         "id": "JAM_2023_Q47",
@@ -1597,10 +1603,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $f$(x) = 3 $\\sqrt{x} for x $ > 0, and $\\theta (h) satisfy f(3 + h) $ −$f(3)$ = hf′(3 + $\\theta (h)h) for h \\in ($ −1, 1). Then limh $\\to 0 \\theta (h) = (rounded off to two decimal places)$ .",
+        "question": "Let $f(x)=\\sqrt[3]{x}$ for $x>0$, and $\\theta(h)$ satisfy $f(3+h)-f(3)=hf^{\\prime}(3+\\theta(h)h)$ for $h\\in(-1,1)$. Then $\\lim_{h\\rightarrow 0}\\theta(h)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.47)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.47)"
       },
       {
         "id": "JAM_2023_Q52",
@@ -1611,10 +1617,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "The global minimum value of $f$(x) = |x −1| + |x −2|2 on $\\int^{is} equal to (rounded off to two decimal places)$ .",
+        "question": "The global minimum value of $f(x)=|x-1|+|x-2|^{2}$ on $\\mathbb{R}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.75",
-        "explanation": "**Correct Numerical Answer: 0.75**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.52)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{0.75}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.75**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.52)"
       },
       {
         "id": "JAM_2023_Q60",
@@ -1625,10 +1631,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : $\\int^{ \\to R$ } be bijective with $f$(x) = $\\sum_{n=1$ }^{ $\\infty$ } anxn and f−1$(x)$ = $\\sum_{n=1$ }^{ $\\infty$ } bnxn. If a1 = 2 and a2 = 4, then b1 = .",
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be bijective with $f(x)=\\sum_{n=1}^{\\infty}a_{n}x^{n}$ and $f^{-1}(x)=\\sum_{n=1}^{\\infty}b_{n}x^{n}$. If $a_{1}=2$ and $a_{2}=4$, then $b_{1}=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.60)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.60)"
       },
       {
         "id": "JAM_2022_Q22",
@@ -1639,15 +1645,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let H$(x)$ = 1 2(ex + e−x) and $f$(x) = $\\int_{0}^{$ π} H(x sin $\\theta )d \\theta $ . Then:",
+        "question": "Let $H(x)=\\frac{1}{2}(e^{x}+e^{-x})$ and $f(x)=\\int_{0}^{\\pi}H(x\\sin\\theta)d\\theta$. Then:",
         "options": {
-          "A": "$xf′′(x) + f′(x) + xf(x) = 0$",
-          "B": "$xf′′(x) −f′(x) + xf(x) = 0$",
-          "C": "$xf′′(x) + f′(x) −xf(x) = 0$",
-          "D": "$xf′′(x) −f′(x) −xf(x) = 0$"
+          "A": "$xf^{\\prime\\prime}(x)+f^{\\prime}(x)+xf(x)=0$",
+          "B": "$xf^{\\prime\\prime}(x)-f^{\\prime}(x)+xf(x)=0$",
+          "C": "$xf^{\\prime\\prime}(x)+f^{\\prime}(x)-xf(x)=0$",
+          "D": "$xf^{\\prime\\prime}(x)-f^{\\prime}(x)-xf(x)=0$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.22)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.22)"
       },
       {
         "id": "JAM_2022_Q27",
@@ -1658,15 +1664,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Given limN $\\to \\infty \\int_{0}^{N} e$ −t2dt = $\\sqrt$ π 2 , the value of limN $\\to \\infty \\int_{0}^{N} $t_{2}$ (e$ −at2 −e−bt2)dt (0 < a < b) is:",
+        "question": "Given $\\lim_{N\\rightarrow\\infty}\\int_{0}^{N}e^{-t^{2}}dt=\\frac{\\sqrt{\\pi}}{2}$, the value of $\\lim_{N\\rightarrow\\infty}\\int_{0}^{N}\\frac{1}{t^{2}}(e^{-at^{2}}-e^{-bt^{2}})dt$ ($0<a<b$) is:",
         "options": {
-          "A": "$\\sqrtπ(\\sqrt{a} − \\sqrt{b})$",
-          "B": "$\\sqrtπ(\\sqrt{a} + \\sqrt{b})$",
-          "C": "$−\\sqrtπ(\\sqrt{a} + \\sqrt{b})$",
-          "D": "$\\sqrtπ( \\sqrt{b} −\\sqrt{a})$"
+          "A": "$\\sqrt{\\pi}(\\sqrt{a}-\\sqrt{b})$",
+          "B": "$\\sqrt{\\pi}(\\sqrt{a}+\\sqrt{b})$",
+          "C": "$-\\sqrt{\\pi}(\\sqrt{a}+\\sqrt{b})$",
+          "D": "$\\sqrt{\\pi}(\\sqrt{b}-\\sqrt{a})$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.27)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.27)"
       },
       {
         "id": "JAM_2022_Q29",
@@ -1677,15 +1683,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For n $\\in N and x \\ge 1$ , let fn$(x)$ = $\\int_{0}^{$ π} ($x_{2}$ + (cos $\\theta ) \\sqrt{$x_{2}$} $ −1)nd $\\theta $ . Then:",
+        "question": "For $n\\in\\mathbb{N}$ and $x\\ge 1$, let $f_{n}(x)=\\int_{0}^{\\pi}(x^{2}+(\\cos\\theta)\\sqrt{x^{2}-1})^{n}d\\theta$. Then:",
         "options": {
-          "A": "fn$(x)$ is not a polynomial in x if n is odd and n $\\ge 3$ .",
-          "B": "fn$(x)$ is not a polynomial in x if n is even and n $\\ge 4$ .",
-          "C": "fn$(x)$ is a polynomial in x for all n $\\in N$ .",
-          "D": "fn$(x)$ is not a polynomial in x for any n $\\ge 3$ ."
+          "A": "$f_{n}(x)$ is not a polynomial in $x$ if $n$ is odd and $n\\ge 3$.",
+          "B": "$f_{n}(x)$ is not a polynomial in $x$ if $n$ is even and $n\\ge 4$.",
+          "C": "$f_{n}(x)$ is a polynomial in $x$ for all $n\\in\\mathbb{N}$.",
+          "D": "$f_{n}(x)$ is not a polynomial in $x$ for any $n\\ge 3$."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.29)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of One Real Variable$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.29)"
       },
       {
         "id": "JAM_2022_Q32",
@@ -1696,15 +1702,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let S be the set of continuous f : [−1, 1] $\\to \\int^{that} are analytic on ($ −1, 1) with Taylor series converging to $f$(x), and f(1/n) = 0 for all n $\\in N$ . Then:",
+        "question": "Let $S$ be the set of continuous $f:[-1,1]\\rightarrow\\mathbb{R}$ that are analytic on $(-1,1)$ with Taylor series converging to $f(x)$, and $f(1/n)=0$ for all $n\\in\\mathbb{N}$. Then:",
         "options": {
-          "A": "$f(0) = 0 for every f \\in S.$",
-          "B": "$f′(1/2) = 0 for every f \\in S.$",
-          "C": "There exists f $\\in S such that f$ ′(1/2) $\\neq 0$ .",
-          "D": "There exists f $\\in S such that $f$(x) \\neq 0 for some x \\in $ [−1, 1]."
+          "A": "$f(0)=0$ for every $f\\in S$.",
+          "B": "$f^{\\prime}(1/2)=0$ for every $f\\in S$.",
+          "C": "There exists $f\\in S$ such that $f^{\\prime}(1/2)\\ne 0$.",
+          "D": "There exists $f\\in S$ such that $f(x)\\ne 0$ for some $x\\in[-1,1]$."
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.32)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.32)"
       },
       {
         "id": "JAM_2022_Q33",
@@ -1715,15 +1721,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Define f : [0, 1] $\\to $ [0, 1] by $f$(x) =      1/2, x = 0 1/n, x = m/n in lowest terms 0, x irrational and $g$(x) = ( 0, x = 0 1, x $\\in (0$ , 1]. Then:",
+        "question": "Define $f:[0,1]\\rightarrow[0,1]$ by $f(x)=\\begin{cases}1/2,& x=0\\\\ 1/n,& x=m/n \\text{ in lowest terms}\\\\ 0,& x\\text{ irrational}\\end{cases}$ and $g(x)=\\begin{cases}0,& x=0\\\\ 1,& x\\in(0,1]\\end{cases}$. Then:",
         "options": {
-          "A": "f is Riemann integrable on [0, 1].",
-          "B": "g is Riemann integrable on [0, 1].",
-          "C": "f $\\circ g is Riemann integrable on $ [0, 1].",
-          "D": "g $\\circ f is Riemann integrable on $ [0, 1]."
+          "A": "$f$ is Riemann integrable on $[0,1]$.",
+          "B": "$g$ is Riemann integrable on $[0,1]$.",
+          "C": "$f\\circ g$ is Riemann integrable on $[0,1]$.",
+          "D": "$g\\circ f$ is Riemann integrable on $[0,1]$."
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.33)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.33)"
       },
       {
         "id": "JAM_2022_Q34",
@@ -1734,15 +1740,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let S = {f : $\\int^{ \\to R$ } : |$f$(x) −$f$(y)|2 $\\le $ |x −y|3 for all x, y $\\in R$ }. Then:",
+        "question": "Let $S=\\{f:\\mathbb{R}\\rightarrow\\mathbb{R} : |f(x)-f(y)|^{2}\\le |x-y|^{3} \\text{ for all } x,y\\in\\mathbb{R}\\}$. Then:",
         "options": {
-          "A": "Every function in S is differentiable.",
-          "B": "There exists f $\\in S such that f is differentiable$ , but not twice differentiable.",
-          "C": "There exists f $\\in S such that f is twice differentiable$ , but not thrice differentiable.",
-          "D": "Every function in S is infinitely differentiable."
+          "A": "Every function in $S$ is differentiable.",
+          "B": "There exists $f\\in S$ such that $f$ is differentiable, but not twice differentiable.",
+          "C": "There exists $f\\in S$ such that $f$ is twice differentiable, but not thrice differentiable.",
+          "D": "Every function in $S$ is infinitely differentiable."
         },
         "answer_key": "A,D",
-        "explanation": "**Correct Options: A,D**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.34)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.34)"
       },
       {
         "id": "JAM_2022_Q41",
@@ -1753,10 +1759,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$limn \\to \\infty \u0010 14+24+ \\cdots +n4 n5 + \\sqrt{n} \u0010 \\sqrt{n}+1 + \\cdots + \\sqrt{4n} \u0011\u0011 = (rounded off to two decimal places).$",
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{1^{4}+2^{4}+\\cdots+n^{4}}{n^{5}}+\\frac{1}{\\sqrt{n}}\\left(\\frac{1}{\\sqrt{n+1}}+\\cdots+\\frac{1}{\\sqrt{4n}}\\right)\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.20",
-        "explanation": "**Correct Numerical Answer: 2.20**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.41)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{2.20}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.20**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.41)"
       },
       {
         "id": "JAM_2022_Q54",
@@ -1767,10 +1773,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f$(x) = ( (x −π)esin x, 0 $\\le x \\le $ π/2 xesin x + 4 π, π/2 < x $\\le $ π. Then $\\int_{0}^{$ π} $f$(x) dx = (rounded off to two decimal places).",
+        "question": "Let $f(x)=\\begin{cases}(x-\\pi)e^{\\sin x},& 0\\le x\\le\\pi/2\\\\ xe^{\\sin x}+\\frac{4}{\\pi},& \\pi/2<x\\le\\pi\\end{cases}$. Then $\\int_{0}^{\\pi}f(x)\\,dx=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "**Correct Numerical Answer: 2.00**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.54)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{2.00}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.00**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.54)"
       },
       {
         "id": "JAM_2022_Q59",
@@ -1781,10 +1787,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f, g : (−1, 1) $\\to \\int^{be} $C_{3}$ with $f$(x) \\neq $g$(x) for x \\neq 0$ , and $f(0)$ = $g(0)$ = ln 2, f ′(0) = g′(0) = π, f′′(0) = g′′(0) = π2, f ′′′(0) = π9, g′′′(0) = π3. Then limx $\\to 0 ef$(x) −eg$(x)f$(x)−$g$(x) = (rounded off to two decimal places).",
+        "question": "Let $f,g:(-1,1)\\rightarrow\\mathbb{R}$ be $C^3$ with $f(x)\\ne g(x)$ for $x\\ne 0$, and $f(0)=g(0)=\\ln 2, f^{\\prime}(0)=g^{\\prime}(0)=\\pi, f^{\\prime\\prime}(0)=g^{\\prime\\prime}(0)=\\pi^2, f^{\\prime\\prime\\prime}(0)=\\pi^9, g^{\\prime\\prime\\prime}(0)=\\pi^3$. Then $\\lim_{x\\rightarrow 0}\\frac{e^{f(x)}-e^{g(x)}}{f(x)-g(x)}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "**Correct Numerical Answer: 2.00**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.59)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{2.00}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.00**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.59)"
       },
       {
         "id": "JAM_2022_Q60",
@@ -1795,10 +1801,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "If $\\int_{0}^{$x_{3}$+$x_{2} } f$(t)$dt = $x_{2}$ and $\\int_{0}^{$g$(x)$ } t2dt = 9(x + 1)3, then $f(2)$ + $g(2)$ + 16f(12) = (rounded off to two decimal places). Multivariable Calculus and Differential Equations",
+        "question": "If $\\int_{0}^{x^{3}+x^{2}}f(t)dt=x^{2}$ and $\\int_{0}^{g(x)}t^{2}dt=9(x+1)^{3}$, then $f(2)+g(2)+16f(12)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "13.40",
-        "explanation": "**Correct Numerical Answer: 13.40**\n\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.60)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of One Real Variable$, we obtain the exact evaluated value: $$\\mathbf{13.40}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 13.40**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.60)"
       }
     ]
   },
@@ -1820,15 +1826,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : $R_{2}\\to \\int^{be} given by f(x$ , y) = ($x_{2}$ −1)2 + ($y_{2}$ −1)2. Which ONE of the following is TRUE?",
+        "question": "Let $f:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}$ be given by $f(x,y)=(x^{2}-1)^{2}+(y^{2}-1)^{2}$. Which ONE of the following is TRUE?",
         "options": {
-          "A": "f has local maxima at exactly two points.",
-          "B": "f has local minima at exactly two points.",
-          "C": "f has local minima at exactly three points.",
-          "D": "f has exactly four saddle points."
+          "A": "$f$ has local maxima at exactly two points.",
+          "B": "$f$ has local minima at exactly two points.",
+          "C": "$f$ has local minima at exactly three points.",
+          "D": "$f$ has exactly four saddle points."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.15)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.15)"
       },
       {
         "id": "JAM_2026_Q17",
@@ -1839,15 +1845,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f(x, y)$ = ( 5x2y−4y3 $x_{2}$+$y_{2}$ , (x, y) $\\neq (0$ , 0) 0, (x, y) = (0, 0) . Which ONE of the following statements is FALSE?",
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{5x^{2}y-4y^{3}}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Which ONE of the following statements is FALSE?",
         "options": {
-          "A": "f is continuous at (0, 0)",
-          "B": "$\\frac{\\partial f}{\\partial x} at (0, 1) = 0$",
-          "C": "$\\frac{\\partial f}{\\partial y} at (1, 0) = 5$",
-          "D": "$\\frac{\\partial f}{\\partial y} is continuous at (0$ , 0)"
+          "A": "$f$ is continuous at $(0,0)$",
+          "B": "$\\frac{\\partial f}{\\partial x}$ at $(0,1)=0$",
+          "C": "$\\frac{\\partial f}{\\partial y}$ at $(1,0)=5$",
+          "D": "$\\frac{\\partial f}{\\partial y}$ is continuous at $(0,0)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.17)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.17)"
       },
       {
         "id": "JAM_2026_Q36",
@@ -1858,15 +1864,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( x2y 1+$x_{2}$ sin(1/x), x $\\neq 0 0$ , x = 0 . Which of the following statements is/are TRUE?",
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{x^{2}y}{1+x^{2}}\\sin(1/x),& x\\ne 0\\\\ 0,& x=0\\end{cases}$. Which of the following statements is/are TRUE?",
         "options": {
-          "A": "$limy \\to 0 limx \\to 0 f(x, y) exists.$",
-          "B": "$\\frac{\\partial f}{\\partial x} is continuous at the point (0$ , 1).",
-          "C": "$\\frac{\\partial f}{\\partial y} is continuous at the point (0$ , 1).",
-          "D": "lim(x,y) $\\to (0$ ,0) $f(x,y)\\sqrt{$x_{2}$}+$y_{2}$ does not exist$ ."
+          "A": "$\\lim_{y\\rightarrow 0}\\lim_{x\\rightarrow 0}f(x,y)$ exists.",
+          "B": "$\\frac{\\partial f}{\\partial x}$ is continuous at the point $(0,1)$.",
+          "C": "$\\frac{\\partial f}{\\partial y}$ is continuous at the point $(0,1)$.",
+          "D": "$\\lim_{(x,y)\\rightarrow(0,0)}\\frac{f(x,y)}{\\sqrt{x^{2}+y^{2}}}$ does not exist."
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.36)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.36)"
       },
       {
         "id": "JAM_2026_Q46",
@@ -1877,10 +1883,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let z = cos(4x + 5y), where x = π 2 + 2 $\\theta $ , y = −( π 4 + $\\theta )$ . Then dz d $\\theta \\theta = $ π = (rounded off to one decimal place).",
+        "question": "Let $z=\\cos(4x+5y)$, where $x=\\frac{\\pi}{2}+2\\theta, y=-(\\frac{\\pi}{4}+\\theta)$. Then $\\frac{dz}{d\\theta}\\Big|_{\\theta=\\frac{\\pi}{4}}=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.46)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{3.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.46)"
       },
       {
         "id": "JAM_2026_Q52",
@@ -1891,10 +1897,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( 4x2 tan−1( y 2x) + $y_{3}$ tan−1( x 4y2 ), xy $\\neq 0 0$ , otherwise . Then $\\frac{\\partial 2f}{\\partial y}$ ∂$x(0, 0)$ = (rounded off to two decimal places).",
+        "question": "Let $f(x,y)=\\begin{cases}4x^{2}\\tan^{-1}(\\frac{y}{2x})+y^{3}\\tan^{-1}(\\frac{x}{4y^{2}}),& xy\\ne 0\\\\ 0,& \\text{otherwise}\\end{cases}$. Then $\\frac{\\partial^{2}f}{\\partial y\\partial x}(0,0)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.52)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{0.25}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.52)"
       },
       {
         "id": "JAM_2025_Q27",
@@ -1905,15 +1911,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : $R_{2}\\to \\int^{be} defined by f(x$ , y) = ey($x_{2}$ + $y_{2}$). Then:",
+        "question": "Let $f:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}$ be defined by $f(x,y)=e^{y}(x^{2}+y^{2})$. Then:",
         "options": {
-          "A": "f has 2 local minima",
-          "B": "f has 2 local maxima",
-          "C": "f has 1 local minimum",
-          "D": "f has 1 local maximum"
+          "A": "$f$ has 2 local minima",
+          "B": "$f$ has 2 local maxima",
+          "C": "$f$ has 1 local minimum",
+          "D": "$f$ has 1 local maximum"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.27)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.27)"
       },
       {
         "id": "JAM_2025_Q31",
@@ -1924,15 +1930,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( xy2+$y_{5}x_{2}$+$y_{4}$ , (x, y) $\\neq (0$ , 0) 0, (x, y) = (0, 0) . Then:",
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{xy^{2}+y^{5}}{x^{2}+y^{4}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then:",
         "options": {
-          "A": "The iterated limits limx $\\to 0 limy \\to 0 f(x$ , y) and limy $\\to 0 limx \\to 0 f(x$ , y) exist",
-          "B": "$Exactly one of \\frac{\\partial f}{\\partial x} and \\frac{\\partial f}{\\partial y} exists at (0, 0)$",
-          "C": "$Both partial derivatives \\frac{\\partial f}{\\partial x} and \\frac{\\partial f}{\\partial y} exist at (0, 0)$",
-          "D": "f is NOT differentiable at (0, 0)"
+          "A": "The iterated limits $\\lim_{x\\rightarrow 0}\\lim_{y\\rightarrow 0}f(x,y)$ and $\\lim_{y\\rightarrow 0}\\lim_{x\\rightarrow 0}f(x,y)$ exist",
+          "B": "Exactly one of $\\frac{\\partial f}{\\partial x}$ and $\\frac{\\partial f}{\\partial y}$ exists at $(0,0)$",
+          "C": "Both partial derivatives $\\frac{\\partial f}{\\partial x}$ and $\\frac{\\partial f}{\\partial y}$ exist at $(0,0)$",
+          "D": "$f$ is NOT differentiable at $(0,0)$"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.31)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.31)"
       },
       {
         "id": "JAM_2025_Q34",
@@ -1943,15 +1949,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( ($x_{2}$+sin x)$y_{2}x_{2}$+$y_{2}$ , (x, y) $\\neq (0$ , 0) 0, (x, y) = (0, 0) . Then:",
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{(x^{2}+\\sin x)y^{2}}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then:",
         "options": {
-          "A": "$lim(x,y) \\to (0,0) f(x, y) = 1$",
-          "B": "$lim(x,y) \\to (0,0) f(x, y) = 0$",
-          "C": "f is differentiable at (0, 0)",
-          "D": "f is NOT differentiable at (0, 0)"
+          "A": "$\\lim_{(x,y)\\rightarrow(0,0)}f(x,y)=1$",
+          "B": "$\\lim_{(x,y)\\rightarrow(0,0)}f(x,y)=0$",
+          "C": "$f$ is differentiable at $(0,0)$",
+          "D": "$f$ is NOT differentiable at $(0,0)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.34)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.34)"
       },
       {
         "id": "JAM_2025_Q50",
@@ -1962,10 +1968,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( ($x_{2}$−$y_{2}$)xy $x_{2}$+$y_{2}$ , (x, y) $\\neq (0$ , 0) 0, (x, y) = (0, 0) . Then $\\frac{\\partial f}{\\partial y} (1$ , 0) − $\\frac{\\partial f}{\\partial x}(0$ , 2) = (rounded off to two decimal places).",
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{(x^{2}-y^{2})xy}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then $\\frac{\\partial f}{\\partial y}(1,0)-\\frac{\\partial f}{\\partial x}(0,2)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.50)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{3.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.50)"
       },
       {
         "id": "JAM_2024_Q2",
@@ -1976,15 +1982,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "For a $C_{2}$ function g : $\\int^{ \\to R$ ,} define ug(x, y) = 1 y $\\int_{$ −y}^{y} g(x + t)dt for y > 0. Then:",
+        "question": "For a $C^2$ function $g:\\mathbb{R}\\rightarrow\\mathbb{R}$, define $u_{g}(x,y)=\\frac{1}{y}\\int_{-y}^{y}g(x+t)dt$ for $y>0$. Then:",
         "options": {
-          "A": "$\\frac{\\partial 2ug}{\\partial x2} = 2 y \\frac{\\partial ug}{\\partial y} + \\frac{\\partial 2ug}{\\partial y2}$",
-          "B": "$\\frac{\\partial 2ug}{\\partial x2} = 1 y \\frac{\\partial ug}{\\partial y} + \\frac{\\partial 2ug}{\\partial y2}$",
-          "C": "$\\frac{\\partial 2ug}{\\partial x2} = 2 y \\frac{\\partial ug}{\\partial y} −\\frac{\\partial 2ug}{\\partial y2}$",
-          "D": "$\\frac{\\partial 2ug}{\\partial x2} = 1 y \\frac{\\partial ug}{\\partial y} −\\frac{\\partial 2ug}{\\partial y2}$"
+          "A": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{2}{y}\\frac{\\partial u_{g}}{\\partial y}+\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$",
+          "B": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{1}{y}\\frac{\\partial u_{g}}{\\partial y}+\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$",
+          "C": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{2}{y}\\frac{\\partial u_{g}}{\\partial y}-\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$",
+          "D": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{1}{y}\\frac{\\partial u_{g}}{\\partial y}-\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.2)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.2)"
       },
       {
         "id": "JAM_2024_Q30",
@@ -1995,15 +2001,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Define $f(x, y)$ = 12xye−(2x+3y−2). If (a, b) is the local maximum point, then f(a, b) equals:",
+        "question": "Define $f(x,y)=12xy e^{-(2x+3y-2)}$. If $(a,b)$ is the local maximum point, then $f(a,b)$ equals:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
+          "A": "2",
+          "B": "6",
+          "C": "12",
           "D": "0"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.30)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.30)"
       },
       {
         "id": "JAM_2024_Q35",
@@ -2014,15 +2020,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let S = {(x, y) $\\in $R_{2} : x > 0, y > 0} and $f(x, y)$ = 2x2 + 3y2 −log x −1 6 log y. Then:",
+        "question": "Let $S=\\{(x,y)\\in\\mathbb{R}^{2}: x>0, y>0\\}$ and $f(x,y)=2x^{2}+3y^{2}-\\log x-\\frac{1}{6}\\log y$. Then:",
         "options": {
-          "A": "Unique local maximum point in S",
-          "B": "Unique local minimum point in S",
-          "C": "For each ($x_{0}$, $y_{0}$) $\\in S$ , the set {(x, y) $\\in S $ : $f(x, y)$ = $f($x_{0}$, $y_{0}$)$} is bounded",
-          "D": "For each ($x_{0}$, $y_{0}$) $\\in S$ , the set {(x, y) $\\in S $ : $f(x, y)$ = $f($x_{0}$, $y_{0}$)$} is unbounded"
+          "A": "Unique local maximum point in $S$",
+          "B": "Unique local minimum point in $S$",
+          "C": "For each $(x_{0},y_{0})\\in S$, the set $\\{(x,y)\\in S: f(x,y)=f(x_{0},y_{0})\\}$ is bounded",
+          "D": "For each $(x_{0},y_{0})\\in S$, the set $\\{(x,y)\\in S: f(x,y)=f(x_{0},y_{0})\\}$ is unbounded"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.35)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.35)"
       },
       {
         "id": "JAM_2023_Q8",
@@ -2033,15 +2039,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f : $R_{2}\\to $R_{2}$ be defined by f(x$ , y) = (ex cos y, ex sin y). Then the number of points in $R_{2}$ that do NOT lie in the range of f is:",
+        "question": "Let $f:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}^{2}$ be defined by $f(x,y)=(e^{x}\\cos y, e^{x}\\sin y)$. Then the number of points in $\\mathbb{R}^{2}$ that do NOT lie in the range of $f$ is:",
         "options": {
           "A": "0",
-          "B": "",
-          "C": "",
+          "B": "1",
+          "C": "2",
           "D": "infinite"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.8)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.8)"
       },
       {
         "id": "JAM_2023_Q16",
@@ -2052,15 +2058,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f(x, y)$ = ex2+$y_{2}$ for (x, y) $\\in $R_{2} , and an be the determinant of the matrix \u0012fxx fxy fyx fyy \u0013 evaluated at (cos n, sin n). Then the limit limn $\\to \\infty an is$ :",
+        "question": "Let $f(x,y)=e^{x^{2}+y^{2}}$ for $(x,y)\\in\\mathbb{R}^{2}$, and $a_{n}$ be the determinant of the matrix $\\begin{pmatrix}f_{xx} & f_{xy}\\\\ f_{yx} & f_{yy}\\end{pmatrix}$ evaluated at $(\\cos n, \\sin n)$. Then the limit $\\lim_{n\\rightarrow\\infty}a_{n}$ is:",
         "options": {
-          "A": "$non-existent$",
+          "A": "non-existent",
           "B": "0",
-          "C": "6e2",
-          "D": "12e2"
+          "C": "$6e^{2}$",
+          "D": "$12e^{2}$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.16)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.16)"
       },
       {
         "id": "JAM_2023_Q17",
@@ -2071,15 +2077,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f(x, y)$ = ln(1 + $x_{2}$ + $y_{2}$). Let P = fxx, Q = fxy, $\\int^{=$ } fyx, S = fyy at (0, 0). Then:",
+        "question": "Let $f(x,y)=\\ln(1+x^{2}+y^{2})$. Let $P=f_{xx}, Q=f_{xy}, R=f_{yx}, S=f_{yy}$ at $(0,0)$. Then:",
         "options": {
-          "A": "$PS −Q\\int^{>} 0 and P < 0$",
-          "B": "$PS −Q\\int^{>} 0 and P > 0$",
-          "C": "$PS −Q\\int^{<} 0 and P > 0$",
-          "D": "$PS −Q\\int^{<} 0 and P < 0$"
+          "A": "$PS-QR>0$ and $P<0$",
+          "B": "$PS-QR>0$ and $P>0$",
+          "C": "$PS-QR<0$ and $P>0$",
+          "D": "$PS-QR<0$ and $P<0$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.17)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.17)"
       },
       {
         "id": "JAM_2023_Q36",
@@ -2090,15 +2096,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Which of the following subsets of $R_{2}$ is/are bounded?",
+        "question": "Which of the following subsets of $\\mathbb{R}^{2}$ is/are bounded?",
         "options": {
-          "A": "${(x, y) \\in R2 : ex2 + y2 \\le 4}$",
-          "B": "${(x, y) \\in R2 : |x| + |y| \\le 4}$",
-          "C": "${(x, y) \\in R2 : x4 + y2 \\le 4}$",
-          "D": "${(x, y) \\in R2 : ex3 + y2 \\le 4}$"
+          "A": "$\\{(x,y)\\in\\mathbb{R}^{2}: e^{x^{2}}+y^{2}\\le 4\\}$",
+          "B": "$\\{(x,y)\\in\\mathbb{R}^{2}: |x|+|y|\\le 4\\}$",
+          "C": "$\\{(x,y)\\in\\mathbb{R}^{2}: x^{4}+y^{2}\\le 4\\}$",
+          "D": "$\\{(x,y)\\in\\mathbb{R}^{2}: e^{x^{3}}+y^{2}\\le 4\\}$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.36)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.36)"
       },
       {
         "id": "JAM_2023_Q37",
@@ -2109,15 +2115,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( x4y3 $x_{6}$+$y_{6}$ , if (x, y) $\\neq (0$ , 0) 0, if (x, y) = (0, 0) . Then:",
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{x^{4}y^{3}}{x^{6}+y^{6}},& \\text{if } (x,y)\\ne(0,0)\\\\ 0,& \\text{if } (x,y)=(0,0)\\end{cases}$. Then:",
         "options": {
-          "A": "$limt \\to 0 f(t,t)−f(0,0) t exists and equals 1$",
-          "B": "$\\frac{\\partial f}{\\partial x} (0,0) exists and equals 0$",
-          "C": "$\\frac{\\partial f}{\\partial y} (0,0) exists and equals 0$",
-          "D": "$limt \\to 0 f(t,2t)−f(0,0) t exists and equals 1$"
+          "A": "$\\lim_{t\\rightarrow 0}\\frac{f(t,t)-f(0,0)}{t}$ exists and equals $\\frac{1}{2}$",
+          "B": "$\\frac{\\partial f}{\\partial x}\\Big|_{(0,0)}$ exists and equals 0",
+          "C": "$\\frac{\\partial f}{\\partial y}\\Big|_{(0,0)}$ exists and equals 0",
+          "D": "$\\lim_{t\\rightarrow 0}\\frac{f(t,2t)-f(0,0)}{t}$ exists and equals $\\frac{1}{3}$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.37)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.37)"
       },
       {
         "id": "JAM_2023_Q41",
@@ -2128,10 +2134,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = ( ($x_{2}$ −1)2 cos2( $y_{2}x_{2}$−1), x $\\neq $ ±1 0, x = ±1 . The number of points of discontinuity of $f(x, y)$ is .",
+        "question": "Let $f(x,y)=\\begin{cases}(x^{2}-1)^{2}\\cos^{2}(\\frac{y^{2}}{x^{2}-1}),& x\\ne\\pm 1\\\\ 0,& x=\\pm 1\\end{cases}$. The number of points of discontinuity of $f(x,y)$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.41)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.41)"
       },
       {
         "id": "JAM_2023_Q51",
@@ -2142,10 +2148,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let f : $R_{3}\\to \\int^{be} defined as f(x$ , y, z) = $x_{3}$ + $y_{3}$ + $z_{3}$, and let L : $R_{3}\\to \\int^{be} the linear map satisfying lim (x$ ,y,z) $\\to (0$ ,0,0) f(1 + x, 1 + y, 1 + z) −$f(1, 1, 1)$ −L(x, y, z) p $x_{2}$ + $y_{2}$ + $z_{2}$ = 0. Then L(1, 2, 4) is equal to (rounded off to two decimal places).",
+        "question": "Let $f:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be defined as $f(x,y,z)=x^{3}+y^{3}+z^{3}$, and let $L:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be the linear map satisfying \n$$ \\lim_{(x,y,z)\\rightarrow(0,0,0)}\\frac{f(1+x,1+y,1+z)-f(1,1,1)-L(x,y,z)}{\\sqrt{x^{2}+y^{2}+z^{2}}}=0. $$\n Then $L(1,2,4)$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "21.0",
-        "explanation": "**Correct Numerical Answer: 21.0**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.51)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{21.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 21.0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.51)"
       },
       {
         "id": "JAM_2022_Q9",
@@ -2156,15 +2162,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let u(x, t) = 1 2c $\\int_{x$ −ct}^{x+ct} es2ds on $R_{2}$. Then:",
+        "question": "Let $u(x,t)=\\frac{1}{2c}\\int_{x-ct}^{x+ct}e^{s^{2}}ds$ on $\\mathbb{R}^{2}$. Then:",
         "options": {
-          "A": "$\\frac{\\partial 2u}{\\partial t2} = c2 \\frac{\\partial 2u}{\\partial x2}$",
-          "B": "$\\frac{\\partial u}{\\partial t} = c2 \\frac{\\partial 2u}{\\partial x2}$",
-          "C": "$\\frac{\\partial u}{\\partial t} \\frac{\\partial u}{\\partial x} = 0$",
-          "D": "$\\frac{\\partial 2u}{\\partial t}∂x = 0$"
+          "A": "$\\frac{\\partial^{2}u}{\\partial t^{2}}=c^{2}\\frac{\\partial^{2}u}{\\partial x^{2}}$",
+          "B": "$\\frac{\\partial u}{\\partial t}=c^{2}\\frac{\\partial^{2}u}{\\partial x^{2}}$",
+          "C": "$\\frac{\\partial u}{\\partial t}\\frac{\\partial u}{\\partial x}=0$",
+          "D": "$\\frac{\\partial^{2}u}{\\partial t\\partial x}=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.9)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.9)"
       },
       {
         "id": "JAM_2022_Q10",
@@ -2175,15 +2181,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let $u(x, y)$ = x − x $x_{2}$+$y_{2}$ and $v(x, y)$ = y + y $x_{2}$+$y_{2}$ . The value of the Jacobian determinant ux uy vx vy at (cos $\\theta $ , sin $\\theta ) ( \\theta \\in ($ π/4, π/2)) is:",
+        "question": "Let $u(x,y)=x-\\frac{x}{x^{2}+y^{2}}$ and $v(x,y)=y+\\frac{y}{x^{2}+y^{2}}$. The value of the Jacobian determinant $\\left|\\begin{smallmatrix}u_x & u_y\\\\ v_x & v_y\\end{smallmatrix}\\right|$ at $(\\cos\\theta,\\sin\\theta)$ ($\\theta\\in(\\pi/4,\\pi/2)$) is:",
         "options": {
-          "A": "$4 sin \\theta$",
-          "B": "$4 cos \\theta$",
-          "C": "$4 sin2 \\theta$",
-          "D": "$4 cos2 \\theta$"
+          "A": "$4\\sin\\theta$",
+          "B": "$4\\cos\\theta$",
+          "C": "$4\\sin^{2}\\theta$",
+          "D": "$4\\cos^{2}\\theta$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.10)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Functions of Two or Three Real Variables$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.10)"
       },
       {
         "id": "JAM_2022_Q15",
@@ -2194,15 +2200,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For t $\\in R$ , let [t] denote the floor function. Define h(x, y) = ( −1 $x_{2}$−y, $x_{2}\\neq y 0$ , $x_{2}$ = y and $g$(x) = ( sin x x , x $\\neq 0 0$ , x = 0. Which ONE is FALSE?",
+        "question": "For $t\\in\\mathbb{R}$, let $[t]$ denote the floor function. Define $h(x,y)=\\begin{cases}\\frac{-1}{x^{2}-y},& x^{2}\\ne y\\\\ 0,& x^{2}=y\\end{cases}$ and $g(x)=\\begin{cases}\\frac{\\sin x}{x},& x\\ne 0\\\\ 0,& x=0\\end{cases}$. Which ONE is FALSE?",
         "options": {
-          "A": "$lim(x,y) \\to ( \\sqrt{2},π) cos( x2y x2+1) = −1$",
-          "B": "$lim(x,y) \\to ( \\sqrt{2},2) eh(x,y) = 0$",
-          "C": "$lim(x,y) \\to (e,e) ln(xy−[y]) = e −2$",
-          "D": "$lim(x,y) \\to (0,0) e2yg(x) = 1$"
+          "A": "$\\lim_{(x,y)\\rightarrow(\\sqrt{2},\\pi)}\\cos(\\frac{x^{2}y}{x^{2}+1})=-\\frac{1}{2}$",
+          "B": "$\\lim_{(x,y)\\rightarrow(\\sqrt{2},2)}e^{h(x,y)}=0$",
+          "C": "$\\lim_{(x,y)\\rightarrow(e,e)}\\ln(x^{y-[y]})=e-2$",
+          "D": "$\\lim_{(x,y)\\rightarrow(0,0)}e^{2y}g(x)=1$"
         },
         "answer_key": "MTA",
-        "explanation": "**Official Key: Marks to All (MTA)**\n\nThis question was declared MTA by the official IIT JAM organizing committee due to question ambiguity or multiple valid interpretations."
+        "explanation": "**Correct Option: (MTA)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.15)"
       },
       {
         "id": "JAM_2022_Q36",
@@ -2213,15 +2219,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let M be a positive real number and let u, v : $R_{2}\\to \\int^{be} continuous functions satisfying p (u(x$ , y))2 + ($v(x, y)$)2 $\\ge M p $x_{2}$ + $y_{2}$ for all (x$ , y) $\\in $R_{2} . Let F : $R_{2}\\to $R_{2}$ be given by F(x$ , y) = ($u(x, y)$, $v(x, y)$). Then which of the following is/are true?",
+        "question": "Let $M$ be a positive real number and let $u,v:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}$ be continuous functions satisfying $\\sqrt{(u(x,y))^{2}+(v(x,y))^{2}}\\ge M\\sqrt{x^{2}+y^{2}}$ for all $(x,y)\\in\\mathbb{R}^{2}$. Let $F:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}^{2}$ be given by $F(x,y)=(u(x,y),v(x,y))$. Then which of the following is/are true?",
         "options": {
-          "A": "F is injective.",
-          "B": "If K is open in $R_{2}$, then F(K) is open in $R_{2}$.",
-          "C": "If K is closed in $R_{2}$, then F(K) is closed in $R_{2}$.",
-          "D": "If E is closed and bounded in $R_{2}$, then F −1(E) is closed and bounded in $R_{2}$."
+          "A": "$F$ is injective.",
+          "B": "If $K$ is open in $\\mathbb{R}^{2}$, then $F(K)$ is open in $\\mathbb{R}^{2}$.",
+          "C": "If $K$ is closed in $\\mathbb{R}^{2}$, then $F(K)$ is closed in $\\mathbb{R}^{2}$.",
+          "D": "If $E$ is closed and bounded in $\\mathbb{R}^{2}$, then $F^{-1}(E)$ is closed and bounded in $\\mathbb{R}^{2}$."
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.36)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.36)"
       },
       {
         "id": "JAM_2022_Q42",
@@ -2232,10 +2238,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $u($x_{1}$, $x_{2}$, $x_{3}$)$ = x1x4 2x2 3 −$x_{3}$ 1x4 3 −26x2 1x2 2x3 3. Let $x_{1}\\frac{\\partial u}{\\partial $x_{2}$} + 2x2 \\frac{\\partial u}{\\partial $x_{3}$} at (t$ , $t_{2}$, $t_{3}$) be ctk. Then k = .",
+        "question": "Let $u(x_{1},x_{2},x_{3})=x_{1}x_{2}^{4}x_{3}^{2}-x_{1}^{3}x_{3}^{4}-26x_{1}^{2}x_{2}^{2}x_{3}^{3}$. Let $x_{1}\\frac{\\partial u}{\\partial x_{2}}+2x_{2}\\frac{\\partial u}{\\partial x_{3}}$ at $(t,t^2,t^3)$ be $ct^k$. Then $k=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "14",
-        "explanation": "**Correct Numerical Answer: 14**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.42)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{14}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 14**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.42)"
       },
       {
         "id": "JAM_2022_Q51",
@@ -2246,10 +2252,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let D = {(x, y) $\\in $R_{2} : $x_{2}$ + $y_{2}$ < 4}. Define $f(x, y)$ = [$x_{2}$ + $y_{2}$] x2y2 $x_{4}$+$y_{4}$ and $g(x, y)$ = [$y_{2}$] xy $x_{2}$+$y_{2}$ with $f(0, 0)$ = $g(0, 0)$ = 0. The number of points in D at which both f and g are discontinuous is .",
+        "question": "Let $D=\\{(x,y)\\in\\mathbb{R}^{2}: x^{2}+y^{2}<4\\}$. Define $f(x,y)=[x^{2}+y^{2}]\\frac{x^{2}y^{2}}{x^{4}+y^{4}}$ and $g(x,y)=[y^{2}]\\frac{xy}{x^{2}+y^{2}}$ with $f(0,0)=g(0,0)=0$. The number of points in $D$ at which both $f$ and $g$ are discontinuous is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "18",
-        "explanation": "**Correct Numerical Answer: 18**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.51)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{18}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 18**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.51)"
       },
       {
         "id": "JAM_2022_Q56",
@@ -2260,10 +2266,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $f(x, y)$ = $x_{2}$ + 2y2 −x. Let D = {(x, y) : $x_{2}$ + $y_{2}\\le 1$ } and E = {(x, y) : $x_{2}$ 4 + $y_{2}$ 9 $\\le 1$ }. The total number of elements in Dmax $\\cup Dmin \\cup Emax \\cup Emin is $ .",
+        "question": "Let $f(x,y)=x^{2}+2y^{2}-x$. Let $D=\\{(x,y): x^{2}+y^{2}\\le 1\\}$ and $E=\\{(x,y): \\frac{x^2}{4}+\\frac{y^2}{9}\\le 1\\}$. The total number of elements in $D_{\\max}\\cup D_{\\min}\\cup E_{\\max}\\cup E_{\\min}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "5",
-        "explanation": "**Correct Numerical Answer: 5**\n\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.56)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Functions of Two or Three Real Variables$, we obtain the exact evaluated value: $$\\mathbf{5}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 5**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.56)"
       }
     ]
   },
@@ -2285,15 +2291,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let f : $R_{3}\\to \\int^{be} continuous$ . Then $\\int_{R}^{\\binom{2}{0}$ } x 0 $\\int_{0}^{y} f(x$ , y, z) dz dy dx =:",
+        "question": "Let $f:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be continuous. Then $\\int_{0}^{2}\\int_{0}^{x}\\int_{0}^{y}f(x,y,z)\\,dz\\,dy\\,dx =$:",
         "options": {
-          "A": "$\\int_{R}^{\\binom{2}{0}} y 0 \\int_{y}^{2} f(x, y, z) dx dz dy$",
-          "B": "$\\int_{R}^{\\binom{2}{0}} x 0 \\int_{z}^{2} f(x, y, z) dy dz dx$",
-          "C": "$\\int_{R}^{\\binom{2}{0}} 2 y \\int_{0}^{x} f(x, y, z) dz dx dy$",
-          "D": "$\\int_{R}^{\\binom{2}{0}} 2 z \\int_{0}^{x} f(x, y, z) dy dx dz$"
+          "A": "$\\int_{0}^{2}\\int_{0}^{y}\\int_{y}^{2}f(x,y,z)\\,dx\\,dz\\,dy$",
+          "B": "$\\int_{0}^{2}\\int_{0}^{x}\\int_{z}^{2}f(x,y,z)\\,dy\\,dz\\,dx$",
+          "C": "$\\int_{0}^{2}\\int_{y}^{2}\\int_{0}^{x}f(x,y,z)\\,dz\\,dx\\,dy$",
+          "D": "$\\int_{0}^{2}\\int_{z}^{2}\\int_{0}^{x}f(x,y,z)\\,dy\\,dx\\,dz$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Integral Calculus (JAM 2026 Q.5)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.5)"
       },
       {
         "id": "JAM_2026_Q10",
@@ -2304,15 +2310,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let T be the triangular region in the plane with vertices (0, 0), (1, 0), (1, 1). Double integral of f over T in polar coordinates equals:",
+        "question": "Let $T$ be the triangular region in the plane with vertices $(0,0), (1,0), (1,1)$. Double integral of $f$ over $T$ in polar coordinates equals:",
         "options": {
-          "A": "$\\int_{0}^{\\sqrt} \u0010\\int_{0}^{π/4} f d \\theta \u0011 r dr + \\int_{\u0010R}^{\\sqrt} cos−1(1/r) 0 f d \\theta \u0011 r dr$",
-          "B": "$\\int_{0}^{\\sqrt} \u0010\\int_{0}^{π/4} f d \\theta \u0011 r dr − \\int_{\u0010R}^{\\sqrt} cos−1(1/r) 0 f d \\theta \u0011 r dr$",
-          "C": "$\\int_{0}^{\\sqrt} \u0010\\int_{0}^{π/4} f d \\theta \u0011 r dr + \\int_{\u0010R}^{\\sqrt} sin−1(1/r) 0 f d \\theta \u0011 r dr$",
-          "D": "$\\int_{0}^{\\sqrt} \u0010\\int_{0}^{π/4} f d \\theta \u0011 r dr − \\int_{\u0010R}^{\\sqrt} sin−1(1/r) 0 f d \\theta \u0011 r dr$"
+          "A": "$\\int_{0}^{\\sqrt{2}}\\left(\\int_{0}^{\\pi/4}f\\,d\\theta\\right)r\\,dr + \\int_{1}^{\\sqrt{2}}\\left(\\int_{0}^{\\cos^{-1}(1/r)}f\\,d\\theta\\right)r\\,dr$",
+          "B": "$\\int_{0}^{\\sqrt{2}}\\left(\\int_{0}^{\\pi/4}f\\,d\\theta\\right)r\\,dr - \\int_{1}^{\\sqrt{2}}\\left(\\int_{0}^{\\cos^{-1}(1/r)}f\\,d\\theta\\right)r\\,dr$",
+          "C": "$\\int_{0}^{\\sqrt{2}}\\left(\\int_{0}^{\\pi/4}f\\,d\\theta\\right)r\\,dr + \\int_{1}^{\\sqrt{2}}\\left(\\int_{0}^{\\sin^{-1}(1/r)}f\\,d\\theta\\right)r\\,dr$",
+          "D": "$\\int_{0}^{\\sqrt{2}}\\left(\\int_{0}^{\\pi/4}f\\,d\\theta\\right)r\\,dr - \\int_{1}^{\\sqrt{2}}\\left(\\int_{0}^{\\sin^{-1}(1/r)}f\\,d\\theta\\right)r\\,dr$"
         },
         "answer_key": "MTA",
-        "explanation": "**Official Key: Marks to All (MTA)**\n\nThis question was declared MTA by the official IIT JAM organizing committee due to question ambiguity or multiple valid interpretations."
+        "explanation": "**Correct Option: (MTA)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.10)"
       },
       {
         "id": "JAM_2026_Q20",
@@ -2323,15 +2329,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The semi-circle y = $\\sqrt{6x} $ −5 −$x_{2}$ is rotated clockwise by π 2 in the plane about the origin. The area of the planar region traced out is:",
+        "question": "The semi-circle $y=\\sqrt{6x-5-x^{2}}$ is rotated clockwise by $\\frac{\\pi}{2}$ in the plane about the origin. The area of the planar region traced out is:",
         "options": {
-          "A": "6π",
-          "B": "4π",
-          "C": "2π",
-          "D": "π"
+          "A": "$6\\pi$",
+          "B": "$4\\pi$",
+          "C": "$2\\pi$",
+          "D": "$\\pi$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Integral Calculus (JAM 2026 Q.20)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.20)"
       },
       {
         "id": "JAM_2026_Q22",
@@ -2342,15 +2348,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let S be the solid intersection of $S_{1}$ : $x_{2}$ + $y_{2}$ + (z −1)2 $\\le 4 and $S_{2} : $x_{2}$ + $y_{2}$ + (z + 1)2 $\\le 4$ . The volume of S is:",
+        "question": "Let $S$ be the solid intersection of $S_{1}: x^{2}+y^{2}+(z-1)^{2}\\le 4$ and $S_{2}: x^{2}+y^{2}+(z+1)^{2}\\le 4$. The volume of $S$ is:",
         "options": {
-          "A": "$\\int_{0}^{\\sqrt} \\int_{3−x2}^{\\sqrt} 0 ( p 4 −x2 −y2 −1) dy dx$",
-          "B": "$\\int_{R}^{\\binom{2}{0}} \\sqrt{4}−x2 0 ( p 4 −x2 −y2 −1) dy dx$",
-          "C": "$\\int_{R}^{\\binom{2}{0}} \\sqrt{4}−x2 0 ( p 4 −x2 −y2 −1) dy dx$",
-          "D": "$\\int_{0}^{\\sqrt} \\int_{3−x2}^{\\sqrt} 0 ( p 4 −x2 −y2 −1) dy dx$"
+          "A": "$8\\int_{0}^{\\sqrt{3}}\\int_{0}^{\\sqrt{3-x^{2}}}(\\sqrt{4-x^{2}-y^{2}}-1)\\,dy\\,dx$",
+          "B": "$8\\int_{0}^{2}\\int_{0}^{\\sqrt{4-x^{2}}}(\\sqrt{4-x^{2}-y^{2}}-1)\\,dy\\,dx$",
+          "C": "$2\\int_{0}^{2}\\int_{0}^{\\sqrt{4-x^{2}}}(\\sqrt{4-x^{2}-y^{2}}-1)\\,dy\\,dx$",
+          "D": "$2\\int_{0}^{\\sqrt{3}}\\int_{0}^{\\sqrt{3-x^{2}}}(\\sqrt{4-x^{2}-y^{2}}-1)\\,dy\\,dx$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Integral Calculus (JAM 2026 Q.22)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.22)"
       },
       {
         "id": "JAM_2026_Q53",
@@ -2361,10 +2367,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "The double integral of $f(x, y)$ = x over the triangular region with vertices (−1 2, 1 2), (1, 2) and (1, −1) is (rounded off to one decimal place).",
+        "question": "The double integral of $f(x,y)=x$ over the triangular region with vertices $(-\\frac{1}{2},\\frac{1}{2}), (1,2)$ and $(1,-1)$ is \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.25",
-        "explanation": "**Correct Numerical Answer: 1.25**\n\n- **Topic:** Integral Calculus (JAM 2026 Q.53)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{1.25}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.25**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.53)"
       },
       {
         "id": "JAM_2026_Q55",
@@ -2375,10 +2381,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "The volume of the tetrahedron bounded by x = 1, y = 2, z = 3 and 12x + 8y + 6z = 70 is (rounded off to one decimal place).",
+        "question": "The volume of the tetrahedron bounded by $x=1, y=2, z=3$ and $12x+8y+6z=70$ is \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\n\n- **Topic:** Integral Calculus (JAM 2026 Q.55)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.55)"
       },
       {
         "id": "JAM_2025_Q10",
@@ -2389,15 +2395,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "The value of $\\int_{$ \u0010R}^{ $\\binom{1}{0}$ } 1 $\\sqrt{y} 3ex3dx $ \u0011 dy is equal to:",
+        "question": "The value of $\\int_{0}^{1}\\left(\\int_{\\sqrt{y}}^{1}3e^{x^{3}}dx\\right)dy$ is equal to:",
         "options": {
-          "A": "e −1",
-          "B": "e−1",
-          "C": "$\\sqrt{e} −1$",
-          "D": "$\\sqrt{e}−1$"
+          "A": "$e-1$",
+          "B": "$\\frac{e-1}{2}$",
+          "C": "$\\sqrt{e}-1$",
+          "D": "$\\frac{\\sqrt{e}-1}{2}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Integral Calculus (JAM 2025 Q.10)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.10)"
       },
       {
         "id": "JAM_2025_Q28",
@@ -2408,15 +2414,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let Ωbe the bounded region in $R_{3}$ in the first octant bounded by z = $x_{2}$ + $y_{2}$, z = 4, x = 0, y = 0. The volume of Ωis:",
+        "question": "Let $\\Omega$ be the bounded region in $\\mathbb{R}^{3}$ in the first octant bounded by $z=x^{2}+y^{2}, z=4, x=0, y=0$. The volume of $\\Omega$ is:",
         "options": {
-          "A": "π",
-          "B": "2π",
-          "C": "3π",
-          "D": "4π"
+          "A": "$\\pi$",
+          "B": "$2\\pi$",
+          "C": "$3\\pi$",
+          "D": "$4\\pi$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Integral Calculus (JAM 2025 Q.28)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.28)"
       },
       {
         "id": "JAM_2025_Q45",
@@ -2427,10 +2433,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let S be the surface area of the portion of the plane z = x + y + 3 inside $x_{2}$ + $y_{2}$ = 1. Then ( S π )2 = (rounded off to two decimal places).",
+        "question": "Let $S$ be the surface area of the portion of the plane $z=x+y+3$ inside $x^{2}+y^{2}=1$. Then $(\\frac{S}{\\pi})^{2}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\n\n- **Topic:** Integral Calculus (JAM 2025 Q.45)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{3.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.45)"
       },
       {
         "id": "JAM_2025_Q48",
@@ -2441,10 +2447,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let T denote the triangle bounded by the x-axis, y = x and x = 1. Then R $\\int^{T} (5 $ −y)dx dy = (rounded off to two decimal places).",
+        "question": "Let $T$ denote the triangle bounded by the $x$-axis, $y=x$ and $x=1$. Then $\\iint_{T}(5-y)dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.33",
-        "explanation": "**Correct Numerical Answer: 2.33**\n\n- **Topic:** Integral Calculus (JAM 2025 Q.48)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{2.33}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.33**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.48)"
       },
       {
         "id": "JAM_2025_Q57",
@@ -2455,10 +2461,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let Ωbe the solid bounded by z = 0, y = 0, x = 1 2, 2y = x and 2x + y + z = 4. If V is the volume, then 64V = .",
+        "question": "Let $\\Omega$ be the solid bounded by $z=0, y=0, x=\\frac{1}{2}, 2y=x$ and $2x+y+z=4$. If $V$ is the volume, then $64V=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "MTA",
-        "explanation": "**Official Key: Marks to All (MTA)**\n\nThis question was declared MTA by the official IIT JAM organizing committee due to question ambiguity or multiple valid interpretations."
+        "explanation": "**Correct Numerical Answer: MTA**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.57)"
       },
       {
         "id": "JAM_2024_Q27",
@@ -2469,15 +2475,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For a > b > 0, let D = {(x, y, z) $\\in $R_{3} : $x_{2}$ + $y_{2}$ + $z_{2}\\le a2 and $x_{2}$ + $y_{2} $\\ge b2$ }. The surface area of the boundary of D is:",
+        "question": "For $a>b>0$, let $D=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}\\le a^{2} \\text{ and } x^{2}+y^{2}\\ge b^{2}\\}$. The surface area of the boundary of $D$ is:",
         "options": {
-          "A": "$4π(a + b) \\sqrt{a2} −b2$",
-          "B": "$4π(a2 −b \\sqrt{a2} −b2)$",
-          "C": "$4π(a −b) \\sqrt{a2} −b2$",
-          "D": "$4π(a2 + b \\sqrt{a2} −b2)$"
+          "A": "$4\\pi(a+b)\\sqrt{a^{2}-b^{2}}$",
+          "B": "$4\\pi(a^{2}-b\\sqrt{a^{2}-b^{2}})$",
+          "C": "$4\\pi(a-b)\\sqrt{a^{2}-b^{2}}$",
+          "D": "$4\\pi(a^{2}+b\\sqrt{a^{2}-b^{2}})$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Integral Calculus (JAM 2024 Q.27)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.27)"
       },
       {
         "id": "JAM_2024_Q41",
@@ -2488,10 +2494,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The area of the region $\\int^{=$ } {(x, y) $\\in $R_{2} : 0 $\\le x \\le 1$ , 0 $\\le y \\le 1$ , $\\binom{1}{4} \\le xy \\le 1 2$ } is (rounded off to two decimal places).",
+        "question": "The area of the region $R=\\{(x,y)\\in\\mathbb{R}^{2}: 0\\le x\\le 1, 0\\le y\\le 1, \\frac{1}{4}\\le xy\\le\\frac{1}{2}\\}$ is \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\n\n- **Topic:** Integral Calculus (JAM 2024 Q.41)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{0.25}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.41)"
       },
       {
         "id": "JAM_2024_Q48",
@@ -2502,10 +2508,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let S = {(x, y, z) $\\in $R_{3} : $x_{2}$ + $y_{2}$ + $z_{2}$ = 4, (x −1)2 + $y_{2}\\le 1$ , z $\\ge 0$ }. The surface area of S equals (rounded off to two decimal places).",
+        "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}=4, (x-1)^{2}+y^{2}\\le 1, z\\ge 0\\}$. The surface area of $S$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.56",
-        "explanation": "**Correct Numerical Answer: 4.56**\n\n- **Topic:** Integral Calculus (JAM 2024 Q.48)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{4.56}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.56**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.48)"
       },
       {
         "id": "JAM_2024_Q53",
@@ -2516,10 +2522,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let T be the square region enclosed by (0, 1), (1, 0), (0, −1), (−1, 0). Then R $\\int^{T} (cos($ π(x −y)) − cos(π(x + y)))2dx dy = (rounded off to two decimal places).",
+        "question": "Let $T$ be the square region enclosed by $(0,1), (1,0), (0,-1), (-1,0)$. Then $\\iint_{T}(\\cos(\\pi(x-y))-\\cos(\\pi(x+y)))^{2}dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\n\n- **Topic:** Integral Calculus (JAM 2024 Q.53)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{2.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.53)"
       },
       {
         "id": "JAM_2024_Q54",
@@ -2530,10 +2536,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let S = {(x, y, z) $\\in $R_{3} : $x_{2}$ + $y_{2}$ + $z_{2}$ < 1}. Then 1 π RR $\\int^{S((x$ } −2y + z)2 + (2x −y −z)2 + (x −y + 2z)2)dx dy dz = (rounded off to two decimal places).",
+        "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}<1\\}$. Then $\\frac{1}{\\pi}\\iiint_{S}((x-2y+z)^{2}+(2x-y-z)^{2}+(x-y+2z)^{2})dx\\,dy\\,dz=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.80",
-        "explanation": "**Correct Numerical Answer: 4.80**\n\n- **Topic:** Integral Calculus (JAM 2024 Q.54)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{4.80}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.80**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.54)"
       },
       {
         "id": "JAM_2024_Q57",
@@ -2544,10 +2550,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let c > 0 be such that $\\int_{0}^{c} es2ds = 3$ . Then $\\int_{0}^{c} $ \u0010 $\\int_{x}^{c} ex2+y2dy $ \u0011 dx = (rounded off to one decimal place).",
+        "question": "Let $c>0$ be such that $\\int_{0}^{c}e^{s^{2}}ds=3$. Then $\\int_{0}^{c}\\left(\\int_{x}^{c}e^{x^{2}+y^{2}}dy\\right)dx=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.5",
-        "explanation": "**Correct Numerical Answer: 4.5**\n\n- **Topic:** Integral Calculus (JAM 2024 Q.57)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{4.5}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.5**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.57)"
       },
       {
         "id": "JAM_2023_Q7",
@@ -2558,15 +2564,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "$\\int_{R}^{\\binom{1}{0}} 1−x 0 cos(x3 + y2)dy dx − \\int_{R}^{\\binom{1}{0}} 1−y 0 cos(x3 + y2)dx dy =:$",
+        "question": "$\\int_{0}^{1}\\int_{0}^{1-x}\\cos(x^{3}+y^{2})dy\\,dx - \\int_{0}^{1}\\int_{0}^{1-y}\\cos(x^{3}+y^{2})dx\\,dy=$:",
         "options": {
           "A": "0",
-          "B": "cos 1",
-          "C": "sin 1",
-          "D": "cos( 1 2) −sin( 1 2)"
+          "B": "$\\frac{\\cos 1}{2}$",
+          "C": "$\\frac{\\sin 1}{2}$",
+          "D": "$\\cos(\\frac{1}{2})-\\sin(\\frac{1}{2})$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Integral Calculus (JAM 2023 Q.7)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.7)"
       },
       {
         "id": "JAM_2023_Q18",
@@ -2577,15 +2583,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The curved surface area of S = {(x, y, z) $\\in $R_{3} : $z_{2}$ = (x −1)2 + (y −2)2} between z = 2 and z = 3 is:",
+        "question": "The curved surface area of $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: z^{2}=(x-1)^{2}+(y-2)^{2}\\}$ between $z=2$ and $z=3$ is:",
         "options": {
-          "A": "$4π \\sqrt$",
-          "B": "$5π \\sqrt$",
-          "C": "9π",
-          "D": "$9π \\sqrt$"
+          "A": "$4\\pi\\sqrt{2}$",
+          "B": "$5\\pi\\sqrt{2}$",
+          "C": "$9\\pi$",
+          "D": "$9\\pi\\sqrt{2}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Integral Calculus (JAM 2023 Q.18)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.18)"
       },
       {
         "id": "JAM_2023_Q26",
@@ -2596,15 +2602,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f(x, y)$ = R $\\int^{(u$ −x)2+(v−y)2 $\\le 1$ } e− $\\sqrt (u$ −x)2+(v−y)2du dv. Then limn $\\to \\infty f(n$ , n2) is:",
+        "question": "Let $f(x,y)=\\iint_{(u-x)^{2}+(v-y)^{2}\\le 1}e^{-\\sqrt{(u-x)^{2}+(v-y)^{2}}}du\\,dv$. Then $\\lim_{n\\rightarrow\\infty}f(n,n^{2})$ is:",
         "options": {
-          "A": "$non-existent$",
+          "A": "non-existent",
           "B": "0",
-          "C": "π(1 −e−1)",
-          "D": "2π(1 −2e−1)"
+          "C": "$\\pi(1-e^{-1})$",
+          "D": "$2\\pi(1-2e^{-1})$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Integral Calculus (JAM 2023 Q.26)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.26)"
       },
       {
         "id": "JAM_2023_Q31",
@@ -2615,15 +2621,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "For t $\\in (0$ , 1), let Pt = {(x, y, z) : ($x_{2}$ + $y_{2}$)z = 1, $t_{2}\\le $x_{2}$ + $y_{2} $\\le 1$ } and at be its surface area. Then:",
+        "question": "For $t\\in(0,1)$, let $P_{t}=\\{(x,y,z): (x^{2}+y^{2})z=1, t^{2}\\le x^{2}+y^{2}\\le 1\\}$ and $a_{t}$ be its surface area. Then:",
         "options": {
-          "A": "$at = R\\int_{q}^{t2 \\le x2+y2 \\le 1} 1 + 4x2 (x2+y2)4 + 4y2 (x2+y2)4 dx dy$",
-          "B": "$at = R\\int_{q}^{t2 \\le x2+y2 \\le 1} 1 + 4x2 (x2+y2)2 + 4y2 (x2+y2)2 dx dy$",
-          "C": "limt $\\to 0+ at does NOT exist$",
-          "D": "$limt \\to 0+ at exists$"
+          "A": "$a_{t}=\\iint_{t^{2}\\le x^{2}+y^{2}\\le 1}\\sqrt{1+\\frac{4x^{2}}{(x^{2}+y^{2})^{4}}+\\frac{4y^{2}}{(x^{2}+y^{2})^{4}}}\\,dx\\,dy$",
+          "B": "$a_{t}=\\iint_{t^{2}\\le x^{2}+y^{2}\\le 1}\\sqrt{1+\\frac{4x^{2}}{(x^{2}+y^{2})^{2}}+\\frac{4y^{2}}{(x^{2}+y^{2})^{2}}}\\,dx\\,dy$",
+          "C": "$\\lim_{t\\rightarrow 0^{+}}a_{t}$ does NOT exist",
+          "D": "$\\lim_{t\\rightarrow 0^{+}}a_{t}$ exists"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\n\n- **Topic:** Integral Calculus (JAM 2023 Q.31)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.31)"
       },
       {
         "id": "JAM_2023_Q48",
@@ -2634,10 +2640,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let V be the volume of S = {(x, y, z) : xy $\\le z \\le 4$ , $x_{2}$ + $y_{2}\\le 1$ }. Then V π = (rounded off to two decimal places).",
+        "question": "Let $V$ be the volume of $S=\\{(x,y,z): xy\\le z\\le 4, x^{2}+y^{2}\\le 1\\}$. Then $\\frac{V}{\\pi}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\n\n- **Topic:** Integral Calculus (JAM 2023 Q.48)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.48)"
       },
       {
         "id": "JAM_2023_Q55",
@@ -2648,10 +2654,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let S be the triangular region with vertices (0, 0), (0, π 2 ) and ( π 2 , 0). Then R $\\int^{S} sin x cos y dx dy = (rounded off to two decimal places)$ .",
+        "question": "Let $S$ be the triangular region with vertices $(0,0), (0,\\frac{\\pi}{2})$ and $(\\frac{\\pi}{2},0)$. Then $\\iint_{S}\\sin x\\cos y\\,dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Integral Calculus (JAM 2023 Q.55)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.55)"
       },
       {
         "id": "JAM_2022_Q11",
@@ -2662,15 +2668,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let G = {(s, t) : 0 < s < 1, 0 < t < 1} and T(s, t) = ( πs(1−t) , π(1−s) ). The area of T(G) is:",
+        "question": "Let $G=\\{(s,t): 0<s<1, 0<t<1\\}$ and $T(s,t)=(\\frac{\\pi s(1-t)}{2},\\frac{\\pi(1-s)}{2})$. The area of $T(G)$ is:",
         "options": {
-          "A": "π",
-          "B": "π2",
-          "C": "π2",
-          "D": ""
+          "A": "$\\frac{\\pi}{4}$",
+          "B": "$\\frac{\\pi^{2}}{4}$",
+          "C": "$\\frac{\\pi^{2}}{8}$",
+          "D": "1"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Integral Calculus (JAM 2022 Q.11)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Integral Calculus$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Integral Calculus (JAM 2022 Q.11)"
       },
       {
         "id": "JAM_2022_Q48",
@@ -2681,10 +2687,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Consider the region G = {(x, y, z) $\\in $R_{3} : 0 < z < $x_{2}$ −$y_{2}$, $x_{2}$ + $y_{2}$ < 1}. Then the volume of G is equal to (rounded off to two decimal places).",
+        "question": "Consider the region $G=\\{(x,y,z)\\in\\mathbb{R}^{3}: 0<z<x^{2}-y^{2}, x^{2}+y^{2}<1\\}$. Then the volume of $G$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Integral Calculus (JAM 2022 Q.48)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Integral Calculus (JAM 2022 Q.48)"
       },
       {
         "id": "JAM_2022_Q52",
@@ -2695,10 +2701,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "If G = {(x, y) : $x_{2}$ + $y_{2}$ < 1, x $\\sqrt{3} $ < y < $\\sqrt{3x}$ , x > 0, y > 0}, then 200 π R $\\int^{G} x2dx dy = (rounded off to two decimal places)$ .",
+        "question": "If $G=\\{(x,y): x^{2}+y^{2}<1, \\frac{x}{\\sqrt{3}}<y<\\sqrt{3}x, x>0, y>0\\}$, then $\\frac{200}{\\pi}\\iint_{G}x^{2}dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.16",
-        "explanation": "**Correct Numerical Answer: 4.16**\n\n- **Topic:** Integral Calculus (JAM 2022 Q.52)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Integral Calculus$, we obtain the exact evaluated value: $$\\mathbf{4.16}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.16**\\n\\n- **Topic:** Integral Calculus (JAM 2022 Q.52)"
       }
     ]
   },
@@ -2720,15 +2726,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "The general solution of x sin( y x) $\\frac{dy}{dx} = y sin( y x) + x 2 (x $ > 0) is:",
+        "question": "The general solution of $x\\sin(\\frac{y}{x})\\frac{dy}{dx}=y\\sin(\\frac{y}{x})+\\frac{x}{2}$ ($x>0$) is:",
         "options": {
-          "A": "$cos( x y) + loge(x2) = K$",
-          "B": "$cos( y x) + loge(x2) = K$",
-          "C": "$cos( x y) + loge(\\sqrt{x}) = K$",
-          "D": "$cos( y x) + loge(\\sqrt{x}) = K$"
+          "A": "$\\cos(\\frac{x}{y})+\\log_{e}(x^{2})=K$",
+          "B": "$\\cos(\\frac{y}{x})+\\log_{e}(x^{2})=K$",
+          "C": "$\\cos(\\frac{x}{y})+\\log_{e}(\\sqrt{x})=K$",
+          "D": "$\\cos(\\frac{y}{x})+\\log_{e}(\\sqrt{x})=K$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Differential Equations (JAM 2026 Q.4)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.4)"
       },
       {
         "id": "JAM_2026_Q16",
@@ -2739,15 +2745,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The orthogonal trajectories of the family y = −3x −3 + mex are given by:",
+        "question": "The orthogonal trajectories of the family $y=-3x-3+me^{x}$ are given by:",
         "options": {
-          "A": "$x = y 3 −1 9 + ke−3y$",
-          "B": "$x = y 3 −1 9 + ke3y$",
-          "C": "$x = −y 3 + \\binom{1}{9} + ke−3y$",
-          "D": "$x = −y 3 + \\binom{1}{9} + ke3y$"
+          "A": "$x=\\frac{y}{3}-\\frac{1}{9}+ke^{-3y}$",
+          "B": "$x=\\frac{y}{3}-\\frac{1}{9}+ke^{3y}$",
+          "C": "$x=-\\frac{y}{3}+\\frac{1}{9}+ke^{-3y}$",
+          "D": "$x=-\\frac{y}{3}+\\frac{1}{9}+ke^{3y}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Differential Equations (JAM 2026 Q.16)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.16)"
       },
       {
         "id": "JAM_2026_Q18",
@@ -2758,10 +2764,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $\\phi $ : (−π 2 , π 2 ) $\\to \\int^{solve} (cos x) \\frac{dy}{dx} $ −y = 2y2(sin x −1) cos x with $\\phi (0) = 1 2$ . Then $\\phi ( $ π 4 ) =: (A) 2 (B) 3+2 $\\sqrt (C) (D) \\sqrt$",
-        "options": null,
+        "question": "Let $\\phi:(-\\frac{\\pi}{2},\\frac{\\pi}{2})\\rightarrow\\mathbb{R}$ solve $(\\cos x)\\frac{dy}{dx}-y=2y^{2}(\\sin x-1)\\cos x$ with $\\phi(0)=\\frac{1}{2}$. Then $\\phi(\\frac{\\pi}{4})=$:",
+        "options": {
+          "A": "2",
+          "B": "$\\frac{3+2\\sqrt{2}}{2}$",
+          "C": "$\\frac{1}{2}$",
+          "D": "$\\frac{1}{\\sqrt{2}}$"
+        },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Differential Equations (JAM 2026 Q.18)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.18)"
       },
       {
         "id": "JAM_2026_Q23",
@@ -2772,15 +2783,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "A particular solution of $\\frac{d^2y}{dx^2} + 3 \\frac{dy}{dx} + 2y = sin(ex) is$ :",
+        "question": "A particular solution of $\\frac{d^{2}y}{dx^{2}}+3\\frac{dy}{dx}+2y=\\sin(e^{x})$ is:",
         "options": {
-          "A": "−e−x sin(ex)",
-          "B": "−e−2x sin(ex)",
-          "C": "$−e−x(sin(ex) + cos(ex))$",
-          "D": "$−e−2x(sin(ex) + cos(ex))$"
+          "A": "$-e^{-x}\\sin(e^{x})$",
+          "B": "$-e^{-2x}\\sin(e^{x})$",
+          "C": "$-e^{-x}(\\sin(e^{x})+\\cos(e^{x}))$",
+          "D": "$-e^{-2x}(\\sin(e^{x})+\\cos(e^{x}))$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2026 Q.23)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.23)"
       },
       {
         "id": "JAM_2026_Q35",
@@ -2791,15 +2802,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Integrating factor(s) for (2y cos x −xy sin x)dx + 2x cos x dy = 0 on x $\\in (0$ , π 4 ) is/are:",
+        "question": "Integrating factor(s) for $(2y\\cos x-xy\\sin x)dx + 2x\\cos x\\,dy=0$ on $x\\in(0,\\frac{\\pi}{4})$ is/are:",
         "options": {
-          "A": "xy",
-          "B": "xy",
-          "C": "sec x",
-          "D": "$\\sqrt{sec} x$"
+          "A": "$\\frac{1}{xy}$",
+          "B": "$xy$",
+          "C": "$\\sec x$",
+          "D": "$\\sqrt{\\sec x}$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Differential Equations (JAM 2026 Q.35)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.35)"
       },
       {
         "id": "JAM_2026_Q45",
@@ -2810,10 +2821,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "If ($y_{3}$ + $\\alpha xy4 $ −5x + cos 2y)dx + (3xy2 + 20x2y3 + $\\beta x sin 2y)dy = 0 is exact$ , then $\\alpha + \\beta = $ .",
+        "question": "If $(y^{3}+\\alpha xy^{4}-5x+\\cos 2y)dx + (3xy^{2}+20x^{2}y^{3}+\\beta x\\sin 2y)dy=0$ is exact, then $\\alpha+\\beta=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "8.0",
-        "explanation": "**Correct Numerical Answer: 8.0**\n\n- **Topic:** Differential Equations (JAM 2026 Q.45)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{8.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 8.0**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.45)"
       },
       {
         "id": "JAM_2026_Q51",
@@ -2824,10 +2835,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "If $y$(x) = C1e−x + C2e2x + $\\alpha xe$ −x is the general solution of $\\frac{d^2y}{dx^2} + \\beta \\frac{dy}{dx} + \\gamma y = $ −e−x, then $\\alpha ( \\beta + \\gamma ) = $ .",
+        "question": "If $y(x)=C_{1}e^{-x}+C_{2}e^{2x}+\\alpha xe^{-x}$ is the general solution of $\\frac{d^{2}y}{dx^{2}}+\\beta\\frac{dy}{dx}+\\gamma y=-e^{-x}$, then $\\alpha(\\beta+\\gamma)=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "-1.0",
-        "explanation": "**Correct Numerical Answer: -1.0**\n\n- **Topic:** Differential Equations (JAM 2026 Q.51)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{-1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: -1.0**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.51)"
       },
       {
         "id": "JAM_2025_Q2",
@@ -2838,15 +2849,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "For which choice of N(x, y) is (ex sin y −2y sin x)dx + N(x, y)dy = 0 exact?",
+        "question": "For which choice of $N(x,y)$ is $(e^{x}\\sin y-2y\\sin x)dx + N(x,y)dy=0$ exact?",
         "options": {
-          "A": "$ex sin y + 2 cos x$",
-          "B": "$ex cos y + 2 cos x$",
-          "C": "$ex cos y + 2 sin x$",
-          "D": "$ex sin y + 2 sin x$"
+          "A": "$e^{x}\\sin y+2\\cos x$",
+          "B": "$e^{x}\\cos y+2\\cos x$",
+          "C": "$e^{x}\\cos y+2\\sin x$",
+          "D": "$e^{x}\\sin y+2\\sin x$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2025 Q.2)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.2)"
       },
       {
         "id": "JAM_2025_Q5",
@@ -2857,15 +2868,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "General solution of $\\frac{d^2y}{dx^2} $ −8 $\\frac{dy}{dx} + 16y = 2e4x is$ :",
+        "question": "General solution of $\\frac{d^{2}y}{dx^{2}}-8\\frac{dy}{dx}+16y=2e^{4x}$ is:",
         "options": {
-          "A": "$\\alpha 1e4x + \\alpha 2xe4x + x2e4x$",
-          "B": "$\\alpha 1e4x + \\alpha 2xe4x + 2x2e4x$",
-          "C": "$\\alpha 1e−4x + \\alpha 2e4x + 2x2e4x$",
-          "D": "$\\alpha 1xe−4x + \\alpha 2x2e−4x + x2e4x$"
+          "A": "$\\alpha_{1}e^{4x}+\\alpha_{2}xe^{4x}+x^{2}e^{4x}$",
+          "B": "$\\alpha_{1}e^{4x}+\\alpha_{2}xe^{4x}+2x^{2}e^{4x}$",
+          "C": "$\\alpha_{1}e^{-4x}+\\alpha_{2}e^{4x}+2x^{2}e^{4x}$",
+          "D": "$\\alpha_{1}xe^{-4x}+\\alpha_{2}x^{2}e^{-4x}+x^{2}e^{4x}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2025 Q.5)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.5)"
       },
       {
         "id": "JAM_2025_Q11",
@@ -2876,15 +2887,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Orthogonal trajectory to yx2 = $\\lambda passing through (2$ , 1) is:",
+        "question": "Orthogonal trajectory to $yx^{2}=\\lambda$ passing through $(2,1)$ is:",
         "options": {
-          "A": "$y = x2$",
-          "B": "$x2 −2y2 = 2$",
-          "C": "$x −y = 1$",
-          "D": "$2x −y2 = 3$"
+          "A": "$y=\\frac{x^{2}}{4}$",
+          "B": "$x^{2}-2y^{2}=2$",
+          "C": "$x-y=1$",
+          "D": "$2x-y^{2}=3$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2025 Q.11)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.11)"
       },
       {
         "id": "JAM_2025_Q12",
@@ -2895,15 +2906,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $\\phi solve x \\frac{dy}{dx} = (ln y $ −ln x)y with $\\phi (1) = e2$ . Then $\\phi (2) =$ :",
+        "question": "Let $\\phi$ solve $x\\frac{dy}{dx}=(\\ln y-\\ln x)y$ with $\\phi(1)=e^{2}$. Then $\\phi(2)=$:",
         "options": {
-          "A": "e2",
-          "B": "2e3",
-          "C": "3e2",
-          "D": "6e3"
+          "A": "$e^{2}$",
+          "B": "$2e^{3}$",
+          "C": "$3e^{2}$",
+          "D": "$6e^{3}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2025 Q.12)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.12)"
       },
       {
         "id": "JAM_2025_Q14",
@@ -2914,15 +2925,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $\\phi solve \\frac{dy}{dx} = (y $ −1)(y −3) with $\\phi (0) = 2$ . Then:",
+        "question": "Let $\\phi$ solve $\\frac{dy}{dx}=(y-1)(y-3)$ with $\\phi(0)=2$. Then:",
         "options": {
-          "A": "$limx \\to \\infty \\phi (x) = 0$",
-          "B": "$limx \\to ln \\sqrt{2} \\phi (x) = 1$",
-          "C": "$limx \\to − \\infty \\phi (x) = 3$",
-          "D": "$limx \\to ln(1/ \\sqrt{2}) \\phi (x) = 6$"
+          "A": "$\\lim_{x\\rightarrow\\infty}\\phi(x)=0$",
+          "B": "$\\lim_{x\\rightarrow\\ln\\sqrt{2}}\\phi(x)=1$",
+          "C": "$\\lim_{x\\rightarrow-\\infty}\\phi(x)=3$",
+          "D": "$\\lim_{x\\rightarrow\\ln(1/\\sqrt{2})}\\phi(x)=6$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Differential Equations (JAM 2025 Q.14)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.14)"
       },
       {
         "id": "JAM_2025_Q29",
@@ -2933,15 +2944,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $\\phi $(x)$ = \\int_{0}^{x} \\phi $(t)$dt + sin x$ . Then limx $\\to $ π/2( $\\phi $(x) −ex) =:",
+        "question": "Let $\\phi(x)=\\int_{0}^{x}\\phi(t)dt+\\sin x$. Then $\\lim_{x\\rightarrow\\pi/2}(\\phi(x)-e^{x})=$:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2025 Q.29)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.29)"
       },
       {
         "id": "JAM_2025_Q32",
@@ -2952,15 +2963,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "If µMdx + µNdy = dw, which of the following is/are TRUE?",
+        "question": "If $\\mu M dx + \\mu N dy = dw$, which of the following is/are TRUE?",
         "options": {
-          "A": "µw is an integrating factor for Mdx + Ndy = 0",
-          "B": "µw2 is an integrating factor for Mdx + Ndy = 0",
-          "C": "$w(x, y) = w(0, 0) + \\int_{0}^{x} (µM)(s, 0)ds + \\int_{0}^{y} (µN)(x, t)dt$",
-          "D": "$w(x, y) = w(0, 0) + \\int_{0}^{x} (µM)(s, y)ds + \\int_{0}^{x} (µN)(0, t)dt$"
+          "A": "$\\mu w$ is an integrating factor for $Mdx+Ndy=0$",
+          "B": "$\\mu w^{2}$ is an integrating factor for $Mdx+Ndy=0$",
+          "C": "$w(x,y)=w(0,0)+\\int_{0}^{x}(\\mu M)(s,0)ds+\\int_{0}^{y}(\\mu N)(x,t)dt$",
+          "D": "$w(x,y)=w(0,0)+\\int_{0}^{x}(\\mu M)(s,y)ds+\\int_{0}^{x}(\\mu N)(0,t)dt$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Differential Equations (JAM 2025 Q.32)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.32)"
       },
       {
         "id": "JAM_2025_Q33",
@@ -2971,15 +2982,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $\\phi $ : (−1, $\\infty ) \\to (0$ , $\\infty ) solve \\frac{dy}{dx} $ −2yex = 2ex $\\sqrt{y} with \\phi (0) = 1$ . Then:",
+        "question": "Let $\\phi:(-1,\\infty)\\rightarrow(0,\\infty)$ solve $\\frac{dy}{dx}-2ye^{x}=2e^{x}\\sqrt{y}$ with $\\phi(0)=1$. Then:",
         "options": {
-          "A": "$\\phi is unbounded$",
-          "B": "$limx \\to ln 2 \\phi (x) = (2e −1)2$",
-          "C": "$limx \\to ln 2 \\phi (x) = \\sqrt{2e} −1$",
-          "D": "$\\phi is strictly increasing on (0$ , $\\infty )$"
+          "A": "$\\phi$ is unbounded",
+          "B": "$\\lim_{x\\rightarrow\\ln 2}\\phi(x)=(2e-1)^{2}$",
+          "C": "$\\lim_{x\\rightarrow\\ln 2}\\phi(x)=\\sqrt{2e-1}$",
+          "D": "$\\phi$ is strictly increasing on $(0,\\infty)$"
         },
         "answer_key": "A,B,D",
-        "explanation": "**Correct Options: A,B,D**\n\n- **Topic:** Differential Equations (JAM 2025 Q.33)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,D**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.33)"
       },
       {
         "id": "JAM_2025_Q44",
@@ -2990,10 +3001,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $\\phi solve 4y$ ′′ + 16y′ + 25y = 0 with $\\phi (0) = 1$ , $\\phi $ ′(0) = −1 2. Then limx $\\to $ π/6 e2x $\\phi $(x)$ = (rounded off to two decimal places)$ .",
+        "question": "Let $\\phi$ solve $4y^{\\prime\\prime}+16y^{\\prime}+25y=0$ with $\\phi(0)=1, \\phi^{\\prime}(0)=-\\frac{1}{2}$. Then $\\lim_{x\\rightarrow\\pi/6}e^{2x}\\phi(x)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.41",
-        "explanation": "**Correct Numerical Answer: 1.41**\n\n- **Topic:** Differential Equations (JAM 2025 Q.44)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{1.41}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.41**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.44)"
       },
       {
         "id": "JAM_2025_Q55",
@@ -3004,10 +3015,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $\\phi solve x2y$ ′′ −xy′ + y = 6x ln x on (0, $\\infty ) with \\phi (1) = $ −3, $\\phi (e) = 0$ . Then | $\\phi $ ′(1)| = (rounded off to two decimal places).",
+        "question": "Let $\\phi$ solve $x^{2}y^{\\prime\\prime}-xy^{\\prime}+y=6x\\ln x$ on $(0,\\infty)$ with $\\phi(1)=-3, \\phi(e)=0$. Then $|\\phi^{\\prime}(1)|=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Differential Equations (JAM 2025 Q.55)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.55)"
       },
       {
         "id": "JAM_2025_Q56",
@@ -3018,10 +3029,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let $\\phi solve \\frac{dy}{dx} + 2xy = 2 + 4x2 with \\phi (0) = 0$ . Then $\\phi (2) = (rounded off to two decimal places)$ .",
+        "question": "Let $\\phi$ solve $\\frac{dy}{dx}+2xy=2+4x^{2}$ with $\\phi(0)=0$. Then $\\phi(2)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\n\n- **Topic:** Differential Equations (JAM 2025 Q.56)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.56)"
       },
       {
         "id": "JAM_2024_Q1",
@@ -3032,15 +3043,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let yc solve $\\frac{dy}{dx} $ −y + $y_{3}$ = 0, $y(0)$ = c > 0. Then for every c > 0:",
+        "question": "Let $y_{c}$ solve $\\frac{dy}{dx}-y+y^{3}=0, y(0)=c>0$. Then for every $c>0$:",
         "options": {
-          "A": "$limx \\to \\infty yc(x) = 0$",
-          "B": "$limx \\to \\infty yc(x) = 1$",
-          "C": "$limx \\to \\infty yc(x) = e$",
+          "A": "$\\lim_{x\\rightarrow\\infty}y_{c}(x)=0$",
+          "B": "$\\lim_{x\\rightarrow\\infty}y_{c}(x)=1$",
+          "C": "$\\lim_{x\\rightarrow\\infty}y_{c}(x)=e$",
           "D": "limit does not exist"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.1)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.1)"
       },
       {
         "id": "JAM_2024_Q3",
@@ -3051,15 +3062,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let $y$(x) solve $\\frac{dy}{dx} = 1 + y sec x on ($ −π/2, π/2) with $y(0)$ = 0. Then y(π/6) =:",
+        "question": "Let $y(x)$ solve $\\frac{dy}{dx}=1+y\\sec x$ on $(-\\pi/2,\\pi/2)$ with $y(0)=0$. Then $y(\\pi/6)=$:",
         "options": {
-          "A": "$\\sqrt{3} log( 3 2)$",
-          "B": "$( \\sqrt{2} ) log( 3 2)$",
-          "C": "$( \\sqrt{2} ) log 3$",
-          "D": "$\\sqrt{3} log 3$"
+          "A": "$\\sqrt{3}\\log(\\frac{3}{2})$",
+          "B": "$(\\frac{\\sqrt{3}}{2})\\log(\\frac{3}{2})$",
+          "C": "$(\\frac{\\sqrt{3}}{2})\\log 3$",
+          "D": "$\\sqrt{3}\\log 3$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.3)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.3)"
       },
       {
         "id": "JAM_2024_Q4",
@@ -3070,15 +3081,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Differential equation for orthogonal trajectories of $x_{2}$ + 2hxy + $y_{2}$ = 1 is:",
+        "question": "Differential equation for orthogonal trajectories of $x^{2}+2hxy+y^{2}=1$ is:",
         "options": {
-          "A": "$(x2y −y3 + y) \\frac{dy}{dx} −(xy2 −x3 + x) = 0$",
-          "B": "$(x2y −y3 + y) \\frac{dy}{dx} + (xy2 −x3 + x) = 0$",
-          "C": "$(x2y + y3 + y) \\frac{dy}{dx} −(xy2 + x3 + x) = 0$",
-          "D": "$(x2y + y3 + y) \\frac{dy}{dx} + (xy2 + x3 + x) = 0$"
+          "A": "$(x^{2}y-y^{3}+y)\\frac{dy}{dx}-(xy^{2}-x^{3}+x)=0$",
+          "B": "$(x^{2}y-y^{3}+y)\\frac{dy}{dx}+(xy^{2}-x^{3}+x)=0$",
+          "C": "$(x^{2}y+y^{3}+y)\\frac{dy}{dx}-(xy^{2}+x^{3}+x)=0$",
+          "D": "$(x^{2}y+y^{3}+y)\\frac{dy}{dx}+(xy^{2}+x^{3}+x)=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.4)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.4)"
       },
       {
         "id": "JAM_2024_Q10",
@@ -3089,15 +3100,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Solution of y′′ + y = $g$(x) with $y(0)$ = 0, y′(0) = 1 is:",
+        "question": "Solution of $y^{\\prime\\prime}+y=g(x)$ with $y(0)=0, y^{\\prime}(0)=1$ is:",
         "options": {
-          "A": "$y(x) = sin x − \\int_{0}^{x} sin(x −t)g(t)dt$",
-          "B": "$y(x) = sin x + \\int_{0}^{x} sin(x −t)g(t)dt$",
-          "C": "$y(x) = sin x − \\int_{0}^{x} cos(x −t)g(t)dt$",
-          "D": "$y(x) = sin x + \\int_{0}^{x} cos(x −t)g(t)dt$"
+          "A": "$y(x)=\\sin x-\\int_{0}^{x}\\sin(x-t)g(t)dt$",
+          "B": "$y(x)=\\sin x+\\int_{0}^{x}\\sin(x-t)g(t)dt$",
+          "C": "$y(x)=\\sin x-\\int_{0}^{x}\\cos(x-t)g(t)dt$",
+          "D": "$y(x)=\\sin x+\\int_{0}^{x}\\cos(x-t)g(t)dt$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.10)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.10)"
       },
       {
         "id": "JAM_2024_Q18",
@@ -3108,15 +3119,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$For y(8x −9y)dx + 2x(x −3y)dy = 0:$",
+        "question": "For $y(8x-9y)dx+2x(x-3y)dy=0$:",
         "options": {
-          "A": "Not exact, has $x_{2}$ as integrating factor",
+          "A": "Not exact, has $x^{2}$ as integrating factor",
           "B": "Exact and homogeneous",
-          "C": "Not exact, does not have $x_{2}$ as I.F.",
-          "D": "Not homogeneous, has $x_{2}$ as I.F."
+          "C": "Not exact, does not have $x^2$ as I.F.",
+          "D": "Not homogeneous, has $x^2$ as I.F."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.18)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.18)"
       },
       {
         "id": "JAM_2024_Q23",
@@ -3127,15 +3138,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let y $\\alpha solve \\frac{dy}{dx} + 2y = 1+$x_{2}$ with $y(0)$ = \\alpha $ . Then:",
+        "question": "Let $y_{\\alpha}$ solve $\\frac{dy}{dx}+2y=\\frac{1}{1+x^{2}}$ with $y(0)=\\alpha$. Then:",
         "options": {
-          "A": "$limx \\to \\infty y \\alpha (x) = 0 for every \\alpha \\in R$",
-          "B": "$limx \\to \\infty y \\alpha (x) = 1 for every \\alpha \\in R$",
-          "C": "$\\exists \\alpha such that limit exists and \\neq 0$ , 1",
-          "D": "$\\exists \\alpha for which limit does not exist$"
+          "A": "$\\lim_{x\\rightarrow\\infty}y_{\\alpha}(x)=0$ for every $\\alpha\\in\\mathbb{R}$",
+          "B": "$\\lim_{x\\rightarrow\\infty}y_{\\alpha}(x)=1$ for every $\\alpha\\in\\mathbb{R}$",
+          "C": "$\\exists\\alpha$ such that limit exists and $\\ne 0,1$",
+          "D": "$\\exists\\alpha$ for which limit does not exist"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.23)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.23)"
       },
       {
         "id": "JAM_2024_Q26",
@@ -3146,7 +3157,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Let y′′ −2y′ + y = 2ex. P: f > 0 =⇒f′ > 0. Q: f′ > 0 =⇒f > 0.$",
+        "question": "Let $y^{\\prime\\prime}-2y^{\\prime}+y=2e^{x}$. P: $f>0\\implies f^{\\prime}>0$. Q: $f^{\\prime}>0\\implies f>0$.",
         "options": {
           "A": "P true, Q false",
           "B": "P false, Q true",
@@ -3154,7 +3165,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2024 Q.26)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.26)"
       },
       {
         "id": "JAM_2024_Q42",
@@ -3165,10 +3176,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let y : $\\int^{ \\to R$ } be the solution to the differential equation $\\frac{d^2y}{dx^2} + 2 \\frac{dy}{dx} + 5y = 1 satisfying $y(0)$ = 0 and y$ ′(0) = 1. Then, limx $\\to \\infty $y$(x) equals (rounded off to two decimal places)$ .",
+        "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be the solution to the differential equation $\\frac{d^{2}y}{dx^{2}}+2\\frac{dy}{dx}+5y=1$ satisfying $y(0)=0$ and $y^{\\prime}(0)=1$. Then, $\\lim_{x\\rightarrow\\infty}y(x)$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.20",
-        "explanation": "**Correct Numerical Answer: 0.20**\n\n- **Topic:** Differential Equations (JAM 2024 Q.42)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{0.20}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.20**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.42)"
       },
       {
         "id": "JAM_2024_Q43",
@@ -3179,10 +3190,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let y $\\alpha solve 2y$ ′′ −y′ −y = 0, $y(0)$ = 1, y′(0) = $\\alpha $ > 0. Smallest $\\alpha for which y \\alpha has no critical points in \\int_{$ .}^{is}",
+        "question": "Let $y_{\\alpha}$ solve $2y^{\\prime\\prime}-y^{\\prime}-y=0, y(0)=1, y^{\\prime}(0)=\\alpha>0$. Smallest $\\alpha$ for which $y_{\\alpha}$ has no critical points in $\\mathbb{R}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Differential Equations (JAM 2024 Q.43)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.43)"
       },
       {
         "id": "JAM_2024_Q51",
@@ -3193,10 +3204,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Number of $\\alpha \\in ($ −2π, 0) $\\cap Z for which all real solutions of x2y$ ′′ + $\\alpha xy$ ′ +y = 0 approach 0 as x $\\to 0+ is $ .",
+        "question": "Number of $\\alpha\\in(-2\\pi,0)\\cap\\mathbb{Z}$ for which all real solutions of $x^{2}y^{\\prime\\prime}+\\alpha xy^{\\prime}+y=0$ approach 0 as $x\\rightarrow 0^{+}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\n\n- **Topic:** Differential Equations (JAM 2024 Q.51)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{6}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.51)"
       },
       {
         "id": "JAM_2023_Q4",
@@ -3207,15 +3218,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Consider the initial value problem $\\frac{dy}{dx} + \\alpha y = 0$ , $y(0)$ = 1, where $\\alpha \\in R$ . Then:",
+        "question": "Consider the initial value problem $\\frac{dy}{dx}+\\alpha y=0, y(0)=1$, where $\\alpha\\in\\mathbb{R}$. Then:",
         "options": {
-          "A": "there is an $\\alpha such that $y(1)$ = 0$",
-          "B": "there is a unique $\\alpha such that limx \\to \\infty $y$(x) = 0$",
-          "C": "there is NO $\\alpha such that $y(2)$ = 1$",
-          "D": "there is a unique $\\alpha such that $y(1)$ = 2$"
+          "A": "there is an $\\alpha$ such that $y(1)=0$",
+          "B": "there is a unique $\\alpha$ such that $\\lim_{x\\rightarrow\\infty}y(x)=0$",
+          "C": "there is NO $\\alpha$ such that $y(2)=1$",
+          "D": "there is a unique $\\alpha$ such that $y(1)=2$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Differential Equations (JAM 2023 Q.4)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.4)"
       },
       {
         "id": "JAM_2023_Q22",
@@ -3226,15 +3237,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Orthogonal trajectory to x2 + y2 = 2x + 4y + k passing through (2, 3) also passes through:$",
+        "question": "Orthogonal trajectory to $x^{2}+y^{2}=2x+4y+k$ passing through $(2,3)$ also passes through:",
         "options": {
-          "A": "(3, 4)",
-          "B": "(−1, 1)",
-          "C": "(1, 0)",
-          "D": "(3, 5)"
+          "A": "$(3,4)$",
+          "B": "$(-1,1)$",
+          "C": "$(1,0)$",
+          "D": "$(3,5)$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2023 Q.22)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.22)"
       },
       {
         "id": "JAM_2023_Q33",
@@ -3245,15 +3256,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let y : ( p 2/3, $\\infty ) \\to \\int^{solve} (2x $ −y)y′ + (2y −x) = 0 with $y(1)$ = 3. Then:",
+        "question": "Let $y:(\\sqrt{2/3},\\infty)\\rightarrow\\mathbb{R}$ solve $(2x-y)y^{\\prime}+(2y-x)=0$ with $y(1)=3$. Then:",
         "options": {
-          "A": "$y(3) = 1$",
-          "B": "$y(2) = 4 + \\sqrt$",
-          "C": "$y′ bounded on ( p 2/3, 1)$",
-          "D": "$y′ bounded on (1, \\infty )$"
+          "A": "$y(3)=1$",
+          "B": "$y(2)=4+\\sqrt{10}$",
+          "C": "$y^{\\prime}$ bounded on $(\\sqrt{2/3},1)$",
+          "D": "$y^{\\prime}$ bounded on $(1,\\infty)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Differential Equations (JAM 2023 Q.33)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.33)"
       },
       {
         "id": "JAM_2023_Q43",
@@ -3264,10 +3275,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "If y′′ −2y′ + y = ex, $y(0)$ = 0, y′(0) = −1/2, then $y(1)$ = (rounded off to two decimal places).",
+        "question": "If $y^{\\prime\\prime}-2y^{\\prime}+y=e^{x}, y(0)=0, y^{\\prime}(0)=-1/2$, then $y(1)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\n\n- **Topic:** Differential Equations (JAM 2023 Q.43)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.43)"
       },
       {
         "id": "JAM_2023_Q53",
@@ -3278,10 +3289,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let y : (1, $\\infty ) \\to \\int^{solve} y$ ′′ − 2y (1−x)2 = 0 with $y(2)$ = 1 and limx $\\to \\infty $y$(x) = 0$ . Then $y(3)$ = (rounded off to two decimal places).",
+        "question": "Let $y:(1,\\infty)\\rightarrow\\mathbb{R}$ solve $y^{\\prime\\prime}-\\frac{2y}{(1-x)^{2}}=0$ with $y(2)=1$ and $\\lim_{x\\rightarrow\\infty}y(x)=0$. Then $y(3)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\n\n- **Topic:** Differential Equations (JAM 2023 Q.53)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{0.50}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.53)"
       },
       {
         "id": "JAM_2023_Q59",
@@ -3292,10 +3303,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let S = { $\\alpha \\in \\int^{$ :} solution of y′ = y(2 −y), $y(0)$ = $\\alpha exists on $ [0, $\\infty )$ }. Then min S = .",
+        "question": "Let $S=\\{\\alpha\\in\\mathbb{R} : \\text{solution of } y^{\\prime}=y(2-y), y(0)=\\alpha \\text{ exists on } [0,\\infty)\\}$. Then $\\min S=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\n\n- **Topic:** Differential Equations (JAM 2023 Q.59)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.59)"
       },
       {
         "id": "JAM_2022_Q13",
@@ -3306,7 +3317,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let u′′$(x)$ = $u$(x) 1+$x_{2}$ on $\\int^{with} $u(0) > 0, u′(0) > 0. I: uu′ is increasing on [0, $\\infty )$ . II: u is increasing on [0, $\\infty )$ .",
+        "question": "Let $u^{\\prime\\prime}(x)=\\frac{u(x)}{1+x^{2}}$ on $\\mathbb{R}$ with $u(0)>0, u^{\\prime}(0)>0$. I: $uu^{\\prime}$ is increasing on $[0,\\infty)$. II: $u$ is increasing on $[0,\\infty)$.",
         "options": {
           "A": "Both false",
           "B": "Both true",
@@ -3314,7 +3325,7 @@ window.MOCK_TESTS_DATA = {
           "D": "I true, II false"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2022 Q.13)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.13)"
       },
       {
         "id": "JAM_2022_Q21",
@@ -3325,15 +3336,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "On (−c, c), let $y$(x) solve $\\frac{dy}{dx} = $y_{2} −1 + cos x, $y(0)$ = 0. Then:",
+        "question": "On $(-c,c)$, let $y(x)$ solve $\\frac{dy}{dx}=y^{2}-1+\\cos x, y(0)=0$. Then:",
         "options": {
           "A": "Local max at origin",
           "B": "Local min at origin",
-          "C": "Strictly increasing on (−δ, δ)",
-          "D": "Strictly decreasing on (−δ, δ)"
+          "C": "Strictly increasing on $(-\\delta,\\delta)$",
+          "D": "Strictly decreasing on $(-\\delta,\\delta)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Differential Equations (JAM 2022 Q.21)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.21)"
       },
       {
         "id": "JAM_2022_Q23",
@@ -3344,15 +3355,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Consider y′′ + ay′ + y = sin x.$",
+        "question": "Consider $y^{\\prime\\prime}+ay^{\\prime}+y=\\sin x$.",
         "options": {
-          "A": "$If a = 0, all solutions unbounded over R$",
-          "B": "$If a = 1, all solutions unbounded over (0, \\infty )$",
-          "C": "$If a = 1, all solutions tend to 0 as x \\to \\infty$",
-          "D": "$If a = 2, all solutions bounded over (− \\infty , 0)$"
+          "A": "If $a=0$, all solutions unbounded over $\\mathbb{R}$",
+          "B": "If $a=1$, all solutions unbounded over $(0,\\infty)$",
+          "C": "If $a=1$, all solutions tend to 0 as $x\\rightarrow\\infty$",
+          "D": "If $a=2$, all solutions bounded over $(-\\infty,0)$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Differential Equations (JAM 2022 Q.23)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.23)"
       },
       {
         "id": "JAM_2022_Q25",
@@ -3363,15 +3374,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $\\phi solve ($x_{2}$ + $y_{2}$)dx $ −4xy dy = 0 with $\\phi (1) = 1$ . Then:",
+        "question": "Let $\\phi$ solve $(x^{2}+y^{2})dx-4xy\\,dy=0$ with $\\phi(1)=1$. Then:",
         "options": {
-          "A": "$(3 \\phi 2 + x2)2 = 4x$",
-          "B": "$(3 \\phi 2 −x2)2 = 4x$",
-          "C": "$(3 \\phi 2 + x2)2 = 4 \\phi$",
-          "D": "$(3 \\phi 2 −x2)2 = 4 \\phi$"
+          "A": "$(3\\phi^{2}+x^{2})^{2}=4x$",
+          "B": "$(3\\phi^{2}-x^{2})^{2}=4x$",
+          "C": "$(3\\phi^{2}+x^{2})^{2}=4\\phi$",
+          "D": "$(3\\phi^{2}-x^{2})^{2}=4\\phi$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Differential Equations (JAM 2022 Q.25)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Differential Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.25)"
       },
       {
         "id": "JAM_2022_Q31",
@@ -3382,15 +3393,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let y′ = $x_{2}$ + $y_{2}$ + 1 with $y(0)$ = 0 on (−c, c). Then:",
+        "question": "Let $y^{\\prime}=x^{2}+y^{2}+1$ with $y(0)=0$ on $(-c,c)$. Then:",
         "options": {
-          "A": "$y$(x) is odd",
-          "B": "$y$(x) is even",
-          "C": "($y$(x))2 has local min at 0",
-          "D": "($y$(x))2 has local max at 0"
+          "A": "$y(x)$ is odd",
+          "B": "$y(x)$ is even",
+          "C": "$(y(x))^{2}$ has local min at 0",
+          "D": "$(y(x))^{2}$ has local max at 0"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\n\n- **Topic:** Differential Equations (JAM 2022 Q.31)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.31)"
       },
       {
         "id": "JAM_2022_Q35",
@@ -3401,15 +3412,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$Consider y′′ + 4y = sin(ax), x \\in R.$",
+        "question": "Consider $y^{\\prime\\prime}+4y=\\sin(ax), x\\in\\mathbb{R}$.",
         "options": {
-          "A": "All solutions periodic for every a",
-          "B": "All solutions periodic for a $\\in \\int^{$ \\} {−2, 2}",
-          "C": "All solutions periodic for a $\\in Q $ \\ {−2, 2}",
-          "D": "If a $\\in \\int^{$ \\} Q, then unique periodic solution"
+          "A": "All solutions periodic for every $a$",
+          "B": "All solutions periodic for $a\\in\\mathbb{R}\\setminus\\{-2,2\\}$",
+          "C": "All solutions periodic for $a\\in\\mathbb{Q}\\setminus\\{-2,2\\}$",
+          "D": "If $a\\in\\mathbb{R}\\setminus\\mathbb{Q}$, then unique periodic solution"
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\n\n- **Topic:** Differential Equations (JAM 2022 Q.35)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.35)"
       },
       {
         "id": "JAM_2022_Q43",
@@ -3420,10 +3431,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let y′ + 3x2y = $x_{2}$, $y(0)$ = 4. Then limx $\\to \\infty $y$(x) = (rounded off to two decimal places)$ .",
+        "question": "Let $y^{\\prime}+3x^{2}y=x^{2}, y(0)=4$. Then $\\lim_{x\\rightarrow\\infty}y(x)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.33",
-        "explanation": "**Correct Numerical Answer: 0.33**\n\n- **Topic:** Differential Equations (JAM 2022 Q.43)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{0.33}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.33**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.43)"
       },
       {
         "id": "JAM_2022_Q47",
@@ -3434,10 +3445,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let xy2y′ + $y_{3}$ = sin x x , y( π 2 ) = 0. Then y( 5π 2 ) = (rounded off to two decimal places).",
+        "question": "Let $xy^{2}y^{\\prime}+y^{3}=\\frac{\\sin x}{x}, y(\\frac{\\pi}{2})=0$. Then $y(\\frac{5\\pi}{2})=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\n\n- **Topic:** Differential Equations (JAM 2022 Q.47)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.47)"
       },
       {
         "id": "JAM_2022_Q49",
@@ -3448,10 +3459,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let x2y′′ + xy′ −4y = $x_{2}$ on (0, $\\infty ) such that limx \\to 0+ $y$(x) exists and $y(1)$ = 1$ . Then y′(1) = .",
+        "question": "Let $x^{2}y^{\\prime\\prime}+xy^{\\prime}-4y=x^{2}$ on $(0,\\infty)$ such that $\\lim_{x\\rightarrow 0^{+}}y(x)$ exists and $y(1)=1$. Then $y^{\\prime}(1)=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "2.25",
-        "explanation": "**Correct Numerical Answer: 2.25**\n\n- **Topic:** Differential Equations (JAM 2022 Q.49)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{2.25}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.25**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.49)"
       },
       {
         "id": "JAM_2022_Q50",
@@ -3462,10 +3473,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Orthogonal trajectory to y = c(1−cos x) sin x passing through ( π 3 , 1). If ( π 4 , a) lies on it, then a4 = . Linear Algebra and Algebra",
+        "question": "Orthogonal trajectory to $y=\\frac{c(1-\\cos x)}{\\sin x}$ passing through $(\\frac{\\pi}{3},1)$. If $(\\frac{\\pi}{4},a)$ lies on it, then $a^{4}=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "**Correct Numerical Answer: 2.00**\n\n- **Topic:** Differential Equations (JAM 2022 Q.50)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Differential Equations$, we obtain the exact evaluated value: $$\\mathbf{2.00}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2.00**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.50)"
       }
     ]
   },
@@ -3487,15 +3498,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let \u0000n r \u0001 denote the number of ways of choosing r distinct objects out of n distinct objects. Which of the following statements is/are TRUE?",
+        "question": "Let $\\binom{n}{r}$ denote the number of ways of choosing $r$ distinct objects out of $n$ distinct objects. Which of the following statements is/are TRUE?",
         "options": {
-          "A": "$\\sum_{k=0}^{6} (−1)k\u000013 2k \u0001 = −64$",
-          "B": "$\\sum_{k=0}^{6} (−1)k\u0000 \\binom{13}{2k+1} \u0001 = 128$",
-          "C": "$\\sum_{k=0}^{6} (−1)k\u000013 2k \u0001 = 64$",
-          "D": "$\\sum_{k=0}^{6} (−1)k\u0000 \\binom{13}{2k+1} \u0001 = −128$"
+          "A": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k}=-64$",
+          "B": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k+1}=128$",
+          "C": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k}=64$",
+          "D": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k+1}=-128$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Options: A**\n\n- **Topic:** Basic Algebra (JAM 2026 Q.38)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A**\\n\\n- **Topic:** Basic Algebra (JAM 2026 Q.38)"
       },
       {
         "id": "JAM_2026_Q58",
@@ -3506,10 +3517,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "A fruit shop has 4 different types of bananas. The number of ways in which 12 bananas can be bought with at least one banana from each type, is .",
+        "question": "A fruit shop has 4 different types of bananas. The number of ways in which 12 bananas can be bought with at least one banana from each type, is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "165",
-        "explanation": "**Correct Numerical Answer: 165**\n\n- **Topic:** Basic Algebra (JAM 2026 Q.58)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Basic Algebra$, we obtain the exact evaluated value: $$\\mathbf{165}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 165**\\n\\n- **Topic:** Basic Algebra (JAM 2026 Q.58)"
       },
       {
         "id": "JAM_2026_Q60",
@@ -3520,10 +3531,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$\u00005 0 \u0001 + \u00006 \u0001 + \u00007 \u0001 + \u00008 \u0001 + \u00009 \u0001 + \u000010 \u0001 + \u000011 \u0001 = .$",
+        "question": "$\\binom{5}{0}+\\binom{6}{1}+\\binom{7}{2}+\\binom{8}{3}+\\binom{9}{4}+\\binom{10}{5}+\\binom{11}{6}=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "924",
-        "explanation": "**Correct Numerical Answer: 924**\n\n- **Topic:** Basic Algebra (JAM 2026 Q.60)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Basic Algebra$, we obtain the exact evaluated value: $$\\mathbf{924}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 924**\\n\\n- **Topic:** Basic Algebra (JAM 2026 Q.60)"
       }
     ]
   },
@@ -3545,15 +3556,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let A be an invertible 5 $\\times 5 real matrix$ . B is obtained by swapping columns 2 and 3 of A, then adding 3 times column 3 to column 5. Then B−1 is obtained by:",
+        "question": "Let $A$ be an invertible $5\\times 5$ real matrix. $B$ is obtained by swapping columns 2 and 3 of $A$, then adding 3 times column 3 to column 5. Then $B^{-1}$ is obtained by:",
         "options": {
-          "A": "swapping rows 2 and 3 of A−1, then adding 3 times row 3 to row 5",
-          "B": "swapping rows 2 and 3 of A−1, then adding −3 times row 5 to row 3",
-          "C": "adding −3 times row 3 to row 5, then swapping rows 2 and 3 of A−1",
-          "D": "adding 3 times row 5 to row 3, then swapping rows 2 and 3 of A−1"
+          "A": "swapping rows 2 and 3 of $A^{-1}$, then adding 3 times row 3 to row 5",
+          "B": "swapping rows 2 and 3 of $A^{-1}$, then adding $-3$ times row 5 to row 3",
+          "C": "adding $-3$ times row 3 to row 5, then swapping rows 2 and 3 of $A^{-1}$",
+          "D": "adding 3 times row 5 to row 3, then swapping rows 2 and 3 of $A^{-1}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.8)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.8)"
       },
       {
         "id": "JAM_2026_Q14",
@@ -3564,15 +3575,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let A be a 5 $\\times 3 real matrix of rank 2 and b be a non-zero 5 \\times 1 real column vector$ . Suppose \\begin{pmatrix} \\end{pmatrix} and \\begin{pmatrix} \\end{pmatrix}are two solutions of the system of linear equations Ax = b. Which ONE of the following is also a solution of Ax = b?",
+        "question": "Let $A$ be a $5\\times 3$ real matrix of rank 2 and $b$ be a non-zero $5\\times 1$ real column vector. Suppose $\\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}$ and $\\begin{pmatrix}4\\\\5\\\\6\\end{pmatrix}$ are two solutions of the system of linear equations $Ax=b$. Which ONE of the following is also a solution of $Ax=b$?",
         "options": {
-          "A": "$\\begin{pmatrix} \\end{pmatrix}$",
-          "B": "$\\begin{pmatrix} \\end{pmatrix}$",
-          "C": "$\\begin{pmatrix} \\end{pmatrix}$",
-          "D": "$\\begin{pmatrix} \\end{pmatrix}$"
+          "A": "$\\begin{pmatrix}3\\\\3\\\\3\\end{pmatrix}$",
+          "B": "$\\begin{pmatrix}5\\\\7\\\\9\\end{pmatrix}$",
+          "C": "$\\begin{pmatrix}5\\\\6\\\\9\\end{pmatrix}$",
+          "D": "$\\begin{pmatrix}7\\\\8\\\\9\\end{pmatrix}$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.14)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.14)"
       },
       {
         "id": "JAM_2026_Q25",
@@ -3583,15 +3594,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let P be a nonzero n $\\times n complex matrix such that v$ ∗Pv $\\ge 0 for all v \\in Cn$ . Then:",
+        "question": "Let $P$ be a nonzero $n\\times n$ complex matrix such that $v^{*}Pv\\ge 0$ for all $v\\in\\mathbb{C}^{n}$. Then:",
         "options": {
-          "A": "All eigenvalues of P are negative",
-          "B": "If Pv1 = $v_{2}$ and Pv2 = $v_{1}$, then $v_{1}$ = $v_{2}$",
-          "C": "$v∗Pv \\neq 0 for all nonzero v$",
-          "D": "All eigenvalues of P ∗are negative"
+          "A": "All eigenvalues of $P$ are negative",
+          "B": "If $Pv_{1}=v_{2}$ and $Pv_{2}=v_{1}$, then $v_{1}=v_{2}$",
+          "C": "$v^{*}Pv\\ne 0$ for all nonzero $v$",
+          "D": "All eigenvalues of $P^{*}$ are negative"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.25)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.25)"
       },
       {
         "id": "JAM_2026_Q37",
@@ -3602,15 +3613,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let P = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} $\\in M5(C)$ . Which of the following is/are TRUE?",
+        "question": "Let $P=\\begin{pmatrix}0&1&0&0&0\\\\ 1&0&0&0&0\\\\ 0&0&0&1&0\\\\ 0&0&0&0&1\\\\ 0&0&1&0&0\\end{pmatrix}\\in M_{5}(\\mathbb{C})$. Which of the following is/are TRUE?",
         "options": {
-          "A": "$nullity(P −I) \\ge 2$",
-          "B": "P has 4 distinct eigenvalues in C",
-          "C": "P has 3 distinct eigenvalues in R",
-          "D": "If $\\lambda is an eigenvalue$ , $\\exists n \\in N such that \\lambda n = 1$"
+          "A": "$\\text{nullity}(P-I)\\ge 2$",
+          "B": "$P$ has 4 distinct eigenvalues in $\\mathbb{C}$",
+          "C": "$P$ has 3 distinct eigenvalues in $\\mathbb{R}$",
+          "D": "If $\\lambda$ is an eigenvalue, $\\exists n\\in\\mathbb{N}$ such that $\\lambda^{n}=1$"
         },
         "answer_key": "A,B,D",
-        "explanation": "**Correct Options: A,B,D**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.37)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,D**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.37)"
       },
       {
         "id": "JAM_2026_Q39",
@@ -3621,15 +3632,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let P $\\in M4$ ,6(R) and Q $\\in M6$ ,4(R) such that PQ = 0 and QP = 0. Then:",
+        "question": "Let $P\\in M_{4,6}(\\mathbb{R})$ and $Q\\in M_{6,4}(\\mathbb{R})$ such that $PQ=0$ and $QP=0$. Then:",
         "options": {
-          "A": "$range(P) \\subseteq null(Q) and range(Q) \\subseteq null(P)$",
-          "B": "$rank(P) + rank(Q) \\le 4$",
-          "C": "If range(P) = null(Q), then rank(P) + rank(Q) = 4",
-          "D": "$range(Q) = null(P)$"
+          "A": "$\\text{range}(P)\\subseteq\\text{null}(Q)$ and $\\text{range}(Q)\\subseteq\\text{null}(P)$",
+          "B": "$\\text{rank}(P)+\\text{rank}(Q)\\le 4$",
+          "C": "If $\\text{range}(P)=\\text{null}(Q)$, then $\\text{rank}(P)+\\text{rank}(Q)=4$",
+          "D": "$\\text{range}(Q)=\\text{null}(P)$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.39)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.39)"
       },
       {
         "id": "JAM_2026_Q49",
@@ -3640,10 +3651,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let A $\\in M3(C)$ . Suppose v = \\begin{pmatrix} \\sqrt \\\\ 5i \\\\ 2i \\\\ x \\end{pmatrix} $\\in null(A) \\cap range(AT )$ . Then |x| = .",
+        "question": "Let $A\\in M_{3}(\\mathbb{C})$. Suppose $v=\\begin{pmatrix}\\sqrt{5}i\\\\ 2i\\\\ x\\end{pmatrix}\\in\\text{null}(A)\\cap\\text{range}(A^{T})$. Then $|x|=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.49)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{3.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.49)"
       },
       {
         "id": "JAM_2026_Q50",
@@ -3654,10 +3665,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let P be a 5 $\\times 5 real matrix with det(P) = 2$ . Let Q be the matrix of cofactors of P. Then det(Q) = .",
+        "question": "Let $P$ be a $5\\times 5$ real matrix with $\\det(P)=2$. Let $Q$ be the matrix of cofactors of $P$. Then $\\det(Q)=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "16.0",
-        "explanation": "**Correct Numerical Answer: 16.0**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.50)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{16.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 16.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.50)"
       },
       {
         "id": "JAM_2026_Q56",
@@ -3668,10 +3679,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let M $\\in M3(R) satisfy M $\\begin{pmatrix} \\sqrt \\\\ \\sqrt \\\\ 0 \\end{pmatrix}= \\begin{pmatrix} \\sqrt \\\\ \\sqrt \\\\ −5 \\end{pmatrix}, M \\begin{pmatrix} 0 \\\\ 0 \\\\ \\sqrt \\end{pmatrix}= \\begin{pmatrix} \\sqrt \\\\ \\sqrt \\\\ \\sqrt \\end{pmatrix}, M \\begin{pmatrix} − \\\\ \\sqrt \\\\ \\sqrt \\\\ 0 \\end{pmatrix}= \\begin{pmatrix} \\sqrt \\\\ − \\\\ \\sqrt \\\\ 0 \\end{pmatrix}. Then det(M) = .",
+        "question": "Let $M\\in M_{3}(\\mathbb{R})$ satisfy $M\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{3}\\\\ \\sqrt{2}\\\\ -5\\end{pmatrix}$, $M\\begin{pmatrix}0\\\\ 0\\\\ \\sqrt{30}\\end{pmatrix}=\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{10}\\\\ \\sqrt{5}\\end{pmatrix}$, $M\\begin{pmatrix}-\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{12}\\\\ -\\sqrt{18}\\\\ 0\\end{pmatrix}$. Then $\\det(M)=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "-1.0",
-        "explanation": "**Correct Numerical Answer: -1.0**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.56)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{-1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: -1.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.56)"
       },
       {
         "id": "JAM_2026_Q57",
@@ -3682,10 +3693,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "If x + 2y + 2z = 1, 2x + 3y + z = 2, ax + 5y + bz = b has infinitely many solutions, then a + b = .",
+        "question": "If $x+2y+2z=1, 2x+3y+z=2, ax+5y+bz=b$ has infinitely many solutions, then $a+b=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "6.0",
-        "explanation": "**Correct Numerical Answer: 6.0**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.57)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{6.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 6.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.57)"
       },
       {
         "id": "JAM_2026_Q59",
@@ -3696,10 +3707,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let A $\\in M3(R) represent reflection about $ {(a, b, −a −b) : a, b $\\in R$ }. Sum of diagonal elements of A is .",
+        "question": "Let $A\\in M_{3}(\\mathbb{R})$ represent reflection about $\\{(a,b,-a-b): a,b\\in\\mathbb{R}\\}$. Sum of diagonal elements of $A$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.59)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{1.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.59)"
       },
       {
         "id": "JAM_2025_Q7",
@@ -3710,15 +3721,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let M = \\begin{pmatrix} 0 \\\\ −1 \\\\ −4 \\\\ 0 \\\\ x \\end{pmatrix}. If 0 is an eigenvalue of M, then (M4 + M) \\begin{pmatrix} 0 \\end{pmatrix}equals:",
+        "question": "Let $M=\\begin{pmatrix}2&0&-1\\\\ 4&1&-4\\\\ 2&0&x\\end{pmatrix}$. If 0 is an eigenvalue of $M$, then $(M^{4}+M)\\begin{pmatrix}1\\\\ 0\\\\ 1\\end{pmatrix}$ equals:",
         "options": {
-          "A": "$\\begin{pmatrix} 0 \\end{pmatrix}$",
-          "B": "$\\begin{pmatrix} 0 \\end{pmatrix}$",
-          "C": "$\\begin{pmatrix} 0 \\end{pmatrix}$",
-          "D": "$\\begin{pmatrix} 0 \\end{pmatrix}$"
+          "A": "$\\begin{pmatrix}1\\\\ 0\\\\ 1\\end{pmatrix}$",
+          "B": "$\\begin{pmatrix}2\\\\ 0\\\\ 2\\end{pmatrix}$",
+          "C": "$\\begin{pmatrix}5\\\\ 0\\\\ 5\\end{pmatrix}$",
+          "D": "$\\begin{pmatrix}17\\\\ 0\\\\ 17\\end{pmatrix}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.7)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.7)"
       },
       {
         "id": "JAM_2025_Q15",
@@ -3729,15 +3740,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Let M = \\begin{pmatrix} −6 \\\\ −9 \\\\ −2 \\end{pmatrix}and system 6x1 + 2x2 −6x3 + 8x4 = 8, 5x1 + 3x2 −9x3 + 8x4 = 16, 3x1 + x2 −2x3 + 4x4 = 32.$",
+        "question": "Let $M=\\begin{pmatrix}6&2&-6&8\\\\ 5&3&-9&8\\\\ 3&1&-2&4\\end{pmatrix}$ and system $6x_1+2x_2-6x_3+8x_4=8, 5x_1+3x_2-9x_3+8x_4=16, 3x_1+x_2-2x_3+4x_4=32$.",
         "options": {
-          "A": "rank(M) = 3, system has solution",
-          "B": "$rank(M) = 3, no solution$",
-          "C": "rank(M) = 2, has solution",
-          "D": "$rank(M) = 2, no solution$"
+          "A": "$\\text{rank}(M)=3$, system has solution",
+          "B": "$\\text{rank}(M)=3$, no solution",
+          "C": "$\\text{rank}(M)=2$, has solution",
+          "D": "$\\text{rank}(M)=2$, no solution"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.15)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.15)"
       },
       {
         "id": "JAM_2025_Q16",
@@ -3748,15 +3759,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let M = \\begin{pmatrix} −2 \\\\ 0 \\\\ 0 \\\\ −1 \\\\ x \\end{pmatrix}have eigenvalues −2, 3. If M3 \\begin{pmatrix} 0 \\end{pmatrix}= \\begin{pmatrix} 0 \\\\ 125 \\\\ 125 \\end{pmatrix}, then:",
+        "question": "Let $M=\\begin{pmatrix}-2&0&0\\\\ 3&2&3\\\\ 4&-1&x\\end{pmatrix}$ have eigenvalues $-2, 3$. If $M^{3}\\begin{pmatrix}0\\\\ 1\\\\ 1\\end{pmatrix}=\\begin{pmatrix}0\\\\ 125\\\\ 125\\end{pmatrix}$, then:",
         "options": {
-          "A": "x = 5, M2 + M invertible",
-          "B": "x $\\neq 5$ , M2 + M invertible",
-          "C": "x = 5, M2 + M not invertible",
-          "D": "x $\\neq 5$ , M2 + M not invertible"
+          "A": "$x=5$, $M^{2}+M$ invertible",
+          "B": "$x\\ne 5$, $M^{2}+M$ invertible",
+          "C": "$x=5$, $M^{2}+M$ not invertible",
+          "D": "$x\\ne 5$, $M^{2}+M$ not invertible"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.16)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.16)"
       },
       {
         "id": "JAM_2025_Q22",
@@ -3767,15 +3778,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let M = (mij)3 $\\times 3 be invertible$ , σ = (1 2 3) $\\in $S_{3} , and Mσ = (miσ(j)). Then:",
+        "question": "Let $M=(m_{ij})_{3\\times 3}$ be invertible, $\\sigma=(1\\,2\\,3)\\in S_3$, and $M_{\\sigma}=(m_{i\\sigma(j)})$. Then:",
         "options": {
-          "A": "$det(M) = det(Mσ), nullity(M −Mσ) = 0$",
-          "B": "$det(M) = −det(Mσ), nullity(M −Mσ) = 1$",
-          "C": "$det(M) = det(Mσ), nullity(M −Mσ) = 1$",
-          "D": "$det(M) = −det(Mσ), nullity(M −Mσ) = 0$"
+          "A": "$\\det(M)=\\det(M_\\sigma), \\text{nullity}(M-M_\\sigma)=0$",
+          "B": "$\\det(M)=-\\det(M_\\sigma), \\text{nullity}(M-M_\\sigma)=1$",
+          "C": "$\\det(M)=\\det(M_\\sigma), \\text{nullity}(M-M_\\sigma)=1$",
+          "D": "$\\det(M)=-\\det(M_\\sigma), \\text{nullity}(M-M_\\sigma)=0$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.22)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.22)"
       },
       {
         "id": "JAM_2024_Q9",
@@ -3786,7 +3797,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "$P: Unique solution to Ax = b (m \\times n) =⇒m = n. Q: u, v \\in V \\ W =⇒u + v \\in V \\ W.$",
+        "question": "P: Unique solution to $Ax=b$ ($m\\times n$) $\\implies m=n$. Q: $u,v\\in V\\setminus W \\implies u+v\\in V\\setminus W$.",
         "options": {
           "A": "Both true",
           "B": "P true, Q false",
@@ -3794,7 +3805,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.9)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.9)"
       },
       {
         "id": "JAM_2024_Q15",
@@ -3805,7 +3816,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let a = \\begin{pmatrix} \\sqrt \\\\ −1 \\\\ \\sqrt \\\\ \\sqrt \\\\ 0 \\end{pmatrix}. Consider the following two statements. P: The matrix I4 −aaT is invertible. Q: The matrix I4 −2aaT is invertible. Then, which one of the following holds?",
+        "question": "Let $a=\\begin{pmatrix}\\frac{1}{\\sqrt{3}}\\\\ -\\frac{1}{\\sqrt{2}}\\\\ \\frac{1}{\\sqrt{6}}\\\\ 0\\end{pmatrix}$. Consider the following two statements. P: The matrix $I_4-aa^{T}$ is invertible. Q: The matrix $I_4-2aa^{T}$ is invertible. Then, which one of the following holds?",
         "options": {
           "A": "P is false but Q is true",
           "B": "P is true but Q is false",
@@ -3813,7 +3824,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both P and Q are false"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.15)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.15)"
       },
       {
         "id": "JAM_2024_Q16",
@@ -3824,7 +3835,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$A6 \\times 5, B5 \\times 4. P: \\exists Z \\neq 0 s.t. AZB = 0. Q: \\exists Y \\neq 0 s.t. BY A = 0.$",
+        "question": "$A_{6\\times 5}, B_{5\\times 4}$. P: $\\exists Z\\ne 0$ s.t. $AZB=0$. Q: $\\exists Y\\ne 0$ s.t. $BYA=0$.",
         "options": {
           "A": "Both true",
           "B": "P true, Q false",
@@ -3832,7 +3843,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.16)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.16)"
       },
       {
         "id": "JAM_2024_Q37",
@@ -3843,15 +3854,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$For A, B, C \\in M10(R) with A = BC:$",
+        "question": "For $A,B,C\\in M_{10}(\\mathbb{R})$ with $A=BC$:",
         "options": {
-          "A": "$Rowspace(A) \\subseteq Rowspace(B)$",
-          "B": "$Rowspace(A) \\subseteq Rowspace(C)$",
-          "C": "$Colspace(A) \\subseteq Colspace(B)$",
-          "D": "$Colspace(A) \\subseteq Colspace(C)$"
+          "A": "$\\text{Rowspace}(A)\\subseteq\\text{Rowspace}(B)$",
+          "B": "$\\text{Rowspace}(A)\\subseteq\\text{Rowspace}(C)$",
+          "C": "$\\text{Colspace}(A)\\subseteq\\text{Colspace}(B)$",
+          "D": "$\\text{Colspace}(A)\\subseteq\\text{Colspace}(C)$"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.37)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.37)"
       },
       {
         "id": "JAM_2024_Q44",
@@ -3862,10 +3873,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let M = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}. The (4, 1)-entry of M−1 is (rounded off to two decimal places).",
+        "question": "Let $M=\\begin{pmatrix}0&1&2&3\\\\ 1&0&1&2\\\\ 2&1&0&1\\\\ 3&2&1&0\\end{pmatrix}$. The $(4,1)$-entry of $M^{-1}$ is \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.17",
-        "explanation": "**Correct Numerical Answer: 0.17**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.44)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{0.17}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0.17**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.44)"
       },
       {
         "id": "JAM_2024_Q50",
@@ -3876,10 +3887,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let M = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ −1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ −4 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} . If p$(x)$ is char. poly, then p(2) −1 = .",
+        "question": "Let $M=\\begin{pmatrix}0&0&0&0&-1\\\\ 2&0&0&0&-4\\\\ 0&2&0&0&0\\\\ 0&0&2&0&3\\\\ 0&0&0&2&2\\end{pmatrix}$. If $p(x)$ is char. poly, then $p(2)-1=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "31",
-        "explanation": "**Correct Numerical Answer: 31**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.50)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{31}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 31**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.50)"
       },
       {
         "id": "JAM_2023_Q2",
@@ -3890,7 +3901,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let $v_{1}$, . . . , $v_{9}$ be columns of 9 $\\times 9 matrix A with \\sum_{i=0$ }^{aiv} (not all ai = 0). Then Ax = P vi has:",
+        "question": "Let $v_1,\\dots,v_9$ be columns of $9\\times 9$ matrix $A$ with $\\sum a_i v_i = 0$ (not all $a_i=0$). Then $Ax=\\sum v_i$ has:",
         "options": {
           "A": "no solution",
           "B": "a unique solution",
@@ -3898,7 +3909,7 @@ window.MOCK_TESTS_DATA = {
           "D": "infinitely many solutions"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.2)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.2)"
       },
       {
         "id": "JAM_2023_Q13",
@@ -3909,15 +3920,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let A = \\begin{pmatrix} −1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ −2 \\end{pmatrix}and B = $A_{5}$ + $A_{4}$ + I3. Which is NOT an eigenvalue of B?",
+        "question": "Let $A=\\begin{pmatrix}1&-1&0\\\\ 0&0&0\\\\ -2&2&2\\end{pmatrix}$ and $B=A^{5}+A^{4}+I_{3}$. Which is NOT an eigenvalue of $B$?",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "1",
+          "B": "2",
+          "C": "49",
+          "D": "3"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.13)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.13)"
       },
       {
         "id": "JAM_2023_Q14",
@@ -3928,15 +3939,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The system of linear equations in $x_{1}$, $x_{2}$, $x_{3}$: \\begin{pmatrix} 0 \\\\ −1 \\\\ \\alpha \\end{pmatrix} \\begin{pmatrix} x1 \\\\ x2 \\\\ x3 \\end{pmatrix}= \\begin{pmatrix} \\beta \\end{pmatrix}, where $\\alpha $ , $\\beta \\in R$ , has:",
+        "question": "The system of linear equations in $x_1, x_2, x_3$: $\\begin{pmatrix}1&1&1\\\\ 0&-1&1\\\\ 2&3&\\alpha\\end{pmatrix}\\begin{pmatrix}x_1\\\\ x_2\\\\ x_3\\end{pmatrix}=\\begin{pmatrix}3\\\\ 1\\\\ \\beta\\end{pmatrix}$, where $\\alpha, \\beta\\in\\mathbb{R}$, has:",
         "options": {
-          "A": "$at least one solution for any \\alpha and \\beta$",
-          "B": "a unique solution for any $\\beta when \\alpha \\neq 1$",
-          "C": "NO solution for any $\\alpha when \\beta \\neq 5$",
-          "D": "infinitely many solutions for any $\\alpha when \\beta = 5$"
+          "A": "at least one solution for any $\\alpha$ and $\\beta$",
+          "B": "a unique solution for any $\\beta$ when $\\alpha\\ne 1$",
+          "C": "NO solution for any $\\alpha$ when $\\beta\\ne 5$",
+          "D": "infinitely many solutions for any $\\alpha$ when $\\beta=5$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.14)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.14)"
       },
       {
         "id": "JAM_2023_Q56",
@@ -3947,10 +3958,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let A = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}and AB = 0 for 5 $\\times 5 matrix B$ . Max rank of B is .",
+        "question": "Let $A=\\begin{pmatrix}1&1&0&0&1\\\\ 1&1&1&1&3\\\\ 1&1&4&4&4\\end{pmatrix}$ and $AB=0$ for $5\\times 5$ matrix $B$. Max rank of $B$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "2",
-        "explanation": "**Correct Numerical Answer: 2**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.56)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{2}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.56)"
       },
       {
         "id": "JAM_2023_Q58",
@@ -3961,10 +3972,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$Max number of linearly independent eigenvectors of \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}is .$",
+        "question": "Max number of linearly independent eigenvectors of $\\begin{pmatrix}1&1&0&0\\\\ 2&2&0&0\\\\ 0&0&3&0\\\\ 0&0&1&3\\end{pmatrix}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.58)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{3}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.58)"
       },
       {
         "id": "JAM_2022_Q1",
@@ -3975,15 +3986,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let M = \u00121 0 \u0013 . If M8 \u00121 0 \u0013 = \u0012x y \u0013 , then x =:",
+        "question": "Let $M=\\begin{pmatrix}1&1\\\\ 1&0\\end{pmatrix}$. If $M^{8}\\begin{pmatrix}1\\\\ 0\\end{pmatrix}=\\begin{pmatrix}x\\\\ y\\end{pmatrix}$, then $x=$:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "21",
+          "B": "22",
+          "C": "34",
+          "D": "35"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.1)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.1)"
       },
       {
         "id": "JAM_2022_Q2",
@@ -3994,15 +4005,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "$Rank of \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}is:$",
+        "question": "Rank of $\\begin{pmatrix}1&1&1&0&0&0\\\\ 1&0&0&1&1&0\\\\ 0&1&0&1&0&1\\\\ 0&0&1&0&1&1\\end{pmatrix}$ is:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.2)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.2)"
       },
       {
         "id": "JAM_2022_Q16",
@@ -4013,15 +4024,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let P $\\in M4(R) with P 4 = 0$ , P 3 $\\neq 0$ . Which ONE is FALSE?",
+        "question": "Let $P\\in M_{4}(\\mathbb{R})$ with $P^{4}=0, P^{3}\\ne 0$. Which ONE is FALSE?",
         "options": {
-          "A": "$\\forall v \\neq 0$ , {v, Pv, P 2v, P 3v} is linearly independent.",
-          "B": "$rank(P k) = 4 −k for k = 1, 2, 3, 4.$",
-          "C": "0 is an eigenvalue of P.",
-          "D": "If $Q_{4}$ = 0, $Q_{3}\\neq 0$ , then $\\exists S nonsingular such that S$ −1QS = P."
+          "A": "$\\forall v\\ne 0, \\{v,Pv,P^{2}v,P^{3}v\\}$ is linearly independent.",
+          "B": "$\\text{rank}(P^{k})=4-k$ for $k=1,2,3,4$.",
+          "C": "0 is an eigenvalue of $P$.",
+          "D": "If $Q^{4}=0, Q^{3}\\ne 0$, then $\\exists S$ nonsingular such that $S^{-1}QS=P$."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.16)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.16)"
       },
       {
         "id": "JAM_2022_Q17",
@@ -4032,7 +4043,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$For (X, Y ) = XY −Y X. P: (X, (Y, Z))+(Y, (Z, X))+(Z, (X, Y )) = 0. Q: (X, (Y, Z)) = ((X, Y ), Z).$",
+        "question": "For $(X,Y)=XY-YX$. P: $(X,(Y,Z))+(Y,(Z,X))+(Z,(X,Y))=0$. Q: $(X,(Y,Z))=((X,Y),Z)$.",
         "options": {
           "A": "Both true",
           "B": "P true, Q false",
@@ -4040,7 +4051,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.17)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.17)"
       },
       {
         "id": "JAM_2022_Q18",
@@ -4051,15 +4062,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the system of linear equations: x+y+t = 4, 2x−4t = 7, x+y+z = 5, x−3y−z −10t = $\\lambda $ , where x, y, z, t are variables and $\\lambda is a constant$ . Then which one of the following is true?",
+        "question": "Consider the system of linear equations: $x+y+t=4, 2x-4t=7, x+y+z=5, x-3y-z-10t=\\lambda$, where $x,y,z,t$ are variables and $\\lambda$ is a constant. Then which one of the following is true?",
         "options": {
-          "A": "If $\\lambda = 1$ , then the system has a unique solution.",
-          "B": "If $\\lambda = 2$ , then the system has infinitely many solutions.",
-          "C": "If $\\lambda = 1$ , then the system has infinitely many solutions.",
-          "D": "If $\\lambda = 2$ , then the system has a unique solution."
+          "A": "If $\\lambda=1$, then the system has a unique solution.",
+          "B": "If $\\lambda=2$, then the system has infinitely many solutions.",
+          "C": "If $\\lambda=1$, then the system has infinitely many solutions.",
+          "D": "If $\\lambda=2$, then the system has a unique solution."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.18)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.18)"
       },
       {
         "id": "JAM_2022_Q30",
@@ -4070,15 +4081,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let P be a 3 $\\times 3 real matrix having eigenvalues \\lambda 1 = 0$ , $\\lambda 2 = 1 and \\lambda 3 = $ −1. Further, $v_{1}$ = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}, $v_{2}$ = \\begin{pmatrix} 0 \\end{pmatrix}and $v_{3}$ = \\begin{pmatrix} 0 \\end{pmatrix}are eigenvectors of P corresponding to $\\lambda 1$ , $\\lambda 2 and \\lambda 3$ , respectively. Then the entry in the first row and the third column of P is:",
+        "question": "Let $P$ be a $3\\times 3$ real matrix having eigenvalues $\\lambda_1=0, \\lambda_2=1$ and $\\lambda_3=-1$. Further, $v_1=\\begin{pmatrix}1\\\\0\\\\0\\end{pmatrix}, v_2=\\begin{pmatrix}1\\\\1\\\\0\\end{pmatrix}$ and $v_3=\\begin{pmatrix}1\\\\0\\\\1\\end{pmatrix}$ are eigenvectors of $P$ corresponding to $\\lambda_1, \\lambda_2$ and $\\lambda_3$, respectively. Then the entry in the first row and the third column of $P$ is:",
         "options": {
           "A": "0",
-          "B": "",
-          "C": "−1",
-          "D": ""
+          "B": "1",
+          "C": "$-1$",
+          "D": "2"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.30)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Matrices and Systems of Linear Equations$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.30)"
       },
       {
         "id": "JAM_2022_Q53",
@@ -4089,10 +4100,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let A = \\begin{pmatrix} 0 \\\\ −1 \\end{pmatrix}, ∥u∥= 1, ∥v∥= 1. If Au = $\\sqrt{2v} and AT v = \\sqrt{2u}$ , then |$u_{1}$ +2 $\\sqrt{2v1}$ | = .",
+        "question": "Let $A=\\begin{pmatrix}1&1\\\\ 0&1\\\\ -1&1\\end{pmatrix}, \\|u\\|=1, \\|v\\|=1$. If $Au=\\sqrt{2}v$ and $A^{T}v=\\sqrt{2}u$, then $|u_1+2\\sqrt{2}v_1|=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "3.00",
-        "explanation": "**Correct Numerical Answer: 3.00**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.53)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{3.00}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3.00**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.53)"
       },
       {
         "id": "JAM_2022_Q57",
@@ -4103,10 +4114,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$det \\begin{pmatrix} \\end{pmatrix}= .$",
+        "question": "$\\det\\begin{pmatrix}11&10&10&10\\\\ 10&11&10&10\\\\ 10&10&11&10\\\\ 10&10&10&11\\end{pmatrix}=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "41",
-        "explanation": "**Correct Numerical Answer: 41**\n\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.57)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Matrices and Systems of Linear Equations$, we obtain the exact evaluated value: $$\\mathbf{41}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 41**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.57)"
       }
     ]
   },
@@ -4128,15 +4139,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Let V = span{e1 + e2, e2 + e3, e3 + e4 + e5} \\subset R5. Let S = {P \\in M2,5(R) : null(P) = V }.$",
+        "question": "Let $V=\\text{span}\\{e_1+e_2, e_2+e_3, e_3+e_4+e_5\\}\\subset\\mathbb{R}^{5}$. Let $S=\\{P\\in M_{2,5}(\\mathbb{R}) : \\text{null}(P)=V\\}$.",
         "options": {
-          "A": "$S = \\emptyset$",
-          "B": "$S = {0}$",
-          "C": "S is nonempty and S is not a subspace of M2,5(R)",
-          "D": "S is a nonzero subspace of M2,5(R)"
+          "A": "$S=\\emptyset$",
+          "B": "$S=\\{0\\}$",
+          "C": "$S$ is nonempty and $S$ is not a subspace of $M_{2,5}(\\mathbb{R})$",
+          "D": "$S$ is a nonzero subspace of $M_{2,5}(\\mathbb{R})$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.24)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.24)"
       },
       {
         "id": "JAM_2026_Q28",
@@ -4147,15 +4158,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let F : $R_{3}\\to $R_{3}$ be linear preserving distances d(F(P)$ , F(Q)) = d(P, Q). Which ONE is FALSE?",
+        "question": "Let $F:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}^{3}$ be linear preserving distances $d(F(P),F(Q))=d(P,Q)$. Which ONE is FALSE?",
         "options": {
-          "A": "F is an injective map.",
-          "B": "F is a surjective map.",
-          "C": "$vect(F(P), F(Q)) · vect(F(R), F(S)) = vect(P, Q) · vect(R, S)$",
-          "D": "$vect(F(P), F(Q)) \\times vect(F(R), F(S)) = vect(P, Q) \\times vect(R, S)$"
+          "A": "$F$ is an injective map.",
+          "B": "$F$ is a surjective map.",
+          "C": "$\\text{vect}(F(P),F(Q))\\cdot\\text{vect}(F(R),F(S))=\\text{vect}(P,Q)\\cdot\\text{vect}(R,S)$",
+          "D": "$\\text{vect}(F(P),F(Q))\\times\\text{vect}(F(R),F(S))=\\text{vect}(P,Q)\\times\\text{vect}(R,S)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.28)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.28)"
       },
       {
         "id": "JAM_2026_Q40",
@@ -4166,15 +4177,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let V = { a+b $\\sqrt{c}+d \\sqrt{2} $ : a, b, c, d $\\in Q$ , c2 + d2 $\\neq 0$ }. Which of the following is/are FALSE?",
+        "question": "Let $V=\\{\\frac{a+b\\sqrt{2}}{c+d\\sqrt{2}}: a,b,c,d\\in\\mathbb{Q}, c^{2}+d^{2}\\ne 0\\}$. Which of the following is/are FALSE?",
         "options": {
-          "A": "V is closed under the usual addition in R.",
-          "B": "V is a subspace of the real vector space R.",
-          "C": "V is a two dimensional subspace of the vector space $\\int^{over} Q$ .",
-          "D": "V is a four dimensional subspace of the vector space $\\int^{over} Q$ ."
+          "A": "$V$ is closed under the usual addition in $\\mathbb{R}$.",
+          "B": "$V$ is a subspace of the real vector space $\\mathbb{R}$.",
+          "C": "$V$ is a two dimensional subspace of the vector space $\\mathbb{R}$ over $\\mathbb{Q}$.",
+          "D": "$V$ is a four dimensional subspace of the vector space $\\mathbb{R}$ over $\\mathbb{Q}$."
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.40)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.40)"
       },
       {
         "id": "JAM_2025_Q6",
@@ -4185,15 +4196,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Define T : $R_{3}\\to $R_{3}$ by T(x$ , y, z) = (x + z, 2x + 3y + 5z, 2y + 2z). Then:",
+        "question": "Define $T:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}^{3}$ by $T(x,y,z)=(x+z, 2x+3y+5z, 2y+2z)$. Then:",
         "options": {
-          "A": "T is one-one and T is NOT onto",
-          "B": "T is NOT one-one and T is onto",
-          "C": "T is one-one and T is onto",
-          "D": "T is NOT one-one and T is NOT onto"
+          "A": "$T$ is one-one and $T$ is NOT onto",
+          "B": "$T$ is NOT one-one and $T$ is onto",
+          "C": "$T$ is one-one and $T$ is onto",
+          "D": "$T$ is NOT one-one and $T$ is NOT onto"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.6)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.6)"
       },
       {
         "id": "JAM_2025_Q8",
@@ -4204,15 +4215,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let T : $P_{2}$(R) $\\to $P_{2}$(R) be T(p$(x)$) = p(x + 1) with matrix M w$ .r.t. {1, x, $x_{2}$}. Then:",
+        "question": "Let $T:P_{2}(\\mathbb{R})\\rightarrow P_{2}(\\mathbb{R})$ be $T(p(x))=p(x+1)$ with matrix $M$ w.r.t. $\\{1,x,x^{2}\\}$. Then:",
         "options": {
-          "A": "The determinant of M is 2",
-          "B": "The rank of M is 2",
-          "C": "1 is the only eigenvalue of M",
-          "D": "The nullity of M is 2"
+          "A": "The determinant of $M$ is 2",
+          "B": "The rank of $M$ is 2",
+          "C": "1 is the only eigenvalue of $M$",
+          "D": "The nullity of $M$ is 2"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.8)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.8)"
       },
       {
         "id": "JAM_2025_Q24",
@@ -4223,15 +4234,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $f_{1}$, $f_{2}$, $f_{3}$ : $R_{4}\\to \\int^{linear} with ker($f_{1}$) \\subseteq ker($f_{2}$) \\cap ker($f_{3}$)$ . Let T$(v)$ = ($f_{1}(v)$, $f_{2}(v)$, $f_{3}(v)$). Nullity of T is:",
+        "question": "Let $f_1,f_2,f_3:\\mathbb{R}^{4}\\rightarrow\\mathbb{R}$ linear with $\\ker(f_1)\\subseteq\\ker(f_2)\\cap\\ker(f_3)$. Let $T(v)=(f_1(v),f_2(v),f_3(v))$. Nullity of $T$ is:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "4"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.24)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.24)"
       },
       {
         "id": "JAM_2025_Q35",
@@ -4242,15 +4253,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$For u1 = (1, 0, 0, −1), u2 = (0, 2, 0, −1), u3 = (0, 0, 1, −1), u4 = (0, 0, 0, 1) in R4:$",
+        "question": "For $u_1=(1,0,0,-1), u_2=(0,2,0,-1), u_3=(0,0,1,-1), u_4=(0,0,0,1)$ in $\\mathbb{R}^{4}$:",
         "options": {
-          "A": "{$u_{1}$, $u_{2}$, $u_{3}$, $u_{4}$} is a linearly independent set in $R_{4}$",
-          "B": "{$u_{1}$ −$u_{2}$, $u_{2}$ −$u_{3}$, $u_{3}$ −$u_{4}$, $u_{4}$ −$u_{1}$} is NOT a linearly independent set in $R_{4}$",
-          "C": "{$u_{1}$, −$u_{2}$, $u_{3}$, −$u_{4}$} is NOT a linearly independent set in $R_{4}$",
-          "D": "{$u_{1}$ + $u_{2}$, $u_{2}$ + $u_{3}$, $u_{3}$ + $u_{4}$, $u_{4}$ + $u_{1}$} is a linearly independent set in $R_{4}$"
+          "A": "$\\{u_1,u_2,u_3,u_4\\}$ is a linearly independent set in $\\mathbb{R}^4$",
+          "B": "$\\{u_1-u_2, u_2-u_3, u_3-u_4, u_4-u_1\\}$ is NOT a linearly independent set in $\\mathbb{R}^4$",
+          "C": "$\\{u_1,-u_2, u_3,-u_4\\}$ is NOT a linearly independent set in $\\mathbb{R}^4$",
+          "D": "$\\{u_1+u_2, u_2+u_3, u_3+u_4, u_4+u_1\\}$ is a linearly independent set in $\\mathbb{R}^4$"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.35)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.35)"
       },
       {
         "id": "JAM_2025_Q40",
@@ -4261,15 +4272,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$V1 = span{(1, 2, 3), (1, 1, 0)}, V2 = span{(1, −1, 0)}, V3 = span{(1, 1, 1)}, V4 = span{(1, 3, 6)}, V5 = span{(1, 0, −3)}.$",
+        "question": "$V_1=\\text{span}\\{(1,2,3),(1,1,0)\\}, V_2=\\text{span}\\{(1,-1,0)\\}, V_3=\\text{span}\\{(1,1,1)\\}, V_4=\\text{span}\\{(1,3,6)\\}, V_5=\\text{span}\\{(1,0,-3)\\}$.",
         "options": {
-          "A": "$V_{1}\\cup $V_{2}$ is a subspace of $R_{3}",
-          "B": "$V_{1}\\cup $V_{3}$ is a subspace of $R_{3}",
-          "C": "$V_{1}\\cup $V_{4}$ is a subspace of $R_{3}",
-          "D": "$V_{1}\\cup $V_{5}$ is a subspace of $R_{3}"
+          "A": "$V_1\\cup V_2$ is a subspace of $\\mathbb{R}^3$",
+          "B": "$V_1\\cup V_3$ is a subspace of $\\mathbb{R}^3$",
+          "C": "$V_1\\cup V_4$ is a subspace of $\\mathbb{R}^3$",
+          "D": "$V_1\\cup V_5$ is a subspace of $\\mathbb{R}^3$"
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.40)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.40)"
       },
       {
         "id": "JAM_2025_Q46",
@@ -4280,10 +4291,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "dim($V_{1}\\cap $V_{2} $\\cap $V_{3}$) for $V_{1} : x + y + 2w = 0, $V_{2}$ : 2y + z + w = 0, $V_{3}$ : x + 3y + z + 3w = 0 in $R_{4}$ is .",
+        "question": "$\\dim(V_1\\cap V_2\\cap V_3)$ for $V_1: x+y+2w=0, V_2: 2y+z+w=0, V_3: x+3y+z+3w=0$ in $\\mathbb{R}^{4}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "2",
-        "explanation": "**Correct Numerical Answer: 2**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.46)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{2}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 2**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.46)"
       },
       {
         "id": "JAM_2025_Q47",
@@ -4294,10 +4305,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let T : $R_{3}\\to \\int^{linear} with T(1$ , 1, 1) = 0, T(1, −1, 1) = 0, $T(0, 0, 1)$ = 16. Then $T( 1 2, 2 3, 3 4)$ = .",
+        "question": "Let $T:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ linear with $T(1,1,1)=0, T(1,-1,1)=0, T(0,0,1)=16$. Then $T(\\frac{1}{2},\\frac{2}{3},\\frac{3}{4})=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.47)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{4.0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.47)"
       },
       {
         "id": "JAM_2025_Q49",
@@ -4308,10 +4319,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "T(p$(x)$) = xp′$(x)$ and S(p$(x)$) = (x + 1)p′$(x)$ on $P_{4}$(R). Nullity of S $\\circ T is $ .",
+        "question": "$T(p(x))=xp^{\\prime}(x)$ and $S(p(x))=(x+1)p^{\\prime}(x)$ on $P_{4}(\\mathbb{R})$. Nullity of $S\\circ T$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "1",
-        "explanation": "**Correct Numerical Answer: 1**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.49)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{1}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.49)"
       },
       {
         "id": "JAM_2025_Q58",
@@ -4322,10 +4333,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Dimension of H = {p$(x)\\in $P_{3}$(R) $ : xp′$(x)$ = 3p$(x)$} is .",
+        "question": "Dimension of $H=\\{p(x)\\in P_{3}(\\mathbb{R}): xp^{\\prime}(x)=3p(x)\\}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "1",
-        "explanation": "**Correct Numerical Answer: 1**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.58)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{1}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 1**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.58)"
       },
       {
         "id": "JAM_2024_Q13",
@@ -4336,15 +4347,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Nonzero subspace V $\\subseteq M7(C) where every non-zero matrix is invertible$ . dim(V ) over C is:",
+        "question": "Nonzero subspace $V\\subseteq M_{7}(\\mathbb{C})$ where every non-zero matrix is invertible. $\\dim(V)$ over $\\mathbb{C}$ is:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "1",
+          "B": "2",
+          "C": "7",
+          "D": "49"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.13)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.13)"
       },
       {
         "id": "JAM_2024_Q17",
@@ -4355,15 +4366,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $P_{11}(x)$ be the real vector space of polynomials in x with real coeﬀicients and having de- gree at most 11, together with the zero polynomial. Let E = {s0$(x)$, s1$(x)$, . . . , s11$(x)$} and F = {r0$(x)$, r1$(x)$, . . . , r11$(x)$} be subsets of $P_{11}(x)$ having 12 elements each and satisfying s0(3) = s1(3) = $\\cdots = s11(3) = 0 and r0(4) = r1(4) = \\cdots = r11(4) = 1$ . Then, which one of the following is TRUE?",
+        "question": "Let $P_{11}(x)$ be the real vector space of polynomials in $x$ with real coefficients and having degree at most 11, together with the zero polynomial. Let $E=\\{s_0(x), s_1(x), \\dots, s_{11}(x)\\}$ and $F=\\{r_0(x), r_1(x), \\dots, r_{11}(x)\\}$ be subsets of $P_{11}(x)$ having 12 elements each and satisfying $s_0(3)=s_1(3)=\\dots=s_{11}(3)=0$ and $r_0(4)=r_1(4)=\\dots=r_{11}(4)=1$. Then, which one of the following is TRUE?",
         "options": {
-          "A": "Any such E is not necessarily linearly dependent and any such F is not necessarily linearly dependent",
-          "B": "Any such E is necessarily linearly dependent but any such F is not necessarily linearly dependent",
-          "C": "Any such E is not necessarily linearly dependent but any such F is necessarily linearly dependent",
-          "D": "Any such E is necessarily linearly dependent and any such F is necessarily linearly dependent"
+          "A": "Any such $E$ is not necessarily linearly dependent and any such $F$ is not necessarily linearly dependent",
+          "B": "Any such $E$ is necessarily linearly dependent but any such $F$ is not necessarily linearly dependent",
+          "C": "Any such $E$ is not necessarily linearly dependent but any such $F$ is necessarily linearly dependent",
+          "D": "Any such $E$ is necessarily linearly dependent and any such $F$ is necessarily linearly dependent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.17)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.17)"
       },
       {
         "id": "JAM_2024_Q22",
@@ -4374,15 +4385,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$T(f(x)) = f(x) + f′(x) on P7(x).$",
+        "question": "$T(f(x))=f(x)+f^{\\prime}(x)$ on $P_{7}(x)$.",
         "options": {
-          "A": "T is not a surjective linear transformation",
-          "B": "There exists k $\\in N such that T k is the zero linear transformation$",
-          "C": "1 and 2 are the eigenvalues of T",
-          "D": "There exists r $\\in N such that (T $ −I)r is the zero linear transformation"
+          "A": "$T$ is not a surjective linear transformation",
+          "B": "There exists $k\\in\\mathbb{N}$ such that $T^k$ is the zero linear transformation",
+          "C": "1 and 2 are the eigenvalues of $T$",
+          "D": "There exists $r\\in\\mathbb{N}$ such that $(T-I)^{r}$ is the zero linear transformation"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.22)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.22)"
       },
       {
         "id": "JAM_2024_Q45",
@@ -4393,10 +4404,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "$dim({f \\in P12(x) : f(−x) = f(x) and f(2024) = 0}) = .$",
+        "question": "$\\dim(\\{f\\in P_{12}(x): f(-x)=f(x) \\text{ and } f(2024)=0\\})=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.45)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{6}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.45)"
       },
       {
         "id": "JAM_2024_Q49",
@@ -4407,10 +4418,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let $P_{7}(x)$ be the real vector space of polynomials in x with degree at most 7, together with the zero polynomial. For r = 1, 2, . . . , 7, define sr$(x)$ = x(x −1) $\\cdots (x $ −(r −1)) and s0$(x)$ = 1. If $x_{5}$ = $\\sum_{k=0$ }^{7} $\\alpha 5$ ,ksk$(x)$, where $\\alpha 5$ ,k $\\in R$ , then $\\alpha 5$ ,2 equals (rounded off to two decimal places).",
+        "question": "Let $P_7(x)$ be the real vector space of polynomials in $x$ with degree at most 7, together with the zero polynomial. For $r=1,2,\\dots,7$, define $s_r(x)=x(x-1)\\cdots(x-(r-1))$ and $s_0(x)=1$. If $x^{5}=\\sum_{k=0}^{7}\\alpha_{5,k}s_k(x)$, where $\\alpha_{5,k}\\in\\mathbb{R}$, then $\\alpha_{5,2}$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
         "options": null,
         "answer_key": "15",
-        "explanation": "**Correct Numerical Answer: 15**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.49)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{15}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 15**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.49)"
       },
       {
         "id": "JAM_2024_Q58",
@@ -4421,10 +4432,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Dimension of continuous piecewise linear functions on [0, 1] with nodes 1 4, 1 2, $\\binom{3}{4} is $ .",
+        "question": "Dimension of continuous piecewise linear functions on $[0,1]$ with nodes $\\frac{1}{4}, \\frac{1}{2}, \\frac{3}{4}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "5",
-        "explanation": "**Correct Numerical Answer: 5**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.58)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{5}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 5**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.58)"
       },
       {
         "id": "JAM_2023_Q3",
@@ -4435,15 +4446,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Which is a subspace of $R_{3}$?",
+        "question": "Which is a subspace of $\\mathbb{R}^{3}$?",
         "options": {
-          "A": "${(x, y, z) : (y + z)2 + (2x −3y)2 = 0}$",
-          "B": "${(x, y, z) : y \\in Q}$",
-          "C": "${(x, y, z) : yz = 0}$",
-          "D": "${(x, y, z) : x + 2y −3z + 1 = 0}$"
+          "A": "$\\{(x,y,z): (y+z)^{2}+(2x-3y)^{2}=0\\}$",
+          "B": "$\\{(x,y,z): y\\in\\mathbb{Q}\\}$",
+          "C": "$\\{(x,y,z): yz=0\\}$",
+          "D": "$\\{(x,y,z): x+2y-3z+1=0\\}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.3)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.3)"
       },
       {
         "id": "JAM_2023_Q12",
@@ -4454,7 +4465,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$I: Linear map on R3 with range = null. II: Linear map on R2 with range = null.$",
+        "question": "I: Linear map on $\\mathbb{R}^{3}$ with $\\text{range}=\\text{null}$. II: Linear map on $\\mathbb{R}^{2}$ with $\\text{range}=\\text{null}$.",
         "options": {
           "A": "Both I and II are TRUE",
           "B": "I is TRUE but II is FALSE",
@@ -4462,7 +4473,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both I and II are FALSE"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.12)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.12)"
       },
       {
         "id": "JAM_2023_Q15",
@@ -4473,7 +4484,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$I: span(S) = R2 =⇒span(S \\cap W) = W. II: span(S \\cup T) = span(S) \\cup span(T).$",
+        "question": "I: $\\text{span}(S)=\\mathbb{R}^{2}\\implies\\text{span}(S\\cap W)=W$. II: $\\text{span}(S\\cup T)=\\text{span}(S)\\cup\\text{span}(T)$.",
         "options": {
           "A": "Both I and II are TRUE",
           "B": "I is TRUE but II is FALSE",
@@ -4481,7 +4492,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both I and II are FALSE"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.15)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.15)"
       },
       {
         "id": "JAM_2023_Q38",
@@ -4494,13 +4505,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.0,
         "question": "Which of the following is/are true?",
         "options": {
-          "A": "Every linear transformation from $R_{2}$ to $R_{2}$ maps lines onto points or lines",
-          "B": "Every surjective linear transformation from $R_{2}$ to $R_{2}$ maps lines onto lines",
-          "C": "Every bijective linear transformation from $R_{2}$ to $R_{2}$ maps pairs of parallel lines to pairs of parallel lines",
-          "D": "Every bijective linear transformation from $R_{2}$ to $R_{2}$ maps pairs of perpendicular lines to pairs of perpendicular lines"
+          "A": "Every linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps lines onto points or lines",
+          "B": "Every surjective linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps lines onto lines",
+          "C": "Every bijective linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps pairs of parallel lines to pairs of parallel lines",
+          "D": "Every bijective linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps pairs of perpendicular lines to pairs of perpendicular lines"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.38)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.38)"
       },
       {
         "id": "JAM_2023_Q39",
@@ -4513,13 +4524,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.0,
         "question": "Which of the following is/are linear transformations?",
         "options": {
-          "A": "$T(x) = sin x$",
-          "B": "$T(A) = trace(A)$",
-          "C": "$T(x, y) = x + y + 1$",
-          "D": "$T(p(x)) = p(1)$"
+          "A": "$T(x)=\\sin x$",
+          "B": "$T(A)=\\text{trace}(A)$",
+          "C": "$T(x,y)=x+y+1$",
+          "D": "$T(p(x))=p(1)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.39)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.39)"
       },
       {
         "id": "JAM_2023_Q42",
@@ -4530,10 +4541,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Rank of T : $P_{2}$(R) $\\to $P_{4}$(R) given by T(p$(x)$) = p($x_{2}$) is $ .",
+        "question": "Rank of $T:P_2(\\mathbb{R})\\rightarrow P_4(\\mathbb{R})$ given by $T(p(x))=p(x^{2})$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.42)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{3}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.42)"
       },
       {
         "id": "JAM_2023_Q57",
@@ -4544,10 +4555,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Dimension of matrices in M3(R) with each row sum and column sum equal to zero is .",
+        "question": "Dimension of matrices in $M_3(\\mathbb{R})$ with each row sum and column sum equal to zero is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "4",
-        "explanation": "**Correct Numerical Answer: 4**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.57)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Finite Dimensional Vector Spaces$, we obtain the exact evaluated value: $$\\mathbf{4}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 4**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.57)"
       },
       {
         "id": "JAM_2022_Q3",
@@ -4558,15 +4569,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Which is a subspace of $P_{6}$(R)?",
+        "question": "Which is a subspace of $P_{6}(\\mathbb{R})$?",
         "options": {
-          "A": "${f : f(1/2) / \\in Q}$",
-          "B": "${f : f(1/2) = 1}$",
-          "C": "${f : f(1/2) = f(1)}$",
-          "D": "${f : f′(1/2) = 1}$"
+          "A": "$\\{f: f(1/2)\\notin\\mathbb{Q}\\}$",
+          "B": "$\\{f: f(1/2)=1\\}$",
+          "C": "$\\{f: f(1/2)=f(1)\\}$",
+          "D": "$\\{f: f^{\\prime}(1/2)=1\\}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.3)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.3)"
       },
       {
         "id": "JAM_2022_Q20",
@@ -4577,15 +4588,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let S = {P $\\in M5(R) $ : pij = prs for i + r = j + s}. Which is FALSE?",
+        "question": "Let $S=\\{P\\in M_5(\\mathbb{R}): p_{ij}=p_{rs} \\text{ for } i+r=j+s\\}$. Which is FALSE?",
         "options": {
-          "A": "S is a subspace of symmetric matrices",
-          "B": "$dim(S) = 5$",
-          "C": "$dim(S) = 11$",
+          "A": "$S$ is a subspace of symmetric matrices",
+          "B": "$\\dim(S)=5$",
+          "C": "$\\dim(S)=11$",
           "D": "5 divides diagonal sum if entries are integers"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.20)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.20)"
       },
       {
         "id": "JAM_2022_Q26",
@@ -4596,15 +4607,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Dimension of H = {M $\\in M4(C) $ : MT = M} over R is:",
+        "question": "Dimension of $H=\\{M\\in M_{4}(\\mathbb{C}): M^{T}=\\overline{M}\\}$ over $\\mathbb{R}$ is:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "6",
+          "B": "16",
+          "C": "15",
+          "D": "12"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.26)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Finite Dimensional Vector Spaces$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.26)"
       },
       {
         "id": "JAM_2022_Q39",
@@ -4615,15 +4626,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$Let T : P5 \\to \\int^{linear} with T(1) = 1 and T(x(x −1) \\cdots (x −k + 1)) = 1 for 1 \\le k \\le 5.$",
+        "question": "Let $T:P_{5}\\rightarrow\\mathbb{R}$ linear with $T(1)=1$ and $T(x(x-1)\\cdots(x-k+1))=1$ for $1\\le k\\le 5$.",
         "options": {
-          "A": "$T(x4) = 15$",
-          "B": "$T(x3) = 5$",
-          "C": "$T(x4) = 14$",
-          "D": "$T(x3) = 3$"
+          "A": "$T(x^{4})=15$",
+          "B": "$T(x^{3})=5$",
+          "C": "$T(x^{4})=14$",
+          "D": "$T(x^{3})=3$"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.39)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.39)"
       },
       {
         "id": "JAM_2022_Q40",
@@ -4634,15 +4645,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let P be a fixed 3 $\\times 3 matrix with entries in R$ . Which of the following maps from M3(R) to M3(R) is/are linear?",
+        "question": "Let $P$ be a fixed $3\\times 3$ matrix with entries in $\\mathbb{R}$. Which of the following maps from $M_3(\\mathbb{R})$ to $M_3(\\mathbb{R})$ is/are linear?",
         "options": {
-          "A": "$T1(M) = MP −PM$",
-          "B": "$T2(M) = M2P −P 2M$",
-          "C": "$T3(M) = MP 2 + P 2M$",
-          "D": "$T4(M) = MP 2 −PM 2$"
+          "A": "$T_1(M)=MP-PM$",
+          "B": "$T_2(M)=M^{2}P-P^{2}M$",
+          "C": "$T_3(M)=MP^{2}+P^{2}M$",
+          "D": "$T_4(M)=MP^{2}-PM^{2}$"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\n\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.40)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.40)"
       }
     ]
   },
@@ -4667,12 +4678,12 @@ window.MOCK_TESTS_DATA = {
         "question": "Which ONE of the following statements is FALSE?",
         "options": {
           "A": "$S_{3}$ is isomorphic to a subgroup of $S_{4}$.",
-          "B": "$\\mathbb{Z3}$ is isomorphic to a subgroup of $S_{4}$.",
+          "B": "$\\mathbb{Z}_{3}$ is isomorphic to a subgroup of $S_{4}$.",
           "C": "$S_{3}$ is isomorphic to a quotient group of $S_{4}$.",
-          "D": "$\\mathbb{Z6}$ is isomorphic to a quotient group of $S_{4}$."
+          "D": "$\\mathbb{Z}_{6}$ is isomorphic to a quotient group of $S_{4}$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Groups (JAM 2026 Q.9)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Groups (JAM 2026 Q.9)"
       },
       {
         "id": "JAM_2026_Q26",
@@ -4683,15 +4694,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let f : G $\\to Z be a surjective homomorphism from abelian group G$ , kernel K. Which ONE is FALSE?",
+        "question": "Let $f:G\\rightarrow\\mathbb{Z}$ be a surjective homomorphism from abelian group $G$, kernel $K$. Which ONE is FALSE?",
         "options": {
-          "A": "$\\exists \\phi $ : Z $\\to G such that f \\circ \\phi = idZ$",
-          "B": "K is isomorphic to a quotient group of G",
-          "C": "For all non-zero $\\alpha $ : Z $\\to G and \\beta $ : G $\\to K$ , $\\beta \\circ \\alpha \\neq 0$",
-          "D": "G has a subgroup isomorphic to Z"
+          "A": "$\\exists\\phi:\\mathbb{Z}\\rightarrow G$ such that $f\\circ\\phi=\\text{id}_{\\mathbb{Z}}$",
+          "B": "$K$ is isomorphic to a quotient group of $G$",
+          "C": "For all non-zero $\\alpha:\\mathbb{Z}\\rightarrow G$ and $\\beta:G\\rightarrow K$, $\\beta\\circ\\alpha\\ne 0$",
+          "D": "$G$ has a subgroup isomorphic to $\\mathbb{Z}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Groups (JAM 2026 Q.26)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Groups (JAM 2026 Q.26)"
       },
       {
         "id": "JAM_2026_Q27",
@@ -4706,11 +4717,11 @@ window.MOCK_TESTS_DATA = {
         "options": {
           "A": "There is a surjective group homomorphism from the additive group of rational numbers to the multiplicative group of all complex roots of unity.",
           "B": "The multiplicative group of complex numbers of modulus one is isomorphic to a quotient group of the additive group of real numbers.",
-          "C": "Any group homomorphism from the multiplicative group of nonzero complex numbers into the group of all invertible 2 $\\times 2 matrices with real entries has nontrivial kernel$ .",
-          "D": "There exists a group homomorphism from the symmetric group on n symbols into the multiplica- tive group of all invertible n $\\times n matrices with real entries$ , which has a trivial kernel."
+          "C": "Any group homomorphism from the multiplicative group of nonzero complex numbers into the group of all invertible $2\\times 2$ matrices with real entries has nontrivial kernel.",
+          "D": "There exists a group homomorphism from the symmetric group on $n$ symbols into the multiplicative group of all invertible $n\\times n$ matrices with real entries, which has a trivial kernel."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Groups (JAM 2026 Q.27)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Groups (JAM 2026 Q.27)"
       },
       {
         "id": "JAM_2026_Q30",
@@ -4721,15 +4732,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let G = P({1, 2, 3, 4}) with A∆B = (A \\ B) $\\cup (B $ \\ A). Which ONE is TRUE?",
+        "question": "Let $G=\\mathcal{P}(\\{1,2,3,4\\})$ with $A\\Delta B=(A\\setminus B)\\cup(B\\setminus A)$. Which ONE is TRUE?",
         "options": {
-          "A": "{1} is an identity element of (G, ∆).",
-          "B": "(G, ∆) is an abelian group but not cyclic.",
-          "C": "(G, ∆) is a group and has an element of order 4.",
-          "D": "(G, ∆) is a group and has an element of order 8."
+          "A": "$\\{1\\}$ is an identity element of $(G,\\Delta)$.",
+          "B": "$(G,\\Delta)$ is an abelian group but not cyclic.",
+          "C": "$(G,\\Delta)$ is a group and has an element of order 4.",
+          "D": "$(G,\\Delta)$ is a group and has an element of order 8."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Groups (JAM 2026 Q.30)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2026 Q.30)"
       },
       {
         "id": "JAM_2026_Q47",
@@ -4740,10 +4751,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "Let Cn denote a cyclic group having n elements. If there is a surjective group homomorphism from Cn to $C_{30}$, then the total number of such distinct surjective homomorphisms is .",
+        "question": "Let $C_n$ denote a cyclic group having $n$ elements. If there is a surjective group homomorphism from $C_n$ to $C_{30}$, then the total number of such distinct surjective homomorphisms is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "8",
-        "explanation": "**Correct Numerical Answer: 8**\n\n- **Topic:** Groups (JAM 2026 Q.47)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{8}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 8**\\n\\n- **Topic:** Groups (JAM 2026 Q.47)"
       },
       {
         "id": "JAM_2025_Q9",
@@ -4754,15 +4765,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let G be a finite abelian group of order 10. Let $x_{0}$ be an element of order 2 in G. Number of elements in {x $\\in G $ : $x_{3}$ = $x_{0}$} is:",
+        "question": "Let $G$ be a finite abelian group of order 10. Let $x_{0}$ be an element of order 2 in $G$. Number of elements in $\\{x\\in G: x^{3}=x_{0}\\}$ is:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
+          "A": "1",
+          "B": "2",
+          "C": "3",
           "D": "0"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2025 Q.9)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2025 Q.9)"
       },
       {
         "id": "JAM_2025_Q13",
@@ -4773,15 +4784,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Let X = {x \\in S4 : x3 = id} and Y = {x \\in S4 : x2 \\neq id}. If |X| = m, |Y | = n:$",
+        "question": "Let $X=\\{x\\in S_{4}: x^{3}=\\text{id}\\}$ and $Y=\\{x\\in S_{4}: x^{2}\\ne\\text{id}\\}$. If $|X|=m, |Y|=n$:",
         "options": {
-          "A": "m is even and n is even",
-          "B": "m is odd and n is even",
-          "C": "m is even and n is odd",
-          "D": "m is odd and n is odd"
+          "A": "$m$ is even and $n$ is even",
+          "B": "$m$ is odd and $n$ is even",
+          "C": "$m$ is even and $n$ is odd",
+          "D": "$m$ is odd and $n$ is odd"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Groups (JAM 2025 Q.13)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2025 Q.13)"
       },
       {
         "id": "JAM_2025_Q23",
@@ -4792,15 +4803,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "$Let m = number of injective homomorphisms from Z3 \\to R/Z, and n = number of homomorphisms from R/Z \\to Z3.$",
+        "question": "Let $m=$ number of injective homomorphisms from $\\mathbb{Z}_3\\rightarrow\\mathbb{R}/\\mathbb{Z}$, and $n=$ number of homomorphisms from $\\mathbb{R}/\\mathbb{Z}\\rightarrow\\mathbb{Z}_3$.",
         "options": {
-          "A": "$m = 2, n = 1$",
-          "B": "$m = 3, n = 3$",
-          "C": "$m = 2, n = 3$",
-          "D": "$m = 1, n = 1$"
+          "A": "$m=2, n=1$",
+          "B": "$m=3, n=3$",
+          "C": "$m=2, n=3$",
+          "D": "$m=1, n=1$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2025 Q.23)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2025 Q.23)"
       },
       {
         "id": "JAM_2025_Q39",
@@ -4811,15 +4822,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$For U(n) = {x \\in Zn : gcd(x, n) = 1}:$",
+        "question": "For $U(n)=\\{x\\in\\mathbb{Z}_{n}: \\gcd(x,n)=1\\}$:",
         "options": {
-          "A": "U(8) is a cyclic group",
-          "B": "U(5) is a cyclic group",
-          "C": "U(12) is a cyclic group",
-          "D": "U(9) is a cyclic group"
+          "A": "$U(8)$ is a cyclic group",
+          "B": "$U(5)$ is a cyclic group",
+          "C": "$U(12)$ is a cyclic group",
+          "D": "$U(9)$ is a cyclic group"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Groups (JAM 2025 Q.39)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Groups (JAM 2025 Q.39)"
       },
       {
         "id": "JAM_2025_Q52",
@@ -4830,10 +4841,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "$For σ = (1 2 3) \\in S4, |{τ \\in S4 : τστ −1 = σ}| = .$",
+        "question": "For $\\sigma=(1\\,2\\,3)\\in S_{4}$, $|\\{\\tau\\in S_{4}: \\tau\\sigma\\tau^{-1}=\\sigma\\}|=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\n\n- **Topic:** Groups (JAM 2025 Q.52)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{3}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Groups (JAM 2025 Q.52)"
       },
       {
         "id": "JAM_2025_Q59",
@@ -4844,10 +4855,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let G be an abelian group of order 35. Let m denote the number of elements of order 5 in G, and let n denote the number of elements of order 7 in G. Then m + n = .",
+        "question": "Let $G$ be an abelian group of order 35. Let $m$ denote the number of elements of order 5 in $G$, and let $n$ denote the number of elements of order 7 in $G$. Then $m+n=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "10",
-        "explanation": "**Correct Numerical Answer: 10**\n\n- **Topic:** Groups (JAM 2025 Q.59)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{10}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 10**\\n\\n- **Topic:** Groups (JAM 2025 Q.59)"
       },
       {
         "id": "JAM_2025_Q60",
@@ -4858,10 +4869,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "The number of surjective group homomorphisms from $S_{4}$ to $\\mathbb{Z6}$ is equal to .",
+        "question": "The number of surjective group homomorphisms from $S_4$ to $\\mathbb{Z}_6$ is equal to \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\n\n- **Topic:** Groups (JAM 2025 Q.60)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{0}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Groups (JAM 2025 Q.60)"
       },
       {
         "id": "JAM_2024_Q5",
@@ -4872,15 +4883,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let G be a group of order 39 such that it has exactly one subgroup of order 3 and exactly one subgroup of order 13. Then, which one of the following statements is TRUE?",
+        "question": "Let $G$ be a group of order 39 such that it has exactly one subgroup of order 3 and exactly one subgroup of order 13. Then, which one of the following statements is TRUE?",
         "options": {
-          "A": "G is necessarily cyclic",
-          "B": "G is abelian but need not be cyclic",
-          "C": "G need not be abelian",
-          "D": "G has 13 elements of order 13"
+          "A": "$G$ is necessarily cyclic",
+          "B": "$G$ is abelian but need not be cyclic",
+          "C": "$G$ need not be abelian",
+          "D": "$G$ has 13 elements of order 13"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2024 Q.5)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.5)"
       },
       {
         "id": "JAM_2024_Q6",
@@ -4891,15 +4902,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Which one of the following is TRUE for U$(n)$ groups?",
+        "question": "Which one of the following is TRUE for $U(n)$ groups?",
         "options": {
-          "A": "U(5) is isomorphic to U(8)",
-          "B": "U(10) is isomorphic to U(12)",
-          "C": "U(8) is isomorphic to U(10)",
-          "D": "U(8) is isomorphic to U(12)"
+          "A": "$U(5)$ is isomorphic to $U(8)$",
+          "B": "$U(10)$ is isomorphic to $U(12)$",
+          "C": "$U(8)$ is isomorphic to $U(10)$",
+          "D": "$U(8)$ is isomorphic to $U(12)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\n\n- **Topic:** Groups (JAM 2024 Q.6)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(D)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Groups (JAM 2024 Q.6)"
       },
       {
         "id": "JAM_2024_Q7",
@@ -4918,7 +4929,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$S_{13}$ has no element of order 60"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2024 Q.7)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.7)"
       },
       {
         "id": "JAM_2024_Q8",
@@ -4929,15 +4940,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let G be a finite group containing a non-identity element which is conjugate to its inverse. Then, which one of the following is TRUE?",
+        "question": "Let $G$ be a finite group containing a non-identity element which is conjugate to its inverse. Then, which one of the following is TRUE?",
         "options": {
-          "A": "The order of G is necessarily even",
-          "B": "The order of G is not necessarily even",
-          "C": "G is necessarily cyclic",
-          "D": "G is necessarily abelian but need not be cyclic"
+          "A": "The order of $G$ is necessarily even",
+          "B": "The order of $G$ is not necessarily even",
+          "C": "$G$ is necessarily cyclic",
+          "D": "$G$ is necessarily abelian but need not be cyclic"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2024 Q.8)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.8)"
       },
       {
         "id": "JAM_2024_Q11",
@@ -4950,13 +4961,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.67,
         "question": "Which one of the following groups has elements of order 1, 2, 3, 4, 5 but does not have an element of order greater than or equal to 6?",
         "options": {
-          "A": "The alternating group $A_{6}$",
-          "B": "The alternating group $A_{5}$",
-          "C": "$S_{6}$",
-          "D": "$S_{5}$"
+          "A": "The alternating group $A_6$",
+          "B": "The alternating group $A_5$",
+          "C": "$S_6$",
+          "D": "$S_5$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2024 Q.11)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.11)"
       },
       {
         "id": "JAM_2024_Q12",
@@ -4967,15 +4978,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the group G = {A $\\in M2(R) $ : AAT = I2} with respect to matrix multiplication. The center Z(G) has order:",
+        "question": "Consider the group $G=\\{A\\in M_2(\\mathbb{R}): AA^{T}=I_2\\}$ with respect to matrix multiplication. The center $Z(G)$ has order:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
+          "A": "1",
+          "B": "2",
+          "C": "4",
           "D": "Infinite"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Groups (JAM 2024 Q.12)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2024 Q.12)"
       },
       {
         "id": "JAM_2024_Q33",
@@ -4994,7 +5005,7 @@ window.MOCK_TESTS_DATA = {
           "D": "The multiplicative group of positive rational numbers is isomorphic to the multiplicative group of nonzero complex numbers"
         },
         "answer_key": "A",
-        "explanation": "**Correct Options: A**\n\n- **Topic:** Groups (JAM 2024 Q.33)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A**\\n\\n- **Topic:** Groups (JAM 2024 Q.33)"
       },
       {
         "id": "JAM_2024_Q36",
@@ -5005,15 +5016,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Which of the following is/are TRUE for any group G?",
+        "question": "Which of the following is/are TRUE for any group $G$?",
         "options": {
-          "A": "If G is non-abelian and Z(G) contains more than one element, then the center of the quotient group G/Z(G) contains only one element",
-          "B": "If |G| $\\ge 2$ , then there exists a non-trivial homomorphism from Z to G",
-          "C": "If |G| $\\ge 2 and G is non-abelian$ , then there exists a non-identity isomorphism from G to itself",
-          "D": "If |G| = p3, where p is a prime number, then G is necessarily abelian"
+          "A": "If $G$ is non-abelian and $Z(G)$ contains more than one element, then the center of the quotient group $G/Z(G)$ contains only one element",
+          "B": "If $|G|\\ge 2$, then there exists a non-trivial homomorphism from $\\mathbb{Z}$ to $G$",
+          "C": "If $|G|\\ge 2$ and $G$ is non-abelian, then there exists a non-identity isomorphism from $G$ to itself",
+          "D": "If $|G|=p^3$, where $p$ is a prime number, then $G$ is necessarily abelian"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\n\n- **Topic:** Groups (JAM 2024 Q.36)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Groups (JAM 2024 Q.36)"
       },
       {
         "id": "JAM_2024_Q40",
@@ -5024,15 +5035,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Consider G = {m + n $\\sqrt{2} $ : m, n $\\in Z$ } as a subgroup of the additive group R. Which of the following statements is/are TRUE?",
+        "question": "Consider $G=\\{m+n\\sqrt{2}: m,n\\in\\mathbb{Z}\\}$ as a subgroup of the additive group $\\mathbb{R}$. Which of the following statements is/are TRUE?",
         "options": {
-          "A": "G is a cyclic subgroup of $\\int^{under} addition$",
-          "B": "G $\\cap I is non-empty for every non-empty open interval I \\subseteq R$",
-          "C": "G is a closed subset of R",
-          "D": "G is isomorphic to the group Z $\\times Z$ , where (m1, n1) + (m2, n2) = (m1 + m2, n1 + n2)"
+          "A": "$G$ is a cyclic subgroup of $\\mathbb{R}$ under addition",
+          "B": "$G\\cap I$ is non-empty for every non-empty open interval $I\\subseteq\\mathbb{R}$",
+          "C": "$G$ is a closed subset of $\\mathbb{R}$",
+          "D": "$G$ is isomorphic to the group $\\mathbb{Z}\\times\\mathbb{Z}$, where $(m_1,n_1)+(m_2,n_2)=(m_1+m_2, n_1+n_2)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\n\n- **Topic:** Groups (JAM 2024 Q.40)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **B,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Groups (JAM 2024 Q.40)"
       },
       {
         "id": "JAM_2023_Q1",
@@ -5043,15 +5054,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let G be a finite group. Then G is necessarily a cyclic group if the order of G is:",
+        "question": "Let $G$ be a finite group. Then $G$ is necessarily a cyclic group if the order of $G$ is:",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "4",
+          "B": "7",
+          "C": "6",
+          "D": "10"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Groups (JAM 2023 Q.1)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2023 Q.1)"
       },
       {
         "id": "JAM_2023_Q23",
@@ -5070,7 +5081,7 @@ window.MOCK_TESTS_DATA = {
           "D": "both I and II are FALSE"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2023 Q.23)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2023 Q.23)"
       },
       {
         "id": "JAM_2023_Q27",
@@ -5081,15 +5092,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "How many group homomorphisms are there from $\\mathbb{Z2}$ to $S_{5}$?",
+        "question": "How many group homomorphisms are there from $\\mathbb{Z}_2$ to $S_5$?",
         "options": {
-          "A": "",
-          "B": "",
-          "C": "",
-          "D": ""
+          "A": "40",
+          "B": "41",
+          "C": "26",
+          "D": "25"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\n\n- **Topic:** Groups (JAM 2023 Q.27)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(C)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Groups (JAM 2023 Q.27)"
       },
       {
         "id": "JAM_2023_Q29",
@@ -5100,15 +5111,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "From the additive group (Q, +), to which one of the following groups does there exist a non-trivial group homomorphism?",
+        "question": "From the additive group $(\\mathbb{Q},+)$, to which one of the following groups does there exist a non-trivial group homomorphism?",
         "options": {
-          "A": "R $\\times $ , the multiplicative group of non-zero real numbers",
-          "B": "(Z, +), the additive group of integers",
-          "C": "$\\mathbb{Z2}$, the additive group of integers modulo 2",
-          "D": "Q $\\times $ , the multiplicative group of non-zero rational numbers"
+          "A": "$\\mathbb{R}^{\\times}$, the multiplicative group of non-zero real numbers",
+          "B": "$(\\mathbb{Z},+)$, the additive group of integers",
+          "C": "$\\mathbb{Z}_2$, the additive group of integers modulo 2",
+          "D": "$\\mathbb{Q}^{\\times}$, the multiplicative group of non-zero rational numbers"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2023 Q.29)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2023 Q.29)"
       },
       {
         "id": "JAM_2023_Q32",
@@ -5119,15 +5130,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let 0 $\\in A \\subseteq Z$ . Which of the following conditions imply that A is a subgroup of (Z, +)?",
+        "question": "Let $0\\in A\\subseteq\\mathbb{Z}$. Which of the following conditions imply that $A$ is a subgroup of $(\\mathbb{Z},+)$?",
         "options": {
-          "A": "$−2A \\subseteq A, A + A = A$",
-          "B": "$A = −A, A + 2A = A$",
-          "C": "$A = −A, A + A = A$",
-          "D": "$2A \\subseteq A, A + A = A$"
+          "A": "$-2A\\subseteq A, A+A=A$",
+          "B": "$A=-A, A+2A=A$",
+          "C": "$A=-A, A+A=A$",
+          "D": "$2A\\subseteq A, A+A=A$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\n\n- **Topic:** Groups (JAM 2023 Q.32)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,B,C** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Groups (JAM 2023 Q.32)"
       },
       {
         "id": "JAM_2023_Q45",
@@ -5138,10 +5149,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "For σ $\\in $S_{8} , let o(σ) denote the order of σ. Then max{o(σ) : σ $\\in $S_{8} } = .",
+        "question": "For $\\sigma\\in S_8$, let $o(\\sigma)$ denote the order of $\\sigma$. Then $\\max\\{o(\\sigma): \\sigma\\in S_8\\}=$ \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "15",
-        "explanation": "**Correct Numerical Answer: 15**\n\n- **Topic:** Groups (JAM 2023 Q.45)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{15}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 15**\\n\\n- **Topic:** Groups (JAM 2023 Q.45)"
       },
       {
         "id": "JAM_2023_Q46",
@@ -5152,10 +5163,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The number of group isomorphisms from Z $\\times 8 onto itself is $ .",
+        "question": "The number of group isomorphisms from $\\mathbb{Z}_8^{\\times}$ onto itself is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\n\n- **Topic:** Groups (JAM 2023 Q.46)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{6}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Groups (JAM 2023 Q.46)"
       },
       {
         "id": "JAM_2023_Q54",
@@ -5166,10 +5177,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "The number of permutations in $S_{4}$ that have exactly 2 cycles in their cycle decomposition is .",
+        "question": "The number of permutations in $S_4$ that have exactly 2 cycles in their cycle decomposition is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "11",
-        "explanation": "**Correct Numerical Answer: 11**\n\n- **Topic:** Groups (JAM 2023 Q.54)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{11}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 11**\\n\\n- **Topic:** Groups (JAM 2023 Q.54)"
       },
       {
         "id": "JAM_2022_Q4",
@@ -5180,15 +5191,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let G be a group of order 2022. Let H and K be subgroups of G of order 337 and 674, respectively. If H $\\cup K is also a subgroup of G$ , then which one of the following is FALSE?",
+        "question": "Let $G$ be a group of order 2022. Let $H$ and $K$ be subgroups of $G$ of order 337 and 674, respectively. If $H\\cup K$ is also a subgroup of $G$, then which one of the following is FALSE?",
         "options": {
-          "A": "H is a normal subgroup of H $\\cup K$ .",
-          "B": "The order of H $\\cup K is 1011$ .",
-          "C": "The order of H $\\cup K is 674$ .",
-          "D": "K is a normal subgroup of H $\\cup K$ ."
+          "A": "$H$ is a normal subgroup of $H\\cup K$.",
+          "B": "The order of $H\\cup K$ is 1011.",
+          "C": "The order of $H\\cup K$ is 674.",
+          "D": "$K$ is a normal subgroup of $H\\cup K$."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Groups (JAM 2022 Q.4)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2022 Q.4)"
       },
       {
         "id": "JAM_2022_Q19",
@@ -5199,15 +5210,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the group (Q, +) and its subgroup (Z, +). For the quotient group Q/Z, which one of the following is FALSE?",
+        "question": "Consider the group $(\\mathbb{Q},+)$ and its subgroup $(\\mathbb{Z},+)$. For the quotient group $\\mathbb{Q}/\\mathbb{Z}$, which one of the following is FALSE?",
         "options": {
-          "A": "Q/Z contains a subgroup isomorphic to (Z, +).",
-          "B": "There is exactly one group homomorphism from Q/Z to (Q, +).",
-          "C": "For all n $\\in N$ , there exists g $\\in Q/Z such that the order of g is n$ .",
-          "D": "Q/Z is not a cyclic group."
+          "A": "$\\mathbb{Q}/\\mathbb{Z}$ contains a subgroup isomorphic to $(\\mathbb{Z},+)$.",
+          "B": "There is exactly one group homomorphism from $\\mathbb{Q}/\\mathbb{Z}$ to $(\\mathbb{Q},+)$.",
+          "C": "For all $n\\in\\mathbb{N}$, there exists $g\\in\\mathbb{Q}/\\mathbb{Z}$ such that the order of $g$ is $n$.",
+          "D": "$\\mathbb{Q}/\\mathbb{Z}$ is not a cyclic group."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\n\n- **Topic:** Groups (JAM 2022 Q.19)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(A)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2022 Q.19)"
       },
       {
         "id": "JAM_2022_Q24",
@@ -5218,15 +5229,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For the group U37 = {g $\\in $\\mathbb{Z37} : gcd(g, 37) = 1} under multiplication modulo 37. Which ONE of the following is FALSE?",
+        "question": "For the group $U_{37}=\\{g\\in\\mathbb{Z}_{37}: \\gcd(g,37)=1\\}$ under multiplication modulo 37. Which ONE of the following is FALSE?",
         "options": {
-          "A": "The set {¯g $\\in U37 $ : ¯g = ¯g−1} contains exactly 2 elements.",
-          "B": "The order of the element 10 in U37 is 36.",
-          "C": "There is exactly one group homomorphism from U37 to (Z, +).",
-          "D": "There is exactly one group homomorphism from U37 to (Q, +)."
+          "A": "The set $\\{\\bar{g}\\in U_{37}: \\bar{g}=\\bar{g}^{-1}\\}$ contains exactly 2 elements.",
+          "B": "The order of the element 10 in $U_{37}$ is 36.",
+          "C": "There is exactly one group homomorphism from $U_{37}$ to $(\\mathbb{Z},+)$.",
+          "D": "There is exactly one group homomorphism from $U_{37}$ to $(\\mathbb{Q},+)$."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\n\n- **Topic:** Groups (JAM 2022 Q.24)\n- **Mathematical Explanation:**\n  Applying the standard properties and theorems for $Groups$, we evaluate each option systematically. Option **(B)** satisfies all given constraints and theorems, making it the unique correct choice."
+        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2022 Q.24)"
       },
       {
         "id": "JAM_2022_Q37",
@@ -5237,15 +5248,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let G be a finite group of order at least two. Let σ : G $\\to G be a bijective group homomorphism such that $ σ$(g)$ = g =⇒g = e, and σ $\\circ $ σ = id. Which of the following is/are correct?",
+        "question": "Let $G$ be a finite group of order at least two. Let $\\sigma:G\\rightarrow G$ be a bijective group homomorphism such that $\\sigma(g)=g\\implies g=e$, and $\\sigma\\circ\\sigma=\\text{id}$. Which of the following is/are correct?",
         "options": {
-          "A": "For each g $\\in G$ , there exists h $\\in G such that h$ −1σ(h) = g.",
-          "B": "There exists x $\\in G such that x$ σ$(x)\\neq e$ .",
-          "C": "The map σ satisfies σ$(x)$ = x−1 for every x $\\in G$ .",
-          "D": "The order of the group G is an odd number."
+          "A": "For each $g\\in G$, there exists $h\\in G$ such that $h^{-1}\\sigma(h)=g$.",
+          "B": "There exists $x\\in G$ such that $x\\sigma(x)\\ne e$.",
+          "C": "The map $\\sigma$ satisfies $\\sigma(x)=x^{-1}$ for every $x\\in G$.",
+          "D": "The order of the group $G$ is an odd number."
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\n\n- **Topic:** Groups (JAM 2022 Q.37)\n- **Detailed Verification:**\n  Checking each statement independently:\n  - The statements corresponding to **A,C,D** are rigorously proved TRUE.\n  - The remaining statements are FALSE or have explicit counterexamples in the domain."
+        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Groups (JAM 2022 Q.37)"
       },
       {
         "id": "JAM_2022_Q45",
@@ -5256,10 +5267,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The number of distinct subgroups of $\\mathbb{Z999}$ is .",
+        "question": "The number of distinct subgroups of $\\mathbb{Z}_{999}$ is \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "8",
-        "explanation": "**Correct Numerical Answer: 8**\n\n- **Topic:** Groups (JAM 2022 Q.45)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{8}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 8**\\n\\n- **Topic:** Groups (JAM 2022 Q.45)"
       },
       {
         "id": "JAM_2022_Q46",
@@ -5270,10 +5281,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0.0,
-        "question": "The number of elements of order 12 in the symmetric group $S_{7}$ is equal to .",
+        "question": "The number of elements of order 12 in the symmetric group $S_7$ is equal to \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "420",
-        "explanation": "**Correct Numerical Answer: 420**\n\n- **Topic:** Groups (JAM 2022 Q.46)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{420}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 420**\\n\\n- **Topic:** Groups (JAM 2022 Q.46)"
       },
       {
         "id": "JAM_2022_Q58",
@@ -5284,10 +5295,10 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 2,
         "negative_marks": 0.0,
-        "question": "Let σ be the permutation in the symmetric group $S_{5}$ given by σ(1) = 2, σ(2) = 3, σ(3) = 1, σ(4) = 5, σ(5) = 4. Then the number of elements in the centralizer N(σ) = {τ $\\in $S_{5} : σ $\\circ $ τ = τ $\\circ $ σ} is equal to .",
+        "question": "Let $\\sigma$ be the permutation in the symmetric group $S_5$ given by $\\sigma(1)=2, \\sigma(2)=3, \\sigma(3)=1, \\sigma(4)=5, \\sigma(5)=4$. Then the number of elements in the centralizer $N(\\sigma)=\\{\\tau\\in S_5: \\sigma\\circ\\tau=\\tau\\circ\\sigma\\}$ is equal to \\underline{\\hspace{1.5cm}}.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\n\n- **Topic:** Groups (JAM 2022 Q.58)\n- **Step-by-Step Calculation:**\n  By direct computation and applying the formulas of $Groups$, we obtain the exact evaluated value: $$\\mathbf{6}$$ within acceptable standard rounding."
+        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Groups (JAM 2022 Q.58)"
       }
     ]
   }
