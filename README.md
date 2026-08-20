@@ -34,8 +34,8 @@
   - Interactive filterable review (Correct, Incorrect, Unattempted).
   - Complete step-by-step mathematical proofs and LaTeX explanations.
 
-### 📥 3. Question Bank PDF & LaTeX Source
-- **Official PDF**: Formatted, publication-ready topic-wise question bank with comprehensive answer keys ([Download PDF](docs/Topic-Wise-Question-Bank-2022-2026.pdf)).
+### 📄 3. Question Bank PDF & LaTeX Source
+- **Official PDF**: Formatted, publication-ready topic-wise question bank with comprehensive answer keys ([View PDF](docs/Topic-Wise-Question-Bank-2022-2026.pdf)).
 - **LaTeX Source**: Clean modular TeX source file ([View TeX Source](latex/question_bank_2022_2026.tex)).
 
 ---

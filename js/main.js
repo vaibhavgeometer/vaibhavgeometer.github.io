@@ -46,7 +46,7 @@
         : '';
 
       const cheatBtn = t.cheat_sheet 
-        ? `<a href="${t.cheat_sheet}" target="_blank" class="btn-test cheat" title="View ${t.name} Concept & Formula Cheat Sheet">📑 Cheat Sheet</a>`
+        ? `<a href="${t.cheat_sheet}" target="_blank" rel="noopener noreferrer" class="btn-test cheat" title="Open ${t.name} Concept & Formula Cheat Sheet in new tab">📑 Cheat Sheet</a>`
         : '';
 
       return `
