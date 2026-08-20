@@ -90,6 +90,7 @@ body {
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
+  max-width: 100vw;
 }
 
 .nav-container {
@@ -100,30 +101,43 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   color: var(--text-main);
+  flex-shrink: 0;
 }
 
 .brand-icon {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  line-height: 1;
 }
 
 .brand-name {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brand-name .brand-short {
+  display: none;
+}
+
+.brand-name .brand-full {
+  display: inline;
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .nav-link-btn {
@@ -134,7 +148,13 @@ body {
   padding: 6px 12px;
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
+  background: transparent;
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .nav-link-btn:hover {
@@ -156,6 +176,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .icon-btn:hover {
@@ -640,7 +661,52 @@ body {
 }
 
 /* --- Responsive --- */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 12px;
+    height: 52px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-link-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+}
+
 @media (max-width: 640px) {
+  .brand-name .brand-full {
+    display: none;
+  }
+
+  .brand-name .brand-short {
+    display: inline;
+  }
+
+  .nav-container {
+    padding: 0 10px;
+  }
+
+  .nav-actions {
+    gap: 5px;
+  }
+
+  .nav-link-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    gap: 3px;
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
   .hero h1 {
     font-size: 1.6rem;
   }
@@ -672,5 +738,39 @@ body {
 
   .btn-test.cheat {
     flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-container {
+    padding: 0 8px;
+    gap: 4px;
+  }
+
+  .brand-logo {
+    gap: 6px;
+  }
+
+  .brand-icon {
+    font-size: 1.15rem;
+  }
+
+  .brand-name {
+    font-size: 0.85rem;
+  }
+
+  .nav-actions {
+    gap: 4px;
+  }
+
+  .nav-link-btn {
+    padding: 4px 6px;
+    font-size: 0.72rem;
+  }
+
+  .icon-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
   }
 }

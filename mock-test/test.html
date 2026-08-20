@@ -19,7 +19,10 @@
     <!-- Top Navbar -->
     <header class="exam-navbar">
       <div class="exam-nav-left">
-        <a href="../index.html" class="nav-home-btn" title="Back to Main Portal">← Home</a>
+        <a href="../index.html" class="nav-home-btn" title="Back to Main Portal">
+          <span class="nav-home-icon">←</span>
+          <span class="nav-home-text">Home</span>
+        </a>
         <div class="exam-topic-info">
           <span class="exam-topic-title" id="exam-topic-title">Loading Topic...</span>
           <span class="exam-topic-sub" id="exam-topic-sub">Official Pattern CBT</span>
@@ -27,8 +30,8 @@
       </div>
 
       <div class="exam-nav-center">
-        <div class="timer-box timer-normal" id="exam-timer">
-          <span>⏱</span>
+        <div class="timer-box timer-normal" id="exam-timer" title="Time Remaining">
+          <span class="timer-icon">⏱</span>
           <span id="timer-display">--:--</span>
         </div>
       </div>
@@ -46,8 +49,9 @@
         <button class="nav-icon-btn" id="theme-toggle-btn" onclick="window.toggleTheme()" title="Toggle Theme">
           🌙
         </button>
-        <button class="btn-submit-exam" onclick="window.showSubmitModal()">
-          Submit Test
+        <button class="btn-submit-exam" onclick="window.showSubmitModal()" title="Submit Mock Test">
+          <span class="submit-btn-icon">✓</span>
+          <span class="submit-btn-text">Submit</span>
         </button>
       </div>
     </header>
@@ -114,26 +118,36 @@
         <div class="palette-grid" id="palette-grid">
           <!-- Question Buttons injected here -->
         </div>
+
+        <div class="palette-drawer-footer">
+          <button class="btn-palette-submit" onclick="window.showSubmitModal()" title="Submit Mock Test">
+            ✓ Submit Test
+          </button>
+        </div>
       </aside>
     </div>
 
     <!-- Bottom Action Footer -->
     <footer class="exam-footer">
-      <div class="footer-btn-group">
-        <button class="btn-action btn-review" onclick="window.markForReviewAndNext()">
-          Mark for Review & Next
+      <div class="footer-btn-group footer-left-group">
+        <button class="btn-action btn-review" onclick="window.markForReviewAndNext()" title="Mark question for review and proceed">
+          <span class="btn-action-text">Mark for Review & Next</span>
+          <span class="btn-action-text-short">Review & Next</span>
         </button>
-        <button class="btn-action btn-clear" onclick="window.clearResponse()">
-          Clear Response
+        <button class="btn-action btn-clear" onclick="window.clearResponse()" title="Clear selected response">
+          <span class="btn-action-text">Clear Response</span>
+          <span class="btn-action-text-short">Clear</span>
         </button>
       </div>
 
-      <div class="footer-btn-group">
-        <button class="btn-action btn-secondary" onclick="window.prevQuestion()">
-          ← Previous
+      <div class="footer-btn-group footer-right-group">
+        <button class="btn-action btn-secondary" onclick="window.prevQuestion()" title="Go to previous question">
+          <span class="btn-action-text">← Previous</span>
+          <span class="btn-action-text-short">← Prev</span>
         </button>
-        <button class="btn-action btn-save-next" onclick="window.saveAndNext()">
-          Save & Next →
+        <button class="btn-action btn-save-next" onclick="window.saveAndNext()" title="Save response and proceed to next question">
+          <span class="btn-action-text">Save & Next →</span>
+          <span class="btn-action-text-short">Save & Next →</span>
         </button>
       </div>
     </footer>

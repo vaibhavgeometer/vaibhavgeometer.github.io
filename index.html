@@ -27,22 +27,28 @@
   <!-- Header -->
   <header class="site-header">
     <nav class="nav-container">
-      <a href="#" class="brand-logo">
+      <a href="#" class="brand-logo" title="IIT JAM Mathematics Portal">
         <span class="brand-icon">📐</span>
-        <span class="brand-name">IIT JAM Mathematics</span>
+        <span class="brand-name">
+          <span class="brand-full">IIT JAM Mathematics</span>
+          <span class="brand-short">IIT JAM MA</span>
+        </span>
       </a>
 
       <div class="nav-actions">
         <a href="docs/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open Official IIT JAM Syllabus in new tab">
-          📜 Syllabus
+          <span class="nav-btn-icon">📜</span>
+          <span class="nav-btn-label">Syllabus</span>
         </a>
         <button class="nav-link-btn" onclick="window.openCheatSheetsModal()" title="Browse all 14 Formula Cheat Sheets">
-          📑 Cheat Sheets
+          <span class="nav-btn-icon">📑</span>
+          <span class="nav-btn-label">Cheat Sheets</span>
         </button>
         <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open 300 PYQ Master Question Bank PDF in new tab">
-          📄 Question Bank
+          <span class="nav-btn-icon">📄</span>
+          <span class="nav-btn-label">Question Bank</span>
         </a>
-        <button class="icon-btn" onclick="window.toggleTheme()" title="Toggle Theme" id="theme-btn">☀</button>
+        <button class="icon-btn" onclick="window.toggleTheme()" title="Toggle Theme" id="theme-btn" aria-label="Toggle Theme">☀</button>
       </div>
     </nav>
   </header>
