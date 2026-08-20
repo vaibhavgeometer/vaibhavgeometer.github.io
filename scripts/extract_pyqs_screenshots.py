@@ -1,6 +1,6 @@
 """
 Extract 300 High-Resolution Question Screenshots (JAM 2022–2026)
-Source: resources/PYQs/2022-2026 PYQs+Keys.pdf
+Source: docs/2022-2026-PYQs-with-Keys.pdf
 Destination: resources/PYQs_Screenshots/{year}/JAM_{year}_Q{num}.png
 """
 
@@ -121,7 +121,7 @@ def extract_questions_for_page(page, year, pno):
     return results
 
 def main():
-    pdf_path = os.path.join('resources', 'PYQs', '2022-2026 PYQs+Keys.pdf')
+    pdf_path = os.path.join('docs', '2022-2026-PYQs-with-Keys.pdf')
     out_base = os.path.join('resources', 'PYQs_Screenshots')
     os.makedirs(out_base, exist_ok=True)
     

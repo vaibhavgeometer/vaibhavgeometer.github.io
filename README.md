@@ -63,7 +63,7 @@ The 300 PYQs are organized across 9 comprehensive syllabus modules:
 
 ```text
 vaibhavgeometer.github.io/
-├── .gitignore                                 # Git rules for LaTeX, OS, IDE, and build artifacts
+├── .gitignore                                 # Git rules for Python, LaTeX, Node, OS, and IDE files
 ├── LICENSE                                    # MIT License
 ├── README.md                                  # Documentation & user guide
 ├── index.html                                 # Main landing page & topic selector portal
@@ -72,20 +72,47 @@ vaibhavgeometer.github.io/
 ├── js/
 │   └── main.js                                # Portal controller & dynamic topic loader
 ├── docs/
-│   └── Topic-Wise-Question-Bank-2022-2026.pdf # Master question bank PDF (printable)
+│   ├── Topic-Wise-Question-Bank-2022-2026.pdf # Master question bank PDF (52 pages, 300 PYQs)
+│   ├── Syllabus.pdf                           # Official IIT JAM Mathematics syllabus document
+│   ├── 2022-2026-PYQs-with-Keys.pdf           # Combined official examination papers & answer keys
+│   ├── MA2005-2026_Original_PYQs.pdf          # 22-year comprehensive PYQ archive (2005–2026)
+│   └── cheat-sheets/                          # 14 high-yield topic-wise formula & concept cheat sheets
+│       ├── Sequence_of_Real_Numbers_Cheat_Sheet.pdf
+│       ├── Series_of_Real_Numbers_Cheat_Sheet.pdf
+│       ├── Series_Convergence_Tests_Cheat_Sheet.pdf
+│       ├── Continuity_and_Differentiability_Cheat_Sheet.pdf
+│       ├── Riemann_Integration_Cheat_Sheet.pdf
+│       ├── Multivariable_and_Power_Series_Supplemental.pdf
+│       ├── Functions_of_Several_Variables_Cheat_Sheet.pdf
+│       ├── Integral_Calculus_Cheat_Sheet.pdf
+│       ├── Differential_Equations_Cheat_Sheet.pdf
+│       ├── Basic_Algebra_Cheat_Sheet.pdf
+│       ├── Linear_Algebra_Master_Cheat_Sheet.pdf
+│       ├── Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf
+│       ├── Group_Theory_Summary.pdf
+│       └── Group_Theory_Master_Cheat_Sheet.pdf
 ├── latex/
 │   └── question_bank_2022_2026.tex            # Full LaTeX document source for 300 PYQs
-└── mock-test/
-    ├── index.html                             # Redirect to root portal
-    ├── test.html                              # CBT mock test simulator application
-    ├── css/
-    │   └── app.css                            # Exam simulator master stylesheet
-    └── js/
-        ├── calculator.js                      # Virtual scientific calculator engine
-        ├── mathjax_config.js                  # MathJax 3 configuration & TeX macros
-        ├── questions_data.js                  # 300 PYQ database with options, keys & proofs
-        ├── results.js                         # Scorecard generator & sectional analytics
-        └── test_engine.js                     # Exam state machine, timer, and palette
+├── mock-test/
+│   ├── index.html                             # Redirect to root portal
+│   ├── test.html                              # CBT mock test simulator application
+│   ├── css/
+│   │   └── app.css                            # Exam simulator master stylesheet
+│   └── js/
+│       ├── calculator.js                      # Virtual scientific calculator engine
+│       ├── mathjax_config.js                  # MathJax 3 configuration & TeX macros
+│       ├── questions_data.js                  # 300 PYQ database with options, keys & proofs
+│       ├── results.js                         # Scorecard generator & sectional analytics
+│       └── test_engine.js                     # Exam state machine, timer, and palette
+├── resources/
+│   └── PYQs_Screenshots/                      # 300 official question paper screenshots (2022–2026)
+│       ├── 2022/                              # JAM_2022_Q1.png ... JAM_2022_Q60.png
+│       ├── 2023/                              # JAM_2023_Q1.png ... JAM_2023_Q60.png
+│       ├── 2024/                              # JAM_2024_Q1.png ... JAM_2024_Q60.png
+│       ├── 2025/                              # JAM_2025_Q1.png ... JAM_2025_Q60.png
+│       └── 2026/                              # JAM_2026_Q1.png ... JAM_2026_Q60.png
+└── scripts/
+    └── extract_pyqs_screenshots.py            # High-resolution question crop & extraction utility
 ```
 
 ---
