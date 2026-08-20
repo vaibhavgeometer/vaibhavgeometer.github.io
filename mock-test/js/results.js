@@ -307,11 +307,20 @@
           <div class="solution-box">
             <div class="solution-title">💡 Step-by-Step Mathematical Explanation</div>
             <div style="font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);">
-              ${q.explanation}
+              ${formatExplanation(q.explanation)}
             </div>
           </div>
         </div>
       `;
     }).join('');
   }
+
+  function formatExplanation(text) {
+    if (!text) return 'No explanation available.';
+    return text
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n\n/g, '<br><br>')
+      .replace(/\n/g, '<br>');
+  }
 })();
+

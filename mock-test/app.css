@@ -600,6 +600,72 @@ a {
   user-select: text;
 }
 
+/* CBT Fill-in-the-Blank for NAT */
+.cbt-blank {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 2.5px solid var(--brand-primary);
+  color: transparent;
+  user-select: none;
+  margin: 0 4px;
+  vertical-align: baseline;
+  letter-spacing: 2px;
+}
+
+[data-theme="dark"] .cbt-blank {
+  border-bottom-color: var(--brand-accent);
+}
+
+/* Statement Lists (e.g. P:, Q: or I., II.) */
+.statement-list {
+  list-style: none;
+  margin: 14px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statement-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  background: var(--bg-tertiary);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--brand-primary);
+  font-size: 1.05rem;
+}
+
+.statement-tag {
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--brand-primary);
+  min-width: 24px;
+}
+
+.statement-text {
+  flex: 1;
+}
+
+/* MathJax Equation Container Styling */
+mjx-container {
+  outline: none !important;
+}
+
+mjx-container[jax="SVG"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+  padding: 2px 0;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  margin: 14px 0 !important;
+  text-align: center;
+}
+
 /* Options Rendering */
 .options-list {
   display: flex;

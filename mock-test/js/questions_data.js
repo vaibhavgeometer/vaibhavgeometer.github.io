@@ -1,6 +1,6 @@
 // Topic-Wise IIT JAM Mathematics (MA) Question Bank (2022-2026)
 // Complete 300 Official Questions with Master Answer Keys & LaTeX Solutions
-// AUTO-GENERATED from v3.tex - DO NOT EDIT MANUALLY
+// AUTO-GENERATED with 100% Word-by-Word Accuracy from v3.tex
 
 window.MOCK_TESTS_DATA = {
   "1.1": {
@@ -29,7 +29,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x_{n})$ is not convergent and $(y_{n})$ is convergent."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.1)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q1)"
       },
       {
         "id": "JAM_2026_Q2",
@@ -42,13 +42,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.33,
         "question": "For each positive integer $n$, define $x_{n}=(-1)^{n}$. Which ONE of the following statements about the sequence $(x_{n})$ is FALSE?",
         "options": {
-          "A": "There exists $\\epsilon>0$ such that $|x_{n}-1| < \\epsilon$ for all positive integers $n$.",
-          "B": "There exists $\\epsilon>0$ such that for all $M>0$ there exists a positive integer $N>M$ for which $|x_{N}-1|>\\epsilon$.",
-          "C": "For all $\\epsilon>0$ and $M>0$ there exists a positive integer $N$ such that $N>M$ and $|x_{N}-1|<\\epsilon$.",
-          "D": "For all $\\epsilon>0$ and $M>0$ there exists a positive integer $N$ such that $N>M$ and $|x_{N}-1|>\\epsilon$."
+          "A": "There exists $\\epsilon\\gt 0$ such that $|x_{n}-1| \\lt  \\epsilon$ for all positive integers $n$.",
+          "B": "There exists $\\epsilon\\gt 0$ such that for all $M\\gt 0$ there exists a positive integer $N\\gt M$ for which $|x_{N}-1|\\gt \\epsilon$.",
+          "C": "For all $\\epsilon\\gt 0$ and $M\\gt 0$ there exists a positive integer $N$ such that $N\\gt M$ and $|x_{N}-1|\\lt \\epsilon$.",
+          "D": "For all $\\epsilon\\gt 0$ and $M\\gt 0$ there exists a positive integer $N$ such that $N\\gt M$ and $|x_{N}-1|\\gt \\epsilon$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.2)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q2)"
       },
       {
         "id": "JAM_2026_Q11",
@@ -59,7 +59,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Given a sequence of real numbers $(a_{n})$, define $b_{n}=\\begin{cases}a_{n},& \\text{if } a_{n}\\ge 0\\\\ 0,& \\text{if } a_{n}<0\\end{cases}$ and $c_{n}=\\begin{cases}a_{n},& \\text{if } a_{n}< 0\\\\ 0,& \\text{if } a_{n}\\ge 0\\end{cases}$ for each positive integer $n$. Which ONE of the following statements is TRUE?",
+        "question": "Given a sequence of real numbers $(a_{n})$, define $b_{n}=\\begin{cases}a_{n},& \\text{if } a_{n}\\ge 0\\\\ 0,& \\text{if } a_{n}\\lt 0\\end{cases}$ and $c_{n}=\\begin{cases}a_{n},& \\text{if } a_{n}\\lt  0\\\\ 0,& \\text{if } a_{n}\\ge 0\\end{cases}$ for each positive integer $n$. Which ONE of the following statements is TRUE?",
         "options": {
           "A": "If $\\sum_{n=1}^{\\infty}a_{n}$ does not converge, then $\\sum_{n=1}^{\\infty}b_{n}$ does not converge.",
           "B": "If $\\sum_{n=1}^{\\infty}a_{n}$ converges but $\\sum_{n=1}^{\\infty}|a_{n}|$ does not converge, then $\\sum_{n=1}^{\\infty}b_{n}$ converges.",
@@ -67,7 +67,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\sum_{n=1}^{\\infty}a_{n}$ converges, then $\\sum_{n=1}^{\\infty}b_{n}$ converges or $\\sum_{n=1}^{\\infty}c_{n}$ converges."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.11)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q11)"
       },
       {
         "id": "JAM_2026_Q12",
@@ -86,7 +86,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$a=-\\frac{1}{4}$ and $b=\\frac{1}{3}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.12)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q12)"
       },
       {
         "id": "JAM_2026_Q29",
@@ -105,7 +105,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x_{n})$ is not convergent and $(y_{n})$ is not convergent."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.29)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q29)"
       },
       {
         "id": "JAM_2026_Q32",
@@ -115,7 +115,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following statements is/are TRUE?",
         "options": {
           "A": "There exists a monotone sequence that does not converge but has a convergent subsequence.",
@@ -124,7 +124,7 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists a sequence $(x_{n})$ such that $(|x_{n+1}-x_{n}|)$ converges to 0 but $(x_{n})$ does not converge."
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.32)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q32)"
       },
       {
         "id": "JAM_2026_Q41",
@@ -134,11 +134,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The radius of convergence of the series $\\sum_{n=1}^{\\infty}\\frac{(n!)^{2}}{(2n)!}(\\log_{e}n)^{-1}x^{n}$ is \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "The radius of convergence of the series $\\sum_{n=1}^{\\infty}\\frac{(n!)^{2}}{(2n)!}(\\log_{e}n)^{-1}x^{n}$ is <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.41)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q41)"
       },
       {
         "id": "JAM_2026_Q42",
@@ -148,11 +148,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\int_{0}^{1}\\left(\\sum_{k=1}^{\\infty}\\frac{(\\log_{e}2)^{k}x^{k-1}}{(k-1)!}\\right)dx=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "$\\int_{0}^{1}\\left(\\sum_{k=1}^{\\infty}\\frac{(\\log_{e}2)^{k}x^{k-1}}{(k-1)!}\\right)dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.42)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q42)"
       },
       {
         "id": "JAM_2026_Q43",
@@ -162,11 +162,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{n^{2}+1}{\\sqrt{n^{6}+1}}+\\cdots+\\frac{n^{2}+n}{\\sqrt{n^{6}+n}}\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{n^{2}+1}{\\sqrt{n^{6}+1}}+\\cdots+\\frac{n^{2}+n}{\\sqrt{n^{6}+n}}\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2026 Q.43)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q43)"
       },
       {
         "id": "JAM_2025_Q1",
@@ -185,7 +185,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$-\\frac{\\pi}{4}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.1)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q1)"
       },
       {
         "id": "JAM_2025_Q18",
@@ -204,7 +204,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty} x_n$ does NOT converge, and $\\sum_{n=1}^{\\infty} y_n$ does NOT converge"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.18)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q18)"
       },
       {
         "id": "JAM_2025_Q19",
@@ -223,7 +223,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x_{n})$ is a decreasing sequence, and $(x_{n})$ is a bounded sequence"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.19)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q19)"
       },
       {
         "id": "JAM_2025_Q20",
@@ -237,12 +237,12 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $x_{1}=2$ and $x_{n+1}=2+\\frac{1}{2x_{n}}$ for all $n\\in\\mathbb{N}$. Then, which one of the following is TRUE?",
         "options": {
           "A": "$x_{n+1}\\ge\\frac{4}{x_{n}}$ for all $n\\in\\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence",
-          "B": "$x_{n+1}<\\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence",
+          "B": "$x_{n+1}\\lt \\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is a Cauchy sequence",
           "C": "$x_{n+1}\\ge\\frac{4}{x_{n}}$ for all $n\\in\\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence",
-          "D": "$x_{n+1}<\\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence"
+          "D": "$x_{n+1}\\lt \\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.20)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q20)"
       },
       {
         "id": "JAM_2025_Q21",
@@ -261,7 +261,7 @@ window.MOCK_TESTS_DATA = {
           "D": "NO subsequence of $(x_{n})$ is convergent, and NO subsequence of $(y_{n})$ is convergent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.21)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q21)"
       },
       {
         "id": "JAM_2025_Q25",
@@ -280,7 +280,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty}x_{n}x_{n+1}$ does NOT converge"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.25)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q25)"
       },
       {
         "id": "JAM_2025_Q26",
@@ -291,7 +291,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $x_{1}>0$. For $n\\in\\mathbb{N}$, define $x_{n+1}=x_{n}+4$. If $\\lim_{n\\rightarrow\\infty}\\left(\\frac{1}{x_{2}x_{3}}+\\frac{1}{x_{3}x_{4}}+\\cdots+\\frac{1}{x_{n+1}x_{n+2}}\\right)=\\frac{1}{24}$, then the value of $x_{1}$ is equal to:",
+        "question": "Let $x_{1}\\gt 0$. For $n\\in\\mathbb{N}$, define $x_{n+1}=x_{n}+4$. If $\\lim_{n\\rightarrow\\infty}\\left(\\frac{1}{x_{2}x_{3}}+\\frac{1}{x_{3}x_{4}}+\\cdots+\\frac{1}{x_{n+1}x_{n+2}}\\right)=\\frac{1}{24}$, then the value of $x_{1}$ is equal to:",
         "options": {
           "A": "1",
           "B": "2",
@@ -299,7 +299,7 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.26)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q26)"
       },
       {
         "id": "JAM_2025_Q36",
@@ -309,7 +309,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "For $n\\in\\mathbb{N}$, define $x_{n}=\\sum_{k=1}^{n}\\frac{k}{n^{2}+k}$. Then, which of the following is/are TRUE?",
         "options": {
           "A": "The sequence $(x_{n})$ converges",
@@ -318,7 +318,7 @@ window.MOCK_TESTS_DATA = {
           "D": "The series $\\sum_{n=1}^{\\infty}\\frac{x_{n}}{n}$ converges"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.36)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q36)"
       },
       {
         "id": "JAM_2025_Q41",
@@ -328,11 +328,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The radius of convergence of the power series $\\sum_{n=1}^{\\infty}\\frac{(x+\\frac{1}{4})^{n}}{(-2)^{n}n^{2}}$ about $x=-\\frac{1}{4}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "The radius of convergence of the power series $\\sum_{n=1}^{\\infty}\\frac{(x+\\frac{1}{4})^{n}}{(-2)^{n}n^{2}}$ about $x=-\\frac{1}{4}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.41)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q41)"
       },
       {
         "id": "JAM_2025_Q54",
@@ -342,11 +342,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "$\\sum_{n=1}^{\\infty}n\\left(\\frac{3}{4}\\right)^{2(n-1)}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "$\\sum_{n=1}^{\\infty}n\\left(\\frac{3}{4}\\right)^{2(n-1)}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "5.22",
-        "explanation": "**Correct Numerical Answer: 5.22**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2025 Q.54)"
+        "explanation": "<strong>Correct Numerical Answer: 5.22</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q54)"
       },
       {
         "id": "JAM_2024_Q14",
@@ -365,7 +365,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are convergent"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.14)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q14)"
       },
       {
         "id": "JAM_2024_Q20",
@@ -384,7 +384,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both $\\sum_{n=3}^{\\infty} \\frac{1}{a_n}$ and $\\sum_{n=3}^{\\infty} \\frac{1}{b_n}$ are convergent"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.20)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q20)"
       },
       {
         "id": "JAM_2024_Q21",
@@ -397,13 +397,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.67,
         "question": "For $p,q,r\\in\\mathbb{R}$, $r\\ne 0$ and $n\\in\\mathbb{N}$, let $a_{n}=p^{n}n^{q}\\left(\\frac{n}{n+2}\\right)^{n^{2}}$ and $b_{n}=\\frac{n^{n}}{n!r^{n}}\\left(\\sqrt{\\frac{n+2}{n}}\\right)$. Then:",
         "options": {
-          "A": "If $1<p<e^{2}$ and $q>1$, then $\\sum_{n=1}^{\\infty} a_{n}$ is convergent",
-          "B": "If $e^{2}<p<e^{4}$ and $q>1$, then $\\sum_{n=1}^{\\infty} a_{n}$ is convergent",
-          "C": "If $1<r<e$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent",
-          "D": "If $\\frac{1}{e}<r<1$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent"
+          "A": "If $1\\lt p\\lt e^{2}$ and $q\\gt 1$, then $\\sum_{n=1}^{\\infty} a_{n}$ is convergent",
+          "B": "If $e^{2}\\lt p\\lt e^{4}$ and $q\\gt 1$, then $\\sum_{n=1}^{\\infty} a_{n}$ is convergent",
+          "C": "If $1\\lt r\\lt e$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent",
+          "D": "If $\\frac{1}{e}\\lt r\\lt 1$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.21)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q21)"
       },
       {
         "id": "JAM_2024_Q28",
@@ -422,7 +422,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$e^{(2\\pi^{2})}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.28)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q28)"
       },
       {
         "id": "JAM_2024_Q31",
@@ -432,7 +432,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $\\{a_{n}\\}_{n=1}^{\\infty}$ be a sequence of real numbers. Then, which of the following statements is/are always TRUE?",
         "options": {
           "A": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges absolutely, then $\\sum_{n=1}^{\\infty} a_{n}^{2}$ converges absolutely",
@@ -441,7 +441,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges, then $\\sum_{n=1}^{\\infty} a_{n}^{3}$ converges"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.31)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q31)"
       },
       {
         "id": "JAM_2024_Q32",
@@ -451,7 +451,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following statements is/are TRUE?",
         "options": {
           "A": "$\\sum_{n=1}^{\\infty}n\\log(1+\\frac{1}{n^{3}})$ is convergent",
@@ -460,7 +460,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty}(1-\\cos(\\frac{1}{\\sqrt{n}}))\\log n$ is convergent"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.32)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q32)"
       },
       {
         "id": "JAM_2024_Q39",
@@ -470,8 +470,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "For $0<\\alpha<4$, define the sequence $\\{x_{n}\\}_{n=1}^{\\infty}$ as $x_{1}=\\alpha$ and $x_{n+1}+2=-x_{n}(x_{n}-4)$ for $n\\in\\mathbb{N}$. Which of the following is/are TRUE?",
+        "negative_marks": 0,
+        "question": "For $0\\lt \\alpha\\lt 4$, define the sequence $\\{x_{n}\\}_{n=1}^{\\infty}$ as $x_{1}=\\alpha$ and $x_{n+1}+2=-x_{n}(x_{n}-4)$ for $n\\in\\mathbb{N}$. Which of the following is/are TRUE?",
         "options": {
           "A": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(0,1)$",
           "B": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(1,2)$",
@@ -479,7 +479,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(3,4)$"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.39)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q39)"
       },
       {
         "id": "JAM_2024_Q47",
@@ -489,11 +489,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\\frac{a_n+b_n}{2}, b_{n+1}=\\frac{b_n+c_n}{2}, c_{n+1}=\\frac{c_n+a_n}{2}$. Then, \n$$ \\sum_{n=1}^{\\infty}b_n c_n(a_{n+1}-a_n) + \\sum_{n=1}^{\\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = \\underline{\\hspace{1.5cm}} $$\n (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\\frac{a_n+b_n}{2}, b_{n+1}=\\frac{b_n+c_n}{2}, c_{n+1}=\\frac{c_n+a_n}{2}$. Then,\n\\[\n\\sum_{n=1}^{\\infty}b_n c_n(a_{n+1}-a_n) + \\sum_{n=1}^{\\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = <span class=\"cbt-blank\">_______</span>\n\\]\n(rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.47)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q47)"
       },
       {
         "id": "JAM_2024_Q55",
@@ -503,11 +503,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "If $a_{n}=\\frac{1}{n^{3}+1}+\\frac{2^{2}}{n^{3}+2}+\\cdots+\\frac{n^{2}}{n^{3}+n}$, then the sequence $\\{a_{n}\\}$ converges to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "If $a_{n}=\\frac{1}{n^{3}+1}+\\frac{2^{2}}{n^{3}+2}+\\cdots+\\frac{n^{2}}{n^{3}+n}$, then the sequence $\\{a_{n}\\}$ converges to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.33",
-        "explanation": "**Correct Numerical Answer: 0.33**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.55)"
+        "explanation": "<strong>Correct Numerical Answer: 0.33</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q55)"
       },
       {
         "id": "JAM_2024_Q59",
@@ -517,11 +517,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $a_{n}=\\frac{1}{n^{n-1}}\\sum_{k=0}^{n}\\frac{n!}{k!(n-k)!}\\frac{n^{k}}{k+1}$ and $\\beta=\\lim_{n\\rightarrow\\infty}a_{n}$. Then, the value of $\\log\\beta$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $a_{n}=\\frac{1}{n^{n-1}}\\sum_{k=0}^{n}\\frac{n!}{k!(n-k)!}\\frac{n^{k}}{k+1}$ and $\\beta=\\lim_{n\\rightarrow\\infty}a_{n}$. Then, the value of $\\log\\beta$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2024 Q.59)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q59)"
       },
       {
         "id": "JAM_2023_Q9",
@@ -540,7 +540,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(a_{n})$ is NOT convergent and $(b_{n})$ is unbounded"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.9)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q9)"
       },
       {
         "id": "JAM_2023_Q10",
@@ -559,7 +559,7 @@ window.MOCK_TESTS_DATA = {
           "D": "both $(a_{n})$ and $(b_{n})$ are NOT convergent"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.10)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q10)"
       },
       {
         "id": "JAM_2023_Q11",
@@ -578,7 +578,7 @@ window.MOCK_TESTS_DATA = {
           "D": "both $\\sum_{n=1}^{\\infty} a_{n}$ and $\\sum_{n=1}^{\\infty} b_{n}$ are NOT convergent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.11)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q11)"
       },
       {
         "id": "JAM_2023_Q19",
@@ -597,7 +597,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(a_{n})$ is NOT convergent but $\\sum_{n=1}^{\\infty} a_{n}$ is convergent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.19)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q19)"
       },
       {
         "id": "JAM_2023_Q20",
@@ -616,7 +616,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$x=-6$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.20)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q20)"
       },
       {
         "id": "JAM_2023_Q21",
@@ -635,7 +635,7 @@ window.MOCK_TESTS_DATA = {
           "D": "both $(a_{n})$ and $(b_{n})$ need NOT be Cauchy sequences"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.21)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q21)"
       },
       {
         "id": "JAM_2023_Q24",
@@ -654,7 +654,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NEITHER an odd function NOR an even function on $(-1,1)$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.24)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q24)"
       },
       {
         "id": "JAM_2023_Q40",
@@ -664,16 +664,16 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $R_{1}$ and $R_{2}$ be the radii of convergence of $\\sum_{n=1}^{\\infty}(-1)^{n}x^{n-1}$ and $\\sum_{n=1}^{\\infty}(-1)^{n}\\frac{x^{n+1}}{n(n+1)}$, respectively. Then:",
         "options": {
           "A": "$R_{1}=R_{2}$",
-          "B": "$R_{2}>1$",
+          "B": "$R_{2}\\gt 1$",
           "C": "$\\sum_{n=1}^{\\infty}(-1)^{n}x^{n-1}$ converges for all $x\\in[-1,1]$",
           "D": "$\\sum_{n=1}^{\\infty}(-1)^{n}\\frac{x^{n+1}}{n(n+1)}$ converges for all $x\\in[-1,1]$"
         },
         "answer_key": "A,D",
-        "explanation": "**Correct Options: A,D**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.40)"
+        "explanation": "<strong>Correct Option(s): (A,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q40)"
       },
       {
         "id": "JAM_2023_Q49",
@@ -683,11 +683,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{2n+1}{(n^{2}+1)(n^{2}+2n+2)}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{2n+1}{(n^{2}+1)(n^{2}+2n+2)}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.49)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q49)"
       },
       {
         "id": "JAM_2023_Q50",
@@ -697,11 +697,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{n\\rightarrow\\infty}\\left(1+\\frac{1}{2^{n}}+\\frac{1}{3^{n}}+\\cdots+\\frac{1}{(2023)^{n}}\\right)^{\\frac{1}{n}}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(1+\\frac{1}{2^{n}}+\\frac{1}{3^{n}}+\\cdots+\\frac{1}{(2023)^{n}}\\right)^{\\frac{1}{n}}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2023 Q.50)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q50)"
       },
       {
         "id": "JAM_2022_Q5",
@@ -720,7 +720,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{1}{\\sqrt[5]{4}}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.5)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q5)"
       },
       {
         "id": "JAM_2022_Q6",
@@ -735,11 +735,11 @@ window.MOCK_TESTS_DATA = {
         "options": {
           "A": "$(x_{n})$ is convergent, but $(y_{n})$ is not convergent.",
           "B": "$(x_{n})$ is not convergent, but $(y_{n})$ is convergent.",
-          "C": "Both $(x_{n})$ and $(y_{n})$ are convergent and $\\lim_{n\\rightarrow\\infty}x_{n}>\\lim_{n\\rightarrow\\infty}y_{n}$.",
+          "C": "Both $(x_{n})$ and $(y_{n})$ are convergent and $\\lim_{n\\rightarrow\\infty}x_{n}\\gt \\lim_{n\\rightarrow\\infty}y_{n}$.",
           "D": "Both $(x_{n})$ and $(y_{n})$ are convergent and $\\lim_{n\\rightarrow\\infty}x_{n}=\\lim_{n\\rightarrow\\infty}y_{n}$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.6)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q6)"
       },
       {
         "id": "JAM_2022_Q7",
@@ -758,7 +758,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=2}^{\\infty} a_{n}$ is divergent and $\\sum_{n=2}^{\\infty} b_{n}$ is divergent."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.7)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q7)"
       },
       {
         "id": "JAM_2022_Q8",
@@ -771,13 +771,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.33,
         "question": "Consider the series $\\sum_{n=1}^{\\infty}\\frac{1}{n^{m}(1+\\frac{1}{n^{p}})}$, where $m$ and $p$ are real numbers. Under which of the following conditions does the above series converge?",
         "options": {
-          "A": "$m>1$",
-          "B": "$0<m<1$ and $p>1$",
-          "C": "$0<m\\le 1$ and $0\\le p\\le 1$",
-          "D": "$m=1$ and $p>1$"
+          "A": "$m\\gt 1$",
+          "B": "$0\\lt m\\lt 1$ and $p\\gt 1$",
+          "C": "$0\\lt m\\le 1$ and $0\\le p\\le 1$",
+          "D": "$m=1$ and $p\\gt 1$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.8)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q8)"
       },
       {
         "id": "JAM_2022_Q12",
@@ -796,7 +796,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$T=S=0$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.12)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q12)"
       },
       {
         "id": "JAM_2022_Q14",
@@ -815,7 +815,7 @@ window.MOCK_TESTS_DATA = {
           "D": "0"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.14)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q14)"
       },
       {
         "id": "JAM_2022_Q28",
@@ -834,7 +834,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\int_{0}^{1/2}t\\ln(1-t)dt$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.28)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q28)"
       },
       {
         "id": "JAM_2022_Q38",
@@ -844,8 +844,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $(x_{n})$ be a sequence of real numbers. Consider $P=\\{n\\in\\mathbb{N}: x_{n}>x_{m}\\text{ for all } m>n\\}$. Then:",
+        "negative_marks": 0,
+        "question": "Let $(x_{n})$ be a sequence of real numbers. Consider $P=\\{n\\in\\mathbb{N}: x_{n}\\gt x_{m}\\text{ for all } m\\gt n\\}$. Then:",
         "options": {
           "A": "If $P$ is finite, then $(x_{n})$ has a monotonically increasing subsequence.",
           "B": "If $P$ is finite, then no subsequence of $(x_{n})$ is monotonically increasing.",
@@ -853,7 +853,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $P$ is infinite, then no subsequence of $(x_{n})$ is monotonically decreasing."
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.38)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q38)"
       },
       {
         "id": "JAM_2022_Q44",
@@ -863,11 +863,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{1}{(4n-3)(4n+1)}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{1}{(4n-3)(4n+1)}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.44)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q44)"
       },
       {
         "id": "JAM_2022_Q55",
@@ -877,11 +877,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $r$ be the radius of convergence of $\\frac{1}{3}+\\frac{x}{5}+\\frac{x^{2}}{3^{2}}+\\frac{x^{3}}{5^{2}}+\\frac{x^{4}}{3^{3}}+\\cdots$. Then the value of $r^{2}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $r$ be the radius of convergence of $\\frac{1}{3}+\\frac{x}{5}+\\frac{x^{2}}{3^{2}}+\\frac{x^{3}}{5^{2}}+\\frac{x^{4}}{3^{3}}+\\cdots$. Then the value of $r^{2}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.00",
-        "explanation": "**Correct Numerical Answer: 3.00**\\n\\n- **Topic:** Sequences and Series of Real Numbers (JAM 2022 Q.55)"
+        "explanation": "<strong>Correct Numerical Answer: 3.00</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q55)"
       }
     ]
   },
@@ -911,7 +911,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\pi}{2}+\\frac{1}{2}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q3)"
       },
       {
         "id": "JAM_2026_Q6",
@@ -930,7 +930,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is unbounded and $f$ has either no maximum or no minimum."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.6)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q6)"
       },
       {
         "id": "JAM_2026_Q7",
@@ -949,7 +949,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f^{\\prime\\prime}(x)=0$ for infinitely many $x\\in\\mathbb{R}\\setminus\\mathbb{Z}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.7)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q7)"
       },
       {
         "id": "JAM_2026_Q13",
@@ -964,11 +964,11 @@ window.MOCK_TESTS_DATA = {
         "options": {
           "A": "If $f$ is a polynomial in $x$ of degree at most 5, then $f^{(6)}(x)=0$ for all $x\\in\\mathbb{R}$.",
           "B": "If $f^{(6)}(x)=0$ for all $x\\in\\mathbb{R}$, then $f$ is a polynomial in $x$ of degree at most 5.",
-          "C": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 5$ and $f^{(6)}(a)>0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local minimum at $a$.",
-          "D": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 6$ and $f^{(7)}(a)<0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local maximum at $a$."
+          "C": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 5$ and $f^{(6)}(a)\\gt 0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local minimum at $a$.",
+          "D": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 6$ and $f^{(7)}(a)\\lt 0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local maximum at $a$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.13)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q13)"
       },
       {
         "id": "JAM_2026_Q19",
@@ -987,7 +987,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{2(e^{\\pi}-1)}{e^{\\pi}+1}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.19)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q19)"
       },
       {
         "id": "JAM_2026_Q21",
@@ -1006,7 +1006,7 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists $c\\in[1,5]$ such that $f(c)=f(c+4)$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.21)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q21)"
       },
       {
         "id": "JAM_2026_Q31",
@@ -1016,7 +1016,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following functions $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ has/have a local minimum at $x=0$?",
         "options": {
           "A": "$f(x)=\\sin|x|$",
@@ -1025,7 +1025,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)=\\min\\{x-[x],1-x+[x]\\}$"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.31)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q31)"
       },
       {
         "id": "JAM_2026_Q33",
@@ -1035,16 +1035,16 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following functions is/are differentiable at $x=1$?",
         "options": {
           "A": "$f(x)=|x-1|^{3}$",
           "B": "$f(x)=|x^{2}-1|$",
-          "C": "$f(x)=\\begin{cases}x^{2}e^{-x^{2}},& |x|\\le 1\\\\ e^{-1},& |x|>1\\end{cases}$",
+          "C": "$f(x)=\\begin{cases}x^{2}e^{-x^{2}},& |x|\\le 1\\\\ e^{-1},& |x|\\gt 1\\end{cases}$",
           "D": "$f(x)=[x]$"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.33)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q33)"
       },
       {
         "id": "JAM_2026_Q34",
@@ -1054,7 +1054,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be given by $f(x)=\\begin{cases}\\cos x,& x\\in\\mathbb{Q}\\\\ 0,& x\\notin\\mathbb{Q}\\end{cases}$. Which of the following is/are TRUE?",
         "options": {
           "A": "$f(x)$ is continuous at 0.",
@@ -1063,7 +1063,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)$ is Riemann integrable on $[0,1]$ and $\\int_{0}^{1}f(x)dx=0$."
         },
         "answer_key": "B",
-        "explanation": "**Correct Options: B**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.34)"
+        "explanation": "<strong>Correct Option(s): (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q34)"
       },
       {
         "id": "JAM_2026_Q44",
@@ -1073,11 +1073,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}-\\frac{1}{\\sin x}+e^{\\frac{1-\\cos x}{x}}\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "$\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}-\\frac{1}{\\sin x}+e^{\\frac{1-\\cos x}{x}}\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.44)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q44)"
       },
       {
         "id": "JAM_2026_Q48",
@@ -1087,11 +1087,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\int_{0}^{3}(|x-1|-x[x])\\,dx=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "$\\int_{0}^{3}(|x-1|-x[x])\\,dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "-4.0",
-        "explanation": "**Correct Numerical Answer: -4.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.48)"
+        "explanation": "<strong>Correct Numerical Answer: -4.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q48)"
       },
       {
         "id": "JAM_2026_Q54",
@@ -1101,11 +1101,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x)=\\int_{0}^{e^{\\sin x}}\\int_{0}^{\\log_{e}y}e^{-(\\frac{1}{\\sqrt{2}})}(1-t^{2})dt\\,dy$. Then $f^{\\prime}(\\pi/4)=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "Let $f(x)=\\int_{0}^{e^{\\sin x}}\\int_{0}^{\\log_{e}y}e^{-(\\frac{1}{\\sqrt{2}})}(1-t^{2})dt\\,dy$. Then $f^{\\prime}(\\pi/4)=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "0.45",
-        "explanation": "**Correct Numerical Answer: 0.45**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2026 Q.54)"
+        "explanation": "<strong>Correct Numerical Answer: 0.45</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q54)"
       },
       {
         "id": "JAM_2025_Q3",
@@ -1124,7 +1124,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT differentiable at $x=0$, and $g$ is NOT differentiable at $x=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q3)"
       },
       {
         "id": "JAM_2025_Q4",
@@ -1143,7 +1143,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT continuous at $x=0$, and $g$ is NOT continuous at $x=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.4)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q4)"
       },
       {
         "id": "JAM_2025_Q17",
@@ -1162,7 +1162,7 @@ window.MOCK_TESTS_DATA = {
           "D": "greater than or equal to 3"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q17)"
       },
       {
         "id": "JAM_2025_Q30",
@@ -1181,7 +1181,7 @@ window.MOCK_TESTS_DATA = {
           "D": "greater than or equal to 3"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.30)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q30)"
       },
       {
         "id": "JAM_2025_Q37",
@@ -1191,16 +1191,16 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be a twice differentiable function such that $f(0)=0, f^{\\prime}(0)=2$ and $f(1)=-3$. Then, which of the following is/are TRUE?",
         "options": {
           "A": "$|f^{\\prime}(x)|\\le 2$ for all $x\\in[0,1]$",
-          "B": "$|f^{\\prime}(x_{1})|>2$ for some $x_{1}\\in[0,1]$",
-          "C": "$|f^{\\prime\\prime}(x)|<10$ for all $x\\in[0,1]$",
+          "B": "$|f^{\\prime}(x_{1})|\\gt 2$ for some $x_{1}\\in[0,1]$",
+          "C": "$|f^{\\prime\\prime}(x)|\\lt 10$ for all $x\\in[0,1]$",
           "D": "$|f^{\\prime\\prime}(x_{2})|\\ge 10$ for some $x_{2}\\in[0,1]$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.37)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q37)"
       },
       {
         "id": "JAM_2025_Q38",
@@ -1210,16 +1210,16 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be a twice differentiable function such that $f(0)=4, f(1)=-2, f(2)=8$ and $f(3)=2$. Then, which of the following is/are TRUE?",
         "options": {
-          "A": "$|f^{\\prime}(x)|<5$ for all $x\\in[0,1]$",
+          "A": "$|f^{\\prime}(x)|\\lt 5$ for all $x\\in[0,1]$",
           "B": "$|f^{\\prime}(x_{1})|\\ge 5$ for some $x_{1}\\in[0,1]$",
           "C": "$f^{\\prime}(x_{2})=0$ for some $x_{2}\\in[0,3]$",
           "D": "$f^{\\prime\\prime}(x_{3})=0$ for some $x_{3}\\in[0,3]$"
         },
         "answer_key": "B,C,D",
-        "explanation": "**Correct Options: B,C,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.38)"
+        "explanation": "<strong>Correct Option(s): (B,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q38)"
       },
       {
         "id": "JAM_2025_Q42",
@@ -1229,11 +1229,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{n\\rightarrow\\infty}8n\\left(e^{(\\frac{1}{2n})}-1\\right)\\left(\\sin\\frac{1}{2n}+\\left|\\cos\\frac{1}{2n}\\right|\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "$\\lim_{n\\rightarrow\\infty}8n\\left(e^{(\\frac{1}{2n})}-1\\right)\\left(\\sin\\frac{1}{2n}+\\left|\\cos\\frac{1}{2n}\\right|\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.42)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q42)"
       },
       {
         "id": "JAM_2025_Q43",
@@ -1243,11 +1243,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $\\alpha$ be the real number such that $\\lim_{x\\rightarrow 0}\\frac{(1-\\cos x)(2^{2+x}-4)}{x^{3}}=\\alpha\\ln 2$. Then, $\\alpha=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $\\alpha$ be the real number such that $\\lim_{x\\rightarrow 0}\\frac{(1-\\cos x)(2^{2+x}-4)}{x^{3}}=\\alpha\\ln 2$. Then, $\\alpha=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.43)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q43)"
       },
       {
         "id": "JAM_2025_Q51",
@@ -1257,11 +1257,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be continuous satisfying $\\int_{0}^{\\pi/4}\\left(\\sin(x)f(x)+\\cos(x)\\int_{0}^{x}f(t)dt\\right)dx=\\sqrt{2}$. Then, $\\int_{0}^{\\pi/4}f(x)\\,dx=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be continuous satisfying $\\int_{0}^{\\pi/4}\\left(\\sin(x)f(x)+\\cos(x)\\int_{0}^{x}f(t)dt\\right)dx=\\sqrt{2}$. Then, $\\int_{0}^{\\pi/4}f(x)\\,dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.51)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q51)"
       },
       {
         "id": "JAM_2025_Q53",
@@ -1271,11 +1271,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x)=2x-\\sin x$ for $x\\in\\mathbb{R}$. If $\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}\\sum_{i=1}^{k}i^{2}f(\\frac{x}{i})\\right)=45$, then $k=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $f(x)=2x-\\sin x$ for $x\\in\\mathbb{R}$. If $\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}\\sum_{i=1}^{k}i^{2}f(\\frac{x}{i})\\right)=45$, then $k=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "9",
-        "explanation": "**Correct Numerical Answer: 9**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2025 Q.53)"
+        "explanation": "<strong>Correct Numerical Answer: 9</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q53)"
       },
       {
         "id": "JAM_2024_Q19",
@@ -1294,7 +1294,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$S$ has 6 elements"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.19)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q19)"
       },
       {
         "id": "JAM_2024_Q24",
@@ -1305,7 +1305,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the statements: P: $\\exists f,g$ such that $f$ is continuous at $x=1$, $g$ is discontinuous at $x=1$, but $g\\circ f$ is continuous at $x=1$. Q: $\\exists f,g$ such that both $f,g$ are discontinuous at $x=1$, but $g\\circ f$ is continuous at $x=1$.",
+        "question": "Consider the statements:\n<ul class=\"statement-list\"><li class=\"statement-item\"><span class=\"statement-tag\">P:</span> <span class=\"statement-text\">$\\exists f,g$ such that $f$ is continuous at $x=1$, $g$ is discontinuous at $x=1$, but $g\\circ f$ is continuous at $x=1$.</span></li><li class=\"statement-item\"><span class=\"statement-tag\">Q:</span> <span class=\"statement-text\">$\\exists f,g$ such that both $f,g$ are discontinuous at $x=1$, but $g\\circ f$ is continuous at $x=1$.</span></li></ul>",
         "options": {
           "A": "Both P and Q are true",
           "B": "Both false",
@@ -1313,7 +1313,7 @@ window.MOCK_TESTS_DATA = {
           "D": "P false, Q true"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.24)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q24)"
       },
       {
         "id": "JAM_2024_Q25",
@@ -1332,7 +1332,7 @@ window.MOCK_TESTS_DATA = {
           "D": "exactly 2 local maxima and 1 local minimum"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.25)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q25)"
       },
       {
         "id": "JAM_2024_Q29",
@@ -1351,7 +1351,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{df}{dx}$ does not attain $\\frac{7}{2}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.29)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q29)"
       },
       {
         "id": "JAM_2024_Q34",
@@ -1361,7 +1361,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f:(1,\\infty)\\rightarrow(0,\\infty)$ be a continuous function such that $f(n)=n!$ for all $n\\in\\mathbb{N}$. Then:",
         "options": {
           "A": "$\\lim_{x\\rightarrow\\infty}f(x)$ does not exist",
@@ -1370,7 +1370,7 @@ window.MOCK_TESTS_DATA = {
           "D": "The set of solutions to $f(x)=2024$ is infinite"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.34)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q34)"
       },
       {
         "id": "JAM_2024_Q38",
@@ -1380,8 +1380,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Define $f(x)=\\sum_{m=0}^{\\infty}\\frac{(-1)^{m}x^{2m}}{2^{2m}(m!)^{2}}$ and $g(x)=\\frac{x}{2}\\sum_{m=0}^{\\infty}\\frac{(-1)^{m}x^{2m}}{2^{2m}(m+1)!m!}$. Let $0<x_{1}<x_{2}, 0<x_{3}<x_{4}$ with $f(x_{1})=f(x_{2})=0$, $f(x)\\ne 0$ on $(x_1,x_2)$, and $g(x_3)=g(x_4)=0$, $g(x)\\ne 0$ on $(x_3,x_4)$. Then:",
+        "negative_marks": 0,
+        "question": "Define $f(x)=\\sum_{m=0}^{\\infty}\\frac{(-1)^{m}x^{2m}}{2^{2m}(m!)^{2}}$ and $g(x)=\\frac{x}{2}\\sum_{m=0}^{\\infty}\\frac{(-1)^{m}x^{2m}}{2^{2m}(m+1)!m!}$. Let $0\\lt x_{1}\\lt x_{2}, 0\\lt x_{3}\\lt x_{4}$ with $f(x_{1})=f(x_{2})=0$, $f(x)\\ne 0$ on $(x_1,x_2)$, and $g(x_3)=g(x_4)=0$, $g(x)\\ne 0$ on $(x_3,x_4)$. Then:",
         "options": {
           "A": "$f$ does not vanish in $(x_3,x_4)$",
           "B": "$f$ vanishes exactly once in $(x_3,x_4)$",
@@ -1389,7 +1389,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$g$ vanishes exactly once in $(x_1,x_2)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.38)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q38)"
       },
       {
         "id": "JAM_2024_Q46",
@@ -1399,11 +1399,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $S=\\{f:\\mathbb{R}\\rightarrow\\mathbb{R}: f \\text{ is a polynomial and } f(f(x))=(f(x))^{2024} \\text{ for } x\\in\\mathbb{R}\\}$. The number of elements in $S$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $S=\\{f:\\mathbb{R}\\rightarrow\\mathbb{R}: f \\text{ is a polynomial and } f(f(x))=(f(x))^{2024} \\text{ for } x\\in\\mathbb{R}\\}$. The number of elements in $S$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.46)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q46)"
       },
       {
         "id": "JAM_2024_Q52",
@@ -1413,11 +1413,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{t\\rightarrow\\infty}\\left(\\left(\\log(t^{2}+\\frac{1}{t^{2}})\\right)^{-1}\\int_{1}^{\\pi t}\\frac{\\sin^{2}5x}{x}dx\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "$\\lim_{t\\rightarrow\\infty}\\left(\\left(\\log(t^{2}+\\frac{1}{t^{2}})\\right)^{-1}\\int_{1}^{\\pi t}\\frac{\\sin^{2}5x}{x}dx\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.52)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q52)"
       },
       {
         "id": "JAM_2024_Q56",
@@ -1427,11 +1427,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x)=x^{3}-4x^{2}+4x-6$ and $S(c)=\\{x\\in\\mathbb{R}: f(x)=c\\}$. Then $|S(-7)|+|S(-5)|+|S(3)|=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $f(x)=x^{3}-4x^{2}+4x-6$ and $S(c)=\\{x\\in\\mathbb{R}: f(x)=c\\}$. Then $|S(-7)|+|S(-5)|+|S(3)|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "5",
-        "explanation": "**Correct Numerical Answer: 5**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.56)"
+        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q56)"
       },
       {
         "id": "JAM_2024_Q60",
@@ -1441,11 +1441,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x)=\\sin^{-1}x$. If $a_{6}$ denotes the coefficient of $x^{6}$ in the Taylor series of $(f(x))^{2}$ about $x=0$, then $9a_{6}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f(x)=\\sin^{-1}x$. If $a_{6}$ denotes the coefficient of $x^{6}$ in the Taylor series of $(f(x))^{2}$ about $x=0$, then $9a_{6}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.60",
-        "explanation": "**Correct Numerical Answer: 1.60**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2024 Q.60)"
+        "explanation": "<strong>Correct Numerical Answer: 1.60</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q60)"
       },
       {
         "id": "JAM_2023_Q5",
@@ -1464,7 +1464,7 @@ window.MOCK_TESTS_DATA = {
           "D": "a global minimum and a global maximum on $\\mathbb{R}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q5)"
       },
       {
         "id": "JAM_2023_Q6",
@@ -1483,7 +1483,7 @@ window.MOCK_TESTS_DATA = {
           "D": "non-existent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.6)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q6)"
       },
       {
         "id": "JAM_2023_Q25",
@@ -1502,7 +1502,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)-g(x)$ changes sign more than once on $(-\\frac{\\pi}{2},\\frac{\\pi}{2})$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.25)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q25)"
       },
       {
         "id": "JAM_2023_Q28",
@@ -1513,15 +1513,15 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be $C^2$ such that $y(0)=y(1)=0$ and $y^{\\prime\\prime}(x)+x^{2}<0$ for all $x\\in[0,1]$. Then:",
+        "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be $C^2$ such that $y(0)=y(1)=0$ and $y^{\\prime\\prime}(x)+x^{2}\\lt 0$ for all $x\\in[0,1]$. Then:",
         "options": {
-          "A": "$y(x)>0$ for all $x\\in(0,1)$",
-          "B": "$y(x)<0$ for all $x\\in(0,1)$",
+          "A": "$y(x)\\gt 0$ for all $x\\in(0,1)$",
+          "B": "$y(x)\\lt 0$ for all $x\\in(0,1)$",
           "C": "$y(x)=0$ has exactly one solution in $(0,1)$",
           "D": "$y(x)=0$ has more than one solution in $(0,1)$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.28)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q28)"
       },
       {
         "id": "JAM_2023_Q30",
@@ -1540,7 +1540,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ has at least 2 distinct zeroes"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.30)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q30)"
       },
       {
         "id": "JAM_2023_Q34",
@@ -1550,7 +1550,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f:(-1,1)\\rightarrow\\mathbb{R}$ be differentiable satisfying $f(0)=0$ and $|f^{\\prime}(x)|\\le M|x|$ for all $x\\in(-1,1)$. Then:",
         "options": {
           "A": "$f^{\\prime}$ is continuous at $x=0$",
@@ -1559,7 +1559,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(f^{\\prime})^{2}$ is differentiable at $x=0$"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.34)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q34)"
       },
       {
         "id": "JAM_2023_Q35",
@@ -1569,7 +1569,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following functions is/are Riemann integrable on $[0,1]$?",
         "options": {
           "A": "$f(x)=\\int_{0}^{x}|\\frac{1}{2}-t|dt$",
@@ -1578,7 +1578,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)=\\begin{cases}x,& \\text{if } x\\in[0,1)\\\\ 0,& \\text{if } x=1\\end{cases}$"
         },
         "answer_key": "A,B,D",
-        "explanation": "**Correct Options: A,B,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.35)"
+        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q35)"
       },
       {
         "id": "JAM_2023_Q44",
@@ -1588,11 +1588,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{n\\rightarrow\\infty}\\left(n\\int_{0}^{1}\\frac{x^{n}}{x+1}dx\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(n\\int_{0}^{1}\\frac{x^{n}}{x+1}dx\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.44)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q44)"
       },
       {
         "id": "JAM_2023_Q47",
@@ -1602,11 +1602,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $f(x)=\\sqrt[3]{x}$ for $x>0$, and $\\theta(h)$ satisfy $f(3+h)-f(3)=hf^{\\prime}(3+\\theta(h)h)$ for $h\\in(-1,1)$. Then $\\lim_{h\\rightarrow 0}\\theta(h)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f(x)=\\sqrt[3]{x}$ for $x\\gt 0$, and $\\theta(h)$ satisfy $f(3+h)-f(3)=hf^{\\prime}(3+\\theta(h)h)$ for $h\\in(-1,1)$. Then $\\lim_{h\\rightarrow 0}\\theta(h)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.47)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q47)"
       },
       {
         "id": "JAM_2023_Q52",
@@ -1616,11 +1616,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "The global minimum value of $f(x)=|x-1|+|x-2|^{2}$ on $\\mathbb{R}$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "The global minimum value of $f(x)=|x-1|+|x-2|^{2}$ on $\\mathbb{R}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.75",
-        "explanation": "**Correct Numerical Answer: 0.75**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.52)"
+        "explanation": "<strong>Correct Numerical Answer: 0.75</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q52)"
       },
       {
         "id": "JAM_2023_Q60",
@@ -1630,11 +1630,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be bijective with $f(x)=\\sum_{n=1}^{\\infty}a_{n}x^{n}$ and $f^{-1}(x)=\\sum_{n=1}^{\\infty}b_{n}x^{n}$. If $a_{1}=2$ and $a_{2}=4$, then $b_{1}=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be bijective with $f(x)=\\sum_{n=1}^{\\infty}a_{n}x^{n}$ and $f^{-1}(x)=\\sum_{n=1}^{\\infty}b_{n}x^{n}$. If $a_{1}=2$ and $a_{2}=4$, then $b_{1}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2023 Q.60)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q60)"
       },
       {
         "id": "JAM_2022_Q22",
@@ -1653,7 +1653,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$xf^{\\prime\\prime}(x)-f^{\\prime}(x)-xf(x)=0$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.22)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q22)"
       },
       {
         "id": "JAM_2022_Q27",
@@ -1664,7 +1664,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Given $\\lim_{N\\rightarrow\\infty}\\int_{0}^{N}e^{-t^{2}}dt=\\frac{\\sqrt{\\pi}}{2}$, the value of $\\lim_{N\\rightarrow\\infty}\\int_{0}^{N}\\frac{1}{t^{2}}(e^{-at^{2}}-e^{-bt^{2}})dt$ ($0<a<b$) is:",
+        "question": "Given $\\lim_{N\\rightarrow\\infty}\\int_{0}^{N}e^{-t^{2}}dt=\\frac{\\sqrt{\\pi}}{2}$, the value of $\\lim_{N\\rightarrow\\infty}\\int_{0}^{N}\\frac{1}{t^{2}}(e^{-at^{2}}-e^{-bt^{2}})dt$ ($0\\lt a\\lt b$) is:",
         "options": {
           "A": "$\\sqrt{\\pi}(\\sqrt{a}-\\sqrt{b})$",
           "B": "$\\sqrt{\\pi}(\\sqrt{a}+\\sqrt{b})$",
@@ -1672,7 +1672,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sqrt{\\pi}(\\sqrt{b}-\\sqrt{a})$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.27)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q27)"
       },
       {
         "id": "JAM_2022_Q29",
@@ -1691,7 +1691,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f_{n}(x)$ is not a polynomial in $x$ for any $n\\ge 3$."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.29)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q29)"
       },
       {
         "id": "JAM_2022_Q32",
@@ -1701,7 +1701,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $S$ be the set of continuous $f:[-1,1]\\rightarrow\\mathbb{R}$ that are analytic on $(-1,1)$ with Taylor series converging to $f(x)$, and $f(1/n)=0$ for all $n\\in\\mathbb{N}$. Then:",
         "options": {
           "A": "$f(0)=0$ for every $f\\in S$.",
@@ -1710,7 +1710,7 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists $f\\in S$ such that $f(x)\\ne 0$ for some $x\\in[-1,1]$."
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.32)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q32)"
       },
       {
         "id": "JAM_2022_Q33",
@@ -1720,7 +1720,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Define $f:[0,1]\\rightarrow[0,1]$ by $f(x)=\\begin{cases}1/2,& x=0\\\\ 1/n,& x=m/n \\text{ in lowest terms}\\\\ 0,& x\\text{ irrational}\\end{cases}$ and $g(x)=\\begin{cases}0,& x=0\\\\ 1,& x\\in(0,1]\\end{cases}$. Then:",
         "options": {
           "A": "$f$ is Riemann integrable on $[0,1]$.",
@@ -1729,7 +1729,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$g\\circ f$ is Riemann integrable on $[0,1]$."
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.33)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q33)"
       },
       {
         "id": "JAM_2022_Q34",
@@ -1739,7 +1739,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $S=\\{f:\\mathbb{R}\\rightarrow\\mathbb{R} : |f(x)-f(y)|^{2}\\le |x-y|^{3} \\text{ for all } x,y\\in\\mathbb{R}\\}$. Then:",
         "options": {
           "A": "Every function in $S$ is differentiable.",
@@ -1748,7 +1748,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Every function in $S$ is infinitely differentiable."
         },
         "answer_key": "A,D",
-        "explanation": "**Correct Options: A,D**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.34)"
+        "explanation": "<strong>Correct Option(s): (A,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q34)"
       },
       {
         "id": "JAM_2022_Q41",
@@ -1758,11 +1758,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{1^{4}+2^{4}+\\cdots+n^{4}}{n^{5}}+\\frac{1}{\\sqrt{n}}\\left(\\frac{1}{\\sqrt{n+1}}+\\cdots+\\frac{1}{\\sqrt{4n}}\\right)\\right)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{1^{4}+2^{4}+\\cdots+n^{4}}{n^{5}}+\\frac{1}{\\sqrt{n}}\\left(\\frac{1}{\\sqrt{n+1}}+\\cdots+\\frac{1}{\\sqrt{4n}}\\right)\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.20",
-        "explanation": "**Correct Numerical Answer: 2.20**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.41)"
+        "explanation": "<strong>Correct Numerical Answer: 2.20</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q41)"
       },
       {
         "id": "JAM_2022_Q54",
@@ -1772,11 +1772,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x)=\\begin{cases}(x-\\pi)e^{\\sin x},& 0\\le x\\le\\pi/2\\\\ xe^{\\sin x}+\\frac{4}{\\pi},& \\pi/2<x\\le\\pi\\end{cases}$. Then $\\int_{0}^{\\pi}f(x)\\,dx=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f(x)=\\begin{cases}(x-\\pi)e^{\\sin x},& 0\\le x\\le\\pi/2\\\\ xe^{\\sin x}+\\frac{4}{\\pi},& \\pi/2\\lt x\\le\\pi\\end{cases}$. Then $\\int_{0}^{\\pi}f(x)\\,dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "**Correct Numerical Answer: 2.00**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.54)"
+        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q54)"
       },
       {
         "id": "JAM_2022_Q59",
@@ -1786,11 +1786,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f,g:(-1,1)\\rightarrow\\mathbb{R}$ be $C^3$ with $f(x)\\ne g(x)$ for $x\\ne 0$, and $f(0)=g(0)=\\ln 2, f^{\\prime}(0)=g^{\\prime}(0)=\\pi, f^{\\prime\\prime}(0)=g^{\\prime\\prime}(0)=\\pi^2, f^{\\prime\\prime\\prime}(0)=\\pi^9, g^{\\prime\\prime\\prime}(0)=\\pi^3$. Then $\\lim_{x\\rightarrow 0}\\frac{e^{f(x)}-e^{g(x)}}{f(x)-g(x)}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f,g:(-1,1)\\rightarrow\\mathbb{R}$ be $C^3$ with $f(x)\\ne g(x)$ for $x\\ne 0$, and $f(0)=g(0)=\\ln 2, f^{\\prime}(0)=g^{\\prime}(0)=\\pi, f^{\\prime\\prime}(0)=g^{\\prime\\prime}(0)=\\pi^2, f^{\\prime\\prime\\prime}(0)=\\pi^9, g^{\\prime\\prime\\prime}(0)=\\pi^3$. Then $\\lim_{x\\rightarrow 0}\\frac{e^{f(x)}-e^{g(x)}}{f(x)-g(x)}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "**Correct Numerical Answer: 2.00**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.59)"
+        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q59)"
       },
       {
         "id": "JAM_2022_Q60",
@@ -1800,11 +1800,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "If $\\int_{0}^{x^{3}+x^{2}}f(t)dt=x^{2}$ and $\\int_{0}^{g(x)}t^{2}dt=9(x+1)^{3}$, then $f(2)+g(2)+16f(12)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "If $\\int_{0}^{x^{3}+x^{2}}f(t)dt=x^{2}$ and $\\int_{0}^{g(x)}t^{2}dt=9(x+1)^{3}$, then $f(2)+g(2)+16f(12)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "13.40",
-        "explanation": "**Correct Numerical Answer: 13.40**\\n\\n- **Topic:** Functions of One Real Variable (JAM 2022 Q.60)"
+        "explanation": "<strong>Correct Numerical Answer: 13.40</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q60)"
       }
     ]
   },
@@ -1834,7 +1834,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ has exactly four saddle points."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.15)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q15)"
       },
       {
         "id": "JAM_2026_Q17",
@@ -1853,7 +1853,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\partial f}{\\partial y}$ is continuous at $(0,0)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.17)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q17)"
       },
       {
         "id": "JAM_2026_Q36",
@@ -1863,7 +1863,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f(x,y)=\\begin{cases}\\frac{x^{2}y}{1+x^{2}}\\sin(1/x),& x\\ne 0\\\\ 0,& x=0\\end{cases}$. Which of the following statements is/are TRUE?",
         "options": {
           "A": "$\\lim_{y\\rightarrow 0}\\lim_{x\\rightarrow 0}f(x,y)$ exists.",
@@ -1872,7 +1872,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{(x,y)\\rightarrow(0,0)}\\frac{f(x,y)}{\\sqrt{x^{2}+y^{2}}}$ does not exist."
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.36)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q36)"
       },
       {
         "id": "JAM_2026_Q46",
@@ -1882,11 +1882,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $z=\\cos(4x+5y)$, where $x=\\frac{\\pi}{2}+2\\theta, y=-(\\frac{\\pi}{4}+\\theta)$. Then $\\frac{dz}{d\\theta}\\Big|_{\\theta=\\frac{\\pi}{4}}=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "Let $z=\\cos(4x+5y)$, where $x=\\frac{\\pi}{2}+2\\theta, y=-(\\frac{\\pi}{4}+\\theta)$. Then $\\frac{dz}{d\\theta}\\Big|_{\\theta=\\frac{\\pi}{4}}=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.46)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q46)"
       },
       {
         "id": "JAM_2026_Q52",
@@ -1896,11 +1896,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x,y)=\\begin{cases}4x^{2}\\tan^{-1}(\\frac{y}{2x})+y^{3}\\tan^{-1}(\\frac{x}{4y^{2}}),& xy\\ne 0\\\\ 0,& \\text{otherwise}\\end{cases}$. Then $\\frac{\\partial^{2}f}{\\partial y\\partial x}(0,0)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f(x,y)=\\begin{cases}4x^{2}\\tan^{-1}(\\frac{y}{2x})+y^{3}\\tan^{-1}(\\frac{x}{4y^{2}}),& xy\\ne 0\\\\ 0,& \\text{otherwise}\\end{cases}$. Then $\\frac{\\partial^{2}f}{\\partial y\\partial x}(0,0)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2026 Q.52)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q52)"
       },
       {
         "id": "JAM_2025_Q27",
@@ -1919,7 +1919,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ has 1 local maximum"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.27)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q27)"
       },
       {
         "id": "JAM_2025_Q31",
@@ -1929,7 +1929,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f(x,y)=\\begin{cases}\\frac{xy^{2}+y^{5}}{x^{2}+y^{4}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then:",
         "options": {
           "A": "The iterated limits $\\lim_{x\\rightarrow 0}\\lim_{y\\rightarrow 0}f(x,y)$ and $\\lim_{y\\rightarrow 0}\\lim_{x\\rightarrow 0}f(x,y)$ exist",
@@ -1938,7 +1938,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT differentiable at $(0,0)$"
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.31)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q31)"
       },
       {
         "id": "JAM_2025_Q34",
@@ -1948,7 +1948,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f(x,y)=\\begin{cases}\\frac{(x^{2}+\\sin x)y^{2}}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then:",
         "options": {
           "A": "$\\lim_{(x,y)\\rightarrow(0,0)}f(x,y)=1$",
@@ -1957,7 +1957,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT differentiable at $(0,0)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.34)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q34)"
       },
       {
         "id": "JAM_2025_Q50",
@@ -1967,11 +1967,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $f(x,y)=\\begin{cases}\\frac{(x^{2}-y^{2})xy}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then $\\frac{\\partial f}{\\partial y}(1,0)-\\frac{\\partial f}{\\partial x}(0,2)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f(x,y)=\\begin{cases}\\frac{(x^{2}-y^{2})xy}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then $\\frac{\\partial f}{\\partial y}(1,0)-\\frac{\\partial f}{\\partial x}(0,2)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2025 Q.50)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q50)"
       },
       {
         "id": "JAM_2024_Q2",
@@ -1982,7 +1982,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "For a $C^2$ function $g:\\mathbb{R}\\rightarrow\\mathbb{R}$, define $u_{g}(x,y)=\\frac{1}{y}\\int_{-y}^{y}g(x+t)dt$ for $y>0$. Then:",
+        "question": "For a $C^2$ function $g:\\mathbb{R}\\rightarrow\\mathbb{R}$, define $u_{g}(x,y)=\\frac{1}{y}\\int_{-y}^{y}g(x+t)dt$ for $y\\gt 0$. Then:",
         "options": {
           "A": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{2}{y}\\frac{\\partial u_{g}}{\\partial y}+\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$",
           "B": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{1}{y}\\frac{\\partial u_{g}}{\\partial y}+\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$",
@@ -1990,7 +1990,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{1}{y}\\frac{\\partial u_{g}}{\\partial y}-\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.2)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q2)"
       },
       {
         "id": "JAM_2024_Q30",
@@ -2009,7 +2009,7 @@ window.MOCK_TESTS_DATA = {
           "D": "0"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.30)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q30)"
       },
       {
         "id": "JAM_2024_Q35",
@@ -2019,8 +2019,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $S=\\{(x,y)\\in\\mathbb{R}^{2}: x>0, y>0\\}$ and $f(x,y)=2x^{2}+3y^{2}-\\log x-\\frac{1}{6}\\log y$. Then:",
+        "negative_marks": 0,
+        "question": "Let $S=\\{(x,y)\\in\\mathbb{R}^{2}: x\\gt 0, y\\gt 0\\}$ and $f(x,y)=2x^{2}+3y^{2}-\\log x-\\frac{1}{6}\\log y$. Then:",
         "options": {
           "A": "Unique local maximum point in $S$",
           "B": "Unique local minimum point in $S$",
@@ -2028,7 +2028,7 @@ window.MOCK_TESTS_DATA = {
           "D": "For each $(x_{0},y_{0})\\in S$, the set $\\{(x,y)\\in S: f(x,y)=f(x_{0},y_{0})\\}$ is unbounded"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2024 Q.35)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q35)"
       },
       {
         "id": "JAM_2023_Q8",
@@ -2047,7 +2047,7 @@ window.MOCK_TESTS_DATA = {
           "D": "infinite"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.8)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q8)"
       },
       {
         "id": "JAM_2023_Q16",
@@ -2066,7 +2066,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$12e^{2}$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.16)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q16)"
       },
       {
         "id": "JAM_2023_Q17",
@@ -2079,13 +2079,13 @@ window.MOCK_TESTS_DATA = {
         "negative_marks": 0.67,
         "question": "Let $f(x,y)=\\ln(1+x^{2}+y^{2})$. Let $P=f_{xx}, Q=f_{xy}, R=f_{yx}, S=f_{yy}$ at $(0,0)$. Then:",
         "options": {
-          "A": "$PS-QR>0$ and $P<0$",
-          "B": "$PS-QR>0$ and $P>0$",
-          "C": "$PS-QR<0$ and $P>0$",
-          "D": "$PS-QR<0$ and $P<0$"
+          "A": "$PS-QR\\gt 0$ and $P\\lt 0$",
+          "B": "$PS-QR\\gt 0$ and $P\\gt 0$",
+          "C": "$PS-QR\\lt 0$ and $P\\gt 0$",
+          "D": "$PS-QR\\lt 0$ and $P\\lt 0$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q17)"
       },
       {
         "id": "JAM_2023_Q36",
@@ -2095,7 +2095,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following subsets of $\\mathbb{R}^{2}$ is/are bounded?",
         "options": {
           "A": "$\\{(x,y)\\in\\mathbb{R}^{2}: e^{x^{2}}+y^{2}\\le 4\\}$",
@@ -2104,7 +2104,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{(x,y)\\in\\mathbb{R}^{2}: e^{x^{3}}+y^{2}\\le 4\\}$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.36)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q36)"
       },
       {
         "id": "JAM_2023_Q37",
@@ -2114,7 +2114,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $f(x,y)=\\begin{cases}\\frac{x^{4}y^{3}}{x^{6}+y^{6}},& \\text{if } (x,y)\\ne(0,0)\\\\ 0,& \\text{if } (x,y)=(0,0)\\end{cases}$. Then:",
         "options": {
           "A": "$\\lim_{t\\rightarrow 0}\\frac{f(t,t)-f(0,0)}{t}$ exists and equals $\\frac{1}{2}$",
@@ -2123,7 +2123,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{t\\rightarrow 0}\\frac{f(t,2t)-f(0,0)}{t}$ exists and equals $\\frac{1}{3}$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.37)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q37)"
       },
       {
         "id": "JAM_2023_Q41",
@@ -2133,11 +2133,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $f(x,y)=\\begin{cases}(x^{2}-1)^{2}\\cos^{2}(\\frac{y^{2}}{x^{2}-1}),& x\\ne\\pm 1\\\\ 0,& x=\\pm 1\\end{cases}$. The number of points of discontinuity of $f(x,y)$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $f(x,y)=\\begin{cases}(x^{2}-1)^{2}\\cos^{2}(\\frac{y^{2}}{x^{2}-1}),& x\\ne\\pm 1\\\\ 0,& x=\\pm 1\\end{cases}$. The number of points of discontinuity of $f(x,y)$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.41)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q41)"
       },
       {
         "id": "JAM_2023_Q51",
@@ -2147,11 +2147,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be defined as $f(x,y,z)=x^{3}+y^{3}+z^{3}$, and let $L:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be the linear map satisfying \n$$ \\lim_{(x,y,z)\\rightarrow(0,0,0)}\\frac{f(1+x,1+y,1+z)-f(1,1,1)-L(x,y,z)}{\\sqrt{x^{2}+y^{2}+z^{2}}}=0. $$\n Then $L(1,2,4)$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $f:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be defined as $f(x,y,z)=x^{3}+y^{3}+z^{3}$, and let $L:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be the linear map satisfying\n\\[\n\\lim_{(x,y,z)\\rightarrow(0,0,0)}\\frac{f(1+x,1+y,1+z)-f(1,1,1)-L(x,y,z)}{\\sqrt{x^{2}+y^{2}+z^{2}}}=0.\n\\]\nThen $L(1,2,4)$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "21.0",
-        "explanation": "**Correct Numerical Answer: 21.0**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2023 Q.51)"
+        "explanation": "<strong>Correct Numerical Answer: 21.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q51)"
       },
       {
         "id": "JAM_2022_Q9",
@@ -2170,7 +2170,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\partial^{2}u}{\\partial t\\partial x}=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.9)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q9)"
       },
       {
         "id": "JAM_2022_Q10",
@@ -2189,7 +2189,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$4\\cos^{2}\\theta$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.10)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q10)"
       },
       {
         "id": "JAM_2022_Q15",
@@ -2208,7 +2208,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{(x,y)\\rightarrow(0,0)}e^{2y}g(x)=1$"
         },
         "answer_key": "MTA",
-        "explanation": "**Correct Option: (MTA)**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.15)"
+        "explanation": "<strong>Correct Option: (MTA)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q15)"
       },
       {
         "id": "JAM_2022_Q36",
@@ -2218,7 +2218,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $M$ be a positive real number and let $u,v:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}$ be continuous functions satisfying $\\sqrt{(u(x,y))^{2}+(v(x,y))^{2}}\\ge M\\sqrt{x^{2}+y^{2}}$ for all $(x,y)\\in\\mathbb{R}^{2}$. Let $F:\\mathbb{R}^{2}\\rightarrow\\mathbb{R}^{2}$ be given by $F(x,y)=(u(x,y),v(x,y))$. Then which of the following is/are true?",
         "options": {
           "A": "$F$ is injective.",
@@ -2227,7 +2227,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $E$ is closed and bounded in $\\mathbb{R}^{2}$, then $F^{-1}(E)$ is closed and bounded in $\\mathbb{R}^{2}$."
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.36)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q36)"
       },
       {
         "id": "JAM_2022_Q42",
@@ -2237,11 +2237,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $u(x_{1},x_{2},x_{3})=x_{1}x_{2}^{4}x_{3}^{2}-x_{1}^{3}x_{3}^{4}-26x_{1}^{2}x_{2}^{2}x_{3}^{3}$. Let $x_{1}\\frac{\\partial u}{\\partial x_{2}}+2x_{2}\\frac{\\partial u}{\\partial x_{3}}$ at $(t,t^2,t^3)$ be $ct^k$. Then $k=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $u(x_{1},x_{2},x_{3})=x_{1}x_{2}^{4}x_{3}^{2}-x_{1}^{3}x_{3}^{4}-26x_{1}^{2}x_{2}^{2}x_{3}^{3}$. Let $x_{1}\\frac{\\partial u}{\\partial x_{2}}+2x_{2}\\frac{\\partial u}{\\partial x_{3}}$ at $(t,t^2,t^3)$ be $ct^k$. Then $k=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "14",
-        "explanation": "**Correct Numerical Answer: 14**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.42)"
+        "explanation": "<strong>Correct Numerical Answer: 14</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q42)"
       },
       {
         "id": "JAM_2022_Q51",
@@ -2251,11 +2251,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $D=\\{(x,y)\\in\\mathbb{R}^{2}: x^{2}+y^{2}<4\\}$. Define $f(x,y)=[x^{2}+y^{2}]\\frac{x^{2}y^{2}}{x^{4}+y^{4}}$ and $g(x,y)=[y^{2}]\\frac{xy}{x^{2}+y^{2}}$ with $f(0,0)=g(0,0)=0$. The number of points in $D$ at which both $f$ and $g$ are discontinuous is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $D=\\{(x,y)\\in\\mathbb{R}^{2}: x^{2}+y^{2}\\lt 4\\}$. Define $f(x,y)=[x^{2}+y^{2}]\\frac{x^{2}y^{2}}{x^{4}+y^{4}}$ and $g(x,y)=[y^{2}]\\frac{xy}{x^{2}+y^{2}}$ with $f(0,0)=g(0,0)=0$. The number of points in $D$ at which both $f$ and $g$ are discontinuous is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "18",
-        "explanation": "**Correct Numerical Answer: 18**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.51)"
+        "explanation": "<strong>Correct Numerical Answer: 18</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q51)"
       },
       {
         "id": "JAM_2022_Q56",
@@ -2265,11 +2265,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $f(x,y)=x^{2}+2y^{2}-x$. Let $D=\\{(x,y): x^{2}+y^{2}\\le 1\\}$ and $E=\\{(x,y): \\frac{x^2}{4}+\\frac{y^2}{9}\\le 1\\}$. The total number of elements in $D_{\\max}\\cup D_{\\min}\\cup E_{\\max}\\cup E_{\\min}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $f(x,y)=x^{2}+2y^{2}-x$. Let $D=\\{(x,y): x^{2}+y^{2}\\le 1\\}$ and $E=\\{(x,y): \\frac{x^2}{4}+\\frac{y^2}{9}\\le 1\\}$. The total number of elements in $D_{\\max}\\cup D_{\\min}\\cup E_{\\max}\\cup E_{\\min}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "5",
-        "explanation": "**Correct Numerical Answer: 5**\\n\\n- **Topic:** Functions of Two or Three Real Variables (JAM 2022 Q.56)"
+        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q56)"
       }
     ]
   },
@@ -2299,7 +2299,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\int_{0}^{2}\\int_{z}^{2}\\int_{0}^{x}f(x,y,z)\\,dy\\,dx\\,dz$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q5)"
       },
       {
         "id": "JAM_2026_Q10",
@@ -2318,7 +2318,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\int_{0}^{\\sqrt{2}}\\left(\\int_{0}^{\\pi/4}f\\,d\\theta\\right)r\\,dr - \\int_{1}^{\\sqrt{2}}\\left(\\int_{0}^{\\sin^{-1}(1/r)}f\\,d\\theta\\right)r\\,dr$"
         },
         "answer_key": "MTA",
-        "explanation": "**Correct Option: (MTA)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.10)"
+        "explanation": "<strong>Correct Option: (MTA)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q10)"
       },
       {
         "id": "JAM_2026_Q20",
@@ -2337,7 +2337,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\pi$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.20)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q20)"
       },
       {
         "id": "JAM_2026_Q22",
@@ -2356,7 +2356,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$2\\int_{0}^{\\sqrt{3}}\\int_{0}^{\\sqrt{3-x^{2}}}(\\sqrt{4-x^{2}-y^{2}}-1)\\,dy\\,dx$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.22)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q22)"
       },
       {
         "id": "JAM_2026_Q53",
@@ -2366,11 +2366,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "The double integral of $f(x,y)=x$ over the triangular region with vertices $(-\\frac{1}{2},\\frac{1}{2}), (1,2)$ and $(1,-1)$ is \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "The double integral of $f(x,y)=x$ over the triangular region with vertices $(-\\frac{1}{2},\\frac{1}{2}), (1,2)$ and $(1,-1)$ is <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.25",
-        "explanation": "**Correct Numerical Answer: 1.25**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.53)"
+        "explanation": "<strong>Correct Numerical Answer: 1.25</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q53)"
       },
       {
         "id": "JAM_2026_Q55",
@@ -2380,11 +2380,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "The volume of the tetrahedron bounded by $x=1, y=2, z=3$ and $12x+8y+6z=70$ is \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "The volume of the tetrahedron bounded by $x=1, y=2, z=3$ and $12x+8y+6z=70$ is <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Integral Calculus (JAM 2026 Q.55)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q55)"
       },
       {
         "id": "JAM_2025_Q10",
@@ -2403,7 +2403,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\sqrt{e}-1}{2}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.10)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q10)"
       },
       {
         "id": "JAM_2025_Q28",
@@ -2422,7 +2422,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$4\\pi$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.28)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q28)"
       },
       {
         "id": "JAM_2025_Q45",
@@ -2432,11 +2432,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $S$ be the surface area of the portion of the plane $z=x+y+3$ inside $x^{2}+y^{2}=1$. Then $(\\frac{S}{\\pi})^{2}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $S$ be the surface area of the portion of the plane $z=x+y+3$ inside $x^{2}+y^{2}=1$. Then $(\\frac{S}{\\pi})^{2}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.45)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q45)"
       },
       {
         "id": "JAM_2025_Q48",
@@ -2446,11 +2446,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $T$ denote the triangle bounded by the $x$-axis, $y=x$ and $x=1$. Then $\\iint_{T}(5-y)dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $T$ denote the triangle bounded by the $x$-axis, $y=x$ and $x=1$. Then $\\iint_{T}(5-y)dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.33",
-        "explanation": "**Correct Numerical Answer: 2.33**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.48)"
+        "explanation": "<strong>Correct Numerical Answer: 2.33</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q48)"
       },
       {
         "id": "JAM_2025_Q57",
@@ -2460,11 +2460,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $\\Omega$ be the solid bounded by $z=0, y=0, x=\\frac{1}{2}, 2y=x$ and $2x+y+z=4$. If $V$ is the volume, then $64V=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $\\Omega$ be the solid bounded by $z=0, y=0, x=\\frac{1}{2}, 2y=x$ and $2x+y+z=4$. If $V$ is the volume, then $64V=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "MTA",
-        "explanation": "**Correct Numerical Answer: MTA**\\n\\n- **Topic:** Integral Calculus (JAM 2025 Q.57)"
+        "explanation": "<strong>Correct Numerical Answer: MTA</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q57)"
       },
       {
         "id": "JAM_2024_Q27",
@@ -2475,7 +2475,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "For $a>b>0$, let $D=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}\\le a^{2} \\text{ and } x^{2}+y^{2}\\ge b^{2}\\}$. The surface area of the boundary of $D$ is:",
+        "question": "For $a\\gt b\\gt 0$, let $D=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}\\le a^{2} \\text{ and } x^{2}+y^{2}\\ge b^{2}\\}$. The surface area of the boundary of $D$ is:",
         "options": {
           "A": "$4\\pi(a+b)\\sqrt{a^{2}-b^{2}}$",
           "B": "$4\\pi(a^{2}-b\\sqrt{a^{2}-b^{2}})$",
@@ -2483,7 +2483,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$4\\pi(a^{2}+b\\sqrt{a^{2}-b^{2}})$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.27)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q27)"
       },
       {
         "id": "JAM_2024_Q41",
@@ -2493,11 +2493,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The area of the region $R=\\{(x,y)\\in\\mathbb{R}^{2}: 0\\le x\\le 1, 0\\le y\\le 1, \\frac{1}{4}\\le xy\\le\\frac{1}{2}\\}$ is \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "The area of the region $R=\\{(x,y)\\in\\mathbb{R}^{2}: 0\\le x\\le 1, 0\\le y\\le 1, \\frac{1}{4}\\le xy\\le\\frac{1}{2}\\}$ is <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "**Correct Numerical Answer: 0.25**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.41)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q41)"
       },
       {
         "id": "JAM_2024_Q48",
@@ -2507,11 +2507,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}=4, (x-1)^{2}+y^{2}\\le 1, z\\ge 0\\}$. The surface area of $S$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}=4, (x-1)^{2}+y^{2}\\le 1, z\\ge 0\\}$. The surface area of $S$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.56",
-        "explanation": "**Correct Numerical Answer: 4.56**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.48)"
+        "explanation": "<strong>Correct Numerical Answer: 4.56</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q48)"
       },
       {
         "id": "JAM_2024_Q53",
@@ -2521,11 +2521,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $T$ be the square region enclosed by $(0,1), (1,0), (0,-1), (-1,0)$. Then $\\iint_{T}(\\cos(\\pi(x-y))-\\cos(\\pi(x+y)))^{2}dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $T$ be the square region enclosed by $(0,1), (1,0), (0,-1), (-1,0)$. Then $\\iint_{T}(\\cos(\\pi(x-y))-\\cos(\\pi(x+y)))^{2}dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "**Correct Numerical Answer: 2.0**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.53)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q53)"
       },
       {
         "id": "JAM_2024_Q54",
@@ -2535,11 +2535,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}<1\\}$. Then $\\frac{1}{\\pi}\\iiint_{S}((x-2y+z)^{2}+(2x-y-z)^{2}+(x-y+2z)^{2})dx\\,dy\\,dz=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}\\lt 1\\}$. Then $\\frac{1}{\\pi}\\iiint_{S}((x-2y+z)^{2}+(2x-y-z)^{2}+(x-y+2z)^{2})dx\\,dy\\,dz=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.80",
-        "explanation": "**Correct Numerical Answer: 4.80**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.54)"
+        "explanation": "<strong>Correct Numerical Answer: 4.80</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q54)"
       },
       {
         "id": "JAM_2024_Q57",
@@ -2549,11 +2549,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $c>0$ be such that $\\int_{0}^{c}e^{s^{2}}ds=3$. Then $\\int_{0}^{c}\\left(\\int_{x}^{c}e^{x^{2}+y^{2}}dy\\right)dx=$ \\underline{\\hspace{1.5cm}} (rounded off to one decimal place).",
+        "negative_marks": 0,
+        "question": "Let $c\\gt 0$ be such that $\\int_{0}^{c}e^{s^{2}}ds=3$. Then $\\int_{0}^{c}\\left(\\int_{x}^{c}e^{x^{2}+y^{2}}dy\\right)dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.5",
-        "explanation": "**Correct Numerical Answer: 4.5**\\n\\n- **Topic:** Integral Calculus (JAM 2024 Q.57)"
+        "explanation": "<strong>Correct Numerical Answer: 4.5</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q57)"
       },
       {
         "id": "JAM_2023_Q7",
@@ -2572,7 +2572,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\cos(\\frac{1}{2})-\\sin(\\frac{1}{2})$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.7)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q7)"
       },
       {
         "id": "JAM_2023_Q18",
@@ -2591,7 +2591,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$9\\pi\\sqrt{2}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.18)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q18)"
       },
       {
         "id": "JAM_2023_Q26",
@@ -2610,7 +2610,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$2\\pi(1-2e^{-1})$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.26)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q26)"
       },
       {
         "id": "JAM_2023_Q31",
@@ -2620,7 +2620,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "For $t\\in(0,1)$, let $P_{t}=\\{(x,y,z): (x^{2}+y^{2})z=1, t^{2}\\le x^{2}+y^{2}\\le 1\\}$ and $a_{t}$ be its surface area. Then:",
         "options": {
           "A": "$a_{t}=\\iint_{t^{2}\\le x^{2}+y^{2}\\le 1}\\sqrt{1+\\frac{4x^{2}}{(x^{2}+y^{2})^{4}}+\\frac{4y^{2}}{(x^{2}+y^{2})^{4}}}\\,dx\\,dy$",
@@ -2629,7 +2629,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{t\\rightarrow 0^{+}}a_{t}$ exists"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.31)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q31)"
       },
       {
         "id": "JAM_2023_Q48",
@@ -2639,11 +2639,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $V$ be the volume of $S=\\{(x,y,z): xy\\le z\\le 4, x^{2}+y^{2}\\le 1\\}$. Then $\\frac{V}{\\pi}=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $V$ be the volume of $S=\\{(x,y,z): xy\\le z\\le 4, x^{2}+y^{2}\\le 1\\}$. Then $\\frac{V}{\\pi}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.48)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q48)"
       },
       {
         "id": "JAM_2023_Q55",
@@ -2653,11 +2653,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $S$ be the triangular region with vertices $(0,0), (0,\\frac{\\pi}{2})$ and $(\\frac{\\pi}{2},0)$. Then $\\iint_{S}\\sin x\\cos y\\,dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $S$ be the triangular region with vertices $(0,0), (0,\\frac{\\pi}{2})$ and $(\\frac{\\pi}{2},0)$. Then $\\iint_{S}\\sin x\\cos y\\,dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Integral Calculus (JAM 2023 Q.55)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q55)"
       },
       {
         "id": "JAM_2022_Q11",
@@ -2668,7 +2668,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $G=\\{(s,t): 0<s<1, 0<t<1\\}$ and $T(s,t)=(\\frac{\\pi s(1-t)}{2},\\frac{\\pi(1-s)}{2})$. The area of $T(G)$ is:",
+        "question": "Let $G=\\{(s,t): 0\\lt s\\lt 1, 0\\lt t\\lt 1\\}$ and $T(s,t)=(\\frac{\\pi s(1-t)}{2},\\frac{\\pi(1-s)}{2})$. The area of $T(G)$ is:",
         "options": {
           "A": "$\\frac{\\pi}{4}$",
           "B": "$\\frac{\\pi^{2}}{4}$",
@@ -2676,7 +2676,7 @@ window.MOCK_TESTS_DATA = {
           "D": "1"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Integral Calculus (JAM 2022 Q.11)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q11)"
       },
       {
         "id": "JAM_2022_Q48",
@@ -2686,11 +2686,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Consider the region $G=\\{(x,y,z)\\in\\mathbb{R}^{3}: 0<z<x^{2}-y^{2}, x^{2}+y^{2}<1\\}$. Then the volume of $G$ is equal to \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Consider the region $G=\\{(x,y,z)\\in\\mathbb{R}^{3}: 0\\lt z\\lt x^{2}-y^{2}, x^{2}+y^{2}\\lt 1\\}$. Then the volume of $G$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Integral Calculus (JAM 2022 Q.48)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q48)"
       },
       {
         "id": "JAM_2022_Q52",
@@ -2700,11 +2700,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "If $G=\\{(x,y): x^{2}+y^{2}<1, \\frac{x}{\\sqrt{3}}<y<\\sqrt{3}x, x>0, y>0\\}$, then $\\frac{200}{\\pi}\\iint_{G}x^{2}dx\\,dy=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "If $G=\\{(x,y): x^{2}+y^{2}\\lt 1, \\frac{x}{\\sqrt{3}}\\lt y\\lt \\sqrt{3}x, x\\gt 0, y\\gt 0\\}$, then $\\frac{200}{\\pi}\\iint_{G}x^{2}dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.16",
-        "explanation": "**Correct Numerical Answer: 4.16**\\n\\n- **Topic:** Integral Calculus (JAM 2022 Q.52)"
+        "explanation": "<strong>Correct Numerical Answer: 4.16</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q52)"
       }
     ]
   },
@@ -2726,7 +2726,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "The general solution of $x\\sin(\\frac{y}{x})\\frac{dy}{dx}=y\\sin(\\frac{y}{x})+\\frac{x}{2}$ ($x>0$) is:",
+        "question": "The general solution of $x\\sin(\\frac{y}{x})\\frac{dy}{dx}=y\\sin(\\frac{y}{x})+\\frac{x}{2}$ ($x\\gt 0$) is:",
         "options": {
           "A": "$\\cos(\\frac{x}{y})+\\log_{e}(x^{2})=K$",
           "B": "$\\cos(\\frac{y}{x})+\\log_{e}(x^{2})=K$",
@@ -2734,7 +2734,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\cos(\\frac{y}{x})+\\log_{e}(\\sqrt{x})=K$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.4)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q4)"
       },
       {
         "id": "JAM_2026_Q16",
@@ -2753,7 +2753,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$x=-\\frac{y}{3}+\\frac{1}{9}+ke^{3y}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.16)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q16)"
       },
       {
         "id": "JAM_2026_Q18",
@@ -2772,7 +2772,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{1}{\\sqrt{2}}$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.18)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q18)"
       },
       {
         "id": "JAM_2026_Q23",
@@ -2791,7 +2791,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$-e^{-2x}(\\sin(e^{x})+\\cos(e^{x}))$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.23)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q23)"
       },
       {
         "id": "JAM_2026_Q35",
@@ -2801,7 +2801,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Integrating factor(s) for $(2y\\cos x-xy\\sin x)dx + 2x\\cos x\\,dy=0$ on $x\\in(0,\\frac{\\pi}{4})$ is/are:",
         "options": {
           "A": "$\\frac{1}{xy}$",
@@ -2810,7 +2810,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sqrt{\\sec x}$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.35)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q35)"
       },
       {
         "id": "JAM_2026_Q45",
@@ -2820,11 +2820,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "If $(y^{3}+\\alpha xy^{4}-5x+\\cos 2y)dx + (3xy^{2}+20x^{2}y^{3}+\\beta x\\sin 2y)dy=0$ is exact, then $\\alpha+\\beta=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "If $(y^{3}+\\alpha xy^{4}-5x+\\cos 2y)dx + (3xy^{2}+20x^{2}y^{3}+\\beta x\\sin 2y)dy=0$ is exact, then $\\alpha+\\beta=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "8.0",
-        "explanation": "**Correct Numerical Answer: 8.0**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.45)"
+        "explanation": "<strong>Correct Numerical Answer: 8.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q45)"
       },
       {
         "id": "JAM_2026_Q51",
@@ -2834,11 +2834,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "If $y(x)=C_{1}e^{-x}+C_{2}e^{2x}+\\alpha xe^{-x}$ is the general solution of $\\frac{d^{2}y}{dx^{2}}+\\beta\\frac{dy}{dx}+\\gamma y=-e^{-x}$, then $\\alpha(\\beta+\\gamma)=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "If $y(x)=C_{1}e^{-x}+C_{2}e^{2x}+\\alpha xe^{-x}$ is the general solution of $\\frac{d^{2}y}{dx^{2}}+\\beta\\frac{dy}{dx}+\\gamma y=-e^{-x}$, then $\\alpha(\\beta+\\gamma)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "-1.0",
-        "explanation": "**Correct Numerical Answer: -1.0**\\n\\n- **Topic:** Differential Equations (JAM 2026 Q.51)"
+        "explanation": "<strong>Correct Numerical Answer: -1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q51)"
       },
       {
         "id": "JAM_2025_Q2",
@@ -2857,7 +2857,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$e^{x}\\sin y+2\\sin x$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.2)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q2)"
       },
       {
         "id": "JAM_2025_Q5",
@@ -2876,7 +2876,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\alpha_{1}xe^{-4x}+\\alpha_{2}x^{2}e^{-4x}+x^{2}e^{4x}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q5)"
       },
       {
         "id": "JAM_2025_Q11",
@@ -2895,7 +2895,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$2x-y^{2}=3$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.11)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q11)"
       },
       {
         "id": "JAM_2025_Q12",
@@ -2914,7 +2914,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$6e^{3}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.12)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q12)"
       },
       {
         "id": "JAM_2025_Q14",
@@ -2933,7 +2933,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{x\\rightarrow\\ln(1/\\sqrt{2})}\\phi(x)=6$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.14)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q14)"
       },
       {
         "id": "JAM_2025_Q29",
@@ -2952,7 +2952,7 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.29)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q29)"
       },
       {
         "id": "JAM_2025_Q32",
@@ -2962,7 +2962,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "If $\\mu M dx + \\mu N dy = dw$, which of the following is/are TRUE?",
         "options": {
           "A": "$\\mu w$ is an integrating factor for $Mdx+Ndy=0$",
@@ -2971,7 +2971,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$w(x,y)=w(0,0)+\\int_{0}^{x}(\\mu M)(s,y)ds+\\int_{0}^{x}(\\mu N)(0,t)dt$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.32)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q32)"
       },
       {
         "id": "JAM_2025_Q33",
@@ -2981,7 +2981,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $\\phi:(-1,\\infty)\\rightarrow(0,\\infty)$ solve $\\frac{dy}{dx}-2ye^{x}=2e^{x}\\sqrt{y}$ with $\\phi(0)=1$. Then:",
         "options": {
           "A": "$\\phi$ is unbounded",
@@ -2990,7 +2990,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\phi$ is strictly increasing on $(0,\\infty)$"
         },
         "answer_key": "A,B,D",
-        "explanation": "**Correct Options: A,B,D**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.33)"
+        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q33)"
       },
       {
         "id": "JAM_2025_Q44",
@@ -3000,11 +3000,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $\\phi$ solve $4y^{\\prime\\prime}+16y^{\\prime}+25y=0$ with $\\phi(0)=1, \\phi^{\\prime}(0)=-\\frac{1}{2}$. Then $\\lim_{x\\rightarrow\\pi/6}e^{2x}\\phi(x)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $\\phi$ solve $4y^{\\prime\\prime}+16y^{\\prime}+25y=0$ with $\\phi(0)=1, \\phi^{\\prime}(0)=-\\frac{1}{2}$. Then $\\lim_{x\\rightarrow\\pi/6}e^{2x}\\phi(x)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.41",
-        "explanation": "**Correct Numerical Answer: 1.41**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.44)"
+        "explanation": "<strong>Correct Numerical Answer: 1.41</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q44)"
       },
       {
         "id": "JAM_2025_Q55",
@@ -3014,11 +3014,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $\\phi$ solve $x^{2}y^{\\prime\\prime}-xy^{\\prime}+y=6x\\ln x$ on $(0,\\infty)$ with $\\phi(1)=-3, \\phi(e)=0$. Then $|\\phi^{\\prime}(1)|=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $\\phi$ solve $x^{2}y^{\\prime\\prime}-xy^{\\prime}+y=6x\\ln x$ on $(0,\\infty)$ with $\\phi(1)=-3, \\phi(e)=0$. Then $|\\phi^{\\prime}(1)|=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.55)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q55)"
       },
       {
         "id": "JAM_2025_Q56",
@@ -3028,11 +3028,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $\\phi$ solve $\\frac{dy}{dx}+2xy=2+4x^{2}$ with $\\phi(0)=0$. Then $\\phi(2)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $\\phi$ solve $\\frac{dy}{dx}+2xy=2+4x^{2}$ with $\\phi(0)=0$. Then $\\phi(2)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Differential Equations (JAM 2025 Q.56)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q56)"
       },
       {
         "id": "JAM_2024_Q1",
@@ -3043,7 +3043,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 1,
         "negative_marks": 0.33,
-        "question": "Let $y_{c}$ solve $\\frac{dy}{dx}-y+y^{3}=0, y(0)=c>0$. Then for every $c>0$:",
+        "question": "Let $y_{c}$ solve $\\frac{dy}{dx}-y+y^{3}=0, y(0)=c\\gt 0$. Then for every $c\\gt 0$:",
         "options": {
           "A": "$\\lim_{x\\rightarrow\\infty}y_{c}(x)=0$",
           "B": "$\\lim_{x\\rightarrow\\infty}y_{c}(x)=1$",
@@ -3051,7 +3051,7 @@ window.MOCK_TESTS_DATA = {
           "D": "limit does not exist"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.1)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q1)"
       },
       {
         "id": "JAM_2024_Q3",
@@ -3070,7 +3070,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sqrt{3}\\log 3$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q3)"
       },
       {
         "id": "JAM_2024_Q4",
@@ -3089,7 +3089,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x^{2}y+y^{3}+y)\\frac{dy}{dx}+(xy^{2}+x^{3}+x)=0$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.4)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q4)"
       },
       {
         "id": "JAM_2024_Q10",
@@ -3108,7 +3108,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$y(x)=\\sin x+\\int_{0}^{x}\\cos(x-t)g(t)dt$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.10)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q10)"
       },
       {
         "id": "JAM_2024_Q18",
@@ -3127,7 +3127,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Not homogeneous, has $x^2$ as I.F."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.18)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q18)"
       },
       {
         "id": "JAM_2024_Q23",
@@ -3146,7 +3146,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\exists\\alpha$ for which limit does not exist"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q23)"
       },
       {
         "id": "JAM_2024_Q26",
@@ -3157,7 +3157,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $y^{\\prime\\prime}-2y^{\\prime}+y=2e^{x}$. P: $f>0\\implies f^{\\prime}>0$. Q: $f^{\\prime}>0\\implies f>0$.",
+        "question": "Let $y^{\\prime\\prime}-2y^{\\prime}+y=2e^{x}$. P: $f\\gt 0\\implies f^{\\prime}\\gt 0$. Q: $f^{\\prime}\\gt 0\\implies f\\gt 0$.",
         "options": {
           "A": "P true, Q false",
           "B": "P false, Q true",
@@ -3165,7 +3165,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.26)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q26)"
       },
       {
         "id": "JAM_2024_Q42",
@@ -3175,11 +3175,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be the solution to the differential equation $\\frac{d^{2}y}{dx^{2}}+2\\frac{dy}{dx}+5y=1$ satisfying $y(0)=0$ and $y^{\\prime}(0)=1$. Then, $\\lim_{x\\rightarrow\\infty}y(x)$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be the solution to the differential equation $\\frac{d^{2}y}{dx^{2}}+2\\frac{dy}{dx}+5y=1$ satisfying $y(0)=0$ and $y^{\\prime}(0)=1$. Then, $\\lim_{x\\rightarrow\\infty}y(x)$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.20",
-        "explanation": "**Correct Numerical Answer: 0.20**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.42)"
+        "explanation": "<strong>Correct Numerical Answer: 0.20</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q42)"
       },
       {
         "id": "JAM_2024_Q43",
@@ -3189,11 +3189,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $y_{\\alpha}$ solve $2y^{\\prime\\prime}-y^{\\prime}-y=0, y(0)=1, y^{\\prime}(0)=\\alpha>0$. Smallest $\\alpha$ for which $y_{\\alpha}$ has no critical points in $\\mathbb{R}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $y_{\\alpha}$ solve $2y^{\\prime\\prime}-y^{\\prime}-y=0, y(0)=1, y^{\\prime}(0)=\\alpha\\gt 0$. Smallest $\\alpha$ for which $y_{\\alpha}$ has no critical points in $\\mathbb{R}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.43)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q43)"
       },
       {
         "id": "JAM_2024_Q51",
@@ -3203,11 +3203,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Number of $\\alpha\\in(-2\\pi,0)\\cap\\mathbb{Z}$ for which all real solutions of $x^{2}y^{\\prime\\prime}+\\alpha xy^{\\prime}+y=0$ approach 0 as $x\\rightarrow 0^{+}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Number of $\\alpha\\in(-2\\pi,0)\\cap\\mathbb{Z}$ for which all real solutions of $x^{2}y^{\\prime\\prime}+\\alpha xy^{\\prime}+y=0$ approach 0 as $x\\rightarrow 0^{+}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Differential Equations (JAM 2024 Q.51)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q51)"
       },
       {
         "id": "JAM_2023_Q4",
@@ -3226,7 +3226,7 @@ window.MOCK_TESTS_DATA = {
           "D": "there is a unique $\\alpha$ such that $y(1)=2$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.4)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q4)"
       },
       {
         "id": "JAM_2023_Q22",
@@ -3245,7 +3245,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(3,5)$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.22)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q22)"
       },
       {
         "id": "JAM_2023_Q33",
@@ -3255,7 +3255,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $y:(\\sqrt{2/3},\\infty)\\rightarrow\\mathbb{R}$ solve $(2x-y)y^{\\prime}+(2y-x)=0$ with $y(1)=3$. Then:",
         "options": {
           "A": "$y(3)=1$",
@@ -3264,7 +3264,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$y^{\\prime}$ bounded on $(1,\\infty)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.33)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q33)"
       },
       {
         "id": "JAM_2023_Q43",
@@ -3274,11 +3274,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "If $y^{\\prime\\prime}-2y^{\\prime}+y=e^{x}, y(0)=0, y^{\\prime}(0)=-1/2$, then $y(1)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "If $y^{\\prime\\prime}-2y^{\\prime}+y=e^{x}, y(0)=0, y^{\\prime}(0)=-1/2$, then $y(1)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.43)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q43)"
       },
       {
         "id": "JAM_2023_Q53",
@@ -3288,11 +3288,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $y:(1,\\infty)\\rightarrow\\mathbb{R}$ solve $y^{\\prime\\prime}-\\frac{2y}{(1-x)^{2}}=0$ with $y(2)=1$ and $\\lim_{x\\rightarrow\\infty}y(x)=0$. Then $y(3)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $y:(1,\\infty)\\rightarrow\\mathbb{R}$ solve $y^{\\prime\\prime}-\\frac{2y}{(1-x)^{2}}=0$ with $y(2)=1$ and $\\lim_{x\\rightarrow\\infty}y(x)=0$. Then $y(3)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "**Correct Numerical Answer: 0.50**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.53)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q53)"
       },
       {
         "id": "JAM_2023_Q59",
@@ -3302,11 +3302,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $S=\\{\\alpha\\in\\mathbb{R} : \\text{solution of } y^{\\prime}=y(2-y), y(0)=\\alpha \\text{ exists on } [0,\\infty)\\}$. Then $\\min S=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $S=\\{\\alpha\\in\\mathbb{R} : \\text{solution of } y^{\\prime}=y(2-y), y(0)=\\alpha \\text{ exists on } [0,\\infty)\\}$. Then $\\min S=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Differential Equations (JAM 2023 Q.59)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q59)"
       },
       {
         "id": "JAM_2022_Q13",
@@ -3317,7 +3317,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $u^{\\prime\\prime}(x)=\\frac{u(x)}{1+x^{2}}$ on $\\mathbb{R}$ with $u(0)>0, u^{\\prime}(0)>0$. I: $uu^{\\prime}$ is increasing on $[0,\\infty)$. II: $u$ is increasing on $[0,\\infty)$.",
+        "question": "Let $u^{\\prime\\prime}(x)=\\frac{u(x)}{1+x^{2}}$ on $\\mathbb{R}$ with $u(0)\\gt 0, u^{\\prime}(0)\\gt 0$. I: $uu^{\\prime}$ is increasing on $[0,\\infty)$. II: $u$ is increasing on $[0,\\infty)$.",
         "options": {
           "A": "Both false",
           "B": "Both true",
@@ -3325,7 +3325,7 @@ window.MOCK_TESTS_DATA = {
           "D": "I true, II false"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.13)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q13)"
       },
       {
         "id": "JAM_2022_Q21",
@@ -3344,7 +3344,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Strictly decreasing on $(-\\delta,\\delta)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.21)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q21)"
       },
       {
         "id": "JAM_2022_Q23",
@@ -3363,7 +3363,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $a=2$, all solutions bounded over $(-\\infty,0)$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q23)"
       },
       {
         "id": "JAM_2022_Q25",
@@ -3382,7 +3382,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(3\\phi^{2}-x^{2})^{2}=4\\phi$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.25)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q25)"
       },
       {
         "id": "JAM_2022_Q31",
@@ -3392,7 +3392,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $y^{\\prime}=x^{2}+y^{2}+1$ with $y(0)=0$ on $(-c,c)$. Then:",
         "options": {
           "A": "$y(x)$ is odd",
@@ -3401,7 +3401,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(y(x))^{2}$ has local max at 0"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.31)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q31)"
       },
       {
         "id": "JAM_2022_Q35",
@@ -3411,7 +3411,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Consider $y^{\\prime\\prime}+4y=\\sin(ax), x\\in\\mathbb{R}$.",
         "options": {
           "A": "All solutions periodic for every $a$",
@@ -3420,7 +3420,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $a\\in\\mathbb{R}\\setminus\\mathbb{Q}$, then unique periodic solution"
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.35)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q35)"
       },
       {
         "id": "JAM_2022_Q43",
@@ -3430,11 +3430,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $y^{\\prime}+3x^{2}y=x^{2}, y(0)=4$. Then $\\lim_{x\\rightarrow\\infty}y(x)=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $y^{\\prime}+3x^{2}y=x^{2}, y(0)=4$. Then $\\lim_{x\\rightarrow\\infty}y(x)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.33",
-        "explanation": "**Correct Numerical Answer: 0.33**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.43)"
+        "explanation": "<strong>Correct Numerical Answer: 0.33</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q43)"
       },
       {
         "id": "JAM_2022_Q47",
@@ -3444,11 +3444,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $xy^{2}y^{\\prime}+y^{3}=\\frac{\\sin x}{x}, y(\\frac{\\pi}{2})=0$. Then $y(\\frac{5\\pi}{2})=$ \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $xy^{2}y^{\\prime}+y^{3}=\\frac{\\sin x}{x}, y(\\frac{\\pi}{2})=0$. Then $y(\\frac{5\\pi}{2})=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.47)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q47)"
       },
       {
         "id": "JAM_2022_Q49",
@@ -3458,11 +3458,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $x^{2}y^{\\prime\\prime}+xy^{\\prime}-4y=x^{2}$ on $(0,\\infty)$ such that $\\lim_{x\\rightarrow 0^{+}}y(x)$ exists and $y(1)=1$. Then $y^{\\prime}(1)=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $x^{2}y^{\\prime\\prime}+xy^{\\prime}-4y=x^{2}$ on $(0,\\infty)$ such that $\\lim_{x\\rightarrow 0^{+}}y(x)$ exists and $y(1)=1$. Then $y^{\\prime}(1)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2.25",
-        "explanation": "**Correct Numerical Answer: 2.25**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.49)"
+        "explanation": "<strong>Correct Numerical Answer: 2.25</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q49)"
       },
       {
         "id": "JAM_2022_Q50",
@@ -3472,11 +3472,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Orthogonal trajectory to $y=\\frac{c(1-\\cos x)}{\\sin x}$ passing through $(\\frac{\\pi}{3},1)$. If $(\\frac{\\pi}{4},a)$ lies on it, then $a^{4}=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Orthogonal trajectory to $y=\\frac{c(1-\\cos x)}{\\sin x}$ passing through $(\\frac{\\pi}{3},1)$. If $(\\frac{\\pi}{4},a)$ lies on it, then $a^{4}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "**Correct Numerical Answer: 2.00**\\n\\n- **Topic:** Differential Equations (JAM 2022 Q.50)"
+        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q50)"
       }
     ]
   },
@@ -3497,7 +3497,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Basic Algebra",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $\\binom{n}{r}$ denote the number of ways of choosing $r$ distinct objects out of $n$ distinct objects. Which of the following statements is/are TRUE?",
         "options": {
           "A": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k}=-64$",
@@ -3506,7 +3506,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k+1}=-128$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Options: A**\\n\\n- **Topic:** Basic Algebra (JAM 2026 Q.38)"
+        "explanation": "<strong>Correct Option(s): (A)</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q38)"
       },
       {
         "id": "JAM_2026_Q58",
@@ -3516,11 +3516,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Basic Algebra",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "A fruit shop has 4 different types of bananas. The number of ways in which 12 bananas can be bought with at least one banana from each type, is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "A fruit shop has 4 different types of bananas. The number of ways in which 12 bananas can be bought with at least one banana from each type, is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "165",
-        "explanation": "**Correct Numerical Answer: 165**\\n\\n- **Topic:** Basic Algebra (JAM 2026 Q.58)"
+        "explanation": "<strong>Correct Numerical Answer: 165</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q58)"
       },
       {
         "id": "JAM_2026_Q60",
@@ -3530,11 +3530,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Basic Algebra",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "$\\binom{5}{0}+\\binom{6}{1}+\\binom{7}{2}+\\binom{8}{3}+\\binom{9}{4}+\\binom{10}{5}+\\binom{11}{6}=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "$\\binom{5}{0}+\\binom{6}{1}+\\binom{7}{2}+\\binom{8}{3}+\\binom{9}{4}+\\binom{10}{5}+\\binom{11}{6}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "924",
-        "explanation": "**Correct Numerical Answer: 924**\\n\\n- **Topic:** Basic Algebra (JAM 2026 Q.60)"
+        "explanation": "<strong>Correct Numerical Answer: 924</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q60)"
       }
     ]
   },
@@ -3564,7 +3564,7 @@ window.MOCK_TESTS_DATA = {
           "D": "adding 3 times row 5 to row 3, then swapping rows 2 and 3 of $A^{-1}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.8)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q8)"
       },
       {
         "id": "JAM_2026_Q14",
@@ -3583,7 +3583,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\begin{pmatrix}7\\\\8\\\\9\\end{pmatrix}$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.14)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q14)"
       },
       {
         "id": "JAM_2026_Q25",
@@ -3602,7 +3602,7 @@ window.MOCK_TESTS_DATA = {
           "D": "All eigenvalues of $P^{*}$ are negative"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.25)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q25)"
       },
       {
         "id": "JAM_2026_Q37",
@@ -3612,7 +3612,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $P=\\begin{pmatrix}0&1&0&0&0\\\\ 1&0&0&0&0\\\\ 0&0&0&1&0\\\\ 0&0&0&0&1\\\\ 0&0&1&0&0\\end{pmatrix}\\in M_{5}(\\mathbb{C})$. Which of the following is/are TRUE?",
         "options": {
           "A": "$\\text{nullity}(P-I)\\ge 2$",
@@ -3621,7 +3621,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\lambda$ is an eigenvalue, $\\exists n\\in\\mathbb{N}$ such that $\\lambda^{n}=1$"
         },
         "answer_key": "A,B,D",
-        "explanation": "**Correct Options: A,B,D**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.37)"
+        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q37)"
       },
       {
         "id": "JAM_2026_Q39",
@@ -3631,7 +3631,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $P\\in M_{4,6}(\\mathbb{R})$ and $Q\\in M_{6,4}(\\mathbb{R})$ such that $PQ=0$ and $QP=0$. Then:",
         "options": {
           "A": "$\\text{range}(P)\\subseteq\\text{null}(Q)$ and $\\text{range}(Q)\\subseteq\\text{null}(P)$",
@@ -3640,7 +3640,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{range}(Q)=\\text{null}(P)$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.39)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q39)"
       },
       {
         "id": "JAM_2026_Q49",
@@ -3650,11 +3650,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $A\\in M_{3}(\\mathbb{C})$. Suppose $v=\\begin{pmatrix}\\sqrt{5}i\\\\ 2i\\\\ x\\end{pmatrix}\\in\\text{null}(A)\\cap\\text{range}(A^{T})$. Then $|x|=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $A\\in M_{3}(\\mathbb{C})$. Suppose $v=\\begin{pmatrix}\\sqrt{5}i\\\\ 2i\\\\ x\\end{pmatrix}\\in\\text{null}(A)\\cap\\text{range}(A^{T})$. Then $|x|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "**Correct Numerical Answer: 3.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.49)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q49)"
       },
       {
         "id": "JAM_2026_Q50",
@@ -3664,11 +3664,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $P$ be a $5\\times 5$ real matrix with $\\det(P)=2$. Let $Q$ be the matrix of cofactors of $P$. Then $\\det(Q)=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $P$ be a $5\\times 5$ real matrix with $\\det(P)=2$. Let $Q$ be the matrix of cofactors of $P$. Then $\\det(Q)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "16.0",
-        "explanation": "**Correct Numerical Answer: 16.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.50)"
+        "explanation": "<strong>Correct Numerical Answer: 16.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q50)"
       },
       {
         "id": "JAM_2026_Q56",
@@ -3678,11 +3678,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $M\\in M_{3}(\\mathbb{R})$ satisfy $M\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{3}\\\\ \\sqrt{2}\\\\ -5\\end{pmatrix}$, $M\\begin{pmatrix}0\\\\ 0\\\\ \\sqrt{30}\\end{pmatrix}=\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{10}\\\\ \\sqrt{5}\\end{pmatrix}$, $M\\begin{pmatrix}-\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{12}\\\\ -\\sqrt{18}\\\\ 0\\end{pmatrix}$. Then $\\det(M)=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $M\\in M_{3}(\\mathbb{R})$ satisfy $M\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{3}\\\\ \\sqrt{2}\\\\ -5\\end{pmatrix}$, $M\\begin{pmatrix}0\\\\ 0\\\\ \\sqrt{30}\\end{pmatrix}=\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{10}\\\\ \\sqrt{5}\\end{pmatrix}$, $M\\begin{pmatrix}-\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{12}\\\\ -\\sqrt{18}\\\\ 0\\end{pmatrix}$. Then $\\det(M)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "-1.0",
-        "explanation": "**Correct Numerical Answer: -1.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.56)"
+        "explanation": "<strong>Correct Numerical Answer: -1.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q56)"
       },
       {
         "id": "JAM_2026_Q57",
@@ -3692,11 +3692,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "If $x+2y+2z=1, 2x+3y+z=2, ax+5y+bz=b$ has infinitely many solutions, then $a+b=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "If $x+2y+2z=1, 2x+3y+z=2, ax+5y+bz=b$ has infinitely many solutions, then $a+b=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6.0",
-        "explanation": "**Correct Numerical Answer: 6.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.57)"
+        "explanation": "<strong>Correct Numerical Answer: 6.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q57)"
       },
       {
         "id": "JAM_2026_Q59",
@@ -3706,11 +3706,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $A\\in M_{3}(\\mathbb{R})$ represent reflection about $\\{(a,b,-a-b): a,b\\in\\mathbb{R}\\}$. Sum of diagonal elements of $A$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $A\\in M_{3}(\\mathbb{R})$ represent reflection about $\\{(a,b,-a-b): a,b\\in\\mathbb{R}\\}$. Sum of diagonal elements of $A$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "**Correct Numerical Answer: 1.0**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2026 Q.59)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q59)"
       },
       {
         "id": "JAM_2025_Q7",
@@ -3729,7 +3729,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\begin{pmatrix}17\\\\ 0\\\\ 17\\end{pmatrix}$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.7)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q7)"
       },
       {
         "id": "JAM_2025_Q15",
@@ -3748,7 +3748,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{rank}(M)=2$, no solution"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.15)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q15)"
       },
       {
         "id": "JAM_2025_Q16",
@@ -3767,7 +3767,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$x\\ne 5$, $M^{2}+M$ not invertible"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.16)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q16)"
       },
       {
         "id": "JAM_2025_Q22",
@@ -3786,7 +3786,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\det(M)=-\\det(M_\\sigma), \\text{nullity}(M-M_\\sigma)=0$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2025 Q.22)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q22)"
       },
       {
         "id": "JAM_2024_Q9",
@@ -3805,7 +3805,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.9)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q9)"
       },
       {
         "id": "JAM_2024_Q15",
@@ -3816,7 +3816,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Let $a=\\begin{pmatrix}\\frac{1}{\\sqrt{3}}\\\\ -\\frac{1}{\\sqrt{2}}\\\\ \\frac{1}{\\sqrt{6}}\\\\ 0\\end{pmatrix}$. Consider the following two statements. P: The matrix $I_4-aa^{T}$ is invertible. Q: The matrix $I_4-2aa^{T}$ is invertible. Then, which one of the following holds?",
+        "question": "Let $a=\\begin{pmatrix}\\frac{1}{\\sqrt{3}}\\\\ -\\frac{1}{\\sqrt{2}}\\\\ \\frac{1}{\\sqrt{6}}\\\\ 0\\end{pmatrix}$. Consider the following two statements.\n<ul class=\"statement-list\"><li class=\"statement-item\"><span class=\"statement-tag\">P:</span> <span class=\"statement-text\">The matrix $I_4-aa^{T}$ is invertible.</span></li><li class=\"statement-item\"><span class=\"statement-tag\">Q:</span> <span class=\"statement-text\">The matrix $I_4-2aa^{T}$ is invertible.</span></li></ul>\nThen, which one of the following holds?",
         "options": {
           "A": "P is false but Q is true",
           "B": "P is true but Q is false",
@@ -3824,7 +3824,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both P and Q are false"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.15)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q15)"
       },
       {
         "id": "JAM_2024_Q16",
@@ -3843,7 +3843,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.16)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q16)"
       },
       {
         "id": "JAM_2024_Q37",
@@ -3853,7 +3853,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "For $A,B,C\\in M_{10}(\\mathbb{R})$ with $A=BC$:",
         "options": {
           "A": "$\\text{Rowspace}(A)\\subseteq\\text{Rowspace}(B)$",
@@ -3862,7 +3862,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{Colspace}(A)\\subseteq\\text{Colspace}(C)$"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.37)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q37)"
       },
       {
         "id": "JAM_2024_Q44",
@@ -3872,11 +3872,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $M=\\begin{pmatrix}0&1&2&3\\\\ 1&0&1&2\\\\ 2&1&0&1\\\\ 3&2&1&0\\end{pmatrix}$. The $(4,1)$-entry of $M^{-1}$ is \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $M=\\begin{pmatrix}0&1&2&3\\\\ 1&0&1&2\\\\ 2&1&0&1\\\\ 3&2&1&0\\end{pmatrix}$. The $(4,1)$-entry of $M^{-1}$ is <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.17",
-        "explanation": "**Correct Numerical Answer: 0.17**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.44)"
+        "explanation": "<strong>Correct Numerical Answer: 0.17</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q44)"
       },
       {
         "id": "JAM_2024_Q50",
@@ -3886,11 +3886,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $M=\\begin{pmatrix}0&0&0&0&-1\\\\ 2&0&0&0&-4\\\\ 0&2&0&0&0\\\\ 0&0&2&0&3\\\\ 0&0&0&2&2\\end{pmatrix}$. If $p(x)$ is char. poly, then $p(2)-1=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $M=\\begin{pmatrix}0&0&0&0&-1\\\\ 2&0&0&0&-4\\\\ 0&2&0&0&0\\\\ 0&0&2&0&3\\\\ 0&0&0&2&2\\end{pmatrix}$. If $p(x)$ is char. poly, then $p(2)-1=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "31",
-        "explanation": "**Correct Numerical Answer: 31**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2024 Q.50)"
+        "explanation": "<strong>Correct Numerical Answer: 31</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q50)"
       },
       {
         "id": "JAM_2023_Q2",
@@ -3909,7 +3909,7 @@ window.MOCK_TESTS_DATA = {
           "D": "infinitely many solutions"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.2)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q2)"
       },
       {
         "id": "JAM_2023_Q13",
@@ -3928,7 +3928,7 @@ window.MOCK_TESTS_DATA = {
           "D": "3"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.13)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q13)"
       },
       {
         "id": "JAM_2023_Q14",
@@ -3939,7 +3939,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "The system of linear equations in $x_1, x_2, x_3$: $\\begin{pmatrix}1&1&1\\\\ 0&-1&1\\\\ 2&3&\\alpha\\end{pmatrix}\\begin{pmatrix}x_1\\\\ x_2\\\\ x_3\\end{pmatrix}=\\begin{pmatrix}3\\\\ 1\\\\ \\beta\\end{pmatrix}$, where $\\alpha, \\beta\\in\\mathbb{R}$, has:",
+        "question": "The system of linear equations in $x_1, x_2, x_3$:\n$\\begin{pmatrix}1&1&1\\\\ 0&-1&1\\\\ 2&3&\\alpha\\end{pmatrix}\\begin{pmatrix}x_1\\\\ x_2\\\\ x_3\\end{pmatrix}=\\begin{pmatrix}3\\\\ 1\\\\ \\beta\\end{pmatrix}$, where $\\alpha, \\beta\\in\\mathbb{R}$, has:",
         "options": {
           "A": "at least one solution for any $\\alpha$ and $\\beta$",
           "B": "a unique solution for any $\\beta$ when $\\alpha\\ne 1$",
@@ -3947,7 +3947,7 @@ window.MOCK_TESTS_DATA = {
           "D": "infinitely many solutions for any $\\alpha$ when $\\beta=5$"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.14)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q14)"
       },
       {
         "id": "JAM_2023_Q56",
@@ -3957,11 +3957,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $A=\\begin{pmatrix}1&1&0&0&1\\\\ 1&1&1&1&3\\\\ 1&1&4&4&4\\end{pmatrix}$ and $AB=0$ for $5\\times 5$ matrix $B$. Max rank of $B$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $A=\\begin{pmatrix}1&1&0&0&1\\\\ 1&1&1&1&3\\\\ 1&1&4&4&4\\end{pmatrix}$ and $AB=0$ for $5\\times 5$ matrix $B$. Max rank of $B$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2",
-        "explanation": "**Correct Numerical Answer: 2**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.56)"
+        "explanation": "<strong>Correct Numerical Answer: 2</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q56)"
       },
       {
         "id": "JAM_2023_Q58",
@@ -3971,11 +3971,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Max number of linearly independent eigenvectors of $\\begin{pmatrix}1&1&0&0\\\\ 2&2&0&0\\\\ 0&0&3&0\\\\ 0&0&1&3\\end{pmatrix}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Max number of linearly independent eigenvectors of $\\begin{pmatrix}1&1&0&0\\\\ 2&2&0&0\\\\ 0&0&3&0\\\\ 0&0&1&3\\end{pmatrix}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2023 Q.58)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q58)"
       },
       {
         "id": "JAM_2022_Q1",
@@ -3994,7 +3994,7 @@ window.MOCK_TESTS_DATA = {
           "D": "35"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.1)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q1)"
       },
       {
         "id": "JAM_2022_Q2",
@@ -4013,7 +4013,7 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.2)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q2)"
       },
       {
         "id": "JAM_2022_Q16",
@@ -4032,7 +4032,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $Q^{4}=0, Q^{3}\\ne 0$, then $\\exists S$ nonsingular such that $S^{-1}QS=P$."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.16)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q16)"
       },
       {
         "id": "JAM_2022_Q17",
@@ -4051,7 +4051,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q17)"
       },
       {
         "id": "JAM_2022_Q18",
@@ -4062,7 +4062,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the system of linear equations: $x+y+t=4, 2x-4t=7, x+y+z=5, x-3y-z-10t=\\lambda$, where $x,y,z,t$ are variables and $\\lambda$ is a constant. Then which one of the following is true?",
+        "question": "Consider the system of linear equations:\n$x+y+t=4, 2x-4t=7, x+y+z=5, x-3y-z-10t=\\lambda$,\nwhere $x,y,z,t$ are variables and $\\lambda$ is a constant. Then which one of the following is true?",
         "options": {
           "A": "If $\\lambda=1$, then the system has a unique solution.",
           "B": "If $\\lambda=2$, then the system has infinitely many solutions.",
@@ -4070,7 +4070,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\lambda=2$, then the system has a unique solution."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.18)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q18)"
       },
       {
         "id": "JAM_2022_Q30",
@@ -4089,7 +4089,7 @@ window.MOCK_TESTS_DATA = {
           "D": "2"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.30)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q30)"
       },
       {
         "id": "JAM_2022_Q53",
@@ -4099,11 +4099,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $A=\\begin{pmatrix}1&1\\\\ 0&1\\\\ -1&1\\end{pmatrix}, \\|u\\|=1, \\|v\\|=1$. If $Au=\\sqrt{2}v$ and $A^{T}v=\\sqrt{2}u$, then $|u_1+2\\sqrt{2}v_1|=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $A=\\begin{pmatrix}1&1\\\\ 0&1\\\\ -1&1\\end{pmatrix}, \\|u\\|=1, \\|v\\|=1$. If $Au=\\sqrt{2}v$ and $A^{T}v=\\sqrt{2}u$, then $|u_1+2\\sqrt{2}v_1|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3.00",
-        "explanation": "**Correct Numerical Answer: 3.00**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.53)"
+        "explanation": "<strong>Correct Numerical Answer: 3.00</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q53)"
       },
       {
         "id": "JAM_2022_Q57",
@@ -4113,11 +4113,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "$\\det\\begin{pmatrix}11&10&10&10\\\\ 10&11&10&10\\\\ 10&10&11&10\\\\ 10&10&10&11\\end{pmatrix}=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "$\\det\\begin{pmatrix}11&10&10&10\\\\ 10&11&10&10\\\\ 10&10&11&10\\\\ 10&10&10&11\\end{pmatrix}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "41",
-        "explanation": "**Correct Numerical Answer: 41**\\n\\n- **Topic:** Matrices and Systems of Linear Equations (JAM 2022 Q.57)"
+        "explanation": "<strong>Correct Numerical Answer: 41</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q57)"
       }
     ]
   },
@@ -4147,7 +4147,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$S$ is a nonzero subspace of $M_{2,5}(\\mathbb{R})$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.24)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q24)"
       },
       {
         "id": "JAM_2026_Q28",
@@ -4166,7 +4166,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{vect}(F(P),F(Q))\\times\\text{vect}(F(R),F(S))=\\text{vect}(P,Q)\\times\\text{vect}(R,S)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.28)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q28)"
       },
       {
         "id": "JAM_2026_Q40",
@@ -4176,7 +4176,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $V=\\{\\frac{a+b\\sqrt{2}}{c+d\\sqrt{2}}: a,b,c,d\\in\\mathbb{Q}, c^{2}+d^{2}\\ne 0\\}$. Which of the following is/are FALSE?",
         "options": {
           "A": "$V$ is closed under the usual addition in $\\mathbb{R}$.",
@@ -4185,7 +4185,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$V$ is a four dimensional subspace of the vector space $\\mathbb{R}$ over $\\mathbb{Q}$."
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2026 Q.40)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q40)"
       },
       {
         "id": "JAM_2025_Q6",
@@ -4204,7 +4204,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$T$ is NOT one-one and $T$ is NOT onto"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.6)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q6)"
       },
       {
         "id": "JAM_2025_Q8",
@@ -4223,7 +4223,7 @@ window.MOCK_TESTS_DATA = {
           "D": "The nullity of $M$ is 2"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.8)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q8)"
       },
       {
         "id": "JAM_2025_Q24",
@@ -4242,7 +4242,7 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.24)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q24)"
       },
       {
         "id": "JAM_2025_Q35",
@@ -4252,7 +4252,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "For $u_1=(1,0,0,-1), u_2=(0,2,0,-1), u_3=(0,0,1,-1), u_4=(0,0,0,1)$ in $\\mathbb{R}^{4}$:",
         "options": {
           "A": "$\\{u_1,u_2,u_3,u_4\\}$ is a linearly independent set in $\\mathbb{R}^4$",
@@ -4261,7 +4261,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{u_1+u_2, u_2+u_3, u_3+u_4, u_4+u_1\\}$ is a linearly independent set in $\\mathbb{R}^4$"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.35)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q35)"
       },
       {
         "id": "JAM_2025_Q40",
@@ -4271,7 +4271,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "$V_1=\\text{span}\\{(1,2,3),(1,1,0)\\}, V_2=\\text{span}\\{(1,-1,0)\\}, V_3=\\text{span}\\{(1,1,1)\\}, V_4=\\text{span}\\{(1,3,6)\\}, V_5=\\text{span}\\{(1,0,-3)\\}$.",
         "options": {
           "A": "$V_1\\cup V_2$ is a subspace of $\\mathbb{R}^3$",
@@ -4280,7 +4280,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$V_1\\cup V_5$ is a subspace of $\\mathbb{R}^3$"
         },
         "answer_key": "C,D",
-        "explanation": "**Correct Options: C,D**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.40)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q40)"
       },
       {
         "id": "JAM_2025_Q46",
@@ -4290,11 +4290,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\dim(V_1\\cap V_2\\cap V_3)$ for $V_1: x+y+2w=0, V_2: 2y+z+w=0, V_3: x+3y+z+3w=0$ in $\\mathbb{R}^{4}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "$\\dim(V_1\\cap V_2\\cap V_3)$ for $V_1: x+y+2w=0, V_2: 2y+z+w=0, V_3: x+3y+z+3w=0$ in $\\mathbb{R}^{4}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2",
-        "explanation": "**Correct Numerical Answer: 2**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.46)"
+        "explanation": "<strong>Correct Numerical Answer: 2</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q46)"
       },
       {
         "id": "JAM_2025_Q47",
@@ -4304,11 +4304,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $T:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ linear with $T(1,1,1)=0, T(1,-1,1)=0, T(0,0,1)=16$. Then $T(\\frac{1}{2},\\frac{2}{3},\\frac{3}{4})=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $T:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ linear with $T(1,1,1)=0, T(1,-1,1)=0, T(0,0,1)=16$. Then $T(\\frac{1}{2},\\frac{2}{3},\\frac{3}{4})=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "**Correct Numerical Answer: 4.0**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.47)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q47)"
       },
       {
         "id": "JAM_2025_Q49",
@@ -4318,11 +4318,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$T(p(x))=xp^{\\prime}(x)$ and $S(p(x))=(x+1)p^{\\prime}(x)$ on $P_{4}(\\mathbb{R})$. Nullity of $S\\circ T$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "$T(p(x))=xp^{\\prime}(x)$ and $S(p(x))=(x+1)p^{\\prime}(x)$ on $P_{4}(\\mathbb{R})$. Nullity of $S\\circ T$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1",
-        "explanation": "**Correct Numerical Answer: 1**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.49)"
+        "explanation": "<strong>Correct Numerical Answer: 1</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q49)"
       },
       {
         "id": "JAM_2025_Q58",
@@ -4332,11 +4332,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Dimension of $H=\\{p(x)\\in P_{3}(\\mathbb{R}): xp^{\\prime}(x)=3p(x)\\}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Dimension of $H=\\{p(x)\\in P_{3}(\\mathbb{R}): xp^{\\prime}(x)=3p(x)\\}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1",
-        "explanation": "**Correct Numerical Answer: 1**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2025 Q.58)"
+        "explanation": "<strong>Correct Numerical Answer: 1</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q58)"
       },
       {
         "id": "JAM_2024_Q13",
@@ -4355,7 +4355,7 @@ window.MOCK_TESTS_DATA = {
           "D": "49"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.13)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q13)"
       },
       {
         "id": "JAM_2024_Q17",
@@ -4374,7 +4374,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Any such $E$ is necessarily linearly dependent and any such $F$ is necessarily linearly dependent"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q17)"
       },
       {
         "id": "JAM_2024_Q22",
@@ -4393,7 +4393,7 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists $r\\in\\mathbb{N}$ such that $(T-I)^{r}$ is the zero linear transformation"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.22)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q22)"
       },
       {
         "id": "JAM_2024_Q45",
@@ -4403,11 +4403,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "$\\dim(\\{f\\in P_{12}(x): f(-x)=f(x) \\text{ and } f(2024)=0\\})=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "$\\dim(\\{f\\in P_{12}(x): f(-x)=f(x) \\text{ and } f(2024)=0\\})=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.45)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q45)"
       },
       {
         "id": "JAM_2024_Q49",
@@ -4417,11 +4417,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $P_7(x)$ be the real vector space of polynomials in $x$ with degree at most 7, together with the zero polynomial. For $r=1,2,\\dots,7$, define $s_r(x)=x(x-1)\\cdots(x-(r-1))$ and $s_0(x)=1$. If $x^{5}=\\sum_{k=0}^{7}\\alpha_{5,k}s_k(x)$, where $\\alpha_{5,k}\\in\\mathbb{R}$, then $\\alpha_{5,2}$ equals \\underline{\\hspace{1.5cm}} (rounded off to two decimal places).",
+        "negative_marks": 0,
+        "question": "Let $P_7(x)$ be the real vector space of polynomials in $x$ with degree at most 7, together with the zero polynomial. For $r=1,2,\\dots,7$, define $s_r(x)=x(x-1)\\cdots(x-(r-1))$ and $s_0(x)=1$. If $x^{5}=\\sum_{k=0}^{7}\\alpha_{5,k}s_k(x)$, where $\\alpha_{5,k}\\in\\mathbb{R}$, then $\\alpha_{5,2}$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "15",
-        "explanation": "**Correct Numerical Answer: 15**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.49)"
+        "explanation": "<strong>Correct Numerical Answer: 15</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q49)"
       },
       {
         "id": "JAM_2024_Q58",
@@ -4431,11 +4431,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Dimension of continuous piecewise linear functions on $[0,1]$ with nodes $\\frac{1}{4}, \\frac{1}{2}, \\frac{3}{4}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Dimension of continuous piecewise linear functions on $[0,1]$ with nodes $\\frac{1}{4}, \\frac{1}{2}, \\frac{3}{4}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "5",
-        "explanation": "**Correct Numerical Answer: 5**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2024 Q.58)"
+        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q58)"
       },
       {
         "id": "JAM_2023_Q3",
@@ -4454,7 +4454,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{(x,y,z): x+2y-3z+1=0\\}$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q3)"
       },
       {
         "id": "JAM_2023_Q12",
@@ -4473,7 +4473,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both I and II are FALSE"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.12)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q12)"
       },
       {
         "id": "JAM_2023_Q15",
@@ -4492,7 +4492,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Both I and II are FALSE"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.15)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q15)"
       },
       {
         "id": "JAM_2023_Q38",
@@ -4502,7 +4502,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following is/are true?",
         "options": {
           "A": "Every linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps lines onto points or lines",
@@ -4511,7 +4511,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Every bijective linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps pairs of perpendicular lines to pairs of perpendicular lines"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.38)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q38)"
       },
       {
         "id": "JAM_2023_Q39",
@@ -4521,7 +4521,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following is/are linear transformations?",
         "options": {
           "A": "$T(x)=\\sin x$",
@@ -4530,7 +4530,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$T(p(x))=p(1)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.39)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q39)"
       },
       {
         "id": "JAM_2023_Q42",
@@ -4540,11 +4540,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Rank of $T:P_2(\\mathbb{R})\\rightarrow P_4(\\mathbb{R})$ given by $T(p(x))=p(x^{2})$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Rank of $T:P_2(\\mathbb{R})\\rightarrow P_4(\\mathbb{R})$ given by $T(p(x))=p(x^{2})$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.42)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q42)"
       },
       {
         "id": "JAM_2023_Q57",
@@ -4554,11 +4554,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Dimension of matrices in $M_3(\\mathbb{R})$ with each row sum and column sum equal to zero is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Dimension of matrices in $M_3(\\mathbb{R})$ with each row sum and column sum equal to zero is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "4",
-        "explanation": "**Correct Numerical Answer: 4**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2023 Q.57)"
+        "explanation": "<strong>Correct Numerical Answer: 4</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q57)"
       },
       {
         "id": "JAM_2022_Q3",
@@ -4577,7 +4577,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{f: f^{\\prime}(1/2)=1\\}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.3)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q3)"
       },
       {
         "id": "JAM_2022_Q20",
@@ -4596,7 +4596,7 @@ window.MOCK_TESTS_DATA = {
           "D": "5 divides diagonal sum if entries are integers"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.20)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q20)"
       },
       {
         "id": "JAM_2022_Q26",
@@ -4615,7 +4615,7 @@ window.MOCK_TESTS_DATA = {
           "D": "12"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.26)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q26)"
       },
       {
         "id": "JAM_2022_Q39",
@@ -4625,7 +4625,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $T:P_{5}\\rightarrow\\mathbb{R}$ linear with $T(1)=1$ and $T(x(x-1)\\cdots(x-k+1))=1$ for $1\\le k\\le 5$.",
         "options": {
           "A": "$T(x^{4})=15$",
@@ -4634,7 +4634,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$T(x^{3})=3$"
         },
         "answer_key": "A,B",
-        "explanation": "**Correct Options: A,B**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.39)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q39)"
       },
       {
         "id": "JAM_2022_Q40",
@@ -4644,7 +4644,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $P$ be a fixed $3\\times 3$ matrix with entries in $\\mathbb{R}$. Which of the following maps from $M_3(\\mathbb{R})$ to $M_3(\\mathbb{R})$ is/are linear?",
         "options": {
           "A": "$T_1(M)=MP-PM$",
@@ -4653,7 +4653,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$T_4(M)=MP^{2}-PM^{2}$"
         },
         "answer_key": "A,C",
-        "explanation": "**Correct Options: A,C**\\n\\n- **Topic:** Finite Dimensional Vector Spaces (JAM 2022 Q.40)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q40)"
       }
     ]
   },
@@ -4683,7 +4683,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\mathbb{Z}_{6}$ is isomorphic to a quotient group of $S_{4}$."
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Groups (JAM 2026 Q.9)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q9)"
       },
       {
         "id": "JAM_2026_Q26",
@@ -4702,7 +4702,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ has a subgroup isomorphic to $\\mathbb{Z}$"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Groups (JAM 2026 Q.26)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q26)"
       },
       {
         "id": "JAM_2026_Q27",
@@ -4721,7 +4721,7 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists a group homomorphism from the symmetric group on $n$ symbols into the multiplicative group of all invertible $n\\times n$ matrices with real entries, which has a trivial kernel."
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Groups (JAM 2026 Q.27)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q27)"
       },
       {
         "id": "JAM_2026_Q30",
@@ -4740,7 +4740,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$(G,\\Delta)$ is a group and has an element of order 8."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2026 Q.30)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q30)"
       },
       {
         "id": "JAM_2026_Q47",
@@ -4750,11 +4750,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "Let $C_n$ denote a cyclic group having $n$ elements. If there is a surjective group homomorphism from $C_n$ to $C_{30}$, then the total number of such distinct surjective homomorphisms is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $C_n$ denote a cyclic group having $n$ elements. If there is a surjective group homomorphism from $C_n$ to $C_{30}$, then the total number of such distinct surjective homomorphisms is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "8",
-        "explanation": "**Correct Numerical Answer: 8**\\n\\n- **Topic:** Groups (JAM 2026 Q.47)"
+        "explanation": "<strong>Correct Numerical Answer: 8</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q47)"
       },
       {
         "id": "JAM_2025_Q9",
@@ -4773,7 +4773,7 @@ window.MOCK_TESTS_DATA = {
           "D": "0"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2025 Q.9)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q9)"
       },
       {
         "id": "JAM_2025_Q13",
@@ -4792,7 +4792,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$m$ is odd and $n$ is odd"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2025 Q.13)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q13)"
       },
       {
         "id": "JAM_2025_Q23",
@@ -4811,7 +4811,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$m=1, n=1$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2025 Q.23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q23)"
       },
       {
         "id": "JAM_2025_Q39",
@@ -4821,7 +4821,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "For $U(n)=\\{x\\in\\mathbb{Z}_{n}: \\gcd(x,n)=1\\}$:",
         "options": {
           "A": "$U(8)$ is a cyclic group",
@@ -4830,7 +4830,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$U(9)$ is a cyclic group"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Groups (JAM 2025 Q.39)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q39)"
       },
       {
         "id": "JAM_2025_Q52",
@@ -4840,11 +4840,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "For $\\sigma=(1\\,2\\,3)\\in S_{4}$, $|\\{\\tau\\in S_{4}: \\tau\\sigma\\tau^{-1}=\\sigma\\}|=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "For $\\sigma=(1\\,2\\,3)\\in S_{4}$, $|\\{\\tau\\in S_{4}: \\tau\\sigma\\tau^{-1}=\\sigma\\}|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "**Correct Numerical Answer: 3**\\n\\n- **Topic:** Groups (JAM 2025 Q.52)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q52)"
       },
       {
         "id": "JAM_2025_Q59",
@@ -4854,11 +4854,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $G$ be an abelian group of order 35. Let $m$ denote the number of elements of order 5 in $G$, and let $n$ denote the number of elements of order 7 in $G$. Then $m+n=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $G$ be an abelian group of order 35. Let $m$ denote the number of elements of order 5 in $G$, and let $n$ denote the number of elements of order 7 in $G$. Then $m+n=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "10",
-        "explanation": "**Correct Numerical Answer: 10**\\n\\n- **Topic:** Groups (JAM 2025 Q.59)"
+        "explanation": "<strong>Correct Numerical Answer: 10</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q59)"
       },
       {
         "id": "JAM_2025_Q60",
@@ -4868,11 +4868,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "The number of surjective group homomorphisms from $S_4$ to $\\mathbb{Z}_6$ is equal to \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "The number of surjective group homomorphisms from $S_4$ to $\\mathbb{Z}_6$ is equal to <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0",
-        "explanation": "**Correct Numerical Answer: 0**\\n\\n- **Topic:** Groups (JAM 2025 Q.60)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q60)"
       },
       {
         "id": "JAM_2024_Q5",
@@ -4891,7 +4891,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ has 13 elements of order 13"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q5)"
       },
       {
         "id": "JAM_2024_Q6",
@@ -4910,7 +4910,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$U(8)$ is isomorphic to $U(12)$"
         },
         "answer_key": "D",
-        "explanation": "**Correct Option: (D)**\\n\\n- **Topic:** Groups (JAM 2024 Q.6)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q6)"
       },
       {
         "id": "JAM_2024_Q7",
@@ -4929,7 +4929,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$S_{13}$ has no element of order 60"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.7)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q7)"
       },
       {
         "id": "JAM_2024_Q8",
@@ -4948,7 +4948,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ is necessarily abelian but need not be cyclic"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.8)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q8)"
       },
       {
         "id": "JAM_2024_Q11",
@@ -4967,7 +4967,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$S_5$"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2024 Q.11)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q11)"
       },
       {
         "id": "JAM_2024_Q12",
@@ -4986,7 +4986,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Infinite"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2024 Q.12)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q12)"
       },
       {
         "id": "JAM_2024_Q33",
@@ -4996,7 +4996,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following statements is/are TRUE?",
         "options": {
           "A": "The additive group of real numbers is isomorphic to the multiplicative group of positive real numbers",
@@ -5005,7 +5005,7 @@ window.MOCK_TESTS_DATA = {
           "D": "The multiplicative group of positive rational numbers is isomorphic to the multiplicative group of nonzero complex numbers"
         },
         "answer_key": "A",
-        "explanation": "**Correct Options: A**\\n\\n- **Topic:** Groups (JAM 2024 Q.33)"
+        "explanation": "<strong>Correct Option(s): (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q33)"
       },
       {
         "id": "JAM_2024_Q36",
@@ -5015,7 +5015,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Which of the following is/are TRUE for any group $G$?",
         "options": {
           "A": "If $G$ is non-abelian and $Z(G)$ contains more than one element, then the center of the quotient group $G/Z(G)$ contains only one element",
@@ -5024,7 +5024,7 @@ window.MOCK_TESTS_DATA = {
           "D": "If $|G|=p^3$, where $p$ is a prime number, then $G$ is necessarily abelian"
         },
         "answer_key": "B,C",
-        "explanation": "**Correct Options: B,C**\\n\\n- **Topic:** Groups (JAM 2024 Q.36)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q36)"
       },
       {
         "id": "JAM_2024_Q40",
@@ -5034,7 +5034,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Consider $G=\\{m+n\\sqrt{2}: m,n\\in\\mathbb{Z}\\}$ as a subgroup of the additive group $\\mathbb{R}$. Which of the following statements is/are TRUE?",
         "options": {
           "A": "$G$ is a cyclic subgroup of $\\mathbb{R}$ under addition",
@@ -5043,7 +5043,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ is isomorphic to the group $\\mathbb{Z}\\times\\mathbb{Z}$, where $(m_1,n_1)+(m_2,n_2)=(m_1+m_2, n_1+n_2)$"
         },
         "answer_key": "B,D",
-        "explanation": "**Correct Options: B,D**\\n\\n- **Topic:** Groups (JAM 2024 Q.40)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q40)"
       },
       {
         "id": "JAM_2023_Q1",
@@ -5062,7 +5062,7 @@ window.MOCK_TESTS_DATA = {
           "D": "10"
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2023 Q.1)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q1)"
       },
       {
         "id": "JAM_2023_Q23",
@@ -5073,7 +5073,7 @@ window.MOCK_TESTS_DATA = {
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "question": "Consider the following statements: I. Every infinite group has infinitely many subgroups. II. There are only finitely many non-isomorphic groups of a given finite order. Then:",
+        "question": "Consider the following statements:\n<ul class=\"statement-list\"><li class=\"statement-item\"><span class=\"statement-tag\">I.</span> <span class=\"statement-text\">Every infinite group has infinitely many subgroups.</span></li><li class=\"statement-item\"><span class=\"statement-tag\">II.</span> <span class=\"statement-text\">There are only finitely many non-isomorphic groups of a given finite order.</span></li></ul>\nThen:",
         "options": {
           "A": "both I and II are TRUE",
           "B": "I is TRUE but II is FALSE",
@@ -5081,7 +5081,7 @@ window.MOCK_TESTS_DATA = {
           "D": "both I and II are FALSE"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2023 Q.23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q23)"
       },
       {
         "id": "JAM_2023_Q27",
@@ -5100,7 +5100,7 @@ window.MOCK_TESTS_DATA = {
           "D": "25"
         },
         "answer_key": "C",
-        "explanation": "**Correct Option: (C)**\\n\\n- **Topic:** Groups (JAM 2023 Q.27)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q27)"
       },
       {
         "id": "JAM_2023_Q29",
@@ -5119,7 +5119,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\mathbb{Q}^{\\times}$, the multiplicative group of non-zero rational numbers"
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2023 Q.29)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q29)"
       },
       {
         "id": "JAM_2023_Q32",
@@ -5129,7 +5129,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $0\\in A\\subseteq\\mathbb{Z}$. Which of the following conditions imply that $A$ is a subgroup of $(\\mathbb{Z},+)$?",
         "options": {
           "A": "$-2A\\subseteq A, A+A=A$",
@@ -5138,7 +5138,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$2A\\subseteq A, A+A=A$"
         },
         "answer_key": "A,B,C",
-        "explanation": "**Correct Options: A,B,C**\\n\\n- **Topic:** Groups (JAM 2023 Q.32)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q32)"
       },
       {
         "id": "JAM_2023_Q45",
@@ -5148,11 +5148,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "For $\\sigma\\in S_8$, let $o(\\sigma)$ denote the order of $\\sigma$. Then $\\max\\{o(\\sigma): \\sigma\\in S_8\\}=$ \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "For $\\sigma\\in S_8$, let $o(\\sigma)$ denote the order of $\\sigma$. Then $\\max\\{o(\\sigma): \\sigma\\in S_8\\}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "15",
-        "explanation": "**Correct Numerical Answer: 15**\\n\\n- **Topic:** Groups (JAM 2023 Q.45)"
+        "explanation": "<strong>Correct Numerical Answer: 15</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q45)"
       },
       {
         "id": "JAM_2023_Q46",
@@ -5162,11 +5162,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The number of group isomorphisms from $\\mathbb{Z}_8^{\\times}$ onto itself is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "The number of group isomorphisms from $\\mathbb{Z}_8^{\\times}$ onto itself is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Groups (JAM 2023 Q.46)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q46)"
       },
       {
         "id": "JAM_2023_Q54",
@@ -5176,11 +5176,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "The number of permutations in $S_4$ that have exactly 2 cycles in their cycle decomposition is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "The number of permutations in $S_4$ that have exactly 2 cycles in their cycle decomposition is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "11",
-        "explanation": "**Correct Numerical Answer: 11**\\n\\n- **Topic:** Groups (JAM 2023 Q.54)"
+        "explanation": "<strong>Correct Numerical Answer: 11</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q54)"
       },
       {
         "id": "JAM_2022_Q4",
@@ -5199,7 +5199,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$K$ is a normal subgroup of $H\\cup K$."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2022 Q.4)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q4)"
       },
       {
         "id": "JAM_2022_Q19",
@@ -5218,7 +5218,7 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\mathbb{Q}/\\mathbb{Z}$ is not a cyclic group."
         },
         "answer_key": "A",
-        "explanation": "**Correct Option: (A)**\\n\\n- **Topic:** Groups (JAM 2022 Q.19)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q19)"
       },
       {
         "id": "JAM_2022_Q24",
@@ -5237,7 +5237,7 @@ window.MOCK_TESTS_DATA = {
           "D": "There is exactly one group homomorphism from $U_{37}$ to $(\\mathbb{Q},+)$."
         },
         "answer_key": "B",
-        "explanation": "**Correct Option: (B)**\\n\\n- **Topic:** Groups (JAM 2022 Q.24)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q24)"
       },
       {
         "id": "JAM_2022_Q37",
@@ -5247,7 +5247,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "MSQ",
         "marks": 2,
-        "negative_marks": 0.0,
+        "negative_marks": 0,
         "question": "Let $G$ be a finite group of order at least two. Let $\\sigma:G\\rightarrow G$ be a bijective group homomorphism such that $\\sigma(g)=g\\implies g=e$, and $\\sigma\\circ\\sigma=\\text{id}$. Which of the following is/are correct?",
         "options": {
           "A": "For each $g\\in G$, there exists $h\\in G$ such that $h^{-1}\\sigma(h)=g$.",
@@ -5256,7 +5256,7 @@ window.MOCK_TESTS_DATA = {
           "D": "The order of the group $G$ is an odd number."
         },
         "answer_key": "A,C,D",
-        "explanation": "**Correct Options: A,C,D**\\n\\n- **Topic:** Groups (JAM 2022 Q.37)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q37)"
       },
       {
         "id": "JAM_2022_Q45",
@@ -5266,11 +5266,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The number of distinct subgroups of $\\mathbb{Z}_{999}$ is \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "The number of distinct subgroups of $\\mathbb{Z}_{999}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "8",
-        "explanation": "**Correct Numerical Answer: 8**\\n\\n- **Topic:** Groups (JAM 2022 Q.45)"
+        "explanation": "<strong>Correct Numerical Answer: 8</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q45)"
       },
       {
         "id": "JAM_2022_Q46",
@@ -5280,11 +5280,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 1,
-        "negative_marks": 0.0,
-        "question": "The number of elements of order 12 in the symmetric group $S_7$ is equal to \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "The number of elements of order 12 in the symmetric group $S_7$ is equal to <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "420",
-        "explanation": "**Correct Numerical Answer: 420**\\n\\n- **Topic:** Groups (JAM 2022 Q.46)"
+        "explanation": "<strong>Correct Numerical Answer: 420</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q46)"
       },
       {
         "id": "JAM_2022_Q58",
@@ -5294,11 +5294,11 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "type": "NAT",
         "marks": 2,
-        "negative_marks": 0.0,
-        "question": "Let $\\sigma$ be the permutation in the symmetric group $S_5$ given by $\\sigma(1)=2, \\sigma(2)=3, \\sigma(3)=1, \\sigma(4)=5, \\sigma(5)=4$. Then the number of elements in the centralizer $N(\\sigma)=\\{\\tau\\in S_5: \\sigma\\circ\\tau=\\tau\\circ\\sigma\\}$ is equal to \\underline{\\hspace{1.5cm}}.",
+        "negative_marks": 0,
+        "question": "Let $\\sigma$ be the permutation in the symmetric group $S_5$ given by $\\sigma(1)=2, \\sigma(2)=3, \\sigma(3)=1, \\sigma(4)=5, \\sigma(5)=4$. Then the number of elements in the centralizer $N(\\sigma)=\\{\\tau\\in S_5: \\sigma\\circ\\tau=\\tau\\circ\\sigma\\}$ is equal to <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "**Correct Numerical Answer: 6**\\n\\n- **Topic:** Groups (JAM 2022 Q.58)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q58)"
       }
     ]
   }

@@ -490,6 +490,13 @@
     }
   };
 
+  // Dispatcher if MathJax initializes asynchronously after init()
+  window.onMathJaxReady = function() {
+    if (!state.isSubmitted && state.test) {
+      renderQuestion();
+    }
+  };
+
   window.showQuestionPaperModal = function() {
     const modal = document.getElementById('qpaper-modal');
     const list = document.getElementById('qpaper-list');
@@ -499,12 +506,40 @@
     state.test.questions.forEach((q, idx) => {
       const card = document.createElement('div');
       card.className = 'review-card';
+      
+      let optionsHtml = '';
+      if (q.options) {
+        optionsHtml = `
+          <div class="options-list" style="margin: 12px 0;">
+            ${['A', 'B', 'C', 'D'].map(opt => {
+              if (!q.options[opt]) return '';
+              return `
+                <div class="option-item" style="cursor: pointer;" onclick="window.closeQuestionPaperModal(); window.jumpToQuestion(${idx});">
+                  <div class="option-label">(${opt})</div>
+                  <div class="option-text">${q.options[opt]}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
       card.innerHTML = `
         <div class="review-card-header">
-          <strong>Question ${idx + 1} (${q.type}, ${q.marks} Mark${q.marks > 1 ? 's' : ''})</strong>
-          <button class="nav-icon-btn" onclick="window.closeQuestionPaperModal(); window.jumpToQuestion(${idx});">Jump to Question</button>
+          <div>
+            <strong>Question ${idx + 1}</strong>
+            <span class="q-type-badge q-type-${q.type.toLowerCase()}" style="margin-left: 8px;">${q.type}</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted); margin-left: 6px;">(${q.year} Q.${q.q_num})</span>
+            <span class="q-marks-pill" style="margin-left: 8px;">${q.marks} Mark${q.marks > 1 ? 's' : ''}</span>
+          </div>
+          <button class="nav-icon-btn" onclick="window.closeQuestionPaperModal(); window.jumpToQuestion(${idx});" title="Jump to this question in workspace">
+            Go to Question ↗
+          </button>
         </div>
-        <div style="margin: 12px 0;">${q.question}</div>
+        <div class="q-body-content" style="margin: 14px 0 10px 0; font-size: 1rem;">
+          ${q.question}
+        </div>
+        ${optionsHtml}
       `;
       list.appendChild(card);
     });
