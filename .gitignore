@@ -53,6 +53,7 @@ $RECYCLE.BIN/
 *.toc
 *.vrb
 *.xdv
+latex/*.pdf
 _minted*
 latexmkrc
 .latexmkrc
