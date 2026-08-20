@@ -260,12 +260,15 @@
       return `
         <div class="review-card review-card-item status-${q.status}" data-status="${q.status}">
           <div class="review-card-header">
-            <div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
               <span class="q-num-badge">Question ${q.index + 1}</span>
-              <span class="q-type-badge q-type-${q.type.toLowerCase()}" style="margin-left:8px;">${q.type}</span>
-              <span style="font-size:0.8rem; color:var(--text-muted); margin-left:6px;">(${q.year} Q.${q.q_num})</span>
+              <span class="q-type-badge q-type-${q.type.toLowerCase()}">${q.type}</span>
+              <span style="font-size:0.82rem; color:var(--text-muted);">(${q.year} Q.${q.q_num})</span>
             </div>
-            <div style="display:flex; align-items:center; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <button class="nav-icon-btn" onclick="window.viewQuestionScreenshot('${q.year}', '${q.q_num}')" title="View Official Question Screenshot" style="padding: 4px 10px; font-size: 0.82rem;">
+                📸 Official Paper
+              </button>
               ${statusBadge}
               ${marksBadge}
             </div>

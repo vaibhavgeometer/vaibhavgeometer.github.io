@@ -605,6 +605,66 @@ a {
   border-color: rgba(16, 185, 129, 0.35);
 }
 
+.q-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.q-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.q-year-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.3px;
+}
+
+.btn-official-screenshot {
+  background: var(--bg-card);
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.12);
+}
+
+.btn-official-screenshot:hover {
+  background: var(--brand-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.28);
+}
+
+[data-theme="dark"] .btn-official-screenshot {
+  background: rgba(59, 130, 246, 0.12);
+  color: #93c5fd;
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+[data-theme="dark"] .btn-official-screenshot:hover {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+}
+
 .q-marks-pill {
   font-size: 0.8rem;
   font-weight: 600;
@@ -1182,6 +1242,48 @@ mjx-container[jax="SVG"][display="true"] {
   color: #ffffff;
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+/* Screenshot Modal Styles */
+.screenshot-modal-container {
+  max-width: 960px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.screenshot-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: #ffffff;
+}
+
+[data-theme="dark"] .screenshot-modal-body {
+  background: #0f172a;
+}
+
+.screenshot-modal-body img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+.screenshot-loading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 30px;
+  text-align: center;
 }
 
 .calc-screen-wrap {

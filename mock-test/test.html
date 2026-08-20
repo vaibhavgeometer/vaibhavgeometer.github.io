@@ -58,8 +58,14 @@
       <main class="question-pane">
         <div class="question-card">
           <div class="question-header-row">
-            <span class="q-num-badge" id="q-num-display">Question 1</span>
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="q-header-meta">
+              <span class="q-num-badge" id="q-num-display">Question 1</span>
+              <span class="q-year-tag" id="q-year-display">JAM PYQ</span>
+            </div>
+            <div class="q-header-actions">
+              <button class="btn-official-screenshot" id="btn-view-screenshot" onclick="window.viewCurrentQuestionScreenshot()" title="View Official Question Screenshot (PYQ)">
+                📸 <span>Official Paper</span>
+              </button>
               <span class="q-type-badge q-type-mcq" id="q-type-badge">MCQ</span>
               <span class="q-marks-pill" id="q-marks-pill">Marks: +1 | Neg: -0.33</span>
             </div>
@@ -180,6 +186,23 @@
         </div>
         <div id="qpaper-list" style="padding: 20px; overflow-y: auto; flex: 1;">
           <!-- Questions injected here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Question Screenshot Modal -->
+    <div id="screenshot-modal" class="calc-modal-backdrop hidden" onclick="if(event.target===this) window.closeScreenshotModal()">
+      <div class="calc-container screenshot-modal-container">
+        <div class="calc-header">
+          <div class="calc-title" id="screenshot-modal-title">📸 Official Question Paper Screenshot</div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <a id="screenshot-open-tab" href="#" target="_blank" class="nav-icon-btn" style="padding: 4px 10px; font-size: 0.8rem;" title="Open Image Full Size in New Tab">↗ Full Size</a>
+            <button class="calc-close-btn" onclick="window.closeScreenshotModal()">✕</button>
+          </div>
+        </div>
+        <div class="screenshot-modal-body">
+          <div id="screenshot-loading" class="screenshot-loading">Loading Screenshot...</div>
+          <img id="screenshot-modal-img" src="" alt="Official Question Screenshot" />
         </div>
       </div>
     </div>

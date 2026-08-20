@@ -139,6 +139,11 @@
 
     if (qNumEl) qNumEl.innerText = `Question ${state.currentIndex + 1} of ${state.test.total_questions}`;
     
+    const qYearEl = document.getElementById('q-year-display');
+    if (qYearEl) {
+      qYearEl.innerText = `${q.year || 'JAM'} • Q.${q.q_num}`;
+    }
+
     if (qTypeEl) {
       qTypeEl.innerText = q.type;
       qTypeEl.className = `q-type-badge q-type-${q.type.toLowerCase()}`;
@@ -500,6 +505,72 @@
     }
   };
 
+  // Official Question Screenshot Viewer
+  window.viewQuestionScreenshot = function(yearOrQ, qnum) {
+    let year = '';
+    let num = '';
+
+    if (typeof yearOrQ === 'object' && yearOrQ !== null) {
+      const q = yearOrQ;
+      year = q.year ? q.year.replace('JAM', '').trim() : '';
+      num = q.q_num;
+      if (!year || !num) {
+        const m = q.id && q.id.match(/JAM_(\d{4})_Q(\d+)/);
+        if (m) { year = m[1]; num = m[2]; }
+      }
+    } else if (typeof yearOrQ === 'string') {
+      year = yearOrQ.replace('JAM', '').trim();
+      num = qnum;
+    }
+
+    if (!year || !num) return;
+
+    const url = `../resources/PYQs_Screenshots/${year}/JAM_${year}_Q${num}.png`;
+    const modal = document.getElementById('screenshot-modal');
+    const img = document.getElementById('screenshot-modal-img');
+    const title = document.getElementById('screenshot-modal-title');
+    const openLink = document.getElementById('screenshot-open-tab');
+    const loadingEl = document.getElementById('screenshot-loading');
+
+    if (title) title.innerHTML = `📸 Official Paper Screenshot • <strong>JAM ${year} (Q.${num})</strong>`;
+    if (openLink) openLink.href = url;
+
+    if (loadingEl) {
+      loadingEl.style.display = 'block';
+      loadingEl.innerText = 'Loading Screenshot...';
+    }
+
+    if (img) {
+      img.style.display = 'none';
+      img.onload = () => {
+        if (loadingEl) loadingEl.style.display = 'none';
+        img.style.display = 'block';
+      };
+      img.onerror = () => {
+        if (loadingEl) {
+          loadingEl.style.display = 'block';
+          loadingEl.innerText = 'Official screenshot image not found.';
+        }
+        img.style.display = 'none';
+      };
+      img.src = url;
+    }
+
+    if (modal) modal.classList.remove('hidden');
+  };
+
+  window.viewCurrentQuestionScreenshot = function() {
+    const q = state.test.questions[state.currentIndex];
+    if (q) {
+      window.viewQuestionScreenshot(q);
+    }
+  };
+
+  window.closeScreenshotModal = function() {
+    const modal = document.getElementById('screenshot-modal');
+    if (modal) modal.classList.add('hidden');
+  };
+
   window.showQuestionPaperModal = function() {
     const modal = document.getElementById('qpaper-modal');
     const list = document.getElementById('qpaper-list');
@@ -529,15 +600,20 @@
 
       card.innerHTML = `
         <div class="review-card-header">
-          <div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
             <strong>Question ${idx + 1}</strong>
-            <span class="q-type-badge q-type-${q.type.toLowerCase()}" style="margin-left: 8px;">${q.type}</span>
-            <span style="font-size: 0.82rem; color: var(--text-muted); margin-left: 6px;">(${q.year} Q.${q.q_num})</span>
-            <span class="q-marks-pill" style="margin-left: 8px;">${q.marks} Mark${q.marks > 1 ? 's' : ''}</span>
+            <span class="q-type-badge q-type-${q.type.toLowerCase()}">${q.type}</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">(${q.year} Q.${q.q_num})</span>
+            <span class="q-marks-pill">${q.marks} Mark${q.marks > 1 ? 's' : ''}</span>
           </div>
-          <button class="nav-icon-btn" onclick="window.closeQuestionPaperModal(); window.jumpToQuestion(${idx});" title="Jump to this question in workspace">
-            Go to Question ↗
-          </button>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="nav-icon-btn" onclick="window.viewQuestionScreenshot('${q.year}', '${q.q_num}')" title="View Official Screenshot" style="padding: 4px 10px; font-size: 0.82rem;">
+              📸 Official Paper
+            </button>
+            <button class="nav-icon-btn" onclick="window.closeQuestionPaperModal(); window.jumpToQuestion(${idx});" title="Jump to this question in workspace" style="padding: 4px 10px; font-size: 0.82rem;">
+              Go to Question ↗
+            </button>
+          </div>
         </div>
         <div class="q-body-content" style="margin: 14px 0 10px 0; font-size: 1rem;">
           ${q.question}
@@ -568,6 +644,14 @@
 
   // Keyboard navigation shortcuts
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.closeScreenshotModal();
+      window.closeQuestionPaperModal();
+      window.closeInstructionsModal();
+      window.closeSubmitModal();
+      return;
+    }
+
     if (state.isSubmitted) return;
     // Don't trigger shortcuts if focus is inside input
     if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
