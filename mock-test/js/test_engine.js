@@ -28,7 +28,7 @@
 
     if (!window.MOCK_TESTS_DATA || !window.MOCK_TESTS_DATA[state.topicId]) {
       alert('Invalid or missing topic data. Redirecting to home portal.');
-      window.location.href = 'index.html';
+      window.location.href = '../index.html';
       return;
     }
 

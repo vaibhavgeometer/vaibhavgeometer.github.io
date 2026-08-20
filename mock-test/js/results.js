@@ -203,7 +203,7 @@
 
         <div style="display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap;">
           <button class="btn-start-test" style="max-width: 220px;" onclick="window.location.reload()">🔄 Retake Test</button>
-          <a href="index.html" class="btn-secondary btn-action" style="padding: 12px 24px; text-decoration: none;">🏠 Return to Main Portal</a>
+          <a href="../index.html" class="btn-secondary btn-action" style="padding: 12px 24px; text-decoration: none;">🏠 Return to Main Portal</a>
           <button class="btn-secondary btn-action" onclick="window.print()">🖨 Print Scorecard</button>
         </div>
       </div>

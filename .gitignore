@@ -1,0 +1,72 @@
+# ==============================================================================
+# Git Ignore Rules — vaibhavgeometer.github.io
+# ==============================================================================
+
+# --- Operating System Artifacts ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- Editor & IDE Files ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*.swn
+*~
+*.bak
+
+# --- LaTeX Intermediate / Compilation Files ---
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.xdv
+_minted*
+latexmkrc
+.latexmkrc
+
+# --- Node.js & Package Managers ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+.npm
+
+# --- Temporary & Scratch Files ---
+scratch/
+*.tmp
+*.temp
