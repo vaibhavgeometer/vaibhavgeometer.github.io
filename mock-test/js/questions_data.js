@@ -490,7 +490,7 @@ window.MOCK_TESTS_DATA = {
         "type": "NAT",
         "marks": 1,
         "negative_marks": 0,
-        "question": "Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\\frac{a_n+b_n}{2}, b_{n+1}=\\frac{b_n+c_n}{2}, c_{n+1}=\\frac{c_n+a_n}{2}$. Then,\n\\[\n\\sum_{n=1}^{\\infty}b_n c_n(a_{n+1}-a_n) + \\sum_{n=1}^{\\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = <span class=\"cbt-blank\">_______</span>\n\\]\n(rounded off to two decimal places).",
+        "question": "Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\\frac{a_n+b_n}{2}, b_{n+1}=\\frac{b_n+c_n}{2}, c_{n+1}=\\frac{c_n+a_n}{2}$. Then,\n\\[\n\\sum_{n=1}^{\\infty}b_n c_n(a_{n+1}-a_n) + \\sum_{n=1}^{\\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = \\underline{\\hspace{2cm}}\n\\]\n(rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
         "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q47)"
