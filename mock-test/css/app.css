@@ -575,6 +575,7 @@ a {
   background: #f1f5f9;
   color: #334155;
   text-transform: uppercase;
+  border: 1px solid transparent;
 }
 
 [data-theme="dark"] .q-type-badge {
@@ -582,9 +583,27 @@ a {
   color: #94a3b8;
 }
 
-.q-type-mcq { background: #dbeafe; color: #1e40af; }
-.q-type-msq { background: #fef3c7; color: #92400e; }
-.q-type-nat { background: #dcfce7; color: #166534; }
+.q-type-mcq { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.q-type-msq { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.q-type-nat { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+
+[data-theme="dark"] .q-type-mcq {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+[data-theme="dark"] .q-type-msq {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="dark"] .q-type-nat {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.35);
+}
 
 .q-marks-pill {
   font-size: 0.8rem;
@@ -692,6 +711,11 @@ mjx-container[jax="SVG"][display="true"] {
   background: var(--bg-card);
 }
 
+[data-theme="dark"] .option-item:hover {
+  border-color: var(--border-color);
+  background: var(--bg-tertiary);
+}
+
 .option-item.selected {
   background: #eff6ff;
   border-color: var(--brand-primary);
@@ -714,6 +738,69 @@ mjx-container[jax="SVG"][display="true"] {
   line-height: 1.5;
   color: var(--text-primary);
   flex: 1;
+}
+
+/* Review Mode Options */
+.option-item.opt-neutral {
+  background: var(--bg-tertiary);
+  border-color: transparent;
+  color: var(--text-primary);
+}
+
+.option-item.opt-correct,
+.option-item.opt-correct-chosen {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+.option-item.opt-correct .option-label,
+.option-item.opt-correct-chosen .option-label {
+  color: #15803d;
+}
+.option-item.opt-correct .opt-tag,
+.option-item.opt-correct-chosen .opt-tag {
+  color: #15803d;
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-left: 6px;
+}
+
+[data-theme="dark"] .option-item.opt-correct,
+[data-theme="dark"] .option-item.opt-correct-chosen {
+  background: rgba(34, 197, 94, 0.16);
+  border-color: #22c55e;
+}
+[data-theme="dark"] .option-item.opt-correct .option-label,
+[data-theme="dark"] .option-item.opt-correct-chosen .option-label {
+  color: #4ade80;
+}
+[data-theme="dark"] .option-item.opt-correct .opt-tag,
+[data-theme="dark"] .option-item.opt-correct-chosen .opt-tag {
+  color: #4ade80;
+}
+
+.option-item.opt-incorrect {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+.option-item.opt-incorrect .option-label {
+  color: #b91c1c;
+}
+.option-item.opt-incorrect .opt-tag {
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-left: 6px;
+}
+
+[data-theme="dark"] .option-item.opt-incorrect {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: #ef4444;
+}
+[data-theme="dark"] .option-item.opt-incorrect .option-label {
+  color: #f87171;
+}
+[data-theme="dark"] .option-item.opt-incorrect .opt-tag {
+  color: #f87171;
 }
 
 /* NAT Input Area */
@@ -1297,11 +1384,49 @@ mjx-container[jax="SVG"][display="true"] {
   margin-bottom: 4px;
 }
 
+.stat-card-val.val-total { color: var(--brand-primary); }
+.stat-card-val.val-correct { color: #16a34a; }
+[data-theme="dark"] .stat-card-val.val-correct { color: #4ade80; }
+.stat-card-val.val-incorrect { color: #dc2626; }
+[data-theme="dark"] .stat-card-val.val-incorrect { color: #f87171; }
+.stat-card-val.val-unattempted { color: #94a3b8; }
+[data-theme="dark"] .stat-card-val.val-unattempted { color: #94a3b8; }
+
 .stat-card-lbl {
   font-size: 0.8rem;
   color: var(--text-muted);
   text-transform: uppercase;
   font-weight: 700;
+}
+
+/* Section Breakdown Table */
+.results-breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+.results-breakdown-table th {
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+.results-breakdown-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+.results-breakdown-table tr:hover td {
+  background: var(--bg-tertiary);
+}
+.results-breakdown-table td.col-correct {
+  color: #16a34a;
+  font-weight: 700;
+}
+[data-theme="dark"] .results-breakdown-table td.col-correct {
+  color: #4ade80;
 }
 
 /* Solution Review Items */
@@ -1332,13 +1457,22 @@ mjx-container[jax="SVG"][display="true"] {
 .review-card.status-correct {
   border-left: 6px solid #16a34a;
 }
+[data-theme="dark"] .review-card.status-correct {
+  border-left-color: #22c55e;
+}
 
 .review-card.status-incorrect {
   border-left: 6px solid #dc2626;
 }
+[data-theme="dark"] .review-card.status-incorrect {
+  border-left-color: #ef4444;
+}
 
 .review-card.status-unattempted {
   border-left: 6px solid #94a3b8;
+}
+[data-theme="dark"] .review-card.status-unattempted {
+  border-left-color: #64748b;
 }
 
 .review-card-header {
@@ -1348,12 +1482,100 @@ mjx-container[jax="SVG"][display="true"] {
   margin-bottom: 12px;
 }
 
+/* Review Status & Marks Badges */
+.review-status-badge {
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.review-status-badge.status-correct {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+[data-theme="dark"] .review-status-badge.status-correct {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.review-status-badge.status-incorrect {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+[data-theme="dark"] .review-status-badge.status-incorrect {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.review-status-badge.status-skipped {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+[data-theme="dark"] .review-status-badge.status-skipped {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.review-marks-badge {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.review-marks-badge.marks-pos { color: #16a34a; }
+[data-theme="dark"] .review-marks-badge.marks-pos { color: #4ade80; }
+.review-marks-badge.marks-neg { color: #dc2626; }
+[data-theme="dark"] .review-marks-badge.marks-neg { color: #f87171; }
+.review-marks-badge.marks-zero { color: #64748b; }
+[data-theme="dark"] .review-marks-badge.marks-zero { color: #94a3b8; }
+
+/* Review Response Box */
+.review-response-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+}
+.review-response-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.review-response-box .resp-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.review-response-box .key-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #16a34a;
+}
+[data-theme="dark"] .review-response-box .key-val {
+  color: #4ade80;
+}
+
 .solution-box {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 16px;
   margin-top: 16px;
+}
+
+[data-theme="dark"] .solution-box {
+  background: #0f172a;
+  border-color: #334155;
 }
 
 .solution-title {
@@ -1365,6 +1587,18 @@ mjx-container[jax="SVG"][display="true"] {
   align-items: center;
   gap: 6px;
 }
+[data-theme="dark"] .solution-title {
+  color: #60a5fa;
+}
+
+/* Modal Summary Colors */
+.meta-val.val-answered { color: #16a34a; }
+[data-theme="dark"] .meta-val.val-answered { color: #4ade80; }
+.meta-val.val-not-answered { color: #dc2626; }
+[data-theme="dark"] .meta-val.val-not-answered { color: #f87171; }
+.meta-val.val-review { color: #9333ea; }
+[data-theme="dark"] .meta-val.val-review { color: #c084fc; }
+.meta-val.val-not-visited { color: var(--text-primary); }
 
 /* ==========================================================================
    UTILITY & RESPONSIVE RULES

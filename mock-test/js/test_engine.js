@@ -64,7 +64,7 @@
     updateSummaryStats();
 
     // Setup Theme
-    const savedTheme = localStorage.getItem('jam_theme') || 'light';
+    const savedTheme = localStorage.getItem('jam_theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon();
   }
@@ -196,7 +196,7 @@
             item.onclick = () => toggleMsqOption(optKey);
             item.innerHTML = `
               <div class="option-label" style="display:flex;align-items:center;gap:6px;">
-                <input type="checkbox" ${isSelected ? 'checked' : ''} style="pointer-events:none;transform:scale(1.2);">
+                <input type="checkbox" ${isSelected ? 'checked' : ''} style="pointer-events:none;transform:scale(1.2);accent-color:var(--brand-primary);">
                 (${optKey})
               </div>
               <div class="option-text">${q.options[optKey]}</div>
@@ -455,7 +455,7 @@
   };
 
   window.toggleTheme = function() {
-    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('jam_theme', next);
@@ -464,8 +464,11 @@
 
   function updateThemeIcon() {
     const btn = document.getElementById('theme-toggle-btn');
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (btn) btn.innerHTML = isDark ? '☀' : '🌙';
+    const isDark = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark';
+    if (btn) {
+      btn.innerHTML = isDark ? '☀' : '🌙';
+      btn.title = `Switch to ${isDark ? 'Light' : 'Dark'} Mode`;
+    }
   }
 
   window.showSubmitModal = function() {

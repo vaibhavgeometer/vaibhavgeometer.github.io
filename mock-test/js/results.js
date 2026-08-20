@@ -140,19 +140,19 @@
 
         <div class="results-stats-grid">
           <div class="stat-card">
-            <div class="stat-card-val" style="color: var(--brand-primary);">${test.total_questions}</div>
+            <div class="stat-card-val val-total">${test.total_questions}</div>
             <div class="stat-card-lbl">Total Questions</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-val" style="color: #16a34a;">${correctCount}</div>
+            <div class="stat-card-val val-correct">${correctCount}</div>
             <div class="stat-card-lbl">Correct (+${posMarks})</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-val" style="color: #dc2626;">${incorrectCount}</div>
+            <div class="stat-card-val val-incorrect">${incorrectCount}</div>
             <div class="stat-card-lbl">Incorrect (-${negMarks})</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card-val" style="color: #94a3b8;">${unattemptedCount}</div>
+            <div class="stat-card-val val-unattempted">${unattemptedCount}</div>
             <div class="stat-card-lbl">Unattempted</div>
           </div>
         </div>
@@ -161,24 +161,24 @@
         <div class="review-card" style="margin-bottom: 28px;">
           <h3 style="margin-bottom: 14px; font-size: 1.15rem; font-weight: 700;">📊 Section-Wise Breakdown</h3>
           <div style="overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+            <table class="results-breakdown-table">
               <thead>
-                <tr style="border-bottom: 2px solid var(--border-color); background: var(--bg-tertiary);">
-                  <th style="padding: 10px 14px;">Section</th>
-                  <th style="padding: 10px 14px;">Questions</th>
-                  <th style="padding: 10px 14px;">Attempted</th>
-                  <th style="padding: 10px 14px;">Correct</th>
-                  <th style="padding: 10px 14px;">Score</th>
+                <tr>
+                  <th>Section</th>
+                  <th>Questions</th>
+                  <th>Attempted</th>
+                  <th>Correct</th>
+                  <th>Score</th>
                 </tr>
               </thead>
               <tbody>
                 ${Object.values(sectionStats).filter(s => s.total > 0).map(s => `
-                  <tr style="border-bottom: 1px solid var(--border-color);">
-                    <td style="padding: 10px 14px; font-weight: 600;">${s.name}</td>
-                    <td style="padding: 10px 14px;">${s.total}</td>
-                    <td style="padding: 10px 14px;">${s.attempted}</td>
-                    <td style="padding: 10px 14px; color: #16a34a; font-weight: 700;">${s.correct}</td>
-                    <td style="padding: 10px 14px; font-weight: 700;">${s.marks.toFixed(2)}</td>
+                  <tr>
+                    <td style="font-weight: 600;">${s.name}</td>
+                    <td>${s.total}</td>
+                    <td>${s.attempted}</td>
+                    <td class="col-correct">${s.correct}</td>
+                    <td style="font-weight: 700;">${s.marks.toFixed(2)}</td>
                   </tr>
                 `).join('')}
               </tbody>
@@ -235,14 +235,14 @@
       let statusBadge = '';
       let marksBadge = '';
       if (q.status === 'correct') {
-        statusBadge = `<span style="background:#dcfce7; color:#166534; font-weight:700; font-size:0.75rem; padding:3px 10px; border-radius:999px;">✓ Correct</span>`;
-        marksBadge = `<span style="color:#16a34a; font-weight:800;">+${q.marksEarned}</span>`;
+        statusBadge = `<span class="review-status-badge status-correct">✓ Correct</span>`;
+        marksBadge = `<span class="review-marks-badge marks-pos">+${q.marksEarned}</span>`;
       } else if (q.status === 'incorrect') {
-        statusBadge = `<span style="background:#fee2e2; color:#991b1b; font-weight:700; font-size:0.75rem; padding:3px 10px; border-radius:999px;">✕ Incorrect</span>`;
-        marksBadge = `<span style="color:#dc2626; font-weight:800;">${q.marksEarned}</span>`;
+        statusBadge = `<span class="review-status-badge status-incorrect">✕ Incorrect</span>`;
+        marksBadge = `<span class="review-marks-badge marks-neg">${q.marksEarned}</span>`;
       } else {
-        statusBadge = `<span style="background:#f1f5f9; color:#475569; font-weight:700; font-size:0.75rem; padding:3px 10px; border-radius:999px;">⚪ Skipped</span>`;
-        marksBadge = `<span style="color:#64748b; font-weight:800;">0</span>`;
+        statusBadge = `<span class="review-status-badge status-skipped">⚪ Skipped</span>`;
+        marksBadge = `<span class="review-marks-badge marks-zero">0</span>`;
       }
 
       let userAnsDisplay = q.userResponse !== null && q.userResponse !== undefined ? 
@@ -273,34 +273,34 @@
                 const isCorrectOpt = q.answer_key.includes(opt);
                 const isUserChosen = Array.isArray(q.userResponse) ? q.userResponse.includes(opt) : q.userResponse === opt;
                 
-                let optBorder = 'transparent';
-                let optBg = 'var(--bg-tertiary)';
+                let optClass = 'opt-neutral';
                 let optIcon = '';
 
-                if (isCorrectOpt) {
-                  optBg = '#dcfce7';
-                  optBorder = '#22c55e';
+                if (isCorrectOpt && isUserChosen) {
+                  optClass = 'opt-correct-chosen';
+                  optIcon = ' ✓ (Your Choice & Correct)';
+                } else if (isCorrectOpt) {
+                  optClass = 'opt-correct';
                   optIcon = ' ✓ (Correct)';
-                } else if (isUserChosen && !isCorrectOpt) {
-                  optBg = '#fee2e2';
-                  optBorder = '#ef4444';
+                } else if (isUserChosen) {
+                  optClass = 'opt-incorrect';
                   optIcon = ' ✕ (Your Choice)';
                 }
 
                 return `
-                  <div class="option-item" style="background:${optBg}; border-color:${optBorder}; cursor:default;">
+                  <div class="option-item ${optClass}" style="cursor:default;">
                     <div class="option-label">(${opt})</div>
-                    <div class="option-text">${q.options[opt]} <strong style="font-size:0.8rem;">${optIcon}</strong></div>
+                    <div class="option-text">${q.options[opt]} <strong class="opt-tag">${optIcon}</strong></div>
                   </div>
                 `;
               }).join('')}
             </div>
           ` : ''}
 
-          <div style="background:var(--bg-primary); border:1px solid var(--border-color); padding:10px 14px; border-radius:6px; font-size:0.88rem; margin-bottom:12px;">
-            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-              <div><strong>Your Response:</strong> <span style="font-family:var(--font-mono); font-weight:700;">${userAnsDisplay}</span></div>
-              <div><strong>Correct Answer Key:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:#16a34a;">${q.answer_key}</span></div>
+          <div class="review-response-box">
+            <div class="review-response-row">
+              <div><strong>Your Response:</strong> <span class="resp-val">${userAnsDisplay}</span></div>
+              <div><strong>Correct Answer Key:</strong> <span class="key-val">${q.answer_key}</span></div>
             </div>
           </div>
 
