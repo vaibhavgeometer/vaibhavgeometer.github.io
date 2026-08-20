@@ -46,15 +46,15 @@ The 300 PYQs are organized across 9 comprehensive syllabus modules:
 
 | Module ID | Topic / Module Name | Questions | Total Marks | Duration | Subject Area |
 | :---: | :--- | :---: | :---: | :---: | :--- |
-| **1.1** | Sequences and Series of Real Numbers | 34 | 58 | 102 min | Real Analysis |
-| **1.2** | Functions of One Real Variable | 54 | 90 | 162 min | Real Analysis |
-| **2.1** | Functions of Two or Three Real Variables | 28 | 47 | 84 min | Multivariable Calculus |
-| **2.2** | Integral Calculus | 28 | 46 | 84 min | Integral Calculus |
-| **2.3** | Differential Equations | 37 | 62 | 111 min | Differential Equations |
-| **3.1** | Matrices and Vector Spaces | 33 | 55 | 99 min | Linear Algebra |
-| **3.2** | Linear Transformations and Invertibility | 25 | 42 | 75 min | Linear Algebra |
-| **3.3** | Eigenvalues, Eigenvectors & Inner Product Spaces | 31 | 52 | 93 min | Linear Algebra |
-| **3.4** | Groups and Finite Groups | 30 | 48 | 90 min | Abstract Algebra |
+| **1.1** | Sequences and Series of Real Numbers | 49 | 81 | 146 min | Real Analysis |
+| **1.2** | Functions of One Real Variable | 53 | 91 | 164 min | Real Analysis |
+| **2.1** | Functions of Two or Three Real Variables | 26 | 44 | 79 min | Multivariable Calculus & ODE |
+| **2.2** | Integral Calculus | 26 | 42 | 76 min | Multivariable Calculus & ODE |
+| **2.3** | Differential Equations | 44 | 71 | 128 min | Multivariable Calculus & ODE |
+| **3.1** | Basic Algebra | 3 | 6 | 11 min | Linear Algebra & Algebra |
+| **3.2** | Matrices and Systems of Linear Equations | 33 | 56 | 101 min | Linear Algebra & Algebra |
+| **3.3** | Finite Dimensional Vector Spaces | 30 | 50 | 90 min | Linear Algebra & Algebra |
+| **3.4** | Groups | 36 | 59 | 106 min | Linear Algebra & Algebra |
 | **TOTAL** | **Full Question Bank (2022–2026)** | **300** | **500** | — | **All Core Areas** |
 
 ---

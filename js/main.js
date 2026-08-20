@@ -45,6 +45,10 @@
         ? `<span class="best-score">★ Best: ${bestScore}/${t.total_marks}</span>`
         : '';
 
+      const cheatBtn = t.cheat_sheet 
+        ? `<a href="${t.cheat_sheet}" target="_blank" class="btn-test cheat" title="View ${t.name} Concept & Formula Cheat Sheet">📑 Cheat Sheet</a>`
+        : '';
+
       return `
         <div class="topic-card" data-category="${t.category}">
           <div class="topic-card-top">
@@ -66,13 +70,14 @@
               <span class="meta-value">${t.duration_minutes} min</span>
             </div>
             <div class="topic-meta-item">
-              <span class="meta-label">Neg. Marking</span>
-              <span class="meta-value">MCQ only</span>
+              <span class="meta-label">Pattern</span>
+              <span class="meta-value">MCQ • MSQ • NAT</span>
             </div>
           </div>
           <div class="topic-actions">
-            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary">⚡ Start Test</a>
-            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary">📖 Practice</a>
+            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Test</a>
+            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
+            ${cheatBtn}
           </div>
         </div>
       `;
@@ -87,6 +92,17 @@
     document.querySelectorAll('#topics-container .topic-card').forEach(card => {
       card.style.display = (cat === 'ALL' || card.dataset.category === cat) ? 'flex' : 'none';
     });
+  };
+
+  // --- Cheat Sheets Modal ---
+  window.openCheatSheetsModal = function() {
+    const modal = document.getElementById('cheatsheets-modal');
+    if (modal) modal.classList.remove('hidden');
+  };
+
+  window.closeCheatSheetsModal = function() {
+    const modal = document.getElementById('cheatsheets-modal');
+    if (modal) modal.classList.add('hidden');
   };
 
   // --- Init ---

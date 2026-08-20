@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IIT JAM Mathematics (MA) — Mock Test Series</title>
-  <meta name="description" content="Free IIT JAM Mathematics (MA) Mock Test Series covering 300 official PYQs (2022–2026). Authentic CBT simulation with MathJax LaTeX, scientific calculator, and instant analytics.">
-  <meta name="keywords" content="IIT JAM Mathematics Mock Test, IIT JAM MA, PYQ, Computer Based Test, MathJax, LaTeX, Real Analysis, Linear Algebra, Group Theory">
+  <title>IIT JAM Mathematics (MA) — Mock Test Series & Study Material</title>
+  <meta name="description" content="Free IIT JAM Mathematics (MA) Mock Test Series covering 300 official PYQs (2022–2026), 14 topic-wise Formula Cheat Sheets, official Syllabus, and 2005–2026 PYQ papers archive.">
+  <meta name="keywords" content="IIT JAM Mathematics Mock Test, IIT JAM MA, PYQ, Computer Based Test, MathJax, LaTeX, Formula Cheat Sheets, Real Analysis, Linear Algebra, Group Theory">
   <meta name="author" content="Vaibhav Geometer">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
@@ -29,12 +29,18 @@
     <nav class="nav-container">
       <a href="#" class="brand-logo">
         <span class="brand-icon">📐</span>
-        <span class="brand-name">IIT JAM Mock Tests</span>
+        <span class="brand-name">IIT JAM Mathematics</span>
       </a>
 
       <div class="nav-actions">
-        <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" class="nav-link-btn" download>
-          📥 PDF
+        <a href="docs/Syllabus.pdf" target="_blank" class="nav-link-btn" title="View Official IIT JAM Syllabus">
+          📜 Syllabus
+        </a>
+        <button class="nav-link-btn" onclick="window.openCheatSheetsModal()" title="Browse all 14 Formula Cheat Sheets">
+          📑 Cheat Sheets
+        </button>
+        <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" class="nav-link-btn" download title="Download 300 PYQ Master Question Bank PDF">
+          📥 Question Bank
         </a>
         <button class="icon-btn" onclick="window.toggleTheme()" title="Toggle Theme" id="theme-btn">☀</button>
       </div>
@@ -46,7 +52,15 @@
     <div class="container">
       <h1>IIT JAM Mathematics <span class="accent">(MA)</span></h1>
       <p class="hero-sub">Topic-Wise Mock Test Series · 300 Official PYQs · 2022–2026</p>
-      <p class="hero-desc">Authentic Computer Based Test simulation with MCQ, MSQ & NAT formats, official marking scheme, built-in scientific calculator, and LaTeX-rendered questions.</p>
+      <p class="hero-desc">Authentic Computer Based Test simulation with MCQ, MSQ & NAT formats, official marking scheme, built-in scientific calculator, 14 formula cheat sheets, and LaTeX solutions.</p>
+      
+      <div class="hero-badges">
+        <span class="hero-pill">🎯 <strong>300</strong> Official PYQs</span>
+        <span class="hero-pill">⚡ <strong>9</strong> Topic Mock Tests</span>
+        <span class="hero-pill">📑 <strong>14</strong> Formula Cheat Sheets</span>
+        <span class="hero-pill">📜 <strong>Official</strong> Syllabus</span>
+        <span class="hero-pill">📚 <strong>2005–2026</strong> Archive</span>
+      </div>
     </div>
   </section>
 
@@ -56,7 +70,7 @@
 
       <!-- Filter Tabs -->
       <div class="filter-tabs">
-        <button class="filter-btn active" onclick="window.filterTopics('ALL', this)">All Topics</button>
+        <button class="filter-btn active" onclick="window.filterTopics('ALL', this)">All Topics (9)</button>
         <button class="filter-btn" onclick="window.filterTopics('Real Analysis', this)">Real Analysis</button>
         <button class="filter-btn" onclick="window.filterTopics('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
         <button class="filter-btn" onclick="window.filterTopics('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
@@ -69,10 +83,165 @@
     </div>
   </main>
 
+  <!-- Study Materials & Downloads Hub Section -->
+  <section class="resources-hub" id="resources">
+    <div class="container">
+      <div class="section-header-block">
+        <h2 class="section-title">📚 Study Materials & Downloads Hub</h2>
+        <p class="section-sub">Comprehensive collection of official question banks, syllabus, formula cheat sheets, and past year question paper archives.</p>
+      </div>
+
+      <div class="resources-grid">
+        <!-- Card 1: Question Bank -->
+        <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" class="resource-card" download>
+          <div class="resource-icon-wrap">📥</div>
+          <h3 class="resource-title">Topic-Wise Question Bank (2022–2026)</h3>
+          <p class="resource-desc">Publication-ready 52-page master PDF containing all 300 official PYQs organized by syllabus with complete Master Answer Key.</p>
+          <div class="resource-footer">
+            <span class="resource-badge">PDF • 52 Pages</span>
+            <span>Download →</span>
+          </div>
+        </a>
+
+        <!-- Card 2: Official Syllabus -->
+        <a href="docs/Syllabus.pdf" target="_blank" class="resource-card">
+          <div class="resource-icon-wrap">📜</div>
+          <h3 class="resource-title">Official IIT JAM Syllabus</h3>
+          <p class="resource-desc">Official syllabus document detailing all topics across Real Analysis, Multivariable Calculus, ODE, Linear Algebra, and Groups.</p>
+          <div class="resource-footer">
+            <span class="resource-badge">Official Document</span>
+            <span>View PDF →</span>
+          </div>
+        </a>
+
+        <!-- Card 3: Formula Cheat Sheets -->
+        <div class="resource-card" style="cursor: pointer;" onclick="window.openCheatSheetsModal()">
+          <div class="resource-icon-wrap">📑</div>
+          <h3 class="resource-title">14 Formula Cheat Sheets</h3>
+          <p class="resource-desc">High-yield quick revision formula sheets for Sequences, Series, Single/Multivariable Calculus, ODE, Linear Algebra, and Group Theory.</p>
+          <div class="resource-footer">
+            <span class="resource-badge">14 Topic Sheets</span>
+            <span style="color: var(--green);">Browse All →</span>
+          </div>
+        </div>
+
+        <!-- Card 4: 2022-2026 PYQs with Keys -->
+        <a href="docs/2022-2026-PYQs-with-Keys.pdf" target="_blank" class="resource-card">
+          <div class="resource-icon-wrap">📝</div>
+          <h3 class="resource-title">2022–2026 Official Papers & Keys</h3>
+          <p class="resource-desc">Original examination papers from 2022 to 2026 combined with official IIT final answer keys and acceptance ranges.</p>
+          <div class="resource-footer">
+            <span class="resource-badge">198 Pages • Complete</span>
+            <span>View PDF →</span>
+          </div>
+        </a>
+
+        <!-- Card 5: 2005-2026 Original Papers Archive -->
+        <a href="docs/MA2005-2026_Original_PYQs.pdf" target="_blank" class="resource-card">
+          <div class="resource-icon-wrap">🏛</div>
+          <h3 class="resource-title">22-Year PYQ Archive (2005–2026)</h3>
+          <p class="resource-desc">Comprehensive historical archive of original IIT JAM Mathematics examination papers spanning 2005 through 2026.</p>
+          <div class="resource-footer">
+            <span class="resource-badge">2005–2026 Archive</span>
+            <span>Download →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cheat Sheets Modal -->
+  <div id="cheatsheets-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeCheatSheetsModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">📑 IIT JAM Formula & Concept Cheat Sheets</div>
+        <button class="modal-close-btn" onclick="window.closeCheatSheetsModal()" title="Close Modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="cheatsheet-category-title">1. Real Analysis</div>
+        <div class="cheatsheet-list">
+          <a href="docs/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Sequences of Real Numbers</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Series_of_Real_Numbers_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Series of Real Numbers</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Series_Convergence_Tests_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Series Convergence Tests & Power Series</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Continuity & Differentiability</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Riemann_Integration_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Riemann Integration & Definite Integrals</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Multivariable_and_Power_Series_Supplemental.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Max/Min, L'Hospital & Power Series Operations</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+        </div>
+
+        <div class="cheatsheet-category-title">2. Multivariable Calculus & Differential Equations</div>
+        <div class="cheatsheet-list">
+          <a href="docs/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Functions of Several Variables (Multivariable Calculus)</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Integral Calculus (Double & Triple Integrals)</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Ordinary Differential Equations (ODE)</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+        </div>
+
+        <div class="cheatsheet-category-title">3. Linear Algebra & Algebra</div>
+        <div class="cheatsheet-list">
+          <a href="docs/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Basic Algebra (P&C, Binomial Theorem)</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Linear Algebra Master Sheet (Matrices, Linear Systems & Eigenvalues)</div>
+            <span class="cheatsheet-pages">3 Pages PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Finite Dimensional Vector Spaces</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Group_Theory_Summary.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Group Theory Quick Reference</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="docs/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf" target="_blank" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Group Theory Master Cheat Sheet (Gallian Review)</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 · IIT JAM Mathematics Mock Tests · Math rendered via <strong>MathJax 3</strong></p>
+      <div class="footer-links">
+        <a href="docs/Syllabus.pdf" target="_blank">Syllabus</a>
+        <span>•</span>
+        <a href="#resources">Downloads Hub</a>
+        <span>•</span>
+        <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank">Question Bank PDF</a>
+        <span>•</span>
+        <a href="docs/MA2005-2026_Original_PYQs.pdf" target="_blank">2005–2026 Archive</a>
+      </div>
+      <p>© 2026 · IIT JAM Mathematics Mock Tests & Resource Portal · Math rendered via <strong>MathJax 3</strong></p>
     </div>
   </footer>
 

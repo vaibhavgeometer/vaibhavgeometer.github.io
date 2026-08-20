@@ -38,13 +38,16 @@
       const hasAttempted = userResp !== null && userResp !== undefined && 
         (Array.isArray(userResp) ? userResp.length > 0 : String(userResp).trim().length > 0);
 
-      if (hasAttempted) {
+      if (key === 'MTA') {
+        status = 'correct';
+        earned = q.marks;
+        if (hasAttempted && sectionStats[secKey]) {
+          sectionStats[secKey].attempted++;
+        }
+      } else if (hasAttempted) {
         if (sectionStats[secKey]) sectionStats[secKey].attempted++;
 
-        if (key === 'MTA') {
-          status = 'correct';
-          earned = q.marks;
-        } else if (q.type === 'MCQ') {
+        if (q.type === 'MCQ') {
           if (String(userResp).trim().toUpperCase() === String(key).trim().toUpperCase()) {
             status = 'correct';
             earned = q.marks;
@@ -232,9 +235,13 @@
 
   function renderReviewCards(questions) {
     return questions.map(q => {
+      const isMTA = q.answer_key === 'MTA';
       let statusBadge = '';
       let marksBadge = '';
-      if (q.status === 'correct') {
+      if (isMTA) {
+        statusBadge = `<span class="review-status-badge status-correct">★ Marks to All (MTA)</span>`;
+        marksBadge = `<span class="review-marks-badge marks-pos">+${q.marksEarned}</span>`;
+      } else if (q.status === 'correct') {
         statusBadge = `<span class="review-status-badge status-correct">✓ Correct</span>`;
         marksBadge = `<span class="review-marks-badge marks-pos">+${q.marksEarned}</span>`;
       } else if (q.status === 'incorrect') {
@@ -247,6 +254,8 @@
 
       let userAnsDisplay = q.userResponse !== null && q.userResponse !== undefined ? 
         (Array.isArray(q.userResponse) ? q.userResponse.join(', ') : q.userResponse) : 'None';
+
+      const correctKeysList = isMTA ? [] : q.answer_key.split(',').map(s => s.trim().toUpperCase());
 
       return `
         <div class="review-card review-card-item status-${q.status}" data-status="${q.status}">
@@ -270,13 +279,21 @@
             <div class="options-list" style="margin-bottom: 16px;">
               ${['A', 'B', 'C', 'D'].map(opt => {
                 if (!q.options[opt]) return '';
-                const isCorrectOpt = q.answer_key.includes(opt);
+                const isCorrectOpt = isMTA || correctKeysList.includes(opt);
                 const isUserChosen = Array.isArray(q.userResponse) ? q.userResponse.includes(opt) : q.userResponse === opt;
                 
                 let optClass = 'opt-neutral';
                 let optIcon = '';
 
-                if (isCorrectOpt && isUserChosen) {
+                if (isMTA) {
+                  if (isUserChosen) {
+                    optClass = 'opt-correct-chosen';
+                    optIcon = ' ✓ (Your Choice — MTA Awarded)';
+                  } else {
+                    optClass = 'opt-correct';
+                    optIcon = ' ✓ (MTA Awarded)';
+                  }
+                } else if (isCorrectOpt && isUserChosen) {
                   optClass = 'opt-correct-chosen';
                   optIcon = ' ✓ (Your Choice & Correct)';
                 } else if (isCorrectOpt) {
