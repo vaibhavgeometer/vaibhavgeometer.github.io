@@ -310,12 +310,12 @@ window.MOCK_TESTS_DATA = {
         "type": "MSQ",
         "marks": 2,
         "negative_marks": 0,
-        "question": "For $n\\in\\mathbb{N}$, define $x_{n}=\\sum_{k=1}^{n}\\frac{k}{n^{2}+k}$. Then, which of the following is/are TRUE?",
+        "question": "For $n\\in\\mathbb{N}$, let $x_{n}=\\sum_{k=1}^{n}\\frac{k}{n^{2}+k}$. Then, which of the following is/are TRUE?",
         "options": {
           "A": "The sequence $(x_{n})$ converges",
           "B": "The series $\\sum_{n=1}^{\\infty}x_{n}$ converges",
           "C": "The series $\\sum_{n=1}^{\\infty}x_{n}$ does NOT converge",
-          "D": "The series $\\sum_{n=1}^{\\infty}\\frac{x_{n}}{n}$ converges"
+          "D": "The series $\\sum_{n=1}^{\\infty}x_{n}^{n}$ converges"
         },
         "answer_key": "A,C,D",
         "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q36)"
