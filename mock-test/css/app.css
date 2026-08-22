@@ -67,10 +67,15 @@
   --brand-primary-hover: #60a5fa;
   --brand-accent: #818cf8;
   
+  --status-answered: #16a34a;
   --status-answered-bg: #064e3b;
+  --status-not-answered: #dc2626;
   --status-not-answered-bg: #7f1d1d;
+  --status-not-visited: #334155;
   --status-not-visited-bg: #1e293b;
+  --status-review: #9333ea;
   --status-review-bg: #581c87;
+  --status-ans-review: #7e22ce;
   
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
@@ -1037,19 +1042,25 @@ mjx-container[jax="SVG"][display="true"] {
   border-left: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: hidden;
+  height: 100%;
   transition: transform 0.3s ease;
 }
 
 .palette-header {
   padding: 16px;
   border-bottom: 1px solid var(--border-color);
+  background: var(--bg-card);
 }
 
 .palette-title {
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 12px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .palette-legend {
@@ -1063,26 +1074,48 @@ mjx-container[jax="SVG"][display="true"] {
   display: flex;
   align-items: center;
   gap: 6px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .legend-badge {
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: #ffffff;
+  flex-shrink: 0;
 }
 
-.bg-answered { background: var(--status-answered); }
-.bg-not-answered { background: var(--status-not-answered); }
-.bg-not-visited { background: var(--status-not-visited); }
-.bg-review { background: var(--status-review); }
+.bg-answered { 
+  background: #16a34a; 
+  color: #ffffff;
+}
+.bg-not-answered { 
+  background: #dc2626; 
+  color: #ffffff;
+}
+.bg-not-visited { 
+  background: #64748b; 
+  color: #ffffff;
+}
+[data-theme="dark"] .bg-not-visited {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #f1f5f9;
+}
+.bg-review { 
+  background: #9333ea; 
+  color: #ffffff;
+}
 .bg-ans-review {
-  background: var(--status-review);
+  background: #7e22ce;
+  color: #ffffff;
   position: relative;
 }
 .bg-ans-review::after {
@@ -1093,32 +1126,44 @@ mjx-container[jax="SVG"][display="true"] {
   width: 6px;
   height: 6px;
   background: #22c55e;
+  border: 1px solid #ffffff;
   border-radius: 50%;
 }
 
 .palette-filter-row {
   display: flex;
   gap: 6px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--border-color);
+  background: var(--bg-card);
   overflow-x: auto;
 }
 
 .palette-filter-btn {
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
   color: var(--text-secondary);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.palette-filter-btn:hover {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
 }
 
 .palette-filter-btn.active {
   background: var(--brand-primary);
   color: #ffffff;
   border-color: var(--brand-primary);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.35);
 }
 
 .palette-grid {
@@ -1126,62 +1171,165 @@ mjx-container[jax="SVG"][display="true"] {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  align-content: start;
+}
+
+.palette-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.palette-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+.palette-grid::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+.palette-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
 
 .palette-btn {
   aspect-ratio: 1;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform 0.1s ease, filter 0.1s ease;
+  transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
   color: #ffffff;
+  user-select: none;
+  background: #64748b; /* Fallback */
 }
 
 .palette-btn:hover {
-  filter: brightness(1.1);
-  transform: scale(1.05);
+  filter: brightness(1.15);
+  transform: scale(1.06);
+  z-index: 1;
 }
 
-.palette-btn.current {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
-}
-
+/* 1. Not Visited Status */
+.palette-btn.status-not_visited,
+.palette-btn.status-not-visited,
 .palette-btn.st-not-visited {
-  background: var(--status-not-visited);
+  background: #e2e8f0;
+  color: #334155;
+  border: 1px solid #cbd5e1;
 }
 
+[data-theme="dark"] .palette-btn.status-not_visited,
+[data-theme="dark"] .palette-btn.status-not-visited,
+[data-theme="dark"] .palette-btn.st-not-visited {
+  background: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid #3b4d66;
+}
+
+[data-theme="dark"] .palette-btn.status-not_visited:hover,
+[data-theme="dark"] .palette-btn.status-not-visited:hover,
+[data-theme="dark"] .palette-btn.st-not-visited:hover {
+  background: #334155;
+  color: #ffffff;
+  border-color: #60a5fa;
+}
+
+/* 2. Not Answered Status (Red) */
+.palette-btn.status-not_answered,
+.palette-btn.status-not-answered,
 .palette-btn.st-not-answered {
-  background: var(--status-not-answered);
+  background: #dc2626;
+  color: #ffffff;
+  border: 1px solid #ef4444;
 }
 
+[data-theme="dark"] .palette-btn.status-not_answered,
+[data-theme="dark"] .palette-btn.status-not-answered,
+[data-theme="dark"] .palette-btn.st-not-answered {
+  background: #dc2626;
+  color: #ffffff;
+  border: 1px solid #f87171;
+  box-shadow: 0 1px 3px rgba(220, 38, 38, 0.4);
+}
+
+/* 3. Answered Status (Green) */
+.palette-btn.status-answered,
 .palette-btn.st-answered {
-  background: var(--status-answered);
+  background: #16a34a;
+  color: #ffffff;
+  border: 1px solid #22c55e;
 }
 
+[data-theme="dark"] .palette-btn.status-answered,
+[data-theme="dark"] .palette-btn.st-answered {
+  background: #16a34a;
+  color: #ffffff;
+  border: 1px solid #4ade80;
+  box-shadow: 0 1px 3px rgba(22, 163, 74, 0.4);
+}
+
+/* 4. Marked for Review (Purple) */
+.palette-btn.status-review,
 .palette-btn.st-review {
-  background: var(--status-review);
+  background: #9333ea;
+  color: #ffffff;
+  border: 1px solid #a855f7;
 }
 
+[data-theme="dark"] .palette-btn.status-review,
+[data-theme="dark"] .palette-btn.st-review {
+  background: #9333ea;
+  color: #ffffff;
+  border: 1px solid #c084fc;
+  box-shadow: 0 1px 3px rgba(147, 51, 234, 0.4);
+}
+
+/* 5. Answered & Marked for Review (Purple with Green Dot) */
+.palette-btn.status-ans_review,
+.palette-btn.status-ans-review,
 .palette-btn.st-ans-review {
-  background: var(--status-review);
+  background: #7e22ce;
+  color: #ffffff;
+  border: 1px solid #9333ea;
+  position: relative;
 }
 
+[data-theme="dark"] .palette-btn.status-ans_review,
+[data-theme="dark"] .palette-btn.status-ans-review,
+[data-theme="dark"] .palette-btn.st-ans-review {
+  background: #7e22ce;
+  color: #ffffff;
+  border: 1px solid #a855f7;
+  box-shadow: 0 1px 3px rgba(126, 34, 206, 0.4);
+}
+
+.palette-btn.status-ans_review::after,
+.palette-btn.status-ans-review::after,
 .palette-btn.st-ans-review::after {
   content: "";
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: 3px;
+  right: 3px;
   width: 8px;
   height: 8px;
   background: #22c55e;
+  border: 1.5px solid #ffffff;
   border-radius: 50%;
+}
+
+/* Current / Active Selected Question Highlight */
+.palette-btn.current,
+.palette-btn.current-q {
+  outline: 3px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7) !important;
+  font-weight: 900 !important;
+  z-index: 2;
 }
 
 /* Mobile Drawer Overlay */

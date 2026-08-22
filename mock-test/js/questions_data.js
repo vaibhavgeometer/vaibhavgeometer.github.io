@@ -13,7 +13,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q1",
@@ -688,7 +688,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
     "questions": [
       {
         "id": "JAM_2025_Q1",
@@ -1363,7 +1363,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
     "questions": [
       {
         "id": "JAM_2024_Q1",
@@ -2038,7 +2038,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
     "questions": [
       {
         "id": "JAM_2023_Q1",
@@ -2713,7 +2713,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
     "questions": [
       {
         "id": "JAM_2022_Q1",
@@ -3388,7 +3388,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2021_Q1",
@@ -4063,7 +4063,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2020_Q1",
@@ -4738,7 +4738,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2019_Q1",
@@ -5413,7 +5413,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2018_Q1",
@@ -6088,7 +6088,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2017_Q1",
@@ -6763,7 +6763,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2016_Q1",
@@ -7438,7 +7438,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2015_Q1",
@@ -8113,7 +8113,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 60,
     "duration_minutes": 100,
     "pattern": "MCQ (35 Questions)",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2014_Q1",
@@ -8513,7 +8513,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 20,
     "duration_minutes": 40,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2013_Q1",
@@ -8638,7 +8638,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2012_Q1",
@@ -8818,7 +8818,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2011_Q1",
@@ -8998,7 +8998,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2010_Q1",
@@ -9178,7 +9178,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2009_Q1",
@@ -9358,7 +9358,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2008_Q1",
@@ -9538,7 +9538,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2007_Q1",
@@ -9718,7 +9718,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2006_Q1",
@@ -9898,7 +9898,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 90,
     "duration_minutes": 60,
     "pattern": "MCQ",
-    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2005_Q1",
@@ -10075,7 +10075,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 49,
     "total_marks": 81,
     "duration_minutes": 146,
-    "cheat_sheet": "docs/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q1",
@@ -11007,7 +11007,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 53,
     "total_marks": 91,
     "duration_minutes": 164,
-    "cheat_sheet": "docs/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q3",
@@ -11984,7 +11984,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 26,
     "total_marks": 44,
     "duration_minutes": 79,
-    "cheat_sheet": "docs/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q15",
@@ -12476,7 +12476,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 26,
     "total_marks": 42,
     "duration_minutes": 76,
-    "cheat_sheet": "docs/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q5",
@@ -12938,7 +12938,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 44,
     "total_marks": 71,
     "duration_minutes": 128,
-    "cheat_sheet": "docs/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q4",
@@ -13755,7 +13755,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 3,
     "total_marks": 6,
     "duration_minutes": 11,
-    "cheat_sheet": "docs/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q38",
@@ -13817,7 +13817,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 33,
     "total_marks": 56,
     "duration_minutes": 101,
-    "cheat_sheet": "docs/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q8",
@@ -14434,7 +14434,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 30,
     "total_marks": 50,
     "duration_minutes": 90,
-    "cheat_sheet": "docs/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q24",
@@ -15001,7 +15001,7 @@ window.MOCK_TESTS_DATA = {
     "total_questions": 36,
     "total_marks": 59,
     "duration_minutes": 106,
-    "cheat_sheet": "docs/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf",
+    "cheat_sheet": "assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q9",

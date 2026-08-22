@@ -741,6 +741,16 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .nav-btn-label {
+    display: none;
+  }
+  .nav-link-btn {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 420px) {
   .nav-container {
     padding: 0 8px;

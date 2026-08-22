@@ -17,6 +17,8 @@ $RECYCLE.BIN/
 # --- Editor & IDE Files ---
 .vscode/
 .idea/
+.gemini/
+.agents/
 *.sublime-project
 *.sublime-workspace
 *.swp

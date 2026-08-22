@@ -468,11 +468,13 @@
 
       const btn = document.createElement('button');
       btn.type = 'button';
-      const statusClass = `status-${state.status[idx] || 'not_visited'}`;
-      const isCurrent = idx === state.currentIndex ? 'current-q' : '';
-      btn.className = `palette-btn ${statusClass} ${isCurrent}`;
+      const status = state.status[idx] || 'not_visited';
+      const statusHyphen = status.replace('_', '-');
+      const statusClass = `status-${status} status-${statusHyphen} st-${statusHyphen}`;
+      const isCurrent = idx === state.currentIndex ? 'current current-q' : '';
+      btn.className = `palette-btn ${statusClass} ${isCurrent}`.trim();
       btn.innerText = idx + 1;
-      btn.title = `Question ${idx + 1} (${q.type}, ${q.marks}M) - ${state.status[idx]}`;
+      btn.title = `Question ${idx + 1} (${q.type}, ${q.marks}M) - ${status}`;
       btn.onclick = () => window.jumpToQuestion(idx);
 
       grid.appendChild(btn);

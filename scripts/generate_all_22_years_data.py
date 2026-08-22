@@ -71,7 +71,7 @@ def generate_all_data():
                 'total_marks': total_m,
                 'duration_minutes': duration,
                 'pattern': 'MCQ',
-                'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+                'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
                 'questions': qs
             }
 
@@ -109,7 +109,7 @@ def generate_all_data():
         'total_marks': 60,
         'duration_minutes': 100,
         'pattern': 'MCQ (35 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': qs14
     }
 
@@ -199,7 +199,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs15[k] for k in sorted(qs15.keys())]
     }
 
@@ -241,7 +241,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs16[k] for k in sorted(qs16.keys())]
     }
 
@@ -283,7 +283,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs17[k] for k in sorted(qs17.keys())]
     }
 
@@ -323,7 +323,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs18[k] for k in sorted(qs18.keys())]
     }
 
@@ -365,7 +365,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs19[k] for k in sorted(qs19.keys())]
     }
 
@@ -405,7 +405,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs20[k] for k in sorted(qs20.keys())]
     }
 
@@ -451,7 +451,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/MA2005-2026_Original_PYQs.pdf',
+        'paper_pdf': 'assets/MA2005-2026_Original_PYQs.pdf',
         'questions': [qs21[k] for k in sorted(qs21.keys())]
     }
 
@@ -491,7 +491,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/2022-2026-PYQs-with-Keys.pdf',
+        'paper_pdf': 'assets/2022-2026-PYQs-with-Keys.pdf',
         'questions': [qs22[k] for k in sorted(qs22.keys())]
     }
 
@@ -531,7 +531,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/2022-2026-PYQs-with-Keys.pdf',
+        'paper_pdf': 'assets/2022-2026-PYQs-with-Keys.pdf',
         'questions': [qs23[k] for k in sorted(qs23.keys())]
     }
 
@@ -571,7 +571,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/2022-2026-PYQs-with-Keys.pdf',
+        'paper_pdf': 'assets/2022-2026-PYQs-with-Keys.pdf',
         'questions': [qs24[k] for k in sorted(qs24.keys())]
     }
 
@@ -611,7 +611,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/2022-2026-PYQs-with-Keys.pdf',
+        'paper_pdf': 'assets/2022-2026-PYQs-with-Keys.pdf',
         'questions': [qs25[k] for k in sorted(qs25.keys())]
     }
 
@@ -651,7 +651,7 @@ def generate_all_data():
         'total_marks': 100,
         'duration_minutes': 180,
         'pattern': 'MCQ • MSQ • NAT (60 Questions)',
-        'paper_pdf': 'docs/2022-2026-PYQs-with-Keys.pdf',
+        'paper_pdf': 'assets/2022-2026-PYQs-with-Keys.pdf',
         'questions': [qs26[k] for k in sorted(qs26.keys())]
     }
 
@@ -671,6 +671,8 @@ def generate_all_data():
                     data_obj = json.loads(raw_json)
                     for k, v in data_obj.items():
                         if re.match(r'^\d+\.\d+$', str(k)):
+                            if 'cheat_sheet' in v and isinstance(v['cheat_sheet'], str):
+                                v['cheat_sheet'] = v['cheat_sheet'].replace('docs/', 'assets/')
                             # Ensure image property is added if missing
                             for q in v.get('questions', []):
                                 if 'image' not in q:
