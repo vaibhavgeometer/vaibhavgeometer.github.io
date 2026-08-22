@@ -774,3 +774,111 @@ body {
     font-size: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   PORTAL TAB NAVIGATION & 22-YEAR MOCK TEST CARDS
+   ========================================================================== */
+
+.main-tab-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px 0 24px 0;
+  flex-wrap: wrap;
+}
+
+.main-tab-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+}
+
+.main-tab-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+.main-tab-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.tab-content-panel.hidden {
+  display: none !important;
+}
+
+/* Year Test Card Accents */
+.year-badge {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.5px;
+}
+
+.era-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag-cbt {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.tag-classic {
+  background: rgba(168, 85, 247, 0.12);
+  color: var(--purple);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.year-filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.year-filter-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.year-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.year-filter-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+

@@ -1,8 +1,10072 @@
-// Topic-Wise IIT JAM Mathematics (MA) Question Bank (2022-2026)
-// Complete 300 Official Questions with Master Answer Keys & LaTeX Solutions
-// AUTO-GENERATED with 100% Word-by-Word Accuracy from v3.tex
+// IIT JAM Mathematics (MA) Complete 22-Year (2005-2026) Official Mock Test Series
+// Master Dataset with 885 Official Questions, High-Resolution Screenshots & Verified Official Answer Keys
 
 window.MOCK_TESTS_DATA = {
+  "2026": {
+    "id": "2026",
+    "file_id": "JAM_2026",
+    "year": 2026,
+    "name": "IIT JAM 2026 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "questions": [
+      {
+        "id": "JAM_2026_Q1",
+        "year": "JAM 2026",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q1.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2026_Q2",
+        "year": "JAM 2026",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2026_Q3",
+        "year": "JAM 2026",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q3.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2026_Q4",
+        "year": "JAM 2026",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2026_Q5",
+        "year": "JAM 2026",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2026_Q6",
+        "year": "JAM 2026",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2026_Q7",
+        "year": "JAM 2026",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2026_Q8",
+        "year": "JAM 2026",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q8.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2026_Q9",
+        "year": "JAM 2026",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q9.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2026_Q10",
+        "year": "JAM 2026",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q10.png",
+        "answer_key": "MTA",
+        "explanation": "<strong>Official Key: MTA</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2026_Q11",
+        "year": "JAM 2026",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q11.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2026_Q12",
+        "year": "JAM 2026",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2026_Q13",
+        "year": "JAM 2026",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2026_Q14",
+        "year": "JAM 2026",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q14.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2026_Q15",
+        "year": "JAM 2026",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q15.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2026_Q16",
+        "year": "JAM 2026",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q16.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2026_Q17",
+        "year": "JAM 2026",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q17.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2026_Q18",
+        "year": "JAM 2026",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q18.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2026_Q19",
+        "year": "JAM 2026",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q19.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2026_Q20",
+        "year": "JAM 2026",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q20.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2026_Q21",
+        "year": "JAM 2026",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q21.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2026_Q22",
+        "year": "JAM 2026",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2026_Q23",
+        "year": "JAM 2026",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q23.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2026_Q24",
+        "year": "JAM 2026",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q24.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2026_Q25",
+        "year": "JAM 2026",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q25.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2026_Q26",
+        "year": "JAM 2026",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q26.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2026_Q27",
+        "year": "JAM 2026",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2026_Q28",
+        "year": "JAM 2026",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q28.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2026_Q29",
+        "year": "JAM 2026",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q29.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2026_Q30",
+        "year": "JAM 2026",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q30.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2026_Q31",
+        "year": "JAM 2026",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q31.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: A;C;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2026_Q32",
+        "year": "JAM 2026",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q32.png",
+        "answer_key": "C;D",
+        "explanation": "<strong>Official Key: C;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2026_Q33",
+        "year": "JAM 2026",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q33.png",
+        "answer_key": "A;C",
+        "explanation": "<strong>Official Key: A;C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2026_Q34",
+        "year": "JAM 2026",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q34.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2026_Q35",
+        "year": "JAM 2026",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q35.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2026_Q36",
+        "year": "JAM 2026",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q36.png",
+        "answer_key": "A;C",
+        "explanation": "<strong>Official Key: A;C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2026_Q37",
+        "year": "JAM 2026",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q37.png",
+        "answer_key": "A;B;D",
+        "explanation": "<strong>Official Key: A;B;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2026_Q38",
+        "year": "JAM 2026",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q38.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2026_Q39",
+        "year": "JAM 2026",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q39.png",
+        "answer_key": "A;B;C",
+        "explanation": "<strong>Official Key: A;B;C</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2026_Q40",
+        "year": "JAM 2026",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q40.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2026_Q41",
+        "year": "JAM 2026",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q41.png",
+        "answer_key": "4.0 to 4.0",
+        "explanation": "<strong>Official Key: 4.0 to 4.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2026_Q42",
+        "year": "JAM 2026",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q42.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2026_Q43",
+        "year": "JAM 2026",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q43.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2026_Q44",
+        "year": "JAM 2026",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q44.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2026_Q45",
+        "year": "JAM 2026",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q45.png",
+        "answer_key": "8.0 to 8.0",
+        "explanation": "<strong>Official Key: 8.0 to 8.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2026_Q46",
+        "year": "JAM 2026",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q46.png",
+        "answer_key": "3.0 to 3.0",
+        "explanation": "<strong>Official Key: 3.0 to 3.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2026_Q47",
+        "year": "JAM 2026",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q47.png",
+        "answer_key": "8 to 8",
+        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2026_Q48",
+        "year": "JAM 2026",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q48.png",
+        "answer_key": "-4.0 to -4.0",
+        "explanation": "<strong>Official Key: -4.0 to -4.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2026_Q49",
+        "year": "JAM 2026",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q49.png",
+        "answer_key": "3.0 to 3.0",
+        "explanation": "<strong>Official Key: 3.0 to 3.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2026_Q50",
+        "year": "JAM 2026",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q50.png",
+        "answer_key": "16.0 to 16.0",
+        "explanation": "<strong>Official Key: 16.0 to 16.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2026_Q51",
+        "year": "JAM 2026",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q51.png",
+        "answer_key": "-1.0 to -1.0",
+        "explanation": "<strong>Official Key: -1.0 to -1.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2026_Q52",
+        "year": "JAM 2026",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q52.png",
+        "answer_key": "0.24 to 0.26",
+        "explanation": "<strong>Official Key: 0.24 to 0.26</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2026_Q53",
+        "year": "JAM 2026",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q53.png",
+        "answer_key": "1.1 to 1.3",
+        "explanation": "<strong>Official Key: 1.1 to 1.3</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2026_Q54",
+        "year": "JAM 2026",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q54.png",
+        "answer_key": "0.4 to 0.5",
+        "explanation": "<strong>Official Key: 0.4 to 0.5</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2026_Q55",
+        "year": "JAM 2026",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q55.png",
+        "answer_key": "4.0 to 4.0",
+        "explanation": "<strong>Official Key: 4.0 to 4.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2026_Q56",
+        "year": "JAM 2026",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q56.png",
+        "answer_key": "-1.0 to -1.0",
+        "explanation": "<strong>Official Key: -1.0 to -1.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2026_Q57",
+        "year": "JAM 2026",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q57.png",
+        "answer_key": "6.0 to 6.0",
+        "explanation": "<strong>Official Key: 6.0 to 6.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2026_Q58",
+        "year": "JAM 2026",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q58.png",
+        "answer_key": "165 to 165",
+        "explanation": "<strong>Official Key: 165 to 165</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2026_Q59",
+        "year": "JAM 2026",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q59.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2026_Q60",
+        "year": "JAM 2026",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q60.png",
+        "answer_key": "924 to 924",
+        "explanation": "<strong>Official Key: 924 to 924</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2025": {
+    "id": "2025",
+    "file_id": "JAM_2025",
+    "year": 2025,
+    "name": "IIT JAM 2025 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "questions": [
+      {
+        "id": "JAM_2025_Q1",
+        "year": "JAM 2025",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2025_Q2",
+        "year": "JAM 2025",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q2.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2025_Q3",
+        "year": "JAM 2025",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q3.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2025_Q4",
+        "year": "JAM 2025",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q4.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2025_Q5",
+        "year": "JAM 2025",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2025_Q6",
+        "year": "JAM 2025",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2025_Q7",
+        "year": "JAM 2025",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2025_Q8",
+        "year": "JAM 2025",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q8.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2025_Q9",
+        "year": "JAM 2025",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q9.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2025_Q10",
+        "year": "JAM 2025",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q10.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2025_Q11",
+        "year": "JAM 2025",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2025_Q12",
+        "year": "JAM 2025",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q12.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2025_Q13",
+        "year": "JAM 2025",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2025_Q14",
+        "year": "JAM 2025",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q14.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2025_Q15",
+        "year": "JAM 2025",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q15.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2025_Q16",
+        "year": "JAM 2025",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q16.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2025_Q17",
+        "year": "JAM 2025",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q17.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2025_Q18",
+        "year": "JAM 2025",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q18.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2025_Q19",
+        "year": "JAM 2025",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q19.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2025_Q20",
+        "year": "JAM 2025",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q20.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2025_Q21",
+        "year": "JAM 2025",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q21.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2025_Q22",
+        "year": "JAM 2025",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q22.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2025_Q23",
+        "year": "JAM 2025",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2025_Q24",
+        "year": "JAM 2025",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q24.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2025_Q25",
+        "year": "JAM 2025",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q25.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2025_Q26",
+        "year": "JAM 2025",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q26.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2025_Q27",
+        "year": "JAM 2025",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2025_Q28",
+        "year": "JAM 2025",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q28.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2025_Q29",
+        "year": "JAM 2025",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q29.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2025_Q30",
+        "year": "JAM 2025",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q30.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2025_Q31",
+        "year": "JAM 2025",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q31.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: A;C;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2025_Q32",
+        "year": "JAM 2025",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q32.png",
+        "answer_key": "A;B;C",
+        "explanation": "<strong>Official Key: A;B;C</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2025_Q33",
+        "year": "JAM 2025",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q33.png",
+        "answer_key": "A;B;D",
+        "explanation": "<strong>Official Key: A;B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2025_Q34",
+        "year": "JAM 2025",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q34.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2025_Q35",
+        "year": "JAM 2025",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q35.png",
+        "answer_key": "A;B",
+        "explanation": "<strong>Official Key: A;B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2025_Q36",
+        "year": "JAM 2025",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q36.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: A;C;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2025_Q37",
+        "year": "JAM 2025",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q37.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2025_Q38",
+        "year": "JAM 2025",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q38.png",
+        "answer_key": "B;C;D",
+        "explanation": "<strong>Official Key: B;C;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2025_Q39",
+        "year": "JAM 2025",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q39.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2025_Q40",
+        "year": "JAM 2025",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q40.png",
+        "answer_key": "C;D",
+        "explanation": "<strong>Official Key: C;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2025_Q41",
+        "year": "JAM 2025",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q41.png",
+        "answer_key": "1.98 to 2.02",
+        "explanation": "<strong>Official Key: 1.98 to 2.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2025_Q42",
+        "year": "JAM 2025",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q42.png",
+        "answer_key": "3.98 to 4.02",
+        "explanation": "<strong>Official Key: 3.98 to 4.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2025_Q43",
+        "year": "JAM 2025",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q43.png",
+        "answer_key": "1.98 to 2.02",
+        "explanation": "<strong>Official Key: 1.98 to 2.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2025_Q44",
+        "year": "JAM 2025",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q44.png",
+        "answer_key": "1.39 to 1.43",
+        "explanation": "<strong>Official Key: 1.39 to 1.43</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2025_Q45",
+        "year": "JAM 2025",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q45.png",
+        "answer_key": "2.98 to 3.02",
+        "explanation": "<strong>Official Key: 2.98 to 3.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2025_Q46",
+        "year": "JAM 2025",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q46.png",
+        "answer_key": "2 to 2",
+        "explanation": "<strong>Official Key: 2 to 2</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2025_Q47",
+        "year": "JAM 2025",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q47.png",
+        "answer_key": "3.98 to 4.02",
+        "explanation": "<strong>Official Key: 3.98 to 4.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2025_Q48",
+        "year": "JAM 2025",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q48.png",
+        "answer_key": "2.31 to 2.35",
+        "explanation": "<strong>Official Key: 2.31 to 2.35</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2025_Q49",
+        "year": "JAM 2025",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q49.png",
+        "answer_key": "1 to 1",
+        "explanation": "<strong>Official Key: 1 to 1</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2025_Q50",
+        "year": "JAM 2025",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q50.png",
+        "answer_key": "2.98 to 3.02",
+        "explanation": "<strong>Official Key: 2.98 to 3.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2025_Q51",
+        "year": "JAM 2025",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q51.png",
+        "answer_key": "1.98 to 2.02",
+        "explanation": "<strong>Official Key: 1.98 to 2.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2025_Q52",
+        "year": "JAM 2025",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q52.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2025_Q53",
+        "year": "JAM 2025",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q53.png",
+        "answer_key": "9 to 9",
+        "explanation": "<strong>Official Key: 9 to 9</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2025_Q54",
+        "year": "JAM 2025",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q54.png",
+        "answer_key": "5.20 to 5.24",
+        "explanation": "<strong>Official Key: 5.20 to 5.24</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2025_Q55",
+        "year": "JAM 2025",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q55.png",
+        "answer_key": "0.98 to 1.02",
+        "explanation": "<strong>Official Key: 0.98 to 1.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2025_Q56",
+        "year": "JAM 2025",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q56.png",
+        "answer_key": "3.98 to 4.02",
+        "explanation": "<strong>Official Key: 3.98 to 4.02</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2025_Q57",
+        "year": "JAM 2025",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q57.png",
+        "answer_key": "MTA",
+        "explanation": "<strong>Official Key: MTA</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2025_Q58",
+        "year": "JAM 2025",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q58.png",
+        "answer_key": "1 to 1",
+        "explanation": "<strong>Official Key: 1 to 1</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2025_Q59",
+        "year": "JAM 2025",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q59.png",
+        "answer_key": "10 to 10",
+        "explanation": "<strong>Official Key: 10 to 10</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2025_Q60",
+        "year": "JAM 2025",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q60.png",
+        "answer_key": "0 to 0",
+        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2024": {
+    "id": "2024",
+    "file_id": "JAM_2024",
+    "year": 2024,
+    "name": "IIT JAM 2024 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "questions": [
+      {
+        "id": "JAM_2024_Q1",
+        "year": "JAM 2024",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2024_Q2",
+        "year": "JAM 2024",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2024_Q3",
+        "year": "JAM 2024",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q3.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2024_Q4",
+        "year": "JAM 2024",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q4.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2024_Q5",
+        "year": "JAM 2024",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2024_Q6",
+        "year": "JAM 2024",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2024_Q7",
+        "year": "JAM 2024",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2024_Q8",
+        "year": "JAM 2024",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q8.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2024_Q9",
+        "year": "JAM 2024",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q9.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2024_Q10",
+        "year": "JAM 2024",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q10.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2024_Q11",
+        "year": "JAM 2024",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q11.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2024_Q12",
+        "year": "JAM 2024",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q12.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2024_Q13",
+        "year": "JAM 2024",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q13.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2024_Q14",
+        "year": "JAM 2024",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q14.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2024_Q15",
+        "year": "JAM 2024",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q15.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2024_Q16",
+        "year": "JAM 2024",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q16.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2024_Q17",
+        "year": "JAM 2024",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q17.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2024_Q18",
+        "year": "JAM 2024",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q18.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2024_Q19",
+        "year": "JAM 2024",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q19.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2024_Q20",
+        "year": "JAM 2024",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q20.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2024_Q21",
+        "year": "JAM 2024",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q21.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2024_Q22",
+        "year": "JAM 2024",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q22.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2024_Q23",
+        "year": "JAM 2024",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2024_Q24",
+        "year": "JAM 2024",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q24.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2024_Q25",
+        "year": "JAM 2024",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q25.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2024_Q26",
+        "year": "JAM 2024",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q26.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2024_Q27",
+        "year": "JAM 2024",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q27.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2024_Q28",
+        "year": "JAM 2024",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q28.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2024_Q29",
+        "year": "JAM 2024",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q29.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2024_Q30",
+        "year": "JAM 2024",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q30.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2024_Q31",
+        "year": "JAM 2024",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q31.png",
+        "answer_key": "A;B",
+        "explanation": "<strong>Official Key: A;B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2024_Q32",
+        "year": "JAM 2024",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q32.png",
+        "answer_key": "A;B",
+        "explanation": "<strong>Official Key: A;B</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2024_Q33",
+        "year": "JAM 2024",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q33.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2024_Q34",
+        "year": "JAM 2024",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q34.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2024_Q35",
+        "year": "JAM 2024",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q35.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: B;C</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2024_Q36",
+        "year": "JAM 2024",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q36.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: B;C</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2024_Q37",
+        "year": "JAM 2024",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q37.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: B;C</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2024_Q38",
+        "year": "JAM 2024",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q38.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2024_Q39",
+        "year": "JAM 2024",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q39.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: B;C</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2024_Q40",
+        "year": "JAM 2024",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q40.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2024_Q41",
+        "year": "JAM 2024",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q41.png",
+        "answer_key": "0.24 to 0.26",
+        "explanation": "<strong>Official Key: 0.24 to 0.26</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2024_Q42",
+        "year": "JAM 2024",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q42.png",
+        "answer_key": "0.19 to 0.21",
+        "explanation": "<strong>Official Key: 0.19 to 0.21</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2024_Q43",
+        "year": "JAM 2024",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q43.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2024_Q44",
+        "year": "JAM 2024",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q44.png",
+        "answer_key": "0.15 to 0.18",
+        "explanation": "<strong>Official Key: 0.15 to 0.18</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2024_Q45",
+        "year": "JAM 2024",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q45.png",
+        "answer_key": "6 to 6",
+        "explanation": "<strong>Official Key: 6 to 6</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2024_Q46",
+        "year": "JAM 2024",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q46.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2024_Q47",
+        "year": "JAM 2024",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q47.png",
+        "answer_key": "1.95 to 2.05",
+        "explanation": "<strong>Official Key: 1.95 to 2.05</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2024_Q48",
+        "year": "JAM 2024",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q48.png",
+        "answer_key": "4.50 to 4.60",
+        "explanation": "<strong>Official Key: 4.50 to 4.60</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2024_Q49",
+        "year": "JAM 2024",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q49.png",
+        "answer_key": "14.95 to 15.05",
+        "explanation": "<strong>Official Key: 14.95 to 15.05</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2024_Q50",
+        "year": "JAM 2024",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q50.png",
+        "answer_key": "31 to 31",
+        "explanation": "<strong>Official Key: 31 to 31</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2024_Q51",
+        "year": "JAM 2024",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q51.png",
+        "answer_key": "6 to 6",
+        "explanation": "<strong>Official Key: 6 to 6</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2024_Q52",
+        "year": "JAM 2024",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q52.png",
+        "answer_key": "0.24 to 0.26",
+        "explanation": "<strong>Official Key: 0.24 to 0.26</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2024_Q53",
+        "year": "JAM 2024",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q53.png",
+        "answer_key": "1.95 to 2.05",
+        "explanation": "<strong>Official Key: 1.95 to 2.05</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2024_Q54",
+        "year": "JAM 2024",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q54.png",
+        "answer_key": "4.70 to 4.90",
+        "explanation": "<strong>Official Key: 4.70 to 4.90</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2024_Q55",
+        "year": "JAM 2024",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q55.png",
+        "answer_key": "0.30 to 0.40",
+        "explanation": "<strong>Official Key: 0.30 to 0.40</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2024_Q56",
+        "year": "JAM 2024",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q56.png",
+        "answer_key": "5 to 5",
+        "explanation": "<strong>Official Key: 5 to 5</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2024_Q57",
+        "year": "JAM 2024",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q57.png",
+        "answer_key": "4.4 to 4.6",
+        "explanation": "<strong>Official Key: 4.4 to 4.6</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2024_Q58",
+        "year": "JAM 2024",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q58.png",
+        "answer_key": "5 to 5",
+        "explanation": "<strong>Official Key: 5 to 5</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2024_Q59",
+        "year": "JAM 2024",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q59.png",
+        "answer_key": "0.98 to 1.02",
+        "explanation": "<strong>Official Key: 0.98 to 1.02</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2024_Q60",
+        "year": "JAM 2024",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q60.png",
+        "answer_key": "1.50 to 1.70",
+        "explanation": "<strong>Official Key: 1.50 to 1.70</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2023": {
+    "id": "2023",
+    "file_id": "JAM_2023",
+    "year": 2023,
+    "name": "IIT JAM 2023 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "questions": [
+      {
+        "id": "JAM_2023_Q1",
+        "year": "JAM 2023",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2023_Q2",
+        "year": "JAM 2023",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2023_Q3",
+        "year": "JAM 2023",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q3.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2023_Q4",
+        "year": "JAM 2023",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2023_Q5",
+        "year": "JAM 2023",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2023_Q6",
+        "year": "JAM 2023",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2023_Q7",
+        "year": "JAM 2023",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2023_Q8",
+        "year": "JAM 2023",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q8.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2023_Q9",
+        "year": "JAM 2023",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2023_Q10",
+        "year": "JAM 2023",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2023_Q11",
+        "year": "JAM 2023",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2023_Q12",
+        "year": "JAM 2023",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2023_Q13",
+        "year": "JAM 2023",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2023_Q14",
+        "year": "JAM 2023",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q14.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2023_Q15",
+        "year": "JAM 2023",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q15.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2023_Q16",
+        "year": "JAM 2023",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q16.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2023_Q17",
+        "year": "JAM 2023",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q17.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2023_Q18",
+        "year": "JAM 2023",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q18.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2023_Q19",
+        "year": "JAM 2023",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q19.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2023_Q20",
+        "year": "JAM 2023",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2023_Q21",
+        "year": "JAM 2023",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q21.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2023_Q22",
+        "year": "JAM 2023",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2023_Q23",
+        "year": "JAM 2023",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2023_Q24",
+        "year": "JAM 2023",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2023_Q25",
+        "year": "JAM 2023",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q25.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2023_Q26",
+        "year": "JAM 2023",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q26.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2023_Q27",
+        "year": "JAM 2023",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2023_Q28",
+        "year": "JAM 2023",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q28.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2023_Q29",
+        "year": "JAM 2023",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q29.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2023_Q30",
+        "year": "JAM 2023",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q30.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2023_Q31",
+        "year": "JAM 2023",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q31.png",
+        "answer_key": "A, C",
+        "explanation": "<strong>Official Key: A, C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2023_Q32",
+        "year": "JAM 2023",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q32.png",
+        "answer_key": "A, B, C",
+        "explanation": "<strong>Official Key: A, B, C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2023_Q33",
+        "year": "JAM 2023",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q33.png",
+        "answer_key": "B, D",
+        "explanation": "<strong>Official Key: B, D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2023_Q34",
+        "year": "JAM 2023",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q34.png",
+        "answer_key": "A, C, D",
+        "explanation": "<strong>Official Key: A, C, D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2023_Q35",
+        "year": "JAM 2023",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q35.png",
+        "answer_key": "A, B, D",
+        "explanation": "<strong>Official Key: A, B, D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2023_Q36",
+        "year": "JAM 2023",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q36.png",
+        "answer_key": "A, B, C",
+        "explanation": "<strong>Official Key: A, B, C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2023_Q37",
+        "year": "JAM 2023",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q37.png",
+        "answer_key": "A, B, C",
+        "explanation": "<strong>Official Key: A, B, C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2023_Q38",
+        "year": "JAM 2023",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q38.png",
+        "answer_key": "A, B, C",
+        "explanation": "<strong>Official Key: A, B, C</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2023_Q39",
+        "year": "JAM 2023",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q39.png",
+        "answer_key": "B, D",
+        "explanation": "<strong>Official Key: B, D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2023_Q40",
+        "year": "JAM 2023",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q40.png",
+        "answer_key": "A, D",
+        "explanation": "<strong>Official Key: A, D</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2023_Q41",
+        "year": "JAM 2023",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q41.png",
+        "answer_key": "0 to 0",
+        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2023_Q42",
+        "year": "JAM 2023",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q42.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2023_Q43",
+        "year": "JAM 2023",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q43.png",
+        "answer_key": "-0.01 to 0.01",
+        "explanation": "<strong>Official Key: ‐0.01 to 0.01</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2023_Q44",
+        "year": "JAM 2023",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q44.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2023_Q45",
+        "year": "JAM 2023",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q45.png",
+        "answer_key": "15 to 15",
+        "explanation": "<strong>Official Key: 15 to 15</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2023_Q46",
+        "year": "JAM 2023",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q46.png",
+        "answer_key": "6 to 6",
+        "explanation": "<strong>Official Key: 6 to 6</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2023_Q47",
+        "year": "JAM 2023",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q47.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2023_Q48",
+        "year": "JAM 2023",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q48.png",
+        "answer_key": "3.99 to 4.01",
+        "explanation": "<strong>Official Key: 3.99 to 4.01</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2023_Q49",
+        "year": "JAM 2023",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q49.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2023_Q50",
+        "year": "JAM 2023",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q50.png",
+        "answer_key": "0.99 to 1.01",
+        "explanation": "<strong>Official Key: 0.99 to 1.01</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2023_Q51",
+        "year": "JAM 2023",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q51.png",
+        "answer_key": "20.99 to 21.01",
+        "explanation": "<strong>Official Key: 20.99 to 21.01</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2023_Q52",
+        "year": "JAM 2023",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q52.png",
+        "answer_key": "0.74 to 0.76",
+        "explanation": "<strong>Official Key: 0.74 to 0.76</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2023_Q53",
+        "year": "JAM 2023",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q53.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2023_Q54",
+        "year": "JAM 2023",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q54.png",
+        "answer_key": "11 to 11",
+        "explanation": "<strong>Official Key: 11 to 11</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2023_Q55",
+        "year": "JAM 2023",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q55.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2023_Q56",
+        "year": "JAM 2023",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q56.png",
+        "answer_key": "2 to 2",
+        "explanation": "<strong>Official Key: 2 to 2</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2023_Q57",
+        "year": "JAM 2023",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q57.png",
+        "answer_key": "4 to 4",
+        "explanation": "<strong>Official Key: 4 to 4</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2023_Q58",
+        "year": "JAM 2023",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q58.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2023_Q59",
+        "year": "JAM 2023",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q59.png",
+        "answer_key": "-0.01 to 0.01",
+        "explanation": "<strong>Official Key: ‐0.01 to 0.01</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2023_Q60",
+        "year": "JAM 2023",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q60.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2023 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2022": {
+    "id": "2022",
+    "file_id": "JAM_2022",
+    "year": 2022,
+    "name": "IIT JAM 2022 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/2022-2026-PYQs-with-Keys.pdf",
+    "questions": [
+      {
+        "id": "JAM_2022_Q1",
+        "year": "JAM 2022",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2022_Q2",
+        "year": "JAM 2022",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2022_Q3",
+        "year": "JAM 2022",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q3.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2022_Q4",
+        "year": "JAM 2022",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q4.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2022_Q5",
+        "year": "JAM 2022",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2022_Q6",
+        "year": "JAM 2022",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2022_Q7",
+        "year": "JAM 2022",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2022_Q8",
+        "year": "JAM 2022",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q8.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2022_Q9",
+        "year": "JAM 2022",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q9.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2022_Q10",
+        "year": "JAM 2022",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q10.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2022_Q11",
+        "year": "JAM 2022",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q11.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2022_Q12",
+        "year": "JAM 2022",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2022_Q13",
+        "year": "JAM 2022",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2022_Q14",
+        "year": "JAM 2022",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q14.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2022_Q15",
+        "year": "JAM 2022",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q15.png",
+        "answer_key": "Marks to All",
+        "explanation": "<strong>Official Key: Marks to All</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2022_Q16",
+        "year": "JAM 2022",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q16.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2022_Q17",
+        "year": "JAM 2022",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q17.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2022_Q18",
+        "year": "JAM 2022",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q18.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2022_Q19",
+        "year": "JAM 2022",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q19.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2022_Q20",
+        "year": "JAM 2022",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2022_Q21",
+        "year": "JAM 2022",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q21.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2022_Q22",
+        "year": "JAM 2022",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q22.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2022_Q23",
+        "year": "JAM 2022",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2022_Q24",
+        "year": "JAM 2022",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2022_Q25",
+        "year": "JAM 2022",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q25.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2022_Q26",
+        "year": "JAM 2022",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q26.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2022_Q27",
+        "year": "JAM 2022",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q27.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2022_Q28",
+        "year": "JAM 2022",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q28.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2022_Q29",
+        "year": "JAM 2022",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q29.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2022_Q30",
+        "year": "JAM 2022",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q30.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2022_Q31",
+        "year": "JAM 2022",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q31.png",
+        "answer_key": "A,C",
+        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2022_Q32",
+        "year": "JAM 2022",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q32.png",
+        "answer_key": "A,B",
+        "explanation": "<strong>Official Key: A,B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2022_Q33",
+        "year": "JAM 2022",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q33.png",
+        "answer_key": "A,B,C",
+        "explanation": "<strong>Official Key: A,B,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2022_Q34",
+        "year": "JAM 2022",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q34.png",
+        "answer_key": "A,D",
+        "explanation": "<strong>Official Key: A,D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2022_Q35",
+        "year": "JAM 2022",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q35.png",
+        "answer_key": "C,D",
+        "explanation": "<strong>Official Key: C,D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2022_Q36",
+        "year": "JAM 2022",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q36.png",
+        "answer_key": "C,D",
+        "explanation": "<strong>Official Key: C,D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2022_Q37",
+        "year": "JAM 2022",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q37.png",
+        "answer_key": "A,C,D",
+        "explanation": "<strong>Official Key: A,C,D</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2022_Q38",
+        "year": "JAM 2022",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q38.png",
+        "answer_key": "A,C",
+        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2022_Q39",
+        "year": "JAM 2022",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q39.png",
+        "answer_key": "A,B",
+        "explanation": "<strong>Official Key: A,B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2022_Q40",
+        "year": "JAM 2022",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q40.png",
+        "answer_key": "A,C",
+        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2022_Q41",
+        "year": "JAM 2022",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q41.png",
+        "answer_key": "2.19 to 2.21",
+        "explanation": "<strong>Official Key: 2.19 to 2.21</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2022_Q42",
+        "year": "JAM 2022",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q42.png",
+        "answer_key": "14 to 14",
+        "explanation": "<strong>Official Key: 14 to 14</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2022_Q43",
+        "year": "JAM 2022",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q43.png",
+        "answer_key": "0.32 to 0.34",
+        "explanation": "<strong>Official Key: 0.32 to 0.34</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2022_Q44",
+        "year": "JAM 2022",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q44.png",
+        "answer_key": "0.24 to 0.26",
+        "explanation": "<strong>Official Key: 0.24 to 0.26</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2022_Q45",
+        "year": "JAM 2022",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q45.png",
+        "answer_key": "8 to 8",
+        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2022_Q46",
+        "year": "JAM 2022",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q46.png",
+        "answer_key": "420 to 420",
+        "explanation": "<strong>Official Key: 420 to 420</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2022_Q47",
+        "year": "JAM 2022",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q47.png",
+        "answer_key": "0 to 0",
+        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2022_Q48",
+        "year": "JAM 2022",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q48.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2022_Q49",
+        "year": "JAM 2022",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q49.png",
+        "answer_key": "2.24 to 2.26",
+        "explanation": "<strong>Official Key: 2.24 to 2.26</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2022_Q50",
+        "year": "JAM 2022",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q50.png",
+        "answer_key": "2.00 to 2.00",
+        "explanation": "<strong>Official Key: 2.00 to 2.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2022_Q51",
+        "year": "JAM 2022",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q51.png",
+        "answer_key": "18 to 18",
+        "explanation": "<strong>Official Key: 18 to 18</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2022_Q52",
+        "year": "JAM 2022",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q52.png",
+        "answer_key": "4.15 to 4.17",
+        "explanation": "<strong>Official Key: 4.15 to 4.17</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2022_Q53",
+        "year": "JAM 2022",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q53.png",
+        "answer_key": "3.00 to 3.00",
+        "explanation": "<strong>Official Key: 3.00 to 3.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2022_Q54",
+        "year": "JAM 2022",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q54.png",
+        "answer_key": "2.00 to 2.00",
+        "explanation": "<strong>Official Key: 2.00 to 2.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2022_Q55",
+        "year": "JAM 2022",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q55.png",
+        "answer_key": "3.00 to 3.00",
+        "explanation": "<strong>Official Key: 3.00 to 3.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2022_Q56",
+        "year": "JAM 2022",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q56.png",
+        "answer_key": "5 to 5",
+        "explanation": "<strong>Official Key: 5 to 5</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2022_Q57",
+        "year": "JAM 2022",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q57.png",
+        "answer_key": "41 to 41",
+        "explanation": "<strong>Official Key: 41 to 41</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2022_Q58",
+        "year": "JAM 2022",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q58.png",
+        "answer_key": "6 to 6",
+        "explanation": "<strong>Official Key: 6 to 6</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2022_Q59",
+        "year": "JAM 2022",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q59.png",
+        "answer_key": "2.00 to 2.00",
+        "explanation": "<strong>Official Key: 2.00 to 2.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2022_Q60",
+        "year": "JAM 2022",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q60.png",
+        "answer_key": "13.39 to 13.41",
+        "explanation": "<strong>Official Key: 13.39 to 13.41</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2021": {
+    "id": "2021",
+    "file_id": "JAM_2021",
+    "year": 2021,
+    "name": "IIT JAM 2021 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2021_Q1",
+        "year": "JAM 2021",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q1.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2021_Q2",
+        "year": "JAM 2021",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2021_Q3",
+        "year": "JAM 2021",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2021_Q4",
+        "year": "JAM 2021",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q4.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2021_Q5",
+        "year": "JAM 2021",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2021_Q6",
+        "year": "JAM 2021",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2021_Q7",
+        "year": "JAM 2021",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2021_Q8",
+        "year": "JAM 2021",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q8.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2021_Q9",
+        "year": "JAM 2021",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q9.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2021_Q10",
+        "year": "JAM 2021",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q10.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2021_Q11",
+        "year": "JAM 2021",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2021_Q12",
+        "year": "JAM 2021",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q12.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2021_Q13",
+        "year": "JAM 2021",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2021_Q14",
+        "year": "JAM 2021",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q14.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2021_Q15",
+        "year": "JAM 2021",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q15.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2021_Q16",
+        "year": "JAM 2021",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q16.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2021_Q17",
+        "year": "JAM 2021",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q17.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2021_Q18",
+        "year": "JAM 2021",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q18.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2021_Q19",
+        "year": "JAM 2021",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q19.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2021_Q20",
+        "year": "JAM 2021",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2021_Q21",
+        "year": "JAM 2021",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q21.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2021_Q22",
+        "year": "JAM 2021",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q22.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2021_Q23",
+        "year": "JAM 2021",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q23.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2021_Q24",
+        "year": "JAM 2021",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q24.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2021_Q25",
+        "year": "JAM 2021",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q25.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2021_Q26",
+        "year": "JAM 2021",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q26.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2021_Q27",
+        "year": "JAM 2021",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2021_Q28",
+        "year": "JAM 2021",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q28.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2021_Q29",
+        "year": "JAM 2021",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q29.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2021_Q30",
+        "year": "JAM 2021",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q30.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2021_Q31",
+        "year": "JAM 2021",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q31.png",
+        "answer_key": "A, B",
+        "explanation": "<strong>Official Key: A, B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2021_Q32",
+        "year": "JAM 2021",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q32.png",
+        "answer_key": "A, B",
+        "explanation": "<strong>Official Key: A, B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2021_Q33",
+        "year": "JAM 2021",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q33.png",
+        "answer_key": "B, D",
+        "explanation": "<strong>Official Key: B, D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2021_Q34",
+        "year": "JAM 2021",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q34.png",
+        "answer_key": "A, D",
+        "explanation": "<strong>Official Key: A, D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2021_Q35",
+        "year": "JAM 2021",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q35.png",
+        "answer_key": "A, C",
+        "explanation": "<strong>Official Key: A, C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2021_Q36",
+        "year": "JAM 2021",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q36.png",
+        "answer_key": "A, B",
+        "explanation": "<strong>Official Key: A, B</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2021_Q37",
+        "year": "JAM 2021",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q37.png",
+        "answer_key": "B, C",
+        "explanation": "<strong>Official Key: B, C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2021_Q38",
+        "year": "JAM 2021",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q38.png",
+        "answer_key": "B, C, D",
+        "explanation": "<strong>Official Key: B, C, D</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2021_Q39",
+        "year": "JAM 2021",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q39.png",
+        "answer_key": "A, B, C",
+        "explanation": "<strong>Official Key: A, B, C</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2021_Q40",
+        "year": "JAM 2021",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q40.png",
+        "answer_key": "MTA",
+        "explanation": "<strong>Official Key: MTA</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2021_Q41",
+        "year": "JAM 2021",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q41.png",
+        "answer_key": "90",
+        "explanation": "<strong>Official Key: 90</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2021_Q42",
+        "year": "JAM 2021",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q42.png",
+        "answer_key": "7",
+        "explanation": "<strong>Official Key: 7</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2021_Q43",
+        "year": "JAM 2021",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q43.png",
+        "answer_key": "0",
+        "explanation": "<strong>Official Key: 0</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2021_Q44",
+        "year": "JAM 2021",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q44.png",
+        "answer_key": "-2",
+        "explanation": "<strong>Official Key: -2</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2021_Q45",
+        "year": "JAM 2021",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q45.png",
+        "answer_key": "2",
+        "explanation": "<strong>Official Key: 2</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2021_Q46",
+        "year": "JAM 2021",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q46.png",
+        "answer_key": "5",
+        "explanation": "<strong>Official Key: 5</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2021_Q47",
+        "year": "JAM 2021",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q47.png",
+        "answer_key": "4",
+        "explanation": "<strong>Official Key: 4</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2021_Q48",
+        "year": "JAM 2021",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q48.png",
+        "answer_key": "3",
+        "explanation": "<strong>Official Key: 3</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2021_Q49",
+        "year": "JAM 2021",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q49.png",
+        "answer_key": "1",
+        "explanation": "<strong>Official Key: 1</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2021_Q50",
+        "year": "JAM 2021",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q50.png",
+        "answer_key": "1",
+        "explanation": "<strong>Official Key: 1</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2021_Q51",
+        "year": "JAM 2021",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q51.png",
+        "answer_key": "9",
+        "explanation": "<strong>Official Key: 9</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2021_Q52",
+        "year": "JAM 2021",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q52.png",
+        "answer_key": "10.8 to 10.9",
+        "explanation": "<strong>Official Key: 10.8 to 10.9</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2021_Q53",
+        "year": "JAM 2021",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q53.png",
+        "answer_key": "0",
+        "explanation": "<strong>Official Key: 0</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2021_Q54",
+        "year": "JAM 2021",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q54.png",
+        "answer_key": "15",
+        "explanation": "<strong>Official Key: 15</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2021_Q55",
+        "year": "JAM 2021",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q55.png",
+        "answer_key": "0",
+        "explanation": "<strong>Official Key: 0</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2021_Q56",
+        "year": "JAM 2021",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q56.png",
+        "answer_key": "2021",
+        "explanation": "<strong>Official Key: 2021</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2021_Q57",
+        "year": "JAM 2021",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q57.png",
+        "answer_key": "0",
+        "explanation": "<strong>Official Key: 0</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2021_Q58",
+        "year": "JAM 2021",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q58.png",
+        "answer_key": "2",
+        "explanation": "<strong>Official Key: 2</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2021_Q59",
+        "year": "JAM 2021",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q59.png",
+        "answer_key": "4",
+        "explanation": "<strong>Official Key: 4</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2021_Q60",
+        "year": "JAM 2021",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q60.png",
+        "answer_key": "8",
+        "explanation": "<strong>Official Key: 8</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2020": {
+    "id": "2020",
+    "file_id": "JAM_2020",
+    "year": 2020,
+    "name": "IIT JAM 2020 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2020_Q1",
+        "year": "JAM 2020",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2020_Q2",
+        "year": "JAM 2020",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2020_Q3",
+        "year": "JAM 2020",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2020_Q4",
+        "year": "JAM 2020",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q4.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2020_Q5",
+        "year": "JAM 2020",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q5.png",
+        "answer_key": "Marks to All",
+        "explanation": "<strong>Official Key: Marks To All</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2020_Q6",
+        "year": "JAM 2020",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q6.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2020_Q7",
+        "year": "JAM 2020",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q7.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2020_Q8",
+        "year": "JAM 2020",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q8.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2020_Q9",
+        "year": "JAM 2020",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q9.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2020_Q10",
+        "year": "JAM 2020",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q10.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2020_Q11",
+        "year": "JAM 2020",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2020_Q12",
+        "year": "JAM 2020",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q12.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2020_Q13",
+        "year": "JAM 2020",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2020_Q14",
+        "year": "JAM 2020",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q14.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2020_Q15",
+        "year": "JAM 2020",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q15.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2020_Q16",
+        "year": "JAM 2020",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q16.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2020_Q17",
+        "year": "JAM 2020",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q17.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2020_Q18",
+        "year": "JAM 2020",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q18.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2020_Q19",
+        "year": "JAM 2020",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q19.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2020_Q20",
+        "year": "JAM 2020",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q20.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2020_Q21",
+        "year": "JAM 2020",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q21.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2020_Q22",
+        "year": "JAM 2020",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2020_Q23",
+        "year": "JAM 2020",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q23.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2020_Q24",
+        "year": "JAM 2020",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2020_Q25",
+        "year": "JAM 2020",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q25.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2020_Q26",
+        "year": "JAM 2020",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q26.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2020_Q27",
+        "year": "JAM 2020",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2020_Q28",
+        "year": "JAM 2020",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q28.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2020_Q29",
+        "year": "JAM 2020",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q29.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2020_Q30",
+        "year": "JAM 2020",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q30.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2020_Q31",
+        "year": "JAM 2020",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q31.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: A;C;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2020_Q32",
+        "year": "JAM 2020",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q32.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2020_Q33",
+        "year": "JAM 2020",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q33.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: A;C;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2020_Q34",
+        "year": "JAM 2020",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q34.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2020_Q35",
+        "year": "JAM 2020",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q35.png",
+        "answer_key": "A;C",
+        "explanation": "<strong>Official Key: A;C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2020_Q36",
+        "year": "JAM 2020",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q36.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2020_Q37",
+        "year": "JAM 2020",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q37.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: B;C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2020_Q38",
+        "year": "JAM 2020",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q38.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2020_Q39",
+        "year": "JAM 2020",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q39.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2020_Q40",
+        "year": "JAM 2020",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q40.png",
+        "answer_key": "C;D",
+        "explanation": "<strong>Official Key: C;D</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2020_Q41",
+        "year": "JAM 2020",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q41.png",
+        "answer_key": "1 to 1",
+        "explanation": "<strong>Official Key: 1 to 1</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2020_Q42",
+        "year": "JAM 2020",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q42.png",
+        "answer_key": "32 to 32",
+        "explanation": "<strong>Official Key: 32 to 32</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2020_Q43",
+        "year": "JAM 2020",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q43.png",
+        "answer_key": "0 to INF",
+        "explanation": "<strong>Official Key: 0 to INF</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2020_Q44",
+        "year": "JAM 2020",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q44.png",
+        "answer_key": "0.08 to 0.09",
+        "explanation": "<strong>Official Key: 0.08 to 0.09</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2020_Q45",
+        "year": "JAM 2020",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q45.png",
+        "answer_key": "2.70 to 2.72",
+        "explanation": "<strong>Official Key: 2.70 to 2.72</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2020_Q46",
+        "year": "JAM 2020",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q46.png",
+        "answer_key": "0.1 to 0.1",
+        "explanation": "<strong>Official Key: 0.1 to 0.1</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2020_Q47",
+        "year": "JAM 2020",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q47.png",
+        "answer_key": "0.25 to 0.25",
+        "explanation": "<strong>Official Key: 0.25 to 0.25</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2020_Q48",
+        "year": "JAM 2020",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q48.png",
+        "answer_key": "7 to 7",
+        "explanation": "<strong>Official Key: 7 to 7</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2020_Q49",
+        "year": "JAM 2020",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q49.png",
+        "answer_key": "1011 to 1011",
+        "explanation": "<strong>Official Key: 1011 to 1011</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2020_Q50",
+        "year": "JAM 2020",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q50.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2020_Q51",
+        "year": "JAM 2020",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q51.png",
+        "answer_key": "0.25 to 0.25",
+        "explanation": "<strong>Official Key: 0.25 to 0.25</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2020_Q52",
+        "year": "JAM 2020",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q52.png",
+        "answer_key": "33 to 33",
+        "explanation": "<strong>Official Key: 33 to 33</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2020_Q53",
+        "year": "JAM 2020",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q53.png",
+        "answer_key": "2 to 2",
+        "explanation": "<strong>Official Key: 2 to 2</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2020_Q54",
+        "year": "JAM 2020",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q54.png",
+        "answer_key": "0.5 to 0.5",
+        "explanation": "<strong>Official Key: 0.5 to 0.5</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2020_Q55",
+        "year": "JAM 2020",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q55.png",
+        "answer_key": "0.65 to 0.67",
+        "explanation": "<strong>Official Key: 0.65 to 0.67</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2020_Q56",
+        "year": "JAM 2020",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q56.png",
+        "answer_key": "8 to 8",
+        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2020_Q57",
+        "year": "JAM 2020",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q57.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2020_Q58",
+        "year": "JAM 2020",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q58.png",
+        "answer_key": "-216 to -216",
+        "explanation": "<strong>Official Key: -216 to -216</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2020_Q59",
+        "year": "JAM 2020",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q59.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2020_Q60",
+        "year": "JAM 2020",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q60.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2019": {
+    "id": "2019",
+    "file_id": "JAM_2019",
+    "year": 2019,
+    "name": "IIT JAM 2019 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2019_Q1",
+        "year": "JAM 2019",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q1.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2019_Q2",
+        "year": "JAM 2019",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2019_Q3",
+        "year": "JAM 2019",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2019_Q4",
+        "year": "JAM 2019",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q4.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2019_Q5",
+        "year": "JAM 2019",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2019_Q6",
+        "year": "JAM 2019",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q6.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2019_Q7",
+        "year": "JAM 2019",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2019_Q8",
+        "year": "JAM 2019",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q8.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2019_Q9",
+        "year": "JAM 2019",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q9.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2019_Q10",
+        "year": "JAM 2019",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2019_Q11",
+        "year": "JAM 2019",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2019_Q12",
+        "year": "JAM 2019",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2019_Q13",
+        "year": "JAM 2019",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2019_Q14",
+        "year": "JAM 2019",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q14.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2019_Q15",
+        "year": "JAM 2019",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q15.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2019_Q16",
+        "year": "JAM 2019",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q16.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2019_Q17",
+        "year": "JAM 2019",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q17.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2019_Q18",
+        "year": "JAM 2019",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q18.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2019_Q19",
+        "year": "JAM 2019",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q19.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2019_Q20",
+        "year": "JAM 2019",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2019_Q21",
+        "year": "JAM 2019",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q21.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2019_Q22",
+        "year": "JAM 2019",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2019_Q23",
+        "year": "JAM 2019",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q23.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2019_Q24",
+        "year": "JAM 2019",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2019_Q25",
+        "year": "JAM 2019",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q25.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2019_Q26",
+        "year": "JAM 2019",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q26.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2019_Q27",
+        "year": "JAM 2019",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q27.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2019_Q28",
+        "year": "JAM 2019",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q28.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2019_Q29",
+        "year": "JAM 2019",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q29.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2019_Q30",
+        "year": "JAM 2019",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q30.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2019_Q31",
+        "year": "JAM 2019",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q31.png",
+        "answer_key": "A, C",
+        "explanation": "<strong>Official Key: A, C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2019_Q32",
+        "year": "JAM 2019",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q32.png",
+        "answer_key": "B, C",
+        "explanation": "<strong>Official Key: B, C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2019_Q33",
+        "year": "JAM 2019",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q33.png",
+        "answer_key": "C, D",
+        "explanation": "<strong>Official Key: C, D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2019_Q34",
+        "year": "JAM 2019",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q34.png",
+        "answer_key": "A, D",
+        "explanation": "<strong>Official Key: A, D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2019_Q35",
+        "year": "JAM 2019",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q35.png",
+        "answer_key": "B, D",
+        "explanation": "<strong>Official Key: B, D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2019_Q36",
+        "year": "JAM 2019",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q36.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2019_Q37",
+        "year": "JAM 2019",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q37.png",
+        "answer_key": "B, C, D",
+        "explanation": "<strong>Official Key: B, C, D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2019_Q38",
+        "year": "JAM 2019",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q38.png",
+        "answer_key": "B, C",
+        "explanation": "<strong>Official Key: B, C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2019_Q39",
+        "year": "JAM 2019",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q39.png",
+        "answer_key": "A, D",
+        "explanation": "<strong>Official Key: A, D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2019_Q40",
+        "year": "JAM 2019",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q40.png",
+        "answer_key": "A, B",
+        "explanation": "<strong>Official Key: A, B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2019_Q41",
+        "year": "JAM 2019",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q41.png",
+        "answer_key": "99 to 99",
+        "explanation": "<strong>Official Key: 99 to 99</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2019_Q42",
+        "year": "JAM 2019",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q42.png",
+        "answer_key": "60 to 60",
+        "explanation": "<strong>Official Key: 60 to 60</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2019_Q43",
+        "year": "JAM 2019",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q43.png",
+        "answer_key": "7 to 7",
+        "explanation": "<strong>Official Key: 7 to 7</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2019_Q44",
+        "year": "JAM 2019",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q44.png",
+        "answer_key": "75.35 to 75.45",
+        "explanation": "<strong>Official Key: 75.35 to 75.45</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2019_Q45",
+        "year": "JAM 2019",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q45.png",
+        "answer_key": "1 to 1",
+        "explanation": "<strong>Official Key: 1 to 1</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2019_Q46",
+        "year": "JAM 2019",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q46.png",
+        "answer_key": "0.25 to 0.25",
+        "explanation": "<strong>Official Key: 0.25 to 0.25</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2019_Q47",
+        "year": "JAM 2019",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q47.png",
+        "answer_key": "8 to 8",
+        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2019_Q48",
+        "year": "JAM 2019",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q48.png",
+        "answer_key": "2.6 to 2.6",
+        "explanation": "<strong>Official Key: 2.6 to 2.6</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2019_Q49",
+        "year": "JAM 2019",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q49.png",
+        "answer_key": "2.60 to 2.70",
+        "explanation": "<strong>Official Key: 2.60 to 2.70</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2019_Q50",
+        "year": "JAM 2019",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q50.png",
+        "answer_key": "5.30 to 5.50",
+        "explanation": "<strong>Official Key: 5.30 to 5.50</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2019_Q51",
+        "year": "JAM 2019",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q51.png",
+        "answer_key": "6.60 to 6.80",
+        "explanation": "<strong>Official Key: 6.60 to 6.80</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2019_Q52",
+        "year": "JAM 2019",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q52.png",
+        "answer_key": "2.69 to 2.74",
+        "explanation": "<strong>Official Key: 2.69 to 2.74</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2019_Q53",
+        "year": "JAM 2019",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q53.png",
+        "answer_key": "31 to 31 or 46 to 46",
+        "explanation": "<strong>Official Key: 31 to 31 or 46 to 46</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2019_Q54",
+        "year": "JAM 2019",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q54.png",
+        "answer_key": "5 to 5",
+        "explanation": "<strong>Official Key: 5 to 5</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2019_Q55",
+        "year": "JAM 2019",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q55.png",
+        "answer_key": "4 to 4",
+        "explanation": "<strong>Official Key: 4 to 4</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2019_Q56",
+        "year": "JAM 2019",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q56.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2019_Q57",
+        "year": "JAM 2019",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q57.png",
+        "answer_key": "17 to 17",
+        "explanation": "<strong>Official Key: 17 to 17</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2019_Q58",
+        "year": "JAM 2019",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q58.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2019_Q59",
+        "year": "JAM 2019",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q59.png",
+        "answer_key": "4 to 4",
+        "explanation": "<strong>Official Key: 4 to 4</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2019_Q60",
+        "year": "JAM 2019",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q60.png",
+        "answer_key": "1.12 to 1.25",
+        "explanation": "<strong>Official Key: 1.12 to 1.25</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2018": {
+    "id": "2018",
+    "file_id": "JAM_2018",
+    "year": 2018,
+    "name": "IIT JAM 2018 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2018_Q1",
+        "year": "JAM 2018",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2018_Q2",
+        "year": "JAM 2018",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2018_Q3",
+        "year": "JAM 2018",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2018_Q4",
+        "year": "JAM 2018",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q4.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2018_Q5",
+        "year": "JAM 2018",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2018_Q6",
+        "year": "JAM 2018",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q6.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2018_Q7",
+        "year": "JAM 2018",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2018_Q8",
+        "year": "JAM 2018",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q8.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2018_Q9",
+        "year": "JAM 2018",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2018_Q10",
+        "year": "JAM 2018",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q10.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2018_Q11",
+        "year": "JAM 2018",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q11.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2018_Q12",
+        "year": "JAM 2018",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2018_Q13",
+        "year": "JAM 2018",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2018_Q14",
+        "year": "JAM 2018",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q14.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2018_Q15",
+        "year": "JAM 2018",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q15.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2018_Q16",
+        "year": "JAM 2018",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q16.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2018_Q17",
+        "year": "JAM 2018",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q17.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2018_Q18",
+        "year": "JAM 2018",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q18.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2018_Q19",
+        "year": "JAM 2018",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q19.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2018_Q20",
+        "year": "JAM 2018",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q20.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2018_Q21",
+        "year": "JAM 2018",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q21.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2018_Q22",
+        "year": "JAM 2018",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2018_Q23",
+        "year": "JAM 2018",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q23.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2018_Q24",
+        "year": "JAM 2018",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2018_Q25",
+        "year": "JAM 2018",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q25.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2018_Q26",
+        "year": "JAM 2018",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q26.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2018_Q27",
+        "year": "JAM 2018",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2018_Q28",
+        "year": "JAM 2018",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q28.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2018_Q29",
+        "year": "JAM 2018",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q29.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2018_Q30",
+        "year": "JAM 2018",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q30.png",
+        "answer_key": "Marks to All",
+        "explanation": "<strong>Official Key: Marks To All</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2018_Q31",
+        "year": "JAM 2018",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q31.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2018_Q32",
+        "year": "JAM 2018",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q32.png",
+        "answer_key": "A;B;C",
+        "explanation": "<strong>Official Key: A;B;C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2018_Q33",
+        "year": "JAM 2018",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q33.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2018_Q34",
+        "year": "JAM 2018",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q34.png",
+        "answer_key": "B;C;D",
+        "explanation": "<strong>Official Key: B;C;D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2018_Q35",
+        "year": "JAM 2018",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q35.png",
+        "answer_key": "B;C;D",
+        "explanation": "<strong>Official Key: B;C;D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2018_Q36",
+        "year": "JAM 2018",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q36.png",
+        "answer_key": "A;B",
+        "explanation": "<strong>Official Key: A;B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2018_Q37",
+        "year": "JAM 2018",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q37.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2018_Q38",
+        "year": "JAM 2018",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q38.png",
+        "answer_key": "A;B;C",
+        "explanation": "<strong>Official Key: A;B;C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2018_Q39",
+        "year": "JAM 2018",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q39.png",
+        "answer_key": "B;C;D",
+        "explanation": "<strong>Official Key: B;C;D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2018_Q40",
+        "year": "JAM 2018",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q40.png",
+        "answer_key": "A;B;C",
+        "explanation": "<strong>Official Key: A;B;C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2018_Q41",
+        "year": "JAM 2018",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q41.png",
+        "answer_key": "4 to 4",
+        "explanation": "<strong>Official Key: 4 to 4</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2018_Q42",
+        "year": "JAM 2018",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q42.png",
+        "answer_key": "6.5 to 7.5",
+        "explanation": "<strong>Official Key: 6.5 to 7.5</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2018_Q43",
+        "year": "JAM 2018",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q43.png",
+        "answer_key": "1 to 1",
+        "explanation": "<strong>Official Key: 1 to 1</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2018_Q44",
+        "year": "JAM 2018",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q44.png",
+        "answer_key": "1 to 1",
+        "explanation": "<strong>Official Key: 1 to 1</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2018_Q45",
+        "year": "JAM 2018",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q45.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2018_Q46",
+        "year": "JAM 2018",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q46.png",
+        "answer_key": "9 to 9",
+        "explanation": "<strong>Official Key: 9 to 9</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2018_Q47",
+        "year": "JAM 2018",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q47.png",
+        "answer_key": "2 to 2",
+        "explanation": "<strong>Official Key: 2 to 2</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2018_Q48",
+        "year": "JAM 2018",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q48.png",
+        "answer_key": "0 to 0",
+        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2018_Q49",
+        "year": "JAM 2018",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q49.png",
+        "answer_key": "4 to 4",
+        "explanation": "<strong>Official Key: 4 to 4</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2018_Q50",
+        "year": "JAM 2018",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q50.png",
+        "answer_key": "-0.130 to -0.120",
+        "explanation": "<strong>Official Key: -0.130 to -0.120</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2018_Q51",
+        "year": "JAM 2018",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q51.png",
+        "answer_key": "0.4 to 0.6",
+        "explanation": "<strong>Official Key: 0.4 to 0.6</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2018_Q52",
+        "year": "JAM 2018",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q52.png",
+        "answer_key": "0.350 to 0.380",
+        "explanation": "<strong>Official Key: 0.350 to 0.380</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2018_Q53",
+        "year": "JAM 2018",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q53.png",
+        "answer_key": "1140 to 1160",
+        "explanation": "<strong>Official Key: 1140 to 1160</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2018_Q54",
+        "year": "JAM 2018",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q54.png",
+        "answer_key": "5.99 to 6.01",
+        "explanation": "<strong>Official Key: 5.99 to 6.01</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2018_Q55",
+        "year": "JAM 2018",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q55.png",
+        "answer_key": "2.9 to 3.1",
+        "explanation": "<strong>Official Key: 2.9 to 3.1</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2018_Q56",
+        "year": "JAM 2018",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q56.png",
+        "answer_key": "0.230 to 0.250",
+        "explanation": "<strong>Official Key: 0.230 to 0.250</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2018_Q57",
+        "year": "JAM 2018",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q57.png",
+        "answer_key": "6 to 6",
+        "explanation": "<strong>Official Key: 6 to 6</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2018_Q58",
+        "year": "JAM 2018",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q58.png",
+        "answer_key": "6.30 to 6.70",
+        "explanation": "<strong>Official Key: 6.30 to 6.70</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2018_Q59",
+        "year": "JAM 2018",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q59.png",
+        "answer_key": "-2.80 to -2.70",
+        "explanation": "<strong>Official Key: -2.80 to -2.70</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2018_Q60",
+        "year": "JAM 2018",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q60.png",
+        "answer_key": "0.5 to 0.5",
+        "explanation": "<strong>Official Key: 0.5 to 0.5</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2017": {
+    "id": "2017",
+    "file_id": "JAM_2017",
+    "year": 2017,
+    "name": "IIT JAM 2017 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2017_Q1",
+        "year": "JAM 2017",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q1.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2017_Q2",
+        "year": "JAM 2017",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2017_Q3",
+        "year": "JAM 2017",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2017_Q4",
+        "year": "JAM 2017",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q4.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2017_Q5",
+        "year": "JAM 2017",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2017_Q6",
+        "year": "JAM 2017",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2017_Q7",
+        "year": "JAM 2017",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2017_Q8",
+        "year": "JAM 2017",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q8.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2017_Q9",
+        "year": "JAM 2017",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q9.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2017_Q10",
+        "year": "JAM 2017",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q10.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2017_Q11",
+        "year": "JAM 2017",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2017_Q12",
+        "year": "JAM 2017",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q12.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2017_Q13",
+        "year": "JAM 2017",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q13.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2017_Q14",
+        "year": "JAM 2017",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q14.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2017_Q15",
+        "year": "JAM 2017",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2017_Q16",
+        "year": "JAM 2017",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q16.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2017_Q17",
+        "year": "JAM 2017",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q17.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2017_Q18",
+        "year": "JAM 2017",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q18.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2017_Q19",
+        "year": "JAM 2017",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q19.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2017_Q20",
+        "year": "JAM 2017",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2017_Q21",
+        "year": "JAM 2017",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q21.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2017_Q22",
+        "year": "JAM 2017",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q22.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2017_Q23",
+        "year": "JAM 2017",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q23.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2017_Q24",
+        "year": "JAM 2017",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q24.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2017_Q25",
+        "year": "JAM 2017",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q25.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2017_Q26",
+        "year": "JAM 2017",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q26.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2017_Q27",
+        "year": "JAM 2017",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2017_Q28",
+        "year": "JAM 2017",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q28.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2017_Q29",
+        "year": "JAM 2017",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q29.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2017_Q30",
+        "year": "JAM 2017",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q30.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2017_Q31",
+        "year": "JAM 2017",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q31.png",
+        "answer_key": "A, C",
+        "explanation": "<strong>Official Key: A, C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2017_Q32",
+        "year": "JAM 2017",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q32.png",
+        "answer_key": "A, B, D",
+        "explanation": "<strong>Official Key: A, B, D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2017_Q33",
+        "year": "JAM 2017",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q33.png",
+        "answer_key": "A, D",
+        "explanation": "<strong>Official Key: A, D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2017_Q34",
+        "year": "JAM 2017",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q34.png",
+        "answer_key": "A, B, D",
+        "explanation": "<strong>Official Key: A, B, D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2017_Q35",
+        "year": "JAM 2017",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q35.png",
+        "answer_key": "A, C",
+        "explanation": "<strong>Official Key: A, C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2017_Q36",
+        "year": "JAM 2017",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q36.png",
+        "answer_key": "A, C",
+        "explanation": "<strong>Official Key: A, C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2017_Q37",
+        "year": "JAM 2017",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q37.png",
+        "answer_key": "B, D",
+        "explanation": "<strong>Official Key: B, D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2017_Q38",
+        "year": "JAM 2017",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q38.png",
+        "answer_key": "B, C",
+        "explanation": "<strong>Official Key: B, C</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2017_Q39",
+        "year": "JAM 2017",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q39.png",
+        "answer_key": "B, C, D",
+        "explanation": "<strong>Official Key: B, C, D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2017_Q40",
+        "year": "JAM 2017",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q40.png",
+        "answer_key": "C, D",
+        "explanation": "<strong>Official Key: C, D</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2017_Q41",
+        "year": "JAM 2017",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q41.png",
+        "answer_key": "1.9 to 2.1",
+        "explanation": "<strong>Official Key: 1.9 to 2.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2017_Q42",
+        "year": "JAM 2017",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q42.png",
+        "answer_key": "5.9 to 6.1",
+        "explanation": "<strong>Official Key: 5.9 to 6.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2017_Q43",
+        "year": "JAM 2017",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q43.png",
+        "answer_key": "-0.01 to +0.01",
+        "explanation": "<strong>Official Key: -0.01 to +0.01</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2017_Q44",
+        "year": "JAM 2017",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q44.png",
+        "answer_key": "9.9 to 10.1",
+        "explanation": "<strong>Official Key: 9.9 to 10.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2017_Q45",
+        "year": "JAM 2017",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q45.png",
+        "answer_key": "1259.9 to 1260.1",
+        "explanation": "<strong>Official Key: 1259.9 to 1260.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2017_Q46",
+        "year": "JAM 2017",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q46.png",
+        "answer_key": "1.9 to 2.1",
+        "explanation": "<strong>Official Key: 1.9 to 2.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2017_Q47",
+        "year": "JAM 2017",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q47.png",
+        "answer_key": "0.49 to 0.51",
+        "explanation": "<strong>Official Key: 0.49 to 0.51</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2017_Q48",
+        "year": "JAM 2017",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q48.png",
+        "answer_key": "2.9 to 3.1",
+        "explanation": "<strong>Official Key: 2.9 to 3.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2017_Q49",
+        "year": "JAM 2017",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q49.png",
+        "answer_key": "54.9 to 55.1",
+        "explanation": "<strong>Official Key: 54.9 to 55.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2017_Q50",
+        "year": "JAM 2017",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q50.png",
+        "answer_key": "7.9 to 8.1",
+        "explanation": "<strong>Official Key: 7.9 to 8.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2017_Q51",
+        "year": "JAM 2017",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q51.png",
+        "answer_key": "2.9 to 3.1",
+        "explanation": "<strong>Official Key: 2.9 to 3.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2017_Q52",
+        "year": "JAM 2017",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q52.png",
+        "answer_key": "2.0 to 2.2",
+        "explanation": "<strong>Official Key: 2.0 to 2.2</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2017_Q53",
+        "year": "JAM 2017",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q53.png",
+        "answer_key": "0.9 to 1.1",
+        "explanation": "<strong>Official Key: 0.9 to 1.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2017_Q54",
+        "year": "JAM 2017",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q54.png",
+        "answer_key": "29.9 to 30.1",
+        "explanation": "<strong>Official Key: 29.9 to 30.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2017_Q55",
+        "year": "JAM 2017",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q55.png",
+        "answer_key": "0.9 to 1.1",
+        "explanation": "<strong>Official Key: 0.9 to 1.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2017_Q56",
+        "year": "JAM 2017",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q56.png",
+        "answer_key": "2.9 to 3.1",
+        "explanation": "<strong>Official Key: 2.9 to 3.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2017_Q57",
+        "year": "JAM 2017",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q57.png",
+        "answer_key": "0.9 to 1.1",
+        "explanation": "<strong>Official Key: 0.9 to 1.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2017_Q58",
+        "year": "JAM 2017",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q58.png",
+        "answer_key": "5.9 to 6.1",
+        "explanation": "<strong>Official Key: 5.9 to 6.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2017_Q59",
+        "year": "JAM 2017",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q59.png",
+        "answer_key": "0.9 to 1.1",
+        "explanation": "<strong>Official Key: 0.9 to 1.1</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2017_Q60",
+        "year": "JAM 2017",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q60.png",
+        "answer_key": "1.34 to 1.36",
+        "explanation": "<strong>Official Key: 1.34 to 1.36</strong><br>• IIT JAM 2017 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2016": {
+    "id": "2016",
+    "file_id": "JAM_2016",
+    "year": 2016,
+    "name": "IIT JAM 2016 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2016_Q1",
+        "year": "JAM 2016",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q1.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2016_Q2",
+        "year": "JAM 2016",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q2.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2016_Q3",
+        "year": "JAM 2016",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q3.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2016_Q4",
+        "year": "JAM 2016",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q4.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2016_Q5",
+        "year": "JAM 2016",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2016_Q6",
+        "year": "JAM 2016",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2016_Q7",
+        "year": "JAM 2016",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2016_Q8",
+        "year": "JAM 2016",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q8.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2016_Q9",
+        "year": "JAM 2016",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2016_Q10",
+        "year": "JAM 2016",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2016_Q11",
+        "year": "JAM 2016",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2016_Q12",
+        "year": "JAM 2016",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q12.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2016_Q13",
+        "year": "JAM 2016",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2016_Q14",
+        "year": "JAM 2016",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q14.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2016_Q15",
+        "year": "JAM 2016",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q15.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2016_Q16",
+        "year": "JAM 2016",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q16.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2016_Q17",
+        "year": "JAM 2016",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q17.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2016_Q18",
+        "year": "JAM 2016",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q18.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2016_Q19",
+        "year": "JAM 2016",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q19.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2016_Q20",
+        "year": "JAM 2016",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q20.png",
+        "answer_key": "MTA",
+        "explanation": "<strong>Official Key: MTA</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2016_Q21",
+        "year": "JAM 2016",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q21.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2016_Q22",
+        "year": "JAM 2016",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q22.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2016_Q23",
+        "year": "JAM 2016",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q23.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2016_Q24",
+        "year": "JAM 2016",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q24.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2016_Q25",
+        "year": "JAM 2016",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q25.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2016_Q26",
+        "year": "JAM 2016",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q26.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2016_Q27",
+        "year": "JAM 2016",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q27.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2016_Q28",
+        "year": "JAM 2016",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q28.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2016_Q29",
+        "year": "JAM 2016",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q29.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2016_Q30",
+        "year": "JAM 2016",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q30.png",
+        "answer_key": "MTA",
+        "explanation": "<strong>Official Key: MTA</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2016_Q31",
+        "year": "JAM 2016",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q31.png",
+        "answer_key": "A;C",
+        "explanation": "<strong>Official Key: A;C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2016_Q32",
+        "year": "JAM 2016",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q32.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2016_Q33",
+        "year": "JAM 2016",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q33.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2016_Q34",
+        "year": "JAM 2016",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q34.png",
+        "answer_key": "B;C;D",
+        "explanation": "<strong>Official Key: B;C;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2016_Q35",
+        "year": "JAM 2016",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q35.png",
+        "answer_key": "C;D",
+        "explanation": "<strong>Official Key: C;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2016_Q36",
+        "year": "JAM 2016",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q36.png",
+        "answer_key": "A;B",
+        "explanation": "<strong>Official Key: A;B</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2016_Q37",
+        "year": "JAM 2016",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q37.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: A;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2016_Q38",
+        "year": "JAM 2016",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q38.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: B;C</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2016_Q39",
+        "year": "JAM 2016",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q39.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: A;C;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2016_Q40",
+        "year": "JAM 2016",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q40.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2016_Q41",
+        "year": "JAM 2016",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q41.png",
+        "answer_key": "0.5 to 0.5",
+        "explanation": "<strong>Official Key: 0.5 to 0.5</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2016_Q42",
+        "year": "JAM 2016",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q42.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2016_Q43",
+        "year": "JAM 2016",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q43.png",
+        "answer_key": "2.0 to 2.0",
+        "explanation": "<strong>Official Key: 2.0 to 2.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2016_Q44",
+        "year": "JAM 2016",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q44.png",
+        "answer_key": "8.0 to 8.0",
+        "explanation": "<strong>Official Key: 8.0 to 8.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2016_Q45",
+        "year": "JAM 2016",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q45.png",
+        "answer_key": "1.49 to 1.55",
+        "explanation": "<strong>Official Key: 1.49 to 1.55</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2016_Q46",
+        "year": "JAM 2016",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q46.png",
+        "answer_key": "-1 to -1",
+        "explanation": "<strong>Official Key: ‐1 to ‐1</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2016_Q47",
+        "year": "JAM 2016",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q47.png",
+        "answer_key": "6.0 to 6.0",
+        "explanation": "<strong>Official Key: 6.0 to 6.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2016_Q48",
+        "year": "JAM 2016",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q48.png",
+        "answer_key": "0.5 to 0.5",
+        "explanation": "<strong>Official Key: 0.5 to 0.5</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2016_Q49",
+        "year": "JAM 2016",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q49.png",
+        "answer_key": "0.25 to 0.25",
+        "explanation": "<strong>Official Key: 0.25 to 0.25</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2016_Q50",
+        "year": "JAM 2016",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q50.png",
+        "answer_key": "6.0 to 6.0",
+        "explanation": "<strong>Official Key: 6.0 to 6.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2016_Q51",
+        "year": "JAM 2016",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q51.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2016_Q52",
+        "year": "JAM 2016",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q52.png",
+        "answer_key": "0.35 to 0.4",
+        "explanation": "<strong>Official Key: 0.35 to 0.4</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2016_Q53",
+        "year": "JAM 2016",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q53.png",
+        "answer_key": "3.0 to 3.0",
+        "explanation": "<strong>Official Key: 3.0 to 3.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2016_Q54",
+        "year": "JAM 2016",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q54.png",
+        "answer_key": "0.8 to 1.9",
+        "explanation": "<strong>Official Key: 0.8 to 1.9</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2016_Q55",
+        "year": "JAM 2016",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q55.png",
+        "answer_key": "72.0 to 72.0",
+        "explanation": "<strong>Official Key: 72.0 to 72.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2016_Q56",
+        "year": "JAM 2016",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q56.png",
+        "answer_key": "-0.3 to -0.25",
+        "explanation": "<strong>Official Key: ‐0.3 to ‐0.25</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2016_Q57",
+        "year": "JAM 2016",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q57.png",
+        "answer_key": "2.0 to 2.0",
+        "explanation": "<strong>Official Key: 2.0 to 2.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2016_Q58",
+        "year": "JAM 2016",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q58.png",
+        "answer_key": "3.0 to 3.0",
+        "explanation": "<strong>Official Key: 3.0 to 3.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2016_Q59",
+        "year": "JAM 2016",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q59.png",
+        "answer_key": "1.0 to 1.0",
+        "explanation": "<strong>Official Key: 1.0 to 1.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2016_Q60",
+        "year": "JAM 2016",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q60.png",
+        "answer_key": "2.0 to 2.0",
+        "explanation": "<strong>Official Key: 2.0 to 2.0</strong><br>• IIT JAM 2016 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2015": {
+    "id": "2015",
+    "file_id": "JAM_2015",
+    "year": 2015,
+    "name": "IIT JAM 2015 Official Paper",
+    "category": "CBT Era (2015–2026)",
+    "era": "cbt",
+    "total_questions": 60,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "pattern": "MCQ • MSQ • NAT (60 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2015_Q1",
+        "year": "JAM 2015",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2015_Q2",
+        "year": "JAM 2015",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q2.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2015_Q3",
+        "year": "JAM 2015",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2015_Q4",
+        "year": "JAM 2015",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q4.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2015_Q5",
+        "year": "JAM 2015",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2015_Q6",
+        "year": "JAM 2015",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2015_Q7",
+        "year": "JAM 2015",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2015_Q8",
+        "year": "JAM 2015",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q8.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2015_Q9",
+        "year": "JAM 2015",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q9.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2015_Q10",
+        "year": "JAM 2015",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q10.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2015_Q11",
+        "year": "JAM 2015",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2015_Q12",
+        "year": "JAM 2015",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q12.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2015_Q13",
+        "year": "JAM 2015",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2015_Q14",
+        "year": "JAM 2015",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q14.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2015_Q15",
+        "year": "JAM 2015",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q15.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2015_Q16",
+        "year": "JAM 2015",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q16.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2015_Q17",
+        "year": "JAM 2015",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q17.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2015_Q18",
+        "year": "JAM 2015",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q18.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2015_Q19",
+        "year": "JAM 2015",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q19.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2015_Q20",
+        "year": "JAM 2015",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q20.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2015_Q21",
+        "year": "JAM 2015",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q21.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2015_Q22",
+        "year": "JAM 2015",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q22.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2015_Q23",
+        "year": "JAM 2015",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2015_Q24",
+        "year": "JAM 2015",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2015_Q25",
+        "year": "JAM 2015",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q25.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2015_Q26",
+        "year": "JAM 2015",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q26.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2015_Q27",
+        "year": "JAM 2015",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q27.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2015_Q28",
+        "year": "JAM 2015",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q28.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2015_Q29",
+        "year": "JAM 2015",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q29.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2015_Q30",
+        "year": "JAM 2015",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q30.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2015_Q31",
+        "year": "JAM 2015",
+        "q_num": 31,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q31.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: (A;C;D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2015_Q32",
+        "year": "JAM 2015",
+        "q_num": 32,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q32.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: (A;D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2015_Q33",
+        "year": "JAM 2015",
+        "q_num": 33,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q33.png",
+        "answer_key": "C;D",
+        "explanation": "<strong>Official Key: (C;D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2015_Q34",
+        "year": "JAM 2015",
+        "q_num": 34,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q34.png",
+        "answer_key": "A;B",
+        "explanation": "<strong>Official Key: (A;B)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2015_Q35",
+        "year": "JAM 2015",
+        "q_num": 35,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q35.png",
+        "answer_key": "A;C;D",
+        "explanation": "<strong>Official Key: (A;C;D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 35"
+      },
+      {
+        "id": "JAM_2015_Q36",
+        "year": "JAM 2015",
+        "q_num": 36,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q36.png",
+        "answer_key": "A;C",
+        "explanation": "<strong>Official Key: (A;C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 36"
+      },
+      {
+        "id": "JAM_2015_Q37",
+        "year": "JAM 2015",
+        "q_num": 37,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q37.png",
+        "answer_key": "A;D",
+        "explanation": "<strong>Official Key: (A;D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 37"
+      },
+      {
+        "id": "JAM_2015_Q38",
+        "year": "JAM 2015",
+        "q_num": 38,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q38.png",
+        "answer_key": "B;C",
+        "explanation": "<strong>Official Key: (B;C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 38"
+      },
+      {
+        "id": "JAM_2015_Q39",
+        "year": "JAM 2015",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q39.png",
+        "answer_key": "B;C;D",
+        "explanation": "<strong>Official Key: (B;C;D)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 39"
+      },
+      {
+        "id": "JAM_2015_Q40",
+        "year": "JAM 2015",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q40.png",
+        "answer_key": "A;B;C",
+        "explanation": "<strong>Official Key: (A;B;C)</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 40"
+      },
+      {
+        "id": "JAM_2015_Q41",
+        "year": "JAM 2015",
+        "q_num": 41,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q41.png",
+        "answer_key": "1",
+        "explanation": "<strong>Official Key Range: 1</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 41"
+      },
+      {
+        "id": "JAM_2015_Q42",
+        "year": "JAM 2015",
+        "q_num": 42,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q42.png",
+        "answer_key": "6.28 to 6.29",
+        "explanation": "<strong>Official Key Range: 6.28 to 6.29</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 42"
+      },
+      {
+        "id": "JAM_2015_Q43",
+        "year": "JAM 2015",
+        "q_num": 43,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q43.png",
+        "answer_key": "3",
+        "explanation": "<strong>Official Key Range: 3</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 43"
+      },
+      {
+        "id": "JAM_2015_Q44",
+        "year": "JAM 2015",
+        "q_num": 44,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q44.png",
+        "answer_key": "-1",
+        "explanation": "<strong>Official Key Range: -1</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 44"
+      },
+      {
+        "id": "JAM_2015_Q45",
+        "year": "JAM 2015",
+        "q_num": 45,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q45.png",
+        "answer_key": "2.34 to 2.35",
+        "explanation": "<strong>Official Key Range: 2.34 to 2.35</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 45"
+      },
+      {
+        "id": "JAM_2015_Q46",
+        "year": "JAM 2015",
+        "q_num": 46,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q46.png",
+        "answer_key": "1.64 to 1.65",
+        "explanation": "<strong>Official Key Range: 1.64 to 1.65</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 46"
+      },
+      {
+        "id": "JAM_2015_Q47",
+        "year": "JAM 2015",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q47.png",
+        "answer_key": "1",
+        "explanation": "<strong>Official Key Range: 1</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 47"
+      },
+      {
+        "id": "JAM_2015_Q48",
+        "year": "JAM 2015",
+        "q_num": 48,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q48.png",
+        "answer_key": "-1",
+        "explanation": "<strong>Official Key Range: -1</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 48"
+      },
+      {
+        "id": "JAM_2015_Q49",
+        "year": "JAM 2015",
+        "q_num": 49,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q49.png",
+        "answer_key": "2",
+        "explanation": "<strong>Official Key Range: 2</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 49"
+      },
+      {
+        "id": "JAM_2015_Q50",
+        "year": "JAM 2015",
+        "q_num": 50,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q50.png",
+        "answer_key": "3",
+        "explanation": "<strong>Official Key Range: 3</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 50"
+      },
+      {
+        "id": "JAM_2015_Q51",
+        "year": "JAM 2015",
+        "q_num": 51,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q51.png",
+        "answer_key": "8",
+        "explanation": "<strong>Official Key Range: 8</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 51"
+      },
+      {
+        "id": "JAM_2015_Q52",
+        "year": "JAM 2015",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q52.png",
+        "answer_key": "84",
+        "explanation": "<strong>Official Key Range: 84</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 52"
+      },
+      {
+        "id": "JAM_2015_Q53",
+        "year": "JAM 2015",
+        "q_num": 53,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q53.png",
+        "answer_key": "0.25",
+        "explanation": "<strong>Official Key Range: 0.25</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 53"
+      },
+      {
+        "id": "JAM_2015_Q54",
+        "year": "JAM 2015",
+        "q_num": 54,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q54.png",
+        "answer_key": "2",
+        "explanation": "<strong>Official Key Range: 2</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 54"
+      },
+      {
+        "id": "JAM_2015_Q55",
+        "year": "JAM 2015",
+        "q_num": 55,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q55.png",
+        "answer_key": "0.125",
+        "explanation": "<strong>Official Key Range: 0.125</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 55"
+      },
+      {
+        "id": "JAM_2015_Q56",
+        "year": "JAM 2015",
+        "q_num": 56,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q56.png",
+        "answer_key": "1.41 to 1.42",
+        "explanation": "<strong>Official Key Range: 1.41 to 1.42</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 56"
+      },
+      {
+        "id": "JAM_2015_Q57",
+        "year": "JAM 2015",
+        "q_num": 57,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q57.png",
+        "answer_key": "0.10 to 0.11",
+        "explanation": "<strong>Official Key Range: 0.10 to 0.11</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 57"
+      },
+      {
+        "id": "JAM_2015_Q58",
+        "year": "JAM 2015",
+        "q_num": 58,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q58.png",
+        "answer_key": "5.09 to 5.10",
+        "explanation": "<strong>Official Key Range: 5.09 to 5.10</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 58"
+      },
+      {
+        "id": "JAM_2015_Q59",
+        "year": "JAM 2015",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q59.png",
+        "answer_key": "3",
+        "explanation": "<strong>Official Key Range: 3</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 59"
+      },
+      {
+        "id": "JAM_2015_Q60",
+        "year": "JAM 2015",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q60.png",
+        "answer_key": "2",
+        "explanation": "<strong>Official Key Range: 2</strong><br>• IIT JAM 2015 Mathematics (MA) — Question 60"
+      }
+    ]
+  },
+  "2014": {
+    "id": "2014",
+    "file_id": "JAM_2014",
+    "year": 2014,
+    "name": "IIT JAM 2014 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 35,
+    "total_marks": 60,
+    "duration_minutes": 100,
+    "pattern": "MCQ (35 Questions)",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2014_Q1",
+        "year": "JAM 2014",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2014_Q2",
+        "year": "JAM 2014",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q2.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2014_Q3",
+        "year": "JAM 2014",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2014_Q4",
+        "year": "JAM 2014",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q4.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2014_Q5",
+        "year": "JAM 2014",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q5.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2014_Q6",
+        "year": "JAM 2014",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2014_Q7",
+        "year": "JAM 2014",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2014_Q8",
+        "year": "JAM 2014",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q8.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2014_Q9",
+        "year": "JAM 2014",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q9.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2014_Q10",
+        "year": "JAM 2014",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q10.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2014_Q11",
+        "year": "JAM 2014",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q11.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2014_Q12",
+        "year": "JAM 2014",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q12.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2014_Q13",
+        "year": "JAM 2014",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q13.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2014_Q14",
+        "year": "JAM 2014",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q14.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2014_Q15",
+        "year": "JAM 2014",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q15.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 15"
+      },
+      {
+        "id": "JAM_2014_Q16",
+        "year": "JAM 2014",
+        "q_num": 16,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q16.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 16"
+      },
+      {
+        "id": "JAM_2014_Q17",
+        "year": "JAM 2014",
+        "q_num": 17,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q17.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 17"
+      },
+      {
+        "id": "JAM_2014_Q18",
+        "year": "JAM 2014",
+        "q_num": 18,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q18.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 18"
+      },
+      {
+        "id": "JAM_2014_Q19",
+        "year": "JAM 2014",
+        "q_num": 19,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q19.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 19"
+      },
+      {
+        "id": "JAM_2014_Q20",
+        "year": "JAM 2014",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q20.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 20"
+      },
+      {
+        "id": "JAM_2014_Q21",
+        "year": "JAM 2014",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q21.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 21"
+      },
+      {
+        "id": "JAM_2014_Q22",
+        "year": "JAM 2014",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q22.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 22"
+      },
+      {
+        "id": "JAM_2014_Q23",
+        "year": "JAM 2014",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q23.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 23"
+      },
+      {
+        "id": "JAM_2014_Q24",
+        "year": "JAM 2014",
+        "q_num": 24,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q24.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 24"
+      },
+      {
+        "id": "JAM_2014_Q25",
+        "year": "JAM 2014",
+        "q_num": 25,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q25.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 25"
+      },
+      {
+        "id": "JAM_2014_Q26",
+        "year": "JAM 2014",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q26.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 26"
+      },
+      {
+        "id": "JAM_2014_Q27",
+        "year": "JAM 2014",
+        "q_num": 27,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q27.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 27"
+      },
+      {
+        "id": "JAM_2014_Q28",
+        "year": "JAM 2014",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q28.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 28"
+      },
+      {
+        "id": "JAM_2014_Q29",
+        "year": "JAM 2014",
+        "q_num": 29,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q29.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 29"
+      },
+      {
+        "id": "JAM_2014_Q30",
+        "year": "JAM 2014",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q30.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 30"
+      },
+      {
+        "id": "JAM_2014_Q31",
+        "year": "JAM 2014",
+        "q_num": 31,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q31.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 31"
+      },
+      {
+        "id": "JAM_2014_Q32",
+        "year": "JAM 2014",
+        "q_num": 32,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q32.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 32"
+      },
+      {
+        "id": "JAM_2014_Q33",
+        "year": "JAM 2014",
+        "q_num": 33,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q33.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 33"
+      },
+      {
+        "id": "JAM_2014_Q34",
+        "year": "JAM 2014",
+        "q_num": 34,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q34.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 34"
+      },
+      {
+        "id": "JAM_2014_Q35",
+        "year": "JAM 2014",
+        "q_num": 35,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q35.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2014 Mathematics (MA) — Question 35"
+      }
+    ]
+  },
+  "2013": {
+    "id": "2013",
+    "file_id": "JAM_2013",
+    "year": 2013,
+    "name": "IIT JAM 2013 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 10,
+    "total_marks": 20,
+    "duration_minutes": 40,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2013_Q1",
+        "year": "JAM 2013",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2013_Q2",
+        "year": "JAM 2013",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q2.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2013_Q3",
+        "year": "JAM 2013",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2013_Q4",
+        "year": "JAM 2013",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q4.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2013_Q5",
+        "year": "JAM 2013",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q5.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2013_Q6",
+        "year": "JAM 2013",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2013_Q7",
+        "year": "JAM 2013",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2013_Q8",
+        "year": "JAM 2013",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q8.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2013_Q9",
+        "year": "JAM 2013",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q9.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2013_Q10",
+        "year": "JAM 2013",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2013/JAM_2013_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2013 Mathematics (MA) — Question 10"
+      }
+    ]
+  },
+  "2012": {
+    "id": "2012",
+    "file_id": "JAM_2012",
+    "year": 2012,
+    "name": "IIT JAM 2012 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2012_Q1",
+        "year": "JAM 2012",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q1.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2012_Q2",
+        "year": "JAM 2012",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2012_Q3",
+        "year": "JAM 2012",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2012_Q4",
+        "year": "JAM 2012",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q4.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2012_Q5",
+        "year": "JAM 2012",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2012_Q6",
+        "year": "JAM 2012",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q6.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2012_Q7",
+        "year": "JAM 2012",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2012_Q8",
+        "year": "JAM 2012",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q8.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2012_Q9",
+        "year": "JAM 2012",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2012_Q10",
+        "year": "JAM 2012",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q10.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2012_Q11",
+        "year": "JAM 2012",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2012_Q12",
+        "year": "JAM 2012",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q12.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2012_Q13",
+        "year": "JAM 2012",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q13.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2012_Q14",
+        "year": "JAM 2012",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q14.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2012_Q15",
+        "year": "JAM 2012",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2012 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2011": {
+    "id": "2011",
+    "file_id": "JAM_2011",
+    "year": 2011,
+    "name": "IIT JAM 2011 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2011_Q1",
+        "year": "JAM 2011",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q1.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2011_Q2",
+        "year": "JAM 2011",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q2.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2011_Q3",
+        "year": "JAM 2011",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q3.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2011_Q4",
+        "year": "JAM 2011",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2011_Q5",
+        "year": "JAM 2011",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2011_Q6",
+        "year": "JAM 2011",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q6.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2011_Q7",
+        "year": "JAM 2011",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2011_Q8",
+        "year": "JAM 2011",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q8.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2011_Q9",
+        "year": "JAM 2011",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q9.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2011_Q10",
+        "year": "JAM 2011",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2011_Q11",
+        "year": "JAM 2011",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2011_Q12",
+        "year": "JAM 2011",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q12.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2011_Q13",
+        "year": "JAM 2011",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2011_Q14",
+        "year": "JAM 2011",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q14.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2011_Q15",
+        "year": "JAM 2011",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2011 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2010": {
+    "id": "2010",
+    "file_id": "JAM_2010",
+    "year": 2010,
+    "name": "IIT JAM 2010 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2010_Q1",
+        "year": "JAM 2010",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q1.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2010_Q2",
+        "year": "JAM 2010",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q2.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2010_Q3",
+        "year": "JAM 2010",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2010_Q4",
+        "year": "JAM 2010",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2010_Q5",
+        "year": "JAM 2010",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2010_Q6",
+        "year": "JAM 2010",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2010_Q7",
+        "year": "JAM 2010",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2010_Q8",
+        "year": "JAM 2010",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q8.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2010_Q9",
+        "year": "JAM 2010",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q9.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2010_Q10",
+        "year": "JAM 2010",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q10.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2010_Q11",
+        "year": "JAM 2010",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q11.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2010_Q12",
+        "year": "JAM 2010",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q12.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2010_Q13",
+        "year": "JAM 2010",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2010_Q14",
+        "year": "JAM 2010",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q14.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2010_Q15",
+        "year": "JAM 2010",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2010 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2009": {
+    "id": "2009",
+    "file_id": "JAM_2009",
+    "year": 2009,
+    "name": "IIT JAM 2009 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2009_Q1",
+        "year": "JAM 2009",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2009_Q2",
+        "year": "JAM 2009",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2009_Q3",
+        "year": "JAM 2009",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q3.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2009_Q4",
+        "year": "JAM 2009",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2009_Q5",
+        "year": "JAM 2009",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q5.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2009_Q6",
+        "year": "JAM 2009",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q6.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2009_Q7",
+        "year": "JAM 2009",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2009_Q8",
+        "year": "JAM 2009",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q8.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2009_Q9",
+        "year": "JAM 2009",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2009_Q10",
+        "year": "JAM 2009",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q10.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2009_Q11",
+        "year": "JAM 2009",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2009_Q12",
+        "year": "JAM 2009",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q12.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2009_Q13",
+        "year": "JAM 2009",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2009_Q14",
+        "year": "JAM 2009",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q14.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2009_Q15",
+        "year": "JAM 2009",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2008": {
+    "id": "2008",
+    "file_id": "JAM_2008",
+    "year": 2008,
+    "name": "IIT JAM 2008 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2008_Q1",
+        "year": "JAM 2008",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2008_Q2",
+        "year": "JAM 2008",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2008_Q3",
+        "year": "JAM 2008",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2008_Q4",
+        "year": "JAM 2008",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2008_Q5",
+        "year": "JAM 2008",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2008_Q6",
+        "year": "JAM 2008",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q6.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2008_Q7",
+        "year": "JAM 2008",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2008_Q8",
+        "year": "JAM 2008",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q8.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2008_Q9",
+        "year": "JAM 2008",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2008_Q10",
+        "year": "JAM 2008",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2008_Q11",
+        "year": "JAM 2008",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2008_Q12",
+        "year": "JAM 2008",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q12.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2008_Q13",
+        "year": "JAM 2008",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q13.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2008_Q14",
+        "year": "JAM 2008",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q14.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2008_Q15",
+        "year": "JAM 2008",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2007": {
+    "id": "2007",
+    "file_id": "JAM_2007",
+    "year": 2007,
+    "name": "IIT JAM 2007 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2007_Q1",
+        "year": "JAM 2007",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q1.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2007_Q2",
+        "year": "JAM 2007",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2007_Q3",
+        "year": "JAM 2007",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2007_Q4",
+        "year": "JAM 2007",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q4.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2007_Q5",
+        "year": "JAM 2007",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q5.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2007_Q6",
+        "year": "JAM 2007",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q6.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2007_Q7",
+        "year": "JAM 2007",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2007_Q8",
+        "year": "JAM 2007",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q8.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2007_Q9",
+        "year": "JAM 2007",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q9.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2007_Q10",
+        "year": "JAM 2007",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q10.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2007_Q11",
+        "year": "JAM 2007",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q11.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2007_Q12",
+        "year": "JAM 2007",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q12.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2007_Q13",
+        "year": "JAM 2007",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2007_Q14",
+        "year": "JAM 2007",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q14.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2007_Q15",
+        "year": "JAM 2007",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2007/JAM_2007_Q15.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2007 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2006": {
+    "id": "2006",
+    "file_id": "JAM_2006",
+    "year": 2006,
+    "name": "IIT JAM 2006 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2006_Q1",
+        "year": "JAM 2006",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q1.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2006_Q2",
+        "year": "JAM 2006",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2006_Q3",
+        "year": "JAM 2006",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2006_Q4",
+        "year": "JAM 2006",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q4.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2006_Q5",
+        "year": "JAM 2006",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q5.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2006_Q6",
+        "year": "JAM 2006",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q6.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2006_Q7",
+        "year": "JAM 2006",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2006_Q8",
+        "year": "JAM 2006",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q8.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2006_Q9",
+        "year": "JAM 2006",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q9.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2006_Q10",
+        "year": "JAM 2006",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q10.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2006_Q11",
+        "year": "JAM 2006",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2006_Q12",
+        "year": "JAM 2006",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2006_Q13",
+        "year": "JAM 2006",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q13.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2006_Q14",
+        "year": "JAM 2006",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q14.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2006_Q15",
+        "year": "JAM 2006",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q15.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2006 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
+  "2005": {
+    "id": "2005",
+    "file_id": "JAM_2005",
+    "year": 2005,
+    "name": "IIT JAM 2005 Official Paper",
+    "category": "Classic Era (2005–2014)",
+    "era": "classic",
+    "total_questions": 15,
+    "total_marks": 90,
+    "duration_minutes": 60,
+    "pattern": "MCQ",
+    "paper_pdf": "docs/MA2005-2026_Original_PYQs.pdf",
+    "questions": [
+      {
+        "id": "JAM_2005_Q1",
+        "year": "JAM 2005",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q1.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 1"
+      },
+      {
+        "id": "JAM_2005_Q2",
+        "year": "JAM 2005",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q2.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 2"
+      },
+      {
+        "id": "JAM_2005_Q3",
+        "year": "JAM 2005",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 3"
+      },
+      {
+        "id": "JAM_2005_Q4",
+        "year": "JAM 2005",
+        "q_num": 4,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q4.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 4"
+      },
+      {
+        "id": "JAM_2005_Q5",
+        "year": "JAM 2005",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q5.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 5"
+      },
+      {
+        "id": "JAM_2005_Q6",
+        "year": "JAM 2005",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q6.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 6"
+      },
+      {
+        "id": "JAM_2005_Q7",
+        "year": "JAM 2005",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q7.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 7"
+      },
+      {
+        "id": "JAM_2005_Q8",
+        "year": "JAM 2005",
+        "q_num": 8,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q8.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 8"
+      },
+      {
+        "id": "JAM_2005_Q9",
+        "year": "JAM 2005",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q9.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 9"
+      },
+      {
+        "id": "JAM_2005_Q10",
+        "year": "JAM 2005",
+        "q_num": 10,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q10.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 10"
+      },
+      {
+        "id": "JAM_2005_Q11",
+        "year": "JAM 2005",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q11.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 11"
+      },
+      {
+        "id": "JAM_2005_Q12",
+        "year": "JAM 2005",
+        "q_num": 12,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q12.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 12"
+      },
+      {
+        "id": "JAM_2005_Q13",
+        "year": "JAM 2005",
+        "q_num": 13,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q13.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 13"
+      },
+      {
+        "id": "JAM_2005_Q14",
+        "year": "JAM 2005",
+        "q_num": 14,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q14.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 14"
+      },
+      {
+        "id": "JAM_2005_Q15",
+        "year": "JAM 2005",
+        "q_num": 15,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q15.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2005 Mathematics (MA) — Question 15"
+      }
+    ]
+  },
   "1.1": {
     "id": "1.1",
     "file_id": "1_1",
@@ -30,7 +10094,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x_{n})$ is not convergent and $(y_{n})$ is convergent."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q1)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q1)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q1.png"
       },
       {
         "id": "JAM_2026_Q2",
@@ -49,7 +10114,8 @@ window.MOCK_TESTS_DATA = {
           "D": "For all $\\epsilon\\gt 0$ and $M\\gt 0$ there exists a positive integer $N$ such that $N\\gt M$ and $|x_{N}-1|\\gt \\epsilon$."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q2)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q2)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q2.png"
       },
       {
         "id": "JAM_2026_Q11",
@@ -68,7 +10134,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\sum_{n=1}^{\\infty}a_{n}$ converges, then $\\sum_{n=1}^{\\infty}b_{n}$ converges or $\\sum_{n=1}^{\\infty}c_{n}$ converges."
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q11)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q11)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q11.png"
       },
       {
         "id": "JAM_2026_Q12",
@@ -87,7 +10154,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$a=-\\frac{1}{4}$ and $b=\\frac{1}{3}$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q12)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q12)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q12.png"
       },
       {
         "id": "JAM_2026_Q29",
@@ -106,7 +10174,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x_{n})$ is not convergent and $(y_{n})$ is not convergent."
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q29)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q29)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q29.png"
       },
       {
         "id": "JAM_2026_Q32",
@@ -125,7 +10194,8 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists a sequence $(x_{n})$ such that $(|x_{n+1}-x_{n}|)$ converges to 0 but $(x_{n})$ does not converge."
         },
         "answer_key": "C,D",
-        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q32)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q32)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q32.png"
       },
       {
         "id": "JAM_2026_Q41",
@@ -139,7 +10209,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The radius of convergence of the series $\\sum_{n=1}^{\\infty}\\frac{(n!)^{2}}{(2n)!}(\\log_{e}n)^{-1}x^{n}$ is <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q41)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q41)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q41.png"
       },
       {
         "id": "JAM_2026_Q42",
@@ -153,7 +10224,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\int_{0}^{1}\\left(\\sum_{k=1}^{\\infty}\\frac{(\\log_{e}2)^{k}x^{k-1}}{(k-1)!}\\right)dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q42)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q42)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q42.png"
       },
       {
         "id": "JAM_2026_Q43",
@@ -167,7 +10239,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{n^{2}+1}{\\sqrt{n^{6}+1}}+\\cdots+\\frac{n^{2}+n}{\\sqrt{n^{6}+n}}\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q43)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2026 Q43)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q43.png"
       },
       {
         "id": "JAM_2025_Q1",
@@ -186,7 +10259,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$-\\frac{\\pi}{4}$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q1)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q1)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q1.png"
       },
       {
         "id": "JAM_2025_Q18",
@@ -205,7 +10279,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty} x_n$ does NOT converge, and $\\sum_{n=1}^{\\infty} y_n$ does NOT converge"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q18)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q18)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q18.png"
       },
       {
         "id": "JAM_2025_Q19",
@@ -224,7 +10299,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x_{n})$ is a decreasing sequence, and $(x_{n})$ is a bounded sequence"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q19)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q19)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q19.png"
       },
       {
         "id": "JAM_2025_Q20",
@@ -243,7 +10319,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$x_{n+1}\\lt \\frac{4}{x_{n}}$ for some $n\\in\\mathbb{N}$, and $(x_{n})$ is NOT a Cauchy sequence"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q20)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q20)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q20.png"
       },
       {
         "id": "JAM_2025_Q21",
@@ -262,7 +10339,8 @@ window.MOCK_TESTS_DATA = {
           "D": "NO subsequence of $(x_{n})$ is convergent, and NO subsequence of $(y_{n})$ is convergent"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q21)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q21)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q21.png"
       },
       {
         "id": "JAM_2025_Q25",
@@ -281,7 +10359,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty}x_{n}x_{n+1}$ does NOT converge"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q25)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q25)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q25.png"
       },
       {
         "id": "JAM_2025_Q26",
@@ -300,7 +10379,8 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q26)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q26)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q26.png"
       },
       {
         "id": "JAM_2025_Q36",
@@ -319,7 +10399,8 @@ window.MOCK_TESTS_DATA = {
           "D": "The series $\\sum_{n=1}^{\\infty}x_{n}^{n}$ converges"
         },
         "answer_key": "A,C,D",
-        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q36)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q36)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q36.png"
       },
       {
         "id": "JAM_2025_Q41",
@@ -333,7 +10414,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The radius of convergence of the power series $\\sum_{n=1}^{\\infty}\\frac{(x+\\frac{1}{4})^{n}}{(-2)^{n}n^{2}}$ about $x=-\\frac{1}{4}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q41)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q41)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q41.png"
       },
       {
         "id": "JAM_2025_Q54",
@@ -347,7 +10429,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\sum_{n=1}^{\\infty}n\\left(\\frac{3}{4}\\right)^{2(n-1)}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "5.22",
-        "explanation": "<strong>Correct Numerical Answer: 5.22</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q54)"
+        "explanation": "<strong>Correct Numerical Answer: 5.22</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2025 Q54)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q54.png"
       },
       {
         "id": "JAM_2024_Q14",
@@ -366,7 +10449,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both $\\sum_{n=1}^{\\infty} a_n$ and $\\sum_{n=1}^{\\infty} b_n$ are convergent"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q14)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q14)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q14.png"
       },
       {
         "id": "JAM_2024_Q20",
@@ -385,7 +10469,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both $\\sum_{n=3}^{\\infty} \\frac{1}{a_n}$ and $\\sum_{n=3}^{\\infty} \\frac{1}{b_n}$ are convergent"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q20)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q20)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q20.png"
       },
       {
         "id": "JAM_2024_Q21",
@@ -404,7 +10489,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\frac{1}{e}\\lt r\\lt 1$, then $\\sum_{n=1}^{\\infty} b_{n}$ is convergent"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q21)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q21)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q21.png"
       },
       {
         "id": "JAM_2024_Q28",
@@ -423,7 +10509,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$e^{(2\\pi^{2})}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q28)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q28)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q28.png"
       },
       {
         "id": "JAM_2024_Q31",
@@ -442,7 +10529,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\sum_{n=1}^{\\infty} a_{n}$ converges, then $\\sum_{n=1}^{\\infty} a_{n}^{3}$ converges"
         },
         "answer_key": "A,B",
-        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q31)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q31)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q31.png"
       },
       {
         "id": "JAM_2024_Q32",
@@ -461,7 +10549,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty}(1-\\cos(\\frac{1}{\\sqrt{n}}))\\log n$ is convergent"
         },
         "answer_key": "A,B",
-        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q32)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q32)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q32.png"
       },
       {
         "id": "JAM_2024_Q39",
@@ -480,7 +10569,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{x_{n}\\}$ converges for at least three distinct values of $\\alpha\\in(3,4)$"
         },
         "answer_key": "B,C",
-        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q39)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q39)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q39.png"
       },
       {
         "id": "JAM_2024_Q47",
@@ -494,7 +10584,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $a_1=1, b_1=2, c_1=3$. Define $a_{n+1}=\\frac{a_n+b_n}{2}, b_{n+1}=\\frac{b_n+c_n}{2}, c_{n+1}=\\frac{c_n+a_n}{2}$. Then,\n\\[\n\\sum_{n=1}^{\\infty}b_n c_n(a_{n+1}-a_n) + \\sum_{n=1}^{\\infty}(b_{n+1}c_{n+1}-b_n c_n)a_{n+1} = \\underline{\\hspace{2cm}}\n\\]\n(rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q47)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q47)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q47.png"
       },
       {
         "id": "JAM_2024_Q55",
@@ -508,7 +10599,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $a_{n}=\\frac{1}{n^{3}+1}+\\frac{2^{2}}{n^{3}+2}+\\cdots+\\frac{n^{2}}{n^{3}+n}$, then the sequence $\\{a_{n}\\}$ converges to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.33",
-        "explanation": "<strong>Correct Numerical Answer: 0.33</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q55)"
+        "explanation": "<strong>Correct Numerical Answer: 0.33</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q55)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q55.png"
       },
       {
         "id": "JAM_2024_Q59",
@@ -522,7 +10614,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $a_{n}=\\frac{1}{n^{n-1}}\\sum_{k=0}^{n}\\frac{n!}{k!(n-k)!}\\frac{n^{k}}{k+1}$ and $\\beta=\\lim_{n\\rightarrow\\infty}a_{n}$. Then, the value of $\\log\\beta$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q59)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2024 Q59)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q59.png"
       },
       {
         "id": "JAM_2023_Q9",
@@ -541,7 +10634,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(a_{n})$ is NOT convergent and $(b_{n})$ is unbounded"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q9)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q9)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q9.png"
       },
       {
         "id": "JAM_2023_Q10",
@@ -560,7 +10654,8 @@ window.MOCK_TESTS_DATA = {
           "D": "both $(a_{n})$ and $(b_{n})$ are NOT convergent"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q10)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q10)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q10.png"
       },
       {
         "id": "JAM_2023_Q11",
@@ -579,7 +10674,8 @@ window.MOCK_TESTS_DATA = {
           "D": "both $\\sum_{n=1}^{\\infty} a_{n}$ and $\\sum_{n=1}^{\\infty} b_{n}$ are NOT convergent"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q11)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q11)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q11.png"
       },
       {
         "id": "JAM_2023_Q19",
@@ -598,7 +10694,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(a_{n})$ is NOT convergent but $\\sum_{n=1}^{\\infty} a_{n}$ is convergent"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q19)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q19)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q19.png"
       },
       {
         "id": "JAM_2023_Q20",
@@ -617,7 +10714,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$x=-6$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q20)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q20)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q20.png"
       },
       {
         "id": "JAM_2023_Q21",
@@ -636,7 +10734,8 @@ window.MOCK_TESTS_DATA = {
           "D": "both $(a_{n})$ and $(b_{n})$ need NOT be Cauchy sequences"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q21)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q21)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q21.png"
       },
       {
         "id": "JAM_2023_Q24",
@@ -655,7 +10754,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NEITHER an odd function NOR an even function on $(-1,1)$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q24)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q24)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q24.png"
       },
       {
         "id": "JAM_2023_Q40",
@@ -674,7 +10774,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=1}^{\\infty}(-1)^{n}\\frac{x^{n+1}}{n(n+1)}$ converges for all $x\\in[-1,1]$"
         },
         "answer_key": "A,D",
-        "explanation": "<strong>Correct Option(s): (A,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q40)"
+        "explanation": "<strong>Correct Option(s): (A,D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q40)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q40.png"
       },
       {
         "id": "JAM_2023_Q49",
@@ -688,7 +10789,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{2n+1}{(n^{2}+1)(n^{2}+2n+2)}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q49)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q49)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q49.png"
       },
       {
         "id": "JAM_2023_Q50",
@@ -702,7 +10804,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{n\\rightarrow\\infty}\\left(1+\\frac{1}{2^{n}}+\\frac{1}{3^{n}}+\\cdots+\\frac{1}{(2023)^{n}}\\right)^{\\frac{1}{n}}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q50)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2023 Q50)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q50.png"
       },
       {
         "id": "JAM_2022_Q5",
@@ -721,7 +10824,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{1}{\\sqrt[5]{4}}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q5)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q5)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q5.png"
       },
       {
         "id": "JAM_2022_Q6",
@@ -740,7 +10844,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both $(x_{n})$ and $(y_{n})$ are convergent and $\\lim_{n\\rightarrow\\infty}x_{n}=\\lim_{n\\rightarrow\\infty}y_{n}$."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q6)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q6)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q6.png"
       },
       {
         "id": "JAM_2022_Q7",
@@ -759,7 +10864,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{n=2}^{\\infty} a_{n}$ is divergent and $\\sum_{n=2}^{\\infty} b_{n}$ is divergent."
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q7)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q7)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q7.png"
       },
       {
         "id": "JAM_2022_Q8",
@@ -778,7 +10884,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$m=1$ and $p\\gt 1$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q8)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q8)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q8.png"
       },
       {
         "id": "JAM_2022_Q12",
@@ -797,7 +10904,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$T=S=0$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q12)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q12)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q12.png"
       },
       {
         "id": "JAM_2022_Q14",
@@ -816,7 +10924,8 @@ window.MOCK_TESTS_DATA = {
           "D": "0"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q14)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q14)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q14.png"
       },
       {
         "id": "JAM_2022_Q28",
@@ -835,7 +10944,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\int_{0}^{1/2}t\\ln(1-t)dt$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q28)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q28)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q28.png"
       },
       {
         "id": "JAM_2022_Q38",
@@ -854,7 +10964,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $P$ is infinite, then no subsequence of $(x_{n})$ is monotonically decreasing."
         },
         "answer_key": "A,C",
-        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q38)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q38)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q38.png"
       },
       {
         "id": "JAM_2022_Q44",
@@ -868,7 +10979,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The sum of the series $\\sum_{n=1}^{\\infty}\\frac{1}{(4n-3)(4n+1)}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q44)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q44)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q44.png"
       },
       {
         "id": "JAM_2022_Q55",
@@ -882,7 +10994,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $r$ be the radius of convergence of $\\frac{1}{3}+\\frac{x}{5}+\\frac{x^{2}}{3^{2}}+\\frac{x^{3}}{5^{2}}+\\frac{x^{4}}{3^{3}}+\\cdots$. Then the value of $r^{2}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.00",
-        "explanation": "<strong>Correct Numerical Answer: 3.00</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q55)"
+        "explanation": "<strong>Correct Numerical Answer: 3.00</strong><br><br>• <strong>Topic:</strong> Sequences and Series of Real Numbers (JAM 2022 Q55)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q55.png"
       }
     ]
   },
@@ -913,7 +11026,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\pi}{2}+\\frac{1}{2}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q3)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q3.png"
       },
       {
         "id": "JAM_2026_Q6",
@@ -932,7 +11046,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is unbounded and $f$ has either no maximum or no minimum."
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q6)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q6)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q6.png"
       },
       {
         "id": "JAM_2026_Q7",
@@ -951,7 +11066,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f^{\\prime\\prime}(x)=0$ for infinitely many $x\\in\\mathbb{R}\\setminus\\mathbb{Z}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q7)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q7)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q7.png"
       },
       {
         "id": "JAM_2026_Q13",
@@ -970,7 +11086,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $f^{(k)}(a)=0$ for all $1\\le k\\le 6$ and $f^{(7)}(a)\\lt 0$ for some $a\\in\\mathbb{R}$, then $f(x)$ has a local maximum at $a$."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q13)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q13)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q13.png"
       },
       {
         "id": "JAM_2026_Q19",
@@ -989,7 +11106,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{2(e^{\\pi}-1)}{e^{\\pi}+1}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q19)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q19)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q19.png"
       },
       {
         "id": "JAM_2026_Q21",
@@ -1008,7 +11126,8 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists $c\\in[1,5]$ such that $f(c)=f(c+4)$."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q21)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q21)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q21.png"
       },
       {
         "id": "JAM_2026_Q31",
@@ -1027,7 +11146,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)=\\min\\{x-[x],1-x+[x]\\}$"
         },
         "answer_key": "A,C,D",
-        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q31)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q31)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q31.png"
       },
       {
         "id": "JAM_2026_Q33",
@@ -1046,7 +11166,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)=[x]$"
         },
         "answer_key": "A,C",
-        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q33)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q33)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q33.png"
       },
       {
         "id": "JAM_2026_Q34",
@@ -1065,7 +11186,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)$ is Riemann integrable on $[0,1]$ and $\\int_{0}^{1}f(x)dx=0$."
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option(s): (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q34)"
+        "explanation": "<strong>Correct Option(s): (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q34)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q34.png"
       },
       {
         "id": "JAM_2026_Q44",
@@ -1079,7 +11201,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}-\\frac{1}{\\sin x}+e^{\\frac{1-\\cos x}{x}}\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q44)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q44)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q44.png"
       },
       {
         "id": "JAM_2026_Q48",
@@ -1093,7 +11216,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\int_{0}^{3}(|x-1|-x[x])\\,dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "-4.0",
-        "explanation": "<strong>Correct Numerical Answer: -4.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q48)"
+        "explanation": "<strong>Correct Numerical Answer: -4.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q48)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q48.png"
       },
       {
         "id": "JAM_2026_Q54",
@@ -1107,7 +11231,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x)=\\int_{0}^{e^{\\sin x}}\\int_{0}^{\\log_{e}y}e^{-(\\frac{1}{\\sqrt{2}})}(1-t^{2})dt\\,dy$. Then $f^{\\prime}(\\pi/4)=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "0.45",
-        "explanation": "<strong>Correct Numerical Answer: 0.45</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q54)"
+        "explanation": "<strong>Correct Numerical Answer: 0.45</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2026 Q54)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q54.png"
       },
       {
         "id": "JAM_2025_Q3",
@@ -1126,7 +11251,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT differentiable at $x=0$, and $g$ is NOT differentiable at $x=0$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q3)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q3.png"
       },
       {
         "id": "JAM_2025_Q4",
@@ -1145,7 +11271,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT continuous at $x=0$, and $g$ is NOT continuous at $x=0$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q4)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q4)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q4.png"
       },
       {
         "id": "JAM_2025_Q17",
@@ -1164,7 +11291,8 @@ window.MOCK_TESTS_DATA = {
           "D": "greater than or equal to 3"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q17)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q17.png"
       },
       {
         "id": "JAM_2025_Q30",
@@ -1183,7 +11311,8 @@ window.MOCK_TESTS_DATA = {
           "D": "greater than or equal to 3"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q30)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q30)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q30.png"
       },
       {
         "id": "JAM_2025_Q37",
@@ -1202,7 +11331,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$|f^{\\prime\\prime}(x_{2})|\\ge 10$ for some $x_{2}\\in[0,1]$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q37)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q37)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q37.png"
       },
       {
         "id": "JAM_2025_Q38",
@@ -1221,7 +11351,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f^{\\prime\\prime}(x_{3})=0$ for some $x_{3}\\in[0,3]$"
         },
         "answer_key": "B,C,D",
-        "explanation": "<strong>Correct Option(s): (B,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q38)"
+        "explanation": "<strong>Correct Option(s): (B,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q38)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q38.png"
       },
       {
         "id": "JAM_2025_Q42",
@@ -1235,7 +11366,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{n\\rightarrow\\infty}8n\\left(e^{(\\frac{1}{2n})}-1\\right)\\left(\\sin\\frac{1}{2n}+\\left|\\cos\\frac{1}{2n}\\right|\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q42)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q42)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q42.png"
       },
       {
         "id": "JAM_2025_Q43",
@@ -1249,7 +11381,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $\\alpha$ be the real number such that $\\lim_{x\\rightarrow 0}\\frac{(1-\\cos x)(2^{2+x}-4)}{x^{3}}=\\alpha\\ln 2$. Then, $\\alpha=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q43)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q43)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q43.png"
       },
       {
         "id": "JAM_2025_Q51",
@@ -1263,7 +11396,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be continuous satisfying $\\int_{0}^{\\pi/4}\\left(\\sin(x)f(x)+\\cos(x)\\int_{0}^{x}f(t)dt\\right)dx=\\sqrt{2}$. Then, $\\int_{0}^{\\pi/4}f(x)\\,dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q51)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q51)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q51.png"
       },
       {
         "id": "JAM_2025_Q53",
@@ -1277,7 +11411,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x)=2x-\\sin x$ for $x\\in\\mathbb{R}$. If $\\lim_{x\\rightarrow 0}\\left(\\frac{1}{x}\\sum_{i=1}^{k}i^{2}f(\\frac{x}{i})\\right)=45$, then $k=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "9",
-        "explanation": "<strong>Correct Numerical Answer: 9</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q53)"
+        "explanation": "<strong>Correct Numerical Answer: 9</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2025 Q53)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q53.png"
       },
       {
         "id": "JAM_2024_Q19",
@@ -1296,7 +11431,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$S$ has 6 elements"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q19)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q19)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q19.png"
       },
       {
         "id": "JAM_2024_Q24",
@@ -1315,7 +11451,8 @@ window.MOCK_TESTS_DATA = {
           "D": "P false, Q true"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q24)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q24)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q24.png"
       },
       {
         "id": "JAM_2024_Q25",
@@ -1334,7 +11471,8 @@ window.MOCK_TESTS_DATA = {
           "D": "exactly 2 local maxima and 1 local minimum"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q25)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q25)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q25.png"
       },
       {
         "id": "JAM_2024_Q29",
@@ -1353,7 +11491,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{df}{dx}$ does not attain $\\frac{7}{2}$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q29)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q29)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q29.png"
       },
       {
         "id": "JAM_2024_Q34",
@@ -1372,7 +11511,8 @@ window.MOCK_TESTS_DATA = {
           "D": "The set of solutions to $f(x)=2024$ is infinite"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q34)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q34)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q34.png"
       },
       {
         "id": "JAM_2024_Q38",
@@ -1391,7 +11531,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$g$ vanishes exactly once in $(x_1,x_2)$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q38)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q38)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q38.png"
       },
       {
         "id": "JAM_2024_Q46",
@@ -1405,7 +11546,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $S=\\{f:\\mathbb{R}\\rightarrow\\mathbb{R}: f \\text{ is a polynomial and } f(f(x))=(f(x))^{2024} \\text{ for } x\\in\\mathbb{R}\\}$. The number of elements in $S$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q46)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q46)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q46.png"
       },
       {
         "id": "JAM_2024_Q52",
@@ -1419,7 +11561,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{t\\rightarrow\\infty}\\left(\\left(\\log(t^{2}+\\frac{1}{t^{2}})\\right)^{-1}\\int_{1}^{\\pi t}\\frac{\\sin^{2}5x}{x}dx\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q52)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q52)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q52.png"
       },
       {
         "id": "JAM_2024_Q56",
@@ -1433,7 +11576,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x)=x^{3}-4x^{2}+4x-6$ and $S(c)=\\{x\\in\\mathbb{R}: f(x)=c\\}$. Then $|S(-7)|+|S(-5)|+|S(3)|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "5",
-        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q56)"
+        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q56)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q56.png"
       },
       {
         "id": "JAM_2024_Q60",
@@ -1447,7 +11591,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x)=\\sin^{-1}x$. If $a_{6}$ denotes the coefficient of $x^{6}$ in the Taylor series of $(f(x))^{2}$ about $x=0$, then $9a_{6}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.60",
-        "explanation": "<strong>Correct Numerical Answer: 1.60</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q60)"
+        "explanation": "<strong>Correct Numerical Answer: 1.60</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2024 Q60)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q60.png"
       },
       {
         "id": "JAM_2023_Q5",
@@ -1466,7 +11611,8 @@ window.MOCK_TESTS_DATA = {
           "D": "a global minimum and a global maximum on $\\mathbb{R}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q5)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q5.png"
       },
       {
         "id": "JAM_2023_Q6",
@@ -1485,7 +11631,8 @@ window.MOCK_TESTS_DATA = {
           "D": "non-existent"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q6)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q6)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q6.png"
       },
       {
         "id": "JAM_2023_Q25",
@@ -1504,7 +11651,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)-g(x)$ changes sign more than once on $(-\\frac{\\pi}{2},\\frac{\\pi}{2})$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q25)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q25)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q25.png"
       },
       {
         "id": "JAM_2023_Q28",
@@ -1523,7 +11671,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$y(x)=0$ has more than one solution in $(0,1)$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q28)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q28)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q28.png"
       },
       {
         "id": "JAM_2023_Q30",
@@ -1542,7 +11691,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ has at least 2 distinct zeroes"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q30)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q30)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q30.png"
       },
       {
         "id": "JAM_2023_Q34",
@@ -1561,7 +11711,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(f^{\\prime})^{2}$ is differentiable at $x=0$"
         },
         "answer_key": "A,C,D",
-        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q34)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q34)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q34.png"
       },
       {
         "id": "JAM_2023_Q35",
@@ -1580,7 +11731,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f(x)=\\begin{cases}x,& \\text{if } x\\in[0,1)\\\\ 0,& \\text{if } x=1\\end{cases}$"
         },
         "answer_key": "A,B,D",
-        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q35)"
+        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q35)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q35.png"
       },
       {
         "id": "JAM_2023_Q44",
@@ -1594,7 +11746,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{n\\rightarrow\\infty}\\left(n\\int_{0}^{1}\\frac{x^{n}}{x+1}dx\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q44)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q44)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q44.png"
       },
       {
         "id": "JAM_2023_Q47",
@@ -1608,7 +11761,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x)=\\sqrt[3]{x}$ for $x\\gt 0$, and $\\theta(h)$ satisfy $f(3+h)-f(3)=hf^{\\prime}(3+\\theta(h)h)$ for $h\\in(-1,1)$. Then $\\lim_{h\\rightarrow 0}\\theta(h)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q47)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q47)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q47.png"
       },
       {
         "id": "JAM_2023_Q52",
@@ -1622,7 +11776,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The global minimum value of $f(x)=|x-1|+|x-2|^{2}$ on $\\mathbb{R}$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.75",
-        "explanation": "<strong>Correct Numerical Answer: 0.75</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q52)"
+        "explanation": "<strong>Correct Numerical Answer: 0.75</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q52)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q52.png"
       },
       {
         "id": "JAM_2023_Q60",
@@ -1636,7 +11791,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f:\\mathbb{R}\\rightarrow\\mathbb{R}$ be bijective with $f(x)=\\sum_{n=1}^{\\infty}a_{n}x^{n}$ and $f^{-1}(x)=\\sum_{n=1}^{\\infty}b_{n}x^{n}$. If $a_{1}=2$ and $a_{2}=4$, then $b_{1}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q60)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2023 Q60)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q60.png"
       },
       {
         "id": "JAM_2022_Q22",
@@ -1655,7 +11811,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$xf^{\\prime\\prime}(x)-f^{\\prime}(x)-xf(x)=0$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q22)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q22)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q22.png"
       },
       {
         "id": "JAM_2022_Q27",
@@ -1674,7 +11831,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sqrt{\\pi}(\\sqrt{b}-\\sqrt{a})$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q27)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q27)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q27.png"
       },
       {
         "id": "JAM_2022_Q29",
@@ -1693,7 +11851,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f_{n}(x)$ is not a polynomial in $x$ for any $n\\ge 3$."
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q29)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q29)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q29.png"
       },
       {
         "id": "JAM_2022_Q32",
@@ -1712,7 +11871,8 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists $f\\in S$ such that $f(x)\\ne 0$ for some $x\\in[-1,1]$."
         },
         "answer_key": "A,B",
-        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q32)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q32)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q32.png"
       },
       {
         "id": "JAM_2022_Q33",
@@ -1731,7 +11891,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$g\\circ f$ is Riemann integrable on $[0,1]$."
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q33)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q33)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q33.png"
       },
       {
         "id": "JAM_2022_Q34",
@@ -1750,7 +11911,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Every function in $S$ is infinitely differentiable."
         },
         "answer_key": "A,D",
-        "explanation": "<strong>Correct Option(s): (A,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q34)"
+        "explanation": "<strong>Correct Option(s): (A,D)</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q34)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q34.png"
       },
       {
         "id": "JAM_2022_Q41",
@@ -1764,7 +11926,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\lim_{n\\rightarrow\\infty}\\left(\\frac{1^{4}+2^{4}+\\cdots+n^{4}}{n^{5}}+\\frac{1}{\\sqrt{n}}\\left(\\frac{1}{\\sqrt{n+1}}+\\cdots+\\frac{1}{\\sqrt{4n}}\\right)\\right)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.20",
-        "explanation": "<strong>Correct Numerical Answer: 2.20</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q41)"
+        "explanation": "<strong>Correct Numerical Answer: 2.20</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q41)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q41.png"
       },
       {
         "id": "JAM_2022_Q54",
@@ -1778,7 +11941,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x)=\\begin{cases}(x-\\pi)e^{\\sin x},& 0\\le x\\le\\pi/2\\\\ xe^{\\sin x}+\\frac{4}{\\pi},& \\pi/2\\lt x\\le\\pi\\end{cases}$. Then $\\int_{0}^{\\pi}f(x)\\,dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q54)"
+        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q54)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q54.png"
       },
       {
         "id": "JAM_2022_Q59",
@@ -1792,7 +11956,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f,g:(-1,1)\\rightarrow\\mathbb{R}$ be $C^3$ with $f(x)\\ne g(x)$ for $x\\ne 0$, and $f(0)=g(0)=\\ln 2, f^{\\prime}(0)=g^{\\prime}(0)=\\pi, f^{\\prime\\prime}(0)=g^{\\prime\\prime}(0)=\\pi^2, f^{\\prime\\prime\\prime}(0)=\\pi^9, g^{\\prime\\prime\\prime}(0)=\\pi^3$. Then $\\lim_{x\\rightarrow 0}\\frac{e^{f(x)}-e^{g(x)}}{f(x)-g(x)}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q59)"
+        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q59)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q59.png"
       },
       {
         "id": "JAM_2022_Q60",
@@ -1806,7 +11971,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $\\int_{0}^{x^{3}+x^{2}}f(t)dt=x^{2}$ and $\\int_{0}^{g(x)}t^{2}dt=9(x+1)^{3}$, then $f(2)+g(2)+16f(12)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "13.40",
-        "explanation": "<strong>Correct Numerical Answer: 13.40</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q60)"
+        "explanation": "<strong>Correct Numerical Answer: 13.40</strong><br><br>• <strong>Topic:</strong> Functions of One Real Variable (JAM 2022 Q60)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q60.png"
       }
     ]
   },
@@ -1837,7 +12003,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ has exactly four saddle points."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q15)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q15)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q15.png"
       },
       {
         "id": "JAM_2026_Q17",
@@ -1856,7 +12023,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\partial f}{\\partial y}$ is continuous at $(0,0)$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q17)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q17)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q17.png"
       },
       {
         "id": "JAM_2026_Q36",
@@ -1875,7 +12043,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{(x,y)\\rightarrow(0,0)}\\frac{f(x,y)}{\\sqrt{x^{2}+y^{2}}}$ does not exist."
         },
         "answer_key": "A,C",
-        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q36)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q36)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q36.png"
       },
       {
         "id": "JAM_2026_Q46",
@@ -1889,7 +12058,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $z=\\cos(4x+5y)$, where $x=\\frac{\\pi}{2}+2\\theta, y=-(\\frac{\\pi}{4}+\\theta)$. Then $\\frac{dz}{d\\theta}\\Big|_{\\theta=\\frac{\\pi}{4}}=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q46)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q46)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q46.png"
       },
       {
         "id": "JAM_2026_Q52",
@@ -1903,7 +12073,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x,y)=\\begin{cases}4x^{2}\\tan^{-1}(\\frac{y}{2x})+y^{3}\\tan^{-1}(\\frac{x}{4y^{2}}),& xy\\ne 0\\\\ 0,& \\text{otherwise}\\end{cases}$. Then $\\frac{\\partial^{2}f}{\\partial y\\partial x}(0,0)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q52)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2026 Q52)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q52.png"
       },
       {
         "id": "JAM_2025_Q27",
@@ -1922,7 +12093,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ has 1 local maximum"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q27)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q27)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q27.png"
       },
       {
         "id": "JAM_2025_Q31",
@@ -1941,7 +12113,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT differentiable at $(0,0)$"
         },
         "answer_key": "A,C,D",
-        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q31)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q31)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q31.png"
       },
       {
         "id": "JAM_2025_Q34",
@@ -1960,7 +12133,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$f$ is NOT differentiable at $(0,0)$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q34)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q34)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q34.png"
       },
       {
         "id": "JAM_2025_Q50",
@@ -1974,7 +12148,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x,y)=\\begin{cases}\\frac{(x^{2}-y^{2})xy}{x^{2}+y^{2}},& (x,y)\\ne(0,0)\\\\ 0,& (x,y)=(0,0)\\end{cases}$. Then $\\frac{\\partial f}{\\partial y}(1,0)-\\frac{\\partial f}{\\partial x}(0,2)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q50)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2025 Q50)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q50.png"
       },
       {
         "id": "JAM_2024_Q2",
@@ -1993,7 +12168,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\partial^{2}u_{g}}{\\partial x^{2}}=\\frac{1}{y}\\frac{\\partial u_{g}}{\\partial y}-\\frac{\\partial^{2}u_{g}}{\\partial y^{2}}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q2)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q2)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q2.png"
       },
       {
         "id": "JAM_2024_Q30",
@@ -2012,7 +12188,8 @@ window.MOCK_TESTS_DATA = {
           "D": "0"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q30)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q30)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q30.png"
       },
       {
         "id": "JAM_2024_Q35",
@@ -2031,7 +12208,8 @@ window.MOCK_TESTS_DATA = {
           "D": "For each $(x_{0},y_{0})\\in S$, the set $\\{(x,y)\\in S: f(x,y)=f(x_{0},y_{0})\\}$ is unbounded"
         },
         "answer_key": "B,C",
-        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q35)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2024 Q35)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q35.png"
       },
       {
         "id": "JAM_2023_Q8",
@@ -2050,7 +12228,8 @@ window.MOCK_TESTS_DATA = {
           "D": "infinite"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q8)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q8)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q8.png"
       },
       {
         "id": "JAM_2023_Q16",
@@ -2069,7 +12248,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$12e^{2}$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q16)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q16)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q16.png"
       },
       {
         "id": "JAM_2023_Q17",
@@ -2088,7 +12268,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$PS-QR\\lt 0$ and $P\\lt 0$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q17)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q17.png"
       },
       {
         "id": "JAM_2023_Q36",
@@ -2107,7 +12288,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{(x,y)\\in\\mathbb{R}^{2}: e^{x^{3}}+y^{2}\\le 4\\}$"
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q36)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q36)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q36.png"
       },
       {
         "id": "JAM_2023_Q37",
@@ -2126,7 +12308,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{t\\rightarrow 0}\\frac{f(t,2t)-f(0,0)}{t}$ exists and equals $\\frac{1}{3}$"
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q37)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q37)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q37.png"
       },
       {
         "id": "JAM_2023_Q41",
@@ -2140,7 +12323,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x,y)=\\begin{cases}(x^{2}-1)^{2}\\cos^{2}(\\frac{y^{2}}{x^{2}-1}),& x\\ne\\pm 1\\\\ 0,& x=\\pm 1\\end{cases}$. The number of points of discontinuity of $f(x,y)$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0",
-        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q41)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q41)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q41.png"
       },
       {
         "id": "JAM_2023_Q51",
@@ -2154,7 +12338,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be defined as $f(x,y,z)=x^{3}+y^{3}+z^{3}$, and let $L:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ be the linear map satisfying\n\\[\n\\lim_{(x,y,z)\\rightarrow(0,0,0)}\\frac{f(1+x,1+y,1+z)-f(1,1,1)-L(x,y,z)}{\\sqrt{x^{2}+y^{2}+z^{2}}}=0.\n\\]\nThen $L(1,2,4)$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "21.0",
-        "explanation": "<strong>Correct Numerical Answer: 21.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q51)"
+        "explanation": "<strong>Correct Numerical Answer: 21.0</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2023 Q51)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q51.png"
       },
       {
         "id": "JAM_2022_Q9",
@@ -2173,7 +12358,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\partial^{2}u}{\\partial t\\partial x}=0$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q9)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q9)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q9.png"
       },
       {
         "id": "JAM_2022_Q10",
@@ -2192,7 +12378,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$4\\cos^{2}\\theta$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q10)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q10)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q10.png"
       },
       {
         "id": "JAM_2022_Q15",
@@ -2211,7 +12398,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{(x,y)\\rightarrow(0,0)}e^{2y}g(x)=1$"
         },
         "answer_key": "MTA",
-        "explanation": "<strong>Correct Option: (MTA)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q15)"
+        "explanation": "<strong>Correct Option: (MTA)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q15)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q15.png"
       },
       {
         "id": "JAM_2022_Q36",
@@ -2230,7 +12418,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $E$ is closed and bounded in $\\mathbb{R}^{2}$, then $F^{-1}(E)$ is closed and bounded in $\\mathbb{R}^{2}$."
         },
         "answer_key": "C,D",
-        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q36)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q36)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q36.png"
       },
       {
         "id": "JAM_2022_Q42",
@@ -2244,7 +12433,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $u(x_{1},x_{2},x_{3})=x_{1}x_{2}^{4}x_{3}^{2}-x_{1}^{3}x_{3}^{4}-26x_{1}^{2}x_{2}^{2}x_{3}^{3}$. Let $x_{1}\\frac{\\partial u}{\\partial x_{2}}+2x_{2}\\frac{\\partial u}{\\partial x_{3}}$ at $(t,t^2,t^3)$ be $ct^k$. Then $k=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "14",
-        "explanation": "<strong>Correct Numerical Answer: 14</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q42)"
+        "explanation": "<strong>Correct Numerical Answer: 14</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q42)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q42.png"
       },
       {
         "id": "JAM_2022_Q51",
@@ -2258,7 +12448,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $D=\\{(x,y)\\in\\mathbb{R}^{2}: x^{2}+y^{2}\\lt 4\\}$. Define $f(x,y)=[x^{2}+y^{2}]\\frac{x^{2}y^{2}}{x^{4}+y^{4}}$ and $g(x,y)=[y^{2}]\\frac{xy}{x^{2}+y^{2}}$ with $f(0,0)=g(0,0)=0$. The number of points in $D$ at which both $f$ and $g$ are discontinuous is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "18",
-        "explanation": "<strong>Correct Numerical Answer: 18</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q51)"
+        "explanation": "<strong>Correct Numerical Answer: 18</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q51)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q51.png"
       },
       {
         "id": "JAM_2022_Q56",
@@ -2272,7 +12463,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $f(x,y)=x^{2}+2y^{2}-x$. Let $D=\\{(x,y): x^{2}+y^{2}\\le 1\\}$ and $E=\\{(x,y): \\frac{x^2}{4}+\\frac{y^2}{9}\\le 1\\}$. The total number of elements in $D_{\\max}\\cup D_{\\min}\\cup E_{\\max}\\cup E_{\\min}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "5",
-        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q56)"
+        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Functions of Two or Three Real Variables (JAM 2022 Q56)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q56.png"
       }
     ]
   },
@@ -2303,7 +12495,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\int_{0}^{2}\\int_{z}^{2}\\int_{0}^{x}f(x,y,z)\\,dy\\,dx\\,dz$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q5)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q5.png"
       },
       {
         "id": "JAM_2026_Q10",
@@ -2322,7 +12515,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\int_{0}^{\\sqrt{2}}\\left(\\int_{0}^{\\pi/4}f\\,d\\theta\\right)r\\,dr - \\int_{1}^{\\sqrt{2}}\\left(\\int_{0}^{\\sin^{-1}(1/r)}f\\,d\\theta\\right)r\\,dr$"
         },
         "answer_key": "MTA",
-        "explanation": "<strong>Correct Option: (MTA)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q10)"
+        "explanation": "<strong>Correct Option: (MTA)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q10)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q10.png"
       },
       {
         "id": "JAM_2026_Q20",
@@ -2341,7 +12535,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\pi$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q20)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q20)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q20.png"
       },
       {
         "id": "JAM_2026_Q22",
@@ -2360,7 +12555,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$2\\int_{0}^{\\sqrt{3}}\\int_{0}^{\\sqrt{3-x^{2}}}(\\sqrt{4-x^{2}-y^{2}}-1)\\,dy\\,dx$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q22)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q22)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q22.png"
       },
       {
         "id": "JAM_2026_Q53",
@@ -2374,7 +12570,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The double integral of $f(x,y)=x$ over the triangular region with vertices $(-\\frac{1}{2},\\frac{1}{2}), (1,2)$ and $(1,-1)$ is <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "1.25",
-        "explanation": "<strong>Correct Numerical Answer: 1.25</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q53)"
+        "explanation": "<strong>Correct Numerical Answer: 1.25</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q53)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q53.png"
       },
       {
         "id": "JAM_2026_Q55",
@@ -2388,7 +12585,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The volume of the tetrahedron bounded by $x=1, y=2, z=3$ and $12x+8y+6z=70$ is <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q55)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2026 Q55)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q55.png"
       },
       {
         "id": "JAM_2025_Q10",
@@ -2407,7 +12605,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{\\sqrt{e}-1}{2}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q10)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q10)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q10.png"
       },
       {
         "id": "JAM_2025_Q28",
@@ -2426,7 +12625,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$4\\pi$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q28)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q28)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q28.png"
       },
       {
         "id": "JAM_2025_Q45",
@@ -2440,7 +12640,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $S$ be the surface area of the portion of the plane $z=x+y+3$ inside $x^{2}+y^{2}=1$. Then $(\\frac{S}{\\pi})^{2}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q45)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q45)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q45.png"
       },
       {
         "id": "JAM_2025_Q48",
@@ -2454,7 +12655,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $T$ denote the triangle bounded by the $x$-axis, $y=x$ and $x=1$. Then $\\iint_{T}(5-y)dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.33",
-        "explanation": "<strong>Correct Numerical Answer: 2.33</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q48)"
+        "explanation": "<strong>Correct Numerical Answer: 2.33</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q48)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q48.png"
       },
       {
         "id": "JAM_2025_Q57",
@@ -2468,7 +12670,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $\\Omega$ be the solid bounded by $z=0, y=0, x=\\frac{1}{2}, 2y=x$ and $2x+y+z=4$. If $V$ is the volume, then $64V=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "MTA",
-        "explanation": "<strong>Correct Numerical Answer: MTA</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q57)"
+        "explanation": "<strong>Correct Numerical Answer: MTA</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2025 Q57)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q57.png"
       },
       {
         "id": "JAM_2024_Q27",
@@ -2487,7 +12690,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$4\\pi(a^{2}+b\\sqrt{a^{2}-b^{2}})$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q27)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q27)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q27.png"
       },
       {
         "id": "JAM_2024_Q41",
@@ -2501,7 +12705,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The area of the region $R=\\{(x,y)\\in\\mathbb{R}^{2}: 0\\le x\\le 1, 0\\le y\\le 1, \\frac{1}{4}\\le xy\\le\\frac{1}{2}\\}$ is <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.25",
-        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q41)"
+        "explanation": "<strong>Correct Numerical Answer: 0.25</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q41)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q41.png"
       },
       {
         "id": "JAM_2024_Q48",
@@ -2515,7 +12720,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}=4, (x-1)^{2}+y^{2}\\le 1, z\\ge 0\\}$. The surface area of $S$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.56",
-        "explanation": "<strong>Correct Numerical Answer: 4.56</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q48)"
+        "explanation": "<strong>Correct Numerical Answer: 4.56</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q48)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q48.png"
       },
       {
         "id": "JAM_2024_Q53",
@@ -2529,7 +12735,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $T$ be the square region enclosed by $(0,1), (1,0), (0,-1), (-1,0)$. Then $\\iint_{T}(\\cos(\\pi(x-y))-\\cos(\\pi(x+y)))^{2}dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "2.0",
-        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q53)"
+        "explanation": "<strong>Correct Numerical Answer: 2.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q53)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q53.png"
       },
       {
         "id": "JAM_2024_Q54",
@@ -2543,7 +12750,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $S=\\{(x,y,z)\\in\\mathbb{R}^{3}: x^{2}+y^{2}+z^{2}\\lt 1\\}$. Then $\\frac{1}{\\pi}\\iiint_{S}((x-2y+z)^{2}+(2x-y-z)^{2}+(x-y+2z)^{2})dx\\,dy\\,dz=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.80",
-        "explanation": "<strong>Correct Numerical Answer: 4.80</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q54)"
+        "explanation": "<strong>Correct Numerical Answer: 4.80</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q54)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q54.png"
       },
       {
         "id": "JAM_2024_Q57",
@@ -2557,7 +12765,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $c\\gt 0$ be such that $\\int_{0}^{c}e^{s^{2}}ds=3$. Then $\\int_{0}^{c}\\left(\\int_{x}^{c}e^{x^{2}+y^{2}}dy\\right)dx=$ <span class=\"cbt-blank\">_______</span> (rounded off to one decimal place).",
         "options": null,
         "answer_key": "4.5",
-        "explanation": "<strong>Correct Numerical Answer: 4.5</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q57)"
+        "explanation": "<strong>Correct Numerical Answer: 4.5</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2024 Q57)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q57.png"
       },
       {
         "id": "JAM_2023_Q7",
@@ -2576,7 +12785,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\cos(\\frac{1}{2})-\\sin(\\frac{1}{2})$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q7)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q7)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q7.png"
       },
       {
         "id": "JAM_2023_Q18",
@@ -2595,7 +12805,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$9\\pi\\sqrt{2}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q18)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q18)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q18.png"
       },
       {
         "id": "JAM_2023_Q26",
@@ -2614,7 +12825,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$2\\pi(1-2e^{-1})$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q26)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q26)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q26.png"
       },
       {
         "id": "JAM_2023_Q31",
@@ -2633,7 +12845,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{t\\rightarrow 0^{+}}a_{t}$ exists"
         },
         "answer_key": "A,C",
-        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q31)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q31)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q31.png"
       },
       {
         "id": "JAM_2023_Q48",
@@ -2647,7 +12860,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $V$ be the volume of $S=\\{(x,y,z): xy\\le z\\le 4, x^{2}+y^{2}\\le 1\\}$. Then $\\frac{V}{\\pi}=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q48)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q48)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q48.png"
       },
       {
         "id": "JAM_2023_Q55",
@@ -2661,7 +12875,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $S$ be the triangular region with vertices $(0,0), (0,\\frac{\\pi}{2})$ and $(\\frac{\\pi}{2},0)$. Then $\\iint_{S}\\sin x\\cos y\\,dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q55)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2023 Q55)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q55.png"
       },
       {
         "id": "JAM_2022_Q11",
@@ -2680,7 +12895,8 @@ window.MOCK_TESTS_DATA = {
           "D": "1"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q11)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q11)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q11.png"
       },
       {
         "id": "JAM_2022_Q48",
@@ -2694,7 +12910,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Consider the region $G=\\{(x,y,z)\\in\\mathbb{R}^{3}: 0\\lt z\\lt x^{2}-y^{2}, x^{2}+y^{2}\\lt 1\\}$. Then the volume of $G$ is equal to <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q48)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q48)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q48.png"
       },
       {
         "id": "JAM_2022_Q52",
@@ -2708,7 +12925,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $G=\\{(x,y): x^{2}+y^{2}\\lt 1, \\frac{x}{\\sqrt{3}}\\lt y\\lt \\sqrt{3}x, x\\gt 0, y\\gt 0\\}$, then $\\frac{200}{\\pi}\\iint_{G}x^{2}dx\\,dy=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.16",
-        "explanation": "<strong>Correct Numerical Answer: 4.16</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q52)"
+        "explanation": "<strong>Correct Numerical Answer: 4.16</strong><br><br>• <strong>Topic:</strong> Integral Calculus (JAM 2022 Q52)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q52.png"
       }
     ]
   },
@@ -2739,7 +12957,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\cos(\\frac{y}{x})+\\log_{e}(\\sqrt{x})=K$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q4)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q4)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q4.png"
       },
       {
         "id": "JAM_2026_Q16",
@@ -2758,7 +12977,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$x=-\\frac{y}{3}+\\frac{1}{9}+ke^{3y}$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q16)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q16)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q16.png"
       },
       {
         "id": "JAM_2026_Q18",
@@ -2777,7 +12997,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\frac{1}{\\sqrt{2}}$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q18)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q18)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q18.png"
       },
       {
         "id": "JAM_2026_Q23",
@@ -2796,7 +13017,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$-e^{-2x}(\\sin(e^{x})+\\cos(e^{x}))$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q23)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q23)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q23.png"
       },
       {
         "id": "JAM_2026_Q35",
@@ -2815,7 +13037,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sqrt{\\sec x}$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q35)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q35)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q35.png"
       },
       {
         "id": "JAM_2026_Q45",
@@ -2829,7 +13052,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $(y^{3}+\\alpha xy^{4}-5x+\\cos 2y)dx + (3xy^{2}+20x^{2}y^{3}+\\beta x\\sin 2y)dy=0$ is exact, then $\\alpha+\\beta=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "8.0",
-        "explanation": "<strong>Correct Numerical Answer: 8.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q45)"
+        "explanation": "<strong>Correct Numerical Answer: 8.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q45)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q45.png"
       },
       {
         "id": "JAM_2026_Q51",
@@ -2843,7 +13067,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $y(x)=C_{1}e^{-x}+C_{2}e^{2x}+\\alpha xe^{-x}$ is the general solution of $\\frac{d^{2}y}{dx^{2}}+\\beta\\frac{dy}{dx}+\\gamma y=-e^{-x}$, then $\\alpha(\\beta+\\gamma)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "-1.0",
-        "explanation": "<strong>Correct Numerical Answer: -1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q51)"
+        "explanation": "<strong>Correct Numerical Answer: -1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2026 Q51)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q51.png"
       },
       {
         "id": "JAM_2025_Q2",
@@ -2862,7 +13087,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$e^{x}\\sin y+2\\sin x$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q2)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q2)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q2.png"
       },
       {
         "id": "JAM_2025_Q5",
@@ -2881,7 +13107,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\alpha_{1}xe^{-4x}+\\alpha_{2}x^{2}e^{-4x}+x^{2}e^{4x}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q5)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q5.png"
       },
       {
         "id": "JAM_2025_Q11",
@@ -2900,7 +13127,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$2x-y^{2}=3$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q11)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q11)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q11.png"
       },
       {
         "id": "JAM_2025_Q12",
@@ -2919,7 +13147,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$6e^{3}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q12)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q12)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q12.png"
       },
       {
         "id": "JAM_2025_Q14",
@@ -2938,7 +13167,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\lim_{x\\rightarrow\\ln(1/\\sqrt{2})}\\phi(x)=6$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q14)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q14)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q14.png"
       },
       {
         "id": "JAM_2025_Q29",
@@ -2957,7 +13187,8 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q29)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q29)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q29.png"
       },
       {
         "id": "JAM_2025_Q32",
@@ -2976,7 +13207,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$w(x,y)=w(0,0)+\\int_{0}^{x}(\\mu M)(s,y)ds+\\int_{0}^{x}(\\mu N)(0,t)dt$"
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q32)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q32)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q32.png"
       },
       {
         "id": "JAM_2025_Q33",
@@ -2995,7 +13227,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\phi$ is strictly increasing on $(0,\\infty)$"
         },
         "answer_key": "A,B,D",
-        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q33)"
+        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q33)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q33.png"
       },
       {
         "id": "JAM_2025_Q44",
@@ -3009,7 +13242,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $\\phi$ solve $4y^{\\prime\\prime}+16y^{\\prime}+25y=0$ with $\\phi(0)=1, \\phi^{\\prime}(0)=-\\frac{1}{2}$. Then $\\lim_{x\\rightarrow\\pi/6}e^{2x}\\phi(x)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.41",
-        "explanation": "<strong>Correct Numerical Answer: 1.41</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q44)"
+        "explanation": "<strong>Correct Numerical Answer: 1.41</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q44)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q44.png"
       },
       {
         "id": "JAM_2025_Q55",
@@ -3023,7 +13257,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $\\phi$ solve $x^{2}y^{\\prime\\prime}-xy^{\\prime}+y=6x\\ln x$ on $(0,\\infty)$ with $\\phi(1)=-3, \\phi(e)=0$. Then $|\\phi^{\\prime}(1)|=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q55)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q55)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q55.png"
       },
       {
         "id": "JAM_2025_Q56",
@@ -3037,7 +13272,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $\\phi$ solve $\\frac{dy}{dx}+2xy=2+4x^{2}$ with $\\phi(0)=0$. Then $\\phi(2)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q56)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2025 Q56)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q56.png"
       },
       {
         "id": "JAM_2024_Q1",
@@ -3056,7 +13292,8 @@ window.MOCK_TESTS_DATA = {
           "D": "limit does not exist"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q1)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q1)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q1.png"
       },
       {
         "id": "JAM_2024_Q3",
@@ -3075,7 +13312,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sqrt{3}\\log 3$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q3)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q3.png"
       },
       {
         "id": "JAM_2024_Q4",
@@ -3094,7 +13332,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(x^{2}y+y^{3}+y)\\frac{dy}{dx}+(xy^{2}+x^{3}+x)=0$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q4)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q4)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q4.png"
       },
       {
         "id": "JAM_2024_Q10",
@@ -3113,7 +13352,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$y(x)=\\sin x+\\int_{0}^{x}\\cos(x-t)g(t)dt$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q10)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q10)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q10.png"
       },
       {
         "id": "JAM_2024_Q18",
@@ -3132,7 +13372,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Not homogeneous, has $x^2$ as I.F."
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q18)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q18)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q18.png"
       },
       {
         "id": "JAM_2024_Q23",
@@ -3151,7 +13392,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\exists\\alpha$ for which limit does not exist"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q23)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q23.png"
       },
       {
         "id": "JAM_2024_Q26",
@@ -3170,7 +13412,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q26)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q26)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q26.png"
       },
       {
         "id": "JAM_2024_Q42",
@@ -3184,7 +13427,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $y:\\mathbb{R}\\rightarrow\\mathbb{R}$ be the solution to the differential equation $\\frac{d^{2}y}{dx^{2}}+2\\frac{dy}{dx}+5y=1$ satisfying $y(0)=0$ and $y^{\\prime}(0)=1$. Then, $\\lim_{x\\rightarrow\\infty}y(x)$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.20",
-        "explanation": "<strong>Correct Numerical Answer: 0.20</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q42)"
+        "explanation": "<strong>Correct Numerical Answer: 0.20</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q42)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q42.png"
       },
       {
         "id": "JAM_2024_Q43",
@@ -3198,7 +13442,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $y_{\\alpha}$ solve $2y^{\\prime\\prime}-y^{\\prime}-y=0, y(0)=1, y^{\\prime}(0)=\\alpha\\gt 0$. Smallest $\\alpha$ for which $y_{\\alpha}$ has no critical points in $\\mathbb{R}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q43)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q43)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q43.png"
       },
       {
         "id": "JAM_2024_Q51",
@@ -3212,7 +13457,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Number of $\\alpha\\in(-2\\pi,0)\\cap\\mathbb{Z}$ for which all real solutions of $x^{2}y^{\\prime\\prime}+\\alpha xy^{\\prime}+y=0$ approach 0 as $x\\rightarrow 0^{+}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q51)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2024 Q51)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q51.png"
       },
       {
         "id": "JAM_2023_Q4",
@@ -3231,7 +13477,8 @@ window.MOCK_TESTS_DATA = {
           "D": "there is a unique $\\alpha$ such that $y(1)=2$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q4)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q4)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q4.png"
       },
       {
         "id": "JAM_2023_Q22",
@@ -3250,7 +13497,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(3,5)$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q22)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q22)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q22.png"
       },
       {
         "id": "JAM_2023_Q33",
@@ -3269,7 +13517,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$y^{\\prime}$ bounded on $(1,\\infty)$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q33)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q33)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q33.png"
       },
       {
         "id": "JAM_2023_Q43",
@@ -3283,7 +13532,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $y^{\\prime\\prime}-2y^{\\prime}+y=e^{x}, y(0)=0, y^{\\prime}(0)=-1/2$, then $y(1)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0",
-        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q43)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q43)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q43.png"
       },
       {
         "id": "JAM_2023_Q53",
@@ -3297,7 +13547,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $y:(1,\\infty)\\rightarrow\\mathbb{R}$ solve $y^{\\prime\\prime}-\\frac{2y}{(1-x)^{2}}=0$ with $y(2)=1$ and $\\lim_{x\\rightarrow\\infty}y(x)=0$. Then $y(3)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.50",
-        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q53)"
+        "explanation": "<strong>Correct Numerical Answer: 0.50</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q53)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q53.png"
       },
       {
         "id": "JAM_2023_Q59",
@@ -3311,7 +13562,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $S=\\{\\alpha\\in\\mathbb{R} : \\text{solution of } y^{\\prime}=y(2-y), y(0)=\\alpha \\text{ exists on } [0,\\infty)\\}$. Then $\\min S=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0",
-        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q59)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2023 Q59)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q59.png"
       },
       {
         "id": "JAM_2022_Q13",
@@ -3330,7 +13582,8 @@ window.MOCK_TESTS_DATA = {
           "D": "I true, II false"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q13)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q13)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q13.png"
       },
       {
         "id": "JAM_2022_Q21",
@@ -3349,7 +13602,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Strictly decreasing on $(-\\delta,\\delta)$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q21)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q21)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q21.png"
       },
       {
         "id": "JAM_2022_Q23",
@@ -3368,7 +13622,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $a=2$, all solutions bounded over $(-\\infty,0)$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q23)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q23.png"
       },
       {
         "id": "JAM_2022_Q25",
@@ -3387,7 +13642,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(3\\phi^{2}-x^{2})^{2}=4\\phi$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q25)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q25)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q25.png"
       },
       {
         "id": "JAM_2022_Q31",
@@ -3406,7 +13662,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(y(x))^{2}$ has local max at 0"
         },
         "answer_key": "A,C",
-        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q31)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q31)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q31.png"
       },
       {
         "id": "JAM_2022_Q35",
@@ -3425,7 +13682,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $a\\in\\mathbb{R}\\setminus\\mathbb{Q}$, then unique periodic solution"
         },
         "answer_key": "C,D",
-        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q35)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q35)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q35.png"
       },
       {
         "id": "JAM_2022_Q43",
@@ -3439,7 +13697,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $y^{\\prime}+3x^{2}y=x^{2}, y(0)=4$. Then $\\lim_{x\\rightarrow\\infty}y(x)=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.33",
-        "explanation": "<strong>Correct Numerical Answer: 0.33</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q43)"
+        "explanation": "<strong>Correct Numerical Answer: 0.33</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q43)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q43.png"
       },
       {
         "id": "JAM_2022_Q47",
@@ -3453,7 +13712,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $xy^{2}y^{\\prime}+y^{3}=\\frac{\\sin x}{x}, y(\\frac{\\pi}{2})=0$. Then $y(\\frac{5\\pi}{2})=$ <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0",
-        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q47)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q47)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q47.png"
       },
       {
         "id": "JAM_2022_Q49",
@@ -3467,7 +13727,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $x^{2}y^{\\prime\\prime}+xy^{\\prime}-4y=x^{2}$ on $(0,\\infty)$ such that $\\lim_{x\\rightarrow 0^{+}}y(x)$ exists and $y(1)=1$. Then $y^{\\prime}(1)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2.25",
-        "explanation": "<strong>Correct Numerical Answer: 2.25</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q49)"
+        "explanation": "<strong>Correct Numerical Answer: 2.25</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q49)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q49.png"
       },
       {
         "id": "JAM_2022_Q50",
@@ -3481,7 +13742,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Orthogonal trajectory to $y=\\frac{c(1-\\cos x)}{\\sin x}$ passing through $(\\frac{\\pi}{3},1)$. If $(\\frac{\\pi}{4},a)$ lies on it, then $a^{4}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2.00",
-        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q50)"
+        "explanation": "<strong>Correct Numerical Answer: 2.00</strong><br><br>• <strong>Topic:</strong> Differential Equations (JAM 2022 Q50)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q50.png"
       }
     ]
   },
@@ -3512,7 +13774,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\sum_{k=0}^{6}(-1)^{k}\\binom{13}{2k+1}=-128$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option(s): (A)</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q38)"
+        "explanation": "<strong>Correct Option(s): (A)</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q38)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q38.png"
       },
       {
         "id": "JAM_2026_Q58",
@@ -3526,7 +13789,8 @@ window.MOCK_TESTS_DATA = {
         "question": "A fruit shop has 4 different types of bananas. The number of ways in which 12 bananas can be bought with at least one banana from each type, is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "165",
-        "explanation": "<strong>Correct Numerical Answer: 165</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q58)"
+        "explanation": "<strong>Correct Numerical Answer: 165</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q58)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q58.png"
       },
       {
         "id": "JAM_2026_Q60",
@@ -3540,7 +13804,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\binom{5}{0}+\\binom{6}{1}+\\binom{7}{2}+\\binom{8}{3}+\\binom{9}{4}+\\binom{10}{5}+\\binom{11}{6}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "924",
-        "explanation": "<strong>Correct Numerical Answer: 924</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q60)"
+        "explanation": "<strong>Correct Numerical Answer: 924</strong><br><br>• <strong>Topic:</strong> Basic Algebra (JAM 2026 Q60)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q60.png"
       }
     ]
   },
@@ -3571,7 +13836,8 @@ window.MOCK_TESTS_DATA = {
           "D": "adding 3 times row 5 to row 3, then swapping rows 2 and 3 of $A^{-1}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q8)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q8)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q8.png"
       },
       {
         "id": "JAM_2026_Q14",
@@ -3590,7 +13856,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\begin{pmatrix}7\\\\8\\\\9\\end{pmatrix}$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q14)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q14)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q14.png"
       },
       {
         "id": "JAM_2026_Q25",
@@ -3609,7 +13876,8 @@ window.MOCK_TESTS_DATA = {
           "D": "All eigenvalues of $P^{*}$ are negative"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q25)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q25)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q25.png"
       },
       {
         "id": "JAM_2026_Q37",
@@ -3628,7 +13896,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\lambda$ is an eigenvalue, $\\exists n\\in\\mathbb{N}$ such that $\\lambda^{n}=1$"
         },
         "answer_key": "A,B,D",
-        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q37)"
+        "explanation": "<strong>Correct Option(s): (A,B,D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q37)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q37.png"
       },
       {
         "id": "JAM_2026_Q39",
@@ -3647,7 +13916,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{range}(Q)=\\text{null}(P)$"
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q39)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q39)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q39.png"
       },
       {
         "id": "JAM_2026_Q49",
@@ -3661,7 +13931,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $A\\in M_{3}(\\mathbb{C})$. Suppose $v=\\begin{pmatrix}\\sqrt{5}i\\\\ 2i\\\\ x\\end{pmatrix}\\in\\text{null}(A)\\cap\\text{range}(A^{T})$. Then $|x|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3.0",
-        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q49)"
+        "explanation": "<strong>Correct Numerical Answer: 3.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q49)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q49.png"
       },
       {
         "id": "JAM_2026_Q50",
@@ -3675,7 +13946,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $P$ be a $5\\times 5$ real matrix with $\\det(P)=2$. Let $Q$ be the matrix of cofactors of $P$. Then $\\det(Q)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "16.0",
-        "explanation": "<strong>Correct Numerical Answer: 16.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q50)"
+        "explanation": "<strong>Correct Numerical Answer: 16.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q50)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q50.png"
       },
       {
         "id": "JAM_2026_Q56",
@@ -3689,7 +13961,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $M\\in M_{3}(\\mathbb{R})$ satisfy $M\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{3}\\\\ \\sqrt{2}\\\\ -5\\end{pmatrix}$, $M\\begin{pmatrix}0\\\\ 0\\\\ \\sqrt{30}\\end{pmatrix}=\\begin{pmatrix}\\sqrt{15}\\\\ \\sqrt{10}\\\\ \\sqrt{5}\\end{pmatrix}$, $M\\begin{pmatrix}-\\sqrt{15}\\\\ \\sqrt{15}\\\\ 0\\end{pmatrix}=\\begin{pmatrix}\\sqrt{12}\\\\ -\\sqrt{18}\\\\ 0\\end{pmatrix}$. Then $\\det(M)=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "-1.0",
-        "explanation": "<strong>Correct Numerical Answer: -1.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q56)"
+        "explanation": "<strong>Correct Numerical Answer: -1.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q56)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q56.png"
       },
       {
         "id": "JAM_2026_Q57",
@@ -3703,7 +13976,8 @@ window.MOCK_TESTS_DATA = {
         "question": "If $x+2y+2z=1, 2x+3y+z=2, ax+5y+bz=b$ has infinitely many solutions, then $a+b=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6.0",
-        "explanation": "<strong>Correct Numerical Answer: 6.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q57)"
+        "explanation": "<strong>Correct Numerical Answer: 6.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q57)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q57.png"
       },
       {
         "id": "JAM_2026_Q59",
@@ -3717,7 +13991,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $A\\in M_{3}(\\mathbb{R})$ represent reflection about $\\{(a,b,-a-b): a,b\\in\\mathbb{R}\\}$. Sum of diagonal elements of $A$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1.0",
-        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q59)"
+        "explanation": "<strong>Correct Numerical Answer: 1.0</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2026 Q59)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q59.png"
       },
       {
         "id": "JAM_2025_Q7",
@@ -3736,7 +14011,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\begin{pmatrix}17\\\\ 0\\\\ 17\\end{pmatrix}$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q7)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q7)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q7.png"
       },
       {
         "id": "JAM_2025_Q15",
@@ -3755,7 +14031,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{rank}(M)=2$, no solution"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q15)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q15)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q15.png"
       },
       {
         "id": "JAM_2025_Q16",
@@ -3774,7 +14051,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$x\\ne 5$, $M^{2}+M$ not invertible"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q16)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q16)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q16.png"
       },
       {
         "id": "JAM_2025_Q22",
@@ -3793,7 +14071,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\det(M)=-\\det(M_\\sigma), \\text{nullity}(M-M_\\sigma)=0$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q22)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2025 Q22)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q22.png"
       },
       {
         "id": "JAM_2024_Q9",
@@ -3812,7 +14091,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q9)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q9)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q9.png"
       },
       {
         "id": "JAM_2024_Q15",
@@ -3831,7 +14111,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both P and Q are false"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q15)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q15)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q15.png"
       },
       {
         "id": "JAM_2024_Q16",
@@ -3850,7 +14131,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q16)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q16)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q16.png"
       },
       {
         "id": "JAM_2024_Q37",
@@ -3869,7 +14151,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{Colspace}(A)\\subseteq\\text{Colspace}(C)$"
         },
         "answer_key": "B,C",
-        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q37)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q37)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q37.png"
       },
       {
         "id": "JAM_2024_Q44",
@@ -3883,7 +14166,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $M=\\begin{pmatrix}0&1&2&3\\\\ 1&0&1&2\\\\ 2&1&0&1\\\\ 3&2&1&0\\end{pmatrix}$. The $(4,1)$-entry of $M^{-1}$ is <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "0.17",
-        "explanation": "<strong>Correct Numerical Answer: 0.17</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q44)"
+        "explanation": "<strong>Correct Numerical Answer: 0.17</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q44)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q44.png"
       },
       {
         "id": "JAM_2024_Q50",
@@ -3897,7 +14181,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $M=\\begin{pmatrix}0&0&0&0&-1\\\\ 2&0&0&0&-4\\\\ 0&2&0&0&0\\\\ 0&0&2&0&3\\\\ 0&0&0&2&2\\end{pmatrix}$. If $p(x)$ is char. poly, then $p(2)-1=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "31",
-        "explanation": "<strong>Correct Numerical Answer: 31</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q50)"
+        "explanation": "<strong>Correct Numerical Answer: 31</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2024 Q50)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q50.png"
       },
       {
         "id": "JAM_2023_Q2",
@@ -3916,7 +14201,8 @@ window.MOCK_TESTS_DATA = {
           "D": "infinitely many solutions"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q2)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q2)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q2.png"
       },
       {
         "id": "JAM_2023_Q13",
@@ -3935,7 +14221,8 @@ window.MOCK_TESTS_DATA = {
           "D": "3"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q13)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q13)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q13.png"
       },
       {
         "id": "JAM_2023_Q14",
@@ -3954,7 +14241,8 @@ window.MOCK_TESTS_DATA = {
           "D": "infinitely many solutions for any $\\alpha$ when $\\beta=5$"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q14)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q14)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q14.png"
       },
       {
         "id": "JAM_2023_Q56",
@@ -3968,7 +14256,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $A=\\begin{pmatrix}1&1&0&0&1\\\\ 1&1&1&1&3\\\\ 1&1&4&4&4\\end{pmatrix}$ and $AB=0$ for $5\\times 5$ matrix $B$. Max rank of $B$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2",
-        "explanation": "<strong>Correct Numerical Answer: 2</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q56)"
+        "explanation": "<strong>Correct Numerical Answer: 2</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q56)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q56.png"
       },
       {
         "id": "JAM_2023_Q58",
@@ -3982,7 +14271,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Max number of linearly independent eigenvectors of $\\begin{pmatrix}1&1&0&0\\\\ 2&2&0&0\\\\ 0&0&3&0\\\\ 0&0&1&3\\end{pmatrix}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q58)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2023 Q58)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q58.png"
       },
       {
         "id": "JAM_2022_Q1",
@@ -4001,7 +14291,8 @@ window.MOCK_TESTS_DATA = {
           "D": "35"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q1)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q1)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q1.png"
       },
       {
         "id": "JAM_2022_Q2",
@@ -4020,7 +14311,8 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q2)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q2)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q2.png"
       },
       {
         "id": "JAM_2022_Q16",
@@ -4039,7 +14331,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $Q^{4}=0, Q^{3}\\ne 0$, then $\\exists S$ nonsingular such that $S^{-1}QS=P$."
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q16)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q16)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q16.png"
       },
       {
         "id": "JAM_2022_Q17",
@@ -4058,7 +14351,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both false"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q17)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q17.png"
       },
       {
         "id": "JAM_2022_Q18",
@@ -4077,7 +14371,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $\\lambda=2$, then the system has a unique solution."
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q18)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q18)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q18.png"
       },
       {
         "id": "JAM_2022_Q30",
@@ -4096,7 +14391,8 @@ window.MOCK_TESTS_DATA = {
           "D": "2"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q30)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q30)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q30.png"
       },
       {
         "id": "JAM_2022_Q53",
@@ -4110,7 +14406,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $A=\\begin{pmatrix}1&1\\\\ 0&1\\\\ -1&1\\end{pmatrix}, \\|u\\|=1, \\|v\\|=1$. If $Au=\\sqrt{2}v$ and $A^{T}v=\\sqrt{2}u$, then $|u_1+2\\sqrt{2}v_1|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3.00",
-        "explanation": "<strong>Correct Numerical Answer: 3.00</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q53)"
+        "explanation": "<strong>Correct Numerical Answer: 3.00</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q53)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q53.png"
       },
       {
         "id": "JAM_2022_Q57",
@@ -4124,7 +14421,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\det\\begin{pmatrix}11&10&10&10\\\\ 10&11&10&10\\\\ 10&10&11&10\\\\ 10&10&10&11\\end{pmatrix}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "41",
-        "explanation": "<strong>Correct Numerical Answer: 41</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q57)"
+        "explanation": "<strong>Correct Numerical Answer: 41</strong><br><br>• <strong>Topic:</strong> Matrices and Systems of Linear Equations (JAM 2022 Q57)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q57.png"
       }
     ]
   },
@@ -4155,7 +14453,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$S$ is a nonzero subspace of $M_{2,5}(\\mathbb{R})$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q24)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q24)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q24.png"
       },
       {
         "id": "JAM_2026_Q28",
@@ -4174,7 +14473,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\text{vect}(F(P),F(Q))\\times\\text{vect}(F(R),F(S))=\\text{vect}(P,Q)\\times\\text{vect}(R,S)$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q28)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q28)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q28.png"
       },
       {
         "id": "JAM_2026_Q40",
@@ -4193,7 +14493,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$V$ is a four dimensional subspace of the vector space $\\mathbb{R}$ over $\\mathbb{Q}$."
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q40)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2026 Q40)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q40.png"
       },
       {
         "id": "JAM_2025_Q6",
@@ -4212,7 +14513,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$T$ is NOT one-one and $T$ is NOT onto"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q6)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q6)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q6.png"
       },
       {
         "id": "JAM_2025_Q8",
@@ -4231,7 +14533,8 @@ window.MOCK_TESTS_DATA = {
           "D": "The nullity of $M$ is 2"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q8)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q8)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q8.png"
       },
       {
         "id": "JAM_2025_Q24",
@@ -4250,7 +14553,8 @@ window.MOCK_TESTS_DATA = {
           "D": "4"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q24)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q24)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q24.png"
       },
       {
         "id": "JAM_2025_Q35",
@@ -4269,7 +14573,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{u_1+u_2, u_2+u_3, u_3+u_4, u_4+u_1\\}$ is a linearly independent set in $\\mathbb{R}^4$"
         },
         "answer_key": "A,B",
-        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q35)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q35)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q35.png"
       },
       {
         "id": "JAM_2025_Q40",
@@ -4288,7 +14593,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$V_1\\cup V_5$ is a subspace of $\\mathbb{R}^3$"
         },
         "answer_key": "C,D",
-        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q40)"
+        "explanation": "<strong>Correct Option(s): (C,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q40)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q40.png"
       },
       {
         "id": "JAM_2025_Q46",
@@ -4302,7 +14608,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\dim(V_1\\cap V_2\\cap V_3)$ for $V_1: x+y+2w=0, V_2: 2y+z+w=0, V_3: x+3y+z+3w=0$ in $\\mathbb{R}^{4}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "2",
-        "explanation": "<strong>Correct Numerical Answer: 2</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q46)"
+        "explanation": "<strong>Correct Numerical Answer: 2</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q46)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q46.png"
       },
       {
         "id": "JAM_2025_Q47",
@@ -4316,7 +14623,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $T:\\mathbb{R}^{3}\\rightarrow\\mathbb{R}$ linear with $T(1,1,1)=0, T(1,-1,1)=0, T(0,0,1)=16$. Then $T(\\frac{1}{2},\\frac{2}{3},\\frac{3}{4})=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "4.0",
-        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q47)"
+        "explanation": "<strong>Correct Numerical Answer: 4.0</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q47)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q47.png"
       },
       {
         "id": "JAM_2025_Q49",
@@ -4330,7 +14638,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$T(p(x))=xp^{\\prime}(x)$ and $S(p(x))=(x+1)p^{\\prime}(x)$ on $P_{4}(\\mathbb{R})$. Nullity of $S\\circ T$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1",
-        "explanation": "<strong>Correct Numerical Answer: 1</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q49)"
+        "explanation": "<strong>Correct Numerical Answer: 1</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q49)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q49.png"
       },
       {
         "id": "JAM_2025_Q58",
@@ -4344,7 +14653,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Dimension of $H=\\{p(x)\\in P_{3}(\\mathbb{R}): xp^{\\prime}(x)=3p(x)\\}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "1",
-        "explanation": "<strong>Correct Numerical Answer: 1</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q58)"
+        "explanation": "<strong>Correct Numerical Answer: 1</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2025 Q58)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q58.png"
       },
       {
         "id": "JAM_2024_Q13",
@@ -4363,7 +14673,8 @@ window.MOCK_TESTS_DATA = {
           "D": "49"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q13)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q13)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q13.png"
       },
       {
         "id": "JAM_2024_Q17",
@@ -4382,7 +14693,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Any such $E$ is necessarily linearly dependent and any such $F$ is necessarily linearly dependent"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q17)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q17)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q17.png"
       },
       {
         "id": "JAM_2024_Q22",
@@ -4401,7 +14713,8 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists $r\\in\\mathbb{N}$ such that $(T-I)^{r}$ is the zero linear transformation"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q22)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q22)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q22.png"
       },
       {
         "id": "JAM_2024_Q45",
@@ -4415,7 +14728,8 @@ window.MOCK_TESTS_DATA = {
         "question": "$\\dim(\\{f\\in P_{12}(x): f(-x)=f(x) \\text{ and } f(2024)=0\\})=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q45)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q45)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q45.png"
       },
       {
         "id": "JAM_2024_Q49",
@@ -4429,7 +14743,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $P_7(x)$ be the real vector space of polynomials in $x$ with degree at most 7, together with the zero polynomial. For $r=1,2,\\dots,7$, define $s_r(x)=x(x-1)\\cdots(x-(r-1))$ and $s_0(x)=1$. If $x^{5}=\\sum_{k=0}^{7}\\alpha_{5,k}s_k(x)$, where $\\alpha_{5,k}\\in\\mathbb{R}$, then $\\alpha_{5,2}$ equals <span class=\"cbt-blank\">_______</span> (rounded off to two decimal places).",
         "options": null,
         "answer_key": "15",
-        "explanation": "<strong>Correct Numerical Answer: 15</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q49)"
+        "explanation": "<strong>Correct Numerical Answer: 15</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q49)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q49.png"
       },
       {
         "id": "JAM_2024_Q58",
@@ -4443,7 +14758,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Dimension of continuous piecewise linear functions on $[0,1]$ with nodes $\\frac{1}{4}, \\frac{1}{2}, \\frac{3}{4}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "5",
-        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q58)"
+        "explanation": "<strong>Correct Numerical Answer: 5</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2024 Q58)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q58.png"
       },
       {
         "id": "JAM_2023_Q3",
@@ -4462,7 +14778,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{(x,y,z): x+2y-3z+1=0\\}$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q3)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q3)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q3.png"
       },
       {
         "id": "JAM_2023_Q12",
@@ -4481,7 +14798,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both I and II are FALSE"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q12)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q12)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q12.png"
       },
       {
         "id": "JAM_2023_Q15",
@@ -4500,7 +14818,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Both I and II are FALSE"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q15)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q15)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q15.png"
       },
       {
         "id": "JAM_2023_Q38",
@@ -4519,7 +14838,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Every bijective linear transformation from $\\mathbb{R}^2$ to $\\mathbb{R}^2$ maps pairs of perpendicular lines to pairs of perpendicular lines"
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q38)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q38)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q38.png"
       },
       {
         "id": "JAM_2023_Q39",
@@ -4538,7 +14858,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$T(p(x))=p(1)$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q39)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q39)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q39.png"
       },
       {
         "id": "JAM_2023_Q42",
@@ -4552,7 +14873,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Rank of $T:P_2(\\mathbb{R})\\rightarrow P_4(\\mathbb{R})$ given by $T(p(x))=p(x^{2})$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q42)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q42)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q42.png"
       },
       {
         "id": "JAM_2023_Q57",
@@ -4566,7 +14888,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Dimension of matrices in $M_3(\\mathbb{R})$ with each row sum and column sum equal to zero is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "4",
-        "explanation": "<strong>Correct Numerical Answer: 4</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q57)"
+        "explanation": "<strong>Correct Numerical Answer: 4</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2023 Q57)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q57.png"
       },
       {
         "id": "JAM_2022_Q3",
@@ -4585,7 +14908,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\{f: f^{\\prime}(1/2)=1\\}$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q3)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q3)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q3.png"
       },
       {
         "id": "JAM_2022_Q20",
@@ -4604,7 +14928,8 @@ window.MOCK_TESTS_DATA = {
           "D": "5 divides diagonal sum if entries are integers"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q20)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q20)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q20.png"
       },
       {
         "id": "JAM_2022_Q26",
@@ -4623,7 +14948,8 @@ window.MOCK_TESTS_DATA = {
           "D": "12"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q26)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q26)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q26.png"
       },
       {
         "id": "JAM_2022_Q39",
@@ -4642,7 +14968,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$T(x^{3})=3$"
         },
         "answer_key": "A,B",
-        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q39)"
+        "explanation": "<strong>Correct Option(s): (A,B)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q39)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q39.png"
       },
       {
         "id": "JAM_2022_Q40",
@@ -4661,7 +14988,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$T_4(M)=MP^{2}-PM^{2}$"
         },
         "answer_key": "A,C",
-        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q40)"
+        "explanation": "<strong>Correct Option(s): (A,C)</strong><br><br>• <strong>Topic:</strong> Finite Dimensional Vector Spaces (JAM 2022 Q40)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q40.png"
       }
     ]
   },
@@ -4692,7 +15020,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\mathbb{Z}_{6}$ is isomorphic to a quotient group of $S_{4}$."
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q9)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q9)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q9.png"
       },
       {
         "id": "JAM_2026_Q26",
@@ -4711,7 +15040,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ has a subgroup isomorphic to $\\mathbb{Z}$"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q26)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q26)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q26.png"
       },
       {
         "id": "JAM_2026_Q27",
@@ -4730,7 +15060,8 @@ window.MOCK_TESTS_DATA = {
           "D": "There exists a group homomorphism from the symmetric group on $n$ symbols into the multiplicative group of all invertible $n\\times n$ matrices with real entries, which has a trivial kernel."
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q27)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q27)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q27.png"
       },
       {
         "id": "JAM_2026_Q30",
@@ -4749,7 +15080,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$(G,\\Delta)$ is a group and has an element of order 8."
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q30)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q30)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q30.png"
       },
       {
         "id": "JAM_2026_Q47",
@@ -4763,7 +15095,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $C_n$ denote a cyclic group having $n$ elements. If there is a surjective group homomorphism from $C_n$ to $C_{30}$, then the total number of such distinct surjective homomorphisms is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "8",
-        "explanation": "<strong>Correct Numerical Answer: 8</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q47)"
+        "explanation": "<strong>Correct Numerical Answer: 8</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2026 Q47)",
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q47.png"
       },
       {
         "id": "JAM_2025_Q9",
@@ -4782,7 +15115,8 @@ window.MOCK_TESTS_DATA = {
           "D": "0"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q9)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q9)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q9.png"
       },
       {
         "id": "JAM_2025_Q13",
@@ -4801,7 +15135,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$m$ is odd and $n$ is odd"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q13)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q13)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q13.png"
       },
       {
         "id": "JAM_2025_Q23",
@@ -4820,7 +15155,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$m=1, n=1$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q23)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q23.png"
       },
       {
         "id": "JAM_2025_Q39",
@@ -4839,7 +15175,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$U(9)$ is a cyclic group"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q39)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q39)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q39.png"
       },
       {
         "id": "JAM_2025_Q52",
@@ -4853,7 +15190,8 @@ window.MOCK_TESTS_DATA = {
         "question": "For $\\sigma=(1\\,2\\,3)\\in S_{4}$, $|\\{\\tau\\in S_{4}: \\tau\\sigma\\tau^{-1}=\\sigma\\}|=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "3",
-        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q52)"
+        "explanation": "<strong>Correct Numerical Answer: 3</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q52)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q52.png"
       },
       {
         "id": "JAM_2025_Q59",
@@ -4867,7 +15205,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $G$ be an abelian group of order 35. Let $m$ denote the number of elements of order 5 in $G$, and let $n$ denote the number of elements of order 7 in $G$. Then $m+n=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "10",
-        "explanation": "<strong>Correct Numerical Answer: 10</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q59)"
+        "explanation": "<strong>Correct Numerical Answer: 10</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q59)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q59.png"
       },
       {
         "id": "JAM_2025_Q60",
@@ -4881,7 +15220,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The number of surjective group homomorphisms from $S_4$ to $\\mathbb{Z}_6$ is equal to <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "0",
-        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q60)"
+        "explanation": "<strong>Correct Numerical Answer: 0</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2025 Q60)",
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q60.png"
       },
       {
         "id": "JAM_2024_Q5",
@@ -4900,7 +15240,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ has 13 elements of order 13"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q5)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q5)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q5.png"
       },
       {
         "id": "JAM_2024_Q6",
@@ -4919,7 +15260,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$U(8)$ is isomorphic to $U(12)$"
         },
         "answer_key": "D",
-        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q6)"
+        "explanation": "<strong>Correct Option: (D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q6)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q6.png"
       },
       {
         "id": "JAM_2024_Q7",
@@ -4938,7 +15280,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$S_{13}$ has no element of order 60"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q7)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q7)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q7.png"
       },
       {
         "id": "JAM_2024_Q8",
@@ -4957,7 +15300,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ is necessarily abelian but need not be cyclic"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q8)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q8)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q8.png"
       },
       {
         "id": "JAM_2024_Q11",
@@ -4976,7 +15320,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$S_5$"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q11)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q11)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q11.png"
       },
       {
         "id": "JAM_2024_Q12",
@@ -4995,7 +15340,8 @@ window.MOCK_TESTS_DATA = {
           "D": "Infinite"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q12)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q12)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q12.png"
       },
       {
         "id": "JAM_2024_Q33",
@@ -5014,7 +15360,8 @@ window.MOCK_TESTS_DATA = {
           "D": "The multiplicative group of positive rational numbers is isomorphic to the multiplicative group of nonzero complex numbers"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option(s): (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q33)"
+        "explanation": "<strong>Correct Option(s): (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q33)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q33.png"
       },
       {
         "id": "JAM_2024_Q36",
@@ -5033,7 +15380,8 @@ window.MOCK_TESTS_DATA = {
           "D": "If $|G|=p^3$, where $p$ is a prime number, then $G$ is necessarily abelian"
         },
         "answer_key": "B,C",
-        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q36)"
+        "explanation": "<strong>Correct Option(s): (B,C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q36)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q36.png"
       },
       {
         "id": "JAM_2024_Q40",
@@ -5052,7 +15400,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$G$ is isomorphic to the group $\\mathbb{Z}\\times\\mathbb{Z}$, where $(m_1,n_1)+(m_2,n_2)=(m_1+m_2, n_1+n_2)$"
         },
         "answer_key": "B,D",
-        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q40)"
+        "explanation": "<strong>Correct Option(s): (B,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2024 Q40)",
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q40.png"
       },
       {
         "id": "JAM_2023_Q1",
@@ -5071,7 +15420,8 @@ window.MOCK_TESTS_DATA = {
           "D": "10"
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q1)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q1)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q1.png"
       },
       {
         "id": "JAM_2023_Q23",
@@ -5090,7 +15440,8 @@ window.MOCK_TESTS_DATA = {
           "D": "both I and II are FALSE"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q23)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q23)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q23.png"
       },
       {
         "id": "JAM_2023_Q27",
@@ -5109,7 +15460,8 @@ window.MOCK_TESTS_DATA = {
           "D": "25"
         },
         "answer_key": "C",
-        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q27)"
+        "explanation": "<strong>Correct Option: (C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q27)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q27.png"
       },
       {
         "id": "JAM_2023_Q29",
@@ -5128,7 +15480,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\mathbb{Q}^{\\times}$, the multiplicative group of non-zero rational numbers"
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q29)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q29)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q29.png"
       },
       {
         "id": "JAM_2023_Q32",
@@ -5147,7 +15500,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$2A\\subseteq A, A+A=A$"
         },
         "answer_key": "A,B,C",
-        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q32)"
+        "explanation": "<strong>Correct Option(s): (A,B,C)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q32)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q32.png"
       },
       {
         "id": "JAM_2023_Q45",
@@ -5161,7 +15515,8 @@ window.MOCK_TESTS_DATA = {
         "question": "For $\\sigma\\in S_8$, let $o(\\sigma)$ denote the order of $\\sigma$. Then $\\max\\{o(\\sigma): \\sigma\\in S_8\\}=$ <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "15",
-        "explanation": "<strong>Correct Numerical Answer: 15</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q45)"
+        "explanation": "<strong>Correct Numerical Answer: 15</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q45)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q45.png"
       },
       {
         "id": "JAM_2023_Q46",
@@ -5175,7 +15530,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The number of group isomorphisms from $\\mathbb{Z}_8^{\\times}$ onto itself is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q46)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q46)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q46.png"
       },
       {
         "id": "JAM_2023_Q54",
@@ -5189,7 +15545,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The number of permutations in $S_4$ that have exactly 2 cycles in their cycle decomposition is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "11",
-        "explanation": "<strong>Correct Numerical Answer: 11</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q54)"
+        "explanation": "<strong>Correct Numerical Answer: 11</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2023 Q54)",
+        "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q54.png"
       },
       {
         "id": "JAM_2022_Q4",
@@ -5208,7 +15565,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$K$ is a normal subgroup of $H\\cup K$."
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q4)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q4)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q4.png"
       },
       {
         "id": "JAM_2022_Q19",
@@ -5227,7 +15585,8 @@ window.MOCK_TESTS_DATA = {
           "D": "$\\mathbb{Q}/\\mathbb{Z}$ is not a cyclic group."
         },
         "answer_key": "A",
-        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q19)"
+        "explanation": "<strong>Correct Option: (A)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q19)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q19.png"
       },
       {
         "id": "JAM_2022_Q24",
@@ -5246,7 +15605,8 @@ window.MOCK_TESTS_DATA = {
           "D": "There is exactly one group homomorphism from $U_{37}$ to $(\\mathbb{Q},+)$."
         },
         "answer_key": "B",
-        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q24)"
+        "explanation": "<strong>Correct Option: (B)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q24)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q24.png"
       },
       {
         "id": "JAM_2022_Q37",
@@ -5265,7 +15625,8 @@ window.MOCK_TESTS_DATA = {
           "D": "The order of the group $G$ is an odd number."
         },
         "answer_key": "A,C,D",
-        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q37)"
+        "explanation": "<strong>Correct Option(s): (A,C,D)</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q37)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q37.png"
       },
       {
         "id": "JAM_2022_Q45",
@@ -5279,7 +15640,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The number of distinct subgroups of $\\mathbb{Z}_{999}$ is <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "8",
-        "explanation": "<strong>Correct Numerical Answer: 8</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q45)"
+        "explanation": "<strong>Correct Numerical Answer: 8</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q45)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q45.png"
       },
       {
         "id": "JAM_2022_Q46",
@@ -5293,7 +15655,8 @@ window.MOCK_TESTS_DATA = {
         "question": "The number of elements of order 12 in the symmetric group $S_7$ is equal to <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "420",
-        "explanation": "<strong>Correct Numerical Answer: 420</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q46)"
+        "explanation": "<strong>Correct Numerical Answer: 420</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q46)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q46.png"
       },
       {
         "id": "JAM_2022_Q58",
@@ -5307,7 +15670,8 @@ window.MOCK_TESTS_DATA = {
         "question": "Let $\\sigma$ be the permutation in the symmetric group $S_5$ given by $\\sigma(1)=2, \\sigma(2)=3, \\sigma(3)=1, \\sigma(4)=5, \\sigma(5)=4$. Then the number of elements in the centralizer $N(\\sigma)=\\{\\tau\\in S_5: \\sigma\\circ\\tau=\\tau\\circ\\sigma\\}$ is equal to <span class=\"cbt-blank\">_______</span>.",
         "options": null,
         "answer_key": "6",
-        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q58)"
+        "explanation": "<strong>Correct Numerical Answer: 6</strong><br><br>• <strong>Topic:</strong> Groups (JAM 2022 Q58)",
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q58.png"
       }
     ]
   }

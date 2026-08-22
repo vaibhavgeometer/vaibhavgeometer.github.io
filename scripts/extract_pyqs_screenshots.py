@@ -1,7 +1,7 @@
 """
 Extract 300 High-Resolution Question Screenshots (JAM 2022–2026)
-Source: docs/2022-2026-PYQs-with-Keys.pdf
-Destination: resources/PYQs_Screenshots/{year}/JAM_{year}_Q{num}.png
+Source: assets/2022-2026-PYQs-with-Keys.pdf
+Destination: assets/PYQs_Screenshots/{year}/JAM_{year}_Q{num}.png
 """
 
 import os
@@ -23,16 +23,26 @@ def get_h_lines(page):
                     h_lines.append(r.y0)
     return sorted(list(set([round(y, 1) for y in h_lines])))
 
-def is_header_or_footer(b, ph):
+def is_header_or_footer(b, ph, year='2022'):
     """Determine if a text block belongs to the page header or footer bands."""
     text = b[4].strip()
     if not text:
         return True
-    if b[1] < 72 and ('JAM' in text or 'Question Paper' in text or 'MATHEMATICS' in text or 'Mathematics' in text or 'Confidential' in text):
-        return True
-    if b[3] > ph - 65 and ('Page' in text or 'MA' in text or '/42' in text or '/43' in text or '/49' in text or '38' in text):
-        return True
-    return False
+    y0, y1 = b[1], b[3]
+    if year == '2023':
+        if y1 < 100:
+            if any(h in text for h in ['SECTION', 'carry', 'Carry', 'MULTIPLE CHOICE', 'MULTIPLE SELECT', 'NUMERICAL ANSWER', 'Question Paper', 'JAM 2023']):
+                return True
+        if y0 > ph - 45:
+            if any(f in text for f in ['Page', 'MA', '/24', '38', '39', '40']):
+                return True
+        return False
+    else:
+        if y0 < 72 and ('JAM' in text or 'Question Paper' in text or 'MATHEMATICS' in text or 'Mathematics' in text or 'Confidential' in text):
+            return True
+        if y1 > ph - 65 and ('Page' in text or 'MA' in text or '/42' in text or '/43' in text or '/49' in text or '38' in text):
+            return True
+        return False
 
 def extract_questions_for_page(page, year, pno):
     """Detect all questions on a given page and compute their precise bounding crop boxes."""
@@ -40,10 +50,81 @@ def extract_questions_for_page(page, year, pno):
     pw = page.rect.width
     blocks = page.get_text('blocks')
     
+    if year == '2023':
+        # Freeform text layouts with multiple questions per page (JAM 2023)
+        q_markers = []
+        for b in sorted(blocks, key=lambda x: (x[1], x[0])):
+            text = b[4].strip()
+            for line in text.split('\n'):
+                line_str = line.strip()
+                m = re.match(r'^Q\.?\s*(\d+)\b', line_str)
+                if m:
+                    qnum = int(m.group(1))
+                    if 1 <= qnum <= 60:
+                        if 'carry' in line_str.lower() or 'section' in line_str.lower():
+                            continue
+                        if not any(item['qnum'] == qnum for item in q_markers):
+                            q_markers.append({'qnum': qnum, 'block': b, 'y0': b[1], 'y1': b[3]})
+                            break
+                            
+        q_markers.sort(key=lambda x: x['y0'])
+        content_blocks = [b for b in blocks if not is_header_or_footer(b, ph, year='2023')]
+        
+        q_blocks_map = {q['qnum']: [] for q in q_markers}
+        for b in content_blocks:
+            by0 = b[1]
+            assigned = None
+            for i in range(len(q_markers) - 1, -1, -1):
+                if by0 >= q_markers[i]['y0'] - 18:
+                    assigned = q_markers[i]['qnum']
+                    break
+            if assigned is None:
+                assigned = q_markers[0]['qnum']
+            q_blocks_map[assigned].append(b)
+            
+        results = []
+        for i, q in enumerate(q_markers):
+            qnum = q['qnum']
+            q_blist = q_blocks_map[qnum]
+            if not q_blist:
+                q_blist = [q['block']]
+                
+            q_min_y = min(b[1] for b in q_blist)
+            q_max_y = max(b[3] for b in q_blist)
+            
+            if i == 0:
+                sec_blocks = [b for b in blocks if is_header_or_footer(b, ph, year='2023') and b[3] <= q_min_y]
+                if sec_blocks:
+                    sec_bot = max(b[3] for b in sec_blocks)
+                    top_y = (sec_bot + q_min_y) / 2.0
+                else:
+                    top_y = max(8.0, q_min_y - 8.0)
+            else:
+                prev_qnum = q_markers[i-1]['qnum']
+                prev_blist = q_blocks_map[prev_qnum]
+                prev_max_y = max(b[3] for b in prev_blist) if prev_blist else q_markers[i-1]['y1']
+                top_y = (prev_max_y + q_min_y) / 2.0
+                
+            if i + 1 < len(q_markers):
+                next_qnum = q_markers[i+1]['qnum']
+                next_blist = q_blocks_map[next_qnum]
+                next_min_y = min(b[1] for b in next_blist) if next_blist else q_markers[i+1]['y0']
+                bot_y = (q_max_y + next_min_y) / 2.0
+            else:
+                bot_y = min(ph - 20.0, q_max_y + 12.0)
+                
+            x0 = 45.0
+            x1 = pw - 45.0
+            rect = fitz.Rect(x0, top_y, x1, bot_y)
+            results.append((qnum, rect))
+            
+        return results
+
+    # For other years
     q_items = []
     for b in blocks:
         text = b[4]
-        if is_header_or_footer(b, ph):
+        if is_header_or_footer(b, ph, year=year):
             continue
         
         for line in text.split('\n'):
@@ -59,9 +140,7 @@ def extract_questions_for_page(page, year, pno):
     
     q_items.sort(key=lambda x: x['y0'])
     results = []
-    
-    # Filter non-empty content blocks (ignore headers, footers, whitespace)
-    content_blocks = [b for b in blocks if not is_header_or_footer(b, ph)]
+    content_blocks = [b for b in blocks if not is_header_or_footer(b, ph, year=year)]
     
     if year in ['2022', '2026']:
         # Table / Grid boxed layouts
@@ -93,7 +172,7 @@ def extract_questions_for_page(page, year, pno):
             rect = fitz.Rect(x0, top_y - 0.5, x1, bot_y + 0.5)
             results.append((qnum, rect))
     else:
-        # Freeform text layouts (2023, 2024, 2025)
+        # Freeform text layouts (2024, 2025)
         for i, q in enumerate(q_items):
             qnum = q['qnum']
             qy0 = q['y0']
@@ -121,8 +200,8 @@ def extract_questions_for_page(page, year, pno):
     return results
 
 def main():
-    pdf_path = os.path.join('docs', '2022-2026-PYQs-with-Keys.pdf')
-    out_base = os.path.join('resources', 'PYQs_Screenshots')
+    pdf_path = os.path.join('assets', '2022-2026-PYQs-with-Keys.pdf')
+    out_base = os.path.join('assets', 'PYQs_Screenshots')
     os.makedirs(out_base, exist_ok=True)
     
     doc = fitz.open(pdf_path)

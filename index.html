@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IIT JAM Mathematics (MA) — Mock Test Series & Study Material</title>
-  <meta name="description" content="Free IIT JAM Mathematics (MA) Mock Test Series covering 300 official PYQs (2022–2026), 14 topic-wise Formula Cheat Sheets, official Syllabus, and 2005–2026 PYQ papers archive.">
-  <meta name="keywords" content="IIT JAM Mathematics Mock Test, IIT JAM MA, PYQ, Computer Based Test, MathJax, LaTeX, Formula Cheat Sheets, Real Analysis, Linear Algebra, Group Theory">
+  <title>IIT JAM Mathematics (MA) — 22-Year (2005–2026) Mock Test Series & Study Material</title>
+  <meta name="description" content="Free IIT JAM Mathematics (MA) Computer Based Mock Test Series covering 22 years (2005–2026) with 885 official examination PYQs, screenshots, 14 topic-wise Formula Cheat Sheets, official Syllabus, and verified Master Answer Keys.">
+  <meta name="keywords" content="IIT JAM Mathematics Mock Test, IIT JAM MA, PYQ, Computer Based Test, MathJax, LaTeX, Formula Cheat Sheets, Real Analysis, Linear Algebra, Group Theory, 2005-2026 PYQ">
   <meta name="author" content="Vaibhav Geometer">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
@@ -57,104 +57,132 @@
   <section class="hero">
     <div class="container">
       <h1>IIT JAM Mathematics <span class="accent">(MA)</span></h1>
-      <p class="hero-sub">Topic-Wise Mock Test Series · 300 Official PYQs · 2022–2026</p>
-      <p class="hero-desc">Authentic Computer Based Test simulation with MCQ, MSQ & NAT formats, official marking scheme, built-in scientific calculator, 14 formula cheat sheets, and LaTeX solutions.</p>
+      <p class="hero-sub">Complete 22-Year Mock Test Series · 885 Official PYQs · 2005–2026</p>
+      <p class="hero-desc">Authentic Computer Based Test (CBT) simulator with official paper screenshots, MCQ, MSQ & NAT option selectors, built-in scientific calculator, 14 formula cheat sheets, and verified master answer keys.</p>
       
       <div class="hero-badges">
-        <span class="hero-pill">🎯 <strong>300</strong> Official PYQs</span>
+        <span class="hero-pill">🏛 <strong>22</strong> Year Mock Tests</span>
+        <span class="hero-pill">🎯 <strong>885</strong> Official PYQs</span>
         <span class="hero-pill">⚡ <strong>9</strong> Topic Mock Tests</span>
         <span class="hero-pill">📑 <strong>14</strong> Formula Cheat Sheets</span>
-        <span class="hero-pill">📜 <strong>Official</strong> Syllabus</span>
-        <span class="hero-pill">📚 <strong>2005–2026</strong> Archive</span>
+        <span class="hero-pill">📜 <strong>2005–2026</strong> Archive</span>
       </div>
     </div>
   </section>
 
-  <!-- Mock Tests -->
+  <!-- Main Tab Switcher -->
+  <section class="container">
+    <div class="main-tab-switcher">
+      <button class="main-tab-btn active" onclick="window.switchMainTab('year-tests', this)">
+        🏛 22-Year Mock Tests (2005–2026)
+      </button>
+      <button class="main-tab-btn" onclick="window.switchMainTab('topic-tests', this)">
+        ⚡ Topic-Wise Mock Tests (9)
+      </button>
+      <button class="main-tab-btn" onclick="window.switchMainTab('resources', this)">
+        📚 Study Materials Hub
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content Areas -->
   <main class="main-content">
     <div class="container">
 
-      <!-- Filter Tabs -->
-      <div class="filter-tabs">
-        <button class="filter-btn active" onclick="window.filterTopics('ALL', this)">All Topics (9)</button>
-        <button class="filter-btn" onclick="window.filterTopics('Real Analysis', this)">Real Analysis</button>
-        <button class="filter-btn" onclick="window.filterTopics('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
-        <button class="filter-btn" onclick="window.filterTopics('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
-      </div>
-
-      <!-- Topic Cards Grid -->
-      <div class="topics-grid" id="topics-container">
-        <!-- Injected by main.js -->
-      </div>
-    </div>
-  </main>
-
-  <!-- Study Materials & Resource Hub Section -->
-  <section class="resources-hub" id="resources">
-    <div class="container">
-      <div class="section-header-block">
-        <h2 class="section-title">📚 Study Materials & Resource Hub</h2>
-        <p class="section-sub">Comprehensive collection of official question banks, syllabus, formula cheat sheets, and past year question paper archives.</p>
-      </div>
-
-      <div class="resources-grid">
-        <!-- Card 1: Question Bank -->
-        <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Topic-Wise Question Bank PDF">
-          <div class="resource-icon-wrap">📄</div>
-          <h3 class="resource-title">Topic-Wise Question Bank (2022–2026)</h3>
-          <p class="resource-desc">Publication-ready 52-page master PDF containing all 300 official PYQs organized by syllabus with complete Master Answer Key.</p>
-          <div class="resource-footer">
-            <span class="resource-badge">PDF • 52 Pages</span>
-            <span>View PDF →</span>
-          </div>
-        </a>
-
-        <!-- Card 2: Official Syllabus -->
-        <a href="docs/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Official IIT JAM Syllabus PDF">
-          <div class="resource-icon-wrap">📜</div>
-          <h3 class="resource-title">Official IIT JAM Syllabus</h3>
-          <p class="resource-desc">Official syllabus document detailing all topics across Real Analysis, Multivariable Calculus, ODE, Linear Algebra, and Groups.</p>
-          <div class="resource-footer">
-            <span class="resource-badge">Official Document</span>
-            <span>View PDF →</span>
-          </div>
-        </a>
-
-        <!-- Card 3: Formula Cheat Sheets -->
-        <div class="resource-card" style="cursor: pointer;" onclick="window.openCheatSheetsModal()" title="Browse all 14 Formula Cheat Sheets">
-          <div class="resource-icon-wrap">📑</div>
-          <h3 class="resource-title">14 Formula Cheat Sheets</h3>
-          <p class="resource-desc">High-yield quick revision formula sheets for Sequences, Series, Single/Multivariable Calculus, ODE, Linear Algebra, and Group Theory.</p>
-          <div class="resource-footer">
-            <span class="resource-badge">14 Topic Sheets</span>
-            <span style="color: var(--green);">Browse All →</span>
-          </div>
+      <!-- Panel 1: Year-Wise Mock Tests (2005-2026) -->
+      <div id="tab-panel-year-tests" class="tab-content-panel">
+        <div class="year-filter-tabs">
+          <button class="year-filter-btn active" onclick="window.filterYears('ALL', this)">All Papers (22 Years: 2005–2026)</button>
+          <button class="year-filter-btn" onclick="window.filterYears('cbt', this)">CBT Era (2015–2026 • 60 Qs)</button>
+          <button class="year-filter-btn" onclick="window.filterYears('classic', this)">Classic Era (2005–2014)</button>
         </div>
 
-        <!-- Card 4: 2022-2026 PYQs with Keys -->
-        <a href="docs/2022-2026-PYQs-with-Keys.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 2022-2026 Official Papers & Keys PDF">
-          <div class="resource-icon-wrap">📝</div>
-          <h3 class="resource-title">2022–2026 Official Papers & Keys</h3>
-          <p class="resource-desc">Original examination papers from 2022 to 2026 combined with official IIT final answer keys and acceptance ranges.</p>
-          <div class="resource-footer">
-            <span class="resource-badge">198 Pages • Complete</span>
-            <span>View PDF →</span>
-          </div>
-        </a>
-
-        <!-- Card 5: 2005-2026 Original Papers Archive -->
-        <a href="docs/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 22-Year PYQ Archive PDF">
-          <div class="resource-icon-wrap">🏛</div>
-          <h3 class="resource-title">22-Year PYQ Archive (2005–2026)</h3>
-          <p class="resource-desc">Comprehensive historical archive of original IIT JAM Mathematics examination papers spanning 2005 through 2026.</p>
-          <div class="resource-footer">
-            <span class="resource-badge">2005–2026 Archive</span>
-            <span>View PDF →</span>
-          </div>
-        </a>
+        <div class="topics-grid" id="year-tests-container">
+          <!-- Injected by main.js -->
+        </div>
       </div>
+
+      <!-- Panel 2: Topic-Wise Mock Tests (2022-2026) -->
+      <div id="tab-panel-topic-tests" class="tab-content-panel hidden">
+        <div class="filter-tabs">
+          <button class="topic-filter-btn filter-btn active" onclick="window.filterTopics('ALL', this)">All Topics (9)</button>
+          <button class="topic-filter-btn filter-btn" onclick="window.filterTopics('Real Analysis', this)">Real Analysis</button>
+          <button class="topic-filter-btn filter-btn" onclick="window.filterTopics('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
+          <button class="topic-filter-btn filter-btn" onclick="window.filterTopics('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
+        </div>
+
+        <div class="topics-grid" id="topics-container">
+          <!-- Injected by main.js -->
+        </div>
+      </div>
+
+      <!-- Panel 3: Study Materials & Resource Hub -->
+      <div id="tab-panel-resources" class="tab-content-panel hidden">
+        <div class="section-header-block" style="margin-bottom: 24px;">
+          <h2 class="section-title">📚 Study Materials & Resource Hub</h2>
+          <p class="section-sub">Comprehensive collection of official question banks, syllabus, formula cheat sheets, and past year question paper archives.</p>
+        </div>
+
+        <div class="resources-grid">
+          <!-- Card 1: Question Bank -->
+          <a href="docs/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Topic-Wise Question Bank PDF">
+            <div class="resource-icon-wrap">📄</div>
+            <h3 class="resource-title">Topic-Wise Question Bank (2022–2026)</h3>
+            <p class="resource-desc">Publication-ready 52-page master PDF containing all 300 official PYQs organized by syllabus with complete Master Answer Key.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">PDF • 52 Pages</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+
+          <!-- Card 2: Official Syllabus -->
+          <a href="docs/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Official IIT JAM Syllabus PDF">
+            <div class="resource-icon-wrap">📜</div>
+            <h3 class="resource-title">Official IIT JAM Syllabus</h3>
+            <p class="resource-desc">Official syllabus document detailing all topics across Real Analysis, Multivariable Calculus, ODE, Linear Algebra, and Groups.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">Official Document</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+
+          <!-- Card 3: Formula Cheat Sheets -->
+          <div class="resource-card" style="cursor: pointer;" onclick="window.openCheatSheetsModal()" title="Browse all 14 Formula Cheat Sheets">
+            <div class="resource-icon-wrap">📑</div>
+            <h3 class="resource-title">14 Formula Cheat Sheets</h3>
+            <p class="resource-desc">High-yield quick revision formula sheets for Sequences, Series, Single/Multivariable Calculus, ODE, Linear Algebra, and Group Theory.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">14 Topic Sheets</span>
+              <span style="color: var(--green);">Browse All →</span>
+            </div>
+          </div>
+
+          <!-- Card 4: 2022-2026 PYQs with Keys -->
+          <a href="docs/2022-2026-PYQs-with-Keys.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 2022-2026 Official Papers & Keys PDF">
+            <div class="resource-icon-wrap">📝</div>
+            <h3 class="resource-title">2022–2026 Official Papers & Keys</h3>
+            <p class="resource-desc">Original examination papers from 2022 to 2026 combined with official IIT final answer keys and acceptance ranges.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">198 Pages • Complete</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+
+          <!-- Card 5: 2005-2026 Original Papers Archive -->
+          <a href="docs/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 22-Year PYQ Archive PDF">
+            <div class="resource-icon-wrap">🏛</div>
+            <h3 class="resource-title">22-Year PYQ Archive (2005–2026)</h3>
+            <p class="resource-desc">Comprehensive historical archive of original IIT JAM Mathematics examination papers spanning 2005 through 2026.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">2005–2026 Archive</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </main>
 
   <!-- Cheat Sheets Modal -->
   <div id="cheatsheets-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeCheatSheetsModal()">
