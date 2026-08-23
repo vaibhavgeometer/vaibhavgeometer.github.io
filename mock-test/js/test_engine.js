@@ -48,7 +48,9 @@
     }
 
     // Set first question as visited
-    state.status[0] = 'not_answered';
+    if (state.test.questions && state.test.questions.length > 0) {
+      state.status[0] = 'not_answered';
+    }
 
     // Set timer duration
     state.timeRemaining = (state.test.duration_minutes || 180) * 60;
@@ -141,12 +143,24 @@
 
   function renderQuestion() {
     const q = state.test.questions[state.currentIndex];
-    if (!q) return;
+    const qBodyEl = document.getElementById('q-body-text');
+    if (!q) {
+      if (qBodyEl) {
+        qBodyEl.innerHTML = `
+          <div style="text-align: center; padding: 48px 20px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">ℹ</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">No Questions in this Era</h3>
+            <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 24px;">This topic was not part of the official IIT JAM Mathematics syllabus during this era.</p>
+            <a href="../index.html" class="btn-action btn-save-next" style="display: inline-block; text-decoration: none; padding: 10px 24px;">← Back to Mock Test Portal</a>
+          </div>
+        `;
+      }
+      return;
+    }
 
     const qNumEl = document.getElementById('q-num-display');
     const qTypeEl = document.getElementById('q-type-badge');
     const qMarksEl = document.getElementById('q-marks-pill');
-    const qBodyEl = document.getElementById('q-body-text');
     const qOptionsEl = document.getElementById('q-options-container');
 
     if (qNumEl) qNumEl.innerText = `Question ${state.currentIndex + 1} of ${state.test.total_questions || state.test.questions.length}`;

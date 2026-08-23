@@ -1,6 +1,6 @@
 /**
  * IIT JAM Mathematics Portal - Main Logic
- * 22-Year (2005-2026) Mock Tests, Topic-Wise Tests, Filters & Theme Management
+ * 22-Year (2005-2026) Mock Tests, 27 Era-Based Subtopic Tests (3 Eras x 9 Topics), Filters & Theme Management
  */
 
 (function() {
@@ -21,7 +21,6 @@
   };
 
   function updateThemeIcon(theme) {
-    const btn = document.getElementById('theme-btn') || document.getElementById('theme-toggle-btn');
     const allBtns = document.querySelectorAll('#theme-btn, #theme-toggle-btn');
     allBtns.forEach(b => {
       b.textContent = theme === 'dark' ? '☀' : '🌙';
@@ -113,7 +112,12 @@
     }).join('');
   };
 
-  // --- Render Topic-Wise Mock Tests ---
+  // --- Render 27 Subtopic Mock Tests & Full Archive ---
+  window.topicFilterState = {
+    era: 'ALL',
+    category: 'ALL'
+  };
+
   window.renderTopicMockTests = function() {
     const container = document.getElementById('topics-container');
     if (!container) return;
@@ -124,13 +128,37 @@
     }
 
     const allData = window.MOCK_TESTS_DATA;
-    // Filter keys that look like '1.1', '1.2', etc.
-    const topicKeys = Object.keys(allData)
-      .filter(k => /^\d+\.\d+$/.test(k))
-      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    
+    // Order keys: 2022-2026 (1.1..3.4), 2015-2021 (1.1..3.4), 2005-2014 (1.1..3.4), comprehensive (1.1..3.4)
+    const eraOrder = ['2022-2026', '2015-2021', '2005-2014'];
+    const subtopicKeys = ['1.1', '1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '3.4'];
 
-    container.innerHTML = topicKeys.map(k => {
+    const allTopicTestKeys = [];
+
+    // Add 27 Era-based Subtopic Tests
+    eraOrder.forEach(era => {
+      subtopicKeys.forEach(st => {
+        const k = `${era}_${st}`;
+        if (allData[k]) allTopicTestKeys.push(k);
+      });
+    });
+
+    // Add 9 Comprehensive Full-Archive Tests
+    subtopicKeys.forEach(st => {
+      if (allData[st]) allTopicTestKeys.push(st);
+    });
+
+    container.innerHTML = allTopicTestKeys.map(k => {
       const t = allData[k];
+      const isComprehensive = t.era === 'comprehensive';
+      const isZeroQuestions = (t.total_questions || (t.questions ? t.questions.length : 0)) === 0;
+
+      let tagClass = 'tag-cbt';
+      if (t.era === '2022-2026') tagClass = 'tag-recent';
+      else if (t.era === '2015-2021') tagClass = 'tag-cbt';
+      else if (t.era === '2005-2014') tagClass = 'tag-classic';
+      else if (isComprehensive) tagClass = 'tag-archive';
+
       const bestScore = localStorage.getItem(`jam_score_${t.id}`);
       const scoreBadge = bestScore !== null
         ? `<span class="best-score">★ Best: ${bestScore}/${t.total_marks}</span>`
@@ -140,18 +168,34 @@
         ? `<a href="${t.cheat_sheet}" target="_blank" rel="noopener noreferrer" class="btn-test cheat" title="Open Formula Cheat Sheet">📑 Cheat Sheet</a>`
         : '';
 
+      const eraBadgeLabel = t.era_label || (isComprehensive ? '2005–2026 Archive' : t.era);
+
+      let actionButtons = '';
+      if (!isZeroQuestions) {
+        actionButtons = `
+          <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Mock Test</a>
+          <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
+          ${cheatBtn}
+        `;
+      } else {
+        actionButtons = `
+          <span class="btn-test disabled" title="This topic was not part of the JAM syllabus during this era">0 Qs (Added in 2022)</span>
+          ${cheatBtn}
+        `;
+      }
+
       return `
-        <div class="topic-card" data-category="${t.category}">
+        <div class="topic-card ${isZeroQuestions ? 'card-zero-qs' : ''}" data-era="${t.era}" data-category="${t.category}" data-topic-id="${t.topic_id || ''}">
           <div class="topic-card-top">
-            <span class="topic-num">Topic ${t.id}</span>
-            <span class="era-tag tag-cbt">2005–2026 Archive</span>
+            <span class="topic-num">Topic ${t.topic_id || t.id}</span>
+            <span class="era-tag ${tagClass}">${eraBadgeLabel}</span>
             ${scoreBadge}
           </div>
           <h3 class="topic-card-title">${t.name}</h3>
           <div class="topic-meta">
             <div class="topic-meta-item">
               <span class="meta-label">Questions</span>
-              <span class="meta-value">${t.total_questions || t.questions.length} Qs</span>
+              <span class="meta-value">${t.total_questions || (t.questions ? t.questions.length : 0)} Qs</span>
             </div>
             <div class="topic-meta-item">
               <span class="meta-label">Total Marks</span>
@@ -163,17 +207,61 @@
             </div>
             <div class="topic-meta-item">
               <span class="meta-label">Pattern</span>
-              <span class="meta-value">MCQ • MSQ • NAT</span>
+              <span class="meta-value">${isZeroQuestions ? 'Not in Era Syllabus' : (t.era === '2005-2014' ? 'Classic Pattern' : 'MCQ • MSQ • NAT')}</span>
             </div>
           </div>
           <div class="topic-actions">
-            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Mock Test</a>
-            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
-            ${cheatBtn}
+            ${actionButtons}
           </div>
         </div>
       `;
     }).join('');
+
+    window.applyTopicFilters();
+  };
+
+  // --- Apply Dual Filters (Era & Category) ---
+  window.applyTopicFilters = function() {
+    const selectedEra = window.topicFilterState.era;
+    const selectedCat = window.topicFilterState.category;
+
+    const cards = document.querySelectorAll('#topics-container .topic-card');
+    cards.forEach(card => {
+      const cardEra = card.dataset.era;
+      const cardCat = card.dataset.category;
+
+      let matchEra = false;
+      if (selectedEra === 'ALL') {
+        // Show all 27 era-based subtopic tests (exclude comprehensive 2005-2026 archive cards when ALL 27 era tests are selected)
+        matchEra = (cardEra !== 'comprehensive');
+      } else {
+        matchEra = (cardEra === selectedEra);
+      }
+
+      let matchCat = (selectedCat === 'ALL' || cardCat === selectedCat);
+
+      card.style.display = (matchEra && matchCat) ? 'flex' : 'none';
+    });
+  };
+
+  // --- Filter Topic Era ---
+  window.filterTopicEra = function(era, btn) {
+    window.topicFilterState.era = era;
+    document.querySelectorAll('.topic-era-filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    window.applyTopicFilters();
+  };
+
+  // --- Filter Topic Category ---
+  window.filterTopicCategory = function(cat, btn) {
+    window.topicFilterState.category = cat;
+    document.querySelectorAll('.topic-filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    window.applyTopicFilters();
+  };
+
+  window.filterTopics = function(cat, btn) {
+    window.filterTopicCategory(cat, btn);
   };
 
   // --- Filter Year Tests (All / CBT / Classic) ---
@@ -187,16 +275,6 @@
       } else {
         card.style.display = 'none';
       }
-    });
-  };
-
-  // --- Filter Topic Tests ---
-  window.filterTopics = function(cat, btn) {
-    document.querySelectorAll('.topic-filter-btn').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-
-    document.querySelectorAll('#topics-container .topic-card').forEach(card => {
-      card.style.display = (cat === 'ALL' || card.dataset.category === cat) ? 'flex' : 'none';
     });
   };
 

@@ -63,7 +63,7 @@
       <div class="hero-badges">
         <span class="hero-pill">🏛 <strong>22</strong> Year Mock Tests</span>
         <span class="hero-pill">🎯 <strong>885</strong> Official PYQs</span>
-        <span class="hero-pill">⚡ <strong>9</strong> Topic Mock Tests</span>
+        <span class="hero-pill">⚡ <strong>27</strong> Subtopic Mock Tests</span>
         <span class="hero-pill">📑 <strong>14</strong> Formula Cheat Sheets</span>
         <span class="hero-pill">📜 <strong>2005–2026</strong> Archive</span>
       </div>
@@ -77,7 +77,7 @@
         🏛 22-Year Mock Tests (2005–2026)
       </button>
       <button class="main-tab-btn" onclick="window.switchMainTab('topic-tests', this)">
-        ⚡ 9 Topic Mock Tests (2005–2026)
+        ⚡ 27 Subtopic Mock Tests (3 Eras × 9 Topics)
       </button>
       <button class="main-tab-btn" onclick="window.switchMainTab('resources', this)">
         📚 Study Materials Hub
@@ -102,13 +102,29 @@
         </div>
       </div>
 
-      <!-- Panel 2: Topic-Wise Mock Tests (2005-2026) -->
+      <!-- Panel 2: Subtopic Mock Tests (3 Eras × 9 Topics = 27 Tests + 2005-2026 Archive) -->
       <div id="tab-panel-topic-tests" class="tab-content-panel hidden">
-        <div class="filter-tabs">
-          <button class="topic-filter-btn filter-btn active" onclick="window.filterTopics('ALL', this)">All Topics (9)</button>
-          <button class="topic-filter-btn filter-btn" onclick="window.filterTopics('Real Analysis', this)">Real Analysis</button>
-          <button class="topic-filter-btn filter-btn" onclick="window.filterTopics('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
-          <button class="topic-filter-btn filter-btn" onclick="window.filterTopics('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
+        <div class="topic-filters-wrapper">
+          <div class="filter-group">
+            <span class="filter-group-label">Era:</span>
+            <div class="filter-tabs era-filter-tabs">
+              <button class="topic-era-filter-btn filter-btn active" onclick="window.filterTopicEra('ALL', this)">All Eras (27 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('2022-2026', this)">2022–2026 (9 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('2015-2021', this)">2015–2021 (9 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('2005-2014', this)">2005–2014 (9 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('comprehensive', this)">2005–2026 Archive (9)</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-group-label">Subject:</span>
+            <div class="filter-tabs category-filter-tabs">
+              <button class="topic-filter-btn filter-btn active" onclick="window.filterTopicCategory('ALL', this)">All Topics (9 Subtopics)</button>
+              <button class="topic-filter-btn filter-btn" onclick="window.filterTopicCategory('Real Analysis', this)">Real Analysis</button>
+              <button class="topic-filter-btn filter-btn" onclick="window.filterTopicCategory('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
+              <button class="topic-filter-btn filter-btn" onclick="window.filterTopicCategory('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
+            </div>
+          </div>
         </div>
 
         <div class="topics-grid" id="topics-container">
