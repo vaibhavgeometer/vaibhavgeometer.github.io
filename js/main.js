@@ -21,11 +21,12 @@
   };
 
   function updateThemeIcon(theme) {
-    const btn = document.getElementById('theme-btn');
-    if (btn) {
-      btn.textContent = theme === 'dark' ? '☀' : '🌙';
-      btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
-    }
+    const btn = document.getElementById('theme-btn') || document.getElementById('theme-toggle-btn');
+    const allBtns = document.querySelectorAll('#theme-btn, #theme-toggle-btn');
+    allBtns.forEach(b => {
+      b.textContent = theme === 'dark' ? '☀' : '🌙';
+      b.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
+    });
   }
 
   // --- Tab Navigation (Year Tests vs Topic Tests vs Resources) ---

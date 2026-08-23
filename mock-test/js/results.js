@@ -309,6 +309,11 @@
         </div>
       </div>
     `;
+
+    // Trigger MathJax re-render for text questions/explanations with LaTeX in solution view
+    if (window.renderMath) {
+      window.renderMath(appEl);
+    }
   };
 
   window.filterSolutionReview = function(statusFilter, btn) {

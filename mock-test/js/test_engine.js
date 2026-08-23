@@ -15,11 +15,12 @@
     filter: 'ALL',
     isSubmitted: false,
     mode: 'official',    // 'official' or 'practice'
-    startTime: Date.now()
+    startTime: 0
   };
 
   // Initialize Engine
   function init() {
+    state.startTime = Date.now();
     const urlParams = new URLSearchParams(window.location.search);
     const paramTopic = urlParams.get('topic') || urlParams.get('year') || '2026';
     const paramMode = urlParams.get('mode') || 'official';
@@ -349,7 +350,12 @@
   }
 
   window.setNatInput = function(val) {
-    state.responses[state.currentIndex] = (val && val.trim() !== '') ? val.trim() : null;
+    if (val === null || val === undefined) {
+      state.responses[state.currentIndex] = null;
+      return;
+    }
+    const clean = String(val).trim();
+    state.responses[state.currentIndex] = clean !== '' ? clean : null;
   };
 
   window.pressNatKey = function(key) {
@@ -362,11 +368,17 @@
     } else if (key === 'BACK') {
       cur = cur.slice(0, -1);
     } else if (key === '-') {
-      if (cur.startsWith('-')) cur = cur.slice(1);
-      else cur = '-' + cur;
+      if (cur.startsWith('-')) {
+        cur = cur.slice(1);
+      } else {
+        cur = '-' + cur;
+      }
     } else if (key === '.') {
-      if (!cur.includes('.')) cur += '.';
+      if (!cur.includes('.')) {
+        cur = cur === '' || cur === '-' ? cur + '0.' : cur + '.';
+      }
     } else {
+      // Digits 0-9
       cur += key;
     }
 
@@ -468,7 +480,7 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       const status = state.status[idx] || 'not_visited';
-      const statusHyphen = status.replace('_', '-');
+      const statusHyphen = status.replace(/_/g, '-');
       const statusClass = `status-${status} status-${statusHyphen} st-${statusHyphen}`;
       const isCurrent = idx === state.currentIndex ? 'current current-q' : '';
       btn.className = `palette-btn ${statusClass} ${isCurrent}`.trim();
@@ -668,6 +680,11 @@
     });
 
     modal.classList.remove('hidden');
+
+    // Trigger MathJax re-render for text questions with LaTeX in question paper view
+    if (window.renderMath) {
+      window.renderMath(list);
+    }
   };
 
   window.closeQuestionPaperModal = function() {
@@ -694,21 +711,48 @@
   };
 
   function updateThemeIcon() {
-    const btn = document.getElementById('theme-toggle-btn');
-    if (btn) {
-      const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    const allBtns = document.querySelectorAll('#theme-toggle-btn, #theme-btn');
+    const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    allBtns.forEach(btn => {
       btn.textContent = cur === 'dark' ? '☀' : '🌙';
-    }
+      btn.title = `Switch to ${cur === 'dark' ? 'Light' : 'Dark'} Mode`;
+    });
   }
 
   // Keyboard Navigation & Option Shortcuts
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      window.closeScreenshotModal();
-      window.closeQuestionPaperModal();
-      window.closeInstructionsModal();
-      window.closeSubmitModal();
-      if (window.closePaletteDrawer) window.closePaletteDrawer();
+      // Dismiss topmost modal / drawer in priority order
+      const screenshotModal = document.getElementById('screenshot-modal');
+      if (screenshotModal && !screenshotModal.classList.contains('hidden')) {
+        window.closeScreenshotModal();
+        return;
+      }
+      const calcModal = document.getElementById('calc-modal');
+      if (calcModal && !calcModal.classList.contains('hidden')) {
+        window.toggleCalculator(false);
+        return;
+      }
+      const qpaperModal = document.getElementById('qpaper-modal');
+      if (qpaperModal && !qpaperModal.classList.contains('hidden')) {
+        window.closeQuestionPaperModal();
+        return;
+      }
+      const instructionsModal = document.getElementById('instructions-modal');
+      if (instructionsModal && !instructionsModal.classList.contains('hidden')) {
+        window.closeInstructionsModal();
+        return;
+      }
+      const submitModal = document.getElementById('submit-modal');
+      if (submitModal && !submitModal.classList.contains('hidden')) {
+        window.closeSubmitModal();
+        return;
+      }
+      const palettePane = document.getElementById('palette-pane');
+      if (palettePane && (palettePane.classList.contains('drawer-open') || palettePane.classList.contains('open'))) {
+        if (window.closePaletteDrawer) window.closePaletteDrawer();
+        return;
+      }
       return;
     }
 

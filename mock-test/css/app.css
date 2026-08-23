@@ -44,7 +44,7 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   
-  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
   --header-height: 64px;
@@ -88,6 +88,10 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+}
+
+.hidden {
+  display: none !important;
 }
 
 body {
@@ -1509,6 +1513,129 @@ mjx-container[jax="SVG"][display="true"] {
   color: var(--text-muted);
   padding: 30px;
   text-align: center;
+}
+
+/* Modal Helper Layout Classes */
+.modal-submit-container {
+  max-width: 440px;
+  padding: 24px;
+}
+
+.modal-submit-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.modal-submit-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.modal-submit-meta {
+  margin-bottom: 24px;
+}
+
+.modal-btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-confirm-submit {
+  background: var(--status-answered);
+  color: #ffffff;
+}
+
+.btn-confirm-submit:hover {
+  filter: brightness(1.1);
+}
+
+.modal-qpaper-container {
+  max-width: 800px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-qpaper-list {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.screenshot-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.screenshot-open-btn {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+}
+
+.modal-instructions-container {
+  max-width: 600px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-instructions-body {
+  padding: 24px;
+  overflow-y: auto;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.instructions-section-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--brand-primary);
+}
+
+.instructions-list {
+  padding-left: 20px;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+.instructions-list strong {
+  color: var(--text-primary);
+}
+
+.instructions-footer-row {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.legend-color-answered {
+  color: var(--status-answered);
+  font-weight: 700;
+}
+
+.legend-color-not-answered {
+  color: var(--status-not-answered);
+  font-weight: 700;
+}
+
+.legend-color-not-visited {
+  color: var(--status-not-visited);
+  font-weight: 700;
+}
+
+.legend-color-review {
+  color: var(--status-review);
+  font-weight: 700;
+}
+
+.legend-color-ans-review {
+  color: var(--status-ans-review);
+  font-weight: 700;
 }
 
 .calc-screen-wrap {

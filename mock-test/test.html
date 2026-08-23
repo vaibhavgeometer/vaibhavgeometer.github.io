@@ -6,6 +6,11 @@
   <title>IIT JAM Mathematics Mock Test Simulator</title>
   <meta name="description" content="Authentic IIT JAM Mathematics (MA) Computer Based Test (CBT) Simulator with MathJax LaTeX equations, Question Palette, Scientific Calculator, and instant results.">
   
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <!-- MathJax 3 Configuration -->
   <script src="js/mathjax_config.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
@@ -46,8 +51,8 @@
         <button class="nav-icon-btn" onclick="window.showInstructionsModal()" title="Exam Instructions">
           <span>ℹ</span>
         </button>
-        <button class="nav-icon-btn" id="theme-toggle-btn" onclick="window.toggleTheme()" title="Toggle Theme">
-          🌙
+        <button class="nav-icon-btn" id="theme-toggle-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
+          ☀
         </button>
         <button class="btn-submit-exam" onclick="window.showSubmitModal()" title="Submit Mock Test">
           <span class="submit-btn-icon">✓</span>
@@ -165,13 +170,13 @@
 
     <!-- Submit Confirmation Modal -->
     <div id="submit-modal" class="calc-modal-backdrop hidden" onclick="if(event.target===this) window.closeSubmitModal()">
-      <div class="calc-container" style="max-width: 440px; padding: 24px;">
-        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px;">Confirm Test Submission</h3>
-        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px;">
+      <div class="calc-container modal-submit-container">
+        <h3 class="modal-submit-title">Confirm Test Submission</h3>
+        <p class="modal-submit-desc">
           Are you sure you want to submit your mock test? Here is your current attempt summary:
         </p>
 
-        <div class="topic-meta-list" style="margin-bottom: 24px;">
+        <div class="topic-meta-list modal-submit-meta">
           <div class="topic-meta-item">
             <span class="meta-lbl">Answered</span>
             <span class="meta-val val-answered" id="modal-summary-answered">0</span>
@@ -190,21 +195,21 @@
           </div>
         </div>
 
-        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+        <div class="modal-btn-row">
           <button class="btn-action btn-secondary" onclick="window.closeSubmitModal()">Resume Test</button>
-          <button class="btn-action" style="background:#16a34a; color:#fff;" onclick="window.submitTest()">Yes, Submit</button>
+          <button class="btn-action btn-confirm-submit" onclick="window.submitTest()">Yes, Submit</button>
         </div>
       </div>
     </div>
 
     <!-- Question Paper Modal -->
     <div id="qpaper-modal" class="calc-modal-backdrop hidden" onclick="if(event.target===this) window.closeQuestionPaperModal()">
-      <div class="calc-container" style="max-width: 800px; max-height: 85vh; display: flex; flex-direction: column;">
+      <div class="calc-container modal-qpaper-container">
         <div class="calc-header">
           <div class="calc-title">📄 Full Question Paper View</div>
-          <button class="calc-close-btn" onclick="window.closeQuestionPaperModal()">✕</button>
+          <button class="calc-close-btn" onclick="window.closeQuestionPaperModal()" title="Close Question Paper">✕</button>
         </div>
-        <div id="qpaper-list" style="padding: 20px; overflow-y: auto; flex: 1;">
+        <div id="qpaper-list" class="modal-qpaper-list">
           <!-- Questions injected here -->
         </div>
       </div>
@@ -215,9 +220,9 @@
       <div class="calc-container screenshot-modal-container">
         <div class="calc-header">
           <div class="calc-title" id="screenshot-modal-title">📸 Official Question Paper Screenshot</div>
-          <div style="display: flex; gap: 8px; align-items: center;">
-            <a id="screenshot-open-tab" href="#" target="_blank" class="nav-icon-btn" style="padding: 4px 10px; font-size: 0.8rem;" title="Open Image Full Size in New Tab">↗ Full Size</a>
-            <button class="calc-close-btn" onclick="window.closeScreenshotModal()">✕</button>
+          <div class="screenshot-header-actions">
+            <a id="screenshot-open-tab" href="#" target="_blank" class="nav-icon-btn screenshot-open-btn" title="Open Image Full Size in New Tab">↗ Full Size</a>
+            <button class="calc-close-btn" onclick="window.closeScreenshotModal()" title="Close Screenshot Modal">✕</button>
           </div>
         </div>
         <div class="screenshot-modal-body">
@@ -229,32 +234,32 @@
 
     <!-- Instructions Modal -->
     <div id="instructions-modal" class="calc-modal-backdrop hidden" onclick="if(event.target===this) window.closeInstructionsModal()">
-      <div class="calc-container" style="max-width: 600px; max-height: 85vh; display: flex; flex-direction: column;">
+      <div class="calc-container modal-instructions-container">
         <div class="calc-header">
           <div class="calc-title">ℹ IIT JAM Exam Instructions & Marking Scheme</div>
-          <button class="calc-close-btn" onclick="window.closeInstructionsModal()">✕</button>
+          <button class="calc-close-btn" onclick="window.closeInstructionsModal()" title="Close Instructions">✕</button>
         </div>
-        <div style="padding: 24px; overflow-y: auto; font-size: 0.92rem; line-height: 1.6;">
-          <h4 style="font-weight: 700; margin-bottom: 6px; color: var(--brand-primary);">1. Question Types & Marking Scheme:</h4>
-          <ul style="padding-left: 20px; margin-bottom: 16px;">
+        <div class="modal-instructions-body">
+          <h4 class="instructions-section-title">1. Question Types & Marking Scheme:</h4>
+          <ul class="instructions-list">
             <li><strong>MCQ (Multiple Choice Questions):</strong> 1 Mark (+1, -1/3) or 2 Marks (+2, -2/3). Single correct option.</li>
             <li><strong>MSQ (Multiple Select Questions):</strong> 2 Marks (+2, 0 Negative). One or more correct options. No partial marks.</li>
             <li><strong>NAT (Numerical Answer Type):</strong> 1 Mark (+1, 0 Negative) or 2 Marks (+2, 0 Negative). Enter real number answer.</li>
           </ul>
 
-          <h4 style="font-weight: 700; margin-bottom: 6px; color: var(--brand-primary);">2. Question Palette Legend:</h4>
-          <ul style="padding-left: 20px; margin-bottom: 16px;">
-            <li><span style="color:#16a34a; font-weight:700;">🟢 Green:</span> Answered and saved.</li>
-            <li><span style="color:#dc2626; font-weight:700;">🔴 Red:</span> Visited but not answered.</li>
-            <li><span style="color:#94a3b8; font-weight:700;">⚪ Grey:</span> Not visited yet.</li>
-            <li><span style="color:#9333ea; font-weight:700;">🟣 Purple:</span> Marked for review (unanswered).</li>
-            <li><span style="color:#7e22ce; font-weight:700;">🟣🟢 Purple with dot:</span> Answered and marked for review (will be evaluated).</li>
+          <h4 class="instructions-section-title">2. Question Palette Legend:</h4>
+          <ul class="instructions-list">
+            <li><span class="legend-color-answered">🟢 Green:</span> Answered and saved.</li>
+            <li><span class="legend-color-not-answered">🔴 Red:</span> Visited but not answered.</li>
+            <li><span class="legend-color-not-visited">⚪ Grey:</span> Not visited yet.</li>
+            <li><span class="legend-color-review">🟣 Purple:</span> Marked for review (unanswered).</li>
+            <li><span class="legend-color-ans-review">🟣🟢 Purple with dot:</span> Answered and marked for review (will be evaluated).</li>
           </ul>
 
-          <h4 style="font-weight: 700; margin-bottom: 6px; color: var(--brand-primary);">3. Tools & Features:</h4>
+          <h4 class="instructions-section-title">3. Tools & Features:</h4>
           <p>You can use the built-in <strong>Virtual Scientific Calculator (🖩)</strong> anytime during the exam. All math formulas are rendered using MathJax LaTeX.</p>
 
-          <div style="text-align: right; margin-top: 20px;">
+          <div class="instructions-footer-row">
             <button class="btn-action btn-save-next" onclick="window.closeInstructionsModal()">I Understand</button>
           </div>
         </div>

@@ -52,7 +52,7 @@
 
 ### 📄 6. Question Bank PDF & LaTeX Source
 - **Official PDF**: Formatted, publication-ready topic-wise question bank with comprehensive answer keys ([View PDF](assets/Topic-Wise-Question-Bank-2022-2026.pdf)).
-- **LaTeX Source**: Clean modular TeX source file ([View TeX Source](latex/question_bank_2022_2026.tex)).
+- **LaTeX Source**: Clean modular TeX source file ([View TeX Source](assets/latex/question_bank_2022_2026.tex)).
 
 ---
 
@@ -85,7 +85,6 @@ vaibhavgeometer.github.io/
 ├── LICENSE                                    # MIT License
 ├── README.md                                  # Documentation & user guide
 ├── index.html                                 # Main landing page & test selector portal
-├── iit_jam_pyqs_categorized.json              # Master JSON (885 questions categorized by topic & subtopic)
 ├── css/
 │   └── style.css                              # Portal theme & layout styles
 ├── js/
@@ -96,6 +95,8 @@ vaibhavgeometer.github.io/
 │   ├── Syllabus.pdf                           # Official IIT JAM Mathematics syllabus document
 │   ├── 2022-2026-PYQs-with-Keys.pdf           # Combined official examination papers & answer keys
 │   ├── MA2005-2026_Original_PYQs.pdf          # 22-year comprehensive PYQ archive (2005–2026)
+│   ├── latex/
+│   │   └── question_bank_2022_2026.tex        # Full LaTeX document source for 300 PYQs
 │   ├── cheat-sheets/                          # 14 high-yield topic-wise formula & concept cheat sheets
 │   │   ├── Sequence_of_Real_Numbers_Cheat_Sheet.pdf
 │   │   ├── Series_of_Real_Numbers_Cheat_Sheet.pdf
@@ -121,8 +122,6 @@ vaibhavgeometer.github.io/
 │       ├── 2006/ ... 2014/                    # Classic era screenshots (15–35 Qs per year)
 │       ├── 2015/ ... 2021/                    # Early CBT era screenshots (60 Qs per year)
 │       ├── 2022/ ... 2026/                    # Modern CBT era screenshots (60 Qs per year)
-├── latex/
-│   └── question_bank_2022_2026.tex            # Full LaTeX document source for 300 PYQs
 ├── mock-test/
 │   ├── index.html                             # Redirect to root portal
 │   ├── test.html                              # CBT mock test simulator application

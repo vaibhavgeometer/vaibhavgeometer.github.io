@@ -1,12 +1,14 @@
 /**
  * IIT JAM Style Virtual Scientific Calculator
+ * Symmetrical 9x6 Layout, Math Token Parser & Safe Expression Evaluator
  */
 (function() {
   let calcState = {
     display: '0',
     memory: 0,
     isRad: true,
-    history: ''
+    history: '',
+    shouldResetDisplay: false
   };
 
   function initCalculator() {
@@ -40,17 +42,18 @@
           </div>
 
           <div class="calc-keypad">
-            <!-- Row 1: Memory & Clear -->
+            <!-- Row 1: Memory & Clear (9 buttons) -->
             <button class="calc-btn btn-mem" onclick="window.calcAction('MC')">MC</button>
             <button class="calc-btn btn-mem" onclick="window.calcAction('MR')">MR</button>
             <button class="calc-btn btn-mem" onclick="window.calcAction('MS')">MS</button>
             <button class="calc-btn btn-mem" onclick="window.calcAction('M+')">M+</button>
             <button class="calc-btn btn-mem" onclick="window.calcAction('M-')">M-</button>
+            <button class="calc-btn btn-fn" onclick="window.calcAction('+/-')">±</button>
             <button class="calc-btn btn-danger" onclick="window.calcAction('C')">C</button>
             <button class="calc-btn btn-danger" onclick="window.calcAction('CE')">CE</button>
             <button class="calc-btn btn-action" onclick="window.calcAction('BACK')">⌫</button>
 
-            <!-- Row 2: Trig & Powers -->
+            <!-- Row 2: Trig & Powers (9 buttons) -->
             <button class="calc-btn btn-fn" onclick="window.calcAction('sin')">sin</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('cos')">cos</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('tan')">tan</button>
@@ -58,9 +61,10 @@
             <button class="calc-btn btn-fn" onclick="window.calcAction('log')">log</button>
             <button class="calc-btn btn-num" onclick="window.calcAction('(')">(</button>
             <button class="calc-btn btn-num" onclick="window.calcAction(')')">)</button>
+            <button class="calc-btn btn-op" onclick="window.calcAction('%')">%</button>
             <button class="calc-btn btn-op" onclick="window.calcAction('/')">÷</button>
 
-            <!-- Row 3: Inverse Trig & Exponents -->
+            <!-- Row 3: Inverse Trig & Exponents (9 buttons) -->
             <button class="calc-btn btn-fn" onclick="window.calcAction('asin')">asin</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('acos')">acos</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('atan')">atan</button>
@@ -71,7 +75,7 @@
             <button class="calc-btn btn-num" onclick="window.calcAction('9')">9</button>
             <button class="calc-btn btn-op" onclick="window.calcAction('*')">×</button>
 
-            <!-- Row 4: Hyperbolic & Roots -->
+            <!-- Row 4: Hyperbolic & Roots (9 buttons) -->
             <button class="calc-btn btn-fn" onclick="window.calcAction('sinh')">sinh</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('cosh')">cosh</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('tanh')">tanh</button>
@@ -82,18 +86,18 @@
             <button class="calc-btn btn-num" onclick="window.calcAction('6')">6</button>
             <button class="calc-btn btn-op" onclick="window.calcAction('-')">−</button>
 
-            <!-- Row 5: Factorial & Numbers -->
+            <!-- Row 5: Factorial & Numbers (9 buttons) -->
             <button class="calc-btn btn-fn" onclick="window.calcAction('fact')">n!</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('1/x')">1/x</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('pi')">π</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('e')">e</button>
-            <button class="calc-btn btn-fn" onclick="window.calcAction('+/-')">±</button>
+            <button class="calc-btn btn-fn" onclick="window.calcAction('abs')">|x|</button>
             <button class="calc-btn btn-num" onclick="window.calcAction('1')">1</button>
             <button class="calc-btn btn-num" onclick="window.calcAction('2')">2</button>
             <button class="calc-btn btn-num" onclick="window.calcAction('3')">3</button>
             <button class="calc-btn btn-op" onclick="window.calcAction('+')">+</button>
 
-            <!-- Row 6: Zero & Equals -->
+            <!-- Row 6: Powers, Zero & Equals (6 buttons + 3-span Equals = 9 columns) -->
             <button class="calc-btn btn-fn" onclick="window.calcAction('x^2')">x²</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('x^3')">x³</button>
             <button class="calc-btn btn-fn" onclick="window.calcAction('cbrt')">∛x</button>
@@ -106,7 +110,6 @@
       </div>
     `;
 
-    // Append to body if not already present
     if (!document.getElementById('calc-modal')) {
       const div = document.createElement('div');
       div.innerHTML = modalHtml;
@@ -142,14 +145,180 @@
   function factorial(n) {
     if (n < 0 || Math.floor(n) !== n) return NaN;
     if (n === 0 || n === 1) return 1;
+    if (n > 170) return Infinity; // JS limit
     let res = 1;
     for (let i = 2; i <= n; i++) res *= i;
     return res;
   }
 
+  function formatNumber(num) {
+    if (!Number.isFinite(num)) return 'Error';
+    if (Math.abs(num) < 1e-10 && num !== 0) return num.toExponential(4);
+    // Limit precision to 10 decimals cleanly
+    const fixed = parseFloat(num.toFixed(10));
+    return fixed.toString();
+  }
+
+  // Safe Tokenizer and Shunting-Yard / Expression Evaluator
+  function evaluateMathExpression(exprStr) {
+    if (!exprStr || exprStr.trim() === '') return 0;
+    
+    // Normalize string
+    let clean = exprStr
+      .replace(/×/g, '*')
+      .replace(/÷/g, '/')
+      .replace(/−/g, '-')
+      .replace(/mod/g, '%')
+      .replace(/\s+/g, '');
+
+    // Tokenize
+    const tokens = [];
+    let i = 0;
+    while (i < clean.length) {
+      const c = clean[i];
+      if ('+-*/%^()'.includes(c)) {
+        // Unary minus check
+        if (c === '-' && (tokens.length === 0 || '(*+-/%^'.includes(tokens[tokens.length - 1]))) {
+          // Read negative number
+          let numStr = '-';
+          i++;
+          while (i < clean.length && (/\d|\./).test(clean[i])) {
+            numStr += clean[i];
+            i++;
+          }
+          if (numStr === '-') {
+            tokens.push(-1);
+            tokens.push('*');
+          } else {
+            tokens.push(parseFloat(numStr));
+          }
+          continue;
+        }
+        tokens.push(c);
+        i++;
+      } else if (/\d|\./.test(c)) {
+        let numStr = '';
+        while (i < clean.length && (/\d|\./).test(clean[i])) {
+          numStr += clean[i];
+          i++;
+        }
+        tokens.push(parseFloat(numStr));
+      } else {
+        i++;
+      }
+    }
+
+    // Shunting-Yard to Postfix (RPN)
+    const outputQueue = [];
+    const opStack = [];
+    const precedence = { '+': 1, '-': 1, '*': 2, '/': 2, '%': 2, '^': 3 };
+    const rightAssociative = { '^': true };
+
+    for (const token of tokens) {
+      if (typeof token === 'number') {
+        outputQueue.push(token);
+      } else if (token in precedence) {
+        while (
+          opStack.length > 0 &&
+          opStack[opStack.length - 1] !== '(' &&
+          (
+            (precedence[opStack[opStack.length - 1]] > precedence[token]) ||
+            (precedence[opStack[opStack.length - 1]] === precedence[token] && !rightAssociative[token])
+          )
+        ) {
+          outputQueue.push(opStack.pop());
+        }
+        opStack.push(token);
+      } else if (token === '(') {
+        opStack.push(token);
+      } else if (token === ')') {
+        while (opStack.length > 0 && opStack[opStack.length - 1] !== '(') {
+          outputQueue.push(opStack.pop());
+        }
+        if (opStack.length > 0 && opStack[opStack.length - 1] === '(') {
+          opStack.pop();
+        }
+      }
+    }
+
+    while (opStack.length > 0) {
+      const op = opStack.pop();
+      if (op !== '(' && op !== ')') {
+        outputQueue.push(op);
+      }
+    }
+
+    // Evaluate RPN
+    const evalStack = [];
+    for (const token of outputQueue) {
+      if (typeof token === 'number') {
+        evalStack.push(token);
+      } else {
+        const b = evalStack.pop();
+        const a = evalStack.pop();
+        if (a === undefined || b === undefined) return NaN;
+
+        switch (token) {
+          case '+': evalStack.push(a + b); break;
+          case '-': evalStack.push(a - b); break;
+          case '*': evalStack.push(a * b); break;
+          case '/': 
+            if (b === 0) return NaN;
+            evalStack.push(a / b); 
+            break;
+          case '%': 
+            if (b === 0) return NaN;
+            evalStack.push(a % b); 
+            break;
+          case '^': evalStack.push(Math.pow(a, b)); break;
+          default: return NaN;
+        }
+      }
+    }
+
+    return evalStack.length === 1 ? evalStack[0] : NaN;
+  }
+
+  // Get current active numeric operand from display
+  function getCurrentOperand() {
+    let cur = calcState.display;
+    if (cur === 'Error' || !cur) return 0;
+    // Extract trailing number
+    const match = cur.match(/([+-]?\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s*$/i);
+    return match ? parseFloat(match[1]) : (parseFloat(cur) || 0);
+  }
+
+  // Apply single-argument function to current operand
+  function applyUnaryFunction(fnName, computeFn) {
+    let val = getCurrentOperand();
+    if (isNaN(val)) {
+      calcState.display = 'Error';
+      updateCalcScreen();
+      return;
+    }
+    const res = computeFn(val);
+    if (!Number.isFinite(res) || isNaN(res)) {
+      calcState.display = 'Error';
+    } else {
+      const formatted = formatNumber(res);
+      calcState.history = `${fnName}(${val})`;
+      calcState.display = formatted;
+      calcState.shouldResetDisplay = true;
+    }
+    updateCalcScreen();
+  }
+
   window.calcAction = function(action) {
     let cur = calcState.display;
-    let val = parseFloat(cur) || 0;
+
+    // Reset if previous action completed calculation and user types a digit
+    if (calcState.shouldResetDisplay && ('0123456789.'.includes(action) || action === 'pi' || action === 'e')) {
+      cur = '0';
+      calcState.display = '0';
+      calcState.shouldResetDisplay = false;
+    } else if (calcState.shouldResetDisplay && ('+-*/%^'.includes(action) || action === 'mod' || action === 'x^y')) {
+      calcState.shouldResetDisplay = false;
+    }
 
     switch(action) {
       case '0': case '1': case '2': case '3': case '4':
@@ -160,137 +329,221 @@
           calcState.display += action;
         }
         break;
+
       case '.':
-        if (!cur.includes('.')) calcState.display += '.';
+        if (cur === 'Error') {
+          calcState.display = '0.';
+        } else {
+          // Check if current active number part already has a dot
+          const parts = cur.split(/[\s+\-*/%^()]+/);
+          const lastPart = parts[parts.length - 1];
+          if (!lastPart.includes('.')) {
+            calcState.display += '.';
+          }
+        }
         break;
+
       case 'C':
         calcState.display = '0';
         calcState.history = '';
+        calcState.shouldResetDisplay = false;
         break;
+
       case 'CE':
         calcState.display = '0';
+        calcState.shouldResetDisplay = false;
         break;
+
       case 'BACK':
         if (cur.length > 1 && cur !== 'Error') {
-          calcState.display = cur.slice(0, -1);
+          calcState.display = cur.trimEnd().slice(0, -1).trimEnd();
+          if (calcState.display === '') calcState.display = '0';
         } else {
           calcState.display = '0';
         }
         break;
+
       case '+/-':
         if (cur !== '0' && cur !== 'Error') {
-          if (cur.startsWith('-')) calcState.display = cur.slice(1);
-          else calcState.display = '-' + cur;
+          let val = getCurrentOperand();
+          let flipped = -val;
+          let formatted = formatNumber(flipped);
+          // If display is a single number, replace directly
+          if (!/[\s+\-*/%^]/.test(cur)) {
+            calcState.display = formatted;
+          } else {
+            calcState.display = cur.replace(/([+-]?\d+(?:\.\d+)?)\s*$/, formatted);
+          }
         }
         break;
-      case '+': case '-': case '*': case '/': case '(': case ')':
+
+      case '+': case '-': case '*': case '/': case '%':
         if (cur === 'Error') cur = '0';
-        calcState.display += ' ' + action + ' ';
+        calcState.display = cur.trimEnd() + ' ' + action + ' ';
         break;
+
       case 'x^y':
-        calcState.display += ' ^ ';
+        if (cur === 'Error') cur = '0';
+        calcState.display = cur.trimEnd() + ' ^ ';
         break;
+
       case 'mod':
-        calcState.display += ' % ';
+        if (cur === 'Error') cur = '0';
+        calcState.display = cur.trimEnd() + ' % ';
         break;
+
+      case '(':
+        if (cur === '0' || cur === 'Error') {
+          calcState.display = '(';
+        } else {
+          calcState.display += ' ( ';
+        }
+        break;
+
+      case ')':
+        calcState.display += ' )';
+        break;
+
       case 'pi':
         calcState.display = Math.PI.toString();
+        calcState.shouldResetDisplay = true;
         break;
+
       case 'e':
         calcState.display = Math.E.toString();
+        calcState.shouldResetDisplay = true;
         break;
+
+      case 'abs':
+        applyUnaryFunction('abs', v => Math.abs(v));
+        return;
+
       case 'sin':
-        let angleSin = calcState.isRad ? val : (val * Math.PI / 180);
-        calcState.display = Math.sin(angleSin).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `sin(${val})`;
-        break;
+        applyUnaryFunction('sin', v => {
+          const rad = calcState.isRad ? v : (v * Math.PI / 180);
+          return Math.sin(rad);
+        });
+        return;
+
       case 'cos':
-        let angleCos = calcState.isRad ? val : (val * Math.PI / 180);
-        calcState.display = Math.cos(angleCos).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `cos(${val})`;
-        break;
+        applyUnaryFunction('cos', v => {
+          const rad = calcState.isRad ? v : (v * Math.PI / 180);
+          return Math.cos(rad);
+        });
+        return;
+
       case 'tan':
-        let angleTan = calcState.isRad ? val : (val * Math.PI / 180);
-        calcState.display = Math.tan(angleTan).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `tan(${val})`;
-        break;
+        applyUnaryFunction('tan', v => {
+          const rad = calcState.isRad ? v : (v * Math.PI / 180);
+          return Math.tan(rad);
+        });
+        return;
+
       case 'asin':
-        let resAsin = Math.asin(val);
-        calcState.display = (calcState.isRad ? resAsin : resAsin * 180 / Math.PI).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `asin(${val})`;
-        break;
+        applyUnaryFunction('asin', v => {
+          const res = Math.asin(v);
+          return calcState.isRad ? res : (res * 180 / Math.PI);
+        });
+        return;
+
       case 'acos':
-        let resAcos = Math.acos(val);
-        calcState.display = (calcState.isRad ? resAcos : resAcos * 180 / Math.PI).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `acos(${val})`;
-        break;
+        applyUnaryFunction('acos', v => {
+          const res = Math.acos(v);
+          return calcState.isRad ? res : (res * 180 / Math.PI);
+        });
+        return;
+
       case 'atan':
-        let resAtan = Math.atan(val);
-        calcState.display = (calcState.isRad ? resAtan : resAtan * 180 / Math.PI).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `atan(${val})`;
-        break;
+        applyUnaryFunction('atan', v => {
+          const res = Math.atan(v);
+          return calcState.isRad ? res : (res * 180 / Math.PI);
+        });
+        return;
+
+      case 'sinh':
+        applyUnaryFunction('sinh', v => Math.sinh(v));
+        return;
+
+      case 'cosh':
+        applyUnaryFunction('cosh', v => Math.cosh(v));
+        return;
+
+      case 'tanh':
+        applyUnaryFunction('tanh', v => Math.tanh(v));
+        return;
+
       case 'ln':
-        calcState.display = Math.log(val).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `ln(${val})`;
-        break;
+        applyUnaryFunction('ln', v => (v > 0 ? Math.log(v) : NaN));
+        return;
+
       case 'log':
-        calcState.display = Math.log10(val).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `log10(${val})`;
-        break;
+        applyUnaryFunction('log10', v => (v > 0 ? Math.log10(v) : NaN));
+        return;
+
       case 'e^x':
-        calcState.display = Math.exp(val).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `e^(${val})`;
-        break;
+        applyUnaryFunction('e^', v => Math.exp(v));
+        return;
+
       case '10^x':
-        calcState.display = Math.pow(10, val).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `10^(${val})`;
-        break;
+        applyUnaryFunction('10^', v => Math.pow(10, v));
+        return;
+
       case 'sqrt':
-        calcState.display = Math.sqrt(val).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `√(${val})`;
-        break;
+        applyUnaryFunction('√', v => (v >= 0 ? Math.sqrt(v) : NaN));
+        return;
+
       case 'cbrt':
-        calcState.display = Math.cbrt(val).toFixed(8).replace(/\.?0+$/, '');
-        calcState.history = `∛(${val})`;
-        break;
+        applyUnaryFunction('∛', v => Math.cbrt(v));
+        return;
+
       case 'x^2':
-        calcState.display = Math.pow(val, 2).toString();
-        calcState.history = `(${val})²`;
-        break;
+        applyUnaryFunction('sqr', v => Math.pow(v, 2));
+        return;
+
       case 'x^3':
-        calcState.display = Math.pow(val, 3).toString();
-        calcState.history = `(${val})³`;
-        break;
+        applyUnaryFunction('cube', v => Math.pow(v, 3));
+        return;
+
       case '1/x':
-        calcState.display = (val !== 0 ? (1 / val) : 'Error').toString();
-        calcState.history = `1/(${val})`;
-        break;
+        applyUnaryFunction('recip', v => (v !== 0 ? 1 / v : NaN));
+        return;
+
       case 'fact':
-        calcState.display = factorial(val).toString();
-        calcState.history = `${val}!`;
-        break;
+        applyUnaryFunction('fact', v => factorial(v));
+        return;
+
       case 'MC':
         calcState.memory = 0;
         break;
+
       case 'MR':
-        calcState.display = calcState.memory.toString();
+        calcState.display = formatNumber(calcState.memory);
+        calcState.shouldResetDisplay = true;
         break;
+
       case 'MS':
-        calcState.memory = val;
+        calcState.memory = getCurrentOperand();
         break;
+
       case 'M+':
-        calcState.memory += val;
+        calcState.memory += getCurrentOperand();
         break;
+
       case 'M-':
-        calcState.memory -= val;
+        calcState.memory -= getCurrentOperand();
         break;
+
       case '=':
         try {
-          calcState.history = calcState.display + ' =';
-          let expr = calcState.display.replace(/\^/g, '**');
-          // safe eval of math expressions
-          let evalResult = Function('"use strict"; return (' + expr + ')')();
-          calcState.display = Number.isFinite(evalResult) ? parseFloat(evalResult.toFixed(10)).toString() : 'Error';
+          const exprToEval = calcState.display;
+          const result = evaluateMathExpression(exprToEval);
+          if (isNaN(result) || !Number.isFinite(result)) {
+            calcState.display = 'Error';
+          } else {
+            calcState.history = exprToEval + ' =';
+            calcState.display = formatNumber(result);
+            calcState.shouldResetDisplay = true;
+          }
         } catch (e) {
           calcState.display = 'Error';
         }
@@ -300,6 +553,5 @@
     updateCalcScreen();
   };
 
-  // Setup on DOM load
   document.addEventListener('DOMContentLoaded', initCalculator);
 })();
