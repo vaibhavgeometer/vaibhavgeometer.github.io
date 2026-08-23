@@ -1,0 +1,6197 @@
+[
+  {
+    "year": 2005,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2005,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2005,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2005,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2005,
+    "question_number": 5,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2005,
+    "question_number": 6,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2005,
+    "question_number": 7,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2005,
+    "question_number": 8,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2005,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2005,
+    "question_number": 10,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2005,
+    "question_number": 11,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2005,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2005,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2005,
+    "question_number": 14,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2005,
+    "question_number": 15,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2006,
+    "question_number": 1,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2006,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2006,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2006,
+    "question_number": 4,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2006,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2006,
+    "question_number": 6,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2006,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2006,
+    "question_number": 8,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2006,
+    "question_number": 9,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2006,
+    "question_number": 10,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2006,
+    "question_number": 11,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2006,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2006,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2006,
+    "question_number": 14,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2006,
+    "question_number": 15,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2007,
+    "question_number": 1,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2007,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2007,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2007,
+    "question_number": 4,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2007,
+    "question_number": 5,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2007,
+    "question_number": 6,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2007,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2007,
+    "question_number": 8,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2007,
+    "question_number": 9,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2007,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2007,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2007,
+    "question_number": 12,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2007,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2007,
+    "question_number": 14,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2007,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2008,
+    "question_number": 1,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2008,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2008,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2008,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2008,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2008,
+    "question_number": 6,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2008,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2008,
+    "question_number": 8,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2008,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2008,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2008,
+    "question_number": 11,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2008,
+    "question_number": 12,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2008,
+    "question_number": 13,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2008,
+    "question_number": 14,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2008,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2009,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2009,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2009,
+    "question_number": 3,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2009,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2009,
+    "question_number": 5,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2009,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2009,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2009,
+    "question_number": 8,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2009,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2009,
+    "question_number": 10,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2009,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2009,
+    "question_number": 12,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2009,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2009,
+    "question_number": 14,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2009,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2010,
+    "question_number": 1,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2010,
+    "question_number": 2,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2010,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2010,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2010,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2010,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2010,
+    "question_number": 7,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2010,
+    "question_number": 8,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2010,
+    "question_number": 9,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2010,
+    "question_number": 10,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2010,
+    "question_number": 11,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2010,
+    "question_number": 12,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2010,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2010,
+    "question_number": 14,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2010,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2011,
+    "question_number": 1,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2011,
+    "question_number": 2,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2011,
+    "question_number": 3,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2011,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2011,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2011,
+    "question_number": 6,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2011,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2011,
+    "question_number": 8,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2011,
+    "question_number": 9,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2011,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2011,
+    "question_number": 11,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2011,
+    "question_number": 12,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2011,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2011,
+    "question_number": 14,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2011,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2012,
+    "question_number": 1,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2012,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2012,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2012,
+    "question_number": 4,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2012,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2012,
+    "question_number": 6,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2012,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2012,
+    "question_number": 8,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2012,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2012,
+    "question_number": 10,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2012,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2012,
+    "question_number": 12,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2012,
+    "question_number": 13,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2012,
+    "question_number": 14,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2012,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2013,
+    "question_number": 1,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2013,
+    "question_number": 2,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2013,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2013,
+    "question_number": 4,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2013,
+    "question_number": 5,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2013,
+    "question_number": 6,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2013,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2013,
+    "question_number": 8,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2013,
+    "question_number": 9,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2013,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2014,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 2,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2014,
+    "question_number": 4,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2014,
+    "question_number": 5,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2014,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2014,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2014,
+    "question_number": 8,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2014,
+    "question_number": 9,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2014,
+    "question_number": 10,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 11,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2014,
+    "question_number": 12,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2014,
+    "question_number": 13,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2014,
+    "question_number": 14,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2014,
+    "question_number": 15,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2014,
+    "question_number": 16,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2014,
+    "question_number": 17,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2014,
+    "question_number": 18,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2014,
+    "question_number": 19,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2014,
+    "question_number": 20,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2014,
+    "question_number": 21,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2014,
+    "question_number": 22,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 23,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 24,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2014,
+    "question_number": 25,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2014,
+    "question_number": 26,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 27,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2014,
+    "question_number": 28,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2014,
+    "question_number": 29,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2014,
+    "question_number": 30,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2014,
+    "question_number": 31,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2014,
+    "question_number": 32,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2014,
+    "question_number": 33,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2014,
+    "question_number": 34,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2014,
+    "question_number": 35,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 2,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2015,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2015,
+    "question_number": 4,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2015,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2015,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2015,
+    "question_number": 8,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2015,
+    "question_number": 9,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 10,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2015,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 12,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 14,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2015,
+    "question_number": 15,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2015,
+    "question_number": 16,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2015,
+    "question_number": 17,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2015,
+    "question_number": 18,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2015,
+    "question_number": 19,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 20,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 21,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 22,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 23,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 24,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2015,
+    "question_number": 25,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 26,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2015,
+    "question_number": 27,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 28,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 29,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 30,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2015,
+    "question_number": 31,
+    "answer": "A;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 32,
+    "answer": "A;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2015,
+    "question_number": 33,
+    "answer": "C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 34,
+    "answer": "A;B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 35,
+    "answer": "A;C;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2015,
+    "question_number": 36,
+    "answer": "A;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2015,
+    "question_number": 37,
+    "answer": "A;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 38,
+    "answer": "B;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2015,
+    "question_number": 39,
+    "answer": "B;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 40,
+    "answer": "A;B;C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 41,
+    "answer": "1",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 42,
+    "answer": "6.28 to 6.29",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2015,
+    "question_number": 43,
+    "answer": "3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2015,
+    "question_number": 44,
+    "answer": "-1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2015,
+    "question_number": 45,
+    "answer": "2.34 to 2.35",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2015,
+    "question_number": 46,
+    "answer": "1.64 to 1.65",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 47,
+    "answer": "1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2015,
+    "question_number": 48,
+    "answer": "-1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2015,
+    "question_number": 49,
+    "answer": "2",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 50,
+    "answer": "3",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 51,
+    "answer": "8",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2015,
+    "question_number": 52,
+    "answer": "84",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2015,
+    "question_number": 53,
+    "answer": "0.25",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 54,
+    "answer": "2",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2015,
+    "question_number": 55,
+    "answer": "0.125",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2015,
+    "question_number": 56,
+    "answer": "1.41 to 1.42",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 57,
+    "answer": "0.10 to 0.11",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2015,
+    "question_number": 58,
+    "answer": "5.09 to 5.10",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2015,
+    "question_number": 59,
+    "answer": "3",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2015,
+    "question_number": 60,
+    "answer": "2",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2016,
+    "question_number": 1,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 2,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2016,
+    "question_number": 3,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 4,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2016,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 7,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2016,
+    "question_number": 8,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2016,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2016,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 12,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 14,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2016,
+    "question_number": 15,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2016,
+    "question_number": 16,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2016,
+    "question_number": 17,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2016,
+    "question_number": 18,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2016,
+    "question_number": 19,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 20,
+    "answer": "MTA",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2016,
+    "question_number": 21,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 22,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 23,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 24,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2016,
+    "question_number": 25,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2016,
+    "question_number": 26,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2016,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2016,
+    "question_number": 28,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2016,
+    "question_number": 29,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 30,
+    "answer": "MTA",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2016,
+    "question_number": 31,
+    "answer": "A;C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 32,
+    "answer": "A;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 33,
+    "answer": "B;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2016,
+    "question_number": 34,
+    "answer": "B;C;D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 35,
+    "answer": "C;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2016,
+    "question_number": 36,
+    "answer": "A;B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 37,
+    "answer": "A;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 38,
+    "answer": "B;C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2016,
+    "question_number": 39,
+    "answer": "A;C;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2016,
+    "question_number": 40,
+    "answer": "B;D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 41,
+    "answer": "0.5 to 0.5",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 42,
+    "answer": "1.0 to 1.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 43,
+    "answer": "2.0 to 2.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2016,
+    "question_number": 44,
+    "answer": "8.0 to 8.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2016,
+    "question_number": 45,
+    "answer": "1.49 to 1.55",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 46,
+    "answer": "-1 to -1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 47,
+    "answer": "6.0 to 6.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2016,
+    "question_number": 48,
+    "answer": "0.5 to 0.5",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 49,
+    "answer": "0.25 to 0.25",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2016,
+    "question_number": 50,
+    "answer": "6.0 to 6.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2016,
+    "question_number": 51,
+    "answer": "1.0 to 1.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2016,
+    "question_number": 52,
+    "answer": "0.35 to 0.4",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2016,
+    "question_number": 53,
+    "answer": "3.0 to 3.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2016,
+    "question_number": 54,
+    "answer": "0.8 to 1.9",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 55,
+    "answer": "72.0 to 72.0",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2016,
+    "question_number": 56,
+    "answer": "-0.3 to -0.25",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2016,
+    "question_number": 57,
+    "answer": "2.0 to 2.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2016,
+    "question_number": 58,
+    "answer": "3.0 to 3.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2016,
+    "question_number": 59,
+    "answer": "1.0 to 1.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2016,
+    "question_number": 60,
+    "answer": "2.0 to 2.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2017,
+    "question_number": 1,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2017,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 4,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2017,
+    "question_number": 6,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2017,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 8,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 9,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 10,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 12,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2017,
+    "question_number": 13,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 14,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 15,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 16,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2017,
+    "question_number": 17,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 18,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 19,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 20,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 21,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 22,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2017,
+    "question_number": 23,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2017,
+    "question_number": 24,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 25,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 26,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 28,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 29,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2017,
+    "question_number": 30,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2017,
+    "question_number": 31,
+    "answer": "A, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 32,
+    "answer": "A, B, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2017,
+    "question_number": 33,
+    "answer": "A, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2017,
+    "question_number": 34,
+    "answer": "A, B, D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2017,
+    "question_number": 35,
+    "answer": "A, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 36,
+    "answer": "A, C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 37,
+    "answer": "B, D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 38,
+    "answer": "B, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2017,
+    "question_number": 39,
+    "answer": "B, C, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2017,
+    "question_number": 40,
+    "answer": "C, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2017,
+    "question_number": 41,
+    "answer": "1.9 to 2.1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2017,
+    "question_number": 42,
+    "answer": "5.9 to 6.1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 43,
+    "answer": "-0.01 to +0.01",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 44,
+    "answer": "9.9 to 10.1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2017,
+    "question_number": 45,
+    "answer": "1259.9 to 1260.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 46,
+    "answer": "1.9 to 2.1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2017,
+    "question_number": 47,
+    "answer": "0.49 to 0.51",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 48,
+    "answer": "2.9 to 3.1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2017,
+    "question_number": 49,
+    "answer": "54.9 to 55.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 50,
+    "answer": "7.9 to 8.1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 51,
+    "answer": "2.9 to 3.1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2017,
+    "question_number": 52,
+    "answer": "2.0 to 2.2",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2017,
+    "question_number": 53,
+    "answer": "0.9 to 1.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 54,
+    "answer": "29.9 to 30.1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2017,
+    "question_number": 55,
+    "answer": "0.9 to 1.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 56,
+    "answer": "2.9 to 3.1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2017,
+    "question_number": 57,
+    "answer": "0.9 to 1.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2017,
+    "question_number": 58,
+    "answer": "5.9 to 6.1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2017,
+    "question_number": 59,
+    "answer": "0.9 to 1.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2017,
+    "question_number": 60,
+    "answer": "1.34 to 1.36",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 1,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 4,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 6,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2018,
+    "question_number": 7,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2018,
+    "question_number": 8,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 10,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2018,
+    "question_number": 11,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 14,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 15,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 16,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2018,
+    "question_number": 17,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2018,
+    "question_number": 18,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 19,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 20,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2018,
+    "question_number": 21,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 22,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 23,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 24,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 25,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 26,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2018,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2018,
+    "question_number": 28,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 29,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 30,
+    "answer": "Marks to All",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 31,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 32,
+    "answer": "A;B;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 33,
+    "answer": "A;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 34,
+    "answer": "B;C;D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 35,
+    "answer": "B;C;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 36,
+    "answer": "A;B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2018,
+    "question_number": 37,
+    "answer": "A;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2018,
+    "question_number": 38,
+    "answer": "A;B;C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 39,
+    "answer": "B;C;D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 40,
+    "answer": "A;B;C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2018,
+    "question_number": 41,
+    "answer": "4 to 4",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 42,
+    "answer": "6.5 to 7.5",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 43,
+    "answer": "1 to 1",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 44,
+    "answer": "1 to 1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 45,
+    "answer": "3 to 3",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 46,
+    "answer": "9 to 9",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 47,
+    "answer": "2 to 2",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 48,
+    "answer": "0 to 0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2018,
+    "question_number": 49,
+    "answer": "4 to 4",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2018,
+    "question_number": 50,
+    "answer": "-0.130 to -0.120",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 51,
+    "answer": "0.4 to 0.6",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2018,
+    "question_number": 52,
+    "answer": "0.350 to 0.380",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 53,
+    "answer": "1140 to 1160",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2018,
+    "question_number": 54,
+    "answer": "5.99 to 6.01",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2018,
+    "question_number": 55,
+    "answer": "2.9 to 3.1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2018,
+    "question_number": 56,
+    "answer": "0.230 to 0.250",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2018,
+    "question_number": 57,
+    "answer": "6 to 6",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2018,
+    "question_number": 58,
+    "answer": "6.30 to 6.70",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2018,
+    "question_number": 59,
+    "answer": "-2.80 to -2.70",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2018,
+    "question_number": 60,
+    "answer": "0.5 to 0.5",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2019,
+    "question_number": 1,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2019,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 3,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 4,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2019,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 6,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 7,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 8,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2019,
+    "question_number": 9,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2019,
+    "question_number": 11,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2019,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2019,
+    "question_number": 14,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 15,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 16,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 17,
+    "answer": "D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 18,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 19,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2019,
+    "question_number": 20,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2019,
+    "question_number": 21,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 22,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 23,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 24,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2019,
+    "question_number": 25,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 26,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2019,
+    "question_number": 27,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 28,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 29,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2019,
+    "question_number": 30,
+    "answer": "A",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 31,
+    "answer": "A, C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 32,
+    "answer": "B, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 33,
+    "answer": "C, D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2019,
+    "question_number": 34,
+    "answer": "A, D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 35,
+    "answer": "B, D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 36,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 37,
+    "answer": "B, C, D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 38,
+    "answer": "B, C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 39,
+    "answer": "A, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2019,
+    "question_number": 40,
+    "answer": "A, B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 41,
+    "answer": "99 to 99",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 42,
+    "answer": "60 to 60",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2019,
+    "question_number": 43,
+    "answer": "7 to 7",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 44,
+    "answer": "75.35 to 75.45",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2019,
+    "question_number": 45,
+    "answer": "1 to 1",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 46,
+    "answer": "0.25 to 0.25",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 47,
+    "answer": "8 to 8",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2019,
+    "question_number": 48,
+    "answer": "2.6 to 2.6",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2019,
+    "question_number": 49,
+    "answer": "2.60 to 2.70",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2019,
+    "question_number": 50,
+    "answer": "5.30 to 5.50",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2019,
+    "question_number": 51,
+    "answer": "6.60 to 6.80",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2019,
+    "question_number": 52,
+    "answer": "2.69 to 2.74",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2019,
+    "question_number": 53,
+    "answer": "31 to 31 or 46 to 46",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 54,
+    "answer": "5 to 5",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2019,
+    "question_number": 55,
+    "answer": "4 to 4",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2019,
+    "question_number": 56,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 57,
+    "answer": "17 to 17",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 58,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2019,
+    "question_number": 59,
+    "answer": "4 to 4",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2019,
+    "question_number": 60,
+    "answer": "1.12 to 1.25",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 4,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2020,
+    "question_number": 5,
+    "answer": "Marks to All",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2020,
+    "question_number": 6,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2020,
+    "question_number": 7,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 8,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 9,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 10,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 11,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 12,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2020,
+    "question_number": 14,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2020,
+    "question_number": 15,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2020,
+    "question_number": 16,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2020,
+    "question_number": 17,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 18,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 19,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 20,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2020,
+    "question_number": 21,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 22,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 23,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2020,
+    "question_number": 24,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2020,
+    "question_number": 25,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2020,
+    "question_number": 26,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2020,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2020,
+    "question_number": 28,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 29,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 30,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 31,
+    "answer": "A;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 32,
+    "answer": "A;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 33,
+    "answer": "A;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 34,
+    "answer": "B;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2020,
+    "question_number": 35,
+    "answer": "A;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 36,
+    "answer": "A;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2020,
+    "question_number": 37,
+    "answer": "B;C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 38,
+    "answer": "A;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2020,
+    "question_number": 39,
+    "answer": "A;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 40,
+    "answer": "C;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 41,
+    "answer": "1 to 1",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 42,
+    "answer": "32 to 32",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2020,
+    "question_number": 43,
+    "answer": "0 to INF",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 44,
+    "answer": "0.08 to 0.09",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 45,
+    "answer": "2.70 to 2.72",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2020,
+    "question_number": 46,
+    "answer": "0.1 to 0.1",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 47,
+    "answer": "0.25 to 0.25",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2020,
+    "question_number": 48,
+    "answer": "7 to 7",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 49,
+    "answer": "1011 to 1011",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2020,
+    "question_number": 50,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2020,
+    "question_number": 51,
+    "answer": "0.25 to 0.25",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 52,
+    "answer": "33 to 33",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2020,
+    "question_number": 53,
+    "answer": "2 to 2",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2020,
+    "question_number": 54,
+    "answer": "0.5 to 0.5",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2020,
+    "question_number": 55,
+    "answer": "0.65 to 0.67",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2020,
+    "question_number": 56,
+    "answer": "8 to 8",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 57,
+    "answer": "3 to 3",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2020,
+    "question_number": 58,
+    "answer": "-216 to -216",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2020,
+    "question_number": 59,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2020,
+    "question_number": 60,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 1,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 3,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 4,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2021,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 7,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 8,
+    "answer": "C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 9,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2021,
+    "question_number": 10,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2021,
+    "question_number": 11,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2021,
+    "question_number": 12,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2021,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 14,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 15,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2021,
+    "question_number": 16,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2021,
+    "question_number": 17,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 18,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 19,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2021,
+    "question_number": 20,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 21,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 22,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2021,
+    "question_number": 23,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2021,
+    "question_number": 24,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 25,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 26,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 28,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 29,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2021,
+    "question_number": 30,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2021,
+    "question_number": 31,
+    "answer": "A, B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 32,
+    "answer": "A, B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 33,
+    "answer": "B, D",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 34,
+    "answer": "A, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2021,
+    "question_number": 35,
+    "answer": "A, C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 36,
+    "answer": "A, B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 37,
+    "answer": "B, C",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 38,
+    "answer": "B, C, D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 39,
+    "answer": "A, B, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2021,
+    "question_number": 40,
+    "answer": "MTA",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2021,
+    "question_number": 41,
+    "answer": "90",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 42,
+    "answer": "7",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2021,
+    "question_number": 43,
+    "answer": "0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2021,
+    "question_number": 44,
+    "answer": "-2",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 45,
+    "answer": "2",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 46,
+    "answer": "5",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2021,
+    "question_number": 47,
+    "answer": "4",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 48,
+    "answer": "3",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2021,
+    "question_number": 49,
+    "answer": "1",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 50,
+    "answer": "1",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2021,
+    "question_number": 51,
+    "answer": "9",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2021,
+    "question_number": 52,
+    "answer": "10.8 to 10.9",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 53,
+    "answer": "0",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 54,
+    "answer": "15",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 55,
+    "answer": "0",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2021,
+    "question_number": 56,
+    "answer": "2021",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2021,
+    "question_number": 57,
+    "answer": "0",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2021,
+    "question_number": 58,
+    "answer": "2",
+    "topic": "Out of Syllabus",
+    "sub_topic": "Out of Syllabus"
+  },
+  {
+    "year": 2021,
+    "question_number": 59,
+    "answer": "4",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2021,
+    "question_number": 60,
+    "answer": "8",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2022,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 3,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 4,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 5,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 6,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 7,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 8,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 9,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 10,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 11,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2022,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 14,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 15,
+    "answer": "Marks to All",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 16,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 17,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 18,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 19,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 20,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 21,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 22,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 23,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 24,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 25,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 26,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 27,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 28,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 29,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 30,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 31,
+    "answer": "A,C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 32,
+    "answer": "A,B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 33,
+    "answer": "A,B,C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 34,
+    "answer": "A,D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 35,
+    "answer": "C,D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 36,
+    "answer": "C,D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 37,
+    "answer": "A,C,D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 38,
+    "answer": "A,C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 39,
+    "answer": "A,B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 40,
+    "answer": "A,C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 41,
+    "answer": "2.19 to 2.21",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 42,
+    "answer": "14 to 14",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 43,
+    "answer": "0.32 to 0.34",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 44,
+    "answer": "0.24 to 0.26",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 45,
+    "answer": "8 to 8",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 46,
+    "answer": "420 to 420",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 47,
+    "answer": "0 to 0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 48,
+    "answer": "0.49 to 0.51",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2022,
+    "question_number": 49,
+    "answer": "2.24 to 2.26",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 50,
+    "answer": "2.00 to 2.00",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2022,
+    "question_number": 51,
+    "answer": "18 to 18",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 52,
+    "answer": "4.15 to 4.17",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2022,
+    "question_number": 53,
+    "answer": "3.00 to 3.00",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 54,
+    "answer": "2.00 to 2.00",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 55,
+    "answer": "3.00 to 3.00",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2022,
+    "question_number": 56,
+    "answer": "5 to 5",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2022,
+    "question_number": 57,
+    "answer": "41 to 41",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2022,
+    "question_number": 58,
+    "answer": "6 to 6",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2022,
+    "question_number": 59,
+    "answer": "2.00 to 2.00",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2022,
+    "question_number": 60,
+    "answer": "13.39 to 13.41",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 1,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2023,
+    "question_number": 3,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2023,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2023,
+    "question_number": 8,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 9,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 10,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2023,
+    "question_number": 14,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2023,
+    "question_number": 15,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 16,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 17,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 18,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2023,
+    "question_number": 19,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 20,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 21,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 22,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2023,
+    "question_number": 23,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 24,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 25,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 26,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2023,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 28,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 29,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 30,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 31,
+    "answer": "A, C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2023,
+    "question_number": 32,
+    "answer": "A, B, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 33,
+    "answer": "B, D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2023,
+    "question_number": 34,
+    "answer": "A, C, D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 35,
+    "answer": "A, B, D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 36,
+    "answer": "A, B, C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 37,
+    "answer": "A, B, C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 38,
+    "answer": "A, B, C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 39,
+    "answer": "B, D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 40,
+    "answer": "A, D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 41,
+    "answer": "0 to 0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 42,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 43,
+    "answer": "-0.01 to 0.01",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2023,
+    "question_number": 44,
+    "answer": "0.49 to 0.51",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 45,
+    "answer": "15 to 15",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 46,
+    "answer": "6 to 6",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 47,
+    "answer": "0.49 to 0.51",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 48,
+    "answer": "3.99 to 4.01",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2023,
+    "question_number": 49,
+    "answer": "0.49 to 0.51",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 50,
+    "answer": "0.99 to 1.01",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2023,
+    "question_number": 51,
+    "answer": "20.99 to 21.01",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2023,
+    "question_number": 52,
+    "answer": "0.74 to 0.76",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2023,
+    "question_number": 53,
+    "answer": "0.49 to 0.51",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2023,
+    "question_number": 54,
+    "answer": "11 to 11",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2023,
+    "question_number": 55,
+    "answer": "0.49 to 0.51",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2023,
+    "question_number": 56,
+    "answer": "2 to 2",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2023,
+    "question_number": 57,
+    "answer": "4 to 4",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2023,
+    "question_number": 58,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2023,
+    "question_number": 59,
+    "answer": "-0.01 to 0.01",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2023,
+    "question_number": 60,
+    "answer": "0.49 to 0.51",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 1,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 2,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2024,
+    "question_number": 3,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 4,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 6,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 7,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 8,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 9,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 10,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 11,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 12,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 13,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2024,
+    "question_number": 14,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 15,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 16,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 17,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2024,
+    "question_number": 18,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 19,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 20,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 21,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 22,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2024,
+    "question_number": 23,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 24,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 25,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 26,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 27,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2024,
+    "question_number": 28,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 29,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 30,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2024,
+    "question_number": 31,
+    "answer": "A;B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 32,
+    "answer": "A;B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 33,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 34,
+    "answer": "B;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 35,
+    "answer": "B;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2024,
+    "question_number": 36,
+    "answer": "B;C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 37,
+    "answer": "B;C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 38,
+    "answer": "B;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 39,
+    "answer": "B;C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 40,
+    "answer": "B;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2024,
+    "question_number": 41,
+    "answer": "0.24 to 0.26",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2024,
+    "question_number": 42,
+    "answer": "0.19 to 0.21",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 43,
+    "answer": "1.0 to 1.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 44,
+    "answer": "0.15 to 0.18",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 45,
+    "answer": "6 to 6",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2024,
+    "question_number": 46,
+    "answer": "3 to 3",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 47,
+    "answer": "1.95 to 2.05",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 48,
+    "answer": "4.50 to 4.60",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2024,
+    "question_number": 49,
+    "answer": "14.95 to 15.05",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2024,
+    "question_number": 50,
+    "answer": "31 to 31",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2024,
+    "question_number": 51,
+    "answer": "6 to 6",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2024,
+    "question_number": 52,
+    "answer": "0.24 to 0.26",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 53,
+    "answer": "1.95 to 2.05",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2024,
+    "question_number": 54,
+    "answer": "4.70 to 4.90",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2024,
+    "question_number": 55,
+    "answer": "0.30 to 0.40",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 56,
+    "answer": "5 to 5",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2024,
+    "question_number": 57,
+    "answer": "4.4 to 4.6",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2024,
+    "question_number": 58,
+    "answer": "5 to 5",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2024,
+    "question_number": 59,
+    "answer": "0.98 to 1.02",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2024,
+    "question_number": 60,
+    "answer": "1.50 to 1.70",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 1,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 2,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 3,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 4,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 6,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 8,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 9,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 10,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2025,
+    "question_number": 11,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 12,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 13,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 14,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 15,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 16,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 17,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 18,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 19,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 20,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 21,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 22,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 23,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 24,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 25,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 26,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2025,
+    "question_number": 28,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2025,
+    "question_number": 29,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 30,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 31,
+    "answer": "A;C;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2025,
+    "question_number": 32,
+    "answer": "A;B;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 33,
+    "answer": "A;B;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 34,
+    "answer": "B;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2025,
+    "question_number": 35,
+    "answer": "A;B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 36,
+    "answer": "A;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 37,
+    "answer": "B;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 38,
+    "answer": "B;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 39,
+    "answer": "B;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 40,
+    "answer": "C;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 41,
+    "answer": "1.98 to 2.02",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 42,
+    "answer": "3.98 to 4.02",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 43,
+    "answer": "1.98 to 2.02",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 44,
+    "answer": "1.39 to 1.43",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 45,
+    "answer": "2.98 to 3.02",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2025,
+    "question_number": 46,
+    "answer": "2 to 2",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 47,
+    "answer": "3.98 to 4.02",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 48,
+    "answer": "2.31 to 2.35",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2025,
+    "question_number": 49,
+    "answer": "1 to 1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 50,
+    "answer": "2.98 to 3.02",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2025,
+    "question_number": 51,
+    "answer": "1.98 to 2.02",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 52,
+    "answer": "3 to 3",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 53,
+    "answer": "9 to 9",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2025,
+    "question_number": 54,
+    "answer": "5.20 to 5.24",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2025,
+    "question_number": 55,
+    "answer": "0.98 to 1.02",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 56,
+    "answer": "3.98 to 4.02",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2025,
+    "question_number": 57,
+    "answer": "MTA",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2025,
+    "question_number": 58,
+    "answer": "1 to 1",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2025,
+    "question_number": 59,
+    "answer": "10 to 10",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2025,
+    "question_number": 60,
+    "answer": "0 to 0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 1,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 2,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 3,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 4,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 5,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2026,
+    "question_number": 6,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 7,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 8,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 9,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2026,
+    "question_number": 10,
+    "answer": "MTA",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2026,
+    "question_number": 11,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 12,
+    "answer": "C",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 13,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 14,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 15,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2026,
+    "question_number": 16,
+    "answer": "C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 17,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2026,
+    "question_number": 18,
+    "answer": "D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 19,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 20,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2026,
+    "question_number": 21,
+    "answer": "D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 22,
+    "answer": "A",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2026,
+    "question_number": 23,
+    "answer": "B",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 24,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2026,
+    "question_number": 25,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 26,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2026,
+    "question_number": 27,
+    "answer": "C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Groups"
+  },
+  {
+    "year": 2026,
+    "question_number": 28,
+    "answer": "D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2026,
+    "question_number": 29,
+    "answer": "A",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 30,
+    "answer": "B",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 31,
+    "answer": "A;C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 32,
+    "answer": "C;D",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 33,
+    "answer": "A;C",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 34,
+    "answer": "B",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 35,
+    "answer": "B;D",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 36,
+    "answer": "A;C",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2026,
+    "question_number": 37,
+    "answer": "A;B;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 38,
+    "answer": "A",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Basic algebra"
+  },
+  {
+    "year": 2026,
+    "question_number": 39,
+    "answer": "A;B;C",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 40,
+    "answer": "B;D",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Finite Dimensional Vector Spaces"
+  },
+  {
+    "year": 2026,
+    "question_number": 41,
+    "answer": "4.0 to 4.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 42,
+    "answer": "1.0 to 1.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 43,
+    "answer": "1.0 to 1.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Sequences and Series of Real Numbers"
+  },
+  {
+    "year": 2026,
+    "question_number": 44,
+    "answer": "1.0 to 1.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 45,
+    "answer": "8.0 to 8.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 46,
+    "answer": "3.0 to 3.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2026,
+    "question_number": 47,
+    "answer": "8 to 8",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 48,
+    "answer": "-4.0 to -4.0",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 49,
+    "answer": "3.0 to 3.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 50,
+    "answer": "16.0 to 16.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 51,
+    "answer": "-1.0 to -1.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Differential Equations"
+  },
+  {
+    "year": 2026,
+    "question_number": 52,
+    "answer": "0.24 to 0.26",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Functions of Two or Three Real Variables"
+  },
+  {
+    "year": 2026,
+    "question_number": 53,
+    "answer": "1.1 to 1.3",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2026,
+    "question_number": 54,
+    "answer": "0.4 to 0.5",
+    "topic": "Real Analysis",
+    "sub_topic": "Functions of One Real Variable"
+  },
+  {
+    "year": 2026,
+    "question_number": 55,
+    "answer": "4.0 to 4.0",
+    "topic": "Multivariable Calculus and Differential Equations",
+    "sub_topic": "Integral Calculus"
+  },
+  {
+    "year": 2026,
+    "question_number": 56,
+    "answer": "-1.0 to -1.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 57,
+    "answer": "6.0 to 6.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 58,
+    "answer": "165 to 165",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Basic algebra"
+  },
+  {
+    "year": 2026,
+    "question_number": 59,
+    "answer": "1.0 to 1.0",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Matrices"
+  },
+  {
+    "year": 2026,
+    "question_number": 60,
+    "answer": "924 to 924",
+    "topic": "Linear Algebra and Algebra",
+    "sub_topic": "Basic algebra"
+  }
+]
