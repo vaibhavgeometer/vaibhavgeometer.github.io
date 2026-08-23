@@ -88,7 +88,10 @@
       <!-- Question Palette Sidebar -->
       <aside class="palette-pane" id="palette-pane">
         <div class="palette-header">
-          <div class="palette-title">📋 Question Palette</div>
+          <div class="palette-title">
+            <span>📋 Question Palette</span>
+            <button class="palette-close-btn" onclick="window.closePaletteDrawer()" title="Close Question Palette" aria-label="Close Question Palette">✕</button>
+          </div>
           <div class="palette-legend">
             <div class="legend-item">
               <span class="legend-badge bg-answered" id="count-answered">0</span> Answered
@@ -126,6 +129,9 @@
         </div>
       </aside>
     </div>
+
+    <!-- Mobile Question Palette Backdrop -->
+    <div class="palette-backdrop" id="palette-backdrop" onclick="window.closePaletteDrawer()" title="Close Palette"></div>
 
     <!-- Bottom Action Footer -->
     <footer class="exam-footer">

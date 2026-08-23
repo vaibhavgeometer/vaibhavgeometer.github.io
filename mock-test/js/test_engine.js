@@ -448,9 +448,8 @@
       updateSummaryStats();
 
       // On mobile, close palette drawer if open
-      const pane = document.getElementById('palette-pane');
-      if (pane && pane.classList.contains('drawer-open')) {
-        pane.classList.remove('drawer-open');
+      if (window.closePaletteDrawer) {
+        window.closePaletteDrawer();
       }
     }
   };
@@ -524,9 +523,28 @@
     renderPalette();
   };
 
-  window.togglePaletteDrawer = function() {
+  window.togglePaletteDrawer = function(forceOpen) {
     const pane = document.getElementById('palette-pane');
-    if (pane) pane.classList.toggle('drawer-open');
+    const backdrop = document.getElementById('palette-backdrop');
+    if (!pane) return;
+
+    const isOpen = pane.classList.contains('drawer-open') || pane.classList.contains('open');
+    const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !isOpen;
+
+    pane.classList.toggle('drawer-open', shouldOpen);
+    pane.classList.toggle('open', shouldOpen);
+    if (backdrop) {
+      backdrop.classList.toggle('drawer-open', shouldOpen);
+      backdrop.classList.toggle('open', shouldOpen);
+    }
+  };
+
+  window.openPaletteDrawer = function() {
+    window.togglePaletteDrawer(true);
+  };
+
+  window.closePaletteDrawer = function() {
+    window.togglePaletteDrawer(false);
   };
 
   window.showSubmitModal = function() {
@@ -690,6 +708,7 @@
       window.closeQuestionPaperModal();
       window.closeInstructionsModal();
       window.closeSubmitModal();
+      if (window.closePaletteDrawer) window.closePaletteDrawer();
       return;
     }
 

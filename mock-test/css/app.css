@@ -1060,7 +1060,36 @@ mjx-container[jax="SVG"][display="true"] {
   color: var(--text-primary);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 6px;
+}
+
+.palette-close-btn {
+  display: none;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.palette-close-btn:hover {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+}
+
+.palette-backdrop {
+  display: none;
 }
 
 .palette-legend {
@@ -1907,20 +1936,49 @@ mjx-container[jax="SVG"][display="true"] {
 }
 
 @media (max-width: 992px) {
+  .palette-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 45;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .palette-backdrop.drawer-open,
+  .palette-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .palette-pane {
     position: fixed;
     top: var(--header-height);
     right: 0;
     bottom: 0;
-    width: 300px;
-    z-index: 25;
-    box-shadow: var(--shadow-xl);
+    width: min(320px, 85vw);
+    height: calc(100% - var(--header-height));
+    z-index: 50;
+    box-shadow: -6px 0 25px rgba(0, 0, 0, 0.4);
     transform: translateX(100%);
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.28s ease;
+    visibility: hidden;
+    pointer-events: none;
   }
 
+  .palette-pane.drawer-open,
   .palette-pane.open {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .palette-close-btn {
+    display: inline-flex;
   }
 
   .palette-drawer-toggle {
@@ -1929,6 +1987,7 @@ mjx-container[jax="SVG"][display="true"] {
 
   .palette-drawer-footer {
     display: block;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 }
 
@@ -2245,7 +2304,8 @@ mjx-container[jax="SVG"][display="true"] {
 
   .palette-pane {
     top: 44px;
-    width: 260px;
+    height: calc(100% - 44px);
+    width: 280px;
   }
 
   .palette-drawer-toggle {
