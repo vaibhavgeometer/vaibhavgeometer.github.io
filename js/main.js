@@ -142,18 +142,19 @@
       return `
         <div class="topic-card" data-category="${t.category}">
           <div class="topic-card-top">
-            <span class="topic-num">${t.id}</span>
+            <span class="topic-num">Topic ${t.id}</span>
+            <span class="era-tag tag-cbt">2005–2026 Archive</span>
             ${scoreBadge}
           </div>
           <h3 class="topic-card-title">${t.name}</h3>
           <div class="topic-meta">
             <div class="topic-meta-item">
               <span class="meta-label">Questions</span>
-              <span class="meta-value">${t.total_questions || t.questions.length}</span>
+              <span class="meta-value">${t.total_questions || t.questions.length} Qs</span>
             </div>
             <div class="topic-meta-item">
               <span class="meta-label">Total Marks</span>
-              <span class="meta-value">${t.total_marks}</span>
+              <span class="meta-value">${t.total_marks} Marks</span>
             </div>
             <div class="topic-meta-item">
               <span class="meta-label">Duration</span>
@@ -165,8 +166,8 @@
             </div>
           </div>
           <div class="topic-actions">
-            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Test</a>
-            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
+            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Mock Test</a>
+            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
             ${cheatBtn}
           </div>
         </div>
