@@ -73,7 +73,11 @@
         : '';
 
       const pdfLink = t.paper_pdf
-        ? `<a href="${t.paper_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="View Original Question Paper PDF">📄 PDF Paper</a>`
+        ? `<a href="${t.paper_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="View Original Question Paper PDF">📄 Paper</a>`
+        : '';
+
+      const mockPdfLink = t.mock_pdf
+        ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
         : '';
 
       return `
@@ -105,6 +109,7 @@
           <div class="topic-actions">
             <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Start Timed Examination">⚡ Start Mock Test</a>
             <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
+            ${mockPdfLink}
             ${pdfLink}
           </div>
         </div>
@@ -165,7 +170,11 @@
         : '';
 
       const cheatBtn = t.cheat_sheet 
-        ? `<a href="${t.cheat_sheet}" target="_blank" rel="noopener noreferrer" class="btn-test cheat" title="Open Formula Cheat Sheet">📑 Cheat Sheet</a>`
+        ? `<a href="${t.cheat_sheet}" target="_blank" rel="noopener noreferrer" class="btn-test cheat" title="Open Formula Cheat Sheet">📑 Sheet</a>`
+        : '';
+
+      const mockPdfBtn = t.mock_pdf
+        ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
         : '';
 
       const eraBadgeLabel = t.era_label || (isComprehensive ? '2005–2026 Archive' : t.era);
@@ -175,6 +184,7 @@
         actionButtons = `
           <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Mock Test</a>
           <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
+          ${mockPdfBtn}
           ${cheatBtn}
         `;
       } else {
