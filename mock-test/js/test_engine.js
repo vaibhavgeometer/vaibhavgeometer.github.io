@@ -28,18 +28,29 @@
     state.topicId = paramTopic;
     state.mode = paramMode;
 
-    if (!window.MOCK_TESTS_DATA || !window.MOCK_TESTS_DATA[state.topicId]) {
-      // If requested topic is not found, fallback to 2026
-      if (window.MOCK_TESTS_DATA && window.MOCK_TESTS_DATA['2026']) {
+    if (state.topicId === 'custom') {
+      try {
+        const customJson = sessionStorage.getItem('jam_custom_test');
+        if (customJson) {
+          state.test = JSON.parse(customJson);
+        }
+      } catch (e) {
+        console.error('Error parsing custom test from sessionStorage:', e);
+      }
+    }
+
+    if (!state.test) {
+      if (window.MOCK_TESTS_DATA && window.MOCK_TESTS_DATA[state.topicId]) {
+        state.test = window.MOCK_TESTS_DATA[state.topicId];
+      } else if (window.MOCK_TESTS_DATA && window.MOCK_TESTS_DATA['2026']) {
         state.topicId = '2026';
+        state.test = window.MOCK_TESTS_DATA['2026'];
       } else {
         alert('Invalid or missing test paper data. Redirecting to home portal.');
         window.location.href = '../index.html';
         return;
       }
     }
-
-    state.test = window.MOCK_TESTS_DATA[state.topicId];
     
     // Set initial question statuses
     for (let i = 0; i < state.test.questions.length; i++) {

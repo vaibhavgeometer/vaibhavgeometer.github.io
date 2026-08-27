@@ -299,11 +299,270 @@
     if (modal) modal.classList.add('hidden');
   };
 
+  // --- Custom Test & Offline PDF Generator Logic ---
+  window.initCustomGenerator = function() {
+    if (!window.MOCK_TESTS_DATA) {
+      setTimeout(window.initCustomGenerator, 100);
+      return;
+    }
+
+    const allData = window.MOCK_TESTS_DATA;
+    // Populate topic counts for 1.1 through 3.4
+    const topicIds = ['1.1', '1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '3.4'];
+    topicIds.forEach(id => {
+      const countEl = document.getElementById(`count-${id}`);
+      if (countEl) {
+        const topicTest = allData[id];
+        const qCount = topicTest && topicTest.questions ? topicTest.questions.length : 0;
+        countEl.textContent = `${qCount} Qs`;
+      }
+    });
+
+    window.updateCustomGeneratorSummary();
+  };
+
+  window.syncQuestionCount = function(val) {
+    const num = Math.max(1, Math.min(100, parseInt(val) || 30));
+    const slider = document.getElementById('custom-q-slider');
+    const input = document.getElementById('custom-q-input');
+    if (slider) slider.value = num;
+    if (input) input.value = num;
+
+    // Update preset chips
+    document.querySelectorAll('.count-preset-chips .chip-btn').forEach(chip => {
+      const chipNum = parseInt(chip.textContent);
+      if (chipNum === num) chip.classList.add('active');
+      else chip.classList.remove('active');
+    });
+
+    window.updateCustomGeneratorSummary();
+  };
+
+  window.customGeneratorSelectAll = function(selectAll) {
+    document.querySelectorAll('input[name="custom-topic"]').forEach(cb => {
+      cb.checked = !!selectAll;
+    });
+    window.updateCustomGeneratorSummary();
+  };
+
+  window.customGeneratorSelectCategory = function(catKey) {
+    document.querySelectorAll('.custom-topic-item').forEach(item => {
+      const cb = item.querySelector('input[name="custom-topic"]');
+      if (cb) {
+        cb.checked = (item.dataset.cat === catKey);
+      }
+    });
+    window.updateCustomGeneratorSummary();
+  };
+
+  window.getCustomGeneratorConfig = function() {
+    const selectedTopics = Array.from(document.querySelectorAll('input[name="custom-topic"]:checked')).map(cb => cb.value);
+    const qCountInput = document.getElementById('custom-q-input');
+    const qCount = Math.max(1, Math.min(100, parseInt(qCountInput ? qCountInput.value : 30) || 30));
+    
+    const eraRadio = document.querySelector('input[name="custom-era"]:checked');
+    const era = eraRadio ? eraRadio.value : 'ALL';
+
+    const types = [];
+    if (document.getElementById('custom-type-mcq')?.checked) types.push('MCQ');
+    if (document.getElementById('custom-type-msq')?.checked) types.push('MSQ');
+    if (document.getElementById('custom-type-nat')?.checked) types.push('NAT');
+
+    const titleInput = document.getElementById('custom-test-title');
+    const title = titleInput && titleInput.value.trim() ? titleInput.value.trim() : 'IIT JAM Mathematics Custom Practice Test';
+
+    return {
+      topicIds: selectedTopics,
+      questionCount: qCount,
+      eraFilter: era,
+      types: types,
+      title: title
+    };
+  };
+
+  window.updateCustomGeneratorSummary = function() {
+    if (!window.JAM_CUSTOM_GENERATOR || !window.MOCK_TESTS_DATA) {
+      setTimeout(window.updateCustomGeneratorSummary, 100);
+      return;
+    }
+
+    const config = window.getCustomGeneratorConfig();
+    const pool = window.JAM_CUSTOM_GENERATOR.collectMatchingQuestions(config);
+    const requestedCount = config.questionCount;
+    const actualCount = Math.min(requestedCount, pool.length);
+
+    // Estimate marks
+    let estMarks = 0;
+    if (pool.length > 0) {
+      const samplePreview = window.JAM_CUSTOM_GENERATOR.sampleQuestions(pool, actualCount, 42);
+      estMarks = samplePreview.reduce((sum, q) => sum + (q.marks || 1), 0);
+    }
+    const estMins = Math.max(15, Math.round(actualCount * 3.0));
+
+    // Update UI elements
+    const topicsCountEl = document.getElementById('summary-topics-count');
+    if (topicsCountEl) topicsCountEl.textContent = `${config.topicIds.length} / 9`;
+
+    const poolCountEl = document.getElementById('summary-pool-count');
+    if (poolCountEl) poolCountEl.textContent = `${pool.length} Qs`;
+
+    const qCountEl = document.getElementById('summary-questions-count');
+    if (qCountEl) qCountEl.textContent = `${actualCount} Qs`;
+
+    const marksCountEl = document.getElementById('summary-marks-count');
+    if (marksCountEl) marksCountEl.textContent = `~${estMarks} Marks`;
+
+    const timeCountEl = document.getElementById('summary-time-count');
+    if (timeCountEl) timeCountEl.textContent = `${estMins} Mins`;
+
+    const structLabel = document.getElementById('summary-structure-label');
+    if (structLabel) {
+      const typesStr = config.types.join(' • ') || 'None';
+      structLabel.textContent = typesStr;
+    }
+
+    // Toggle button disabled state
+    const btnPdf = document.getElementById('btn-generate-custom-pdf');
+    const btnCbt = document.getElementById('btn-start-custom-cbt');
+    const isValid = config.topicIds.length > 0 && config.types.length > 0 && pool.length > 0;
+
+    if (btnPdf) btnPdf.disabled = !isValid;
+    if (btnCbt) btnCbt.disabled = !isValid;
+  };
+
+  window.triggerCustomPdfGeneration = async function() {
+    const config = window.getCustomGeneratorConfig();
+    if (config.topicIds.length === 0) {
+      alert('Please select at least one syllabus topic.');
+      return;
+    }
+    if (config.types.length === 0) {
+      alert('Please select at least one question type (MCQ, MSQ, or NAT).');
+      return;
+    }
+
+    const modal = document.getElementById('pdf-progress-modal');
+    const fill = document.getElementById('pdf-progress-fill');
+    const pctEl = document.getElementById('pdf-progress-pct');
+    const statusEl = document.getElementById('pdf-progress-status');
+    const titleEl = document.getElementById('pdf-progress-title');
+
+    if (modal) modal.classList.remove('hidden');
+    if (titleEl) titleEl.textContent = '📑 Compiling Publication LaTeX PDF...';
+
+    try {
+      await window.JAM_CUSTOM_GENERATOR.generateCustomPdf(config, (progressPct, statusText) => {
+        if (fill) fill.style.width = `${progressPct}%`;
+        if (pctEl) pctEl.textContent = `${progressPct}%`;
+        if (statusEl) statusEl.textContent = statusText;
+      });
+
+      if (statusEl) statusEl.textContent = '✅ PDF Generated and downloaded successfully!';
+      setTimeout(() => {
+        if (modal) modal.classList.add('hidden');
+      }, 1500);
+    } catch (err) {
+      console.error('PDF Generation failed:', err);
+      alert(`Error generating PDF: ${err.message || err}`);
+      if (modal) modal.classList.add('hidden');
+    }
+  };
+
+  window.triggerCustomOnlineTest = function() {
+    const config = window.getCustomGeneratorConfig();
+    if (config.topicIds.length === 0) {
+      alert('Please select at least one syllabus topic.');
+      return;
+    }
+
+    const pool = window.JAM_CUSTOM_GENERATOR.collectMatchingQuestions(config);
+    if (pool.length === 0) {
+      alert('No matching questions found in pool. Please adjust your topic/era selections.');
+      return;
+    }
+
+    const actualCount = Math.min(config.questionCount, pool.length);
+    const sampled = window.JAM_CUSTOM_GENERATOR.sampleQuestions(pool, actualCount);
+    const totalMarks = sampled.reduce((sum, q) => sum + (q.marks || 1), 0);
+    const durationMins = Math.max(15, Math.round(actualCount * 3.0));
+
+    const customTestData = {
+      id: "custom",
+      name: config.title,
+      category: "Custom Topic Practice Test",
+      era: "cbt",
+      total_questions: sampled.length,
+      total_marks: totalMarks,
+      duration_minutes: durationMins,
+      pattern: "MCQ • MSQ • NAT",
+      questions: sampled
+    };
+
+    try {
+      sessionStorage.setItem('jam_custom_test', JSON.stringify(customTestData));
+      window.location.href = 'mock-test/test.html?topic=custom&mode=official';
+    } catch (e) {
+      console.error('Failed to save custom test to sessionStorage:', e);
+      alert('Could not initialize CBT simulator: ' + e.message);
+    }
+  };
+
+  window.openCustomQuestionsPreview = function() {
+    const config = window.getCustomGeneratorConfig();
+    const pool = window.JAM_CUSTOM_GENERATOR.collectMatchingQuestions(config);
+    if (pool.length === 0) {
+      alert('No questions match your current selection.');
+      return;
+    }
+
+    const actualCount = Math.min(config.questionCount, pool.length);
+    const sampled = window.JAM_CUSTOM_GENERATOR.sampleQuestions(pool, actualCount, 42);
+
+    const countEl = document.getElementById('preview-total-count');
+    if (countEl) countEl.textContent = `${sampled.length}`;
+
+    const body = document.getElementById('custom-preview-body');
+    if (body) {
+      body.innerHTML = sampled.map((q, idx) => {
+        const qNum = idx + 1;
+        const qType = (q.type || 'MCQ').toUpperCase();
+        const typeBadgeClass = qType === 'MCQ' ? 'tag-cbt' : (qType === 'MSQ' ? 'tag-recent' : 'tag-archive');
+        return `
+          <div style="border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 12px; background: var(--bg-card);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <strong style="background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 12px;">Q${qNum}</strong>
+                <span style="color: var(--text-secondary); font-size: 12px;">${q.year} • Q${q.q_num || qNum} (${q.id})</span>
+              </div>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <span class="era-tag ${typeBadgeClass}">${qType}</span>
+                <span class="era-tag" style="background: var(--accent-dim); color: var(--accent);">+${q.marks || 1} M</span>
+                <span style="font-size: 11px; font-weight: 600; color: var(--green); margin-left: 6px;">Key: ${q.answer_key || 'N/A'}</span>
+              </div>
+            </div>
+            <div style="text-align: center; background: #fff; border-radius: 6px; padding: 8px;">
+              <img src="${q.image}" alt="Question ${qNum}" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" loading="lazy">
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    const modal = document.getElementById('custom-preview-modal');
+    if (modal) modal.classList.remove('hidden');
+  };
+
+  window.closeCustomQuestionsPreview = function() {
+    const modal = document.getElementById('custom-preview-modal');
+    if (modal) modal.classList.add('hidden');
+  };
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
     window.initTheme();
     window.renderYearMockTests();
     window.renderTopicMockTests();
+    window.initCustomGenerator();
   });
 
 })();

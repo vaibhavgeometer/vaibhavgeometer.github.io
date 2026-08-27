@@ -48,6 +48,10 @@
           <span class="nav-btn-icon">📄</span>
           <span class="nav-btn-label">Question Bank</span>
         </a>
+        <button class="nav-link-btn" onclick="window.switchMainTab('custom-generator', document.getElementById('tab-btn-custom-generator'))" title="Create Custom Topic Test & Download PDF">
+          <span class="nav-btn-icon">🛠️</span>
+          <span class="nav-btn-label">Custom Test</span>
+        </button>
         <button class="icon-btn" onclick="window.toggleTheme()" title="Toggle Theme" id="theme-btn" aria-label="Toggle Theme">☀</button>
       </div>
     </nav>
@@ -78,6 +82,9 @@
       </button>
       <button class="main-tab-btn" onclick="window.switchMainTab('topic-tests', this)">
         ⚡ 27 Subtopic Mock Tests (3 Eras × 9 Topics)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-custom-generator" onclick="window.switchMainTab('custom-generator', this)">
+        🛠️ Custom Test & PDF Generator
       </button>
       <button class="main-tab-btn" onclick="window.switchMainTab('resources', this)">
         📚 Study Materials Hub
@@ -132,7 +139,297 @@
         </div>
       </div>
 
-      <!-- Panel 3: Study Materials & Resource Hub -->
+      <!-- Panel 3: Custom Mock Test & Offline PDF Generator -->
+      <div id="tab-panel-custom-generator" class="tab-content-panel hidden">
+        <div class="section-header-block" style="margin-bottom: 24px;">
+          <h2 class="section-title">🛠️ Custom Mock Test & Offline PDF Generator</h2>
+          <p class="section-sub">Select any combination of topics, customize question count (1–100), and instantly compile a publication-quality LaTeX-formatted practice PDF offline with master answer keys, or launch an online CBT simulator test.</p>
+          <div class="custom-generator-badges">
+            <span class="custom-badge">⚡ 100% Offline Capability</span>
+            <span class="custom-badge">🎯 1–100 Questions</span>
+            <span class="custom-badge">📑 Publication LaTeX PDF</span>
+            <span class="custom-badge">🧮 Interactive CBT Simulator</span>
+          </div>
+        </div>
+
+        <div class="custom-generator-container">
+          <!-- Step 1: Topic Selection Card -->
+          <div class="custom-card custom-topics-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 1</div>
+              <h3 class="custom-card-title">Choose Syllabus Topics</h3>
+              <div class="custom-topic-presets">
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(true)">Select All</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(false)">Clear All</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('real_analysis')">Real Analysis</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('calculus_ode')">Calculus & ODE</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('linear_algebra')">Algebra & Groups</button>
+              </div>
+            </div>
+
+            <!-- Subject Category 1: Real Analysis -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #3b82f6;"></span>
+                <span>1. Real Analysis</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="1.1" data-cat="real_analysis">
+                  <input type="checkbox" name="custom-topic" value="1.1" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🔢</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">1.1 Sequences & Series of Real Numbers</span>
+                    <span class="custom-topic-sub">Convergence tests, power series, subsequences</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-1.1">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="1.2" data-cat="real_analysis">
+                  <input type="checkbox" name="custom-topic" value="1.2" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">📈</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">1.2 Functions of One Real Variable</span>
+                    <span class="custom-topic-sub">Continuity, differentiability, Mean Value Theorem, Taylor's</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-1.2">...</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Subject Category 2: Multivariable Calculus & ODE -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #10b981;"></span>
+                <span>2. Multivariable Calculus & Differential Equations</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="2.1" data-cat="calculus_ode">
+                  <input type="checkbox" name="custom-topic" value="2.1" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🌐</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.1 Functions of Two or Three Variables</span>
+                    <span class="custom-topic-sub">Limits, partial derivatives, directional derivatives, extrema</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.1">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="2.2" data-cat="calculus_ode">
+                  <input type="checkbox" name="custom-topic" value="2.2" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">∬</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.2 Integral Calculus</span>
+                    <span class="custom-topic-sub">Double & triple integrals, change of variables, surface area</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.2">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="2.3" data-cat="calculus_ode">
+                  <input type="checkbox" name="custom-topic" value="2.3" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🧮</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.3 Ordinary Differential Equations (ODE)</span>
+                    <span class="custom-topic-sub">1st order ODEs, integrating factors, Wronskian, Cauchy-Euler</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.3">...</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Subject Category 3: Linear Algebra & Algebra -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #8b5cf6;"></span>
+                <span>3. Linear Algebra and Algebra</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="3.1" data-cat="linear_algebra">
+                  <input type="checkbox" name="custom-topic" value="3.1" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">📐</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.1 Basic Algebra</span>
+                    <span class="custom-topic-sub">Permutations, combinations, binomial theorem</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.1">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="3.2" data-cat="linear_algebra">
+                  <input type="checkbox" name="custom-topic" value="3.2" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🔲</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.2 Matrices & Systems of Linear Equations</span>
+                    <span class="custom-topic-sub">Rank-nullity, eigenvalues, eigenvectors, Cayley-Hamilton</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.2">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="3.3" data-cat="linear_algebra">
+                  <input type="checkbox" name="custom-topic" value="3.3" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🌌</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.3 Finite Dimensional Vector Spaces</span>
+                    <span class="custom-topic-sub">Linear independence, basis, dimension, linear transformations</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.3">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="3.4" data-cat="linear_algebra">
+                  <input type="checkbox" name="custom-topic" value="3.4" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🔄</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.4 Group Theory</span>
+                    <span class="custom-topic-sub">Cyclic groups, abelian groups, permutation groups, Lagrange's</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.4">...</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Configuration Card -->
+          <div class="custom-card custom-config-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 2</div>
+              <h3 class="custom-card-title">Configure Test Settings</h3>
+            </div>
+
+            <div class="config-grid">
+              <!-- Question Count Control -->
+              <div class="config-item question-count-block">
+                <div class="config-label-row">
+                  <label for="custom-q-slider" class="config-label">Number of Questions (1 – 100):</label>
+                  <div class="count-input-wrapper">
+                    <input type="number" id="custom-q-input" min="1" max="100" value="30" oninput="window.syncQuestionCount(this.value)">
+                    <span class="count-unit">Questions</span>
+                  </div>
+                </div>
+                <div class="slider-row">
+                  <input type="range" id="custom-q-slider" min="1" max="100" value="30" class="custom-range-slider" oninput="window.syncQuestionCount(this.value)">
+                </div>
+                <div class="count-preset-chips">
+                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(10)">10 Qs</button>
+                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(20)">20 Qs</button>
+                  <button type="button" class="chip-btn active" id="chip-30" onclick="window.syncQuestionCount(30)">30 Qs (Recommended)</button>
+                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(50)">50 Qs</button>
+                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(60)">60 Qs (Full Mock)</button>
+                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(100)">100 Qs (Max)</button>
+                </div>
+              </div>
+
+              <!-- Test Title -->
+              <div class="config-item">
+                <label for="custom-test-title" class="config-label">Custom Test Paper Title:</label>
+                <input type="text" id="custom-test-title" class="custom-text-input" value="IIT JAM Mathematics Custom Practice Test" placeholder="e.g. ODE & Linear Algebra Rapid Revision Test">
+              </div>
+
+              <!-- Era & Question Types in Two Columns -->
+              <div class="config-row-2col">
+                <!-- Era Filter -->
+                <div class="config-item">
+                  <label class="config-label">Question Era / Years:</label>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="ALL" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>All Eras (2005–2026)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="cbt" onchange="window.updateCustomGeneratorSummary()">
+                      <span>CBT Era (2015–2026)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="classic" onchange="window.updateCustomGeneratorSummary()">
+                      <span>Classic (2005–2014)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Question Types Filter -->
+                <div class="config-item">
+                  <label class="config-label">Question Types Included:</label>
+                  <div class="checkbox-pill-group">
+                    <label class="checkbox-pill">
+                      <input type="checkbox" id="custom-type-mcq" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>MCQ (Single Choice)</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" id="custom-type-msq" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>MSQ (Multiple Select)</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" id="custom-type-nat" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>NAT (Numerical)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Live Summary & Action Bar -->
+          <div class="custom-card custom-summary-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 3</div>
+              <h3 class="custom-card-title">Live Test Paper Summary & Actions</h3>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="custom-summary-metrics">
+              <div class="summary-metric-box">
+                <span class="metric-label">TOPICS SELECTED</span>
+                <span class="metric-val" id="summary-topics-count" style="color: #3b82f6;">9 / 9</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">AVAILABLE POOL</span>
+                <span class="metric-val" id="summary-pool-count" style="color: #0f766e;">885 Qs</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">PAPER QUESTIONS</span>
+                <span class="metric-val" id="summary-questions-count" style="color: #6366f1;">30 Qs</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">ESTIMATED MARKS</span>
+                <span class="metric-val" id="summary-marks-count" style="color: #10b981;">~50 Marks</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">RECOMMENDED TIME</span>
+                <span class="metric-val" id="summary-time-count" style="color: #f59e0b;">90 Mins</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">SECTION STRUCTURE</span>
+                <span class="metric-val" id="summary-structure-label" style="font-size: 11px; color: #64748b;">MCQ • MSQ • NAT</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="custom-actions-row">
+              <button type="button" class="btn-custom-action btn-generate-pdf" id="btn-generate-custom-pdf" onclick="window.triggerCustomPdfGeneration()">
+                <span class="action-icon">📥</span>
+                <span class="action-text">
+                  <strong>Generate & Download PDF (Offline)</strong>
+                  <small>LaTeX Formatted • High-Res Screenshots • Master Key</small>
+                </span>
+              </button>
+
+              <button type="button" class="btn-custom-action btn-start-cbt" id="btn-start-custom-cbt" onclick="window.triggerCustomOnlineTest()">
+                <span class="action-icon">⚡</span>
+                <span class="action-text">
+                  <strong>Start Interactive CBT Test</strong>
+                  <small>Virtual Calculator • Timers • Instant Score Card</small>
+                </span>
+              </button>
+
+              <button type="button" class="btn-custom-action btn-preview-qs" onclick="window.openCustomQuestionsPreview()">
+                <span class="action-icon">👁️</span>
+                <span class="action-text">
+                  <strong>Preview Questions</strong>
+                  <small>Inspect Question List & Keys</small>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Study Materials & Resource Hub -->
       <div id="tab-panel-resources" class="tab-content-panel hidden">
         <div class="section-header-block" style="margin-bottom: 24px;">
           <h2 class="section-title">📚 Study Materials & Resource Hub</h2>
@@ -279,13 +576,48 @@
     </div>
   </div>
 
+  <!-- PDF Generation Progress Modal -->
+  <div id="pdf-progress-modal" class="modal-backdrop hidden">
+    <div class="modal-card pdf-progress-card">
+      <div class="modal-header">
+        <div class="modal-title" id="pdf-progress-title">📑 Compiling LaTeX Mock Test PDF...</div>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 24px 16px;">
+        <div class="progress-spinner" id="pdf-spinner"></div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="pdf-progress-fill" style="width: 0%;"></div>
+        </div>
+        <div class="progress-percent" id="pdf-progress-pct">0%</div>
+        <p class="progress-status-text" id="pdf-progress-status">Preparing question datasets...</p>
+        <p class="progress-note">⚡ Running 100% locally in your browser. No server upload required.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Questions Preview Modal -->
+  <div id="custom-preview-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeCustomQuestionsPreview()">
+    <div class="modal-card preview-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">👁️ Preview Selected Questions (<span id="preview-total-count">0</span> Questions)</div>
+        <button class="modal-close-btn" onclick="window.closeCustomQuestionsPreview()" title="Close Modal">✕</button>
+      </div>
+      <div class="modal-body" id="custom-preview-body" style="max-height: 70vh; overflow-y: auto;">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--border);">
+        <button type="button" class="btn-test secondary" onclick="window.closeCustomQuestionsPreview()">Close</button>
+        <button type="button" class="btn-test primary" onclick="window.triggerCustomPdfGeneration(); window.closeCustomQuestionsPreview();">📥 Download PDF</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-links">
         <a href="assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer">Syllabus</a>
         <span aria-hidden="true">•</span>
-        <a href="#tab-panel-resources" onclick="window.switchMainTab('resources', document.querySelectorAll('.main-tab-btn')[2])">Resource Hub</a>
+        <a href="#tab-panel-resources" onclick="window.switchMainTab('resources', document.querySelectorAll('.main-tab-btn')[3])">Resource Hub</a>
         <span aria-hidden="true">•</span>
         <a href="assets/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer">Question Bank PDF</a>
         <span aria-hidden="true">•</span>
@@ -296,7 +628,10 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/jspdf.umd.min.js"></script>
+  <script src="js/jspdf.plugin.autotable.min.js"></script>
   <script src="mock-test/js/questions_data.js"></script>
+  <script src="js/custom_pdf_generator.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
