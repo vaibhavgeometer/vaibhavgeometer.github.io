@@ -430,7 +430,26 @@
     if (btnCbt) btnCbt.disabled = !isValid;
   };
 
+  // --- Online / Offline Status Monitoring ---
+  window.updateOnlineStatus = function() {
+    const banner = document.getElementById('custom-offline-banner');
+    const isOffline = typeof navigator !== 'undefined' && navigator.onLine === false;
+    if (banner) {
+      if (isOffline) banner.classList.remove('hidden');
+      else banner.classList.add('hidden');
+    }
+  };
+
+  window.addEventListener('online', () => window.updateOnlineStatus());
+  window.addEventListener('offline', () => window.updateOnlineStatus());
+
   window.triggerCustomPdfGeneration = async function() {
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      window.updateOnlineStatus();
+      alert('⚠️ Internet Connection Required: You appear to be offline. An active internet connection is required to download official question screenshots for compiling the custom PDF. Please connect to the internet and try again.');
+      return;
+    }
+
     const config = window.getCustomGeneratorConfig();
     if (config.topicIds.length === 0) {
       alert('Please select at least one syllabus topic.');
@@ -463,12 +482,18 @@
       }, 1500);
     } catch (err) {
       console.error('PDF Generation failed:', err);
-      alert(`Error generating PDF: ${err.message || err}`);
       if (modal) modal.classList.add('hidden');
+      alert(`⚠️ PDF Generation Error:\n\n${err.message || err}`);
     }
   };
 
   window.triggerCustomOnlineTest = function() {
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      window.updateOnlineStatus();
+      alert('⚠️ Internet Connection Required: You appear to be offline. An active internet connection is required to load question screenshots in the CBT simulator.');
+      return;
+    }
+
     const config = window.getCustomGeneratorConfig();
     if (config.topicIds.length === 0) {
       alert('Please select at least one syllabus topic.');
@@ -508,6 +533,12 @@
   };
 
   window.openCustomQuestionsPreview = function() {
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      window.updateOnlineStatus();
+      alert('⚠️ Internet Connection Required: You appear to be offline. An active internet connection is required to fetch question screenshots.');
+      return;
+    }
+
     const config = window.getCustomGeneratorConfig();
     const pool = window.JAM_CUSTOM_GENERATOR.collectMatchingQuestions(config);
     if (pool.length === 0) {
@@ -563,6 +594,7 @@
     window.renderYearMockTests();
     window.renderTopicMockTests();
     window.initCustomGenerator();
+    window.updateOnlineStatus();
   });
 
 })();

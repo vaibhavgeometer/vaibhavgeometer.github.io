@@ -139,16 +139,25 @@
         </div>
       </div>
 
-      <!-- Panel 3: Custom Mock Test & Offline PDF Generator -->
+      <!-- Panel 3: Custom Mock Test & PDF Generator -->
       <div id="tab-panel-custom-generator" class="tab-content-panel hidden">
         <div class="section-header-block" style="margin-bottom: 24px;">
-          <h2 class="section-title">🛠️ Custom Mock Test & Offline PDF Generator</h2>
-          <p class="section-sub">Select any combination of topics, customize question count (1–100), and instantly compile a publication-quality LaTeX-formatted practice PDF offline with master answer keys, or launch an online CBT simulator test.</p>
+          <h2 class="section-title">🛠️ Custom Mock Test & PDF Generator</h2>
+          <p class="section-sub">Select any combination of topics, customize question count (1–100), and instantly compile a publication-quality LaTeX-formatted practice PDF with master answer keys, or launch an online CBT simulator test.</p>
           <div class="custom-generator-badges">
-            <span class="custom-badge">⚡ 100% Offline Capability</span>
+            <span class="custom-badge">⚡ Instant Browser PDF Compilation</span>
             <span class="custom-badge">🎯 1–100 Questions</span>
             <span class="custom-badge">📑 Publication LaTeX PDF</span>
             <span class="custom-badge">🧮 Interactive CBT Simulator</span>
+          </div>
+        </div>
+
+        <!-- Offline Warning Banner -->
+        <div id="custom-offline-banner" class="offline-warning-banner hidden">
+          <span class="offline-icon">⚠️</span>
+          <div class="offline-text">
+            <strong>Active Internet Connection Required</strong>
+            <span>You appear to be offline. An active internet connection is needed to download high-resolution question screenshots to compile custom PDFs or launch online mock tests.</span>
           </div>
         </div>
 
@@ -404,7 +413,7 @@
               <button type="button" class="btn-custom-action btn-generate-pdf" id="btn-generate-custom-pdf" onclick="window.triggerCustomPdfGeneration()">
                 <span class="action-icon">📥</span>
                 <span class="action-text">
-                  <strong>Generate & Download PDF (Offline)</strong>
+                  <strong>Generate & Download PDF</strong>
                   <small>LaTeX Formatted • High-Res Screenshots • Master Key</small>
                 </span>
               </button>
@@ -589,7 +598,7 @@
         </div>
         <div class="progress-percent" id="pdf-progress-pct">0%</div>
         <p class="progress-status-text" id="pdf-progress-status">Preparing question datasets...</p>
-        <p class="progress-note">⚡ Running 100% locally in your browser. No server upload required.</p>
+        <p class="progress-note">🌐 Downloading official question screenshots and compiling PDF in browser.</p>
       </div>
     </div>
   </div>

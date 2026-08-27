@@ -97,14 +97,22 @@
   }
 
   // Pre-load an Image for HTML5 Canvas / jsPDF
+  // Pre-load an Image for HTML5 Canvas / jsPDF
   function preloadImage(src) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+        return reject(new Error('Device is offline'));
+      }
       const img = new Image();
       img.crossOrigin = 'Anonymous';
       img.onload = () => resolve(img);
       img.onerror = () => {
         console.warn('Could not load question image:', src);
-        resolve(null);
+        if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+          reject(new Error('Device is offline'));
+        } else {
+          resolve(null);
+        }
       };
       img.src = src;
     });
@@ -201,7 +209,7 @@
   }
 
   /**
-   * Generates a Publication-Quality PDF matching the reference format offline using jsPDF.
+   * Generates a Publication-Quality PDF matching the reference format using jsPDF.
    * @param {Object} config
    * @param {Function} onProgress (percent, statusText)
    */
@@ -209,6 +217,10 @@
     const { jsPDF } = window.jspdf;
     if (!jsPDF) {
       throw new Error('jsPDF library not loaded. Ensure jspdf.umd.min.js is included.');
+    }
+
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      throw new Error('Internet Connection Required: You appear to be offline. An active internet connection is required to fetch official question screenshots for generating the PDF.');
     }
 
     onProgress = onProgress || (() => {});
@@ -233,14 +245,18 @@
     const actualCount = Math.min(questionCount, pool.length);
     const questions = sampleQuestions(pool, actualCount, seed);
 
-    onProgress(15, `Selected ${questions.length} questions. Pre-loading screenshots...`);
+    onProgress(15, `Selected ${questions.length} questions. Downloading screenshots...`);
 
     // 2. Preload all question screenshot images
     const loadedImages = [];
     for (let i = 0; i < questions.length; i++) {
       const q = questions[i];
-      const img = await preloadImage(q.image);
-      loadedImages.push(img);
+      try {
+        const img = await preloadImage(q.image);
+        loadedImages.push(img);
+      } catch (err) {
+        throw new Error('Internet Connection Required: Failed to download question screenshots because you are offline. Please reconnect to the internet and try again.');
+      }
       const pct = 15 + Math.round((i / questions.length) * 35);
       onProgress(pct, `Loaded question asset ${i + 1}/${questions.length}...`);
     }
