@@ -10790,8 +10790,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
+    ]
   },
   "2022-2026_1.2": {
     "id": "2022-2026_1.2",
@@ -11550,8 +11549,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf"
+    ]
   },
   "2022-2026_2.1": {
     "id": "2022-2026_2.1",
@@ -11932,8 +11930,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
+    ]
   },
   "2022-2026_2.2": {
     "id": "2022-2026_2.2",
@@ -12314,8 +12311,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_2.2_Integral_Calculus.pdf"
+    ]
   },
   "2022-2026_2.3": {
     "id": "2022-2026_2.3",
@@ -12948,8 +12944,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_2.3_Differential_Equations.pdf"
+    ]
   },
   "2022-2026_3.1": {
     "id": "2022-2026_3.1",
@@ -13008,8 +13003,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Basic Algebra",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.1_Basic_Algebra.pdf"
+    ]
   },
   "2022-2026_3.2": {
     "id": "2022-2026_3.2",
@@ -13020,11 +13014,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2022-2026",
     "era_label": "2022–2026",
     "era_name": "Recent CBT Era (2022–2026)",
-    "pattern": "MCQ • MSQ • NAT (2022–2026 • 49 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2022–2026 • 37 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf",
-    "total_questions": 49,
-    "total_marks": 83,
-    "duration_minutes": 147,
+    "total_questions": 37,
+    "total_marks": 63,
+    "duration_minutes": 111,
     "questions": [
       {
         "id": "JAM_2026_Q59",
@@ -13097,20 +13091,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2022-2026"
       },
       {
-        "id": "JAM_2026_Q47",
-        "year": "JAM 2026",
-        "q_num": 47,
-        "type": "NAT",
-        "marks": 1,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q47.png",
-        "answer_key": "8 to 8",
-        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 47",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
         "id": "JAM_2026_Q39",
         "year": "JAM 2026",
         "q_num": 39,
@@ -13134,20 +13114,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q37.png",
         "answer_key": "A;B;D",
         "explanation": "<strong>Official Key: A;B;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 37",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2026_Q30",
-        "year": "JAM 2026",
-        "q_num": 30,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q30.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 30",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2022-2026"
@@ -13190,76 +13156,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q8.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 8",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2025_Q60",
-        "year": "JAM 2025",
-        "q_num": 60,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q60.png",
-        "answer_key": "0 to 0",
-        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 60",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2025_Q59",
-        "year": "JAM 2025",
-        "q_num": 59,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q59.png",
-        "answer_key": "10 to 10",
-        "explanation": "<strong>Official Key: 10 to 10</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 59",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2025_Q52",
-        "year": "JAM 2025",
-        "q_num": 52,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q52.png",
-        "answer_key": "3 to 3",
-        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 52",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2025_Q39",
-        "year": "JAM 2025",
-        "q_num": 39,
-        "type": "MSQ",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q39.png",
-        "answer_key": "B;D",
-        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 39",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2025_Q23",
-        "year": "JAM 2025",
-        "q_num": 23,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q23.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 23",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2022-2026"
@@ -13316,20 +13212,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q13.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 13",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2025_Q9",
-        "year": "JAM 2025",
-        "q_num": 9,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q9.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 9",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2022-2026"
@@ -13433,34 +13315,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2022-2026"
       },
       {
-        "id": "JAM_2024_Q6",
-        "year": "JAM 2024",
-        "q_num": 6,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q6.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 6",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2024_Q5",
-        "year": "JAM 2024",
-        "q_num": 5,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q5.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 5",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
         "id": "JAM_2023_Q58",
         "year": "JAM 2023",
         "q_num": 58,
@@ -13554,34 +13408,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q53.png",
         "answer_key": "3.00 to 3.00",
         "explanation": "<strong>Official Key: 3.00 to 3.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 53",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2022_Q40",
-        "year": "JAM 2022",
-        "q_num": 40,
-        "type": "MSQ",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q40.png",
-        "answer_key": "A,C",
-        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 40",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2022-2026"
-      },
-      {
-        "id": "JAM_2022_Q39",
-        "year": "JAM 2022",
-        "q_num": 39,
-        "type": "MSQ",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q39.png",
-        "answer_key": "A,B",
-        "explanation": "<strong>Official Key: A,B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 39",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2022-2026"
@@ -13712,8 +13538,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
+    ]
   },
   "2022-2026_3.3": {
     "id": "2022-2026_3.3",
@@ -13724,11 +13549,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2022-2026",
     "era_label": "2022–2026",
     "era_name": "Recent CBT Era (2022–2026)",
-    "pattern": "MCQ • MSQ • NAT (2022–2026 • 25 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2022–2026 • 27 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf",
-    "total_questions": 25,
-    "total_marks": 41,
-    "duration_minutes": 75,
+    "total_questions": 27,
+    "total_marks": 45,
+    "duration_minutes": 81,
     "questions": [
       {
         "id": "JAM_2026_Q40",
@@ -14079,9 +13904,36 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2022_Q40",
+        "year": "JAM 2022",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q40.png",
+        "answer_key": "A,C",
+        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 40",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2022_Q39",
+        "year": "JAM 2022",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q39.png",
+        "answer_key": "A,B",
+        "explanation": "<strong>Official Key: A,B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 39",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces",
+        "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
+    ]
   },
   "2022-2026_3.4": {
     "id": "2022-2026_3.4",
@@ -14092,12 +13944,40 @@ window.MOCK_TESTS_DATA = {
     "era": "2022-2026",
     "era_label": "2022–2026",
     "era_name": "Recent CBT Era (2022–2026)",
-    "pattern": "MCQ • MSQ • NAT (2022–2026 • 25 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2022–2026 • 35 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf",
-    "total_questions": 25,
-    "total_marks": 41,
-    "duration_minutes": 75,
+    "total_questions": 35,
+    "total_marks": 57,
+    "duration_minutes": 105,
     "questions": [
+      {
+        "id": "JAM_2026_Q47",
+        "year": "JAM 2026",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q47.png",
+        "answer_key": "8 to 8",
+        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 47",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2026_Q30",
+        "year": "JAM 2026",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q30.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 30",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
       {
         "id": "JAM_2026_Q27",
         "year": "JAM 2026",
@@ -14136,6 +14016,90 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q9.png",
         "answer_key": "D",
         "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 9",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2025_Q60",
+        "year": "JAM 2025",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q60.png",
+        "answer_key": "0 to 0",
+        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 60",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2025_Q59",
+        "year": "JAM 2025",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q59.png",
+        "answer_key": "10 to 10",
+        "explanation": "<strong>Official Key: 10 to 10</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 59",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2025_Q52",
+        "year": "JAM 2025",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q52.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 52",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2025_Q39",
+        "year": "JAM 2025",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q39.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 39",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2025_Q23",
+        "year": "JAM 2025",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 23",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2025_Q9",
+        "year": "JAM 2025",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q9.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 9",
         "topic_id": "3.4",
         "topic_name": "Groups",
         "era": "2022-2026"
@@ -14234,6 +14198,34 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q7.png",
         "answer_key": "A",
         "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 7",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2024_Q6",
+        "year": "JAM 2024",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 6",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2022-2026"
+      },
+      {
+        "id": "JAM_2024_Q5",
+        "year": "JAM 2024",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 5",
         "topic_id": "3.4",
         "topic_name": "Groups",
         "era": "2022-2026"
@@ -14448,8 +14440,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "era": "2022-2026"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.4_Groups.pdf"
+    ]
   },
   "2015-2021_1.1": {
     "id": "2015-2021_1.1",
@@ -14460,11 +14451,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2015-2021",
     "era_label": "2015–2021",
     "era_name": "CBT Era (2015–2021)",
-    "pattern": "MCQ • MSQ • NAT (2015–2021 • 55 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2015–2021 • 52 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf",
-    "total_questions": 55,
-    "total_marks": 90,
-    "duration_minutes": 165,
+    "total_questions": 52,
+    "total_marks": 86,
+    "duration_minutes": 156,
     "questions": [
       {
         "id": "JAM_2021_Q55",
@@ -14747,20 +14738,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2019_Q6",
-        "year": "JAM 2019",
-        "q_num": 6,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q6.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 6",
-        "topic_id": "1.1",
-        "topic_name": "Sequences and Series of Real Numbers",
-        "era": "2015-2021"
-      },
-      {
         "id": "JAM_2018_Q51",
         "year": "JAM 2018",
         "q_num": 51,
@@ -14817,20 +14794,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2018_Q23",
-        "year": "JAM 2018",
-        "q_num": 23,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q23.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 23",
-        "topic_id": "1.1",
-        "topic_name": "Sequences and Series of Real Numbers",
-        "era": "2015-2021"
-      },
-      {
         "id": "JAM_2018_Q13",
         "year": "JAM 2018",
         "q_num": 13,
@@ -14840,20 +14803,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q13.png",
         "answer_key": "D",
         "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 13",
-        "topic_id": "1.1",
-        "topic_name": "Sequences and Series of Real Numbers",
-        "era": "2015-2021"
-      },
-      {
-        "id": "JAM_2018_Q3",
-        "year": "JAM 2018",
-        "q_num": 3,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q3.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 3",
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2015-2021"
@@ -15236,8 +15185,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
+    ]
   },
   "2015-2021_1.2": {
     "id": "2015-2021_1.2",
@@ -15248,11 +15196,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2015-2021",
     "era_label": "2015–2021",
     "era_name": "CBT Era (2015–2021)",
-    "pattern": "MCQ • MSQ • NAT (2015–2021 • 80 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2015–2021 • 73 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf",
-    "total_questions": 80,
-    "total_marks": 133,
-    "duration_minutes": 240,
+    "total_questions": 73,
+    "total_marks": 121,
+    "duration_minutes": 219,
     "questions": [
       {
         "id": "JAM_2021_Q57",
@@ -15292,20 +15240,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q53.png",
         "answer_key": "0",
         "explanation": "<strong>Official Key: 0</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 53",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
-        "id": "JAM_2021_Q52",
-        "year": "JAM 2021",
-        "q_num": 52,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q52.png",
-        "answer_key": "10.8 to 10.9",
-        "explanation": "<strong>Official Key: 10.8 to 10.9</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 52",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable",
         "era": "2015-2021"
@@ -15605,20 +15539,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2020_Q21",
-        "year": "JAM 2020",
-        "q_num": 21,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q21.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 21",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
         "id": "JAM_2020_Q19",
         "year": "JAM 2020",
         "q_num": 19,
@@ -15745,20 +15665,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2019_Q21",
-        "year": "JAM 2019",
-        "q_num": 21,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q21.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 21",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
         "id": "JAM_2019_Q18",
         "year": "JAM 2019",
         "q_num": 18,
@@ -15768,34 +15674,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q18.png",
         "answer_key": "A",
         "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 18",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
-        "id": "JAM_2019_Q11",
-        "year": "JAM 2019",
-        "q_num": 11,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q11.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 11",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
-        "id": "JAM_2019_Q7",
-        "year": "JAM 2019",
-        "q_num": 7,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q7.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 7",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable",
         "era": "2015-2021"
@@ -15857,20 +15735,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2018_Q21",
-        "year": "JAM 2018",
-        "q_num": 21,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q21.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 21",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
         "id": "JAM_2018_Q11",
         "year": "JAM 2018",
         "q_num": 11,
@@ -15880,20 +15744,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q11.png",
         "answer_key": "A",
         "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 11",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable",
-        "era": "2015-2021"
-      },
-      {
-        "id": "JAM_2018_Q1",
-        "year": "JAM 2018",
-        "q_num": 1,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q1.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 1",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable",
         "era": "2015-2021"
@@ -16374,8 +16224,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_1.2_Functions_of_One_Real_Variable.pdf"
+    ]
   },
   "2015-2021_2.1": {
     "id": "2015-2021_2.1",
@@ -16386,11 +16235,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2015-2021",
     "era_label": "2015–2021",
     "era_name": "CBT Era (2015–2021)",
-    "pattern": "MCQ • MSQ • NAT (2015–2021 • 36 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2015–2021 • 35 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf",
-    "total_questions": 36,
-    "total_marks": 57,
-    "duration_minutes": 108,
+    "total_questions": 35,
+    "total_marks": 55,
+    "duration_minutes": 105,
     "questions": [
       {
         "id": "JAM_2021_Q34",
@@ -16612,20 +16461,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q42.png",
         "answer_key": "6.5 to 7.5",
         "explanation": "<strong>Official Key: 6.5 to 7.5</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 42",
-        "topic_id": "2.1",
-        "topic_name": "Functions of Two or Three Real Variables",
-        "era": "2015-2021"
-      },
-      {
-        "id": "JAM_2018_Q24",
-        "year": "JAM 2018",
-        "q_num": 24,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q24.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 24",
         "topic_id": "2.1",
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2015-2021"
@@ -16896,8 +16731,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
+    ]
   },
   "2015-2021_2.2": {
     "id": "2015-2021_2.2",
@@ -17348,8 +17182,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_2.2_Integral_Calculus.pdf"
+    ]
   },
   "2015-2021_2.3": {
     "id": "2015-2021_2.3",
@@ -17360,12 +17193,26 @@ window.MOCK_TESTS_DATA = {
     "era": "2015-2021",
     "era_label": "2015–2021",
     "era_name": "CBT Era (2015–2021)",
-    "pattern": "MCQ • MSQ • NAT (2015–2021 • 44 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2015–2021 • 52 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf",
-    "total_questions": 44,
-    "total_marks": 75,
-    "duration_minutes": 132,
+    "total_questions": 52,
+    "total_marks": 89,
+    "duration_minutes": 156,
     "questions": [
+      {
+        "id": "JAM_2021_Q52",
+        "year": "JAM 2021",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q52.png",
+        "answer_key": "10.8 to 10.9",
+        "explanation": "<strong>Official Key: 10.8 to 10.9</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 52",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
       {
         "id": "JAM_2021_Q48",
         "year": "JAM 2021",
@@ -17493,6 +17340,20 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
+        "id": "JAM_2020_Q21",
+        "year": "JAM 2020",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q21.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 21",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
         "id": "JAM_2020_Q18",
         "year": "JAM 2020",
         "q_num": 18,
@@ -17591,6 +17452,34 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
+        "id": "JAM_2019_Q21",
+        "year": "JAM 2019",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q21.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 21",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2019_Q20",
+        "year": "JAM 2019",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 20",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
         "id": "JAM_2019_Q19",
         "year": "JAM 2019",
         "q_num": 19,
@@ -17628,6 +17517,34 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q8.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 8",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2019_Q7",
+        "year": "JAM 2019",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 7",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2019_Q6",
+        "year": "JAM 2019",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q6.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 6",
         "topic_id": "2.3",
         "topic_name": "Differential Equations",
         "era": "2015-2021"
@@ -17689,15 +17606,43 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2018_Q28",
+        "id": "JAM_2018_Q24",
         "year": "JAM 2018",
-        "q_num": 28,
+        "q_num": 24,
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q28.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 28",
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 24",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2018_Q23",
+        "year": "JAM 2018",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q23.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 23",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2018_Q22",
+        "year": "JAM 2018",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 22",
         "topic_id": "2.3",
         "topic_name": "Differential Equations",
         "era": "2015-2021"
@@ -17982,8 +17927,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_2.3_Differential_Equations.pdf"
+    ]
   },
   "2015-2021_3.1": {
     "id": "2015-2021_3.1",
@@ -18492,8 +18436,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
+    ]
   },
   "2015-2021_3.3": {
     "id": "2015-2021_3.3",
@@ -18507,7 +18450,7 @@ window.MOCK_TESTS_DATA = {
     "pattern": "MCQ • MSQ • NAT (2015–2021 • 34 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf",
     "total_questions": 34,
-    "total_marks": 55,
+    "total_marks": 54,
     "duration_minutes": 102,
     "questions": [
       {
@@ -18707,20 +18650,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2019_Q20",
-        "year": "JAM 2019",
-        "q_num": 20,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q20.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 20",
-        "topic_id": "3.3",
-        "topic_name": "Finite Dimensional Vector Spaces",
-        "era": "2015-2021"
-      },
-      {
         "id": "JAM_2019_Q4",
         "year": "JAM 2019",
         "q_num": 4,
@@ -18777,15 +18706,15 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
-        "id": "JAM_2018_Q26",
+        "id": "JAM_2018_Q21",
         "year": "JAM 2018",
-        "q_num": 26,
+        "q_num": 21,
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q26.png",
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q21.png",
         "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 26",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 21",
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2015-2021"
@@ -18814,6 +18743,20 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q6.png",
         "answer_key": "C",
         "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 6",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2018_Q3",
+        "year": "JAM 2018",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 3",
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2015-2021"
@@ -18986,8 +18929,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
+    ]
   },
   "2015-2021_3.4": {
     "id": "2015-2021_3.4",
@@ -18998,11 +18940,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2015-2021",
     "era_label": "2015–2021",
     "era_name": "CBT Era (2015–2021)",
-    "pattern": "MCQ • MSQ • NAT (2015–2021 • 51 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2015–2021 • 55 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf",
-    "total_questions": 51,
-    "total_marks": 82,
-    "duration_minutes": 153,
+    "total_questions": 55,
+    "total_marks": 89,
+    "duration_minutes": 165,
     "questions": [
       {
         "id": "JAM_2021_Q51",
@@ -19341,6 +19283,20 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
+        "id": "JAM_2019_Q11",
+        "year": "JAM 2019",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 11",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2015-2021"
+      },
+      {
         "id": "JAM_2019_Q3",
         "year": "JAM 2019",
         "q_num": 3,
@@ -19411,6 +19367,34 @@ window.MOCK_TESTS_DATA = {
         "era": "2015-2021"
       },
       {
+        "id": "JAM_2018_Q28",
+        "year": "JAM 2018",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q28.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 28",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2018_Q26",
+        "year": "JAM 2018",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q26.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 26",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2015-2021"
+      },
+      {
         "id": "JAM_2018_Q25",
         "year": "JAM 2018",
         "q_num": 25,
@@ -19448,6 +19432,20 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q5.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 5",
+        "topic_id": "3.4",
+        "topic_name": "Groups",
+        "era": "2015-2021"
+      },
+      {
+        "id": "JAM_2018_Q1",
+        "year": "JAM 2018",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 1",
         "topic_id": "3.4",
         "topic_name": "Groups",
         "era": "2015-2021"
@@ -19718,8 +19716,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "era": "2015-2021"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_3.4_Groups.pdf"
+    ]
   },
   "2005-2014_1.1": {
     "id": "2005-2014_1.1",
@@ -19730,11 +19727,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2005-2014",
     "era_label": "2005–2014",
     "era_name": "Classic Era (2005–2014)",
-    "pattern": "Classic Paper Pattern (2005–2014 • 20 Qs)",
+    "pattern": "Classic Paper Pattern (2005–2014 • 22 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf",
-    "total_questions": 20,
-    "total_marks": 99,
-    "duration_minutes": 60,
+    "total_questions": 22,
+    "total_marks": 111,
+    "duration_minutes": 66,
     "questions": [
       {
         "id": "JAM_2014_Q19",
@@ -19919,6 +19916,20 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
+        "id": "JAM_2009_Q7",
+        "year": "JAM 2009",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 7",
+        "topic_id": "1.1",
+        "topic_name": "Sequences and Series of Real Numbers",
+        "era": "2005-2014"
+      },
+      {
         "id": "JAM_2009_Q6",
         "year": "JAM 2009",
         "q_num": 6,
@@ -19942,6 +19953,20 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q12.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 12",
+        "topic_id": "1.1",
+        "topic_name": "Sequences and Series of Real Numbers",
+        "era": "2005-2014"
+      },
+      {
+        "id": "JAM_2008_Q3",
+        "year": "JAM 2008",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 3",
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2005-2014"
@@ -20016,8 +20041,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
+    ]
   },
   "2005-2014_1.2": {
     "id": "2005-2014_1.2",
@@ -20259,15 +20283,15 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
-        "id": "JAM_2008_Q6",
+        "id": "JAM_2008_Q7",
         "year": "JAM 2008",
-        "q_num": 6,
+        "q_num": 7,
         "type": "MCQ",
         "marks": 6,
         "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q6.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 6",
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 7",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable",
         "era": "2005-2014"
@@ -20384,8 +20408,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_1.2_Functions_of_One_Real_Variable.pdf"
+    ]
   },
   "2005-2014_2.1": {
     "id": "2005-2014_2.1",
@@ -20396,11 +20419,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2005-2014",
     "era_label": "2005–2014",
     "era_name": "Classic Era (2005–2014)",
-    "pattern": "Classic Paper Pattern (2005–2014 • 11 Qs)",
+    "pattern": "Classic Paper Pattern (2005–2014 • 10 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf",
-    "total_questions": 11,
-    "total_marks": 48,
-    "duration_minutes": 33,
+    "total_questions": 10,
+    "total_marks": 42,
+    "duration_minutes": 30,
     "questions": [
       {
         "id": "JAM_2014_Q25",
@@ -20501,20 +20524,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
-        "id": "JAM_2008_Q3",
-        "year": "JAM 2008",
-        "q_num": 3,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q3.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 3",
-        "topic_id": "2.1",
-        "topic_name": "Functions of Two or Three Real Variables",
-        "era": "2005-2014"
-      },
-      {
         "id": "JAM_2007_Q9",
         "year": "JAM 2007",
         "q_num": 9,
@@ -20556,8 +20565,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
+    ]
   },
   "2005-2014_2.2": {
     "id": "2005-2014_2.2",
@@ -20568,11 +20576,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2005-2014",
     "era_label": "2005–2014",
     "era_name": "Classic Era (2005–2014)",
-    "pattern": "Classic Paper Pattern (2005–2014 • 9 Qs)",
+    "pattern": "Classic Paper Pattern (2005–2014 • 8 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf",
-    "total_questions": 9,
-    "total_marks": 46,
-    "duration_minutes": 27,
+    "total_questions": 8,
+    "total_marks": 40,
+    "duration_minutes": 24,
     "questions": [
       {
         "id": "JAM_2014_Q27",
@@ -20659,20 +20667,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
-        "id": "JAM_2008_Q7",
-        "year": "JAM 2008",
-        "q_num": 7,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q7.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 7",
-        "topic_id": "2.2",
-        "topic_name": "Integral Calculus",
-        "era": "2005-2014"
-      },
-      {
         "id": "JAM_2005_Q12",
         "year": "JAM 2005",
         "q_num": 12,
@@ -20700,8 +20694,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_2.2_Integral_Calculus.pdf"
+    ]
   },
   "2005-2014_2.3": {
     "id": "2005-2014_2.3",
@@ -20712,11 +20705,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2005-2014",
     "era_label": "2005–2014",
     "era_name": "Classic Era (2005–2014)",
-    "pattern": "Classic Paper Pattern (2005–2014 • 21 Qs)",
+    "pattern": "Classic Paper Pattern (2005–2014 • 20 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf",
-    "total_questions": 21,
-    "total_marks": 109,
-    "duration_minutes": 63,
+    "total_questions": 20,
+    "total_marks": 103,
+    "duration_minutes": 60,
     "questions": [
       {
         "id": "JAM_2014_Q16",
@@ -20915,20 +20908,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
-        "id": "JAM_2008_Q4",
-        "year": "JAM 2008",
-        "q_num": 4,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q4.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 4",
-        "topic_id": "2.3",
-        "topic_name": "Differential Equations",
-        "era": "2005-2014"
-      },
-      {
         "id": "JAM_2007_Q14",
         "year": "JAM 2007",
         "q_num": 14,
@@ -21012,8 +20991,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_2.3_Differential_Equations.pdf"
+    ]
   },
   "2005-2014_3.1": {
     "id": "2005-2014_3.1",
@@ -21040,11 +21018,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2005-2014",
     "era_label": "2005–2014",
     "era_name": "Classic Era (2005–2014)",
-    "pattern": "Classic Paper Pattern (2005–2014 • 8 Qs)",
+    "pattern": "Classic Paper Pattern (2005–2014 • 7 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf",
-    "total_questions": 8,
-    "total_marks": 40,
-    "duration_minutes": 24,
+    "total_questions": 7,
+    "total_marks": 34,
+    "duration_minutes": 21,
     "questions": [
       {
         "id": "JAM_2014_Q12",
@@ -21103,20 +21081,6 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
-        "id": "JAM_2008_Q2",
-        "year": "JAM 2008",
-        "q_num": 2,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q2.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 2",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations",
-        "era": "2005-2014"
-      },
-      {
         "id": "JAM_2007_Q11",
         "year": "JAM 2007",
         "q_num": 11,
@@ -21158,8 +21122,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
+    ]
   },
   "2005-2014_3.3": {
     "id": "2005-2014_3.3",
@@ -21170,11 +21133,11 @@ window.MOCK_TESTS_DATA = {
     "era": "2005-2014",
     "era_label": "2005–2014",
     "era_name": "Classic Era (2005–2014)",
-    "pattern": "Classic Paper Pattern (2005–2014 • 19 Qs)",
+    "pattern": "Classic Paper Pattern (2005–2014 • 20 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf",
-    "total_questions": 19,
-    "total_marks": 88,
-    "duration_minutes": 57,
+    "total_questions": 20,
+    "total_marks": 94,
+    "duration_minutes": 60,
     "questions": [
       {
         "id": "JAM_2014_Q13",
@@ -21401,6 +21364,20 @@ window.MOCK_TESTS_DATA = {
         "era": "2005-2014"
       },
       {
+        "id": "JAM_2008_Q2",
+        "year": "JAM 2008",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 2",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces",
+        "era": "2005-2014"
+      },
+      {
         "id": "JAM_2007_Q5",
         "year": "JAM 2007",
         "q_num": 5,
@@ -21442,8 +21419,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
+    ]
   },
   "2005-2014_3.4": {
     "id": "2005-2014_3.4",
@@ -21684,8 +21660,7 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "era": "2005-2014"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_3.4_Groups.pdf"
+    ]
   },
   "1.1": {
     "id": "1.1",
@@ -21696,11 +21671,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 124 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 123 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf",
-    "total_questions": 124,
-    "total_marks": 270,
-    "duration_minutes": 372,
+    "total_questions": 123,
+    "total_marks": 278,
+    "duration_minutes": 369,
     "questions": [
       {
         "id": "JAM_2026_Q43",
@@ -22600,19 +22575,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers"
       },
       {
-        "id": "JAM_2019_Q6",
-        "year": "JAM 2019",
-        "q_num": 6,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q6.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 6",
-        "topic_id": "1.1",
-        "topic_name": "Sequences and Series of Real Numbers"
-      },
-      {
         "id": "JAM_2018_Q51",
         "year": "JAM 2018",
         "q_num": 51,
@@ -22665,19 +22627,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers"
       },
       {
-        "id": "JAM_2018_Q23",
-        "year": "JAM 2018",
-        "q_num": 23,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q23.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 23",
-        "topic_id": "1.1",
-        "topic_name": "Sequences and Series of Real Numbers"
-      },
-      {
         "id": "JAM_2018_Q13",
         "year": "JAM 2018",
         "q_num": 13,
@@ -22687,19 +22636,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q13.png",
         "answer_key": "D",
         "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 13",
-        "topic_id": "1.1",
-        "topic_name": "Sequences and Series of Real Numbers"
-      },
-      {
-        "id": "JAM_2018_Q3",
-        "year": "JAM 2018",
-        "q_num": 3,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q3.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 3",
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers"
       },
@@ -23224,6 +23160,19 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers"
       },
       {
+        "id": "JAM_2009_Q7",
+        "year": "JAM 2009",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q7.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 7",
+        "topic_id": "1.1",
+        "topic_name": "Sequences and Series of Real Numbers"
+      },
+      {
         "id": "JAM_2009_Q6",
         "year": "JAM 2009",
         "q_num": 6,
@@ -23246,6 +23195,19 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q12.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 12",
+        "topic_id": "1.1",
+        "topic_name": "Sequences and Series of Real Numbers"
+      },
+      {
+        "id": "JAM_2008_Q3",
+        "year": "JAM 2008",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q3.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 3",
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers"
       },
@@ -23314,8 +23276,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
+    ]
   },
   "1.2": {
     "id": "1.2",
@@ -23326,11 +23287,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 158 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 151 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf",
-    "total_questions": 158,
-    "total_marks": 335,
-    "duration_minutes": 474,
+    "total_questions": 151,
+    "total_marks": 323,
+    "duration_minutes": 453,
     "questions": [
       {
         "id": "JAM_2026_Q54",
@@ -24061,19 +24022,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable"
       },
       {
-        "id": "JAM_2021_Q52",
-        "year": "JAM 2021",
-        "q_num": 52,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q52.png",
-        "answer_key": "10.8 to 10.9",
-        "explanation": "<strong>Official Key: 10.8 to 10.9</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 52",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
         "id": "JAM_2021_Q45",
         "year": "JAM 2021",
         "q_num": 45,
@@ -24347,19 +24295,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable"
       },
       {
-        "id": "JAM_2020_Q21",
-        "year": "JAM 2020",
-        "q_num": 21,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q21.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 21",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
         "id": "JAM_2020_Q19",
         "year": "JAM 2020",
         "q_num": 19,
@@ -24477,19 +24412,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable"
       },
       {
-        "id": "JAM_2019_Q21",
-        "year": "JAM 2019",
-        "q_num": 21,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q21.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 21",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
         "id": "JAM_2019_Q18",
         "year": "JAM 2019",
         "q_num": 18,
@@ -24499,32 +24421,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q18.png",
         "answer_key": "A",
         "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 18",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
-        "id": "JAM_2019_Q11",
-        "year": "JAM 2019",
-        "q_num": 11,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q11.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 11",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
-        "id": "JAM_2019_Q7",
-        "year": "JAM 2019",
-        "q_num": 7,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q7.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 7",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable"
       },
@@ -24581,19 +24477,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable"
       },
       {
-        "id": "JAM_2018_Q21",
-        "year": "JAM 2018",
-        "q_num": 21,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q21.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 21",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
         "id": "JAM_2018_Q11",
         "year": "JAM 2018",
         "q_num": 11,
@@ -24603,19 +24486,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q11.png",
         "answer_key": "A",
         "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 11",
-        "topic_id": "1.2",
-        "topic_name": "Functions of One Real Variable"
-      },
-      {
-        "id": "JAM_2018_Q1",
-        "year": "JAM 2018",
-        "q_num": 1,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q1.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 1",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable"
       },
@@ -25270,15 +25140,15 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable"
       },
       {
-        "id": "JAM_2008_Q6",
+        "id": "JAM_2008_Q7",
         "year": "JAM 2008",
-        "q_num": 6,
+        "q_num": 7,
         "type": "MCQ",
         "marks": 6,
         "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q6.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: (A)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 6",
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q7.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 7",
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable"
       },
@@ -25386,8 +25256,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf"
+    ]
   },
   "2.1": {
     "id": "2.1",
@@ -25398,11 +25267,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 73 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 71 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf",
-    "total_questions": 73,
-    "total_marks": 149,
-    "duration_minutes": 219,
+    "total_questions": 71,
+    "total_marks": 141,
+    "duration_minutes": 213,
     "questions": [
       {
         "id": "JAM_2026_Q52",
@@ -25951,19 +25820,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables"
       },
       {
-        "id": "JAM_2018_Q24",
-        "year": "JAM 2018",
-        "q_num": 24,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q24.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 24",
-        "topic_id": "2.1",
-        "topic_name": "Functions of Two or Three Real Variables"
-      },
-      {
         "id": "JAM_2018_Q14",
         "year": "JAM 2018",
         "q_num": 14,
@@ -26302,19 +26158,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables"
       },
       {
-        "id": "JAM_2008_Q3",
-        "year": "JAM 2008",
-        "q_num": 3,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q3.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 3",
-        "topic_id": "2.1",
-        "topic_name": "Functions of Two or Three Real Variables"
-      },
-      {
         "id": "JAM_2007_Q9",
         "year": "JAM 2007",
         "q_num": 9,
@@ -26353,8 +26196,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "2.1",
         "topic_name": "Functions of Two or Three Real Variables"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
+    ]
   },
   "2.2": {
     "id": "2.2",
@@ -26365,11 +26207,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 66 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 65 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf",
-    "total_questions": 66,
-    "total_marks": 139,
-    "duration_minutes": 198,
+    "total_questions": 65,
+    "total_marks": 133,
+    "duration_minutes": 195,
     "questions": [
       {
         "id": "JAM_2026_Q55",
@@ -27191,19 +27033,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus"
       },
       {
-        "id": "JAM_2008_Q7",
-        "year": "JAM 2008",
-        "q_num": 7,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q7.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: (B)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 7",
-        "topic_id": "2.2",
-        "topic_name": "Integral Calculus"
-      },
-      {
         "id": "JAM_2005_Q12",
         "year": "JAM 2005",
         "q_num": 12,
@@ -27229,8 +27058,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "2.2",
         "topic_name": "Integral Calculus"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf"
+    ]
   },
   "2.3": {
     "id": "2.3",
@@ -27241,11 +27069,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 109 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 116 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf",
-    "total_questions": 109,
-    "total_marks": 255,
-    "duration_minutes": 327,
+    "total_questions": 116,
+    "total_marks": 263,
+    "duration_minutes": 348,
     "questions": [
       {
         "id": "JAM_2026_Q51",
@@ -27820,6 +27648,19 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations"
       },
       {
+        "id": "JAM_2021_Q52",
+        "year": "JAM 2021",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q52.png",
+        "answer_key": "10.8 to 10.9",
+        "explanation": "<strong>Official Key: 10.8 to 10.9</strong><br>• IIT JAM 2021 Mathematics (MA) — Question 52",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
         "id": "JAM_2021_Q48",
         "year": "JAM 2021",
         "q_num": 48,
@@ -27937,6 +27778,19 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations"
       },
       {
+        "id": "JAM_2020_Q21",
+        "year": "JAM 2020",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q21.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2020 Mathematics (MA) — Question 21",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
         "id": "JAM_2020_Q18",
         "year": "JAM 2020",
         "q_num": 18,
@@ -28028,6 +27882,32 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations"
       },
       {
+        "id": "JAM_2019_Q21",
+        "year": "JAM 2019",
+        "q_num": 21,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q21.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 21",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
+        "id": "JAM_2019_Q20",
+        "year": "JAM 2019",
+        "q_num": 20,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q20.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 20",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
         "id": "JAM_2019_Q19",
         "year": "JAM 2019",
         "q_num": 19,
@@ -28063,6 +27943,32 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q8.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 8",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
+        "id": "JAM_2019_Q7",
+        "year": "JAM 2019",
+        "q_num": 7,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q7.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 7",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
+        "id": "JAM_2019_Q6",
+        "year": "JAM 2019",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q6.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 6",
         "topic_id": "2.3",
         "topic_name": "Differential Equations"
       },
@@ -28119,15 +28025,41 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations"
       },
       {
-        "id": "JAM_2018_Q28",
+        "id": "JAM_2018_Q24",
         "year": "JAM 2018",
-        "q_num": 28,
+        "q_num": 24,
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q28.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 28",
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q24.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 24",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
+        "id": "JAM_2018_Q23",
+        "year": "JAM 2018",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q23.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 23",
+        "topic_id": "2.3",
+        "topic_name": "Differential Equations"
+      },
+      {
+        "id": "JAM_2018_Q22",
+        "year": "JAM 2018",
+        "q_num": 22,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q22.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 22",
         "topic_id": "2.3",
         "topic_name": "Differential Equations"
       },
@@ -28574,19 +28506,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations"
       },
       {
-        "id": "JAM_2008_Q4",
-        "year": "JAM 2008",
-        "q_num": 4,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q4.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 4",
-        "topic_id": "2.3",
-        "topic_name": "Differential Equations"
-      },
-      {
         "id": "JAM_2007_Q14",
         "year": "JAM 2007",
         "q_num": 14,
@@ -28664,8 +28583,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "2.3",
         "topic_name": "Differential Equations"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.3_Differential_Equations.pdf"
+    ]
   },
   "3.1": {
     "id": "3.1",
@@ -28721,8 +28639,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.1",
         "topic_name": "Basic Algebra"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.1_Basic_Algebra.pdf"
+    ]
   },
   "3.2": {
     "id": "3.2",
@@ -28733,11 +28650,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 91 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 78 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf",
-    "total_questions": 91,
-    "total_marks": 183,
-    "duration_minutes": 273,
+    "total_questions": 78,
+    "total_marks": 157,
+    "duration_minutes": 234,
     "questions": [
       {
         "id": "JAM_2026_Q59",
@@ -28805,19 +28722,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations"
       },
       {
-        "id": "JAM_2026_Q47",
-        "year": "JAM 2026",
-        "q_num": 47,
-        "type": "NAT",
-        "marks": 1,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q47.png",
-        "answer_key": "8 to 8",
-        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 47",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
         "id": "JAM_2026_Q39",
         "year": "JAM 2026",
         "q_num": 39,
@@ -28840,19 +28744,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q37.png",
         "answer_key": "A;B;D",
         "explanation": "<strong>Official Key: A;B;D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 37",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2026_Q30",
-        "year": "JAM 2026",
-        "q_num": 30,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q30.png",
-        "answer_key": "B",
-        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 30",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations"
       },
@@ -28892,71 +28783,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q8.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 8",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2025_Q60",
-        "year": "JAM 2025",
-        "q_num": 60,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q60.png",
-        "answer_key": "0 to 0",
-        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 60",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2025_Q59",
-        "year": "JAM 2025",
-        "q_num": 59,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q59.png",
-        "answer_key": "10 to 10",
-        "explanation": "<strong>Official Key: 10 to 10</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 59",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2025_Q52",
-        "year": "JAM 2025",
-        "q_num": 52,
-        "type": "NAT",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q52.png",
-        "answer_key": "3 to 3",
-        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 52",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2025_Q39",
-        "year": "JAM 2025",
-        "q_num": 39,
-        "type": "MSQ",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q39.png",
-        "answer_key": "B;D",
-        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 39",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2025_Q23",
-        "year": "JAM 2025",
-        "q_num": 23,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q23.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 23",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations"
       },
@@ -29009,19 +28835,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q13.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 13",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2025_Q9",
-        "year": "JAM 2025",
-        "q_num": 9,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q9.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 9",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations"
       },
@@ -29117,32 +28930,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations"
       },
       {
-        "id": "JAM_2024_Q6",
-        "year": "JAM 2024",
-        "q_num": 6,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q6.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 6",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2024_Q5",
-        "year": "JAM 2024",
-        "q_num": 5,
-        "type": "MCQ",
-        "marks": 1,
-        "negative_marks": 0.33,
-        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q5.png",
-        "answer_key": "A",
-        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 5",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
         "id": "JAM_2023_Q58",
         "year": "JAM 2023",
         "q_num": 58,
@@ -29230,32 +29017,6 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q53.png",
         "answer_key": "3.00 to 3.00",
         "explanation": "<strong>Official Key: 3.00 to 3.00</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 53",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2022_Q40",
-        "year": "JAM 2022",
-        "q_num": 40,
-        "type": "MSQ",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q40.png",
-        "answer_key": "A,C",
-        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 40",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
-        "id": "JAM_2022_Q39",
-        "year": "JAM 2022",
-        "q_num": 39,
-        "type": "MSQ",
-        "marks": 2,
-        "negative_marks": 0,
-        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q39.png",
-        "answer_key": "A,B",
-        "explanation": "<strong>Official Key: A,B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 39",
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations"
       },
@@ -29871,19 +29632,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations"
       },
       {
-        "id": "JAM_2008_Q2",
-        "year": "JAM 2008",
-        "q_num": 2,
-        "type": "MCQ",
-        "marks": 6,
-        "negative_marks": 2.0,
-        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q2.png",
-        "answer_key": "D",
-        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 2",
-        "topic_id": "3.2",
-        "topic_name": "Matrices and Systems of Linear Equations"
-      },
-      {
         "id": "JAM_2007_Q11",
         "year": "JAM 2007",
         "q_num": 11,
@@ -29922,8 +29670,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
+    ]
   },
   "3.3": {
     "id": "3.3",
@@ -29934,11 +29681,11 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 78 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 81 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf",
-    "total_questions": 78,
-    "total_marks": 184,
-    "duration_minutes": 234,
+    "total_questions": 81,
+    "total_marks": 193,
+    "duration_minutes": 243,
     "questions": [
       {
         "id": "JAM_2026_Q40",
@@ -30266,6 +30013,32 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces"
       },
       {
+        "id": "JAM_2022_Q40",
+        "year": "JAM 2022",
+        "q_num": 40,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q40.png",
+        "answer_key": "A,C",
+        "explanation": "<strong>Official Key: A,C</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 40",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces"
+      },
+      {
+        "id": "JAM_2022_Q39",
+        "year": "JAM 2022",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2022/JAM_2022_Q39.png",
+        "answer_key": "A,B",
+        "explanation": "<strong>Official Key: A,B</strong><br>• IIT JAM 2022 Mathematics (MA) — Question 39",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces"
+      },
+      {
         "id": "JAM_2021_Q60",
         "year": "JAM 2021",
         "q_num": 60,
@@ -30448,19 +30221,6 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces"
       },
       {
-        "id": "JAM_2019_Q20",
-        "year": "JAM 2019",
-        "q_num": 20,
-        "type": "MCQ",
-        "marks": 2,
-        "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q20.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 20",
-        "topic_id": "3.3",
-        "topic_name": "Finite Dimensional Vector Spaces"
-      },
-      {
         "id": "JAM_2019_Q4",
         "year": "JAM 2019",
         "q_num": 4,
@@ -30513,15 +30273,15 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces"
       },
       {
-        "id": "JAM_2018_Q26",
+        "id": "JAM_2018_Q21",
         "year": "JAM 2018",
-        "q_num": 26,
+        "q_num": 21,
         "type": "MCQ",
         "marks": 2,
         "negative_marks": 0.67,
-        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q26.png",
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q21.png",
         "answer_key": "C",
-        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 26",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 21",
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces"
       },
@@ -30548,6 +30308,19 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q6.png",
         "answer_key": "C",
         "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 6",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces"
+      },
+      {
+        "id": "JAM_2018_Q3",
+        "year": "JAM 2018",
+        "q_num": 3,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q3.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 3",
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces"
       },
@@ -30916,6 +30689,19 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces"
       },
       {
+        "id": "JAM_2008_Q2",
+        "year": "JAM 2008",
+        "q_num": 2,
+        "type": "MCQ",
+        "marks": 6,
+        "negative_marks": 2.0,
+        "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q2.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2008 Mathematics (MA) — Question 2",
+        "topic_id": "3.3",
+        "topic_name": "Finite Dimensional Vector Spaces"
+      },
+      {
         "id": "JAM_2007_Q5",
         "year": "JAM 2007",
         "q_num": 5,
@@ -30954,8 +30740,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
+    ]
   },
   "3.4": {
     "id": "3.4",
@@ -30966,12 +30751,38 @@ window.MOCK_TESTS_DATA = {
     "era": "comprehensive",
     "era_label": "2005–2026",
     "era_name": "Full Archive (2005–2026)",
-    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 92 Qs)",
+    "pattern": "MCQ • MSQ • NAT (2005–2026 Archive • 106 Qs)",
     "cheat_sheet": "assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf",
-    "total_questions": 92,
-    "total_marks": 198,
-    "duration_minutes": 276,
+    "total_questions": 106,
+    "total_marks": 221,
+    "duration_minutes": 318,
     "questions": [
+      {
+        "id": "JAM_2026_Q47",
+        "year": "JAM 2026",
+        "q_num": 47,
+        "type": "NAT",
+        "marks": 1,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q47.png",
+        "answer_key": "8 to 8",
+        "explanation": "<strong>Official Key: 8 to 8</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 47",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2026_Q30",
+        "year": "JAM 2026",
+        "q_num": 30,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q30.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 30",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
       {
         "id": "JAM_2026_Q27",
         "year": "JAM 2026",
@@ -31008,6 +30819,84 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q9.png",
         "answer_key": "D",
         "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2026 Mathematics (MA) — Question 9",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2025_Q60",
+        "year": "JAM 2025",
+        "q_num": 60,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q60.png",
+        "answer_key": "0 to 0",
+        "explanation": "<strong>Official Key: 0 to 0</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 60",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2025_Q59",
+        "year": "JAM 2025",
+        "q_num": 59,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q59.png",
+        "answer_key": "10 to 10",
+        "explanation": "<strong>Official Key: 10 to 10</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 59",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2025_Q52",
+        "year": "JAM 2025",
+        "q_num": 52,
+        "type": "NAT",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q52.png",
+        "answer_key": "3 to 3",
+        "explanation": "<strong>Official Key: 3 to 3</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 52",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2025_Q39",
+        "year": "JAM 2025",
+        "q_num": 39,
+        "type": "MSQ",
+        "marks": 2,
+        "negative_marks": 0,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q39.png",
+        "answer_key": "B;D",
+        "explanation": "<strong>Official Key: B;D</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 39",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2025_Q23",
+        "year": "JAM 2025",
+        "q_num": 23,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q23.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 23",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2025_Q9",
+        "year": "JAM 2025",
+        "q_num": 9,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q9.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2025 Mathematics (MA) — Question 9",
         "topic_id": "3.4",
         "topic_name": "Groups"
       },
@@ -31099,6 +30988,32 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q7.png",
         "answer_key": "A",
         "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 7",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2024_Q6",
+        "year": "JAM 2024",
+        "q_num": 6,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q6.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 6",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2024_Q5",
+        "year": "JAM 2024",
+        "q_num": 5,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q5.png",
+        "answer_key": "A",
+        "explanation": "<strong>Official Key: A</strong><br>• IIT JAM 2024 Mathematics (MA) — Question 5",
         "topic_id": "3.4",
         "topic_name": "Groups"
       },
@@ -31610,6 +31525,19 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups"
       },
       {
+        "id": "JAM_2019_Q11",
+        "year": "JAM 2019",
+        "q_num": 11,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2019/JAM_2019_Q11.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2019 Mathematics (MA) — Question 11",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
         "id": "JAM_2019_Q3",
         "year": "JAM 2019",
         "q_num": 3,
@@ -31675,6 +31603,32 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups"
       },
       {
+        "id": "JAM_2018_Q28",
+        "year": "JAM 2018",
+        "q_num": 28,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q28.png",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: D</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 28",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2018_Q26",
+        "year": "JAM 2018",
+        "q_num": 26,
+        "type": "MCQ",
+        "marks": 2,
+        "negative_marks": 0.67,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q26.png",
+        "answer_key": "C",
+        "explanation": "<strong>Official Key: C</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 26",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
         "id": "JAM_2018_Q25",
         "year": "JAM 2018",
         "q_num": 25,
@@ -31710,6 +31664,19 @@ window.MOCK_TESTS_DATA = {
         "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q5.png",
         "answer_key": "B",
         "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 5",
+        "topic_id": "3.4",
+        "topic_name": "Groups"
+      },
+      {
+        "id": "JAM_2018_Q1",
+        "year": "JAM 2018",
+        "q_num": 1,
+        "type": "MCQ",
+        "marks": 1,
+        "negative_marks": 0.33,
+        "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q1.png",
+        "answer_key": "B",
+        "explanation": "<strong>Official Key: B</strong><br>• IIT JAM 2018 Mathematics (MA) — Question 1",
         "topic_id": "3.4",
         "topic_name": "Groups"
       },
@@ -32168,7 +32135,6 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.4",
         "topic_name": "Groups"
       }
-    ],
-    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.4_Groups.pdf"
+    ]
   }
 };
