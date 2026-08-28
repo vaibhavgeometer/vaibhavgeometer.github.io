@@ -4,43 +4,43 @@
   "topic_id": "2.3",
   "seed": 42,
   "total_questions": 30,
-  "total_marks": 62,
+  "total_marks": 66,
   "duration_minutes": 90,
-  "pages": 18,
+  "pages": 19,
   "pdf_file": "IIT_JAM_ODE_30_Random_Questions_Mock_Test.pdf",
   "questions": [
     {
       "custom_q_num": 1,
-      "id": "JAM_2014_Q4",
-      "year": "JAM 2014",
-      "orig_q_num": 4,
+      "id": "JAM_2015_Q9",
+      "year": "JAM 2015",
+      "orig_q_num": 9,
       "type": "MCQ",
       "marks": 1,
       "negative_marks": 0.33,
       "answer_key": "B",
-      "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q4.png"
+      "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q9.png"
     },
     {
       "custom_q_num": 2,
-      "id": "JAM_2016_Q8",
-      "year": "JAM 2016",
-      "orig_q_num": 8,
+      "id": "JAM_2021_Q2",
+      "year": "JAM 2021",
+      "orig_q_num": 2,
       "type": "MCQ",
       "marks": 1,
       "negative_marks": 0.33,
-      "answer_key": "D",
-      "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q8.png"
+      "answer_key": "A",
+      "image": "assets/PYQs_Screenshots/2021/JAM_2021_Q2.png"
     },
     {
       "custom_q_num": 3,
-      "id": "JAM_2020_Q7",
-      "year": "JAM 2020",
-      "orig_q_num": 7,
+      "id": "JAM_2023_Q4",
+      "year": "JAM 2023",
+      "orig_q_num": 4,
       "type": "MCQ",
       "marks": 1,
       "negative_marks": 0.33,
       "answer_key": "D",
-      "image": "assets/PYQs_Screenshots/2020/JAM_2020_Q7.png"
+      "image": "assets/PYQs_Screenshots/2023/JAM_2023_Q4.png"
     },
     {
       "custom_q_num": 4,
@@ -66,39 +66,17 @@
     },
     {
       "custom_q_num": 6,
-      "id": "JAM_2014_Q15",
-      "year": "JAM 2014",
-      "orig_q_num": 15,
-      "type": "MCQ",
-      "marks": 2,
-      "negative_marks": 0.67,
-      "answer_key": "B",
-      "image": "assets/PYQs_Screenshots/2014/JAM_2014_Q15.png"
-    },
-    {
-      "custom_q_num": 7,
-      "id": "JAM_2015_Q24",
-      "year": "JAM 2015",
-      "orig_q_num": 24,
-      "type": "MCQ",
-      "marks": 2,
-      "negative_marks": 0.67,
-      "answer_key": "B",
-      "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q24.png"
-    },
-    {
-      "custom_q_num": 8,
-      "id": "JAM_2018_Q23",
-      "year": "JAM 2018",
-      "orig_q_num": 23,
+      "id": "JAM_2016_Q22",
+      "year": "JAM 2016",
+      "orig_q_num": 22,
       "type": "MCQ",
       "marks": 2,
       "negative_marks": 0.67,
       "answer_key": "C",
-      "image": "assets/PYQs_Screenshots/2018/JAM_2018_Q23.png"
+      "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q22.png"
     },
     {
-      "custom_q_num": 9,
+      "custom_q_num": 7,
       "id": "JAM_2024_Q23",
       "year": "JAM 2024",
       "orig_q_num": 23,
@@ -109,7 +87,7 @@
       "image": "assets/PYQs_Screenshots/2024/JAM_2024_Q23.png"
     },
     {
-      "custom_q_num": 10,
+      "custom_q_num": 8,
       "id": "JAM_2025_Q11",
       "year": "JAM 2025",
       "orig_q_num": 11,
@@ -120,7 +98,7 @@
       "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q11.png"
     },
     {
-      "custom_q_num": 11,
+      "custom_q_num": 9,
       "id": "JAM_2025_Q12",
       "year": "JAM 2025",
       "orig_q_num": 12,
@@ -131,7 +109,7 @@
       "image": "assets/PYQs_Screenshots/2025/JAM_2025_Q12.png"
     },
     {
-      "custom_q_num": 12,
+      "custom_q_num": 10,
       "id": "JAM_2026_Q16",
       "year": "JAM 2026",
       "orig_q_num": 16,
@@ -142,59 +120,81 @@
       "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q16.png"
     },
     {
-      "custom_q_num": 13,
-      "id": "JAM_2005_Q3",
-      "year": "JAM 2005",
-      "orig_q_num": 3,
+      "custom_q_num": 11,
+      "id": "JAM_2026_Q18",
+      "year": "JAM 2026",
+      "orig_q_num": 18,
       "type": "MCQ",
-      "marks": 6,
-      "negative_marks": 2.0,
-      "answer_key": "B",
-      "image": "assets/PYQs_Screenshots/2005/JAM_2005_Q3.png"
+      "marks": 2,
+      "negative_marks": 0.67,
+      "answer_key": "D",
+      "image": "assets/PYQs_Screenshots/2026/JAM_2026_Q18.png"
     },
     {
-      "custom_q_num": 14,
-      "id": "JAM_2008_Q14",
-      "year": "JAM 2008",
-      "orig_q_num": 14,
-      "type": "MCQ",
-      "marks": 6,
-      "negative_marks": 2.0,
-      "answer_key": "C",
-      "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q14.png"
-    },
-    {
-      "custom_q_num": 15,
-      "id": "JAM_2010_Q10",
-      "year": "JAM 2010",
+      "custom_q_num": 12,
+      "id": "JAM_2006_Q10",
+      "year": "JAM 2006",
       "orig_q_num": 10,
       "type": "MCQ",
       "marks": 6,
       "negative_marks": 2.0,
-      "answer_key": "D",
-      "image": "assets/PYQs_Screenshots/2010/JAM_2010_Q10.png"
+      "answer_key": "A",
+      "image": "assets/PYQs_Screenshots/2006/JAM_2006_Q10.png"
+    },
+    {
+      "custom_q_num": 13,
+      "id": "JAM_2008_Q9",
+      "year": "JAM 2008",
+      "orig_q_num": 9,
+      "type": "MCQ",
+      "marks": 6,
+      "negative_marks": 2.0,
+      "answer_key": "C",
+      "image": "assets/PYQs_Screenshots/2008/JAM_2008_Q9.png"
+    },
+    {
+      "custom_q_num": 14,
+      "id": "JAM_2011_Q5",
+      "year": "JAM 2011",
+      "orig_q_num": 5,
+      "type": "MCQ",
+      "marks": 6,
+      "negative_marks": 2.0,
+      "answer_key": "B",
+      "image": "assets/PYQs_Screenshots/2011/JAM_2011_Q5.png"
+    },
+    {
+      "custom_q_num": 15,
+      "id": "JAM_2012_Q6",
+      "year": "JAM 2012",
+      "orig_q_num": 6,
+      "type": "MCQ",
+      "marks": 6,
+      "negative_marks": 2.0,
+      "answer_key": "C",
+      "image": "assets/PYQs_Screenshots/2012/JAM_2012_Q6.png"
     },
     {
       "custom_q_num": 16,
-      "id": "JAM_2015_Q36",
-      "year": "JAM 2015",
-      "orig_q_num": 36,
+      "id": "JAM_2016_Q35",
+      "year": "JAM 2016",
+      "orig_q_num": 35,
       "type": "MSQ",
       "marks": 2,
       "negative_marks": 0,
-      "answer_key": "A, C",
-      "image": "assets/PYQs_Screenshots/2015/JAM_2015_Q36.png"
+      "answer_key": "C, D",
+      "image": "assets/PYQs_Screenshots/2016/JAM_2016_Q35.png"
     },
     {
       "custom_q_num": 17,
-      "id": "JAM_2017_Q39",
+      "id": "JAM_2017_Q40",
       "year": "JAM 2017",
-      "orig_q_num": 39,
+      "orig_q_num": 40,
       "type": "MSQ",
       "marks": 2,
       "negative_marks": 0,
-      "answer_key": "B, C, D",
-      "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q39.png"
+      "answer_key": "C, D",
+      "image": "assets/PYQs_Screenshots/2017/JAM_2017_Q40.png"
     },
     {
       "custom_q_num": 18,

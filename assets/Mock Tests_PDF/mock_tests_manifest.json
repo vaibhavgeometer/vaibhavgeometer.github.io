@@ -227,97 +227,97 @@
     "id": "2022-2026_3.2",
     "name": "Matrices and Systems of Linear Equations (2022\u20132026)",
     "filename": "2022-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf",
-    "questions": 49,
-    "pages": 33,
-    "size_mb": 12.34
+    "questions": 36,
+    "pages": 27,
+    "size_mb": 9.88
   },
   {
     "id": "2022-2026_3.3",
     "name": "Finite Dimensional Vector Spaces (2022\u20132026)",
     "filename": "2022-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf",
-    "questions": 25,
-    "pages": 17,
-    "size_mb": 6.56
+    "questions": 28,
+    "pages": 19,
+    "size_mb": 7.78
   },
   {
     "id": "2022-2026_3.4",
     "name": "Groups (2022\u20132026)",
     "filename": "2022-2026_Topic_3.4_Groups.pdf",
-    "questions": 25,
-    "pages": 16,
-    "size_mb": 6.32
+    "questions": 35,
+    "pages": 20,
+    "size_mb": 7.57
   },
   {
     "id": "2015-2021_1.1",
     "name": "Sequences and Series of Real Numbers (2015\u20132021)",
     "filename": "2015-2021_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf",
-    "questions": 55,
-    "pages": 19,
-    "size_mb": 3.5
+    "questions": 60,
+    "pages": 23,
+    "size_mb": 4.09
   },
   {
     "id": "2015-2021_1.2",
     "name": "Functions of One Real Variable (2015\u20132021)",
     "filename": "2015-2021_Topic_1.2_Functions_of_One_Real_Variable.pdf",
-    "questions": 80,
-    "pages": 31,
-    "size_mb": 7.58
+    "questions": 77,
+    "pages": 29,
+    "size_mb": 6.82
   },
   {
     "id": "2015-2021_2.1",
     "name": "Functions of Two or Three Real Variables (2015\u20132021)",
     "filename": "2015-2021_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf",
-    "questions": 36,
-    "pages": 15,
-    "size_mb": 2.3
+    "questions": 42,
+    "pages": 17,
+    "size_mb": 2.84
   },
   {
     "id": "2015-2021_2.2",
     "name": "Integral Calculus (2015\u20132021)",
     "filename": "2015-2021_Topic_2.2_Integral_Calculus.pdf",
-    "questions": 31,
+    "questions": 32,
     "pages": 11,
-    "size_mb": 1.85
+    "size_mb": 1.69
   },
   {
     "id": "2015-2021_2.3",
     "name": "Differential Equations (2015\u20132021)",
     "filename": "2015-2021_Topic_2.3_Differential_Equations.pdf",
-    "questions": 44,
-    "pages": 17,
-    "size_mb": 2.66
+    "questions": 49,
+    "pages": 19,
+    "size_mb": 3.48
   },
   {
     "id": "2015-2021_3.2",
     "name": "Matrices and Systems of Linear Equations (2015\u20132021)",
     "filename": "2015-2021_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf",
-    "questions": 34,
-    "pages": 14,
-    "size_mb": 2.75
+    "questions": 32,
+    "pages": 13,
+    "size_mb": 2.57
   },
   {
     "id": "2015-2021_3.3",
     "name": "Finite Dimensional Vector Spaces (2015\u20132021)",
     "filename": "2015-2021_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf",
-    "questions": 34,
-    "pages": 13,
-    "size_mb": 2.9
+    "questions": 28,
+    "pages": 11,
+    "size_mb": 2.47
   },
   {
     "id": "2015-2021_3.4",
     "name": "Groups (2015\u20132021)",
     "filename": "2015-2021_Topic_3.4_Groups.pdf",
-    "questions": 51,
+    "questions": 50,
     "pages": 19,
-    "size_mb": 3.44
+    "size_mb": 3.46
   },
   {
     "id": "2005-2014_1.1",
     "name": "Sequences and Series of Real Numbers (2005\u20132014)",
     "filename": "2005-2014_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf",
-    "questions": 20,
-    "pages": 8,
-    "size_mb": 5.72
+    "questions": 22,
+    "pages": 9,
+    "size_mb": 6.51
   },
   {
     "id": "2005-2014_1.2",
@@ -325,47 +325,47 @@
     "filename": "2005-2014_Topic_1.2_Functions_of_One_Real_Variable.pdf",
     "questions": 25,
     "pages": 9,
-    "size_mb": 7.73
+    "size_mb": 7.39
   },
   {
     "id": "2005-2014_2.1",
     "name": "Functions of Two or Three Real Variables (2005\u20132014)",
     "filename": "2005-2014_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf",
-    "questions": 11,
+    "questions": 10,
     "pages": 6,
-    "size_mb": 3.62
+    "size_mb": 3.28
   },
   {
     "id": "2005-2014_2.2",
     "name": "Integral Calculus (2005\u20132014)",
     "filename": "2005-2014_Topic_2.2_Integral_Calculus.pdf",
-    "questions": 9,
+    "questions": 8,
     "pages": 5,
-    "size_mb": 1.28
+    "size_mb": 0.95
   },
   {
     "id": "2005-2014_2.3",
     "name": "Differential Equations (2005\u20132014)",
     "filename": "2005-2014_Topic_2.3_Differential_Equations.pdf",
-    "questions": 21,
+    "questions": 20,
     "pages": 8,
-    "size_mb": 5.29
+    "size_mb": 4.91
   },
   {
     "id": "2005-2014_3.2",
     "name": "Matrices and Systems of Linear Equations (2005\u20132014)",
     "filename": "2005-2014_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf",
-    "questions": 8,
+    "questions": 7,
     "pages": 4,
-    "size_mb": 1.9
+    "size_mb": 1.46
   },
   {
     "id": "2005-2014_3.3",
     "name": "Finite Dimensional Vector Spaces (2005\u20132014)",
     "filename": "2005-2014_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf",
-    "questions": 19,
-    "pages": 8,
-    "size_mb": 4.4
+    "questions": 20,
+    "pages": 9,
+    "size_mb": 4.85
   },
   {
     "id": "2005-2014_3.4",
@@ -379,25 +379,25 @@
     "id": "1.1",
     "name": "Sequences and Series of Real Numbers (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf",
-    "questions": 124,
-    "pages": 58,
-    "size_mb": 23.46
+    "questions": 131,
+    "pages": 62,
+    "size_mb": 24.84
   },
   {
     "id": "1.2",
     "name": "Functions of One Real Variable (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf",
-    "questions": 158,
-    "pages": 70,
-    "size_mb": 29.09
+    "questions": 155,
+    "pages": 68,
+    "size_mb": 27.99
   },
   {
     "id": "2.1",
     "name": "Functions of Two or Three Real Variables (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf",
-    "questions": 73,
-    "pages": 34,
-    "size_mb": 15.24
+    "questions": 78,
+    "pages": 36,
+    "size_mb": 15.44
   },
   {
     "id": "2.2",
@@ -405,15 +405,15 @@
     "filename": "Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf",
     "questions": 66,
     "pages": 28,
-    "size_mb": 9.88
+    "size_mb": 9.39
   },
   {
     "id": "2.3",
     "name": "Differential Equations (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_2.3_Differential_Equations.pdf",
-    "questions": 109,
-    "pages": 52,
-    "size_mb": 20.12
+    "questions": 113,
+    "pages": 54,
+    "size_mb": 20.56
   },
   {
     "id": "3.1",
@@ -427,24 +427,24 @@
     "id": "3.2",
     "name": "Matrices and Systems of Linear Equations (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf",
-    "questions": 91,
-    "pages": 48,
-    "size_mb": 16.9
+    "questions": 75,
+    "pages": 39,
+    "size_mb": 13.8
   },
   {
     "id": "3.3",
     "name": "Finite Dimensional Vector Spaces (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf",
-    "questions": 78,
+    "questions": 76,
     "pages": 34,
-    "size_mb": 13.77
+    "size_mb": 15.0
   },
   {
     "id": "3.4",
     "name": "Groups (2005\u20132026 Archive)",
     "filename": "Archive_2005-2026_Topic_3.4_Groups.pdf",
-    "questions": 92,
-    "pages": 38,
-    "size_mb": 13.0
+    "questions": 101,
+    "pages": 41,
+    "size_mb": 14.27
   }
 ]
