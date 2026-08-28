@@ -136,17 +136,17 @@ Total Test Suites (58)
 
 | Code | Topic / Module Name | Questions | Total Marks | Duration | Subject Area | Formula Cheat Sheet |
 | :---: | :--- | :---: | :---: | :---: | :--- | :---: |
-| **1.1** | `Sequences and Series of Real Numbers` | **123** | 278 | 369 min | Real Analysis | [Cheat Sheet](assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
-| **1.2** | `Functions of One Real Variable` | **151** | 323 | 453 min | Real Analysis | [Cheat Sheet](assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
-| **2.1** | `Functions of Two or Three Real Variables` | **71** | 141 | 213 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
-| **2.2** | `Integral Calculus` | **65** | 133 | 195 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
-| **2.3** | `Differential Equations` | **116** | 263 | 348 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
+| **1.1** | `Sequences and Series of Real Numbers` | **122** | 277 | 366 min | Real Analysis | [Cheat Sheet](assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
+| **1.2** | `Functions of One Real Variable` | **152** | 324 | 456 min | Real Analysis | [Cheat Sheet](assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
+| **2.1** | `Functions of Two or Three Real Variables` | **70** | 141 | 210 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
+| **2.2** | `Integral Calculus` | **65** | 134 | 195 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
+| **2.3** | `Differential Equations` | **118** | 265 | 354 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
 | **3.1** | `Basic Algebra` | **3** | 6 | 15 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
-| **3.2** | `Matrices and Systems of Linear Equations` | **78** | 157 | 234 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
-| **3.3** | `Finite Dimensional Vector Spaces` | **81** | 193 | 243 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
-| **3.4** | `Groups` | **106** | 221 | 318 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
-| | **Total In-Syllabus Questions** | **794** | **1,715** | — | **All 3 Core Syllabus Sections** | |
-| — | *Out-of-Syllabus (Isolated for Modern Exam Prep)* | *91* | — | — | *Vector Calculus, Topology, Rings, LPP, etc.* | — |
+| **3.2** | `Matrices and Systems of Linear Equations` | **79** | 159 | 237 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
+| **3.3** | `Finite Dimensional Vector Spaces` | **79** | 190 | 237 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
+| **3.4** | `Groups` | **107** | 223 | 321 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
+| | **Total In-Syllabus Questions** | **795** | **1,719** | — | **All 3 Core Syllabus Sections** | |
+| — | *Out-of-Syllabus (Isolated for Modern Exam Prep)* | *90* | — | — | *Vector Calculus, Topology, Rings, LPP, etc.* | — |
 | **TOTAL** | **22-Year Historical Archive (2005–2026)** | **885** | — | — | **22 Question Papers** | |
 
 ---
