@@ -12,11 +12,17 @@ doc = None
 def ensure_dir(d):
     os.makedirs(d, exist_ok=True)
 
+def _ensure_doc():
+    global doc
+    if doc is None:
+        doc = fitz.open(PDF_PATH)
+
 # -------------------------------------------------------------
 # 1. 2005 & 2006 PRECISE EXTRACTION
 # -------------------------------------------------------------
 
 def extract_2005():
+    _ensure_doc()
     out_dir = os.path.join(OUTPUT_BASE, "2005")
     ensure_dir(out_dir)
     print("\n--- Extracting JAM 2005 (15 Qs) ---")
@@ -79,6 +85,7 @@ def extract_2005():
 
 
 def extract_2006():
+    _ensure_doc()
     out_dir = os.path.join(OUTPUT_BASE, "2006")
     ensure_dir(out_dir)
     print("\n--- Extracting JAM 2006 (15 Qs) ---")
@@ -109,6 +116,7 @@ def extract_2006():
 
 
 def extract_2007():
+    _ensure_doc()
     out_dir = os.path.join(OUTPUT_BASE, "2007")
     ensure_dir(out_dir)
     print("\n--- Extracting JAM 2007 (15 Qs) ---")

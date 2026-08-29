@@ -16,7 +16,7 @@ import typst
 import fitz
 
 OUTPUT_DIR = os.path.abspath('assets/Mock Tests_PDF')
-SCRATCH_DIR = os.path.abspath('scratch')
+SCRATCH_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'scratch'))
 
 def load_all_tests():
     with open('mock-test/js/questions_data.js', 'r', encoding='utf-8') as f:
@@ -309,7 +309,7 @@ def generate_typst_code(test_id, test_data):
   
   #pad(top: 6pt, bottom: 6pt, left: 8pt, right: 8pt)[
     #align(center)[
-      #image("/{img_path}", width: 100%)
+      #image("{img_path}", width: 100%)
     ]
   ]
 ]
@@ -446,7 +446,7 @@ def generate_all_pdfs():
             size_mb = len(pdf_bytes) / (1024 * 1024)
             generated_count += 1
             
-            print(f"[{generated_count:02d}/56] Generated {filename} | {q_count} Qs | {page_count} Pages | {size_mb:.2f} MB in {elapsed:.2f}s")
+            print(f"[{generated_count:02d}/{total_tests - skipped_count}] Generated {filename} | {q_count} Qs | {page_count} Pages | {size_mb:.2f} MB in {elapsed:.2f}s")
             results_summary.append({
                 'id': test_id,
                 'name': test_data.get('name'),
@@ -472,7 +472,7 @@ def generate_all_pdfs():
     
     # Save a manifest JSON
     manifest_path = os.path.join(OUTPUT_DIR, 'mock_tests_manifest.json')
-    with open(manifest_path, 'w', encoding='utf-8') as f:
+    with open(manifest_path, 'w', encoding='utf-8', newline='\\n') as f:
         json.dump(results_summary, f, indent=2)
     print(f"Saved manifest to {manifest_path}")
 

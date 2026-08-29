@@ -349,7 +349,7 @@
     doc.setFontSize(14.5);
     doc.setTextColor(15, 23, 42); // Slate dark
     const wrappedTitle = doc.splitTextToSize(paperTitle, contentWidth - 30);
-    doc.text(wrappedTitle[0], pageWidth / 2, curY + 38, { align: 'center' });
+    doc.text(wrappedTitle, pageWidth / 2, curY + 38, { align: 'center' });
 
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9);

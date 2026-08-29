@@ -800,7 +800,7 @@
       window.prevQuestion();
     } else if (keyLower === 'r' || keyLower === 'm') {
       window.markForReviewAndNext();
-    } else if (keyLower === 'c') {
+    } else if (keyLower === 'x' || keyLower === 'delete') {
       window.clearResponse();
     }
     // Option selection shortcuts: A, B, C, D or 1, 2, 3, 4

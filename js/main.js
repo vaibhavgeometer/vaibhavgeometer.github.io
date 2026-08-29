@@ -270,10 +270,6 @@
     window.applyTopicFilters();
   };
 
-  window.filterTopics = function(cat, btn) {
-    window.filterTopicCategory(cat, btn);
-  };
-
   // --- Filter Year Tests (All / CBT / Classic) ---
   window.filterYears = function(era, btn) {
     document.querySelectorAll('.year-filter-btn').forEach(b => b.classList.remove('active'));
@@ -330,7 +326,7 @@
 
     // Update preset chips
     document.querySelectorAll('.count-preset-chips .chip-btn').forEach(chip => {
-      const chipNum = parseInt(chip.textContent);
+      const chipNum = parseInt(chip.dataset.count);
       if (chipNum === num) chip.classList.add('active');
       else chip.classList.remove('active');
     });

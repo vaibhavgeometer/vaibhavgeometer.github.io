@@ -22,14 +22,14 @@
     // Check if key is exact single number
     const singleNum = parseFloat(cleanKey);
     if (!isNaN(singleNum) && cleanKey.indexOf('to') === -1 && cleanKey.indexOf(':') === -1 && cleanKey.indexOf('or') === -1) {
-      return Math.abs(uNum - singleNum) <= 0.05;
+      return Math.abs(uNum - singleNum) <= 0.001;
     }
 
     // Check for "or" clauses e.g. "31 to 31 or 46 to 46"
     const orClauses = cleanKey.split(/\s+or\s+/i);
     for (const clause of orClauses) {
       // Range check: "A to B" or "A:B" or "A - B"
-      let rangeMatch = clause.match(/([+-]?\d+(?:\.\d+)?)\s*(?:to|:)\s*([+-]?\d+(?:\.\d+)?)/i);
+      let rangeMatch = clause.match(/([+-]?\d+(?:\.\d+)?)\s*(?:to|:|–|-)\s*([+-]?\d+(?:\.\d+)?)/i);
       if (rangeMatch) {
         const minVal = Math.min(parseFloat(rangeMatch[1]), parseFloat(rangeMatch[2]));
         const maxVal = Math.max(parseFloat(rangeMatch[1]), parseFloat(rangeMatch[2]));
@@ -38,7 +38,7 @@
         }
       } else {
         const val = parseFloat(clause.trim());
-        if (!isNaN(val) && Math.abs(uNum - val) <= 0.05) {
+        if (!isNaN(val) && Math.abs(uNum - val) <= 0.001) {
           return true;
         }
       }

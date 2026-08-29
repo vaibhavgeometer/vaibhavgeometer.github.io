@@ -86,7 +86,7 @@
       <button class="main-tab-btn" id="tab-btn-custom-generator" onclick="window.switchMainTab('custom-generator', this)">
         🛠️ Custom Test & PDF Generator
       </button>
-      <button class="main-tab-btn" onclick="window.switchMainTab('resources', this)">
+      <button class="main-tab-btn" id="tab-btn-resources" onclick="window.switchMainTab('resources', this)">
         📚 Study Materials Hub
       </button>
     </div>
@@ -312,12 +312,12 @@
                   <input type="range" id="custom-q-slider" min="1" max="100" value="30" class="custom-range-slider" oninput="window.syncQuestionCount(this.value)">
                 </div>
                 <div class="count-preset-chips">
-                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(10)">10 Qs</button>
-                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(20)">20 Qs</button>
-                  <button type="button" class="chip-btn active" id="chip-30" onclick="window.syncQuestionCount(30)">30 Qs (Recommended)</button>
-                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(50)">50 Qs</button>
-                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(60)">60 Qs (Full Mock)</button>
-                  <button type="button" class="chip-btn" onclick="window.syncQuestionCount(100)">100 Qs (Max)</button>
+                  <button type="button" class="chip-btn" data-count="10" onclick="window.syncQuestionCount(10)">10 Qs</button>
+                  <button type="button" class="chip-btn" data-count="20" onclick="window.syncQuestionCount(20)">20 Qs</button>
+                  <button type="button" class="chip-btn active" id="chip-30" data-count="30" onclick="window.syncQuestionCount(30)">30 Qs (Recommended)</button>
+                  <button type="button" class="chip-btn" data-count="50" onclick="window.syncQuestionCount(50)">50 Qs</button>
+                  <button type="button" class="chip-btn" data-count="60" onclick="window.syncQuestionCount(60)">60 Qs (Full Mock)</button>
+                  <button type="button" class="chip-btn" data-count="100" onclick="window.syncQuestionCount(100)">100 Qs (Max)</button>
                 </div>
               </div>
 
@@ -447,7 +447,7 @@
           <a href="assets/Mock Tests_PDF/mock_tests_manifest.json" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Mock Tests PDF Manifest & Catalog">
             <div class="resource-icon-wrap">📥</div>
             <h3 class="resource-title">56 Mock Test PDFs (2005–2026)</h3>
-            <p class="resource-desc">Pre-compiled publication-quality LaTeX PDFs with test overview, cropped question screenshots, and official answer keys for all 22 Year tests & 27 Subtopic tests.</p>
+            <p class="resource-desc">Pre-compiled publication-quality LaTeX PDFs with test overview, cropped question screenshots, and official answer keys for all 22 Year Tests + 25 Subtopic PDFs + 9 Archive PDFs.</p>
             <div class="resource-footer">
               <span class="resource-badge">56 Formatted PDFs</span>
               <span>View Manifest →</span>
@@ -623,7 +623,7 @@
       <div class="footer-links">
         <a href="assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer">Syllabus</a>
         <span aria-hidden="true">•</span>
-        <a href="#tab-panel-resources" onclick="window.switchMainTab('resources', document.querySelectorAll('.main-tab-btn')[3])">Resource Hub</a>
+        <a href="javascript:void(0)" onclick="window.switchMainTab('resources', document.getElementById('tab-btn-resources'))">Resource Hub</a>
         <span aria-hidden="true">•</span>
         <a href="assets/Mock Tests_PDF/mock_tests_manifest.json" target="_blank" rel="noopener noreferrer">Mock PDFs Catalog</a>
         <span aria-hidden="true">•</span>

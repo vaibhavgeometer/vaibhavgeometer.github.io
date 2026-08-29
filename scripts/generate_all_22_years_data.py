@@ -260,8 +260,6 @@ def generate_all_data():
         year_obj["paper_pdf"] = "assets/MA2005-2026_Original_PYQs.pdf"
         if yr_str in manifest_map:
             year_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[yr_str]}"
-        elif f"JAM_{yr_str}" in manifest_map:
-            year_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[f'JAM_{yr_str}']}"
         final_mock_data[yr_str] = year_obj
 
     # 27 Era-based Subtopic Tests (2022-2026, 2015-2021, 2005-2014)

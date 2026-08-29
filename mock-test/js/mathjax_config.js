@@ -9,7 +9,7 @@ window.MathJax = {
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
     processEscapes: true,
     processEnvironments: true,
-    packages: {'[+]': ['base', 'ams', 'noerrors', 'noundefined', 'newcommand', 'mathtools']}
+    packages: {'[+]': ['base', 'ams', 'noerrors', 'noundefined', 'newcommand']}
   },
   options: {
     ignoreHtmlClass: 'tex2jax_ignore',

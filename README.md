@@ -320,6 +320,14 @@ This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_test
 
 ---
 
+## 🚀 Recent Updates (August 2026 Code Audit)
+
+- **Simulator Engine Improvements:** Fixed an issue where the `C` keyboard shortcut for Option C conflicted with clearing responses. Refined the NAT evaluation logic for exact value single-answer keys to a strict `0.001` tolerance. Added support for hyphen (`-`) as a valid range delimiter.
+- **Custom Generator Enhancements:** Fixed silent truncation of multi-line titles on the cover page. Improved the robustness of question count chip syncing via `data-count` attributes.
+- **Data Pipeline:** Improved PDF generation path portability (removed absolute Typst `/` image paths) and optimized manifest newline rendering for cross-OS compatibility.
+
+---
+
 ## 📄 License & Attribution
 
 - **Source Code & Materials**: Released under the [MIT License](LICENSE).
