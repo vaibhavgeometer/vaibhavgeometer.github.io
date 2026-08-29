@@ -123,7 +123,7 @@
 
     const selectedTopicIds = options.topicIds || [];
     const selectedTypes = options.types || ['MCQ', 'MSQ', 'NAT'];
-    const eraFilter = options.eraFilter || 'ALL'; // ALL, CBT (2015-2026), Classic (2005-2014)
+    const eraFilter = options.eraFilter || 'ALL'; // ALL, 2022-2026, 2015-2021, Classic (2005-2014)
 
     const allData = window.MOCK_TESTS_DATA;
     const matched = [];
@@ -155,8 +155,15 @@
       // Era match
       const yrMatch = (q.year || '').match(/\d{4}/);
       const yr = yrMatch ? parseInt(yrMatch[0]) : (q.year ? parseInt(q.year) : 2020);
-      if (eraFilter === 'cbt' && yr < 2015) return false;
-      if (eraFilter === 'classic' && yr >= 2015) return false;
+      if (eraFilter === '2022-2026' || eraFilter === 'cbt-2022-2026' || eraFilter === 'cbt_2022_2026' || eraFilter === 'recent_cbt') {
+        if (yr < 2022 || yr > 2026) return false;
+      } else if (eraFilter === '2015-2021' || eraFilter === 'cbt-2015-2021' || eraFilter === 'cbt_2015_2021' || eraFilter === 'early_cbt') {
+        if (yr < 2015 || yr > 2021) return false;
+      } else if (eraFilter === 'cbt') {
+        if (yr < 2015) return false;
+      } else if (eraFilter === 'classic' || eraFilter === '2005-2014' || eraFilter === 'classic-2005-2014') {
+        if (yr >= 2015 || yr < 2005) return false;
+      }
 
       return true;
     });

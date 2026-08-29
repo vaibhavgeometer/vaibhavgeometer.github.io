@@ -338,8 +338,12 @@
                       <span>All Eras (2005–2026)</span>
                     </label>
                     <label class="radio-pill">
-                      <input type="radio" name="custom-era" value="cbt" onchange="window.updateCustomGeneratorSummary()">
-                      <span>CBT Era (2015–2026)</span>
+                      <input type="radio" name="custom-era" value="2022-2026" onchange="window.updateCustomGeneratorSummary()">
+                      <span>CBT Era (2022–2026)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="2015-2021" onchange="window.updateCustomGeneratorSummary()">
+                      <span>CBT Era (2015–2021)</span>
                     </label>
                     <label class="radio-pill">
                       <input type="radio" name="custom-era" value="classic" onchange="window.updateCustomGeneratorSummary()">
@@ -443,14 +447,14 @@
         </div>
 
         <div class="resources-grid">
-          <!-- Card 1: 56 Mock Test PDFs Archive -->
-          <a href="assets/Mock Tests_PDF/mock_tests_manifest.json" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Mock Tests PDF Manifest & Catalog">
-            <div class="resource-icon-wrap">📥</div>
-            <h3 class="resource-title">56 Mock Test PDFs (2005–2026)</h3>
-            <p class="resource-desc">Pre-compiled publication-quality LaTeX PDFs with test overview, cropped question screenshots, and official answer keys for all 22 Year Tests + 25 Subtopic PDFs + 9 Archive PDFs.</p>
+          <!-- Card 1: Project Statistics & Analytics PDF Report -->
+          <a href="assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Comprehensive Project Statistics & Analytics PDF Report">
+            <div class="resource-icon-wrap">📊</div>
+            <h3 class="resource-title">Project Statistics & Analytics (2005–2026)</h3>
+            <p class="resource-desc">Publication-quality LaTeX report with full statistical breakdown of all 885 questions, 22 examination years, topic weightages, era distributions, and simulator ecosystem metrics.</p>
             <div class="resource-footer">
-              <span class="resource-badge">56 Formatted PDFs</span>
-              <span>View Manifest →</span>
+              <span class="resource-badge">LaTeX Report • 22 Yrs</span>
+              <span>View PDF →</span>
             </div>
           </a>
 
@@ -476,18 +480,7 @@
             </div>
           </div>
 
-          <!-- Card 4: Categorized JSON Dataset -->
-          <a href="assets/iit_jam_pyqs_categorized.json" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Master Categorized JSON Dataset">
-            <div class="resource-icon-wrap">📊</div>
-            <h3 class="resource-title">885 Categorized PYQs Dataset</h3>
-            <p class="resource-desc">Structured master JSON database with all 885 official questions (2005–2026) categorized by topic, subtopic, question type, marks, and keys.</p>
-            <div class="resource-footer">
-              <span class="resource-badge">JSON Dataset • 885 Qs</span>
-              <span>View JSON →</span>
-            </div>
-          </a>
-
-          <!-- Card 5: 2005-2026 Original Papers Archive -->
+          <!-- Card 4: 2005-2026 Original Papers Archive -->
           <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 22-Year PYQ Archive PDF">
             <div class="resource-icon-wrap">🏛</div>
             <h3 class="resource-title">22-Year PYQ Archive (2005–2026)</h3>
@@ -625,7 +618,7 @@
         <span aria-hidden="true">•</span>
         <a href="javascript:void(0)" onclick="window.switchMainTab('resources', document.getElementById('tab-btn-resources'))">Resource Hub</a>
         <span aria-hidden="true">•</span>
-        <a href="assets/Mock Tests_PDF/mock_tests_manifest.json" target="_blank" rel="noopener noreferrer">Mock PDFs Catalog</a>
+        <a href="assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer">Project Stats PDF</a>
         <span aria-hidden="true">•</span>
         <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer">2005–2026 Archive</a>
       </div>

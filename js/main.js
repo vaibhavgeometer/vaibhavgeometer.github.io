@@ -511,7 +511,7 @@
       id: "custom",
       name: config.title,
       category: "Custom Topic Practice Test",
-      era: "cbt",
+      era: config.eraFilter || "cbt",
       total_questions: sampled.length,
       total_marks: totalMarks,
       duration_minutes: durationMins,
