@@ -7,7 +7,7 @@ import re
 OUTPUT_BASE = "assets/PYQs_Screenshots"
 PDF_PATH = "assets/MA2005-2026_Original_PYQs.pdf"
 
-doc = fitz.open(PDF_PATH)
+doc = None
 
 def ensure_dir(d):
     os.makedirs(d, exist_ok=True)
@@ -341,6 +341,11 @@ def extract_digital_year_dynamic(year, page_range, total_expected_q):
 # -------------------------------------------------------------
 
 def extract_all():
+    global doc
+    if not os.path.exists(PDF_PATH):
+        raise FileNotFoundError(f"PDF not found: {PDF_PATH}")
+    doc = fitz.open(PDF_PATH)
+
     print("===============================================================")
     print("STARTING FULL PYQ SCREENSHOT EXTRACTION (2005 - 2021)")
     print("===============================================================")

@@ -153,78 +153,102 @@
         </div>
 
         <!-- Offline Banner Notice -->
-        <div id="custom-offline-banner" class="offline-alert-banner hidden">
-          <div class="offline-banner-icon">⚠️</div>
-          <div class="offline-banner-content">
+        <div id="custom-offline-banner" class="offline-warning-banner hidden">
+          <div class="offline-icon">⚠️</div>
+          <div class="offline-text">
             <strong>Active Internet Connection Required:</strong>
-            <p>You appear to be offline. Online CBT testing and custom PDF generation require internet access to fetch official question paper screenshots from the repository server.</p>
+            <span>You appear to be offline. Online CBT testing and custom PDF generation require internet access to fetch official question paper screenshots from the repository server.</span>
           </div>
         </div>
 
-        <div class="custom-generator-layout">
-          <!-- Left: Configuration Form -->
-          <div class="custom-config-card">
-            <h3 class="custom-card-title">1. Test Configuration</h3>
-            
-            <!-- Custom Title -->
-            <div class="form-group">
-              <label class="form-label" for="custom-test-title">Custom Test Title (Optional):</label>
-              <input type="text" id="custom-test-title" class="form-input" placeholder="e.g. Real Analysis & Linear Algebra Speed Test" maxlength="80">
+        <div class="custom-generator-container">
+          <!-- Step 1: Select Topics Card -->
+          <div class="custom-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 1</div>
+              <h3 class="custom-card-title">Select Syllabus Topics</h3>
+              <div class="custom-topic-presets">
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(true)">Select All</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(false)">Clear All</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('real')">Real Analysis</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('calc')">Calculus & ODE</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('alg')">Linear Algebra & Groups</button>
+              </div>
             </div>
 
-            <!-- Select Topics -->
-            <div class="form-group">
-              <div class="form-label-row">
-                <label class="form-label">Syllabus Topics:</label>
-                <div class="form-quick-links">
-                  <button type="button" class="quick-link-btn" onclick="window.customGeneratorSelectAll(true)">Select All</button>
-                  <span class="divider">|</span>
-                  <button type="button" class="quick-link-btn" onclick="window.customGeneratorSelectAll(false)">Clear All</button>
-                </div>
+            <!-- Subject 1: Real Analysis -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #3b82f6;"></span>
+                <span>1. Real Analysis</span>
               </div>
-
-              <!-- Topic Category Quick Buttons -->
-              <div class="category-quick-filter">
-                <button type="button" class="cat-chip-btn" onclick="window.customGeneratorSelectCategory('real')">Real Analysis</button>
-                <button type="button" class="cat-chip-btn" onclick="window.customGeneratorSelectCategory('calc')">Calculus & ODE</button>
-                <button type="button" class="cat-chip-btn" onclick="window.customGeneratorSelectCategory('alg')">Linear Algebra & Groups</button>
-              </div>
-
-              <div class="custom-topics-checklist">
-                <!-- Group 1: Real Analysis -->
-                <div class="custom-topic-group-header">1. Real Analysis</div>
-                <label class="custom-topic-item" data-cat="real">
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="1.1" data-cat="real">
                   <input type="checkbox" name="custom-topic" value="1.1" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-name">1.1 Sequences and Series of Real Numbers</span>
-                  <span class="custom-topic-count" id="count-1.1">131 Qs</span>
+                  <span class="custom-topic-icon">🔢</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">1.1 Sequences and Series of Real Numbers</span>
+                    <span class="custom-topic-sub">Convergence, tests, subsequences, power series</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-1.1">...</span>
                 </label>
-                <label class="custom-topic-item" data-cat="real">
+                <label class="custom-topic-item" data-topic-id="1.2" data-cat="real">
                   <input type="checkbox" name="custom-topic" value="1.2" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-name">1.2 Functions of One Real Variable</span>
-                  <span class="custom-topic-count" id="count-1.2">155 Qs</span>
+                  <span class="custom-topic-icon">📈</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">1.2 Functions of One Real Variable</span>
+                    <span class="custom-topic-sub">Limit, continuity, differentiability, Mean Value Theorems, Taylor's</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-1.2">...</span>
                 </label>
+              </div>
+            </div>
 
-                <!-- Group 2: Multivariable & ODE -->
-                <div class="custom-topic-group-header">2. Multivariable Calculus & ODE</div>
-                <label class="custom-topic-item" data-cat="calc">
+            <!-- Subject 2: Multivariable & ODE -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #10b981;"></span>
+                <span>2. Multivariable Calculus & Differential Equations</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="2.1" data-cat="calc">
                   <input type="checkbox" name="custom-topic" value="2.1" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-name">2.1 Functions of Several Variables</span>
-                  <span class="custom-topic-count" id="count-2.1">78 Qs</span>
+                  <span class="custom-topic-icon">🌐</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.1 Functions of Several Variables</span>
+                    <span class="custom-topic-sub">Partial derivatives, gradient, directional derivatives, maxima/minima</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.1">...</span>
                 </label>
-                <label class="custom-topic-item" data-cat="calc">
+                <label class="custom-topic-item" data-topic-id="2.2" data-cat="calc">
                   <input type="checkbox" name="custom-topic" value="2.2" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-name">2.2 Integral Calculus</span>
-                  <span class="custom-topic-count" id="count-2.2">66 Qs</span>
+                  <span class="custom-topic-icon">∬</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.2 Integral Calculus</span>
+                    <span class="custom-topic-sub">Double & triple integrals, change of variables, surface area & volume</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.2">...</span>
                 </label>
-                <label class="custom-topic-item" data-cat="calc">
+                <label class="custom-topic-item" data-topic-id="2.3" data-cat="calc">
                   <input type="checkbox" name="custom-topic" value="2.3" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🧮</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.3 Ordinary Differential Equations (ODE)</span>
+                    <span class="custom-topic-sub">First order ODEs, integrating factors, Wronskian, Cauchy-Euler</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.3">...</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Subject 3: Linear Algebra & Algebra -->
             <div class="custom-subject-group">
               <div class="custom-subject-title">
                 <span class="subject-dot" style="background: #8b5cf6;"></span>
                 <span>3. Linear Algebra and Algebra</span>
               </div>
               <div class="custom-topics-list">
-                <label class="custom-topic-item" data-topic-id="3.1" data-cat="linear_algebra">
+                <label class="custom-topic-item" data-topic-id="3.1" data-cat="alg">
                   <input type="checkbox" name="custom-topic" value="3.1" checked onchange="window.updateCustomGeneratorSummary()">
                   <span class="custom-topic-icon">📐</span>
                   <div class="custom-topic-info">
@@ -234,7 +258,7 @@
                   <span class="custom-topic-count" id="count-3.1">...</span>
                 </label>
 
-                <label class="custom-topic-item" data-topic-id="3.2" data-cat="linear_algebra">
+                <label class="custom-topic-item" data-topic-id="3.2" data-cat="alg">
                   <input type="checkbox" name="custom-topic" value="3.2" checked onchange="window.updateCustomGeneratorSummary()">
                   <span class="custom-topic-icon">🔲</span>
                   <div class="custom-topic-info">
@@ -244,7 +268,7 @@
                   <span class="custom-topic-count" id="count-3.2">...</span>
                 </label>
 
-                <label class="custom-topic-item" data-topic-id="3.3" data-cat="linear_algebra">
+                <label class="custom-topic-item" data-topic-id="3.3" data-cat="alg">
                   <input type="checkbox" name="custom-topic" value="3.3" checked onchange="window.updateCustomGeneratorSummary()">
                   <span class="custom-topic-icon">🌌</span>
                   <div class="custom-topic-info">
@@ -254,7 +278,7 @@
                   <span class="custom-topic-count" id="count-3.3">...</span>
                 </label>
 
-                <label class="custom-topic-item" data-topic-id="3.4" data-cat="linear_algebra">
+                <label class="custom-topic-item" data-topic-id="3.4" data-cat="alg">
                   <input type="checkbox" name="custom-topic" value="3.4" checked onchange="window.updateCustomGeneratorSummary()">
                   <span class="custom-topic-icon">🔄</span>
                   <div class="custom-topic-info">

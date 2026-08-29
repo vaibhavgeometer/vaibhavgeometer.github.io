@@ -404,14 +404,6 @@ body {
   transform: translateY(-1px);
 }
 
-.btn-test.disabled {
-  flex: 1 1 100%;
-  background: var(--bg-surface);
-  color: var(--text-muted);
-  border: 1px dashed var(--border);
-  cursor: not-allowed;
-}
-
 /* --- Hero Badges --- */
 .hero-badges {
   display: flex;

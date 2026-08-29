@@ -260,6 +260,8 @@ def generate_all_data():
         year_obj["paper_pdf"] = "assets/MA2005-2026_Original_PYQs.pdf"
         if yr_str in manifest_map:
             year_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[yr_str]}"
+        elif f"JAM_{yr_str}" in manifest_map:
+            year_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[f'JAM_{yr_str}']}"
         final_mock_data[yr_str] = year_obj
 
     # 27 Era-based Subtopic Tests (2022-2026, 2015-2021, 2005-2014)
@@ -273,12 +275,12 @@ def generate_all_data():
     for k in sorted(comprehensive_topic_tests.keys()):
         final_mock_data[k] = comprehensive_topic_tests[k]
 
-    # Write JS file
+    # Write JS file with standardized LF line endings
     js_content = "// IIT JAM Mathematics (MA) Complete 22-Year (2005-2026) Official Mock Test Series\n"
     js_content += f"// Master Dataset with 885 Official Questions across 22 Year Papers, 27 Era-Based Subtopic Tests & 9 Full-Archive Topic Tests\n\n"
     js_content += "window.MOCK_TESTS_DATA = " + json.dumps(final_mock_data, indent=2, ensure_ascii=False) + ";\n"
 
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    with open(OUTPUT_FILE, 'w', encoding='utf-8', newline='\n') as f:
         f.write(js_content)
 
     print(f"\nSUCCESS: Successfully generated {OUTPUT_FILE}!")

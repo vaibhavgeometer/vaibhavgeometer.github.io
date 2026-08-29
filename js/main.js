@@ -217,7 +217,7 @@
             </div>
             <div class="topic-meta-item">
               <span class="meta-label">Pattern</span>
-              <span class="meta-value">${isZeroQuestions ? 'Not in Era Syllabus' : (t.era === '2005-2014' ? 'Classic Pattern' : 'MCQ • MSQ • NAT')}</span>
+              <span class="meta-value">${isZeroQuestions ? 'Not in Era Syllabus' : (t.pattern || (t.era === '2005-2014' ? 'Classic Pattern' : 'MCQ • MSQ • NAT'))}</span>
             </div>
           </div>
           <div class="topic-actions">

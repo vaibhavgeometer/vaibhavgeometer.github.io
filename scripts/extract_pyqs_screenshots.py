@@ -1,6 +1,6 @@
 """
 Extract 300 High-Resolution Question Screenshots (JAM 2022–2026)
-Source: assets/2022-2026-PYQs-with-Keys.pdf
+Source: assets/MA2005-2026_Original_PYQs.pdf
 Destination: assets/PYQs_Screenshots/{year}/JAM_{year}_Q{num}.png
 """
 
@@ -200,7 +200,12 @@ def extract_questions_for_page(page, year, pno):
     return results
 
 def main():
-    pdf_path = os.path.join('assets', '2022-2026-PYQs-with-Keys.pdf')
+    pdf_path = os.path.join('assets', 'MA2005-2026_Original_PYQs.pdf')
+    if not os.path.exists(pdf_path):
+        pdf_path = os.path.join('assets', '2022-2026-PYQs-with-Keys.pdf')
+    if not os.path.exists(pdf_path):
+        raise FileNotFoundError(f"Original PYQ archive not found at {pdf_path}")
+
     out_base = os.path.join('assets', 'PYQs_Screenshots')
     os.makedirs(out_base, exist_ok=True)
     

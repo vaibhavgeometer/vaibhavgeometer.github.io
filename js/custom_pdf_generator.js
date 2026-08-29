@@ -97,7 +97,6 @@
   }
 
   // Pre-load an Image for HTML5 Canvas / jsPDF
-  // Pre-load an Image for HTML5 Canvas / jsPDF
   function preloadImage(src) {
     return new Promise((resolve, reject) => {
       if (typeof navigator !== 'undefined' && navigator.onLine === false) {
@@ -393,7 +392,6 @@
     curY += statCardHeight + 14;
 
     // Section Structure Table
-    const tableHeaderY = curY;
     const tableRowHeight = 19;
     const tableWidth = contentWidth;
     const colWidths = [120, 55, 95, 105, 136];
