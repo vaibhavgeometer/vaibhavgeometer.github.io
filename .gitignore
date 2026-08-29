@@ -100,5 +100,11 @@ pnpm-debug.log*
 
 # --- Temporary & Scratch Files ---
 scratch/
+assets/Custom_PDFs/
 *.tmp
 *.temp
+*.typ
+.typst/
+assets/test.py
+test.py
+

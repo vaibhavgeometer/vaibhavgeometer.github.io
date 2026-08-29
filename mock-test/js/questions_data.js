@@ -13,7 +13,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2026_Q1",
@@ -689,7 +689,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2025_Q1",
@@ -1365,7 +1365,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2024_Q1",
@@ -2041,7 +2041,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2023_Q1",
@@ -2717,7 +2717,7 @@ window.MOCK_TESTS_DATA = {
     "total_marks": 100,
     "duration_minutes": 180,
     "pattern": "MCQ • MSQ • NAT (60 Questions)",
-    "paper_pdf": "assets/2022-2026-PYQs-with-Keys.pdf",
+    "paper_pdf": "assets/MA2005-2026_Original_PYQs.pdf",
     "questions": [
       {
         "id": "JAM_2022_Q1",
@@ -10790,7 +10790,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
   },
   "2022-2026_1.2": {
     "id": "2022-2026_1.2",
@@ -11549,7 +11550,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf"
   },
   "2022-2026_2.1": {
     "id": "2022-2026_2.1",
@@ -11930,7 +11932,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
   },
   "2022-2026_2.2": {
     "id": "2022-2026_2.2",
@@ -12311,7 +12314,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_2.2_Integral_Calculus.pdf"
   },
   "2022-2026_2.3": {
     "id": "2022-2026_2.3",
@@ -12944,7 +12948,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_2.3_Differential_Equations.pdf"
   },
   "2022-2026_3.1": {
     "id": "2022-2026_3.1",
@@ -13003,7 +13008,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Basic Algebra",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.1_Basic_Algebra.pdf"
   },
   "2022-2026_3.2": {
     "id": "2022-2026_3.2",
@@ -13524,7 +13530,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
   },
   "2022-2026_3.3": {
     "id": "2022-2026_3.3",
@@ -13933,7 +13940,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
   },
   "2022-2026_3.4": {
     "id": "2022-2026_3.4",
@@ -14440,7 +14448,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "era": "2022-2026"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2022-2026_Topic_3.4_Groups.pdf"
   },
   "2015-2021_1.1": {
     "id": "2015-2021_1.1",
@@ -15297,7 +15306,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
   },
   "2015-2021_1.2": {
     "id": "2015-2021_1.2",
@@ -16392,7 +16402,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_1.2_Functions_of_One_Real_Variable.pdf"
   },
   "2015-2021_2.1": {
     "id": "2015-2021_2.1",
@@ -16997,7 +17008,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
   },
   "2015-2021_2.2": {
     "id": "2015-2021_2.2",
@@ -17462,7 +17474,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_2.2_Integral_Calculus.pdf"
   },
   "2015-2021_2.3": {
     "id": "2015-2021_2.3",
@@ -18165,7 +18178,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_2.3_Differential_Equations.pdf"
   },
   "2015-2021_3.1": {
     "id": "2015-2021_3.1",
@@ -18646,7 +18660,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
   },
   "2015-2021_3.3": {
     "id": "2015-2021_3.3",
@@ -19055,7 +19070,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
   },
   "2015-2021_3.4": {
     "id": "2015-2021_3.4",
@@ -19772,7 +19788,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "era": "2015-2021"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2015-2021_Topic_3.4_Groups.pdf"
   },
   "2005-2014_1.1": {
     "id": "2005-2014_1.1",
@@ -20097,7 +20114,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
   },
   "2005-2014_1.2": {
     "id": "2005-2014_1.2",
@@ -20464,7 +20482,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of One Real Variable",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_1.2_Functions_of_One_Real_Variable.pdf"
   },
   "2005-2014_2.1": {
     "id": "2005-2014_2.1",
@@ -20621,7 +20640,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Functions of Two or Three Real Variables",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
   },
   "2005-2014_2.2": {
     "id": "2005-2014_2.2",
@@ -20750,7 +20770,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Integral Calculus",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_2.2_Integral_Calculus.pdf"
   },
   "2005-2014_2.3": {
     "id": "2005-2014_2.3",
@@ -21047,7 +21068,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Differential Equations",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_2.3_Differential_Equations.pdf"
   },
   "2005-2014_3.1": {
     "id": "2005-2014_3.1",
@@ -21178,7 +21200,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Matrices and Systems of Linear Equations",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
   },
   "2005-2014_3.3": {
     "id": "2005-2014_3.3",
@@ -21475,7 +21498,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Finite Dimensional Vector Spaces",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
   },
   "2005-2014_3.4": {
     "id": "2005-2014_3.4",
@@ -21716,7 +21740,8 @@ window.MOCK_TESTS_DATA = {
         "topic_name": "Groups",
         "era": "2005-2014"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/2005-2014_Topic_3.4_Groups.pdf"
   },
   "1.1": {
     "id": "1.1",
@@ -23436,7 +23461,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf"
   },
   "1.2": {
     "id": "1.2",
@@ -25468,7 +25494,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "1.2",
         "topic_name": "Functions of One Real Variable"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf"
   },
   "2.1": {
     "id": "2.1",
@@ -26499,7 +26526,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "2.1",
         "topic_name": "Functions of Two or Three Real Variables"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf"
   },
   "2.2": {
     "id": "2.2",
@@ -27374,7 +27402,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "2.2",
         "topic_name": "Integral Calculus"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf"
   },
   "2.3": {
     "id": "2.3",
@@ -28860,7 +28889,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "2.3",
         "topic_name": "Differential Equations"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.3_Differential_Equations.pdf"
   },
   "3.1": {
     "id": "3.1",
@@ -28916,7 +28946,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.1",
         "topic_name": "Basic Algebra"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.1_Basic_Algebra.pdf"
   },
   "3.2": {
     "id": "3.2",
@@ -29908,7 +29939,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.2",
         "topic_name": "Matrices and Systems of Linear Equations"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf"
   },
   "3.3": {
     "id": "3.3",
@@ -30913,7 +30945,8 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.3",
         "topic_name": "Finite Dimensional Vector Spaces"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf"
   },
   "3.4": {
     "id": "3.4",
@@ -32243,6 +32276,7 @@ window.MOCK_TESTS_DATA = {
         "topic_id": "3.4",
         "topic_name": "Groups"
       }
-    ]
+    ],
+    "mock_pdf": "assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.4_Groups.pdf"
   }
 };

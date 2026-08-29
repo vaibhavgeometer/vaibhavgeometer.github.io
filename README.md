@@ -6,9 +6,10 @@
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/)
+[![Mock PDFs](https://img.shields.io/badge/Mock%20Test%20PDFs-56%20Publication%20PDFs-indigo.svg)](assets/Mock%20Tests_PDF/mock_tests_manifest.json)
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](assets/iit_jam_pyqs_categorized.json)
 
-> **Official academic portal and Computer-Based Test (CBT) mock simulator by [Vaibhav Geometer](https://github.com/vaibhavgeometer)** — featuring the complete **IIT JAM Mathematics (MA) 22-Year Historical Archive (2005–2026)** with **885 official PYQs**, **58 interactive mock test suites**, **14 topic-wise formula cheat sheets**, an authentic CBT examination simulator with virtual scientific calculator, a 52-page publication-ready LaTeX question bank, and categorized JSON datasets.
+> **Official academic portal and Computer-Based Test (CBT) mock simulator by [Vaibhav Geometer](https://github.com/vaibhavgeometer)** — featuring the complete **IIT JAM Mathematics (MA) 22-Year Historical Archive (2005–2026)** with **885 official PYQs**, **58 interactive mock test suites**, **56 pre-compiled publication-quality LaTeX Mock Test PDFs**, **14 topic-wise formula cheat sheets**, an authentic CBT examination simulator with virtual scientific calculator, a custom dynamic test & PDF generator, and master categorized JSON datasets.
 
 ---
 
@@ -18,10 +19,9 @@
 | :--- | :--- | :--- |
 | 🚀 **Live Portal** | Interactive test selector, resource hub & dark/light theme | [vaibhavgeometer.github.io](https://vaibhavgeometer.github.io/) |
 | 💻 **CBT Simulator** | Real exam interface with palette, timer & scientific calculator | [Launch Simulator](https://vaibhavgeometer.github.io/mock-test/test.html?topic=2026&mode=official) |
-| 📄 **Master Question Bank PDF** | 52-page topic-wise question bank with answer keys (2022–2026) | [View PDF](assets/Topic-Wise-Question-Bank-2022-2026.pdf) |
+| 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & answer keys | [View Manifest](assets/Mock%20Tests_PDF/mock_tests_manifest.json) |
 | 📜 **Official Syllabus** | Standard IIT JAM Mathematics syllabus document | [View Syllabus](assets/Syllabus.pdf) |
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Sheets](#-14-high-yield-formula-cheat-sheets) |
-| 📝 **2022–2026 PYQs & Keys** | 198-page combined official question papers & final answer keys | [View PDF](assets/2022-2026-PYQs-with-Keys.pdf) |
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](assets/MA2005-2026_Original_PYQs.pdf) |
 | 📊 **Categorized JSON Dataset** | Master metadata for all 885 questions (2005–2026) | [View JSON](assets/iit_jam_pyqs_categorized.json) |
 
@@ -37,21 +37,37 @@
 - **Verified Master Answer Keys**: All questions are mapped to official IIT final answer keys and official numerical range acceptances.
 - **High-Resolution Question Paper Screenshots**: Built-in 1-click modal to inspect original cropped paper screenshots (`assets/PYQs_Screenshots/`).
 
-### ⚡ 2. 27 Era-Based Subtopic Mock Tests (3 Eras × 9 Subtopics)
+### 📥 2. 56 Pre-Compiled Publication-Quality Mock Test PDFs
+- **Comprehensive Offline Test Archive**: 56 complete publication-quality LaTeX-formatted PDFs stored in `assets/Mock Tests_PDF/` and cataloged in `mock_tests_manifest.json`.
+- **Each Mock Test PDF Includes**:
+  1. **Cover & Structure Page**: Detailed examination statistics, pattern summary, time limits, and official exam instructions.
+  2. **Question Cards**: High-resolution cropped question screenshots with metadata headers (Question Number, Section, Type, Marks, and Negative Penalties).
+  3. **Official Master Answer Key Table**: Complete answer key and scoring evaluation rubrics on final page(s).
+- **Direct 1-Click Downloads**: Available on every Year Mock Test card and Subtopic Mock Test card across the portal via `📥 Mock PDF` buttons.
+
+### ⚡ 3. 27 Era-Based Subtopic Mock Tests (3 Eras × 9 Subtopics)
 - Allows students to practice specific mathematical subtopics within distinct chronological eras:
   - **Recent CBT Era (2022–2026 • 9 Tests)**: 300 modern pattern questions.
   - **CBT Era (2015–2021 • 9 Tests)**: 420 standard CBT questions.
   - **Classic Era (2005–2014 • 9 Tests)**: 165 classic objective questions.
+- Every test suite features interactive online CBT testing, untimed practice mode, direct `📥 Mock PDF` download, and topic-specific formula cheat sheet access.
 
-### 🎯 3. 9 Comprehensive Full-Archive Subtopic Mock Tests (2005–2026 • 794 PYQs)
+### 🎯 4. 9 Comprehensive Full-Archive Subtopic Mock Tests (2005–2026 • 794 PYQs)
 - **All-Time Topic Suites**: Aggregates all 22 years of questions for each of the 9 core syllabus subtopics into master tests.
 - **Strict IIT JAM Syllabus Alignment**: Mapped directly to the official syllabus across:
   - Real Analysis
   - Multivariable Calculus & Ordinary Differential Equations (ODE)
   - Linear Algebra & Group Theory
-- **Out-of-Syllabus Isolation**: 91 obsolete questions from topics removed prior to 2022 (e.g., Vector Calculus [Green's/Stokes'/Divergence theorems, surface integrals], Metric Spaces / Point Set Topology, Rings & Fields, Linear Programming, and Numerical Analysis) have been cleanly isolated to avoid distractive preparation for modern exams.
+- **Out-of-Syllabus Isolation**: 87 obsolete questions from topics removed prior to 2022 (e.g., Vector Calculus [Green's/Stokes'/Divergence theorems, surface integrals], Metric Spaces / Point Set Topology, Rings & Fields, Linear Programming, and Numerical Analysis) have been cleanly isolated to avoid distractive preparation for modern exams.
 
-### 💻 4. Authentic CBT Exam Simulator (`mock-test/test.html`)
+### 🛠️ 5. Custom Test & PDF Generator
+- **Flexible Topic Combinations**: Select any combination of the 9 syllabus subtopics.
+- **Customizable Question Count**: Choose between 1 and 100 questions with custom question type filtering (MCQ, MSQ, NAT) and era filtering.
+- **Dual Launch Options**:
+  - **Instant Browser PDF Compilation**: Generates and downloads a publication-quality LaTeX test PDF with answer keys directly in the browser.
+  - **Interactive CBT Simulator**: Launches the custom generated test in the authentic exam interface.
+
+### 💻 6. Authentic CBT Exam Simulator (`mock-test/test.html`)
 - **Dual Examination Modes**:
   - **⚡ Official Exam Mode**: Strict countdown timer with visual urgency alerts (Green $\to$ Orange $\to$ Pulsing Red) and final submission modal.
   - **📖 Practice Mode**: Untimed exploration mode for self-paced learning and revision.
@@ -71,14 +87,10 @@
   - Question-by-question solution review with official answer keys and explanations.
   - Best score tracking saved in browser `localStorage`.
 
-### 📑 5. 14 High-Yield Formula Cheat Sheets
-- High-yield, concise PDF revision cheat sheets covering Sequences, Series, Single & Multivariable Calculus, Integral Calculus, ODE, Linear Algebra, and Group Theory.
+### 📑 7. 14 High-Yield Formula Cheat Sheets
+- High-yield, concise vector PDF revision cheat sheets covering Sequences, Series, Single & Multivariable Calculus, Integral Calculus, ODE, Linear Algebra, and Group Theory.
 
-### 📄 6. Publication-Ready Question Bank PDF & LaTeX Source
-- **Master Question Bank PDF**: 52-page topic-wise compiled question bank with complete answer keys ([View PDF](assets/Topic-Wise-Question-Bank-2022-2026.pdf)).
-- **Modular LaTeX Source**: Clean, compilable TeX source code ([View TeX Source](assets/latex/question_bank_2022_2026.tex)).
-
-### 📊 7. Master Categorized JSON Dataset (`assets/iit_jam_pyqs_categorized.json`)
+### 📊 8. Master Categorized JSON Dataset (`assets/iit_jam_pyqs_categorized.json`)
 - Programmatically accessible metadata for all 885 questions:
   ```json
   {
@@ -105,49 +117,49 @@ Total Test Suites (58)
 
 ### 1. 22-Year Papers Overview (2005–2026)
 
-| Year | Era | Questions | Marks | Duration | Question Format | Official Answer Key |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **2026** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2026_Key.pdf) |
-| **2025** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2025_Key.pdf) |
-| **2024** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2024_Key.pdf) |
-| **2023** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2023_Key.pdf) |
-| **2022** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2022_Key.pdf) |
-| **2021** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2021_Key.pdf) |
-| **2020** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2020_Key.pdf) |
-| **2019** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2019_Key.pdf) |
-| **2018** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2018_Key.pdf) |
-| **2017** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2017_Key.pdf) |
-| **2016** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2016_Key.pdf) |
-| **2015** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Key](assets/PYQs_Answer%20Keys/MA2015_Key.pdf) |
-| **2014** | Classic | 35 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2014_Key.pdf) |
-| **2013** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2012** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2011** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2010** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2009** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2008** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2007** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2006** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2005** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| Year | Era | Questions | Marks | Duration | Question Format | Mock PDF | Official Answer Key |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **2026** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2026_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2026_Key.pdf) |
+| **2025** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2025_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2025_Key.pdf) |
+| **2024** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2024_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2024_Key.pdf) |
+| **2023** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2023_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2023_Key.pdf) |
+| **2022** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2022_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2022_Key.pdf) |
+| **2021** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2021_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2021_Key.pdf) |
+| **2020** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2020_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2020_Key.pdf) |
+| **2019** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2019_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2019_Key.pdf) |
+| **2018** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2018_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2018_Key.pdf) |
+| **2017** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2017_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2017_Key.pdf) |
+| **2016** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2016_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2016_Key.pdf) |
+| **2015** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2015_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2015_Key.pdf) |
+| **2014** | Classic | 35 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2014_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2014_Key.pdf) |
+| **2013** | Classic | 10 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2013_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2012** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2012_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2011** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2011_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2010** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2010_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2009** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2009_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2008** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2008_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2007** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2007_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2006** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2006_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2005** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](assets/Mock%20Tests_PDF/IIT_JAM_2005_Mock_Test.pdf) | [Key](assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
 
 ---
 
 ### 2. 9 Comprehensive Sub-Topic Modules Breakdown (2005–2026 Archive)
 
-| Code | Topic / Module Name | Questions | Total Marks | Duration | Subject Area | Formula Cheat Sheet |
-| :---: | :--- | :---: | :---: | :---: | :--- | :---: |
-| **1.1** | `Sequences and Series of Real Numbers` | **131** | 292 | 393 min | Real Analysis | [Cheat Sheet](assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
-| **1.2** | `Functions of One Real Variable` | **155** | 329 | 465 min | Real Analysis | [Cheat Sheet](assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
-| **2.1** | `Functions of Two or Three Real Variables` | **78** | 152 | 234 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
-| **2.2** | `Integral Calculus` | **66** | 136 | 198 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
-| **2.3** | `Differential Equations` | **113** | 255 | 339 min | Multivariable Calculus & ODE | [Cheat Sheet](assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
-| **3.1** | `Basic Algebra` | **3** | 6 | 15 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
-| **3.2** | `Matrices and Systems of Linear Equations` | **75** | 155 | 225 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
-| **3.3** | `Finite Dimensional Vector Spaces` | **76** | 184 | 228 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
-| **3.4** | `Groups` | **101** | 214 | 303 min | Linear Algebra & Algebra | [Cheat Sheet](assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
-| | **Total In-Syllabus Questions** | **798** | **1,723** | — | **All 3 Core Syllabus Sections** | |
-| — | *Out-of-Syllabus (Isolated for Modern Exam Prep)* | *87* | — | — | *Vector Calculus, Topology, Rings, LPP, etc.* | — |
-| **TOTAL** | **22-Year Historical Archive (2005–2026)** | **885** | — | — | **22 Question Papers** | |
+| Code | Topic / Module Name | Questions | Total Marks | Duration | Subject Area | Mock PDF | Formula Cheat Sheet |
+| :---: | :--- | :---: | :---: | :---: | :--- | :---: | :---: |
+| **1.1** | `Sequences and Series of Real Numbers` | **131** | 292 | 393 min | Real Analysis | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf) | [Cheat Sheet](assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
+| **1.2** | `Functions of One Real Variable` | **155** | 329 | 465 min | Real Analysis | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf) | [Cheat Sheet](assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
+| **2.1** | `Functions of Two or Three Real Variables` | **78** | 152 | 234 min | Multivariable Calculus & ODE | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf) | [Cheat Sheet](assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
+| **2.2** | `Integral Calculus` | **66** | 136 | 198 min | Multivariable Calculus & ODE | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf) | [Cheat Sheet](assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
+| **2.3** | `Differential Equations` | **113** | 255 | 339 min | Multivariable Calculus & ODE | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.3_Differential_Equations.pdf) | [Cheat Sheet](assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
+| **3.1** | `Basic Algebra` | **3** | 6 | 15 min | Linear Algebra & Algebra | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.1_Basic_Algebra.pdf) | [Cheat Sheet](assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
+| **3.2** | `Matrices and Systems of Linear Equations` | **75** | 155 | 225 min | Linear Algebra & Algebra | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf) | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
+| **3.3** | `Finite Dimensional Vector Spaces` | **76** | 184 | 228 min | Linear Algebra & Algebra | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf) | [Cheat Sheet](assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
+| **3.4** | `Groups` | **101** | 214 | 303 min | Linear Algebra & Algebra | [Mock PDF](assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.4_Groups.pdf) | [Cheat Sheet](assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
+| | **Total In-Syllabus Questions** | **798** | **1,723** | — | **All 3 Core Syllabus Sections** | | |
+| — | *Out-of-Syllabus (Isolated for Modern Exam Prep)* | *87* | — | — | *Vector Calculus, Topology, Rings, LPP, etc.* | — | — |
+| **TOTAL** | **22-Year Historical Archive (2005–2026)** | **885** | — | — | **22 Question Papers** | | |
 
 ---
 
@@ -200,24 +212,31 @@ vaibhavgeometer.github.io/
 ├── .gitignore                                 # Git ignore rules
 ├── LICENSE                                    # MIT License
 ├── README.md                                  # Comprehensive documentation & portal guide
-├── index.html                                 # Main landing page & test selector portal
+├── index.html                                 # Main landing page, test selector & custom generator
 ├── css/
 │   └── style.css                              # Main portal theme (Dark/Light) & responsive layout
 ├── js/
-│   └── main.js                                # Portal controller, test renderers & filter engine
+│   ├── main.js                                # Portal controller, test renderers & filter engine
+│   ├── custom_pdf_generator.js                # In-browser dynamic LaTeX mock test PDF compiler
+│   ├── jspdf.umd.min.js                       # jsPDF vector PDF engine
+│   └── jspdf.plugin.autotable.min.js          # jsPDF AutoTable plugin
 ├── assets/
 │   ├── iit_jam_pyqs_categorized.json          # Master categorized JSON dataset (885 PYQs)
-│   ├── Topic-Wise-Question-Bank-2022-2026.pdf # Master question bank PDF (52 pages, 300 PYQs)
 │   ├── Syllabus.pdf                           # Official IIT JAM Mathematics syllabus document
-│   ├── 2022-2026-PYQs-with-Keys.pdf           # Combined official examination papers & keys
 │   ├── MA2005-2026_Original_PYQs.pdf          # 22-year comprehensive PYQ archive (2005–2026)
-│   ├── latex/
-│   │   └── question_bank_2022_2026.tex        # LaTeX source code for 300 PYQs question bank
+│   ├── Mock Tests_PDF/                        # 56 pre-compiled publication-quality mock test PDFs
+│   │   ├── IIT_JAM_2005_Mock_Test.pdf ... IIT_JAM_2026_Mock_Test.pdf (22 Year Papers)
+│   │   ├── 2022-2026_Topic_*.pdf              # 9 Recent CBT subtopic mock test PDFs
+│   │   ├── 2015-2021_Topic_*.pdf              # 8 CBT subtopic mock test PDFs
+│   │   ├── 2005-2014_Topic_*.pdf              # 8 Classic subtopic mock test PDFs
+│   │   ├── Archive_2005-2026_Topic_*.pdf      # 9 Full-Archive subtopic mock test PDFs
+│   │   └── mock_tests_manifest.json           # Catalog of all 56 generated PDFs with stats
 │   ├── cheat-sheets/                          # 14 topic-wise formula & concept cheat sheets (PDF)
 │   ├── PYQs_Answer Keys/                      # Official master answer key PDFs (2005–2026)
 │   │   ├── MA2005-2013_Key.pdf
 │   │   ├── MA2014_Key.pdf
 │   │   ├── MA2015_Key.pdf ... MA2026_Key.pdf
+│   │   └── MA2005-2026_Master_Answer_Keys.json # Master key database with ranges
 │   └── PYQs_Screenshots/                      # 885 high-resolution question paper screenshots
 │       ├── 2005/ ... 2014/                    # Classic era screenshots
 │       ├── 2015/ ... 2021/                    # Early CBT era screenshots
@@ -234,9 +253,11 @@ vaibhavgeometer.github.io/
 │       ├── results.js                         # Scorecard generator & performance analytics
 │       └── test_engine.js                     # Exam state machine, timer, palette & range checker
 └── scripts/
+    ├── generate_all_mock_test_pdfs.py         # Batch compiler generating all 56 Mock Test PDFs
+    ├── generate_all_22_years_data.py          # Master dataset compiler (Generates questions_data.js)
+    ├── generate_random_ode_pdf.py             # Custom ODE test PDF generator script
     ├── extract_pyqs_screenshots.py            # High-res question crop & extraction (2022–2026)
-    ├── extract_all_pyqs_2005_2021.py          # Question extraction for classic & early CBT years
-    └── generate_all_22_years_data.py          # Master dataset compiler (Generates questions_data.js)
+    └── extract_all_pyqs_2005_2021.py          # Question extraction for classic & early CBT years
 ```
 
 ---
@@ -245,9 +266,9 @@ vaibhavgeometer.github.io/
 
 - **Frontend Core**: Pure HTML5, Vanilla CSS3 (Custom CSS Variables, Grid/Flexbox, Dark & Light Mode), Vanilla ES6+ JavaScript.
 - **Zero Build**: Requires **no npm install, webpack, vite, or node builds** to run or deploy.
+- **PDF Compilation**: Typst (`typst` Python API for publication-quality batch PDF generation) and jsPDF (`jspdf.umd.min.js` + `autotable` for in-browser on-demand compilation).
 - **Math Typesetting**: [MathJax 3](https://www.mathjax.org/) configured with TeX SVG rendering.
-- **Document Preparation**: LaTeX (`pdflatex`, `tcolorbox`, `amsmath`, `geometry`).
-- **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `json`, `re`).
+- **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `typst`, `json`, `re`).
 - **Hosting & CI/CD**: [GitHub Pages](https://pages.github.com/).
 
 ---
@@ -277,23 +298,25 @@ Simply double-click or open `index.html` directly in Chrome, Edge, Firefox, Brav
 
 ---
 
-## 🔄 Data Pipeline & Compilation
+## 🔄 Data Pipeline & Compilation Scripts
 
-If you wish to modify question categorizations or re-generate `mock-test/js/questions_data.js`:
-
+### 1. Re-generating Master Dataset (`questions_data.js`)
+If you modify question metadata in `assets/iit_jam_pyqs_categorized.json` or answer keys:
 ```bash
-# 1. Ensure PyMuPDF is installed (if extracting new PDF pages)
-pip install PyMuPDF
-
-# 2. Run the master data generator
 python scripts/generate_all_22_years_data.py
 ```
+This compiles all `22` Year Tests, `27` Era Subtopic Tests, and `9` Full-Archive Tests, mapping them to the respective Mock Test PDFs and Answer Keys.
 
-This compiles:
-- `22` Full-Year Mock Tests (`2005` to `2026`)
-- `27` Era-Based Subtopic Tests (`2022-2026`, `2015-2021`, `2005-2014` × `9` Topics)
-- `9` Full-Archive Subtopic Tests (`2005-2026` Archive)
-- Totaling `58` interactive test configurations into `mock-test/js/questions_data.js`.
+### 2. Re-generating All 56 Mock Test PDFs
+To batch compile all 56 publication-quality LaTeX-formatted mock test PDFs:
+```bash
+# Ensure dependencies are installed
+pip install typst PyMuPDF
+
+# Run batch PDF generator
+python scripts/generate_all_mock_test_pdfs.py
+```
+This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_tests_manifest.json`.
 
 ---
 

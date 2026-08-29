@@ -347,11 +347,13 @@ body {
   display: flex;
   gap: 8px;
   margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .btn-test {
-  flex: 1;
-  padding: 9px 0;
+  flex: 1 1 calc(50% - 4px);
+  min-width: 120px;
+  padding: 9px 8px;
   border-radius: var(--radius-md);
   border: none;
   font-size: 0.82rem;
@@ -361,6 +363,11 @@ body {
   text-decoration: none;
   transition: var(--transition);
   font-family: var(--font-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .btn-test.primary {
@@ -370,6 +377,7 @@ body {
 
 .btn-test.primary:hover {
   filter: brightness(1.15);
+  transform: translateY(-1px);
 }
 
 .btn-test.secondary {
@@ -380,11 +388,11 @@ body {
 
 .btn-test.secondary:hover {
   border-color: var(--accent);
+  background: rgba(129, 140, 248, 0.2);
+  transform: translateY(-1px);
 }
 
 .btn-test.cheat {
-  flex: 0 0 auto;
-  padding: 9px 12px;
   background: var(--green-dim);
   color: var(--green);
   border: 1px solid rgba(52, 211, 153, 0.25);
@@ -393,6 +401,15 @@ body {
 .btn-test.cheat:hover {
   background: rgba(52, 211, 153, 0.22);
   border-color: var(--green);
+  transform: translateY(-1px);
+}
+
+.btn-test.disabled {
+  flex: 1 1 100%;
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  cursor: not-allowed;
 }
 
 /* --- Hero Badges --- */

@@ -44,9 +44,9 @@
           <span class="nav-btn-icon">📑</span>
           <span class="nav-btn-label">Cheat Sheets</span>
         </button>
-        <a href="assets/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open 300 PYQ Master Question Bank PDF in new tab">
-          <span class="nav-btn-icon">📄</span>
-          <span class="nav-btn-label">Question Bank</span>
+        <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open 22-Year (2005–2026) Official PYQ Archive PDF in new tab">
+          <span class="nav-btn-icon">🏛️</span>
+          <span class="nav-btn-label">PYQ Archive</span>
         </a>
         <button class="nav-link-btn" onclick="window.switchMainTab('custom-generator', document.getElementById('tab-btn-custom-generator'))" title="Create Custom Topic Test & Download PDF">
           <span class="nav-btn-icon">🛠️</span>
@@ -69,7 +69,7 @@
         <span class="hero-pill">🎯 <strong>885</strong> Official PYQs</span>
         <span class="hero-pill">⚡ <strong>27</strong> Subtopic Mock Tests</span>
         <span class="hero-pill">📑 <strong>14</strong> Formula Cheat Sheets</span>
-        <span class="hero-pill">📜 <strong>2005–2026</strong> Archive</span>
+        <span class="hero-pill">📥 <strong>56</strong> Mock Test PDFs</span>
       </div>
     </div>
   </section>
@@ -148,103 +148,76 @@
             <span class="custom-badge">⚡ Instant Browser PDF Compilation</span>
             <span class="custom-badge">🎯 1–100 Questions</span>
             <span class="custom-badge">📑 Publication LaTeX PDF</span>
-            <span class="custom-badge">🧮 Interactive CBT Simulator</span>
+            <span class="custom-badge">💻 Online CBT Mode</span>
           </div>
         </div>
 
-        <!-- Offline Warning Banner -->
-        <div id="custom-offline-banner" class="offline-warning-banner hidden">
-          <span class="offline-icon">⚠️</span>
-          <div class="offline-text">
-            <strong>Active Internet Connection Required</strong>
-            <span>You appear to be offline. An active internet connection is needed to download high-resolution question screenshots to compile custom PDFs or launch online mock tests.</span>
+        <!-- Offline Banner Notice -->
+        <div id="custom-offline-banner" class="offline-alert-banner hidden">
+          <div class="offline-banner-icon">⚠️</div>
+          <div class="offline-banner-content">
+            <strong>Active Internet Connection Required:</strong>
+            <p>You appear to be offline. Online CBT testing and custom PDF generation require internet access to fetch official question paper screenshots from the repository server.</p>
           </div>
         </div>
 
-        <div class="custom-generator-container">
-          <!-- Step 1: Topic Selection Card -->
-          <div class="custom-card custom-topics-card">
-            <div class="custom-card-header">
-              <div class="custom-step-pill">Step 1</div>
-              <h3 class="custom-card-title">Choose Syllabus Topics</h3>
-              <div class="custom-topic-presets">
-                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(true)">Select All</button>
-                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(false)">Clear All</button>
-                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('real_analysis')">Real Analysis</button>
-                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('calculus_ode')">Calculus & ODE</button>
-                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('linear_algebra')">Algebra & Groups</button>
-              </div>
+        <div class="custom-generator-layout">
+          <!-- Left: Configuration Form -->
+          <div class="custom-config-card">
+            <h3 class="custom-card-title">1. Test Configuration</h3>
+            
+            <!-- Custom Title -->
+            <div class="form-group">
+              <label class="form-label" for="custom-test-title">Custom Test Title (Optional):</label>
+              <input type="text" id="custom-test-title" class="form-input" placeholder="e.g. Real Analysis & Linear Algebra Speed Test" maxlength="80">
             </div>
 
-            <!-- Subject Category 1: Real Analysis -->
-            <div class="custom-subject-group">
-              <div class="custom-subject-title">
-                <span class="subject-dot" style="background: #3b82f6;"></span>
-                <span>1. Real Analysis</span>
+            <!-- Select Topics -->
+            <div class="form-group">
+              <div class="form-label-row">
+                <label class="form-label">Syllabus Topics:</label>
+                <div class="form-quick-links">
+                  <button type="button" class="quick-link-btn" onclick="window.customGeneratorSelectAll(true)">Select All</button>
+                  <span class="divider">|</span>
+                  <button type="button" class="quick-link-btn" onclick="window.customGeneratorSelectAll(false)">Clear All</button>
+                </div>
               </div>
-              <div class="custom-topics-list">
-                <label class="custom-topic-item" data-topic-id="1.1" data-cat="real_analysis">
+
+              <!-- Topic Category Quick Buttons -->
+              <div class="category-quick-filter">
+                <button type="button" class="cat-chip-btn" onclick="window.customGeneratorSelectCategory('real')">Real Analysis</button>
+                <button type="button" class="cat-chip-btn" onclick="window.customGeneratorSelectCategory('calc')">Calculus & ODE</button>
+                <button type="button" class="cat-chip-btn" onclick="window.customGeneratorSelectCategory('alg')">Linear Algebra & Groups</button>
+              </div>
+
+              <div class="custom-topics-checklist">
+                <!-- Group 1: Real Analysis -->
+                <div class="custom-topic-group-header">1. Real Analysis</div>
+                <label class="custom-topic-item" data-cat="real">
                   <input type="checkbox" name="custom-topic" value="1.1" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-icon">🔢</span>
-                  <div class="custom-topic-info">
-                    <span class="custom-topic-name">1.1 Sequences & Series of Real Numbers</span>
-                    <span class="custom-topic-sub">Convergence tests, power series, subsequences</span>
-                  </div>
-                  <span class="custom-topic-count" id="count-1.1">...</span>
+                  <span class="custom-topic-name">1.1 Sequences and Series of Real Numbers</span>
+                  <span class="custom-topic-count" id="count-1.1">131 Qs</span>
                 </label>
-
-                <label class="custom-topic-item" data-topic-id="1.2" data-cat="real_analysis">
+                <label class="custom-topic-item" data-cat="real">
                   <input type="checkbox" name="custom-topic" value="1.2" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-icon">📈</span>
-                  <div class="custom-topic-info">
-                    <span class="custom-topic-name">1.2 Functions of One Real Variable</span>
-                    <span class="custom-topic-sub">Continuity, differentiability, Mean Value Theorem, Taylor's</span>
-                  </div>
-                  <span class="custom-topic-count" id="count-1.2">...</span>
+                  <span class="custom-topic-name">1.2 Functions of One Real Variable</span>
+                  <span class="custom-topic-count" id="count-1.2">155 Qs</span>
                 </label>
-              </div>
-            </div>
 
-            <!-- Subject Category 2: Multivariable Calculus & ODE -->
-            <div class="custom-subject-group">
-              <div class="custom-subject-title">
-                <span class="subject-dot" style="background: #10b981;"></span>
-                <span>2. Multivariable Calculus & Differential Equations</span>
-              </div>
-              <div class="custom-topics-list">
-                <label class="custom-topic-item" data-topic-id="2.1" data-cat="calculus_ode">
+                <!-- Group 2: Multivariable & ODE -->
+                <div class="custom-topic-group-header">2. Multivariable Calculus & ODE</div>
+                <label class="custom-topic-item" data-cat="calc">
                   <input type="checkbox" name="custom-topic" value="2.1" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-icon">🌐</span>
-                  <div class="custom-topic-info">
-                    <span class="custom-topic-name">2.1 Functions of Two or Three Variables</span>
-                    <span class="custom-topic-sub">Limits, partial derivatives, directional derivatives, extrema</span>
-                  </div>
-                  <span class="custom-topic-count" id="count-2.1">...</span>
+                  <span class="custom-topic-name">2.1 Functions of Several Variables</span>
+                  <span class="custom-topic-count" id="count-2.1">78 Qs</span>
                 </label>
-
-                <label class="custom-topic-item" data-topic-id="2.2" data-cat="calculus_ode">
+                <label class="custom-topic-item" data-cat="calc">
                   <input type="checkbox" name="custom-topic" value="2.2" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-icon">∬</span>
-                  <div class="custom-topic-info">
-                    <span class="custom-topic-name">2.2 Integral Calculus</span>
-                    <span class="custom-topic-sub">Double & triple integrals, change of variables, surface area</span>
-                  </div>
-                  <span class="custom-topic-count" id="count-2.2">...</span>
+                  <span class="custom-topic-name">2.2 Integral Calculus</span>
+                  <span class="custom-topic-count" id="count-2.2">66 Qs</span>
                 </label>
-
-                <label class="custom-topic-item" data-topic-id="2.3" data-cat="calculus_ode">
+                <label class="custom-topic-item" data-cat="calc">
                   <input type="checkbox" name="custom-topic" value="2.3" checked onchange="window.updateCustomGeneratorSummary()">
-                  <span class="custom-topic-icon">🧮</span>
-                  <div class="custom-topic-info">
-                    <span class="custom-topic-name">2.3 Ordinary Differential Equations (ODE)</span>
-                    <span class="custom-topic-sub">1st order ODEs, integrating factors, Wronskian, Cauchy-Euler</span>
-                  </div>
-                  <span class="custom-topic-count" id="count-2.3">...</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Subject Category 3: Linear Algebra & Algebra -->
             <div class="custom-subject-group">
               <div class="custom-subject-title">
                 <span class="subject-dot" style="background: #8b5cf6;"></span>
@@ -446,14 +419,14 @@
         </div>
 
         <div class="resources-grid">
-          <!-- Card 1: Question Bank -->
-          <a href="assets/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Topic-Wise Question Bank PDF">
-            <div class="resource-icon-wrap">📄</div>
-            <h3 class="resource-title">Topic-Wise Question Bank (2022–2026)</h3>
-            <p class="resource-desc">Publication-ready 52-page master PDF containing all 300 official PYQs organized by syllabus with complete Master Answer Key.</p>
+          <!-- Card 1: 56 Mock Test PDFs Archive -->
+          <a href="assets/Mock Tests_PDF/mock_tests_manifest.json" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Mock Tests PDF Manifest & Catalog">
+            <div class="resource-icon-wrap">📥</div>
+            <h3 class="resource-title">56 Mock Test PDFs (2005–2026)</h3>
+            <p class="resource-desc">Pre-compiled publication-quality LaTeX PDFs with test overview, cropped question screenshots, and official answer keys for all 22 Year tests & 27 Subtopic tests.</p>
             <div class="resource-footer">
-              <span class="resource-badge">PDF • 52 Pages</span>
-              <span>View PDF →</span>
+              <span class="resource-badge">56 Formatted PDFs</span>
+              <span>View Manifest →</span>
             </div>
           </a>
 
@@ -479,14 +452,14 @@
             </div>
           </div>
 
-          <!-- Card 4: 2022-2026 PYQs with Keys -->
-          <a href="assets/2022-2026-PYQs-with-Keys.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 2022-2026 Official Papers & Keys PDF">
-            <div class="resource-icon-wrap">📝</div>
-            <h3 class="resource-title">2022–2026 Official Papers & Keys</h3>
-            <p class="resource-desc">Original examination papers from 2022 to 2026 combined with official IIT final answer keys and acceptance ranges.</p>
+          <!-- Card 4: Categorized JSON Dataset -->
+          <a href="assets/iit_jam_pyqs_categorized.json" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Master Categorized JSON Dataset">
+            <div class="resource-icon-wrap">📊</div>
+            <h3 class="resource-title">885 Categorized PYQs Dataset</h3>
+            <p class="resource-desc">Structured master JSON database with all 885 official questions (2005–2026) categorized by topic, subtopic, question type, marks, and keys.</p>
             <div class="resource-footer">
-              <span class="resource-badge">198 Pages • Complete</span>
-              <span>View PDF →</span>
+              <span class="resource-badge">JSON Dataset • 885 Qs</span>
+              <span>View JSON →</span>
             </div>
           </a>
 
@@ -628,7 +601,7 @@
         <span aria-hidden="true">•</span>
         <a href="#tab-panel-resources" onclick="window.switchMainTab('resources', document.querySelectorAll('.main-tab-btn')[3])">Resource Hub</a>
         <span aria-hidden="true">•</span>
-        <a href="assets/Topic-Wise-Question-Bank-2022-2026.pdf" target="_blank" rel="noopener noreferrer">Question Bank PDF</a>
+        <a href="assets/Mock Tests_PDF/mock_tests_manifest.json" target="_blank" rel="noopener noreferrer">Mock PDFs Catalog</a>
         <span aria-hidden="true">•</span>
         <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer">2005–2026 Archive</a>
       </div>

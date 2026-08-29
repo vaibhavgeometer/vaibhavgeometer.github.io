@@ -73,7 +73,7 @@
         : '';
 
       const pdfLink = t.paper_pdf
-        ? `<a href="${t.paper_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="View Original Question Paper PDF">📄 Paper</a>`
+        ? `<a href="${t.paper_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="View 22-Year Original PYQ Archive PDF">🏛️ Archive</a>`
         : '';
 
       const mockPdfLink = t.mock_pdf
@@ -107,8 +107,8 @@
             </div>
           </div>
           <div class="topic-actions">
-            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Start Timed Examination">⚡ Start Mock Test</a>
-            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
+            <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Start Timed Examination">⚡ Start Test</a>
+            <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
             ${mockPdfLink}
             ${pdfLink}
           </div>
@@ -182,8 +182,8 @@
       let actionButtons = '';
       if (!isZeroQuestions) {
         actionButtons = `
-          <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Mock Test</a>
-          <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice Mode</a>
+          <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Test</a>
+          <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
           ${mockPdfBtn}
           ${cheatBtn}
         `;

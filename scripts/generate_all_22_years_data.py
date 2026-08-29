@@ -152,6 +152,15 @@ def generate_all_data():
     # Sort categorized questions in reverse chronological order (2026 down to 2005)
     sorted_cat = sorted(categorized_qs, key=lambda x: (x['year'], x['question_number']), reverse=True)
 
+    # Load mock tests manifest if available to attach pre-compiled mock PDFs
+    manifest_map = {}
+    manifest_path = 'assets/Mock Tests_PDF/mock_tests_manifest.json'
+    if os.path.exists(manifest_path):
+        with open(manifest_path, 'r', encoding='utf-8') as mf:
+            manifest_list = json.load(mf)
+            for item in manifest_list:
+                manifest_map[item['id']] = item['filename']
+
     # 3. Generate 27 Era-based Subtopic Mock Tests (3 Eras x 9 Subtopics)
     era_subtopic_tests = {}
     for era in ERAS:
@@ -178,7 +187,7 @@ def generate_all_data():
 
             pattern_text = f"{era['default_pattern']} ({era['label']} • {total_q} Qs)" if total_q > 0 else "0 Qs (Not in Era Syllabus)"
 
-            era_subtopic_tests[test_id] = {
+            test_obj = {
                 "id": test_id,
                 "file_id": f"{era_id.replace('-', '_')}_{info['file_id']}",
                 "topic_id": k,
@@ -194,6 +203,10 @@ def generate_all_data():
                 "duration_minutes": dur_mins,
                 "questions": matched_qs
             }
+            if test_id in manifest_map:
+                test_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[test_id]}"
+
+            era_subtopic_tests[test_id] = test_obj
             print(f"Generated [{test_id}] {info['name']} ({era['label']}): {total_q} Qs, {total_m} Marks, {dur_mins} Mins")
 
     # 4. Generate 9 Comprehensive Full-Archive Subtopic Tests (2005-2026)
@@ -216,7 +229,7 @@ def generate_all_data():
         total_m = sum(q['marks'] for q in matched_qs)
         dur_mins = max(15, round(total_q * 3.0))
 
-        comprehensive_topic_tests[k] = {
+        comp_test_obj = {
             "id": k,
             "file_id": info["file_id"],
             "topic_id": k,
@@ -232,13 +245,22 @@ def generate_all_data():
             "duration_minutes": dur_mins,
             "questions": matched_qs
         }
+        if k in manifest_map:
+            comp_test_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[k]}"
+
+        comprehensive_topic_tests[k] = comp_test_obj
         print(f"Generated Comprehensive [{k}] {info['name']}: {total_q} Qs, {total_m} Marks, {dur_mins} Mins")
 
     # 5. Combine Master Dataset
     final_mock_data = {}
     # 22 Year Tests (2026 down to 2005)
     for yr in sorted([int(k) for k in all_year_tests.keys()], reverse=True):
-        final_mock_data[str(yr)] = all_year_tests[str(yr)]
+        yr_str = str(yr)
+        year_obj = dict(all_year_tests[yr_str])
+        year_obj["paper_pdf"] = "assets/MA2005-2026_Original_PYQs.pdf"
+        if yr_str in manifest_map:
+            year_obj["mock_pdf"] = f"assets/Mock Tests_PDF/{manifest_map[yr_str]}"
+        final_mock_data[yr_str] = year_obj
 
     # 27 Era-based Subtopic Tests (2022-2026, 2015-2021, 2005-2014)
     for era in ERAS:
