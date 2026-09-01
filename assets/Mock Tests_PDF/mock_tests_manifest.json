@@ -446,5 +446,29 @@
     "questions": 101,
     "pages": 41,
     "size_mb": 14.27
+  },
+  {
+    "id": "Archive_Out_of_Syllabus",
+    "name": "Out of Syllabus Problems (2005\u20132026 Archive)",
+    "filename": "Archive_2005-2026_Topic_Out_of_Syllabus_Problems.pdf",
+    "questions": 87,
+    "pages": 29,
+    "size_mb": 12.33
+  },
+  {
+    "id": "2015-2021_Out_of_Syllabus",
+    "name": "Out of Syllabus Problems (2015\u20132021)",
+    "filename": "2015-2021_Topic_Out_of_Syllabus_Problems.pdf",
+    "questions": 50,
+    "pages": 18,
+    "size_mb": 3.73
+  },
+  {
+    "id": "2005-2014_Out_of_Syllabus",
+    "name": "Out of Syllabus Problems (2005\u20132014)",
+    "filename": "2005-2014_Topic_Out_of_Syllabus_Problems.pdf",
+    "questions": 37,
+    "pages": 13,
+    "size_mb": 8.65
   }
 ]
