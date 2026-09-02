@@ -227,6 +227,45 @@ body {
   line-height: 1.7;
 }
 
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hero-pill {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.hero-pill strong {
+  color: var(--text-main);
+}
+
+a.hero-pill {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.hero-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+}
+
+
 
 /* --- Filter Tabs --- */
 .filter-tabs {
