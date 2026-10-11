@@ -6,10 +6,11 @@ import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-KEY_DIR = 'assets/PYQs_Answer Keys'
-SCREENSHOT_BASE = 'assets/PYQs_Screenshots'
-OUTPUT_FILE = 'mock-test/js/questions_data.js'
-CATEGORIZED_JSON = 'assets/iit_jam_pyqs_categorized.json'
+BASE_DIR = 'JAM' if os.path.exists('JAM') else '.'
+KEY_DIR = os.path.join(BASE_DIR, 'assets/PYQs_Answer Keys')
+SCREENSHOT_BASE = os.path.join(BASE_DIR, 'assets/PYQs_Screenshots')
+OUTPUT_FILE = os.path.join(BASE_DIR, 'mock-test/js/questions_data.js')
+CATEGORIZED_JSON = os.path.join(BASE_DIR, 'assets/iit_jam_pyqs_categorized.json')
 
 SUBTOPIC_MAP = {
     "1.1": {

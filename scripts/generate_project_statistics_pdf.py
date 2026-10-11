@@ -12,15 +12,18 @@ import json
 import typst
 import fitz
 
-OUTPUT_PDF = os.path.abspath('assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf')
+BASE_DIR = 'JAM' if os.path.exists('JAM') else '.'
+OUTPUT_PDF = os.path.abspath(os.path.join(BASE_DIR, 'assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf'))
 
 def load_data():
-    with open('mock-test/js/questions_data.js', 'r', encoding='utf-8') as f:
+    questions_file = os.path.join(BASE_DIR, 'mock-test/js/questions_data.js')
+    with open(questions_file, 'r', encoding='utf-8') as f:
         content = f.read()
     m = re.search(r'window\.MOCK_TESTS_DATA\s*=\s*({[\s\S]*});?\s*$', content)
     tests_data = json.loads(m.group(1))
 
-    with open('assets/iit_jam_pyqs_categorized.json', 'r', encoding='utf-8') as f:
+    cat_file = os.path.join(BASE_DIR, 'assets/iit_jam_pyqs_categorized.json')
+    with open(cat_file, 'r', encoding='utf-8') as f:
         categorized = json.load(f)
 
     # Build question lookup
@@ -46,10 +49,10 @@ def load_data():
         })
         enriched_qs.append(merged)
 
-    cheat_sheets_dir = 'assets/cheat-sheets'
+    cheat_sheets_dir = os.path.join(BASE_DIR, 'assets/cheat-sheets')
     cheat_sheets = sorted([f for f in os.listdir(cheat_sheets_dir) if f.endswith('.pdf')])
 
-    manifest_path = 'assets/Mock Tests_PDF/mock_tests_manifest.json'
+    manifest_path = os.path.join(BASE_DIR, 'assets/Mock Tests_PDF/mock_tests_manifest.json')
     with open(manifest_path, 'r', encoding='utf-8') as mf:
         manifest_list = json.load(mf)
 

@@ -15,11 +15,13 @@ import time
 import typst
 import fitz
 
-OUTPUT_DIR = os.path.abspath('assets/Mock Tests_PDF')
+BASE_DIR = 'JAM' if os.path.exists('JAM') else '.'
+OUTPUT_DIR = os.path.abspath(os.path.join(BASE_DIR, 'assets/Mock Tests_PDF'))
 SCRATCH_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'scratch'))
 
 def load_all_tests():
-    with open('mock-test/js/questions_data.js', 'r', encoding='utf-8') as f:
+    data_js = os.path.join(BASE_DIR, 'mock-test/js/questions_data.js')
+    with open(data_js, 'r', encoding='utf-8') as f:
         code = f.read()
     m = re.search(r'window\.MOCK_TESTS_DATA\s*=\s*({[\s\S]*});?\s*$', code)
     if not m:

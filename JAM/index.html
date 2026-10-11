@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IIT JAM Mathematics (MA) — 22-Year (2005–2026) Mock Test Series & Study Material</title>
+  <meta name="description" content="Free IIT JAM Mathematics (MA) Computer Based Mock Test Series covering 22 years (2005–2026) with 885 official examination PYQs, screenshots, 14 topic-wise Formula Cheat Sheets, official Syllabus, and verified Master Answer Keys.">
+  <meta name="keywords" content="IIT JAM Mathematics Mock Test, IIT JAM MA, PYQ, Computer Based Test, MathJax, LaTeX, Formula Cheat Sheets, Real Analysis, Linear Algebra, Group Theory, 2005-2026 PYQ">
+  <meta name="author" content="Vaibhav Geometer">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- MathJax 3 -->
+  <script src="mock-test/js/mathjax_config.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="#" class="brand-logo" title="IIT JAM Mathematics Portal">
+        <span class="brand-icon">📐</span>
+        <span class="brand-name">
+          <span class="brand-full">IIT JAM Mathematics</span>
+          <span class="brand-short">IIT JAM MA</span>
+        </span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="../" class="nav-link-btn" title="Return to Vaibhav Geometer Homepage">
+          <span class="nav-btn-icon">🏠</span>
+          <span class="nav-btn-label">Vaibhav Geometer</span>
+        </a>
+        <a href="assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open Official IIT JAM Syllabus in new tab">
+          <span class="nav-btn-icon">📜</span>
+          <span class="nav-btn-label">Syllabus</span>
+        </a>
+        <button class="nav-link-btn" onclick="window.openCheatSheetsModal()" title="Browse all 14 Formula Cheat Sheets">
+          <span class="nav-btn-icon">📑</span>
+          <span class="nav-btn-label">Cheat Sheets</span>
+        </button>
+        <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open 22-Year (2005–2026) Official PYQ Archive PDF in new tab">
+          <span class="nav-btn-icon">🏛️</span>
+          <span class="nav-btn-label">PYQ Archive</span>
+        </a>
+        <a href="countdown/" class="nav-link-btn" title="Open IIT JAM 2027 Live Countdown Timer">
+          <span class="nav-btn-icon">⏳</span>
+          <span class="nav-btn-label">2027 Countdown</span>
+        </a>
+        <button class="nav-link-btn" onclick="window.switchMainTab('custom-generator', document.getElementById('tab-btn-custom-generator'))" title="Create Custom Topic Test & Download PDF">
+          <span class="nav-btn-icon">🛠️</span>
+          <span class="nav-btn-label">Custom Test</span>
+        </button>
+        <button class="icon-btn" onclick="window.toggleTheme()" title="Toggle Theme" id="theme-btn" aria-label="Toggle Theme">☀</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>IIT JAM Mathematics <span class="accent">(MA)</span></h1>
+      <p class="hero-sub">Complete 22-Year Mock Test Series · 885 Official PYQs · 2005–2026</p>
+      <p class="hero-desc">Authentic Computer Based Test (CBT) simulator with official paper screenshots, MCQ, MSQ & NAT option selectors, built-in scientific calculator, 14 formula cheat sheets, and verified master answer keys.</p>
+      
+      <div class="hero-badges">
+        <span class="hero-pill">🏛 <strong>22</strong> Year Mock Tests</span>
+        <span class="hero-pill">🎯 <strong>885</strong> Official PYQs</span>
+        <span class="hero-pill">⚡ <strong>27</strong> Subtopic Mock Tests</span>
+        <span class="hero-pill">📑 <strong>14</strong> Formula Cheat Sheets</span>
+        <span class="hero-pill">📥 <strong>56</strong> Mock Test PDFs</span>
+        <a href="countdown/" class="hero-pill" title="Open Live IIT JAM 2027 Countdown Timer">⏳ <strong>JAM 2027</strong> Countdown</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Tab Switcher -->
+  <section class="container">
+    <div class="main-tab-switcher">
+      <button class="main-tab-btn active" onclick="window.switchMainTab('year-tests', this)">
+        🏛 22-Year Mock Tests (2005–2026)
+      </button>
+      <button class="main-tab-btn" onclick="window.switchMainTab('topic-tests', this)">
+        ⚡ 27 Subtopic Mock Tests (3 Eras × 9 Topics)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-custom-generator" onclick="window.switchMainTab('custom-generator', this)">
+        🛠️ Custom Test & PDF Generator
+      </button>
+      <button class="main-tab-btn" id="tab-btn-resources" onclick="window.switchMainTab('resources', this)">
+        📚 Study Materials Hub
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content Areas -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Panel 1: Year-Wise Mock Tests (2005-2026) -->
+      <div id="tab-panel-year-tests" class="tab-content-panel">
+        <div class="year-filter-tabs">
+          <button class="year-filter-btn active" onclick="window.filterYears('ALL', this)">All Papers (22 Years: 2005–2026)</button>
+          <button class="year-filter-btn" onclick="window.filterYears('cbt', this)">CBT Era (2015–2026 • 60 Qs)</button>
+          <button class="year-filter-btn" onclick="window.filterYears('classic', this)">Classic Era (2005–2014)</button>
+        </div>
+
+        <div class="topics-grid" id="year-tests-container">
+          <!-- Injected by main.js -->
+        </div>
+      </div>
+
+      <!-- Panel 2: Subtopic Mock Tests (3 Eras × 9 Topics = 27 Tests + 2005-2026 Archive) -->
+      <div id="tab-panel-topic-tests" class="tab-content-panel hidden">
+        <div class="topic-filters-wrapper">
+          <div class="filter-group">
+            <span class="filter-group-label">Era:</span>
+            <div class="filter-tabs era-filter-tabs">
+              <button class="topic-era-filter-btn filter-btn active" onclick="window.filterTopicEra('ALL', this)">All Eras (27 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('2022-2026', this)">2022–2026 (9 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('2015-2021', this)">2015–2021 (9 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('2005-2014', this)">2005–2014 (9 Tests)</button>
+              <button class="topic-era-filter-btn filter-btn" onclick="window.filterTopicEra('comprehensive', this)">2005–2026 Archive (9)</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-group-label">Subject:</span>
+            <div class="filter-tabs category-filter-tabs">
+              <button class="topic-filter-btn filter-btn active" onclick="window.filterTopicCategory('ALL', this)">All Topics (9 Subtopics)</button>
+              <button class="topic-filter-btn filter-btn" onclick="window.filterTopicCategory('Real Analysis', this)">Real Analysis</button>
+              <button class="topic-filter-btn filter-btn" onclick="window.filterTopicCategory('Multivariable Calculus and Differential Equations', this)">Calculus & ODE</button>
+              <button class="topic-filter-btn filter-btn" onclick="window.filterTopicCategory('Linear Algebra and Algebra', this)">Linear Algebra & Groups</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="topics-grid" id="topics-container">
+          <!-- Injected by main.js -->
+        </div>
+      </div>
+
+      <!-- Panel 3: Custom Mock Test & PDF Generator -->
+      <div id="tab-panel-custom-generator" class="tab-content-panel hidden">
+        <div class="section-header-block" style="margin-bottom: 24px;">
+          <h2 class="section-title">🛠️ Custom Mock Test & PDF Generator</h2>
+          <p class="section-sub">Select any combination of topics, customize question count (1–100), and instantly compile a publication-quality LaTeX-formatted practice PDF with master answer keys, or launch an online CBT simulator test.</p>
+          <div class="custom-generator-badges">
+            <span class="custom-badge">⚡ Instant Browser PDF Compilation</span>
+            <span class="custom-badge">🎯 1–100 Questions</span>
+            <span class="custom-badge">📑 Publication LaTeX PDF</span>
+            <span class="custom-badge">💻 Online CBT Mode</span>
+          </div>
+        </div>
+
+        <!-- Offline Banner Notice -->
+        <div id="custom-offline-banner" class="offline-warning-banner hidden">
+          <div class="offline-icon">⚠️</div>
+          <div class="offline-text">
+            <strong>Active Internet Connection Required:</strong>
+            <span>You appear to be offline. Online CBT testing and custom PDF generation require internet access to fetch official question paper screenshots from the repository server.</span>
+          </div>
+        </div>
+
+        <div class="custom-generator-container">
+          <!-- Step 1: Select Topics Card -->
+          <div class="custom-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 1</div>
+              <h3 class="custom-card-title">Select Syllabus Topics</h3>
+              <div class="custom-topic-presets">
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(true)">Select All</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectAll(false)">Clear All</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('real')">Real Analysis</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('calc')">Calculus & ODE</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('alg')">Linear Algebra & Groups</button>
+              </div>
+            </div>
+
+            <!-- Subject 1: Real Analysis -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #3b82f6;"></span>
+                <span>1. Real Analysis</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="1.1" data-cat="real">
+                  <input type="checkbox" name="custom-topic" value="1.1" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🔢</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">1.1 Sequences and Series of Real Numbers</span>
+                    <span class="custom-topic-sub">Convergence, tests, subsequences, power series</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-1.1">...</span>
+                </label>
+                <label class="custom-topic-item" data-topic-id="1.2" data-cat="real">
+                  <input type="checkbox" name="custom-topic" value="1.2" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">📈</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">1.2 Functions of One Real Variable</span>
+                    <span class="custom-topic-sub">Limit, continuity, differentiability, Mean Value Theorems, Taylor's</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-1.2">...</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Subject 2: Multivariable & ODE -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #10b981;"></span>
+                <span>2. Multivariable Calculus & Differential Equations</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="2.1" data-cat="calc">
+                  <input type="checkbox" name="custom-topic" value="2.1" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🌐</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.1 Functions of Several Variables</span>
+                    <span class="custom-topic-sub">Partial derivatives, gradient, directional derivatives, maxima/minima</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.1">...</span>
+                </label>
+                <label class="custom-topic-item" data-topic-id="2.2" data-cat="calc">
+                  <input type="checkbox" name="custom-topic" value="2.2" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">∬</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.2 Integral Calculus</span>
+                    <span class="custom-topic-sub">Double & triple integrals, change of variables, surface area & volume</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.2">...</span>
+                </label>
+                <label class="custom-topic-item" data-topic-id="2.3" data-cat="calc">
+                  <input type="checkbox" name="custom-topic" value="2.3" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🧮</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">2.3 Ordinary Differential Equations (ODE)</span>
+                    <span class="custom-topic-sub">First order ODEs, integrating factors, Wronskian, Cauchy-Euler</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-2.3">...</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Subject 3: Linear Algebra & Algebra -->
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">
+                <span class="subject-dot" style="background: #8b5cf6;"></span>
+                <span>3. Linear Algebra and Algebra</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="3.1" data-cat="alg">
+                  <input type="checkbox" name="custom-topic" value="3.1" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">📐</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.1 Basic Algebra</span>
+                    <span class="custom-topic-sub">Permutations, combinations, binomial theorem</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.1">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="3.2" data-cat="alg">
+                  <input type="checkbox" name="custom-topic" value="3.2" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🔲</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.2 Matrices & Systems of Linear Equations</span>
+                    <span class="custom-topic-sub">Rank-nullity, eigenvalues, eigenvectors, Cayley-Hamilton</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.2">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="3.3" data-cat="alg">
+                  <input type="checkbox" name="custom-topic" value="3.3" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🌌</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.3 Finite Dimensional Vector Spaces</span>
+                    <span class="custom-topic-sub">Linear independence, basis, dimension, linear transformations</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.3">...</span>
+                </label>
+
+                <label class="custom-topic-item" data-topic-id="3.4" data-cat="alg">
+                  <input type="checkbox" name="custom-topic" value="3.4" checked onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">🔄</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">3.4 Group Theory</span>
+                    <span class="custom-topic-sub">Cyclic groups, abelian groups, permutation groups, Lagrange's</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-3.4">...</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Configuration Card -->
+          <div class="custom-card custom-config-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 2</div>
+              <h3 class="custom-card-title">Configure Test Settings</h3>
+            </div>
+
+            <div class="config-grid">
+              <!-- Question Count Control -->
+              <div class="config-item question-count-block">
+                <div class="config-label-row">
+                  <label for="custom-q-slider" class="config-label">Number of Questions (1 – 100):</label>
+                  <div class="count-input-wrapper">
+                    <input type="number" id="custom-q-input" min="1" max="100" value="30" oninput="window.syncQuestionCount(this.value)">
+                    <span class="count-unit">Questions</span>
+                  </div>
+                </div>
+                <div class="slider-row">
+                  <input type="range" id="custom-q-slider" min="1" max="100" value="30" class="custom-range-slider" oninput="window.syncQuestionCount(this.value)">
+                </div>
+                <div class="count-preset-chips">
+                  <button type="button" class="chip-btn" data-count="10" onclick="window.syncQuestionCount(10)">10 Qs</button>
+                  <button type="button" class="chip-btn" data-count="20" onclick="window.syncQuestionCount(20)">20 Qs</button>
+                  <button type="button" class="chip-btn active" id="chip-30" data-count="30" onclick="window.syncQuestionCount(30)">30 Qs (Recommended)</button>
+                  <button type="button" class="chip-btn" data-count="50" onclick="window.syncQuestionCount(50)">50 Qs</button>
+                  <button type="button" class="chip-btn" data-count="60" onclick="window.syncQuestionCount(60)">60 Qs (Full Mock)</button>
+                  <button type="button" class="chip-btn" data-count="100" onclick="window.syncQuestionCount(100)">100 Qs (Max)</button>
+                </div>
+              </div>
+
+              <!-- Test Title -->
+              <div class="config-item">
+                <label for="custom-test-title" class="config-label">Custom Test Paper Title:</label>
+                <input type="text" id="custom-test-title" class="custom-text-input" value="IIT JAM Mathematics Custom Practice Test" placeholder="e.g. ODE & Linear Algebra Rapid Revision Test">
+              </div>
+
+              <!-- Era & Question Types in Two Columns -->
+              <div class="config-row-2col">
+                <!-- Era Filter -->
+                <div class="config-item">
+                  <label class="config-label">Question Era / Years:</label>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="ALL" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>All Eras (2005–2026)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="2022-2026" onchange="window.updateCustomGeneratorSummary()">
+                      <span>CBT Era (2022–2026)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="2015-2021" onchange="window.updateCustomGeneratorSummary()">
+                      <span>CBT Era (2015–2021)</span>
+                    </label>
+                    <label class="radio-pill">
+                      <input type="radio" name="custom-era" value="classic" onchange="window.updateCustomGeneratorSummary()">
+                      <span>Classic (2005–2014)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Question Types Filter -->
+                <div class="config-item">
+                  <label class="config-label">Question Types Included:</label>
+                  <div class="checkbox-pill-group">
+                    <label class="checkbox-pill">
+                      <input type="checkbox" id="custom-type-mcq" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>MCQ (Single Choice)</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" id="custom-type-msq" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>MSQ (Multiple Select)</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" id="custom-type-nat" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>NAT (Numerical)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Live Summary & Action Bar -->
+          <div class="custom-card custom-summary-card">
+            <div class="custom-card-header">
+              <div class="custom-step-pill">Step 3</div>
+              <h3 class="custom-card-title">Live Test Paper Summary & Actions</h3>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="custom-summary-metrics">
+              <div class="summary-metric-box">
+                <span class="metric-label">TOPICS SELECTED</span>
+                <span class="metric-val" id="summary-topics-count" style="color: #3b82f6;">9 / 9</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">AVAILABLE POOL</span>
+                <span class="metric-val" id="summary-pool-count" style="color: #0f766e;">885 Qs</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">PAPER QUESTIONS</span>
+                <span class="metric-val" id="summary-questions-count" style="color: #6366f1;">30 Qs</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">ESTIMATED MARKS</span>
+                <span class="metric-val" id="summary-marks-count" style="color: #10b981;">~50 Marks</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">RECOMMENDED TIME</span>
+                <span class="metric-val" id="summary-time-count" style="color: #f59e0b;">90 Mins</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">SECTION STRUCTURE</span>
+                <span class="metric-val" id="summary-structure-label" style="font-size: 11px; color: #64748b;">MCQ • MSQ • NAT</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="custom-actions-row">
+              <button type="button" class="btn-custom-action btn-generate-pdf" id="btn-generate-custom-pdf" onclick="window.triggerCustomPdfGeneration()">
+                <span class="action-icon">📥</span>
+                <span class="action-text">
+                  <strong>Generate & Download PDF</strong>
+                  <small>LaTeX Formatted • High-Res Screenshots • Master Key</small>
+                </span>
+              </button>
+
+              <button type="button" class="btn-custom-action btn-start-cbt" id="btn-start-custom-cbt" onclick="window.triggerCustomOnlineTest()">
+                <span class="action-icon">⚡</span>
+                <span class="action-text">
+                  <strong>Start Interactive CBT Test</strong>
+                  <small>Virtual Calculator • Timers • Instant Score Card</small>
+                </span>
+              </button>
+
+              <button type="button" class="btn-custom-action btn-preview-qs" onclick="window.openCustomQuestionsPreview()">
+                <span class="action-icon">👁️</span>
+                <span class="action-text">
+                  <strong>Preview Questions</strong>
+                  <small>Inspect Question List & Keys</small>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Study Materials & Resource Hub -->
+      <div id="tab-panel-resources" class="tab-content-panel hidden">
+        <div class="section-header-block" style="margin-bottom: 24px;">
+          <h2 class="section-title">📚 Study Materials & Resource Hub</h2>
+          <p class="section-sub">Comprehensive collection of official question banks, syllabus, formula cheat sheets, and past year question paper archives.</p>
+        </div>
+
+        <div class="resources-grid">
+          <!-- Card 1: Project Statistics & Analytics PDF Report -->
+          <a href="assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Comprehensive Project Statistics & Analytics PDF Report">
+            <div class="resource-icon-wrap">📊</div>
+            <h3 class="resource-title">Project Statistics & Analytics (2005–2026)</h3>
+            <p class="resource-desc">Publication-quality LaTeX report with full statistical breakdown of all 885 questions, 22 examination years, topic weightages, era distributions, and simulator ecosystem metrics.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">LaTeX Report • 22 Yrs</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+
+          <!-- Card 2: Official Syllabus -->
+          <a href="assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open Official IIT JAM Syllabus PDF">
+            <div class="resource-icon-wrap">📜</div>
+            <h3 class="resource-title">Official IIT JAM Syllabus</h3>
+            <p class="resource-desc">Official syllabus document detailing all topics across Real Analysis, Multivariable Calculus, ODE, Linear Algebra, and Groups.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">Official Document</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+
+          <!-- Card 3: Formula Cheat Sheets -->
+          <div class="resource-card" style="cursor: pointer;" onclick="window.openCheatSheetsModal()" title="Browse all 14 Formula Cheat Sheets">
+            <div class="resource-icon-wrap">📑</div>
+            <h3 class="resource-title">14 Formula Cheat Sheets</h3>
+            <p class="resource-desc">High-yield quick revision formula sheets for Sequences, Series, Single/Multivariable Calculus, ODE, Linear Algebra, and Group Theory.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">14 Topic Sheets</span>
+              <span style="color: var(--green);">Browse All →</span>
+            </div>
+          </div>
+
+          <!-- Card 4: 2005-2026 Original Papers Archive -->
+          <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" title="Open 22-Year PYQ Archive PDF">
+            <div class="resource-icon-wrap">🏛</div>
+            <h3 class="resource-title">22-Year PYQ Archive (2005–2026)</h3>
+            <p class="resource-desc">Comprehensive historical archive of original IIT JAM Mathematics examination papers spanning 2005 through 2026.</p>
+            <div class="resource-footer">
+              <span class="resource-badge">2005–2026 Archive</span>
+              <span>View PDF →</span>
+            </div>
+          </a>
+
+          <!-- Card 5: IIT JAM 2027 Live Countdown -->
+          <a href="countdown/" class="resource-card" title="Open IIT JAM 2027 Live Countdown Timer">
+            <div class="resource-icon-wrap">⏳</div>
+            <h3 class="resource-title">IIT JAM 2027 Live Countdown</h3>
+            <p class="resource-desc">Real-time countdown clock for IIT JAM 2027 Mathematics (MA). Track days, hours, minutes, and seconds until the exam with study shortcuts.</p>
+            <div class="resource-footer">
+              <span class="resource-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">Live Countdown</span>
+              <span style="color: var(--accent);">Launch Timer →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Cheat Sheets Modal -->
+  <div id="cheatsheets-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeCheatSheetsModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">📑 IIT JAM Formula & Concept Cheat Sheets</div>
+        <button class="modal-close-btn" onclick="window.closeCheatSheetsModal()" title="Close Modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="cheatsheet-category-title">1. Real Analysis</div>
+        <div class="cheatsheet-list">
+          <a href="assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Sequences of Real Numbers</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Series_of_Real_Numbers_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Series of Real Numbers</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Series_Convergence_Tests_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Series Convergence Tests & Power Series</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Continuity & Differentiability</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Riemann_Integration_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Riemann Integration & Definite Integrals</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Multivariable_and_Power_Series_Supplemental.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Max/Min, L'Hospital & Power Series Operations</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+        </div>
+
+        <div class="cheatsheet-category-title">2. Multivariable Calculus & Differential Equations</div>
+        <div class="cheatsheet-list">
+          <a href="assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Functions of Several Variables (Multivariable Calculus)</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Integral Calculus (Double & Triple Integrals)</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Ordinary Differential Equations (ODE)</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+        </div>
+
+        <div class="cheatsheet-category-title">3. Linear Algebra & Algebra</div>
+        <div class="cheatsheet-list">
+          <a href="assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Basic Algebra (P&C, Binomial Theorem)</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Linear Algebra Master Sheet (Matrices, Linear Systems & Eigenvalues)</div>
+            <span class="cheatsheet-pages">3 Pages PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Finite Dimensional Vector Spaces</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Group_Theory_Summary.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Group Theory Quick Reference</div>
+            <span class="cheatsheet-pages">1 Page PDF</span>
+          </a>
+          <a href="assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf" target="_blank" rel="noopener noreferrer" class="cheatsheet-item">
+            <div><span class="cheatsheet-item-icon">📄</span> Group Theory Master Cheat Sheet (Gallian Review)</div>
+            <span class="cheatsheet-pages">2 Pages PDF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Generation Progress Modal -->
+  <div id="pdf-progress-modal" class="modal-backdrop hidden">
+    <div class="modal-card pdf-progress-card">
+      <div class="modal-header">
+        <div class="modal-title" id="pdf-progress-title">📑 Compiling LaTeX Mock Test PDF...</div>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 24px 16px;">
+        <div class="progress-spinner" id="pdf-spinner"></div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="pdf-progress-fill" style="width: 0%;"></div>
+        </div>
+        <div class="progress-percent" id="pdf-progress-pct">0%</div>
+        <p class="progress-status-text" id="pdf-progress-status">Preparing question datasets...</p>
+        <p class="progress-note">🌐 Downloading official question screenshots and compiling PDF in browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Questions Preview Modal -->
+  <div id="custom-preview-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeCustomQuestionsPreview()">
+    <div class="modal-card preview-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">👁️ Preview Selected Questions (<span id="preview-total-count">0</span> Questions)</div>
+        <button class="modal-close-btn" onclick="window.closeCustomQuestionsPreview()" title="Close Modal">✕</button>
+      </div>
+      <div class="modal-body" id="custom-preview-body" style="max-height: 70vh; overflow-y: auto;">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--border);">
+        <button type="button" class="btn-test secondary" onclick="window.closeCustomQuestionsPreview()">Close</button>
+        <button type="button" class="btn-test primary" onclick="window.triggerCustomPdfGeneration(); window.closeCustomQuestionsPreview();">📥 Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer">Syllabus</a>
+        <span aria-hidden="true">•</span>
+        <a href="javascript:void(0)" onclick="window.switchMainTab('resources', document.getElementById('tab-btn-resources'))">Resource Hub</a>
+        <span aria-hidden="true">•</span>
+        <a href="assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer">Project Stats PDF</a>
+        <span aria-hidden="true">•</span>
+        <a href="assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer">2005–2026 Archive</a>
+        <span aria-hidden="true">•</span>
+        <a href="countdown/">JAM 2027 Countdown</a>
+        <span aria-hidden="true">•</span>
+        <a href="../">Vaibhav Geometer</a>
+      </div>
+      <p>© 2026 · IIT JAM Mathematics Mock Tests & Resource Portal · Created by <a href="../" style="color:var(--accent);">Vaibhav Geometer</a> · Math rendered via <strong>MathJax 3</strong></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/jspdf.umd.min.js"></script>
+  <script src="js/jspdf.plugin.autotable.min.js"></script>
+  <script src="mock-test/js/questions_data.js"></script>
+  <script src="js/custom_pdf_generator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

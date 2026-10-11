@@ -22,10 +22,11 @@ import time
 import typst
 import fitz
 
-OUTPUT_DIR = os.path.abspath('assets/Mock Tests_PDF')
+BASE_DIR = 'JAM' if os.path.exists('JAM') else '.'
+OUTPUT_DIR = os.path.abspath(os.path.join(BASE_DIR, 'assets/Mock Tests_PDF'))
 SCRATCH_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'scratch'))
-CATEGORIZED_JSON = os.path.abspath('assets/iit_jam_pyqs_categorized.json')
-QUESTIONS_DATA_JS = os.path.abspath('mock-test/js/questions_data.js')
+CATEGORIZED_JSON = os.path.abspath(os.path.join(BASE_DIR, 'assets/iit_jam_pyqs_categorized.json'))
+QUESTIONS_DATA_JS = os.path.abspath(os.path.join(BASE_DIR, 'mock-test/js/questions_data.js'))
 MANIFEST_PATH = os.path.join(OUTPUT_DIR, 'mock_tests_manifest.json')
 
 def load_question_lookup():

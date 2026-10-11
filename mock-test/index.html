@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=../index.html">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
-  <title>Redirecting to Mock Test Portal...</title>
-  <script>window.location.replace('../index.html');</script>
+  <meta http-equiv="refresh" content="0; url=../JAM/mock-test/">
+  <title>Redirecting to IIT JAM Mock Tests...</title>
+  <script>
+    window.location.replace('../JAM/mock-test/' + window.location.search + window.location.hash);
+  </script>
 </head>
 <body>
-  <p>Redirecting to <a href="../index.html">Mock Test Portal</a>...</p>
+  <p>Redirecting to <a id="r" href="../JAM/mock-test/">IIT JAM Mock Tests</a>...</p>
+  <script>
+    document.getElementById('r').href = '../JAM/mock-test/' + window.location.search + window.location.hash;
+  </script>
 </body>
 </html>
