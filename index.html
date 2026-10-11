@@ -3,31 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaibhav Geometer — Mathematics, Research & IIT JAM Academic Portal</title>
-  <meta name="description" content="Personal academic portfolio of Vaibhav Geometer: Differential geometry researcher, educator, and home of the complete 22-Year (2005–2026) IIT JAM Mathematics Mock Test Series, CBT simulator, and study portal.">
-  <meta name="keywords" content="Vaibhav Geometer, Differential Geometry, Riemannian Geometry, IIT JAM Mathematics, IIT JAM Mock Test, Minimal Surfaces, MathJax, LaTeX, 3D Geometry Sandbox">
-  <meta name="author" content="Vaibhav Geometer">
-
+  <title>Vaibhav Geometer</title>
+  <meta name="description" content="Vaibhav Geometer — Projects and academic portals.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
 
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- MathJax 3 Configuration -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <!-- Master Stylesheet -->
   <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
@@ -35,479 +19,106 @@
   <!-- Atmospheric Background Glow -->
   <div class="bg-mesh" aria-hidden="true"></div>
 
-  <!-- Top Sticky Navigation -->
+  <!-- Header -->
   <header class="site-nav">
     <div class="container nav-inner">
-      <a href="#" class="brand-wrap" title="Vaibhav Geometer Homepage">
+      <a href="./" class="brand-wrap" title="Vaibhav Geometer">
         <div class="brand-icon-box">📐</div>
         <span class="brand-text">Vaibhav Geometer</span>
       </a>
 
-      <nav>
-        <ul class="nav-links">
-          <li><a href="JAM/" class="nav-jam-btn" title="Go to IIT JAM Mathematics Mock Test Series & Study Portal">
-            <span class="nav-jam-pulse"></span>
-            <span>IIT JAM Portal</span>
-            <span>⚡</span>
-          </a></li>
-          <li><a href="#geometry-sandbox" class="nav-link">3D Sandbox</a></li>
-          <li><a href="#research" class="nav-link">Research</a></li>
-          <li><a href="#vault" class="nav-link">Formula Vault</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-        </ul>
-      </nav>
-
       <div class="nav-controls">
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="nav-link" title="GitHub Profile">
+          GitHub
+        </a>
         <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="hero-badge-wrap">
-          <span>🌌</span>
-          <span>Differential Geometry • Research • Mentorship</span>
-        </div>
-
-        <h1 class="hero-title">
-          Bridging Geometric Intuition & <span class="gradient-text">Rigorous Mathematics.</span>
-        </h1>
-
-        <p class="hero-desc">
-          Welcome to the personal research & academic workspace of <strong>Vaibhav Geometer</strong> — mathematician, differential geometry researcher, and creator of the open-access <strong>IIT JAM Mathematics (MA) 22-Year Academic Archive & CBT Examination Simulator</strong>.
-        </p>
-
-        <div class="hero-actions">
-          <a href="JAM/" class="btn-primary" title="Explore the IIT JAM Mathematics Portal">
-            <span>🚀</span>
-            <span>Explore JAM 2026/2027 Portal</span>
-            <span>→</span>
-          </a>
-          <a href="#geometry-sandbox" class="btn-secondary" title="Explore 3D Differential Geometry Sandbox">
-            <span>🌌</span>
-            <span>3D Geometry Sandbox</span>
-          </a>
-          <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="View GitHub Repositories">
-            <span>🐙</span>
-            <span>GitHub Profile</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-canvas-wrap">
-        <div class="hero-canvas-header">
-          <span class="canvas-badge">
-            <span style="color:var(--accent-indigo);">●</span>
-            <span>Torus Knot (3, 7) Manifold</span>
-          </span>
-          <span class="canvas-hint">Drag mouse/touch to rotate</span>
-        </div>
-        <div class="hero-canvas-body">
-          <canvas id="hero-3d-canvas"></canvas>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       FEATURED FLAGSHIP PROJECT: IIT JAM MATHEMATICS PORTAL
-       ===================================================================== -->
-  <section class="section-wrap" id="jam-project">
+  <!-- Main Content -->
+  <main class="main-content">
     <div class="container">
-      <div class="section-header">
-        <div class="section-pill">🏆 Flagship Academic Project</div>
-        <h2 class="section-title">IIT JAM Mathematics (MA) Portal</h2>
-        <p class="section-desc">
-          An exhaustive, authentic Computer-Based Test (CBT) simulator and historical question archive covering 22 years of official examination papers (2005–2026).
-        </p>
-      </div>
+      
+      <!-- Intro Hero -->
+      <section class="hero-simple">
+        <h1 class="hero-title">Vaibhav Geometer</h1>
+        <p class="hero-desc">Personal website and project repository.</p>
+      </section>
 
-      <div class="jam-showcase-card">
-        <div class="jam-card-header">
-          <div class="jam-title-group">
-            <div class="jam-eyebrow">
-              <span>🏛️ 2005–2026 Complete Archive</span>
-              <span>•</span>
-              <span>https://vaibhavgeometer.github.io/JAM</span>
-            </div>
-            <h3 class="jam-main-heading">
-              <a href="JAM/">IIT JAM Mathematics (MA) 22-Year Mock Test Series & CBT Simulator</a>
-            </h3>
-            <p class="jam-lead-text">
-              Built to provide competitive mathematics aspirants with the most authentic CBT testing simulator available on the web — featuring 885 official examination PYQs with original cropped question screenshots, MCQ, MSQ & NAT option selectors, built-in scientific calculator, 14 formula cheat sheets, 56 LaTeX mock test PDFs, and verified master answer keys.
+      <!-- Featured Project: IIT JAM Portal -->
+      <section class="jam-feature-section">
+        <div class="jam-card">
+          <div class="jam-card-header">
+            <div class="jam-badge">Featured Platform</div>
+            <h2 class="jam-title">IIT JAM Mathematics (MA) Portal</h2>
+            <p class="jam-summary">
+              22-Year (2005–2026) Mock Test Series, authentic Computer Based Test (CBT) simulator, 885 official PYQs, formula cheat sheets, and live examination countdown.
             </p>
           </div>
 
-          <a href="JAM/" class="jam-launch-cta" title="Open the full IIT JAM Mathematics platform">
-            <span>Enter JAM Portal</span>
-            <span>→</span>
-          </a>
-        </div>
+          <div class="jam-actions">
+            <a href="JAM/" class="btn-primary">
+              <span>🚀 Open IIT JAM Portal</span>
+              <span>→</span>
+            </a>
+            <a href="JAM/mock-test/test.html?topic=2026&mode=official" class="btn-secondary">
+              <span>⚡ CBT Simulator</span>
+            </a>
+            <a href="JAM/countdown/" class="btn-secondary">
+              <span>⏳ 2027 Countdown</span>
+            </a>
+          </div>
 
-        <!-- 6 Metrics Strip -->
-        <div class="jam-metrics-grid">
-          <div class="jam-metric-box">
-            <span class="jam-metric-val">22</span>
-            <span class="jam-metric-label">Exam Years</span>
-          </div>
-          <div class="jam-metric-box">
-            <span class="jam-metric-val">885</span>
-            <span class="jam-metric-label">Official PYQs</span>
-          </div>
-          <div class="jam-metric-box">
-            <span class="jam-metric-val">58</span>
-            <span class="jam-metric-label">Mock Suites</span>
-          </div>
-          <div class="jam-metric-box">
-            <span class="jam-metric-val">56</span>
-            <span class="jam-metric-label">Mock PDFs</span>
-          </div>
-          <div class="jam-metric-box">
-            <span class="jam-metric-val">14</span>
-            <span class="jam-metric-label">Cheat Sheets</span>
-          </div>
-          <div class="jam-metric-box">
-            <span class="jam-metric-val">2027</span>
-            <span class="jam-metric-label">Live Countdown</span>
+          <div class="jam-quick-links">
+            <span class="quick-links-label">Quick Links:</span>
+            <a href="JAM/assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="text-link">Official Syllabus PDF</a>
+            <span class="dot">•</span>
+            <a href="JAM/assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="text-link">22-Year PYQ Archive</a>
+            <span class="dot">•</span>
+            <a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener noreferrer" class="text-link">GitHub Repo</a>
           </div>
         </div>
+      </section>
 
-        <!-- Feature Cards -->
-        <div class="jam-features-grid">
-          <div class="jam-feat-item">
-            <div class="jam-feat-icon">💻</div>
-            <h4 class="jam-feat-title">Authentic CBT Simulator</h4>
-            <p class="jam-feat-desc">Timed examination interface with question palette, virtual scientific calculator, MathJax rendering, and instantaneous score analytics.</p>
-          </div>
-
-          <div class="jam-feat-item">
-            <div class="jam-feat-icon">⚡</div>
-            <h4 class="jam-feat-title">27 Subtopic Mock Tests</h4>
-            <p class="jam-feat-desc">Chronological era-based suites across Recent CBT (2022–2026), CBT (2015–2021), and Classic Objective eras (2005–2014) for targeted practice.</p>
-          </div>
-
-          <div class="jam-feat-item">
-            <div class="jam-feat-icon">🛠️</div>
-            <h4 class="jam-feat-title">Custom Test & PDF Generator</h4>
-            <p class="jam-feat-desc">Generate client-side randomized topic tests with 1–100 questions and export publication-grade LaTeX PDFs with answer keys.</p>
-          </div>
-
-          <div class="jam-feat-item">
-            <div class="jam-feat-icon">📑</div>
-            <h4 class="jam-feat-title">14 Formula Cheat Sheets</h4>
-            <p class="jam-feat-desc">High-yield revision sheets spanning Real Analysis, Multivariable Calculus, ODE, Linear Algebra, and Group Theory.</p>
-          </div>
-
-          <div class="jam-feat-item">
-            <div class="jam-feat-icon">⏳</div>
-            <h4 class="jam-feat-title">JAM 2027 Live Countdown</h4>
-            <p class="jam-feat-desc">Official real-time ticking exam countdown timer tracking days, hours, minutes, and seconds until 14 February 2027 with Google Calendar integration.</p>
-          </div>
-
-          <div class="jam-feat-item">
-            <div class="jam-feat-icon">📊</div>
-            <h4 class="jam-feat-title">Master Categorized Datasets</h4>
-            <p class="jam-feat-desc">Full machine-readable metadata archive for 885 official questions cataloging eras, subtopics, question types, and answer rubrics.</p>
-          </div>
-        </div>
-
-        <!-- Quick Access Deep Links -->
-        <div class="jam-deep-links-bar">
-          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em;">Direct Portal Links:</span>
-          <div class="jam-deep-links-list">
-            <a href="JAM/" class="jam-pill-link" title="Open Main JAM Portal">
-              <span>🏠</span> <span>JAM Home</span>
-            </a>
-            <a href="JAM/mock-test/test.html?topic=2026&mode=official" class="jam-pill-link" title="Launch Official 2026 CBT Simulator">
-              <span>⚡</span> <span>Launch CBT Simulator (2026)</span>
-            </a>
-            <a href="JAM/countdown/" class="jam-pill-link" title="Open Live 2027 Countdown">
-              <span>⏳</span> <span>2027 Countdown</span>
-            </a>
-            <a href="JAM/assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="jam-pill-link" title="Open Official IIT JAM Syllabus PDF">
-              <span>📜</span> <span>Syllabus PDF</span>
-            </a>
-            <a href="JAM/assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="jam-pill-link" title="Open 22-Year PYQ Archive PDF">
-              <span>🏛️</span> <span>PYQ Archive (2005–2026)</span>
-            </a>
-            <a href="JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer" class="jam-pill-link" title="Open Statistical Report PDF">
-              <span>📊</span> <span>Analytics Report PDF</span>
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <!-- =====================================================================
-       INTERACTIVE 3D DIFFERENTIAL GEOMETRY SANDBOX
-       ===================================================================== -->
-  <section class="section-wrap" id="geometry-sandbox">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-pill">🌌 Interactive Mathematics</div>
-        <h2 class="section-title">3D Differential Geometry Sandbox</h2>
-        <p class="section-desc">
-          Explore geometric structures, minimal surfaces, non-orientable manifolds, and parametric curvature directly in your browser. Rotate with mouse or touch, adjust curvature factors, and inspect parametric equations.
-        </p>
-      </div>
-
-      <div class="sandbox-card">
-        <div class="sandbox-canvas-panel">
-          <canvas id="sandbox-canvas"></canvas>
-          <div class="sandbox-overlay-info">
-            <div>
-              <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; display:block;">Active Manifold</span>
-              <strong id="sandbox-surface-name" class="sandbox-surface-title">Möbius Strip</strong>
-            </div>
-            <span class="canvas-hint">Drag canvas to orbit in 3D</span>
-          </div>
-        </div>
-
-        <div class="sandbox-controls-panel">
-          <div class="control-group">
-            <label for="sandbox-surface-select" class="control-label">
-              <span>Select Parametric Manifold</span>
-              <span>📐</span>
-            </label>
-            <select id="sandbox-surface-select" class="control-select">
-              <option value="mobius">Möbius Strip (Non-Orientable Manifold)</option>
-              <option value="torus_knot">Torus Knot (3, 7)</option>
-              <option value="enneper">Enneper's Minimal Surface (H = 0)</option>
-              <option value="hyperbolic_paraboloid">Hyperbolic Paraboloid (K &lt; 0)</option>
-              <option value="clifford_torus">Clifford Torus in 3D Projection</option>
-            </select>
-          </div>
-
-          <div class="control-group">
-            <div class="control-label">
-              <span>Scale & Curvature Factor</span>
-              <span id="sandbox-curvature-val" style="color:var(--accent-cyan); font-weight:700;">1.0</span>
-            </div>
-            <div class="range-slider-wrap">
-              <input type="range" id="sandbox-curvature-slider" class="range-slider" min="0.4" max="2.0" step="0.1" value="1.0">
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="toggle-label">
-              <input type="checkbox" id="sandbox-autorotate-check" checked style="accent-color:var(--accent-cyan); width:18px; height:18px;">
-              <span>Enable 60fps Smooth Auto-Rotation</span>
-            </label>
-          </div>
-
-          <div class="control-group">
-            <span class="control-label">Parametric Governing Equation</span>
-            <div id="sandbox-formula-text" class="formula-display-box">
-              $$\vec{r}(u, v) = \left( \left[1 + \frac{v}{2}\cos\frac{u}{2}\right]\cos u, \; \left[1 + \frac{v}{2}\cos\frac{u}{2}\right]\sin u, \; \frac{v}{2}\sin\frac{u}{2} \right)$$
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       RESEARCH & ACADEMIC FOCUS AREAS
-       ===================================================================== -->
-  <section class="section-wrap" id="research">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-pill">🔬 Research & Academic Domains</div>
-        <h2 class="section-title">Mathematical Specializations</h2>
-        <p class="section-desc">
-          Investigating the interplay between curvature tensors, topological invariants, and computational differential geometry.
-        </p>
-      </div>
-
-      <div class="research-grid">
-        <div class="research-card">
-          <div class="research-icon">🌐</div>
-          <h3 class="research-title">Riemannian Geometry</h3>
-          <p class="research-text">
-            Investigating metric connections, Levi-Civita parallelism, sectional and Ricci curvatures, and geodesic flows on Riemannian manifolds $(M, g)$.
-          </p>
-        </div>
-
-        <div class="research-card">
-          <div class="research-icon">🌀</div>
-          <h3 class="research-title">Differential Topology</h3>
-          <p class="research-text">
-            Exploration of smooth manifolds, diffeomorphism groups, transversality, Euler characteristics, and global invariants governed by the Gauss-Bonnet theorem.
-          </p>
-        </div>
-
-        <div class="research-card">
-          <div class="research-icon">🫧</div>
-          <h3 class="research-title">Minimal Surfaces</h3>
-          <p class="research-text">
-            Study of variational geometry, zero mean curvature immersions ($H = 0$), Weierstrass-Enneper representations, and Bernstein's theorem.
-          </p>
-        </div>
-
-        <div class="research-card">
-          <div class="research-icon">🧮</div>
-          <h3 class="research-title">Competitive Mathematics</h3>
-          <p class="research-text">
-            Architecting rigorous problem banks, step-by-step analytical proof rubrics, and educational simulations for IIT JAM, CSIR-NET, GATE, and TIFR aspirants.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       FORMULA & THEOREM VAULT
-       ===================================================================== -->
-  <section class="section-wrap" id="vault">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-pill">📖 Mathematical Vault</div>
-        <h2 class="section-title">Core Formulas & Foundational Theorems</h2>
-        <p class="section-desc">
-          Curated selection of fundamental theorems bridging geometry, analysis, and linear algebra. All 14 topic-wise cheat sheets are available on the <a href="JAM/" style="color:var(--accent-cyan); text-decoration:none; font-weight:700;">JAM Portal →</a>
-        </p>
-      </div>
-
-      <div class="vault-grid">
-        <div class="vault-card">
-          <div class="vault-header">
-            <span class="vault-icon">🌐</span>
-            <h3 class="vault-title">Differential Geometry</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Gauss-Bonnet Theorem:</div>
-            <div>$$\int_M K \, dA + \int_{\partial M} k_g \, ds = 2\pi \chi(M)$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Theorema Egregium (Gauss):</div>
-            <div>$$K = \frac{R_{1212}}{g_{11}g_{22} - g_{12}^2} \quad (\text{Intrinsic Invariant})$$</div>
-          </div>
-        </div>
-
-        <div class="vault-card">
-          <div class="vault-header">
-            <span class="vault-icon">∬</span>
-            <h3 class="vault-title">Calculus & Vector Analysis</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Generalized Stokes' Theorem:</div>
-            <div>$$\int_{\partial \Omega} \omega = \int_{\Omega} d\omega$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Divergence Theorem:</div>
-            <div>$$\iint_{\partial V} \mathbf{F} \cdot \hat{\mathbf{n}} \, dS = \iiint_V (\nabla \cdot \mathbf{F}) \, dV$$</div>
-          </div>
-        </div>
-
-        <div class="vault-card">
-          <div class="vault-header">
-            <span class="vault-icon">🔢</span>
-            <h3 class="vault-title">Linear Algebra & Matrix Theory</h3>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Rank-Nullity Theorem:</div>
-            <div>$$\dim(V) = \operatorname{rank}(T) + \operatorname{nullity}(T)$$</div>
-          </div>
-          <div class="vault-formula-item">
-            <div class="vault-formula-title">Cayley-Hamilton Theorem:</div>
-            <div>$$p_A(A) = 0 \quad (\text{Matrix satisfies its char-poly})$$</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       ABOUT VAIBHAV GEOMETER
-       ===================================================================== -->
-  <section class="section-wrap" id="about">
-    <div class="container">
-      <div class="about-card">
-        <div class="about-author-box">
-          <div class="about-avatar">📐</div>
-          <h3 class="about-name">Vaibhav Geometer</h3>
-          <p class="about-role">Differential Geometer • Educator • Problem Solver</p>
-          <div class="about-badges">
-            <span class="about-pill">Riemannian Manifolds</span>
-            <span class="about-pill">Differential Topology</span>
-            <span class="about-pill">Minimal Surfaces</span>
-            <span class="about-pill">Competitive Math</span>
-            <span class="about-pill">LaTeX & MathJax</span>
-          </div>
-        </div>
-
-        <div class="about-bio">
-          <h2 class="about-heading">
-            Dedicated to Higher Mathematical Exploration & Visual Intuition
-          </h2>
-          <p class="about-text">
-            I am a mathematical researcher and mentor dedicated to illuminating the deep connections between geometric intuition, smooth manifolds, and rigorous proofs.
-          </p>
-          <p class="about-text">
-            To empower higher mathematics aspirants across India preparing for <strong>IIT JAM Mathematics (MA)</strong>, <strong>CSIR-NET</strong>, and <strong>GATE</strong>, I designed and developed the complete 22-year historical examination testing portal and CBT simulator available at <a href="JAM/" style="color:var(--accent-cyan); font-weight:700;">vaibhavgeometer.github.io/JAM</a>.
-          </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <a href="JAM/" class="btn-primary" title="Go to IIT JAM Mathematics Portal">
-              <span>🚀</span> <span>Open JAM Portal</span>
-            </a>
-            <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="View GitHub Profile">
-              <span>🐙</span> <span>GitHub Profile</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="brand-wrap" style="margin-bottom: 1rem;">
-            <div class="brand-icon-box" style="width:34px; height:34px; font-size:1.1rem;">📐</div>
-            <span class="brand-text">Vaibhav Geometer</span>
-          </div>
-          <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.6; max-width:340px;">
-            Bridging differential geometry visualization, rigorous mathematical exploration, and official examination preparation.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="footer-col-title">IIT JAM Mathematics</h4>
-          <ul class="footer-links">
-            <li><a href="JAM/" class="footer-link">🏛️ Complete 22-Year Portal</a></li>
-            <li><a href="JAM/mock-test/test.html?topic=2026&mode=official" class="footer-link">💻 CBT Examination Simulator</a></li>
-            <li><a href="JAM/countdown/" class="footer-link">⏳ JAM 2027 Live Countdown</a></li>
-            <li><a href="JAM/assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">📜 Official Syllabus PDF</a></li>
-            <li><a href="JAM/assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">🏛️ 2005–2026 PYQ Archive PDF</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-col-title">Explore & Connect</h4>
-          <ul class="footer-links">
-            <li><a href="#geometry-sandbox" class="footer-link">🌌 3D Geometry Sandbox</a></li>
-            <li><a href="#research" class="footer-link">🔬 Research Domains</a></li>
-            <li><a href="#vault" class="footer-link">📖 Formula & Theorem Vault</a></li>
-            <li><a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="footer-link">🐙 GitHub Profile</a></li>
-            <li><a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ GitHub Repository</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Vaibhav Geometer. All rights reserved. • Hosted on GitHub Pages.</div>
-        <div>Math rendered via <strong style="color:var(--accent-cyan);">MathJax 3 (SVG)</strong></div>
+    <div class="container footer-inner">
+      <p>© 2026 Vaibhav Geometer · Hosted on GitHub Pages</p>
+      <div class="footer-links">
+        <a href="JAM/">IIT JAM Portal</a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/portfolio.js"></script>
+  <script>
+    function initTheme() {
+      const saved = localStorage.getItem('jam_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    }
+
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('jam_theme', next);
+      updateThemeIcon(next);
+    };
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) {
+        btn.textContent = theme === 'dark' ? '☀' : '🌙';
+        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initTheme);
+  </script>
 </body>
 </html>
