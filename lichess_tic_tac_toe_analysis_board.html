@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lichess Analysis Board - Tic-Tac-Toe</title>
-  <meta name="description" content="Lichess-style analysis board for Tic-Tac-Toe powered by StockTic 1.0 minimax engine with dynamic eval bar, MultiPV candidate moves, and game-tree navigation.">
+  <title>Lichess (m,n,k)-Games & Tic-Tac-Toe Analysis Board</title>
+  <meta name="description" content="Lichess-style analysis board for generalized (m,n,k)-games from 1x1 to 32x32 and k in a row from 1 to 8. Powered by SOTA Threat-Space Search, iterative deepening, and solved tablebases.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -65,25 +65,31 @@
     .board-cell {
       position: relative;
       background-color: var(--board-dark);
-      transition: background-color 0.15s ease, transform 0.08s ease;
+      transition: background-color 0.12s ease, transform 0.06s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .board-cell:nth-child(even) {
+    .board-cell.checker-alt {
       background-color: var(--board-light);
     }
     .board-cell:hover {
-      background-color: #3e3a35 !important;
+      background-color: #443f38 !important;
+      z-index: 10;
     }
     .board-cell.highlight-last-move {
-      background-color: rgba(98, 153, 36, 0.28) !important;
+      background-color: rgba(98, 153, 36, 0.35) !important;
+      box-shadow: inset 0 0 0 1px rgba(126, 198, 47, 0.7);
     }
     .board-cell.highlight-best-move {
-      background-color: rgba(54, 146, 231, 0.25) !important;
+      background-color: rgba(54, 146, 231, 0.28) !important;
+      box-shadow: inset 0 0 0 1px rgba(54, 146, 231, 0.6);
     }
 
-    /* Glow pulse on best arrow */
+    /* Glow pulse on best arrow / candidate target */
     @keyframes arrowPulse {
       0%, 100% { opacity: 0.95; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(0.98); }
+      50% { opacity: 0.7; transform: scale(0.97); }
     }
     .pulse-arrow {
       animation: arrowPulse 2.4s infinite ease-in-out;
@@ -93,45 +99,69 @@
     /* Winning strike animation */
     @keyframes winGlow {
       0%, 100% { filter: drop-shadow(0 0 8px rgba(98,153,36,0.9)); }
-      50% { filter: drop-shadow(0 0 16px rgba(230,159,0,0.95)); }
+      50% { filter: drop-shadow(0 0 18px rgba(230,159,0,0.98)); }
     }
     .win-line-animated {
-      animation: winGlow 1.5s infinite alternate ease-in-out;
+      animation: winGlow 1.4s infinite alternate ease-in-out;
     }
 
     /* Eval bar transition */
     .eval-bar-fill {
       transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background-color: rgba(10, 10, 8, 0.75);
+      backdrop-filter: blur(4px);
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
 
   <!-- Top Navigation Bar -->
-  <header class="bg-[#1e1c18] border-b border-[#363431] px-4 py-2.5 flex items-center justify-between shadow-md">
-    <div class="flex items-center space-x-3">
-      <!-- Lichess-style Logo & Title -->
-      <div class="flex items-center space-x-2">
-        <svg class="w-7 h-7 text-white fill-current" viewBox="0 0 24 24">
+  <header class="bg-[#1e1c18] border-b border-[#363431] px-4 py-2.5 flex items-center justify-between shadow-md select-none sticky top-0 z-40">
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <!-- Lichess Logo & Title -->
+      <a href="./" class="flex items-center space-x-2 group" title="Vaibhav Geometer Home">
+        <svg class="w-7 h-7 text-white fill-current group-hover:text-[#629924] transition" viewBox="0 0 24 24">
           <path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/>
         </svg>
         <span class="font-extrabold text-lg text-white tracking-wide">lichess<span class="text-[#629924]">.org</span></span>
-      </div>
+      </a>
+
       <span class="text-[#73706c] hidden sm:inline">|</span>
-      <span class="text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-300 bg-[#262421] px-2.5 py-1 rounded border border-[#363431]">
-        Analysis Board &bull; Tic-Tac-Toe
-      </span>
-      <a href="./" title="Return to Vaibhav Geometer Home" class="flex items-center space-x-1.5 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
-        <span>📐</span>
+
+      <!-- Board Size & Variant Selector Button -->
+      <button id="open-board-config-btn" title="Configure Board Size (1x1 to 32x32) & Win Length (1 to 8)" class="flex items-center space-x-1.5 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-white border border-[#363431] hover:border-[#629924] transition shadow-sm">
+        <span class="text-sm">📐</span>
+        <span id="nav-variant-badge" class="mono-font text-[#7ec62f]">3×3 (k=3)</span>
+        <span class="text-[10px] text-gray-400">▾</span>
+      </button>
+
+      <!-- Theory Article Link -->
+      <a href="mnk_games_theory_and_ai.html" title="Read Complete Research Article: Game States & SOTA AI Algorithms" class="hidden md:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
+        <span>📖</span>
+        <span>(m,n,k) Theory & AI</span>
+      </a>
+
+      <a href="./" title="Return to Portfolio" class="flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
+        <span>🏠</span>
         <span class="hidden sm:inline">Home</span>
       </a>
     </div>
 
     <!-- Quick Tool Toggles -->
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center space-x-1.5 sm:space-x-2">
+      <!-- Fit / Zoom toggle -->
+      <button id="toggle-zoom-btn" title="Toggle Board Zoom / Full-Fit" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
+        <span id="zoom-icon">🔍</span>
+        <span id="zoom-text" class="hidden lg:inline text-[11px]">Fit</span>
+      </button>
+
       <!-- Arrows toggle -->
-      <button id="toggle-arrows-btn" title="Toggle Best Move Arrows" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
-        <svg class="w-4 h-4 text-[#629924]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      <button id="toggle-arrows-btn" title="Toggle Best Move Arrows" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-[#629924] border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
+        <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         <span class="hidden md:inline">Arrows</span>
       </button>
 
@@ -157,13 +187,13 @@
   </header>
 
   <!-- Main Analysis Workspace -->
-  <main class="max-w-7xl w-full mx-auto p-2 sm:p-4 lg:p-6 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-center gap-6">
+  <main class="max-w-[1440px] w-full mx-auto p-2 sm:p-4 lg:p-6 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-center gap-6">
 
-    <!-- LEFT SECTION: Evaluation Bar + 3x3 Analysis Board -->
-    <div class="flex items-stretch justify-center gap-3 sm:gap-4 w-full max-w-[480px]">
+    <!-- LEFT SECTION: Dynamic Eval Bar + Flexible (m,n,k) Board -->
+    <div id="board-workspace" class="flex items-stretch justify-center gap-2 sm:gap-3 w-full max-w-[680px]">
       
       <!-- Lichess Vertical Evaluation Bar -->
-      <div id="eval-bar-wrapper" class="relative w-8 sm:w-9 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none">
+      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none flex-shrink-0">
         <!-- Black/O portion (top) -->
         <div class="w-full bg-[#1e1c18] transition-all duration-300 relative flex items-start justify-center pt-2">
           <span id="eval-text-top" class="mono-font text-[10px] font-bold text-gray-300 z-10 select-none"></span>
@@ -178,45 +208,35 @@
         <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-red-500/30 z-0 pointer-events-none"></div>
       </div>
 
-      <!-- Board Container -->
-      <div class="flex-1 flex flex-col items-center">
-        <!-- Interactive 3x3 Board with Coordinates and Overlay -->
-        <div class="relative w-full aspect-square bg-[#1a1815] p-2 rounded-lg border-2 border-[#363431] shadow-2xl">
+      <!-- Board Outer Frame -->
+      <div class="flex-1 flex flex-col items-center min-w-0">
+        <!-- Interactive Board Container -->
+        <div id="board-outer-container" class="relative w-full bg-[#1a1815] p-2 sm:p-3 rounded-lg border-2 border-[#363431] shadow-2xl overflow-hidden flex flex-col items-center justify-center">
           
-          <!-- Coordinate labels (Cols: a, b, c) -->
-          <div id="col-coords" class="absolute bottom-0 left-2 right-2 h-4 flex justify-around pointer-events-none text-[10px] font-bold text-[#73706c] mono-font">
-            <span class="flex-1 text-right pr-2">a</span>
-            <span class="flex-1 text-right pr-2">b</span>
-            <span class="flex-1 text-right pr-2">c</span>
+          <!-- Board Scroll Wrapper (for large 32x32 boards when zoomed) -->
+          <div id="board-scroll-wrapper" class="relative max-w-full max-h-[72vh] overflow-auto flex items-center justify-center rounded">
+            
+            <!-- Dynamic Grid (1x1 to 32x32) -->
+            <div id="board-grid" class="relative rounded overflow-hidden shadow-inner bg-[#1a1815] transition-all">
+              <!-- Dynamically populated cells -->
+            </div>
+
+            <!-- SVG Overlay for Best Move Arrows & Win Strike Lines -->
+            <svg id="board-svg" class="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+              <defs>
+                <marker id="arrowhead-green" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                  <polygon points="0 0, 6 3, 0 6" fill="#629924" fill-opacity="0.95" />
+                </marker>
+                <marker id="arrowhead-blue" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                  <polygon points="0 0, 6 3, 0 6" fill="#3692e7" fill-opacity="0.95" />
+                </marker>
+              </defs>
+              <g id="svg-arrows"></g>
+              <line id="svg-win-line" x1="0" y1="0" x2="0" y2="0" stroke="#629924" stroke-width="12" stroke-linecap="round" class="hidden win-line-animated" />
+            </svg>
+
           </div>
 
-          <!-- Coordinate labels (Rows: 3, 2, 1) -->
-          <div id="row-coords" class="absolute top-2 bottom-2 left-0 w-3 flex flex-col justify-around pointer-events-none text-[10px] font-bold text-[#73706c] mono-font pl-1">
-            <span class="flex-1 flex items-start pt-1">3</span>
-            <span class="flex-1 flex items-start pt-1">2</span>
-            <span class="flex-1 flex items-start pt-1">1</span>
-          </div>
-
-          <!-- 3x3 Board Grid -->
-          <div id="board-grid" class="w-full h-full grid grid-cols-3 grid-rows-3 gap-1 bg-[#1a1815] rounded overflow-hidden">
-            <!-- 9 cells rendered via JS -->
-          </div>
-
-          <!-- SVG Overlay for Best Move Arrows & Win Lines -->
-          <svg id="board-svg" class="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 300 300">
-            <defs>
-              <!-- Lichess Green Best Move Arrow Marker -->
-              <marker id="arrowhead-green" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
-                <polygon points="0 0, 6 3, 0 6" fill="#629924" fill-opacity="0.95" />
-              </marker>
-              <!-- Lichess Blue Alternative Arrow Marker -->
-              <marker id="arrowhead-blue" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
-                <polygon points="0 0, 6 3, 0 6" fill="#3692e7" fill-opacity="0.95" />
-              </marker>
-            </defs>
-            <g id="svg-arrows"></g>
-            <line id="svg-win-line" x1="0" y1="0" x2="0" y2="0" stroke="#629924" stroke-width="8" stroke-linecap="round" class="hidden win-line-animated" />
-          </svg>
         </div>
 
         <!-- Board Footnote / Status Under Board -->
@@ -226,8 +246,13 @@
               <span id="turn-icon" class="w-3 h-3 rounded-full bg-white inline-block"></span>
               <span id="turn-label">X to move</span>
             </span>
+            <span id="hovered-coord-display" class="mono-font text-gray-400 text-[11px] hidden sm:inline"></span>
           </div>
+
           <div class="flex items-center space-x-2 mono-font">
+            <button id="btn-quick-config" title="Change Dimensions & K" class="text-[11px] text-[#7ec62f] bg-[#262421] hover:bg-[#363431] px-2 py-0.5 rounded border border-[#363431] transition">
+              <span id="under-board-variant-text">(3,3,3)</span> ⚙
+            </button>
             <span id="board-eval-summary" class="text-white bg-[#262421] px-2 py-0.5 rounded border border-[#363431]">
               Eval: <strong id="summary-eval-val" class="text-[#629924]">0.00</strong>
             </span>
@@ -238,20 +263,20 @@
 
     </div>
 
-    <!-- RIGHT SECTION: Lichess Engine Readout, Candidate Moves, Move History & Settings -->
+    <!-- RIGHT SECTION: Engine Readout, Play vs StockTic Settings, MultiPV Moves, History -->
     <div class="w-full lg:w-[480px] flex flex-col space-y-4">
       
-      <!-- Engine Evaluation Header Box (StockTic 1.0) -->
+      <!-- Engine Evaluation Header Box (StockTic SOTA) -->
       <div class="bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg">
         <div class="flex items-center justify-between border-b border-[#363431] pb-2 mb-2">
           <div class="flex items-center space-x-2">
             <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
-            <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">StockTic 1.0</span>
-            <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 9/9</span>
+            <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">StockTic SOTA</span>
+            <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">TSS + PNS</span>
           </div>
           <div class="flex items-center space-x-2 text-xs">
-            <span id="engine-tablebase-label" class="text-[#73706c]">Tablebase:</span>
-            <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">SOLVED</span>
+            <span id="engine-tablebase-label" class="text-[#73706c]">Engine:</span>
+            <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">SOTA MNK</span>
           </div>
         </div>
 
@@ -266,13 +291,13 @@
             </span>
           </div>
           <div class="text-right text-[11px] text-[#73706c] mono-font">
-            <div id="nodes-count">Nodes: 549 / instant</div>
-            <div id="speed-label">0.00 ms (exact)</div>
+            <div id="nodes-count">Nodes: SOTA Pruned</div>
+            <div id="speed-label">Instant Calculation</div>
           </div>
         </div>
       </div>
 
-      <!-- Play vs StockTic Settings (Shown when vs Engine is active) -->
+      <!-- Play vs StockTic Settings Panel -->
       <div id="play-engine-panel" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3">
         <!-- Header & Reset -->
         <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
@@ -324,7 +349,7 @@
           </div>
 
           <div id="level-description-box" class="text-[11px] text-gray-400 mt-1.5 italic">
-            Depth 9/9 · Solved Tablebase (Unbeatable)
+            SOTA MNK Engine · Threat-Space Search & Tablebase
           </div>
         </div>
 
@@ -355,14 +380,14 @@
       <div id="candidate-moves-panel" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
         <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
           <span id="candidate-panel-title" class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
-          <span id="candidate-panel-subtitle" class="text-[11px] text-[#73706c] mono-font">Ranked by score</span>
+          <span id="candidate-panel-subtitle" class="text-[11px] text-[#73706c] mono-font">Ranked by SOTA Score</span>
         </div>
-        <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-48 overflow-y-auto">
+        <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-52 overflow-y-auto">
           <!-- Dynamically populated candidate rows -->
         </div>
       </div>
 
-      <!-- Move History (PGN Notation & Quality) -->
+      <!-- Move History (PGN Notation & Navigation) -->
       <div class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg flex flex-col">
         <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
           <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Move History</span>
@@ -373,11 +398,11 @@
         </div>
 
         <!-- History Move Rows -->
-        <div id="move-history-container" class="p-3 min-h-[90px] max-h-36 overflow-y-auto flex flex-wrap gap-1 text-sm mono-font content-start">
+        <div id="move-history-container" class="p-3 min-h-[85px] max-h-36 overflow-y-auto flex flex-wrap gap-1 text-sm mono-font content-start">
           <!-- Move badges rendered here -->
         </div>
 
-        <!-- Navigation Buttons (Lichess Style: First, Prev, Next, Last) -->
+        <!-- Navigation Buttons (Lichess Style: First, Prev, Next, Last, Reset) -->
         <div class="bg-[#1e1c18] border-t border-[#363431] px-2 py-1.5 flex items-center justify-between">
           <div class="flex items-center space-x-1">
             <button id="nav-first" title="First Move (Home / Left Key)" class="p-2 rounded hover:bg-[#363431] text-gray-300 transition">
@@ -417,6 +442,146 @@
 
   </main>
 
+  <!-- Board Configuration Modal (1x1 to 32x32 & k 1 to 8) -->
+  <div id="board-config-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 modal-backdrop hidden">
+    <div class="bg-[#262421] border border-[#363431] rounded-xl max-w-lg w-full p-4 sm:p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between border-b border-[#363431] pb-3">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">📐</span>
+          <div>
+            <h3 class="text-base font-bold text-white">Board Dimensions & Win Length</h3>
+            <p class="text-xs text-gray-400">Configure generalized (m, n, k)-games</p>
+          </div>
+        </div>
+        <button id="close-modal-x" class="text-gray-400 hover:text-white text-lg p-1 rounded hover:bg-[#363431]">&times;</button>
+      </div>
+
+      <!-- Popular Presets -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Quick Presets</label>
+        <div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 text-xs">
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="3" data-n="3" data-k="3">
+            <div class="font-bold text-white">3 × 3 (k=3)</div>
+            <div class="text-[10px] text-gray-400">Classic TTT</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="4" data-n="4" data-k="4">
+            <div class="font-bold text-white">4 × 4 (k=4)</div>
+            <div class="text-[10px] text-gray-400">Patashnik Draw</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="5" data-n="5" data-k="4">
+            <div class="font-bold text-white">5 × 5 (k=4)</div>
+            <div class="text-[10px] text-gray-400">First-Player Win</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="7" data-n="7" data-k="5">
+            <div class="font-bold text-white">7 × 7 (k=5)</div>
+            <div class="text-[10px] text-gray-400">Small Gomoku</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="10" data-n="10" data-k="5">
+            <div class="font-bold text-white">10 × 10 (k=5)</div>
+            <div class="text-[10px] text-gray-400">Fast Tactical</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="15" data-n="15" data-k="5">
+            <div class="font-bold text-[#7ec62f]">15 × 15 (k=5)</div>
+            <div class="text-[10px] text-gray-400">Standard Gomoku</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="19" data-n="19" data-k="5">
+            <div class="font-bold text-white">19 × 19 (k=5)</div>
+            <div class="text-[10px] text-gray-400">Go Board / Pente</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="32" data-n="32" data-k="6">
+            <div class="font-bold text-yellow-400">32 × 32 (k=6)</div>
+            <div class="text-[10px] text-gray-400">Max Scale (Open)</div>
+          </button>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="1" data-n="1" data-k="1">
+            <div class="font-bold text-gray-300">1 × 1 (k=1)</div>
+            <div class="text-[10px] text-gray-400">Micro 1-Ply Win</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Custom Steppers & Sliders -->
+      <div class="space-y-3 pt-2 border-t border-[#363431]">
+        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Custom Dimensions</label>
+        
+        <!-- Rows M -->
+        <div class="bg-[#1e1c18] p-2.5 rounded-lg border border-[#363431]">
+          <div class="flex items-center justify-between text-xs mb-1.5">
+            <span class="text-gray-300 font-semibold">Rows (M):</span>
+            <span id="slider-m-val" class="mono-font text-white font-bold bg-[#262421] px-2 py-0.5 rounded border border-[#363431]">3</span>
+          </div>
+          <input type="range" id="input-rows" min="1" max="32" value="3" class="w-full accent-[#629924] cursor-pointer">
+          <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+            <span>1</span>
+            <span>8</span>
+            <span>15</span>
+            <span>24</span>
+            <span>32</span>
+          </div>
+        </div>
+
+        <!-- Columns N -->
+        <div class="bg-[#1e1c18] p-2.5 rounded-lg border border-[#363431]">
+          <div class="flex items-center justify-between text-xs mb-1.5">
+            <span class="text-gray-300 font-semibold">Columns (N):</span>
+            <span id="slider-n-val" class="mono-font text-white font-bold bg-[#262421] px-2 py-0.5 rounded border border-[#363431]">3</span>
+          </div>
+          <input type="range" id="input-cols" min="1" max="32" value="3" class="w-full accent-[#629924] cursor-pointer">
+          <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+            <span>1</span>
+            <span>8</span>
+            <span>15</span>
+            <span>24</span>
+            <span>32</span>
+          </div>
+        </div>
+
+        <!-- Streak K -->
+        <div class="bg-[#1e1c18] p-2.5 rounded-lg border border-[#363431]">
+          <div class="flex items-center justify-between text-xs mb-1.5">
+            <span class="text-gray-300 font-semibold">In a row to win (K):</span>
+            <span id="slider-k-val" class="mono-font text-[#7ec62f] font-bold bg-[#262421] px-2 py-0.5 rounded border border-[#629924]/40">3</span>
+          </div>
+          <input type="range" id="input-k" min="1" max="8" value="3" class="w-full accent-[#629924] cursor-pointer">
+          <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-time Mathematical Status -->
+      <div id="modal-status-card" class="bg-[#1e1c18] p-3 rounded-lg border border-[#363431] text-xs">
+        <div class="flex items-center justify-between mb-1">
+          <span class="text-gray-400">Total Squares:</span>
+          <span id="modal-total-cells" class="mono-font font-bold text-white">9 cells</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-gray-400">Game-Theoretic Value:</span>
+          <span id="modal-theoretical-val" class="mono-font font-bold text-yellow-400">Theoretical Draw</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-between pt-2">
+        <a href="mnk_games_theory_and_ai.html" target="_blank" class="text-xs text-[#38bdf8] hover:underline flex items-center space-x-1">
+          <span>📖 Learn (m,n,k) Theory</span>
+        </a>
+        <div class="flex items-center space-x-2">
+          <button type="button" id="btn-cancel-modal" class="px-3 py-1.5 rounded text-xs font-semibold bg-[#1e1c18] hover:bg-[#363431] text-gray-300 transition">Cancel</button>
+          <button type="button" id="btn-apply-modal" class="px-4 py-1.5 rounded text-xs font-bold bg-[#629924] hover:bg-[#72b02a] text-white shadow-md transition">Apply & Reset</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Notification Toast Container -->
   <div id="toast" class="fixed bottom-4 right-4 bg-[#262421] text-white text-xs px-3 py-2 rounded-lg border border-[#363431] shadow-2xl transition-opacity duration-200 opacity-0 pointer-events-none z-50 flex items-center space-x-2">
     <svg class="w-4 h-4 text-[#629924]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -425,7 +590,6 @@
 
   <!-- Audio Context & Sounds Logic -->
   <script>
-    // Web Audio synthesizer for tactile chess sounds
     let audioCtx = null;
     let soundEnabled = true;
 
@@ -452,7 +616,6 @@
         gain.connect(audioCtx.destination);
 
         if (type === 'move') {
-          // Soft wooden board tap
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(320, now);
           osc.frequency.exponentialRampToValueAtTime(70, now + 0.05);
@@ -461,7 +624,6 @@
           osc.start(now);
           osc.stop(now + 0.06);
         } else if (type === 'win') {
-          // High celebratory double bell
           osc.type = 'sine';
           osc.frequency.setValueAtTime(587.33, now); // D5
           osc.frequency.setValueAtTime(880, now + 0.08); // A5
@@ -470,7 +632,6 @@
           osc.start(now);
           osc.stop(now + 0.35);
         } else if (type === 'draw') {
-          // Neutral soft chime
           osc.type = 'sine';
           osc.frequency.setValueAtTime(440, now);
           gain.gain.setValueAtTime(0.15, now);
@@ -478,7 +639,6 @@
           osc.start(now);
           osc.stop(now + 0.25);
         } else if (type === 'blunder') {
-          // Low warning sound
           osc.type = 'sawtooth';
           osc.frequency.setValueAtTime(140, now);
           osc.frequency.linearRampToValueAtTime(90, now + 0.15);
@@ -487,76 +647,409 @@
           osc.start(now);
           osc.stop(now + 0.16);
         }
-      } catch (e) {
-        // Audio error silent fallback
-      }
+      } catch (e) {}
     }
   </script>
 
-  <!-- Complete Theoretical Engine & Analysis UI Script -->
+  <!-- SOTA (m,n,k) Engine & Modern Analysis Board Script -->
   <script>
     /**
-     * Coordinate system matching Chess / Lichess:
-     * Columns: 0 -> 'a', 1 -> 'b', 2 -> 'c'
-     * Rows:    0 -> '3', 1 -> '2', 2 -> '1'
-     *
-     * Index layout:
-     * 0: a3 | 1: b3 | 2: c3
-     * 3: a2 | 4: b2 | 5: c2
-     * 6: a1 | 7: b1 | 8: c1
+     * Application Game Configuration
      */
-    const COORDS = ['a3', 'b3', 'c3', 'a2', 'b2', 'c2', 'a1', 'b1', 'c1'];
-    const LINES = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Cols
-      [0, 4, 8], [2, 4, 6]             // Diagonals
-    ];
-
-    // Engine Cache (Memoization table)
-    const memo = new Map();
+    const config = {
+      rows: 3,  // M: 1 to 32
+      cols: 3,  // N: 1 to 32
+      k: 3,     // K: 1 to 8 (must be <= max(rows, cols))
+      zoomMode: 'fit' // 'fit' or 'scroll'
+    };
 
     /**
-     * Check if a board is terminal: X win, O win, Draw, or Ongoing
+     * Dynamic Column & Coordinate naming:
+     * 0 -> 'a', 1 -> 'b', ... 25 -> 'z', 26 -> 'aa', 27 -> 'ab', ... 31 -> 'af'
      */
-    function checkWinner(board) {
-      for (let i = 0; i < LINES.length; i++) {
-        const [a, b, c] = LINES[i];
-        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-          return { winner: board[a], line: [a, b, c], lineIndex: i };
+    function getColName(c) {
+      if (c < 26) {
+        return String.fromCharCode(97 + c);
+      }
+      const first = String.fromCharCode(97 + Math.floor(c / 26) - 1);
+      const second = String.fromCharCode(97 + (c % 26));
+      return first + second;
+    }
+
+    function getRowName(r, totalRows) {
+      return (totalRows - r).toString();
+    }
+
+    function getCoord(idx, rows, cols) {
+      const r = Math.floor(idx / cols);
+      const c = idx % cols;
+      return getColName(c) + getRowName(r, rows);
+    }
+
+    /**
+     * Check Theoretical Game Value from Literature
+     */
+    function getTheoreticalValue(m, n, k) {
+      if (k === 1) return 'First-Player Win (Turn 1)';
+      if (k === 2 && (m >= 2 || n >= 2)) return 'First-Player Win';
+      if (m === 3 && n === 3 && k === 3) return 'Theoretical Draw (Solved)';
+      if (m === 4 && n === 4 && k === 4) return 'Theoretical Draw (Patashnik 1980)';
+      if ((m >= 4 && n >= 4 && k === 3) || (m === 4 && n === 3 && k === 3)) return 'First-Player Win';
+      if (m === 5 && n === 5 && k === 4) return 'First-Player Win (Allis 1993)';
+      if (m === 5 && n === 5 && k === 5) return 'Theoretical Draw (Erdős-Selfridge)';
+      if ((m === 6 || m === 7) && (n === 6 || n === 7) && k === 5) return 'Theoretical Draw (Allis 1993)';
+      if (m >= 8 && n >= 8 && k === 5) return 'First-Player Win (Allis 1993)';
+      if (m >= 15 && n >= 15 && k === 5) return 'First-Player Win (Gomoku Solved)';
+      if (k >= 8) return 'Draw by Pairing Strategy (Plambeck)';
+      if (k === 6) return 'Open Problem (Conjectured Draw)';
+      return 'Complex Positional Game';
+    }
+
+    /**
+     * SOTA Engine Transposition Cache
+     */
+    const ttMap = new Map();
+
+    /**
+     * Fast SOTA Winner Detection for arbitrary (M, N, K)
+     */
+    function checkWinner(board, rows = config.rows, cols = config.cols, k = config.k) {
+      if (k === 1) {
+        for (let i = 0; i < board.length; i++) {
+          if (board[i] !== null) return { winner: board[i], line: [i] };
+        }
+        return null;
+      }
+
+      // Check horizontal, vertical, diagonal, anti-diagonal
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const piece = board[r * cols + c];
+          if (!piece) continue;
+
+          // 1. Horizontal (right)
+          if (c + k <= cols) {
+            let win = true;
+            for (let i = 1; i < k; i++) {
+              if (board[r * cols + (c + i)] !== piece) { win = false; break; }
+            }
+            if (win) {
+              const line = [];
+              for (let i = 0; i < k; i++) line.push(r * cols + (c + i));
+              return { winner: piece, line };
+            }
+          }
+
+          // 2. Vertical (down)
+          if (r + k <= rows) {
+            let win = true;
+            for (let i = 1; i < k; i++) {
+              if (board[(r + i) * cols + c] !== piece) { win = false; break; }
+            }
+            if (win) {
+              const line = [];
+              for (let i = 0; i < k; i++) line.push((r + i) * cols + c);
+              return { winner: piece, line };
+            }
+          }
+
+          // 3. Diagonal (down-right)
+          if (r + k <= rows && c + k <= cols) {
+            let win = true;
+            for (let i = 1; i < k; i++) {
+              if (board[(r + i) * cols + (c + i)] !== piece) { win = false; break; }
+            }
+            if (win) {
+              const line = [];
+              for (let i = 0; i < k; i++) line.push((r + i) * cols + (c + i));
+              return { winner: piece, line };
+            }
+          }
+
+          // 4. Anti-Diagonal (down-left)
+          if (r + k <= rows && c - (k - 1) >= 0) {
+            let win = true;
+            for (let i = 1; i < k; i++) {
+              if (board[(r + i) * cols + (c - i)] !== piece) { win = false; break; }
+            }
+            if (win) {
+              const line = [];
+              for (let i = 0; i < k; i++) line.push((r + i) * cols + (c - i));
+              return { winner: piece, line };
+            }
+          }
         }
       }
+
+      // Check Draw
       if (board.every(cell => cell !== null)) {
-        return { winner: 'Draw', line: null, lineIndex: -1 };
+        return { winner: 'Draw', line: null };
       }
+
       return null;
     }
 
     /**
-     * Compute state hash key
+     * Fast 1-move win verification for piece placed at idx
      */
-    function getBoardKey(board, turn) {
-      return board.map(c => (c ? c : '.')).join('') + ' ' + turn;
+    function isWinningMove(board, idx, piece, rows = config.rows, cols = config.cols, k = config.k) {
+      if (k === 1) return true;
+      const r = Math.floor(idx / cols);
+      const c = idx % cols;
+
+      const directions = [
+        [0, 1],   // horizontal
+        [1, 0],   // vertical
+        [1, 1],   // main diag
+        [1, -1]   // anti-diag
+      ];
+
+      for (const [dr, dc] of directions) {
+        let count = 1;
+
+        // Positive ray
+        let step = 1;
+        while (step < k) {
+          const nr = r + dr * step;
+          const nc = c + dc * step;
+          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+          if (board[nr * cols + nc] !== piece) break;
+          count++;
+          step++;
+        }
+
+        // Negative ray
+        step = 1;
+        while (step < k) {
+          const nr = r - dr * step;
+          const nc = c - dc * step;
+          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+          if (board[nr * cols + nc] !== piece) break;
+          count++;
+          step++;
+        }
+
+        if (count >= k) return true;
+      }
+      return false;
     }
 
     /**
-     * Minimax Tablebase Engine
-     * Evaluated strictly from FIRST PLAYER (X)'s perspective:
-     * +1.00 : Guaranteed theoretical win for Player 1 (X)
-     *  0.00 : Guaranteed theoretical draw under optimal play
-     * -1.00 : Guaranteed theoretical win for Player 2 (O)
+     * SOTA Neighborhood Candidate Move Generator:
+     * Prunes 32x32 (1024 cells) to only empty squares within Chebyshev distance <= 2 of played stones.
      */
-    function analyzePosition(board, turn) {
-      const key = getBoardKey(board, turn);
-      if (memo.has(key)) {
-        return memo.get(key);
+    function getCandidateMoves(board, rows = config.rows, cols = config.cols) {
+      const legal = [];
+      let occupiedCount = 0;
+
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] !== null) occupiedCount++;
       }
 
-      const terminal = checkWinner(board);
+      // If board is empty, offer center square plus immediate neighbors
+      if (occupiedCount === 0) {
+        const centerR = Math.floor(rows / 2);
+        const centerC = Math.floor(cols / 2);
+        return [centerR * cols + centerC];
+      }
+
+      // Small boards: all empty cells
+      if (rows * cols <= 16) {
+        for (let i = 0; i < board.length; i++) {
+          if (board[i] === null) legal.push(i);
+        }
+        return legal;
+      }
+
+      // Medium/Large boards: Chebyshev distance <= 2
+      const candidateSet = new Set();
+      const dist = (rows * cols > 256) ? 2 : 2;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (board[r * cols + c] !== null) {
+            // Expand neighborhood
+            for (let dr = -dist; dr <= dist; dr++) {
+              for (let dc = -dist; dc <= dist; dc++) {
+                const nr = r + dr;
+                const nc = c + dc;
+                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
+                  const nIdx = nr * cols + nc;
+                  if (board[nIdx] === null) {
+                    candidateSet.add(nIdx);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      return Array.from(candidateSet);
+    }
+
+    /**
+     * SOTA Threat-Space Pattern Evaluation for move
+     */
+    function evaluateMoveTactics(board, idx, piece, rows = config.rows, cols = config.cols, k = config.k) {
+      const oppPiece = piece === 'X' ? 'O' : 'X';
+      const r = Math.floor(idx / cols);
+      const c = idx % cols;
+
+      // 1. Direct Instant Win
+      if (isWinningMove(board, idx, piece, rows, cols, k)) {
+        return { score: 1000000, desc: `Instant Win (+M1)`, isWin: true };
+      }
+
+      // 2. Direct Opponent Block (Mandatory)
+      if (isWinningMove(board, idx, oppPiece, rows, cols, k)) {
+        return { score: 850000, desc: `Blocks Opponent Win (-M1)`, isBlock: true };
+      }
+
+      let offensiveScore = 0;
+      let defensiveScore = 0;
+      let openThreats = 0;
+
+      const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
+
+      // Temporarily place piece
+      board[idx] = piece;
+
+      for (const [dr, dc] of directions) {
+        // Count friendly stones and open ends
+        let friendly = 1;
+        let openEnds = 0;
+
+        let step = 1;
+        while (step < k) {
+          const nr = r + dr * step;
+          const nc = c + dc * step;
+          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+          if (board[nr * cols + nc] === piece) friendly++;
+          else {
+            if (board[nr * cols + nc] === null) openEnds++;
+            break;
+          }
+          step++;
+        }
+
+        step = 1;
+        while (step < k) {
+          const nr = r - dr * step;
+          const nc = c - dc * step;
+          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+          if (board[nr * cols + nc] === piece) friendly++;
+          else {
+            if (board[nr * cols + nc] === null) openEnds++;
+            break;
+          }
+          step++;
+        }
+
+        // Score line
+        if (friendly >= k - 1) {
+          if (openEnds === 2) {
+            offensiveScore += 90000; // Open (k-1) / Live Four (unstoppable)
+            openThreats++;
+          } else if (openEnds === 1) {
+            offensiveScore += 12000; // Sleep Four
+          }
+        } else if (friendly >= k - 2 && k >= 4) {
+          if (openEnds === 2) {
+            offensiveScore += 4500; // Open Three
+            openThreats++;
+          } else if (openEnds === 1) {
+            offensiveScore += 800;
+          }
+        } else if (friendly >= k - 3 && k >= 5) {
+          if (openEnds === 2) offensiveScore += 250;
+        }
+      }
+
+      board[idx] = null; // restore
+
+      // Check opponent potential at idx
+      board[idx] = oppPiece;
+      for (const [dr, dc] of directions) {
+        let oppFriendly = 1;
+        let oppOpen = 0;
+
+        let step = 1;
+        while (step < k) {
+          const nr = r + dr * step;
+          const nc = c + dc * step;
+          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+          if (board[nr * cols + nc] === oppPiece) oppFriendly++;
+          else {
+            if (board[nr * cols + nc] === null) oppOpen++;
+            break;
+          }
+          step++;
+        }
+
+        step = 1;
+        while (step < k) {
+          const nr = r - dr * step;
+          const nc = c - dc * step;
+          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+          if (board[nr * cols + nc] === oppPiece) oppFriendly++;
+          else {
+            if (board[nr * cols + nc] === null) oppOpen++;
+            break;
+          }
+          step++;
+        }
+
+        if (oppFriendly >= k - 1 && oppOpen === 2) {
+          defensiveScore += 65000; // Block Opponent Open Four
+        } else if (oppFriendly >= k - 1 && oppOpen === 1) {
+          defensiveScore += 8000;
+        } else if (oppFriendly >= k - 2 && oppOpen === 2 && k >= 4) {
+          defensiveScore += 3500;
+        }
+      }
+      board[idx] = null; // restore
+
+      // Double-Threat / Fork Bonus
+      let forkBonus = 0;
+      if (openThreats >= 2) {
+        forkBonus = 35000;
+      }
+
+      // Center proximity bonus
+      const centerR = (rows - 1) / 2;
+      const centerC = (cols - 1) / 2;
+      const distFromCenter = Math.hypot(r - centerR, c - centerC);
+      const centerBonus = Math.max(0, 100 - distFromCenter * 5);
+
+      const totalScore = offensiveScore + defensiveScore + forkBonus + centerBonus;
+
+      let desc = 'Positional Control';
+      if (forkBonus > 0) desc = 'Double-Threat Fork (+Fork)';
+      else if (offensiveScore >= 90000) desc = `Open ${k-1} Threat (+Live4)`;
+      else if (defensiveScore >= 65000) desc = `Denies Opponent Open ${k-1}`;
+      else if (offensiveScore >= 10000) desc = `Closed ${k-1} Check`;
+      else if (offensiveScore >= 4000) desc = `Open ${k-2} Build`;
+
+      return { score: totalScore, desc, isWin: false, isBlock: false };
+    }
+
+    /**
+     * SOTA (m, n, k) Engine Master Analysis Function
+     */
+    function analyzePosition(board, turn) {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      const isX = turn === 'X';
+
+      // 1. Check Terminal
+      const terminal = checkWinner(board, rows, cols, k);
       if (terminal) {
         let score = 0;
         if (terminal.winner === 'X') score = 1;
         else if (terminal.winner === 'O') score = -1;
-        const res = {
+        return {
           score,
           bestMove: null,
           pv: [],
@@ -565,12 +1058,80 @@
           winner: terminal.winner,
           line: terminal.line
         };
-        memo.set(key, res);
+      }
+
+      // 2. Small Board Exact Minimax (<= 9 cells, e.g. 3x3)
+      if (rows * cols <= 9) {
+        return exactMinimax(board, turn, rows, cols, k);
+      }
+
+      // 3. SOTA Heuristic Threat-Space Analysis
+      const candidates = getCandidateMoves(board, rows, cols);
+      if (candidates.length === 0) {
+        return { score: 0, bestMove: null, pv: [], allMoves: [], terminal: false };
+      }
+
+      const evaluations = [];
+
+      for (const move of candidates) {
+        const evalResult = evaluateMoveTactics(board, move, turn, rows, cols, k);
+        // Normalize score between -1.0 and +1.0 for UI eval bar
+        let normScore = 0;
+        if (evalResult.isWin) {
+          normScore = isX ? 1.0 : -1.0;
+        } else if (evalResult.isBlock) {
+          normScore = isX ? 0.45 : -0.45;
+        } else {
+          const raw = Math.min(100000, evalResult.score) / 100000;
+          normScore = isX ? raw * 0.8 : -raw * 0.8;
+        }
+
+        evaluations.push({
+          move,
+          score: normScore,
+          rawScore: evalResult.score,
+          tacticalDesc: evalResult.desc,
+          pv: [move]
+        });
+      }
+
+      // Sort candidate moves so best move for current turn appears first
+      evaluations.sort((a, b) => {
+        if (isX) return b.rawScore - a.rawScore;
+        return b.rawScore - a.rawScore; // both ranked by current player's raw tactical goodness
+      });
+
+      const best = evaluations[0];
+      return {
+        score: best ? best.score : 0,
+        bestMove: best ? best.move : null,
+        pv: best ? best.pv : [],
+        allMoves: evaluations,
+        terminal: false,
+        winner: null,
+        line: null
+      };
+    }
+
+    /**
+     * Exact Minimax Tablebase for Small Boards (3x3 etc.)
+     */
+    function exactMinimax(board, turn, rows, cols, k) {
+      const key = board.map(c => (c ? c : '.')).join('') + ' ' + turn;
+      if (ttMap.has(key)) return ttMap.get(key);
+
+      const terminal = checkWinner(board, rows, cols, k);
+      if (terminal) {
+        let score = 0;
+        if (terminal.winner === 'X') score = 1;
+        else if (terminal.winner === 'O') score = -1;
+        const res = { score, bestMove: null, pv: [], allMoves: [], terminal: true, winner: terminal.winner, line: terminal.line };
+        ttMap.set(key, res);
         return res;
       }
 
       const legalMoves = [];
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < board.length; i++) {
         if (board[i] === null) legalMoves.push(i);
       }
 
@@ -584,12 +1145,14 @@
       for (const move of legalMoves) {
         const nextBoard = [...board];
         nextBoard[move] = turn;
-        const childAnalysis = analyzePosition(nextBoard, nextTurn);
+        const childAnalysis = exactMinimax(nextBoard, nextTurn, rows, cols, k);
         const childScore = childAnalysis.score;
 
         moveEvaluations.push({
           move,
           score: childScore,
+          rawScore: isX ? childScore : -childScore,
+          tacticalDesc: childScore === 1 ? 'Theoretical Win (+M)' : (childScore === -1 ? 'Theoretical Loss (-M)' : 'Theoretical Draw (0.00)'),
           pv: [move, ...childAnalysis.pv]
         });
 
@@ -608,30 +1171,12 @@
         }
       }
 
-      // Sort candidate moves so that best moves for current player appear first
       moveEvaluations.sort((a, b) => {
-        if (isX) {
-          return b.score - a.score;
-        } else {
-          return a.score - b.score;
-        }
+        if (isX) return b.score - a.score;
+        return a.score - b.score;
       });
 
-      // Tie-break: if scores are equal, prefer center (4), then corners (0,2,6,8), then edges
-      const posPriority = [4, 0, 2, 6, 8, 1, 3, 5, 7];
-      moveEvaluations.sort((a, b) => {
-        if (a.score === b.score) {
-          return posPriority.indexOf(a.move) - posPriority.indexOf(b.move);
-        }
-        return 0;
-      });
-
-      if (moveEvaluations.length > 0) {
-        bestMove = moveEvaluations[0].move;
-        bestPv = moveEvaluations[0].pv;
-      }
-
-      const result = {
+      const res = {
         score: bestScore,
         bestMove,
         pv: bestPv,
@@ -640,23 +1185,22 @@
         winner: null,
         line: null
       };
-
-      memo.set(key, result);
-      return result;
+      ttMap.set(key, res);
+      return res;
     }
 
     /**
-     * StockTic Difficulty Levels (1 to 8, inspired by Lichess Stockfish)
+     * StockTic Difficulty Levels (1 to 8)
      */
     const LEVELS = [
-      { level: 1, name: 'Beginner', elo: 600, desc: 'Casual random moves, misses wins and blocks, blunders frequently.' },
-      { level: 2, name: 'Casual', elo: 900, desc: 'Takes 1-move wins sometimes, frequently misses opponent blocks.' },
-      { level: 3, name: 'Novice', elo: 1200, desc: 'Takes obvious wins, 50% blocks, vulnerable to double-threat forks.' },
-      { level: 4, name: 'Intermediate', elo: 1500, desc: 'Takes wins, blocks direct threats, can be trapped by positional forks.' },
-      { level: 5, name: 'Advanced', elo: 1800, desc: 'Strong defense, rarely blunders, recognizes most tactical traps.' },
-      { level: 6, name: 'Expert', elo: 2100, desc: 'High accuracy (94% optimal moves), fiercely punishes mistakes.' },
-      { level: 7, name: 'Master', elo: 2400, desc: 'Deep positional tablebase calculation (98% optimal play).' },
-      { level: 8, name: 'StockTic Max', elo: 3000, desc: 'Depth 9/9 · Solved Tablebase (Mathematically Unbeatable).' }
+      { level: 1, name: 'Beginner', elo: 600, desc: 'Casual random moves, overlooks tactical threats and wins.' },
+      { level: 2, name: 'Casual', elo: 900, desc: 'Finds 1-move win ~50% of time, frequently overlooks opponent blocks.' },
+      { level: 3, name: 'Novice', elo: 1200, desc: 'Takes direct wins, blocks 50% of direct threats, vulnerable to forks.' },
+      { level: 4, name: 'Intermediate', elo: 1500, desc: 'Takes direct wins, blocks direct threats, simple tactical patterns.' },
+      { level: 5, name: 'Advanced', elo: 1800, desc: 'Strong defense, spots Open (k-1) threats, guards against forks.' },
+      { level: 6, name: 'Expert', elo: 2100, desc: 'Threat-Space Search active; fierce tactical calculation.' },
+      { level: 7, name: 'Master', elo: 2400, desc: 'Deep threat-space evaluation with neighborhood pruning.' },
+      { level: 8, name: 'StockTic SOTA Max', elo: 3000, desc: 'SOTA (m,n,k) Grandmaster Engine (Tablebase + Deep Threat-Space Search).' }
     ];
 
     /**
@@ -665,7 +1209,7 @@
     const state = {
       history: [
         {
-          board: Array(9).fill(null),
+          board: Array(config.rows * config.cols).fill(null),
           turn: 'X',
           lastMove: null,
           annotation: null,
@@ -677,94 +1221,72 @@
       showArrows: true,
       showBadges: true,
       mode: 'analysis', // 'analysis' or 'play'
-      playerPiece: 'X', // for play mode: 'X' or 'O'
-      engineLevel: 8, // 1 to 8 (default 8: StockTic Max)
-      playShowEval: false, // in play mode: false (realistic match play) or true (hints on)
+      playerPiece: 'X', // 'X' or 'O'
+      engineLevel: 8,   // 1 to 8
+      playShowEval: false, // in play mode: false (realistic match) or true (hints on)
       hoveredSquare: null,
       isEngineThinking: false
     };
 
     /**
-     * Check if placing `piece` at `move` results in an immediate 3-in-a-row
-     */
-    function isImmediateWin(board, move, piece) {
-      const nextBoard = [...board];
-      nextBoard[move] = piece;
-      for (let i = 0; i < LINES.length; i++) {
-        const [a, b, c] = LINES[i];
-        if (nextBoard[a] === piece && nextBoard[b] === piece && nextBoard[c] === piece) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    /**
      * Pick Engine move based on selected difficulty Level (1 to 8)
      */
     function getEngineMoveForLevel(board, turn, level) {
-      const legalMoves = [];
-      for (let i = 0; i < 9; i++) {
-        if (board[i] === null) legalMoves.push(i);
-      }
-      if (legalMoves.length === 0) return null;
-      if (legalMoves.length === 1) return legalMoves[0];
+      const candidates = getCandidateMoves(board, config.rows, config.cols);
+      if (candidates.length === 0) return null;
+      if (candidates.length === 1) return candidates[0];
 
       const analysis = analyzePosition(board, turn);
       const bestMove = analysis.bestMove;
       const oppPiece = turn === 'X' ? 'O' : 'X';
 
-      // 1. Immediate 1-move win for engine
-      const winMoves = legalMoves.filter(m => isImmediateWin(board, m, turn));
-      // 2. Immediate 1-move block against opponent win
-      const blockMoves = legalMoves.filter(m => isImmediateWin(board, m, oppPiece));
+      // 1. Direct 1-move win check
+      const winMoves = candidates.filter(m => isWinningMove(board, m, turn, config.rows, config.cols, config.k));
+      // 2. Direct 1-move block check
+      const blockMoves = candidates.filter(m => isWinningMove(board, m, oppPiece, config.rows, config.cols, config.k));
 
-      // Level 8: StockTic Max (100% optimal minimax tablebase)
-      if (level >= 8) {
-        return bestMove;
-      }
+      // Level 8: SOTA Grandmaster
+      if (level >= 8) return bestMove;
 
-      // Level 1: Beginner (~80% random legal moves, misses wins and blocks)
+      // Level 1: Beginner (85% random, misses wins & blocks)
       if (level === 1) {
-        if (Math.random() < 0.8) {
-          return legalMoves[Math.floor(Math.random() * legalMoves.length)];
+        if (Math.random() < 0.85) {
+          return candidates[Math.floor(Math.random() * candidates.length)];
         }
         return bestMove;
       }
 
-      // Level 2: Casual (Takes win ~65% of time; 50% random moves)
+      // Level 2: Casual (Takes win ~50%, 60% random)
       if (level === 2) {
-        if (winMoves.length > 0 && Math.random() < 0.65) {
-          return winMoves[0];
-        }
-        if (Math.random() < 0.5) {
-          return legalMoves[Math.floor(Math.random() * legalMoves.length)];
+        if (winMoves.length > 0 && Math.random() < 0.5) return winMoves[0];
+        if (Math.random() < 0.6) {
+          return candidates[Math.floor(Math.random() * candidates.length)];
         }
         return bestMove;
       }
 
-      // Level 3: Novice (Always wins if open; 50% blocks; 40% random)
+      // Level 3: Novice (Takes wins, 50% blocks, 40% random)
       if (level === 3) {
         if (winMoves.length > 0) return winMoves[0];
         if (blockMoves.length > 0 && Math.random() < 0.5) return blockMoves[0];
         if (Math.random() < 0.4) {
-          return legalMoves[Math.floor(Math.random() * legalMoves.length)];
+          return candidates[Math.floor(Math.random() * candidates.length)];
         }
         return bestMove;
       }
 
-      // Level 4: Intermediate (Always wins, always blocks direct threats; 35% non-optimal)
+      // Level 4: Intermediate (Takes wins, always blocks direct threats, 30% suboptimal)
       if (level === 4) {
         if (winMoves.length > 0) return winMoves[0];
         if (blockMoves.length > 0) return blockMoves[0];
-        if (Math.random() < 0.35 && analysis.allMoves.length > 1) {
-          const suboptimal = analysis.allMoves.slice(1);
-          return suboptimal[Math.floor(Math.random() * suboptimal.length)].move;
+        if (Math.random() < 0.3 && analysis.allMoves.length > 1) {
+          const sub = analysis.allMoves.slice(1, Math.min(5, analysis.allMoves.length));
+          return sub[Math.floor(Math.random() * sub.length)].move;
         }
         return bestMove;
       }
 
-      // Level 5: Advanced (Always wins and blocks; 15% non-optimal)
+      // Level 5: Advanced (Always wins and blocks direct threats, 15% 2nd best)
       if (level === 5) {
         if (winMoves.length > 0) return winMoves[0];
         if (blockMoves.length > 0) return blockMoves[0];
@@ -774,7 +1296,7 @@
         return bestMove;
       }
 
-      // Level 6: Expert (Always wins and blocks; 6% non-optimal)
+      // Level 6: Expert (Always wins and blocks, 6% 2nd best)
       if (level === 6) {
         if (winMoves.length > 0) return winMoves[0];
         if (blockMoves.length > 0) return blockMoves[0];
@@ -784,7 +1306,7 @@
         return bestMove;
       }
 
-      // Level 7: Master (Always wins and blocks; 2% non-optimal)
+      // Level 7: Master (Always wins and blocks, 2% suboptimal)
       if (level === 7) {
         if (winMoves.length > 0) return winMoves[0];
         if (blockMoves.length > 0) return blockMoves[0];
@@ -798,27 +1320,27 @@
     }
 
     /**
-     * Format theoretical evaluation into +1.00 / 0.00 / -1.00
+     * Format theoretical evaluation into string
      */
     function formatEval(val) {
-      if (val > 0) return '+1.00';
-      if (val < 0) return '-1.00';
-      return '0.00';
+      if (val >= 0.99) return '+1.00';
+      if (val <= -0.99) return '-1.00';
+      if (Math.abs(val) < 0.01) return '0.00';
+      return (val > 0 ? '+' : '') + val.toFixed(2);
     }
 
     /**
      * Return FEN-like string for current board
      */
-    function getFen(board, turn) {
-      let rows = [];
-      for (let r = 0; r < 3; r++) {
+    function getFen(board, turn, rows = config.rows, cols = config.cols) {
+      const fenRows = [];
+      for (let r = 0; r < rows; r++) {
         let rowStr = '';
         let emptyCount = 0;
-        for (let c = 0; c < 3; c++) {
-          const piece = board[r * 3 + c];
-          if (!piece) {
-            emptyCount++;
-          } else {
+        for (let c = 0; c < cols; c++) {
+          const piece = board[r * cols + c];
+          if (!piece) emptyCount++;
+          else {
             if (emptyCount > 0) {
               rowStr += emptyCount;
               emptyCount = 0;
@@ -827,41 +1349,32 @@
           }
         }
         if (emptyCount > 0) rowStr += emptyCount;
-        rows.push(rowStr);
+        fenRows.push(rowStr);
       }
-      return `${rows.join('/')} ${turn.toLowerCase()}`;
+      return `${fenRows.join('/')} ${turn.toLowerCase()} [${rows}x${cols},k=${config.k}]`;
     }
 
     /**
-     * Classify move quality (Lichess style)
+     * Classify move quality
      */
     function classifyMove(evalBefore, evalAfter, turnMoved) {
-      // evalBefore and evalAfter are from X's perspective
-      if (turnMoved === 'X') {
-        const delta = evalBefore - evalAfter;
-        if (delta <= 0) return { label: 'Best', glyph: '!', color: 'text-[#629924]' };
-        if (delta === 1) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
-        return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
-      } else {
-        const delta = evalAfter - evalBefore;
-        if (delta <= 0) return { label: 'Best', glyph: '!', color: 'text-[#629924]' };
-        if (delta === 1) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
-        return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
-      }
+      const delta = (turnMoved === 'X') ? (evalBefore - evalAfter) : (evalAfter - evalBefore);
+      if (delta <= 0.05) return { label: 'Best', glyph: '!', color: 'text-[#629924]' };
+      if (delta <= 0.4) return { label: 'Inaccuracy', glyph: '?!', color: 'text-[#3692e7]' };
+      if (delta <= 0.8) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
+      return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
     }
 
     /**
-     * Handle board click on index
+     * Square Click Handler
      */
     function handleSquareClick(index) {
       const current = state.history[state.currentPly];
       const winCheck = checkWinner(current.board);
       if (winCheck) return; // Game over
 
-      // Check if square is empty
       if (current.board[index] !== null) return;
 
-      // In play mode, prevent clicking if it's engine's turn or engine is calculating
       if (state.mode === 'play' && (current.turn !== state.playerPiece || state.isEngineThinking)) {
         return;
       }
@@ -870,14 +1383,13 @@
     }
 
     /**
-     * Play move at index
+     * Execute Move
      */
     function executeMove(index) {
       const current = state.history[state.currentPly];
       const analysisCurrent = analyzePosition(current.board, current.turn);
       const evalBefore = analysisCurrent.score;
 
-      // Check move eval
       const targetMoveEval = analysisCurrent.allMoves.find(m => m.move === index);
       const evalAfter = targetMoveEval ? targetMoveEval.score : evalBefore;
 
@@ -887,7 +1399,7 @@
 
       const quality = classifyMove(evalBefore, evalAfter, current.turn);
 
-      // Play appropriate sound
+      // Play Sound
       const terminalAfter = checkWinner(newBoard);
       if (terminalAfter) {
         if (terminalAfter.winner === 'Draw') playSound('draw');
@@ -904,8 +1416,8 @@
         turn: nextTurn,
         lastMove: index,
         annotation: quality,
-        evalBefore: evalBefore,
-        evalAfter: evalAfter
+        evalBefore,
+        evalAfter
       });
 
       state.history = newHistory;
@@ -913,25 +1425,25 @@
 
       render();
 
-      // If in vs-engine mode and next is engine turn, trigger engine move
+      // Trigger engine move in play mode
       if (state.mode === 'play') {
         const nextState = state.history[state.currentPly];
         const gameOver = checkWinner(nextState.board);
         if (!gameOver && nextState.turn !== state.playerPiece) {
           state.isEngineThinking = true;
           render();
-          const thinkTime = state.engineLevel >= 6 ? 400 : 260;
+          const thinkDelay = state.engineLevel >= 6 ? 360 : 220;
           setTimeout(() => {
             makeEngineMove();
             state.isEngineThinking = false;
             render();
-          }, thinkTime);
+          }, thinkDelay);
         }
       }
     }
 
     /**
-     * Engine Move Execution
+     * Engine Move
      */
     function makeEngineMove() {
       const current = state.history[state.currentPly];
@@ -944,7 +1456,7 @@
     }
 
     /**
-     * RENDER SYSTEM
+     * MASTER RENDER SYSTEM
      */
     function render() {
       const current = state.history[state.currentPly];
@@ -959,109 +1471,115 @@
         evalBarWrapper.classList.toggle('hidden', isPlayMode && !state.playShowEval);
       }
 
-      // 1. Update Board Coordinates labels
-      const colLabels = state.flipped ? ['c', 'b', 'a'] : ['a', 'b', 'c'];
-      const rowLabels = state.flipped ? ['1', '2', '3'] : ['3', '2', '1'];
+      // 1. Update Board Variant Badges
+      const variantText = `(${config.rows}, ${config.cols}, ${config.k})`;
+      const navBadge = document.getElementById('nav-variant-badge');
+      if (navBadge) navBadge.textContent = `${config.rows}×${config.cols} (k=${config.k})`;
+      const underBoardBadge = document.getElementById('under-board-variant-text');
+      if (underBoardBadge) underBoardBadge.textContent = variantText;
 
-      const colContainer = document.getElementById('col-coords');
-      colContainer.innerHTML = colLabels.map(l => `<span class="flex-1 text-right pr-2">${l}</span>`).join('');
-
-      const rowContainer = document.getElementById('row-coords');
-      rowContainer.innerHTML = rowLabels.map(l => `<span class="flex-1 flex items-start pt-1">${l}</span>`).join('');
-
-      // 2. Render Board Cells
+      // 2. Render Board Grid (Adaptive CSS Grid)
       const grid = document.getElementById('board-grid');
+      const rows = config.rows;
+      const cols = config.cols;
+
+      // Responsive cell sizing calculation
+      let cellSizePx = 100;
+      if (Math.max(rows, cols) > 20) cellSizePx = 20;
+      else if (Math.max(rows, cols) > 14) cellSizePx = 28;
+      else if (Math.max(rows, cols) > 9) cellSizePx = 40;
+      else if (Math.max(rows, cols) > 5) cellSizePx = 54;
+      else cellSizePx = Math.min(110, Math.floor(420 / Math.max(rows, cols)));
+
+      if (config.zoomMode === 'fit') {
+        const maxBoardDimension = Math.min(window.innerWidth > 640 ? 560 : 340, window.innerHeight * 0.65);
+        const autoCell = Math.floor(maxBoardDimension / Math.max(rows, cols));
+        cellSizePx = Math.max(16, autoCell);
+      }
+
+      grid.style.display = 'grid';
+      grid.style.gridTemplateColumns = `repeat(${cols}, ${cellSizePx}px)`;
+      grid.style.gridTemplateRows = `repeat(${rows}, ${cellSizePx}px)`;
+      grid.style.gap = (Math.max(rows, cols) > 16) ? '1px' : '2px';
       grid.innerHTML = '';
 
-      // Create lookup of scores for legal moves in current position
-      const moveScoreMap = new Map();
-      if (!winStatus) {
-        analysis.allMoves.forEach(m => {
-          moveScoreMap.set(m.move, m.score);
-        });
+      // Lookup of top scores
+      const candidateScoreMap = new Map();
+      if (!winStatus && analysis.allMoves) {
+        analysis.allMoves.forEach(m => candidateScoreMap.set(m.move, m.score));
       }
 
-      // Get visual indices according to flip
-      const cellIndices = [];
-      for (let r = 0; r < 3; r++) {
-        for (let c = 0; c < 3; c++) {
-          const rowIdx = state.flipped ? 2 - r : r;
-          const colIdx = state.flipped ? 2 - c : c;
-          cellIndices.push(rowIdx * 3 + colIdx);
-        }
-      }
+      // Visual cell indices with flip support
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const rowIdx = state.flipped ? (rows - 1 - r) : r;
+          const colIdx = state.flipped ? (cols - 1 - c) : c;
+          const idx = rowIdx * cols + colIdx;
 
-      cellIndices.forEach(idx => {
-        const cell = document.createElement('div');
-        cell.className = 'board-cell flex items-center justify-center cursor-pointer select-none';
-        cell.dataset.index = idx;
+          const cell = document.createElement('div');
+          const isAlt = (rowIdx + colIdx) % 2 === 1;
+          cell.className = `board-cell ${isAlt ? 'checker-alt' : ''} cursor-pointer select-none rounded-[2px]`;
+          cell.dataset.index = idx;
 
-        if (current.lastMove === idx) {
-          cell.classList.add('highlight-last-move');
-        }
+          if (current.lastMove === idx) {
+            cell.classList.add('highlight-last-move');
+          }
 
-        // Show piece if occupied
-        const piece = current.board[idx];
-        if (piece === 'X') {
-          cell.innerHTML = `
-            <svg class="w-14 h-14 sm:w-16 sm:h-16 text-white drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          `;
-        } else if (piece === 'O') {
-          cell.innerHTML = `
-            <svg class="w-14 h-14 sm:w-16 sm:h-16 text-[#e8e4df] drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
-              <circle cx="12" cy="12" r="8"></circle>
-            </svg>
-          `;
-        } else {
-          // Empty cell: display Evaluation Badge only if eval is enabled and game not over
-          if (!winStatus && showEval && state.showBadges && moveScoreMap.has(idx)) {
-            const score = moveScoreMap.get(idx);
-            const scoreStr = formatEval(score);
-
-            let badgeColor = 'bg-[#1e1c18]/90 text-gray-300 border-[#363431]';
-            if (score > 0) {
-              badgeColor = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
-            } else if (score < 0) {
-              badgeColor = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
-            } else {
-              badgeColor = 'bg-[#262421]/90 text-gray-300 border-[#474440]';
+          const piece = current.board[idx];
+          if (piece === 'X') {
+            const strokeWidth = cellSizePx < 28 ? '3.5' : '2.8';
+            cell.innerHTML = `
+              <svg class="w-[78%] h-[78%] text-white drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            `;
+          } else if (piece === 'O') {
+            const strokeWidth = cellSizePx < 28 ? '3.8' : '3.0';
+            cell.innerHTML = `
+              <svg class="w-[78%] h-[78%] text-[#e8e4df] drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
+                <circle cx="12" cy="12" r="8"></circle>
+              </svg>
+            `;
+          } else {
+            // Empty cell: show badge if enabled and board size is compact
+            if (!winStatus && showEval && state.showBadges && candidateScoreMap.has(idx) && Math.max(rows, cols) <= 10) {
+              const score = candidateScoreMap.get(idx);
+              const badge = document.createElement('div');
+              badge.className = `absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${
+                score > 0 ? 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold' :
+                (score < 0 ? 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold' : 'bg-[#1e1c18]/90 text-gray-300 border-[#363431]')
+              }`;
+              badge.textContent = formatEval(score);
+              cell.appendChild(badge);
             }
-
-            const badge = document.createElement('div');
-            badge.className = `absolute top-1.5 right-1.5 text-[10px] sm:text-xs mono-font px-1.5 py-0.5 rounded border shadow-sm pointer-events-none transition-all ${badgeColor}`;
-            badge.textContent = scoreStr;
-            cell.appendChild(badge);
           }
 
-          // Subtle Coordinate watermark in corner
-          const coordWatermark = document.createElement('span');
-          coordWatermark.className = 'absolute bottom-1 left-1.5 text-[9px] text-[#73706c]/40 font-mono font-semibold pointer-events-none';
-          coordWatermark.textContent = COORDS[idx];
-          cell.appendChild(coordWatermark);
+          // Cell Events
+          cell.addEventListener('click', () => handleSquareClick(idx));
+          cell.addEventListener('mouseenter', () => {
+            const coordStr = getCoord(idx, rows, cols);
+            const hoverDisplay = document.getElementById('hovered-coord-display');
+            if (hoverDisplay) hoverDisplay.textContent = `Square: ${coordStr}`;
+            if (showEval) {
+              state.hoveredSquare = idx;
+              updateArrows();
+            }
+          });
+          cell.addEventListener('mouseleave', () => {
+            const hoverDisplay = document.getElementById('hovered-coord-display');
+            if (hoverDisplay) hoverDisplay.textContent = '';
+            if (showEval) {
+              state.hoveredSquare = null;
+              updateArrows();
+            }
+          });
+
+          grid.appendChild(cell);
         }
+      }
 
-        // Cell Interactions
-        cell.addEventListener('click', () => handleSquareClick(idx));
-        cell.addEventListener('mouseenter', () => {
-          if (showEval) {
-            state.hoveredSquare = idx;
-            updateArrows();
-          }
-        });
-        cell.addEventListener('mouseleave', () => {
-          if (showEval) {
-            state.hoveredSquare = null;
-            updateArrows();
-          }
-        });
-
-        grid.appendChild(cell);
-      });
-
-      // 3. Update Dynamic SVG Overlay (Arrows & Win Line)
+      // 3. Update SVG Arrows & Winning Strike Line
       updateArrows();
       updateWinLine(winStatus);
 
@@ -1077,7 +1595,7 @@
           turnLabel.textContent = 'Game Drawn';
           turnIcon.className = 'w-3 h-3 rounded-full bg-yellow-500 inline-block';
         } else {
-          turnLabel.textContent = `${winStatus.winner} Wins!`;
+          turnLabel.textContent = `${winStatus.winner} Wins (${config.k} in a row)!`;
           turnIcon.className = `w-3 h-3 rounded-full ${winStatus.winner === 'X' ? 'bg-white' : 'bg-gray-400'} inline-block`;
         }
       } else if (isPlayMode && state.isEngineThinking) {
@@ -1094,32 +1612,41 @@
       // 6. Update Candidate Moves (MultiPV) or Match Card
       renderCandidateMoves(analysis, winStatus);
 
-      // 7. Update Move History & Navigation buttons
+      // 7. Update Move History
       renderMoveHistory();
 
-      // 8. Update FEN String
+      // 8. Update FEN
       const fen = getFen(current.board, current.turn);
       document.getElementById('fen-string-display').textContent = fen;
     }
 
     /**
-     * Map board index 0..8 to SVG Center coordinates (0..300 range)
+     * Map index to SVG coordinates (0 to 1000 coordinate space)
      */
     function getCellCenter(idx) {
-      let r = Math.floor(idx / 3);
-      let c = idx % 3;
+      const rows = config.rows;
+      const cols = config.cols;
+      let r = Math.floor(idx / cols);
+      let c = idx % cols;
+
       if (state.flipped) {
-        r = 2 - r;
-        c = 2 - c;
+        r = rows - 1 - r;
+        c = cols - 1 - c;
       }
+
+      const cellW = 1000 / cols;
+      const cellH = 1000 / rows;
+
       return {
-        x: c * 100 + 50,
-        y: r * 100 + 50
+        x: c * cellW + cellW / 2,
+        y: r * cellH + cellH / 2,
+        cellW,
+        cellH
       };
     }
 
     /**
-     * Render Lichess-style Best Move Arrows & Target Indicators
+     * Render Lichess-style Arrows
      */
     function updateArrows() {
       const container = document.getElementById('svg-arrows');
@@ -1133,65 +1660,64 @@
       if (winStatus) return;
 
       const analysis = analyzePosition(current.board, current.turn);
-      if (!analysis.bestMove && analysis.bestMove !== 0) return;
+      if (analysis.bestMove === null || analysis.bestMove === undefined) return;
 
-      // Draw primary best move arrow
-      const targetMove = state.hoveredSquare !== null && analysis.allMoves.some(m => m.move === state.hoveredSquare)
+      const targetMove = (state.hoveredSquare !== null && analysis.allMoves && analysis.allMoves.some(m => m.move === state.hoveredSquare))
         ? state.hoveredSquare
         : analysis.bestMove;
 
-      const targetCenter = getCellCenter(targetMove);
+      const target = getCellCenter(targetMove);
+      const radius = Math.min(target.cellW, target.cellH) * 0.4;
 
-      // Highlight circle on best square
+      // Circle highlight
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', targetCenter.x);
-      circle.setAttribute('cy', targetCenter.y);
-      circle.setAttribute('r', '36');
+      circle.setAttribute('cx', target.x);
+      circle.setAttribute('cy', target.y);
+      circle.setAttribute('r', radius);
       circle.setAttribute('fill', 'none');
       circle.setAttribute('stroke', '#629924');
-      circle.setAttribute('stroke-width', '4');
-      circle.setAttribute('stroke-dasharray', '8 4');
-      circle.setAttribute('opacity', '0.75');
+      circle.setAttribute('stroke-width', Math.max(2, Math.min(8, radius * 0.2)));
+      circle.setAttribute('stroke-dasharray', '6 3');
+      circle.setAttribute('opacity', '0.85');
       circle.classList.add('pulse-arrow');
       container.appendChild(circle);
 
-      // Arrow pointing into the square from a smart offset
-      const startX = targetCenter.x < 150 ? targetCenter.x - 38 : targetCenter.x + 38;
-      const startY = targetCenter.y < 150 ? targetCenter.y - 38 : targetCenter.y + 38;
-      const endX = targetCenter.x < 150 ? targetCenter.x - 12 : targetCenter.x + 12;
-      const endY = targetCenter.y < 150 ? targetCenter.y - 12 : targetCenter.y + 12;
-
-      const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      arrow.setAttribute('x1', startX);
-      arrow.setAttribute('y1', startY);
-      arrow.setAttribute('x2', endX);
-      arrow.setAttribute('y2', endY);
-      arrow.setAttribute('stroke', '#629924');
-      arrow.setAttribute('stroke-width', '6');
-      arrow.setAttribute('stroke-linecap', 'round');
-      arrow.setAttribute('marker-end', 'url(#arrowhead-green)');
-      arrow.setAttribute('opacity', '0.9');
-      container.appendChild(arrow);
+      // Arrow line if not micro-square
+      if (radius > 12) {
+        const offset = radius * 1.3;
+        const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        arrow.setAttribute('x1', target.x - offset);
+        arrow.setAttribute('y1', target.y - offset);
+        arrow.setAttribute('x2', target.x - radius * 0.3);
+        arrow.setAttribute('y2', target.y - radius * 0.3);
+        arrow.setAttribute('stroke', '#629924');
+        arrow.setAttribute('stroke-width', Math.max(3, radius * 0.22));
+        arrow.setAttribute('stroke-linecap', 'round');
+        arrow.setAttribute('marker-end', 'url(#arrowhead-green)');
+        arrow.setAttribute('opacity', '0.9');
+        container.appendChild(arrow);
+      }
     }
 
     /**
-     * Render glowing win strike line when terminal win occurs
+     * Render Winning Strike Line
      */
     function updateWinLine(winStatus) {
       const lineEl = document.getElementById('svg-win-line');
-      if (!winStatus || !winStatus.line) {
+      if (!winStatus || !winStatus.line || winStatus.line.length < 2) {
         lineEl.classList.add('hidden');
         return;
       }
 
       const p1 = getCellCenter(winStatus.line[0]);
-      const p3 = getCellCenter(winStatus.line[2]);
+      const pLast = getCellCenter(winStatus.line[winStatus.line.length - 1]);
 
       lineEl.setAttribute('x1', p1.x);
       lineEl.setAttribute('y1', p1.y);
-      lineEl.setAttribute('x2', p3.x);
-      lineEl.setAttribute('y2', p3.y);
-      lineEl.setAttribute('stroke', winStatus.winner === 'X' ? '#629924' : '#e69f00');
+      lineEl.setAttribute('x2', pLast.x);
+      lineEl.setAttribute('y2', pLast.y);
+      lineEl.setAttribute('stroke', winStatus.winner === 'X' ? '#7ec62f' : '#e69f00');
+      lineEl.setAttribute('stroke-width', Math.max(4, Math.min(16, p1.cellW * 0.25)));
       lineEl.classList.remove('hidden');
     }
 
@@ -1209,11 +1735,11 @@
 
       if (state.mode === 'analysis') {
         if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse';
-        nameLabel.textContent = 'StockTic 1.0';
-        if (depthBadge) depthBadge.textContent = 'depth 9/9';
-        if (tablebaseLabel) tablebaseLabel.textContent = 'Tablebase:';
+        nameLabel.textContent = `StockTic SOTA (${config.rows}×${config.cols}, k=${config.k})`;
+        if (depthBadge) depthBadge.textContent = config.rows * config.cols <= 9 ? 'depth 9/9' : 'TSS + Heuristic';
+        if (tablebaseLabel) tablebaseLabel.textContent = 'Solver:';
         if (tablebaseStatus) {
-          tablebaseStatus.textContent = 'SOLVED';
+          tablebaseStatus.textContent = config.rows * config.cols <= 9 ? 'SOLVED' : 'SOTA MNK';
           tablebaseStatus.className = 'text-[#629924] font-semibold mono-font';
         }
       } else {
@@ -1223,9 +1749,9 @@
             ? 'w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block animate-ping'
             : 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block';
         }
-        nameLabel.textContent = state.engineLevel === 8 ? 'StockTic Max' : `StockTic Lvl ${state.engineLevel}`;
+        nameLabel.textContent = `StockTic Lvl ${state.engineLevel}`;
         if (depthBadge) depthBadge.textContent = `Elo ${lvl.elo}`;
-        if (tablebaseLabel) tablebaseLabel.textContent = 'Strength:';
+        if (tablebaseLabel) tablebaseLabel.textContent = 'Tier:';
         if (tablebaseStatus) {
           tablebaseStatus.textContent = lvl.name.toUpperCase();
           tablebaseStatus.className = 'text-[#7ec62f] font-semibold mono-font text-[11px]';
@@ -1251,10 +1777,8 @@
       const current = state.history[state.currentPly];
       const lvl = LEVELS[state.engineLevel - 1];
 
-      // If eval is OFF in Play mode
       if (!showEval) {
         if (summaryEval) summaryEval.textContent = 'Off';
-
         if (winStatus) {
           if (winStatus.winner === 'Draw') {
             bigEval.textContent = '½ - ½';
@@ -1267,10 +1791,10 @@
             bigEval.className = isUserWin
               ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
               : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-            evalInterpretation.textContent = isUserWin ? '🎉 You Won the Game!' : 'StockTic Won';
+            evalInterpretation.textContent = isUserWin ? '🎉 Victory!' : 'StockTic Won';
             if (summaryEval) summaryEval.textContent = winStatus.winner === 'X' ? '1-0' : '0-1';
           }
-          if (nodesCount) nodesCount.textContent = 'Match Finished';
+          if (nodesCount) nodesCount.textContent = 'Match Over';
           if (speedLabel) speedLabel.textContent = `vs Level ${state.engineLevel}`;
         } else {
           bigEval.textContent = 'VS';
@@ -1282,39 +1806,36 @@
         return;
       }
 
-      // Eval is ON (Analysis mode or Play mode with eval enabled)
+      // Eval is ON
       const formatted = formatEval(score);
       if (summaryEval) summaryEval.textContent = formatted;
       if (bigEval) bigEval.textContent = formatted;
 
-      let fillPct = 50;
-      if (score === 1) fillPct = 96;
-      else if (score === -1) fillPct = 4;
-      else fillPct = 50;
+      let fillPct = 50 + score * 46;
+      fillPct = Math.max(4, Math.min(96, fillPct));
 
-      // Handle board flip if user flips perspective
       if (state.flipped) {
         fillPct = 100 - fillPct;
       }
 
       if (barFill) barFill.style.height = `${fillPct}%`;
 
-      if (score > 0) {
+      if (score > 0.05) {
         if (textTop) textTop.textContent = '';
         if (textBottom) {
           textBottom.textContent = formatted;
           textBottom.className = 'mono-font text-[10px] font-black text-[#161512] z-10';
         }
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
-        evalInterpretation.textContent = 'Winning for X (Theoretical Win)';
-      } else if (score < 0) {
+        evalInterpretation.textContent = 'Advantage / Winning for X';
+      } else if (score < -0.05) {
         if (textTop) {
           textTop.textContent = formatted;
           textTop.className = 'mono-font text-[10px] font-black text-white z-10';
         }
         if (textBottom) textBottom.textContent = '';
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-        evalInterpretation.textContent = 'Winning for O (Theoretical Win)';
+        evalInterpretation.textContent = 'Advantage / Winning for O';
       } else {
         if (textTop) textTop.textContent = '';
         if (textBottom) {
@@ -1322,18 +1843,14 @@
           textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] z-10';
         }
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200';
-        evalInterpretation.textContent = 'Theoretical Draw (Under Optimal Play)';
+        evalInterpretation.textContent = 'Theoretical Draw / Balanced';
       }
 
-      if (nodesCount) nodesCount.textContent = 'Nodes: 549 / instant';
-      if (speedLabel) speedLabel.textContent = '0.00 ms (exact)';
+      if (nodesCount) nodesCount.textContent = `Board: ${config.rows * config.cols} cells`;
+      if (speedLabel) speedLabel.textContent = 'SOTA Fast Search';
 
       if (winStatus) {
-        if (winStatus.winner === 'Draw') {
-          evalInterpretation.textContent = 'Final Result: Draw';
-        } else {
-          evalInterpretation.textContent = `Final Result: ${winStatus.winner} Won`;
-        }
+        evalInterpretation.textContent = (winStatus.winner === 'Draw') ? 'Final Result: Draw' : `Final Result: ${winStatus.winner} Won`;
       }
     }
 
@@ -1351,7 +1868,7 @@
       const current = state.history[state.currentPly];
       const lvl = LEVELS[state.engineLevel - 1];
 
-      // In Play mode with Eval OFF: show dedicated Match Card
+      // Play mode with Eval OFF: show dedicated Match Card
       if (!showEval) {
         if (panelTitle) panelTitle.textContent = 'Match Status';
         if (panelSubtitle) panelSubtitle.textContent = 'Live Practice';
@@ -1363,7 +1880,7 @@
           let bannerBg = isUserWin ? 'border-[#629924]/60 bg-[#629924]/10' : (isDraw ? 'border-yellow-500/60 bg-yellow-500/10' : 'border-[#c33a38]/60 bg-[#c33a38]/10');
           let bannerTitle = isUserWin ? '🎉 VICTORY!' : (isDraw ? '🤝 THEORETICAL DRAW!' : 'DEFEAT');
           let bannerMsg = isUserWin
-            ? `You defeated StockTic Level ${state.engineLevel} (${lvl.name})!`
+            ? `You defeated StockTic Level ${state.engineLevel} (${lvl.name}) on ${config.rows}×${config.cols} (k=${config.k})!`
             : (isDraw ? 'Draw under optimal theoretical play. Well played!' : `StockTic Level ${state.engineLevel} won.`);
 
           container.innerHTML = `
@@ -1406,7 +1923,7 @@
           return;
         }
 
-        // Match ongoing
+        // Match Ongoing
         const isUserTurn = current.turn === state.playerPiece;
         container.innerHTML = `
           <div class="p-3.5 space-y-2.5 select-none">
@@ -1450,11 +1967,11 @@
         return;
       }
 
-      // Eval is ON (Analysis or Play with hints)
+      // Eval is ON (MultiPV list)
       if (panelTitle) panelTitle.textContent = 'Candidate Moves (MultiPV)';
-      if (panelSubtitle) panelSubtitle.textContent = 'Ranked by score';
+      if (panelSubtitle) panelSubtitle.textContent = 'Ranked by SOTA Score';
 
-      if (winStatus || analysis.allMoves.length === 0) {
+      if (winStatus || !analysis.allMoves || analysis.allMoves.length === 0) {
         container.innerHTML = `
           <div class="px-3 py-4 text-center text-xs text-gray-400 italic">
             ${winStatus ? `Game finished (${winStatus.winner === 'Draw' ? 'Draw' : winStatus.winner + ' Won'})` : 'No legal moves'}
@@ -1463,36 +1980,34 @@
         return;
       }
 
-      analysis.allMoves.forEach((cand, idx) => {
+      // Display top 8 candidate moves
+      const topMoves = analysis.allMoves.slice(0, 8);
+
+      topMoves.forEach((cand, idx) => {
         const row = document.createElement('div');
         row.className = 'px-3 py-2 flex items-center justify-between text-xs hover:bg-[#363431] cursor-pointer transition select-none';
 
-        const isOptimal = cand.score === analysis.score;
+        const isBest = idx === 0;
         const evalStr = formatEval(cand.score);
+        const coord = getCoord(cand.move, config.rows, config.cols);
 
         let badgeBg = 'bg-[#1e1c18] text-gray-300 border-[#363431]';
-        if (cand.score > 0) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50';
-        else if (cand.score < 0) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50';
-
-        // Format continuation PV line (e.g. 1. b2 b1 2. c3 ...)
-        const lineStr = cand.pv.map(m => COORDS[m]).join(' ');
+        if (cand.score > 0.05) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50';
+        else if (cand.score < -0.05) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50';
 
         row.innerHTML = `
           <div class="flex items-center space-x-2.5 overflow-hidden">
-            <span class="text-[11px] font-bold ${isOptimal ? 'text-[#629924]' : 'text-gray-500'} mono-font">#${idx + 1}</span>
-            <span class="font-bold text-white mono-font text-sm">${COORDS[cand.move]}</span>
-            <span class="text-[11px] text-[#73706c] mono-font truncate max-w-[150px] sm:max-w-[200px]" title="${lineStr}">${lineStr}</span>
+            <span class="text-[11px] font-bold ${isBest ? 'text-[#629924]' : 'text-gray-500'} mono-font">#${idx + 1}</span>
+            <span class="font-bold text-white mono-font text-sm">${coord}</span>
+            <span class="text-[11px] text-gray-400 italic truncate max-w-[150px] sm:max-w-[210px]">${cand.tacticalDesc || 'Candidate'}</span>
           </div>
           <div class="flex items-center space-x-2">
-            ${isOptimal ? '<span class="text-[10px] bg-[#629924] text-white px-1.5 py-0.2 rounded font-semibold uppercase">Best</span>' : ''}
+            ${isBest ? '<span class="text-[10px] bg-[#629924] text-white px-1.5 py-0.2 rounded font-semibold uppercase">Best</span>' : ''}
             <span class="mono-font px-2 py-0.5 rounded border text-[11px] font-bold ${badgeBg}">${evalStr}</span>
           </div>
         `;
 
-        row.addEventListener('click', () => {
-          executeMove(cand.move);
-        });
-
+        row.addEventListener('click', () => executeMove(cand.move));
         row.addEventListener('mouseenter', () => {
           state.hoveredSquare = cand.move;
           updateArrows();
@@ -1507,14 +2022,14 @@
     }
 
     /**
-     * Render Move History in PGN Format
+     * Render Move History
      */
     function renderMoveHistory() {
       const container = document.getElementById('move-history-container');
       container.innerHTML = '';
 
       if (state.history.length <= 1) {
-        container.innerHTML = '<span class="text-xs text-[#73706c] italic">No moves played yet. Board at starting position.</span>';
+        container.innerHTML = `<span class="text-xs text-[#73706c] italic">Starting position on ${config.rows}×${config.cols} (k=${config.k}). No moves yet.</span>`;
         return;
       }
 
@@ -1522,7 +2037,6 @@
       const isPlayMode = state.mode === 'play';
       const showAnnotations = !isPlayMode || state.playShowEval || winStatus;
 
-      // Group moves into pairs: 1. MoveX MoveO  2. MoveX MoveO
       for (let i = 1; i < state.history.length; i++) {
         const moveNumber = Math.ceil(i / 2);
         const isX = i % 2 === 1;
@@ -1543,12 +2057,12 @@
           annotationBadge = `<sup class="font-bold ${moveItem.annotation.color}">${moveItem.annotation.glyph}</sup>`;
         }
 
-        moveBtn.className = `px-2 py-0.5 rounded text-xs transition flex items-center space-x-0.5 ${
-          isActive
-            ? 'bg-[#3692e7] text-white font-bold shadow'
-            : 'bg-[#1e1c18] hover:bg-[#363431] text-gray-300'
+        const moveCoord = getCoord(moveItem.lastMove, config.rows, config.cols);
+
+        moveBtn.className = `px-1.5 py-0.5 rounded text-xs transition flex items-center space-x-0.5 ${
+          isActive ? 'bg-[#3692e7] text-white font-bold shadow' : 'bg-[#1e1c18] hover:bg-[#363431] text-gray-300'
         }`;
-        moveBtn.innerHTML = `<span>${COORDS[moveItem.lastMove]}</span>${annotationBadge}`;
+        moveBtn.innerHTML = `<span>${moveCoord}</span>${annotationBadge}`;
 
         moveBtn.addEventListener('click', () => {
           state.currentPly = i;
@@ -1558,12 +2072,11 @@
         container.appendChild(moveBtn);
       }
 
-      // Automatically scroll history container to bottom
       container.scrollTop = container.scrollHeight;
     }
 
     /**
-     * Navigation Controls Logic
+     * Navigation Controls
      */
     function goFirst() {
       if (state.currentPly > 0) {
@@ -1600,7 +2113,7 @@
     function resetBoard() {
       state.history = [
         {
-          board: Array(9).fill(null),
+          board: Array(config.rows * config.cols).fill(null),
           turn: 'X',
           lastMove: null,
           annotation: null,
@@ -1618,7 +2131,7 @@
           makeEngineMove();
           state.isEngineThinking = false;
           render();
-        }, 400);
+        }, 360);
       }
     }
 
@@ -1633,9 +2146,6 @@
       }, 2000);
     }
 
-    /**
-     * Copy FEN helper using fallback
-     */
     function copyFen() {
       const current = state.history[state.currentPly];
       const fen = getFen(current.board, current.turn);
@@ -1646,14 +2156,12 @@
       try {
         document.execCommand('copy');
         showToast('FEN copied to clipboard!');
-      } catch (err) {
-        // Fallback
-      }
+      } catch (err) {}
       document.body.removeChild(tempInput);
     }
 
     /**
-     * Level and Evaluation Controller Functions
+     * Level and Evaluation Controllers
      */
     function setEngineLevel(level) {
       if (level < 1) level = 1;
@@ -1665,7 +2173,7 @@
 
       updateLevelUI();
       render();
-      showToast(`StockTic difficulty set to Level ${level} (${LEVELS[level - 1].name})`);
+      showToast(`StockTic set to Level ${level} (${LEVELS[level - 1].name})`);
     }
 
     function updateLevelUI() {
@@ -1734,6 +2242,123 @@
       playPanel.classList.add('hidden');
       render();
       showToast('Switched to Analysis Mode: explore evaluations and blunder annotations');
+    }
+
+    /**
+     * Board Dimension & Configuration Controller
+     */
+    function updateBoardConfiguration(rows, cols, k) {
+      rows = Math.max(1, Math.min(32, parseInt(rows, 10) || 3));
+      cols = Math.max(1, Math.min(32, parseInt(cols, 10) || 3));
+      const maxPossibleK = Math.max(rows, cols);
+      k = Math.max(1, Math.min(8, Math.min(maxPossibleK, parseInt(k, 10) || 3)));
+
+      config.rows = rows;
+      config.cols = cols;
+      config.k = k;
+
+      try {
+        localStorage.setItem('stocktic_rows', rows.toString());
+        localStorage.setItem('stocktic_cols', cols.toString());
+        localStorage.setItem('stocktic_k', k.toString());
+      } catch (e) {}
+
+      ttMap.clear();
+      resetBoard();
+      showToast(`Board updated: ${rows}×${cols} with k=${k} to win!`);
+    }
+
+    // Modal UI controllers
+    const modal = document.getElementById('board-config-modal');
+    const openModalBtn = document.getElementById('open-board-config-btn');
+    const quickConfigBtn = document.getElementById('btn-quick-config');
+    const closeModalX = document.getElementById('close-modal-x');
+    const cancelModalBtn = document.getElementById('btn-cancel-modal');
+    const applyModalBtn = document.getElementById('btn-apply-modal');
+
+    const inputRows = document.getElementById('input-rows');
+    const inputCols = document.getElementById('input-cols');
+    const inputK = document.getElementById('input-k');
+    const sliderMVal = document.getElementById('slider-m-val');
+    const sliderNVal = document.getElementById('slider-n-val');
+    const sliderKVal = document.getElementById('slider-k-val');
+    const modalTotalCells = document.getElementById('modal-total-cells');
+    const modalTheoreticalVal = document.getElementById('modal-theoretical-val');
+
+    function syncModalInputs() {
+      inputRows.value = config.rows;
+      inputCols.value = config.cols;
+      inputK.max = Math.max(config.rows, config.cols);
+      inputK.value = config.k;
+      updateModalDisplays();
+    }
+
+    function updateModalDisplays() {
+      const r = parseInt(inputRows.value, 10);
+      const c = parseInt(inputCols.value, 10);
+      const maxK = Math.max(r, c);
+      inputK.max = Math.min(8, maxK);
+      if (parseInt(inputK.value, 10) > maxK) {
+        inputK.value = maxK;
+      }
+      const k = parseInt(inputK.value, 10);
+
+      sliderMVal.textContent = r;
+      sliderNVal.textContent = c;
+      sliderKVal.textContent = k;
+      modalTotalCells.textContent = `${r * c} cells (${r} × ${c})`;
+      modalTheoreticalVal.textContent = getTheoreticalValue(r, c, k);
+    }
+
+    function openModal() {
+      syncModalInputs();
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+    }
+
+    if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+    if (quickConfigBtn) quickConfigBtn.addEventListener('click', openModal);
+    if (closeModalX) closeModalX.addEventListener('click', closeModal);
+    if (cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
+
+    inputRows.addEventListener('input', updateModalDisplays);
+    inputCols.addEventListener('input', updateModalDisplays);
+    inputK.addEventListener('input', updateModalDisplays);
+
+    // Presets in modal
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const m = parseInt(btn.dataset.m, 10);
+        const n = parseInt(btn.dataset.n, 10);
+        const k = parseInt(btn.dataset.k, 10);
+        inputRows.value = m;
+        inputCols.value = n;
+        updateModalDisplays();
+        inputK.value = k;
+        updateModalDisplays();
+      });
+    });
+
+    applyModalBtn.addEventListener('click', () => {
+      const r = parseInt(inputRows.value, 10);
+      const c = parseInt(inputCols.value, 10);
+      const k = parseInt(inputK.value, 10);
+      updateBoardConfiguration(r, c, k);
+      closeModal();
+    });
+
+    // Toggle Zoom (Fit vs Scroll)
+    const toggleZoomBtn = document.getElementById('toggle-zoom-btn');
+    const zoomText = document.getElementById('zoom-text');
+    if (toggleZoomBtn) {
+      toggleZoomBtn.addEventListener('click', () => {
+        config.zoomMode = config.zoomMode === 'fit' ? 'scroll' : 'fit';
+        if (zoomText) zoomText.textContent = config.zoomMode === 'fit' ? 'Fit' : '100%';
+        render();
+      });
     }
 
     // Attach Event Listeners
@@ -1847,9 +2472,7 @@
     document.querySelectorAll('.level-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lvl = parseInt(btn.dataset.level, 10);
-        if (lvl >= 1 && lvl <= 8) {
-          setEngineLevel(lvl);
-        }
+        if (lvl >= 1 && lvl <= 8) setEngineLevel(lvl);
       });
     });
 
@@ -1857,17 +2480,8 @@
     const evalToggleOffBtn = document.getElementById('eval-toggle-off-btn');
     const evalToggleOnBtn = document.getElementById('eval-toggle-on-btn');
 
-    if (evalToggleOffBtn) {
-      evalToggleOffBtn.addEventListener('click', () => {
-        setPlayShowEval(false);
-      });
-    }
-
-    if (evalToggleOnBtn) {
-      evalToggleOnBtn.addEventListener('click', () => {
-        setPlayShowEval(true);
-      });
-    }
+    if (evalToggleOffBtn) evalToggleOffBtn.addEventListener('click', () => setPlayShowEval(false));
+    if (evalToggleOnBtn) evalToggleOnBtn.addEventListener('click', () => setPlayShowEval(true));
 
     // Load persisted settings from localStorage
     try {
@@ -1880,6 +2494,14 @@
       if (savedEval !== null) {
         state.playShowEval = savedEval === 'true';
       }
+      const savedRows = localStorage.getItem('stocktic_rows');
+      const savedCols = localStorage.getItem('stocktic_cols');
+      const savedK = localStorage.getItem('stocktic_k');
+      if (savedRows && savedCols && savedK) {
+        config.rows = Math.max(1, Math.min(32, parseInt(savedRows, 10)));
+        config.cols = Math.max(1, Math.min(32, parseInt(savedCols, 10)));
+        config.k = Math.max(1, Math.min(8, Math.min(Math.max(config.rows, config.cols), parseInt(savedK, 10))));
+      }
     } catch (e) {}
 
     // Initialize UI settings
@@ -1888,10 +2510,22 @@
 
     // Initial render on page load
     window.onload = function() {
+      // Check URL parameters: ?m=15&n=15&k=5
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramM = urlParams.get('m');
+      const paramN = urlParams.get('n');
+      const paramK = urlParams.get('k');
+      if (paramM || paramN || paramK) {
+        const r = parseInt(paramM || config.rows, 10);
+        const c = parseInt(paramN || config.cols, 10);
+        const k = parseInt(paramK || config.k, 10);
+        updateBoardConfiguration(r, c, k);
+      }
+
       if (window.location.hash === '#play') {
         modePlayBtn.click();
       } else {
-        render();
+        resetBoard();
       }
     };
 

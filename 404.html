@@ -31,8 +31,13 @@
         return;
       }
 
-      if (lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/analysis' || lower === '/ttt') {
+      if (lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/analysis' || lower === '/ttt' || lower === '/gomoku' || lower === '/mnk') {
         window.location.replace('/lichess_tic_tac_toe_analysis_board.html' + search + hash);
+        return;
+      }
+
+      if (lower === '/theory' || lower === '/article' || lower === '/mnk-theory' || lower === '/game-theory') {
+        window.location.replace('/mnk_games_theory_and_ai.html' + search + hash);
         return;
       }
     })();

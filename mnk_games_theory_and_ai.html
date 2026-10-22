@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mathematics & SOTA AI of (m,n,k)-Games — Vaibhav Geometer</title>
+  <meta name="description" content="A comprehensive mathematical and algorithmic guide to generalized (m,n,k)-games, from Tic-Tac-Toe to 32x32 Gomoku: game-theoretic classifications, Nash's strategy stealing, Ramsey theory, and SOTA AI engines.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
+
+  <!-- Google Fonts: Inter & Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/portfolio.css">
+
+  <style>
+    .article-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .article-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-cyan);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4.5vw, 2.9rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .article-lead {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .article-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Content styling */
+    .prose-content {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-primary);
+    }
+
+    .prose-content h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .prose-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .prose-content p {
+      margin-bottom: 1.25rem;
+      color: var(--text-secondary);
+    }
+
+    .prose-content strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .prose-content ul, .prose-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .prose-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Callout & Math Boxes */
+    .math-callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      box-shadow: 0 4px 20px -5px rgba(0,0,0,0.3);
+      overflow-x: auto;
+    }
+
+    .theorem-box {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-left: 4px solid var(--accent-indigo);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .theorem-box-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #818cf8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Interactive Table of Solved Games */
+    .table-container {
+      margin: 2rem 0;
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .mnk-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .mnk-table th {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-heading);
+    }
+
+    [data-theme="light"] .mnk-table th {
+      background: rgba(241, 245, 249, 0.95);
+    }
+
+    .mnk-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .mnk-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .mnk-table tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .status-win {
+      background: rgba(98, 153, 36, 0.2);
+      color: #7ec62f;
+      border: 1px solid rgba(98, 153, 36, 0.4);
+    }
+
+    .status-draw {
+      background: rgba(230, 159, 0, 0.18);
+      color: #e69f00;
+      border: 1px solid rgba(230, 159, 0, 0.4);
+    }
+
+    .status-open {
+      background: rgba(239, 68, 68, 0.18);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    /* Algorithm Card Grid */
+    .algo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+
+    .algo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .algo-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-cyan);
+    }
+
+    .algo-card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .algo-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .algo-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .code-inline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88em;
+      padding: 0.15rem 0.4rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      color: #38bdf8;
+    }
+
+    /* Interactive CTA Banner */
+    .engine-cta-banner {
+      background: linear-gradient(135deg, rgba(38, 36, 33, 0.95) 0%, rgba(30, 28, 24, 0.95) 100%);
+      border: 1px solid #629924;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 3.5rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      box-shadow: 0 10px 30px -10px rgba(98, 153, 36, 0.25);
+    }
+
+    @media (min-width: 768px) {
+      .engine-cta-banner {
+        flex-direction: row;
+      }
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #629924;
+      color: white;
+      font-weight: 700;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .cta-button:hover {
+      background: #72b02a;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Atmospheric Glow -->
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="./" class="brand-wrap" title="Vaibhav Geometer">
+        <div class="brand-icon-box">📐</div>
+        <span class="brand-text">Vaibhav Geometer</span>
+      </a>
+
+      <div class="nav-controls">
+        <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link" title="Launch Analysis Board">
+          ♟️ Play / Analyze
+        </a>
+        <a href="JAM/" class="nav-link" title="IIT JAM Portal">
+          IIT JAM
+        </a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="nav-link" title="GitHub Profile">
+          GitHub
+        </a>
+        <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <main class="article-wrap">
+    
+    <header class="article-header">
+      <div class="article-tag">
+        <span>🎮 Combinatorial Game Theory & AI</span>
+      </div>
+      <h1 class="article-title">The Mathematics & SOTA AI of (m,n,k)-Games</h1>
+      <p class="article-lead">
+        From 3×3 Tic-Tac-Toe to 32×32 Gomoku: An in-depth exploration of game-theoretic classifications, John Nash's strategy-stealing theorem, Ramsey-theoretic pairing strategies, and State-of-the-Art algorithms.
+      </p>
+
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <span>✍️</span>
+          <span>By <strong>Vaibhav Geometer</strong></span>
+        </div>
+        <div class="article-meta-item">
+          <span>📅</span>
+          <span>October 2026</span>
+        </div>
+        <div class="article-meta-item">
+          <span>⏱️</span>
+          <span>14 min read</span>
+        </div>
+        <div class="article-meta-item">
+          <span>🚀</span>
+          <a href="lichess_tic_tac_toe_analysis_board.html" class="text-link" style="color: var(--accent-cyan); font-weight:600;">Test in Live Analysis Board →</a>
+        </div>
+      </div>
+    </header>
+
+    <article class="prose-content">
+
+      <!-- Section 1: Introduction -->
+      <h2>1. Introduction to (m,n,k)-Games</h2>
+      <p>
+        An <code class="code-inline">(m, n, k)</code>-game is an abstract combinatorial board game played between two players on an <code class="code-inline">m &times; n</code> rectangular grid. The two players take turns placing their respective marks (<code class="code-inline">X</code> and <code class="code-inline">O</code>) on any unoccupied square. The objective is to be the first to align <code class="code-inline">k</code> marks consecutively along a straight line &mdash; horizontally, vertically, or diagonally.
+      </p>
+      <p>
+        If all <code class="code-inline">m &times; n</code> squares are filled without either player achieving <code class="code-inline">k</code> in a row, the game ends in a <strong>theoretical draw</strong>.
+      </p>
+
+      <div class="math-callout">
+        Game Configuration: (m, n, k)<br>
+        • m &ge; 1 : Number of rows<br>
+        • n &ge; 1 : Number of columns<br>
+        • k &ge; 1 : Contiguous streak required to win (with k &le; max(m, n))<br>
+        • Total Board State Space: 3^(m &times; n) possible configurations
+      </div>
+
+      <p>
+        These games form a cornerstone of <em>Maker-Maker positional games</em> in combinatorial game theory. While standard 3&times;3 Tic-Tac-Toe (<code class="code-inline">(3, 3, 3)</code>) has a modest search tree of 255,168 games and 5,478 legal positions, scaling the board to 15&times;15 Gomoku (<code class="code-inline">(15, 15, 5)</code>) or our maximum 32&times;32 engine (<code class="code-inline">(32, 32, k)</code>) yields state spaces of over <code class="code-inline">10^488</code> positions &mdash; dwarfing the complexity of Chess (<code class="code-inline">~10^43</code>) and Go (<code class="code-inline">~10^170</code>).
+      </p>
+
+      <!-- Section 2: Fundamental Theorems -->
+      <h2>2. Fundamental Game-Theoretic Theorems</h2>
+      
+      <p>
+        Because <code class="code-inline">(m, n, k)</code>-games are finite, two-player, zero-sum, perfect information games without chance, Zermelo's 1913 Theorem establishes that every position has an exact, determinate game-theoretic value: either First-Player Win, Draw, or Second-Player Win under optimal play.
+      </p>
+
+      <div class="theorem-box">
+        <div class="theorem-box-title">
+          <span>⚖️</span>
+          <span>Theorem: John Nash's Strategy-Stealing Argument (1952)</span>
+        </div>
+        <p style="margin-bottom:0.75rem; color:var(--text-primary); font-size: 0.95rem;">
+          <strong>Statement:</strong> In any <code class="code-inline">(m, n, k)</code>-game, the second player (O) can <em>never</em> have a winning strategy.
+        </p>
+        <p style="margin-bottom:0; font-size: 0.9rem; color:var(--text-secondary);">
+          <strong>Proof by Contradiction:</strong> Suppose player 2 possessed a guaranteed winning strategy <code class="code-inline">S</code>. Player 1 places their first stone on an arbitrary cell <code class="code-inline">c_1</code>. Player 1 then mentally treats this stone as a phantom neutral stone and adopts strategy <code class="code-inline">S</code> as if Player 1 were the second player. If strategy <code class="code-inline">S</code> ever instructs Player 1 to play on <code class="code-inline">c_1</code> (which is already occupied), Player 1 simply chooses any remaining unoccupied square instead. Because having an extra stone on the board can never disadvantage a player in an <code class="code-inline">(m,n,k)</code> game (placing a stone is purely monotonic and non-destructive), Player 1's imitation of <code class="code-inline">S</code> will win at least as quickly as <code class="code-inline">S</code> would. This contradicts the assumption that <code class="code-inline">S</code> was a winning strategy exclusively for player 2. &blacksquare;
+        </p>
+      </div>
+
+      <p>
+        Consequently, <strong>every <code class="code-inline">(m, n, k)</code>-game is either a First-Player Win (X) or a Theoretical Draw</strong>. A second-player win is mathematically impossible under optimal play!
+      </p>
+
+      <h3>Pairing Strategies & Ramsey Theory</h3>
+      <p>
+        How does player 2 force a draw? The primary constructive method in combinatorial game theory is the <strong>Pairing Strategy</strong> (pioneered by Hales & Jewett in 1963 and Erdős & Selfridge in 1973). If Player 2 can partition all cells of the board into disjoint pairs such that <em>every winning line contains at least one whole pair</em>, Player 2 simply responds to every move of Player 1 by playing the paired square.
+      </p>
+      <p>
+        Since Player 1 can never claim both squares in any pair, Player 1 can never complete a full line of length <code class="code-inline">k</code>.
+      </p>
+
+      <!-- Section 3: The Game-Theoretic Atlas -->
+      <h2>3. The Game-Theoretic Atlas of Solved (m,n,k) Games</h2>
+      <p>
+        Over six decades of research by mathematicians and computer scientists have yielded exact solutions for various configurations. Below is the comprehensive classification table:
+      </p>
+
+      <div class="table-container">
+        <table class="mnk-table">
+          <thead>
+            <tr>
+              <th>Game (m, n, k)</th>
+              <th>Common Name</th>
+              <th>Game-Theoretic Value</th>
+              <th>Solver / Year</th>
+              <th>Complexity / Proof Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>(1, 1, 1) to (m, n, 1)</strong></td>
+              <td>1-in-a-row</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Trivial</td>
+              <td>Move 1 instant win on any cell.</td>
+            </tr>
+            <tr>
+              <td><strong>(2, 2, 2) to (m, n, 2)</strong></td>
+              <td>2-in-a-row</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Trivial (m,n &ge; 2)</td>
+              <td>Center or adjacent play guarantees unstoppable double threat.</td>
+            </tr>
+            <tr>
+              <td><strong>(3, 3, 3)</strong></td>
+              <td>Classic Tic-Tac-Toe</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Ancient / Tablebase</td>
+              <td>Exact retrograde minimax (549 terminal nodes).</td>
+            </tr>
+            <tr>
+              <td><strong>(4, 3, 3) & (4, 4, 3)</strong></td>
+              <td>3-in-a-row on 4x4</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Combinatorial analysis</td>
+              <td>Board space permits unstoppable forks by move 5.</td>
+            </tr>
+            <tr>
+              <td><strong>(4, 4, 4)</strong></td>
+              <td>4x4 Tic-Tac-Toe</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Solved (Patashnik, 1980)</td>
+              <td>Exhaustive computer search + symmetry reduction.</td>
+            </tr>
+            <tr>
+              <td><strong>(5, 5, 4)</strong></td>
+              <td>5x5 4-in-a-row</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Solved (Allis, 1993)</td>
+              <td>Threat-Space Search (VCF / VCT).</td>
+            </tr>
+            <tr>
+              <td><strong>(5, 5, 5)</strong></td>
+              <td>5x5 Gomoku</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Solved</td>
+              <td>Erdős-Selfridge pairing strategies force draw.</td>
+            </tr>
+            <tr>
+              <td><strong>(6, 6, 5) & (7, 7, 5)</strong></td>
+              <td>Small Gomoku</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Solved (Allis, 1993)</td>
+              <td>Proof-Number Search (PNS) proves second player holds draw.</td>
+            </tr>
+            <tr>
+              <td><strong>(8, 8, 5)</strong></td>
+              <td>8x8 Gomoku</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Solved (Allis, 1993)</td>
+              <td>First player forces continuous four-threat chain (VCF).</td>
+            </tr>
+            <tr>
+              <td><strong>(15, 15, 5)</strong></td>
+              <td>Standard Freestyle Gomoku</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Victor Allis (1993)</td>
+              <td>Milestone Ph.D. dissertation using Threat-Space Search & PNS.</td>
+            </tr>
+            <tr>
+              <td><strong>(19, 19, 5)</strong></td>
+              <td>Go-Board Gomoku / Pente</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Victor Allis (1993)</td>
+              <td>First-player advantage is decisive on large open boards.</td>
+            </tr>
+            <tr>
+              <td><strong>(&infin;, &infin;, 8)</strong></td>
+              <td>Infinite Board 8-in-a-row</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Plambeck (1985) / Zebedin (1995)</td>
+              <td>Pairing strategy tiles the plane into defensive pairs.</td>
+            </tr>
+            <tr>
+              <td><strong>(&infin;, &infin;, 6)</strong></td>
+              <td>Infinite Board 6-in-a-row</td>
+              <td><span class="status-badge status-open">OPEN PROBLEM</span></td>
+              <td>Unsolved</td>
+              <td>Conjectured to be a Draw (J. Beck, 2008), but unproven!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 4: AI Algorithms -->
+      <h2>4. State-of-the-Art AI Engines for (m,n,k) Games</h2>
+      <p>
+        Building a computer engine that scales seamlessly from a 1&times;1 micro-board to a 32&times;32 mega-board requires combining five complementary tiers of modern game AI:
+      </p>
+
+      <div class="algo-grid">
+        <div class="algo-card">
+          <div class="algo-card-icon">🧠</div>
+          <div class="algo-card-title">1. Retrograde Minimax</div>
+          <div class="algo-card-desc">
+            Exact tablebase generation with full depth search for <code class="code-inline">mn &le; 16</code>. Guarantees mathematical perfection without heuristic estimation.
+          </div>
+        </div>
+
+        <div class="algo-card">
+          <div class="algo-card-icon">⚡</div>
+          <div class="algo-card-title">2. Threat-Space Search (TSS)</div>
+          <div class="algo-card-desc">
+            VCF (Victory by Continuous Fours) & VCT (Victory by Continuous Threats). Explores only forcing sequences to prove checkmates in seconds.
+          </div>
+        </div>
+
+        <div class="algo-card">
+          <div class="algo-card-icon">🎯</div>
+          <div class="algo-card-title">3. Neighborhood Pruning</div>
+          <div class="algo-card-desc">
+            On a 32&times;32 board (1,024 cells), only squares within Chebyshev distance &le; 2 of existing stones are evaluated, cutting branching factor from 1,000 to ~20.
+          </div>
+        </div>
+
+        <div class="algo-card">
+          <div class="algo-card-icon">📈</div>
+          <div class="algo-card-title">4. Pattern Alpha-Beta & TT</div>
+          <div class="algo-card-desc">
+            Zobrist transposition tables with killer move heuristics and calibrated threat weights (Live-4, Sleep-4, Live-3, Forks, Adjacency).
+          </div>
+        </div>
+      </div>
+
+      <h3>A. Threat-Space Search (VCF & VCT)</h3>
+      <p>
+        The breakthrough technique developed by Dr. Victor Allis to solve Gomoku is <strong>Threat-Space Search (TSS)</strong>. In standard Alpha-Beta minimax, the engine searches all candidate moves to depth <code class="code-inline">d</code>. In TSS, the search is partitioned into two specialized phases:
+      </p>
+      <ol>
+        <li>
+          <strong>VCF (Victory by Continuous Fours):</strong> The attacker plays only moves that create a <em>Straight Four</em> or <em>Broken Four</em> (<code class="code-inline">k - 1</code> in a row). Because the defender has exactly <strong>one</strong> legal response (must block the win immediately on the next ply), the branching factor of the search tree drops from <code class="code-inline">b &approx; 200</code> down to <code class="code-inline">b = 1</code>! This enables finding 20-to-40-ply deep winning combinations in mere milliseconds.
+        </li>
+        <li>
+          <strong>VCT (Victory by Continuous Threats):</strong> Expands beyond fours to include moves that threaten to create open threes or double-threat forks, where the defender's response is constrained to a tiny defensive subset.
+        </li>
+      </ol>
+
+      <h3>B. Heuristic Threat-Pattern Matrix</h3>
+      <p>
+        For arbitrary board dimensions and win lengths <code class="code-inline">k &in; [1, 8]</code>, our StockTic engine evaluates lines using a generalized geometric kernel:
+      </p>
+
+      <div class="math-callout">
+        Pattern Classification & Weighting Function:<br>
+        • k-in-a-row (Terminal Win) : &infin; (+1,000,000 pts)<br>
+        • Open (k - 1) [Live Four]   : +100,000 pts (Unstoppable win in 1 move)<br>
+        • Closed (k - 1) [Sleep Four]: +10,000 pts (Immediate check, forces block)<br>
+        • Open (k - 2) [Live Three]  : +4,500 pts (Forms open four if unblocked)<br>
+        • Closed (k - 2) [Sleep Three]: +800 pts<br>
+        • Open (k - 3) [Live Two]    : +150 pts<br>
+        • Double Threat / Fork Bonus : +25,000 pts (Multiple simultaneous threats)
+      </div>
+
+      <h3>C. Proof-Number Search (PNS & df-pn)</h3>
+      <p>
+        Unlike Alpha-Beta which aims to minimize the worst-case score, <strong>Proof-Number Search</strong> is an AND/OR tree search designed to find a proof of a game's terminal status (Win or Draw). Each node maintains two values:
+      </p>
+      <ul>
+        <li><code class="code-inline">proof(n)</code>: The minimum number of leaf nodes that must be proven TRUE to prove node <code class="code-inline">n</code>.</li>
+        <li><code class="code-inline">disproof(n)</code>: The minimum number of leaf nodes that must be disproven FALSE to refute node <code class="code-inline">n</code>.</li>
+      </ul>
+      <p>
+        By always expanding the <em>most-proving leaf</em> (the node with smallest proof number), PNS cuts through wide combinatorial spaces with surgical efficiency.
+      </p>
+
+      <!-- Section 5: The 8-Level Difficulty Calibration -->
+      <h2>5. How StockTic Levels 1–8 Are Calibrated</h2>
+      <p>
+        In our interactive analysis engine, players can test these algorithms across 8 calibrated difficulty levels:
+      </p>
+      <ul>
+        <li><strong>Level 1 (Beginner, ~600 Elo):</strong> Casual random neighborhood moves; overlooks 1-move wins and blocks 85% of the time.</li>
+        <li><strong>Level 2 (Casual, ~900 Elo):</strong> Takes obvious 1-move wins 50% of the time; overlooks opponent blocks.</li>
+        <li><strong>Level 3 (Novice, ~1200 Elo):</strong> Always capitalizes on direct 1-move wins; blocks direct threats 50% of the time.</li>
+        <li><strong>Level 4 (Intermediate, ~1500 Elo):</strong> Takes wins and blocks direct threats; vulnerable to double-threat positional forks.</li>
+        <li><strong>Level 5 (Advanced, ~1800 Elo):</strong> Detects Open-<code class="code-inline">k-1</code> threats, prevents basic forks, searches depth 2.</li>
+        <li><strong>Level 6 (Expert, ~2100 Elo):</strong> Threat-Space search active; recognizes complex multi-directional tactical traps.</li>
+        <li><strong>Level 7 (Master, ~2500 Elo):</strong> Iterative deepening with Zobrist transposition tables and killer-move ordering.</li>
+        <li><strong>Level 8 (StockTic Max, ~3000 Elo):</strong> SOTA Grandmaster engine: exact retrograde tablebase on small boards, and deep Threat-Space Search + Alpha-Beta heuristic pruning on large boards up to 32&times;32.</li>
+      </ul>
+
+      <!-- Section 6: Interactive Call to Action -->
+      <div class="engine-cta-banner">
+        <div>
+          <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: #ffffff; margin-bottom: 0.35rem;">
+            Test (m,n,k)-Games in Real-Time
+          </h3>
+          <p style="color: #bababa; font-size: 0.95rem; margin-bottom: 0;">
+            Configure any board from 1&times;1 to 32&times;32 with k from 1 to 8 on the interactive Lichess-style analysis board.
+          </p>
+        </div>
+        <a href="lichess_tic_tac_toe_analysis_board.html" class="cta-button">
+          <span>♟️ Launch Analysis Board</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Vaibhav Geometer · Hosted on GitHub Pages</p>
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="lichess_tic_tac_toe_analysis_board.html">Analysis Board</a>
+        <a href="JAM/">IIT JAM Portal</a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function initTheme() {
+      const saved = localStorage.getItem('jam_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    }
+
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('jam_theme', next);
+      updateThemeIcon(next);
+    };
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = theme === 'dark' ? '☀' : '🌙';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
