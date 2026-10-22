@@ -390,7 +390,13 @@
       <!-- Move History (PGN Notation & Navigation) -->
       <div class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg flex flex-col">
         <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Move History</span>
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Move History</span>
+            <button id="btn-copy-history" title="1-Click Copy: board size, k, player types, AI level, moves & winner" class="px-2 py-0.5 rounded bg-[#262421] hover:bg-[#363431] border border-[#363431] text-[11px] text-gray-300 hover:text-white transition flex items-center space-x-1">
+              <span>📋</span>
+              <span class="hidden sm:inline">Copy Game</span>
+            </button>
+          </div>
           <div class="flex items-center space-x-1">
             <button id="mode-analysis-btn" class="text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white">Analysis</button>
             <button id="mode-play-btn" class="text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white">vs Engine</button>
@@ -427,15 +433,21 @@
         </div>
       </div>
 
-      <!-- FEN / State Exporter & Info Box -->
-      <div class="bg-[#1e1c18] border border-[#363431] rounded-lg p-2.5 flex items-center justify-between text-xs mono-font">
-        <div class="flex items-center space-x-2 overflow-hidden mr-2">
+      <!-- Game Record Exporter & FEN Box -->
+      <div class="bg-[#1e1c18] border border-[#363431] rounded-lg p-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs mono-font">
+        <div class="flex items-center space-x-2 overflow-hidden min-w-0">
           <span class="text-[#73706c] select-none font-bold">FEN:</span>
           <span id="fen-string-display" class="text-gray-300 truncate select-all">3/3/3 x</span>
         </div>
-        <button id="btn-copy-fen" class="px-2 py-1 bg-[#262421] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white rounded text-[11px] font-sans font-semibold transition whitespace-nowrap">
-          Copy FEN
-        </button>
+        <div class="flex items-center space-x-1.5 flex-shrink-0">
+          <button id="btn-copy-game-record" title="Copy Full Game Record in One Click (Board size, k, player types, AI level, moves & winner)" class="px-2.5 py-1 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-[11px] font-sans font-bold transition flex items-center space-x-1 shadow-sm whitespace-nowrap">
+            <span>📋</span>
+            <span>Copy Game Record</span>
+          </button>
+          <button id="btn-copy-fen" title="Copy FEN string" class="px-2 py-1 bg-[#262421] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white rounded text-[11px] font-sans font-semibold transition whitespace-nowrap">
+            FEN
+          </button>
+        </div>
       </div>
 
     </div>
@@ -1895,6 +1907,10 @@
                 <button id="card-play-again-btn" class="px-3 py-1 text-xs rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold transition shadow">
                   ↺ Play Again
                 </button>
+                <button id="card-copy-record-btn" class="px-2.5 py-1 text-xs rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 hover:text-white transition font-semibold flex items-center space-x-1" title="Copy Full Game Record in One Click">
+                  <span>📋</span>
+                  <span>Copy Record</span>
+                </button>
                 <button id="card-review-analysis-btn" class="px-2.5 py-1 text-xs rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 transition">
                   🔍 Review in Analysis
                 </button>
@@ -1909,6 +1925,9 @@
 
           const playAgainBtn = document.getElementById('card-play-again-btn');
           if (playAgainBtn) playAgainBtn.addEventListener('click', resetBoard);
+
+          const copyRecordBtn = document.getElementById('card-copy-record-btn');
+          if (copyRecordBtn) copyRecordBtn.addEventListener('click', copyGameRecord);
 
           const reviewBtn = document.getElementById('card-review-analysis-btn');
           if (reviewBtn) reviewBtn.addEventListener('click', reviewGameInAnalysis);
@@ -1949,7 +1968,10 @@
             </div>
 
             <div class="flex items-center justify-between pt-1">
-              <span class="text-[11px] text-[#73706c] italic">Evaluation hidden for fair match play.</span>
+              <button id="card-copy-ongoing-btn" class="px-2 py-0.5 text-[11px] rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1" title="1-Click Copy: board, k, players, AI level, moves & status">
+                <span>📋</span>
+                <span>Copy Record</span>
+              </button>
               <button id="card-peek-eval-btn" class="px-2 py-0.5 text-[11px] rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1">
                 <span>👁️</span>
                 <span>Peek Eval / Hint</span>
@@ -1957,6 +1979,9 @@
             </div>
           </div>
         `;
+
+        const copyOngoingBtn = document.getElementById('card-copy-ongoing-btn');
+        if (copyOngoingBtn) copyOngoingBtn.addEventListener('click', copyGameRecord);
 
         const peekBtn = document.getElementById('card-peek-eval-btn');
         if (peekBtn) {
@@ -2146,18 +2171,147 @@
       }, 2000);
     }
 
-    function copyFen() {
-      const current = state.history[state.currentPly];
-      const fen = getFen(current.board, current.turn);
-      const tempInput = document.createElement('input');
-      tempInput.value = fen;
+    /**
+     * Clipboard Helper with Modern API and Fallback
+     */
+    function copyTextToClipboard(text, successMsg) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg);
+        }).catch(() => {
+          fallbackCopyText(text, successMsg);
+        });
+      } else {
+        fallbackCopyText(text, successMsg);
+      }
+    }
+
+    function fallbackCopyText(text, successMsg) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      tempInput.style.position = 'fixed';
+      tempInput.style.left = '-9999px';
+      tempInput.style.top = '0';
       document.body.appendChild(tempInput);
+      tempInput.focus();
       tempInput.select();
       try {
         document.execCommand('copy');
-        showToast('FEN copied to clipboard!');
-      } catch (err) {}
+        showToast(successMsg);
+      } catch (err) {
+        showToast('Failed to copy to clipboard');
+      }
       document.body.removeChild(tempInput);
+    }
+
+    /**
+     * Generate Comprehensive One-Click Game Record
+     * Covers: board size, k in a row, player X/O human or AI (with level/Elo), full move history, and winner!
+     */
+    function generateGameRecord() {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      const lastState = state.history[state.history.length - 1];
+      const winStatus = checkWinner(lastState.board, rows, cols, k);
+
+      const isPlayMode = state.mode === 'play';
+      const lvl = LEVELS[state.engineLevel - 1];
+
+      let playerX = 'Human';
+      let playerO = 'Human';
+
+      if (isPlayMode) {
+        if (state.playerPiece === 'X') {
+          playerX = 'Human';
+          playerO = `AI (StockTic Level ${state.engineLevel} · ${lvl.name}, Elo ${lvl.elo})`;
+        } else {
+          playerX = `AI (StockTic Level ${state.engineLevel} · ${lvl.name}, Elo ${lvl.elo})`;
+          playerO = 'Human';
+        }
+      } else {
+        playerX = 'Human (Analysis)';
+        playerO = 'Human (Analysis)';
+      }
+
+      // Outcome & PGN Result
+      let outcome = 'In Progress (Game ongoing)';
+      let pgnResult = '*';
+
+      if (winStatus) {
+        if (winStatus.winner === 'Draw') {
+          outcome = 'Draw (½ - ½, Board Full / No legal moves)';
+          pgnResult = '1/2-1/2';
+        } else if (winStatus.winner === 'X') {
+          const entity = isPlayMode ? (state.playerPiece === 'X' ? 'Human' : `StockTic Lvl ${state.engineLevel}`) : 'Player X';
+          outcome = `Player X (${entity}) Won! (1-0, ${k} in a row)`;
+          pgnResult = '1-0';
+        } else if (winStatus.winner === 'O') {
+          const entity = isPlayMode ? (state.playerPiece === 'O' ? 'Human' : `StockTic Lvl ${state.engineLevel}`) : 'Player O';
+          outcome = `Player O (${entity}) Won! (0-1, ${k} in a row)`;
+          pgnResult = '0-1';
+        }
+      }
+
+      // Format Move History
+      const moveEntries = [];
+      let currentTurnLine = '';
+      for (let i = 1; i < state.history.length; i++) {
+        const moveNumber = Math.ceil(i / 2);
+        const isX = i % 2 === 1;
+        const moveCoord = getCoord(state.history[i].lastMove, rows, cols);
+        const glyph = state.history[i].annotation?.glyph || '';
+
+        if (isX) {
+          if (currentTurnLine.length > 0) moveEntries.push(currentTurnLine.trim());
+          currentTurnLine = `${moveNumber}. ${moveCoord}${glyph}`;
+        } else {
+          currentTurnLine += ` ${moveCoord}${glyph}`;
+        }
+      }
+      if (currentTurnLine.length > 0) moveEntries.push(currentTurnLine.trim());
+
+      const moveHistoryString = moveEntries.length > 0 ? moveEntries.join('  ') : '(No moves played yet)';
+
+      const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '.');
+      const fenStr = getFen(lastState.board, lastState.turn, rows, cols);
+
+      return `=== (m,n,k) Game Record ===
+• Board Size: ${rows}×${cols} (${rows * cols} squares)
+• Win Condition: ${k} in a row to win (k=${k})
+• Game Mode: ${isPlayMode ? 'Practice vs StockTic' : 'Analysis Board'}
+• Player X (First): ${playerX}
+• Player O (Second): ${playerO}
+• Result / Winner: ${outcome}
+• Moves Played: ${state.history.length - 1} plies (${moveEntries.length} turns)
+
+Move History:
+${moveHistoryString}
+
+PGN Specification:
+[Event "StockTic (m,n,k) Match"]
+[Site "vaibhavgeometer.github.io"]
+[Date "${dateStr}"]
+[Board "${rows}x${cols}"]
+[WinStreak "${k}"]
+[Mode "${isPlayMode ? 'Practice vs Engine' : 'Analysis'}"]
+[White "${playerX}"]
+[Black "${playerO}"]
+[Result "${pgnResult}"]
+[FEN "${fenStr}"]
+
+${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
+    }
+
+    function copyGameRecord() {
+      const record = generateGameRecord();
+      copyTextToClipboard(record, 'Game record copied to clipboard!');
+    }
+
+    function copyFen() {
+      const current = state.history[state.currentPly];
+      const fen = getFen(current.board, current.turn);
+      copyTextToClipboard(fen, 'FEN copied to clipboard!');
     }
 
     /**
@@ -2369,6 +2523,12 @@
     document.getElementById('btn-reset').addEventListener('click', resetBoard);
     document.getElementById('btn-copy-fen').addEventListener('click', copyFen);
 
+    const btnCopyGameRecord = document.getElementById('btn-copy-game-record');
+    if (btnCopyGameRecord) btnCopyGameRecord.addEventListener('click', copyGameRecord);
+
+    const btnCopyHistory = document.getElementById('btn-copy-history');
+    if (btnCopyHistory) btnCopyHistory.addEventListener('click', copyGameRecord);
+
     const btnNewMatch = document.getElementById('btn-new-match');
     if (btnNewMatch) btnNewMatch.addEventListener('click', resetBoard);
 
@@ -2388,6 +2548,8 @@
         flipBoard();
       } else if (e.key.toLowerCase() === 'r') {
         resetBoard();
+      } else if (e.key.toLowerCase() === 'c') {
+        copyGameRecord();
       } else if (state.mode === 'play') {
         const num = parseInt(e.key, 10);
         if (num >= 1 && num <= 8) {
