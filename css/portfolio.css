@@ -197,8 +197,15 @@ body {
   color: var(--text-secondary);
 }
 
-/* Featured IIT JAM Card */
-.jam-feature-section {
+/* Featured Projects Section */
+.projects-section {
+  width: 100%;
+}
+
+.projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -212,7 +219,7 @@ body {
   box-shadow: var(--shadow-lg), 0 0 35px -10px var(--accent-glow);
   position: relative;
   overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .jam-card:hover {
@@ -230,6 +237,16 @@ body {
   background: var(--accent-gradient);
 }
 
+/* Engine Card Variant (Lichess Aesthetic) */
+.engine-card::before {
+  background: linear-gradient(135deg, #629924 0%, #3692e7 100%);
+}
+
+.engine-card:hover {
+  border-color: rgba(98, 153, 36, 0.45);
+  box-shadow: var(--shadow-lg), 0 0 35px -10px rgba(98, 153, 36, 0.3);
+}
+
 .jam-badge {
   display: inline-flex;
   align-items: center;
@@ -243,6 +260,27 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 0.75rem;
+}
+
+.engine-badge {
+  background: rgba(98, 153, 36, 0.14);
+  border: 1px solid rgba(98, 153, 36, 0.35);
+  color: #84cc16;
+}
+
+[data-theme="light"] .engine-badge {
+  background: rgba(98, 153, 36, 0.12);
+  border: 1px solid rgba(98, 153, 36, 0.3);
+  color: #4d7c0f;
+}
+
+.btn-engine {
+  background: linear-gradient(135deg, #629924 0%, #3692e7 100%);
+  box-shadow: 0 8px 20px -5px rgba(98, 153, 36, 0.4);
+}
+
+.btn-engine:hover {
+  box-shadow: 0 10px 24px -4px rgba(98, 153, 36, 0.55);
 }
 
 .jam-title {

@@ -9,6 +9,7 @@
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![Mock PDFs](https://img.shields.io/badge/Mock%20Test%20PDFs-56%20Publication%20PDFs-indigo.svg)](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json)
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](JAM/assets/iit_jam_pyqs_categorized.json)
+[![Tic-Tac-Toe Analysis Board](https://img.shields.io/badge/Tic--Tac--Toe-Lichess%20Analysis%20Board-629924?logo=lichess)](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html)
 
 > **Official academic portal and Computer-Based Test (CBT) mock simulator by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)** — hosted at **[`https://vaibhavgeometer.github.io/JAM/`](https://vaibhavgeometer.github.io/JAM/)** and featuring the complete **IIT JAM Mathematics (MA) 22-Year Historical Archive (2005–2026)** with **885 official PYQs**, **58 interactive mock test suites**, **56 pre-compiled publication-quality LaTeX Mock Test PDFs**, **14 topic-wise formula cheat sheets**, an authentic CBT examination simulator with virtual scientific calculator, a custom dynamic test & PDF generator, and master categorized JSON datasets.
 
@@ -20,6 +21,7 @@
 | :--- | :--- | :--- |
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
 | 🌐 **Main Portfolio** | Vaibhav Geometer research hub & 3D geometry sandbox | [vaibhavgeometer.github.io](https://vaibhavgeometer.github.io/) |
+| ♟️ **Tic-Tac-Toe Analysis Board** | Lichess-style analysis board with StockTic 1.0 minimax engine & solved tablebase | [Launch Analysis Board](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html) |
 | 💻 **CBT Simulator** | Real exam interface with palette, timer & scientific calculator | [Launch Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
 | ⏳ **JAM 2027 Countdown** | Live ticking countdown timer to 14 Feb 2027 | [Open Countdown](https://vaibhavgeometer.github.io/JAM/countdown/) |
 | 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & answer keys | [View Manifest](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |

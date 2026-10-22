@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lichess Analysis Board - Tic-Tac-Toe</title>
+  <meta name="description" content="Lichess-style analysis board for Tic-Tac-Toe powered by StockTic 1.0 minimax engine with dynamic eval bar, MultiPV candidate moves, and game-tree navigation.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #161512;
+      color: #bababa;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Custom Lichess Dark Palette */
+    :root {
+      --bg-darkest: #161512;
+      --bg-panel: #262421;
+      --bg-surface: #1e1c18;
+      --bg-hover: #363431;
+      --border-color: #363431;
+      --text-main: #bababa;
+      --text-bright: #ffffff;
+      --text-muted: #73706c;
+      --lichess-green: #629924;
+      --lichess-blue: #3692e7;
+      --lichess-red: #c33a38;
+      --lichess-gold: #e69f00;
+      --board-light: #322f2b;
+      --board-dark: #272522;
+      --board-border: #1a1815;
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e1c18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #363431;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4a4742;
+    }
+
+    /* Board styling */
+    .board-cell {
+      position: relative;
+      background-color: var(--board-dark);
+      transition: background-color 0.15s ease, transform 0.08s ease;
+    }
+    .board-cell:nth-child(even) {
+      background-color: var(--board-light);
+    }
+    .board-cell:hover {
+      background-color: #3e3a35 !important;
+    }
+    .board-cell.highlight-last-move {
+      background-color: rgba(98, 153, 36, 0.28) !important;
+    }
+    .board-cell.highlight-best-move {
+      background-color: rgba(54, 146, 231, 0.25) !important;
+    }
+
+    /* Glow pulse on best arrow */
+    @keyframes arrowPulse {
+      0%, 100% { opacity: 0.95; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.98); }
+    }
+    .pulse-arrow {
+      animation: arrowPulse 2.4s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    /* Winning strike animation */
+    @keyframes winGlow {
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(98,153,36,0.9)); }
+      50% { filter: drop-shadow(0 0 16px rgba(230,159,0,0.95)); }
+    }
+    .win-line-animated {
+      animation: winGlow 1.5s infinite alternate ease-in-out;
+    }
+
+    /* Eval bar transition */
+    .eval-bar-fill {
+      transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-[#1e1c18] border-b border-[#363431] px-4 py-2.5 flex items-center justify-between shadow-md">
+    <div class="flex items-center space-x-3">
+      <!-- Lichess-style Logo & Title -->
+      <div class="flex items-center space-x-2">
+        <svg class="w-7 h-7 text-white fill-current" viewBox="0 0 24 24">
+          <path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/>
+        </svg>
+        <span class="font-extrabold text-lg text-white tracking-wide">lichess<span class="text-[#629924]">.org</span></span>
+      </div>
+      <span class="text-[#73706c] hidden sm:inline">|</span>
+      <span class="text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-300 bg-[#262421] px-2.5 py-1 rounded border border-[#363431]">
+        Analysis Board &bull; Tic-Tac-Toe
+      </span>
+      <a href="./" title="Return to Vaibhav Geometer Home" class="flex items-center space-x-1.5 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
+        <span>📐</span>
+        <span class="hidden sm:inline">Home</span>
+      </a>
+    </div>
+
+    <!-- Quick Tool Toggles -->
+    <div class="flex items-center space-x-2">
+      <!-- Arrows toggle -->
+      <button id="toggle-arrows-btn" title="Toggle Best Move Arrows" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
+        <svg class="w-4 h-4 text-[#629924]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        <span class="hidden md:inline">Arrows</span>
+      </button>
+
+      <!-- Badges toggle -->
+      <button id="toggle-badges-btn" title="Toggle Evaluation Badges on Board" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
+        <span class="w-4 h-4 rounded-full bg-[#363431] border border-gray-400 text-[10px] flex items-center justify-center font-bold text-gray-300">#</span>
+        <span class="hidden md:inline">Badges</span>
+      </button>
+
+      <!-- Sound toggle -->
+      <button id="toggle-sound-btn" title="Toggle Sound" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
+        <svg id="sound-icon-on" class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+        <svg id="sound-icon-off" class="w-4 h-4 text-gray-500 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+        <span class="hidden md:inline">Audio</span>
+      </button>
+
+      <!-- Flip Board -->
+      <button id="flip-board-btn" title="Flip Board Perspective" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        <span class="hidden lg:inline">Flip</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Analysis Workspace -->
+  <main class="max-w-7xl w-full mx-auto p-2 sm:p-4 lg:p-6 flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-center gap-6">
+
+    <!-- LEFT SECTION: Evaluation Bar + 3x3 Analysis Board -->
+    <div class="flex items-stretch justify-center gap-3 sm:gap-4 w-full max-w-[480px]">
+      
+      <!-- Lichess Vertical Evaluation Bar -->
+      <div class="relative w-8 sm:w-9 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none">
+        <!-- Black/O portion (top) -->
+        <div class="w-full bg-[#1e1c18] transition-all duration-300 relative flex items-start justify-center pt-2">
+          <span id="eval-text-top" class="mono-font text-[10px] font-bold text-gray-300 z-10 select-none"></span>
+        </div>
+
+        <!-- Dynamic White/X fill (bottom) -->
+        <div id="eval-bar-fill" class="eval-bar-fill w-full bg-[#f0f0f0] flex items-end justify-center pb-2 relative" style="height: 50%;">
+          <span id="eval-text-bottom" class="mono-font text-[10px] font-bold text-[#161512] z-10 select-none">0.00</span>
+        </div>
+
+        <!-- 0.00 Center divider line -->
+        <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-red-500/30 z-0 pointer-events-none"></div>
+      </div>
+
+      <!-- Board Container -->
+      <div class="flex-1 flex flex-col items-center">
+        <!-- Interactive 3x3 Board with Coordinates and Overlay -->
+        <div class="relative w-full aspect-square bg-[#1a1815] p-2 rounded-lg border-2 border-[#363431] shadow-2xl">
+          
+          <!-- Coordinate labels (Cols: a, b, c) -->
+          <div id="col-coords" class="absolute bottom-0 left-2 right-2 h-4 flex justify-around pointer-events-none text-[10px] font-bold text-[#73706c] mono-font">
+            <span class="flex-1 text-right pr-2">a</span>
+            <span class="flex-1 text-right pr-2">b</span>
+            <span class="flex-1 text-right pr-2">c</span>
+          </div>
+
+          <!-- Coordinate labels (Rows: 3, 2, 1) -->
+          <div id="row-coords" class="absolute top-2 bottom-2 left-0 w-3 flex flex-col justify-around pointer-events-none text-[10px] font-bold text-[#73706c] mono-font pl-1">
+            <span class="flex-1 flex items-start pt-1">3</span>
+            <span class="flex-1 flex items-start pt-1">2</span>
+            <span class="flex-1 flex items-start pt-1">1</span>
+          </div>
+
+          <!-- 3x3 Board Grid -->
+          <div id="board-grid" class="w-full h-full grid grid-cols-3 grid-rows-3 gap-1 bg-[#1a1815] rounded overflow-hidden">
+            <!-- 9 cells rendered via JS -->
+          </div>
+
+          <!-- SVG Overlay for Best Move Arrows & Win Lines -->
+          <svg id="board-svg" class="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 300 300">
+            <defs>
+              <!-- Lichess Green Best Move Arrow Marker -->
+              <marker id="arrowhead-green" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 6 3, 0 6" fill="#629924" fill-opacity="0.95" />
+              </marker>
+              <!-- Lichess Blue Alternative Arrow Marker -->
+              <marker id="arrowhead-blue" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 6 3, 0 6" fill="#3692e7" fill-opacity="0.95" />
+              </marker>
+            </defs>
+            <g id="svg-arrows"></g>
+            <line id="svg-win-line" x1="0" y1="0" x2="0" y2="0" stroke="#629924" stroke-width="8" stroke-linecap="round" class="hidden win-line-animated" />
+          </svg>
+        </div>
+
+        <!-- Board Footnote / Status Under Board -->
+        <div class="w-full mt-2 flex items-center justify-between text-xs text-[#73706c] px-1">
+          <div class="flex items-center space-x-2">
+            <span id="player-turn-indicator" class="inline-flex items-center space-x-1 text-white font-semibold">
+              <span id="turn-icon" class="w-3 h-3 rounded-full bg-white inline-block"></span>
+              <span id="turn-label">X to move</span>
+            </span>
+          </div>
+          <div class="flex items-center space-x-2 mono-font">
+            <span id="board-eval-summary" class="text-white bg-[#262421] px-2 py-0.5 rounded border border-[#363431]">
+              Eval: <strong id="summary-eval-val" class="text-[#629924]">0.00</strong>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SECTION: Lichess Engine Readout, Candidate Moves, Move History & Settings -->
+    <div class="w-full lg:w-[480px] flex flex-col space-y-4">
+      
+      <!-- Engine Evaluation Header Box (StockTic 1.0) -->
+      <div class="bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg">
+        <div class="flex items-center justify-between border-b border-[#363431] pb-2 mb-2">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
+            <span class="font-bold text-sm text-white tracking-wide">StockTic 1.0</span>
+            <span class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 9/9</span>
+          </div>
+          <div class="flex items-center space-x-2 text-xs">
+            <span class="text-[#73706c]">Tablebase:</span>
+            <span class="text-[#629924] font-semibold mono-font">SOLVED</span>
+          </div>
+        </div>
+
+        <!-- Big Numerical Evaluation & Summary -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-baseline space-x-2">
+            <span id="big-eval-badge" class="mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200">
+              0.00
+            </span>
+            <span id="eval-interpretation" class="text-xs font-semibold text-gray-400">
+              Theoretical Draw (Optimal Play)
+            </span>
+          </div>
+          <div class="text-right text-[11px] text-[#73706c] mono-font">
+            <div id="nodes-count">Nodes: 549 / instant</div>
+            <div id="speed-label">0.00 ms (exact)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate Moves (MultiPV) Table -->
+      <div class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
+        <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
+          <span class="text-[11px] text-[#73706c] mono-font">Ranked by score</span>
+        </div>
+        <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-48 overflow-y-auto">
+          <!-- Dynamically populated candidate rows -->
+        </div>
+      </div>
+
+      <!-- Move History (PGN Notation & Quality) -->
+      <div class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg flex flex-col">
+        <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Move History</span>
+          <div class="flex items-center space-x-1">
+            <button id="mode-analysis-btn" class="text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white">Analysis</button>
+            <button id="mode-play-btn" class="text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white">vs Engine</button>
+          </div>
+        </div>
+
+        <!-- History Move Rows -->
+        <div id="move-history-container" class="p-3 min-h-[90px] max-h-36 overflow-y-auto flex flex-wrap gap-1 text-sm mono-font content-start">
+          <!-- Move badges rendered here -->
+        </div>
+
+        <!-- Navigation Buttons (Lichess Style: First, Prev, Next, Last) -->
+        <div class="bg-[#1e1c18] border-t border-[#363431] px-2 py-1.5 flex items-center justify-between">
+          <div class="flex items-center space-x-1">
+            <button id="nav-first" title="First Move (Home / Left Key)" class="p-2 rounded hover:bg-[#363431] text-gray-300 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            </button>
+            <button id="nav-prev" title="Previous Move (Left Arrow)" class="p-2 rounded hover:bg-[#363431] text-gray-300 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button id="nav-next" title="Next Move (Right Arrow)" class="p-2 rounded hover:bg-[#363431] text-gray-300 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            <button id="nav-last" title="Last Move (End / Right Key)" class="p-2 rounded hover:bg-[#363431] text-gray-300 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            </button>
+          </div>
+
+          <div class="flex items-center space-x-1">
+            <button id="btn-reset" title="Reset Board to Starting Position" class="px-2.5 py-1 text-xs bg-[#363431] hover:bg-[#474440] text-gray-200 rounded font-semibold transition">
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Play vs StockTic Settings (Shown when vs Engine is active) -->
+      <div id="play-engine-panel" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg">
+        <div class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Practice vs StockTic</div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-400">Play as:</span>
+          <div class="flex items-center space-x-2">
+            <button id="play-as-x-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white">X (White / First)</button>
+            <button id="play-as-o-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300">O (Black / Second)</button>
+          </div>
+        </div>
+        <div id="engine-message" class="text-xs text-yellow-500/90 mt-2 italic">
+          StockTic will play optimal theoretical moves.
+        </div>
+      </div>
+
+      <!-- FEN / State Exporter & Info Box -->
+      <div class="bg-[#1e1c18] border border-[#363431] rounded-lg p-2.5 flex items-center justify-between text-xs mono-font">
+        <div class="flex items-center space-x-2 overflow-hidden mr-2">
+          <span class="text-[#73706c] select-none font-bold">FEN:</span>
+          <span id="fen-string-display" class="text-gray-300 truncate select-all">3/3/3 x</span>
+        </div>
+        <button id="btn-copy-fen" class="px-2 py-1 bg-[#262421] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white rounded text-[11px] font-sans font-semibold transition whitespace-nowrap">
+          Copy FEN
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div id="toast" class="fixed bottom-4 right-4 bg-[#262421] text-white text-xs px-3 py-2 rounded-lg border border-[#363431] shadow-2xl transition-opacity duration-200 opacity-0 pointer-events-none z-50 flex items-center space-x-2">
+    <svg class="w-4 h-4 text-[#629924]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <!-- Audio Context & Sounds Logic -->
+  <script>
+    // Web Audio synthesizer for tactile chess sounds
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) audioCtx = new AudioContext();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playSound(type) {
+      if (!soundEnabled) return;
+      try {
+        initAudio();
+        if (!audioCtx) return;
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (type === 'move') {
+          // Soft wooden board tap
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(70, now + 0.05);
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+          osc.start(now);
+          osc.stop(now + 0.06);
+        } else if (type === 'win') {
+          // High celebratory double bell
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, now); // D5
+          osc.frequency.setValueAtTime(880, now + 0.08); // A5
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+        } else if (type === 'draw') {
+          // Neutral soft chime
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(440, now);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        } else if (type === 'blunder') {
+          // Low warning sound
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(140, now);
+          osc.frequency.linearRampToValueAtTime(90, now + 0.15);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        }
+      } catch (e) {
+        // Audio error silent fallback
+      }
+    }
+  </script>
+
+  <!-- Complete Theoretical Engine & Analysis UI Script -->
+  <script>
+    /**
+     * Coordinate system matching Chess / Lichess:
+     * Columns: 0 -> 'a', 1 -> 'b', 2 -> 'c'
+     * Rows:    0 -> '3', 1 -> '2', 2 -> '1'
+     *
+     * Index layout:
+     * 0: a3 | 1: b3 | 2: c3
+     * 3: a2 | 4: b2 | 5: c2
+     * 6: a1 | 7: b1 | 8: c1
+     */
+    const COORDS = ['a3', 'b3', 'c3', 'a2', 'b2', 'c2', 'a1', 'b1', 'c1'];
+    const LINES = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Cols
+      [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+
+    // Engine Cache (Memoization table)
+    const memo = new Map();
+
+    /**
+     * Check if a board is terminal: X win, O win, Draw, or Ongoing
+     */
+    function checkWinner(board) {
+      for (let i = 0; i < LINES.length; i++) {
+        const [a, b, c] = LINES[i];
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+          return { winner: board[a], line: [a, b, c], lineIndex: i };
+        }
+      }
+      if (board.every(cell => cell !== null)) {
+        return { winner: 'Draw', line: null, lineIndex: -1 };
+      }
+      return null;
+    }
+
+    /**
+     * Compute state hash key
+     */
+    function getBoardKey(board, turn) {
+      return board.map(c => (c ? c : '.')).join('') + ' ' + turn;
+    }
+
+    /**
+     * Minimax Tablebase Engine
+     * Evaluated strictly from FIRST PLAYER (X)'s perspective:
+     * +1.00 : Guaranteed theoretical win for Player 1 (X)
+     *  0.00 : Guaranteed theoretical draw under optimal play
+     * -1.00 : Guaranteed theoretical win for Player 2 (O)
+     */
+    function analyzePosition(board, turn) {
+      const key = getBoardKey(board, turn);
+      if (memo.has(key)) {
+        return memo.get(key);
+      }
+
+      const terminal = checkWinner(board);
+      if (terminal) {
+        let score = 0;
+        if (terminal.winner === 'X') score = 1;
+        else if (terminal.winner === 'O') score = -1;
+        const res = {
+          score,
+          bestMove: null,
+          pv: [],
+          allMoves: [],
+          terminal: true,
+          winner: terminal.winner,
+          line: terminal.line
+        };
+        memo.set(key, res);
+        return res;
+      }
+
+      const legalMoves = [];
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === null) legalMoves.push(i);
+      }
+
+      const isX = turn === 'X';
+      const nextTurn = isX ? 'O' : 'X';
+      let bestScore = isX ? -Infinity : Infinity;
+      let bestMove = null;
+      let bestPv = [];
+      const moveEvaluations = [];
+
+      for (const move of legalMoves) {
+        const nextBoard = [...board];
+        nextBoard[move] = turn;
+        const childAnalysis = analyzePosition(nextBoard, nextTurn);
+        const childScore = childAnalysis.score;
+
+        moveEvaluations.push({
+          move,
+          score: childScore,
+          pv: [move, ...childAnalysis.pv]
+        });
+
+        if (isX) {
+          if (childScore > bestScore) {
+            bestScore = childScore;
+            bestMove = move;
+            bestPv = [move, ...childAnalysis.pv];
+          }
+        } else {
+          if (childScore < bestScore) {
+            bestScore = childScore;
+            bestMove = move;
+            bestPv = [move, ...childAnalysis.pv];
+          }
+        }
+      }
+
+      // Sort candidate moves so that best moves for current player appear first
+      moveEvaluations.sort((a, b) => {
+        if (isX) {
+          return b.score - a.score;
+        } else {
+          return a.score - b.score;
+        }
+      });
+
+      // Tie-break: if scores are equal, prefer center (4), then corners (0,2,6,8), then edges
+      const posPriority = [4, 0, 2, 6, 8, 1, 3, 5, 7];
+      moveEvaluations.sort((a, b) => {
+        if (a.score === b.score) {
+          return posPriority.indexOf(a.move) - posPriority.indexOf(b.move);
+        }
+        return 0;
+      });
+
+      if (moveEvaluations.length > 0) {
+        bestMove = moveEvaluations[0].move;
+        bestPv = moveEvaluations[0].pv;
+      }
+
+      const result = {
+        score: bestScore,
+        bestMove,
+        pv: bestPv,
+        allMoves: moveEvaluations,
+        terminal: false,
+        winner: null,
+        line: null
+      };
+
+      memo.set(key, result);
+      return result;
+    }
+
+    /**
+     * Application State
+     */
+    const state = {
+      history: [
+        {
+          board: Array(9).fill(null),
+          turn: 'X',
+          lastMove: null,
+          annotation: null,
+          evalBefore: 0
+        }
+      ],
+      currentPly: 0,
+      flipped: false,
+      showArrows: true,
+      showBadges: true,
+      mode: 'analysis', // 'analysis' or 'play'
+      playerPiece: 'X', // for play mode: 'X' or 'O'
+      hoveredSquare: null
+    };
+
+    /**
+     * Format theoretical evaluation into +1.00 / 0.00 / -1.00
+     */
+    function formatEval(val) {
+      if (val > 0) return '+1.00';
+      if (val < 0) return '-1.00';
+      return '0.00';
+    }
+
+    /**
+     * Return FEN-like string for current board
+     */
+    function getFen(board, turn) {
+      let rows = [];
+      for (let r = 0; r < 3; r++) {
+        let rowStr = '';
+        let emptyCount = 0;
+        for (let c = 0; c < 3; c++) {
+          const piece = board[r * 3 + c];
+          if (!piece) {
+            emptyCount++;
+          } else {
+            if (emptyCount > 0) {
+              rowStr += emptyCount;
+              emptyCount = 0;
+            }
+            rowStr += piece.toLowerCase();
+          }
+        }
+        if (emptyCount > 0) rowStr += emptyCount;
+        rows.push(rowStr);
+      }
+      return `${rows.join('/')} ${turn.toLowerCase()}`;
+    }
+
+    /**
+     * Classify move quality (Lichess style)
+     */
+    function classifyMove(evalBefore, evalAfter, turnMoved) {
+      // evalBefore and evalAfter are from X's perspective
+      if (turnMoved === 'X') {
+        const delta = evalBefore - evalAfter;
+        if (delta <= 0) return { label: 'Best', glyph: '!', color: 'text-[#629924]' };
+        if (delta === 1) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
+        return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
+      } else {
+        const delta = evalAfter - evalBefore;
+        if (delta <= 0) return { label: 'Best', glyph: '!', color: 'text-[#629924]' };
+        if (delta === 1) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
+        return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
+      }
+    }
+
+    /**
+     * Handle board click on index
+     */
+    function handleSquareClick(index) {
+      const current = state.history[state.currentPly];
+      const winCheck = checkWinner(current.board);
+      if (winCheck) return; // Game over
+
+      // Check if square is empty
+      if (current.board[index] !== null) return;
+
+      // In play mode, prevent clicking if it's engine's turn
+      if (state.mode === 'play' && current.turn !== state.playerPiece) {
+        return;
+      }
+
+      executeMove(index);
+    }
+
+    /**
+     * Play move at index
+     */
+    function executeMove(index) {
+      const current = state.history[state.currentPly];
+      const analysisCurrent = analyzePosition(current.board, current.turn);
+      const evalBefore = analysisCurrent.score;
+
+      // Check move eval
+      const targetMoveEval = analysisCurrent.allMoves.find(m => m.move === index);
+      const evalAfter = targetMoveEval ? targetMoveEval.score : evalBefore;
+
+      const newBoard = [...current.board];
+      newBoard[index] = current.turn;
+      const nextTurn = current.turn === 'X' ? 'O' : 'X';
+
+      const quality = classifyMove(evalBefore, evalAfter, current.turn);
+
+      // Play appropriate sound
+      const terminalAfter = checkWinner(newBoard);
+      if (terminalAfter) {
+        if (terminalAfter.winner === 'Draw') playSound('draw');
+        else playSound('win');
+      } else {
+        if (quality.label === 'Blunder') playSound('blunder');
+        else playSound('move');
+      }
+
+      // Truncate future if moving from earlier ply
+      const newHistory = state.history.slice(0, state.currentPly + 1);
+      newHistory.push({
+        board: newBoard,
+        turn: nextTurn,
+        lastMove: index,
+        annotation: quality,
+        evalBefore: evalBefore,
+        evalAfter: evalAfter
+      });
+
+      state.history = newHistory;
+      state.currentPly = newHistory.length - 1;
+
+      render();
+
+      // If in vs-engine mode and next is engine turn, trigger engine move
+      if (state.mode === 'play') {
+        const nextState = state.history[state.currentPly];
+        const gameOver = checkWinner(nextState.board);
+        if (!gameOver && nextState.turn !== state.playerPiece) {
+          setTimeout(() => {
+            makeEngineMove();
+          }, 350);
+        }
+      }
+    }
+
+    /**
+     * Optimal Engine Move Execution
+     */
+    function makeEngineMove() {
+      const current = state.history[state.currentPly];
+      if (checkWinner(current.board)) return;
+
+      const analysis = analyzePosition(current.board, current.turn);
+      if (analysis.bestMove !== null) {
+        executeMove(analysis.bestMove);
+      }
+    }
+
+    /**
+     * RENDER SYSTEM
+     */
+    function render() {
+      const current = state.history[state.currentPly];
+      const analysis = analyzePosition(current.board, current.turn);
+      const winStatus = checkWinner(current.board);
+
+      // 1. Update Board Coordinates labels
+      const colLabels = state.flipped ? ['c', 'b', 'a'] : ['a', 'b', 'c'];
+      const rowLabels = state.flipped ? ['1', '2', '3'] : ['3', '2', '1'];
+
+      const colContainer = document.getElementById('col-coords');
+      colContainer.innerHTML = colLabels.map(l => `<span class="flex-1 text-right pr-2">${l}</span>`).join('');
+
+      const rowContainer = document.getElementById('row-coords');
+      rowContainer.innerHTML = rowLabels.map(l => `<span class="flex-1 flex items-start pt-1">${l}</span>`).join('');
+
+      // 2. Render Board Cells
+      const grid = document.getElementById('board-grid');
+      grid.innerHTML = '';
+
+      // Create lookup of scores for legal moves in current position
+      const moveScoreMap = new Map();
+      if (!winStatus) {
+        analysis.allMoves.forEach(m => {
+          moveScoreMap.set(m.move, m.score);
+        });
+      }
+
+      // Get visual indices according to flip
+      const cellIndices = [];
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 3; c++) {
+          const rowIdx = state.flipped ? 2 - r : r;
+          const colIdx = state.flipped ? 2 - c : c;
+          cellIndices.push(rowIdx * 3 + colIdx);
+        }
+      }
+
+      cellIndices.forEach(idx => {
+        const cell = document.createElement('div');
+        cell.className = 'board-cell flex items-center justify-center cursor-pointer select-none';
+        cell.dataset.index = idx;
+
+        if (current.lastMove === idx) {
+          cell.classList.add('highlight-last-move');
+        }
+
+        // Show piece if occupied
+        const piece = current.board[idx];
+        if (piece === 'X') {
+          cell.innerHTML = `
+            <svg class="w-14 h-14 sm:w-16 sm:h-16 text-white drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          `;
+        } else if (piece === 'O') {
+          cell.innerHTML = `
+            <svg class="w-14 h-14 sm:w-16 sm:h-16 text-[#e8e4df] drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+              <circle cx="12" cy="12" r="8"></circle>
+            </svg>
+          `;
+        } else {
+          // Empty cell: display Evaluation Badge if enabled and game not over
+          if (!winStatus && state.showBadges && moveScoreMap.has(idx)) {
+            const score = moveScoreMap.get(idx);
+            const scoreStr = formatEval(score);
+
+            let badgeColor = 'bg-[#1e1c18]/90 text-gray-300 border-[#363431]';
+            if (score > 0) {
+              badgeColor = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+            } else if (score < 0) {
+              badgeColor = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+            } else {
+              badgeColor = 'bg-[#262421]/90 text-gray-300 border-[#474440]';
+            }
+
+            const badge = document.createElement('div');
+            badge.className = `absolute top-1.5 right-1.5 text-[10px] sm:text-xs mono-font px-1.5 py-0.5 rounded border shadow-sm pointer-events-none transition-all ${badgeColor}`;
+            badge.textContent = scoreStr;
+            cell.appendChild(badge);
+          }
+
+          // Subtle Coordinate watermark in corner
+          const coordWatermark = document.createElement('span');
+          coordWatermark.className = 'absolute bottom-1 left-1.5 text-[9px] text-[#73706c]/40 font-mono font-semibold pointer-events-none';
+          coordWatermark.textContent = COORDS[idx];
+          cell.appendChild(coordWatermark);
+        }
+
+        // Cell Interactions
+        cell.addEventListener('click', () => handleSquareClick(idx));
+        cell.addEventListener('mouseenter', () => {
+          state.hoveredSquare = idx;
+          updateArrows();
+        });
+        cell.addEventListener('mouseleave', () => {
+          state.hoveredSquare = null;
+          updateArrows();
+        });
+
+        grid.appendChild(cell);
+      });
+
+      // 3. Update Dynamic SVG Overlay (Arrows & Win Line)
+      updateArrows();
+      updateWinLine(winStatus);
+
+      // 4. Update Evaluation Bar & Numerical Displays
+      updateEvalBar(analysis.score, winStatus);
+
+      // 5. Update Status & Turn Indicators
+      const turnLabel = document.getElementById('turn-label');
+      const turnIcon = document.getElementById('turn-icon');
+      if (winStatus) {
+        if (winStatus.winner === 'Draw') {
+          turnLabel.textContent = 'Game Drawn (0.00)';
+          turnIcon.className = 'w-3 h-3 rounded-full bg-yellow-500 inline-block';
+        } else {
+          turnLabel.textContent = `${winStatus.winner} Wins! (${winStatus.winner === 'X' ? '+1.00' : '-1.00'})`;
+          turnIcon.className = `w-3 h-3 rounded-full ${winStatus.winner === 'X' ? 'bg-white' : 'bg-gray-400'} inline-block`;
+        }
+      } else {
+        turnLabel.textContent = `${current.turn} to move`;
+        turnIcon.className = `w-3 h-3 rounded-full ${current.turn === 'X' ? 'bg-white' : 'bg-gray-500'} inline-block`;
+      }
+
+      // 6. Update Candidate Moves (MultiPV) Table
+      renderCandidateMoves(analysis, winStatus);
+
+      // 7. Update Move History & Navigation buttons
+      renderMoveHistory();
+
+      // 8. Update FEN String
+      const fen = getFen(current.board, current.turn);
+      document.getElementById('fen-string-display').textContent = fen;
+    }
+
+    /**
+     * Map board index 0..8 to SVG Center coordinates (0..300 range)
+     */
+    function getCellCenter(idx) {
+      let r = Math.floor(idx / 3);
+      let c = idx % 3;
+      if (state.flipped) {
+        r = 2 - r;
+        c = 2 - c;
+      }
+      return {
+        x: c * 100 + 50,
+        y: r * 100 + 50
+      };
+    }
+
+    /**
+     * Render Lichess-style Best Move Arrows & Target Indicators
+     */
+    function updateArrows() {
+      const container = document.getElementById('svg-arrows');
+      container.innerHTML = '';
+
+      if (!state.showArrows) return;
+
+      const current = state.history[state.currentPly];
+      const winStatus = checkWinner(current.board);
+      if (winStatus) return;
+
+      const analysis = analyzePosition(current.board, current.turn);
+      if (!analysis.bestMove && analysis.bestMove !== 0) return;
+
+      // Find top score among candidate moves
+      const topScore = analysis.score;
+      const bestMoves = analysis.allMoves.filter(m => m.score === topScore);
+
+      // Draw primary best move arrow
+      const targetMove = state.hoveredSquare !== null && analysis.allMoves.some(m => m.move === state.hoveredSquare)
+        ? state.hoveredSquare
+        : analysis.bestMove;
+
+      const targetCenter = getCellCenter(targetMove);
+
+      // Highlight circle on best square
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', targetCenter.x);
+      circle.setAttribute('cy', targetCenter.y);
+      circle.setAttribute('r', '36');
+      circle.setAttribute('fill', 'none');
+      circle.setAttribute('stroke', '#629924');
+      circle.setAttribute('stroke-width', '4');
+      circle.setAttribute('stroke-dasharray', '8 4');
+      circle.setAttribute('opacity', '0.75');
+      circle.classList.add('pulse-arrow');
+      container.appendChild(circle);
+
+      // Arrow pointing into the square from a smart offset
+      const startX = targetCenter.x < 150 ? targetCenter.x - 38 : targetCenter.x + 38;
+      const startY = targetCenter.y < 150 ? targetCenter.y - 38 : targetCenter.y + 38;
+      const endX = targetCenter.x < 150 ? targetCenter.x - 12 : targetCenter.x + 12;
+      const endY = targetCenter.y < 150 ? targetCenter.y - 12 : targetCenter.y + 12;
+
+      const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      arrow.setAttribute('x1', startX);
+      arrow.setAttribute('y1', startY);
+      arrow.setAttribute('x2', endX);
+      arrow.setAttribute('y2', endY);
+      arrow.setAttribute('stroke', '#629924');
+      arrow.setAttribute('stroke-width', '6');
+      arrow.setAttribute('stroke-linecap', 'round');
+      arrow.setAttribute('marker-end', 'url(#arrowhead-green)');
+      arrow.setAttribute('opacity', '0.9');
+      container.appendChild(arrow);
+    }
+
+    /**
+     * Render glowing win strike line when terminal win occurs
+     */
+    function updateWinLine(winStatus) {
+      const lineEl = document.getElementById('svg-win-line');
+      if (!winStatus || !winStatus.line) {
+        lineEl.classList.add('hidden');
+        return;
+      }
+
+      const p1 = getCellCenter(winStatus.line[0]);
+      const p3 = getCellCenter(winStatus.line[2]);
+
+      lineEl.setAttribute('x1', p1.x);
+      lineEl.setAttribute('y1', p1.y);
+      lineEl.setAttribute('x2', p3.x);
+      lineEl.setAttribute('y2', p3.y);
+      lineEl.setAttribute('stroke', winStatus.winner === 'X' ? '#629924' : '#e69f00');
+      lineEl.classList.remove('hidden');
+    }
+
+    /**
+     * Update Eval Bar and Numeric Badges
+     */
+    function updateEvalBar(score, winStatus) {
+      const barFill = document.getElementById('eval-bar-fill');
+      const textTop = document.getElementById('eval-text-top');
+      const textBottom = document.getElementById('eval-text-bottom');
+      const bigEval = document.getElementById('big-eval-badge');
+      const evalInterpretation = document.getElementById('eval-interpretation');
+      const summaryEval = document.getElementById('summary-eval-val');
+
+      const formatted = formatEval(score);
+      summaryEval.textContent = formatted;
+      bigEval.textContent = formatted;
+
+      // Eval Bar Height calculation (from X / White's perspective)
+      // +1.00 -> 96% White fill
+      //  0.00 -> 50% White fill
+      // -1.00 -> 4% White fill
+      let fillPct = 50;
+      if (score === 1) fillPct = 96;
+      else if (score === -1) fillPct = 4;
+      else fillPct = 50;
+
+      // Handle board flip if user flips perspective
+      if (state.flipped) {
+        fillPct = 100 - fillPct;
+      }
+
+      barFill.style.height = `${fillPct}%`;
+
+      if (score > 0) {
+        textTop.textContent = '';
+        textBottom.textContent = formatted;
+        textBottom.className = 'mono-font text-[10px] font-black text-[#161512] z-10';
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+        evalInterpretation.textContent = 'Winning for X (Theoretical Win)';
+      } else if (score < 0) {
+        textTop.textContent = formatted;
+        textTop.className = 'mono-font text-[10px] font-black text-white z-10';
+        textBottom.textContent = '';
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+        evalInterpretation.textContent = 'Winning for O (Theoretical Win)';
+      } else {
+        textTop.textContent = '';
+        textBottom.textContent = '0.00';
+        textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] z-10';
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200';
+        evalInterpretation.textContent = 'Theoretical Draw (Under Optimal Play)';
+      }
+
+      if (winStatus) {
+        if (winStatus.winner === 'Draw') {
+          evalInterpretation.textContent = 'Final Result: Draw';
+        } else {
+          evalInterpretation.textContent = `Final Result: ${winStatus.winner} Won`;
+        }
+      }
+    }
+
+    /**
+     * Render Candidate Moves (MultiPV) List
+     */
+    function renderCandidateMoves(analysis, winStatus) {
+      const container = document.getElementById('candidate-moves-list');
+      container.innerHTML = '';
+
+      if (winStatus || analysis.allMoves.length === 0) {
+        container.innerHTML = `
+          <div class="px-3 py-4 text-center text-xs text-gray-400 italic">
+            ${winStatus ? `Game finished (${winStatus.winner === 'Draw' ? 'Draw' : winStatus.winner + ' Won'})` : 'No legal moves'}
+          </div>
+        `;
+        return;
+      }
+
+      analysis.allMoves.forEach((cand, idx) => {
+        const row = document.createElement('div');
+        row.className = 'px-3 py-2 flex items-center justify-between text-xs hover:bg-[#363431] cursor-pointer transition select-none';
+
+        const isOptimal = cand.score === analysis.score;
+        const evalStr = formatEval(cand.score);
+
+        let badgeBg = 'bg-[#1e1c18] text-gray-300 border-[#363431]';
+        if (cand.score > 0) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50';
+        else if (cand.score < 0) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50';
+
+        // Format continuation PV line (e.g. 1. b2 b1 2. c3 ...)
+        const lineStr = cand.pv.map(m => COORDS[m]).join(' ');
+
+        row.innerHTML = `
+          <div class="flex items-center space-x-2.5 overflow-hidden">
+            <span class="text-[11px] font-bold ${isOptimal ? 'text-[#629924]' : 'text-gray-500'} mono-font">#${idx + 1}</span>
+            <span class="font-bold text-white mono-font text-sm">${COORDS[cand.move]}</span>
+            <span class="text-[11px] text-[#73706c] mono-font truncate max-w-[150px] sm:max-w-[200px]" title="${lineStr}">${lineStr}</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            ${isOptimal ? '<span class="text-[10px] bg-[#629924] text-white px-1.5 py-0.2 rounded font-semibold uppercase">Best</span>' : ''}
+            <span class="mono-font px-2 py-0.5 rounded border text-[11px] font-bold ${badgeBg}">${evalStr}</span>
+          </div>
+        `;
+
+        row.addEventListener('click', () => {
+          executeMove(cand.move);
+        });
+
+        row.addEventListener('mouseenter', () => {
+          state.hoveredSquare = cand.move;
+          updateArrows();
+        });
+        row.addEventListener('mouseleave', () => {
+          state.hoveredSquare = null;
+          updateArrows();
+        });
+
+        container.appendChild(row);
+      });
+    }
+
+    /**
+     * Render Move History in PGN Format
+     */
+    function renderMoveHistory() {
+      const container = document.getElementById('move-history-container');
+      container.innerHTML = '';
+
+      if (state.history.length <= 1) {
+        container.innerHTML = '<span class="text-xs text-[#73706c] italic">No moves played yet. Board at starting position.</span>';
+        return;
+      }
+
+      // Group moves into pairs: 1. MoveX MoveO  2. MoveX MoveO
+      for (let i = 1; i < state.history.length; i++) {
+        const moveNumber = Math.ceil(i / 2);
+        const isX = i % 2 === 1;
+
+        if (isX) {
+          const turnSpan = document.createElement('span');
+          turnSpan.className = 'text-xs text-[#73706c] self-center mr-1 ml-1';
+          turnSpan.textContent = `${moveNumber}.`;
+          container.appendChild(turnSpan);
+        }
+
+        const moveItem = state.history[i];
+        const moveBtn = document.createElement('button');
+        const isActive = i === state.currentPly;
+
+        let annotationBadge = '';
+        if (moveItem.annotation) {
+          annotationBadge = `<sup class="font-bold ${moveItem.annotation.color}">${moveItem.annotation.glyph}</sup>`;
+        }
+
+        moveBtn.className = `px-2 py-0.5 rounded text-xs transition flex items-center space-x-0.5 ${
+          isActive
+            ? 'bg-[#3692e7] text-white font-bold shadow'
+            : 'bg-[#1e1c18] hover:bg-[#363431] text-gray-300'
+        }`;
+        moveBtn.innerHTML = `<span>${COORDS[moveItem.lastMove]}</span>${annotationBadge}`;
+
+        moveBtn.addEventListener('click', () => {
+          state.currentPly = i;
+          render();
+        });
+
+        container.appendChild(moveBtn);
+      }
+
+      // Automatically scroll history container to bottom
+      container.scrollTop = container.scrollHeight;
+    }
+
+    /**
+     * Navigation Controls Logic
+     */
+    function goFirst() {
+      if (state.currentPly > 0) {
+        state.currentPly = 0;
+        playSound('move');
+        render();
+      }
+    }
+
+    function goPrev() {
+      if (state.currentPly > 0) {
+        state.currentPly--;
+        playSound('move');
+        render();
+      }
+    }
+
+    function goNext() {
+      if (state.currentPly < state.history.length - 1) {
+        state.currentPly++;
+        playSound('move');
+        render();
+      }
+    }
+
+    function goLast() {
+      if (state.currentPly < state.history.length - 1) {
+        state.currentPly = state.history.length - 1;
+        playSound('move');
+        render();
+      }
+    }
+
+    function resetBoard() {
+      state.history = [
+        {
+          board: Array(9).fill(null),
+          turn: 'X',
+          lastMove: null,
+          annotation: null,
+          evalBefore: 0
+        }
+      ];
+      state.currentPly = 0;
+      playSound('move');
+      render();
+
+      if (state.mode === 'play' && state.playerPiece === 'O') {
+        setTimeout(makeEngineMove, 400);
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2000);
+    }
+
+    /**
+     * Copy FEN helper using fallback
+     */
+    function copyFen() {
+      const current = state.history[state.currentPly];
+      const fen = getFen(current.board, current.turn);
+      const tempInput = document.createElement('input');
+      tempInput.value = fen;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('FEN copied to clipboard!');
+      } catch (err) {
+        // Fallback
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Attach Event Listeners
+    document.getElementById('nav-first').addEventListener('click', goFirst);
+    document.getElementById('nav-prev').addEventListener('click', goPrev);
+    document.getElementById('nav-next').addEventListener('click', goNext);
+    document.getElementById('nav-last').addEventListener('click', goLast);
+    document.getElementById('btn-reset').addEventListener('click', resetBoard);
+    document.getElementById('btn-copy-fen').addEventListener('click', copyFen);
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        goPrev();
+      } else if (e.key === 'ArrowRight') {
+        goNext();
+      } else if (e.key === 'Home') {
+        goFirst();
+      } else if (e.key === 'End') {
+        goLast();
+      } else if (e.key.toLowerCase() === 'f') {
+        flipBoard();
+      }
+    });
+
+    // Flip Board
+    function flipBoard() {
+      state.flipped = !state.flipped;
+      render();
+    }
+    document.getElementById('flip-board-btn').addEventListener('click', flipBoard);
+
+    // Toggle Arrows
+    document.getElementById('toggle-arrows-btn').addEventListener('click', () => {
+      state.showArrows = !state.showArrows;
+      const btn = document.getElementById('toggle-arrows-btn');
+      btn.classList.toggle('text-[#629924]', state.showArrows);
+      render();
+    });
+
+    // Toggle Badges
+    document.getElementById('toggle-badges-btn').addEventListener('click', () => {
+      state.showBadges = !state.showBadges;
+      render();
+    });
+
+    // Toggle Sound
+    document.getElementById('toggle-sound-btn').addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      document.getElementById('sound-icon-on').classList.toggle('hidden', !soundEnabled);
+      document.getElementById('sound-icon-off').classList.toggle('hidden', soundEnabled);
+      showToast(soundEnabled ? 'Audio enabled' : 'Audio muted');
+    });
+
+    // Switch between Analysis and Play vs Engine
+    const modeAnalysisBtn = document.getElementById('mode-analysis-btn');
+    const modePlayBtn = document.getElementById('mode-play-btn');
+    const playPanel = document.getElementById('play-engine-panel');
+
+    modeAnalysisBtn.addEventListener('click', () => {
+      state.mode = 'analysis';
+      modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
+      modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
+      playPanel.classList.add('hidden');
+      render();
+    });
+
+    modePlayBtn.addEventListener('click', () => {
+      state.mode = 'play';
+      modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
+      modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
+      playPanel.classList.remove('hidden');
+      resetBoard();
+    });
+
+    // Play as X / O toggle
+    const playAsXBtn = document.getElementById('play-as-x-btn');
+    const playAsOBtn = document.getElementById('play-as-o-btn');
+
+    playAsXBtn.addEventListener('click', () => {
+      state.playerPiece = 'X';
+      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white';
+      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300';
+      resetBoard();
+    });
+
+    playAsOBtn.addEventListener('click', () => {
+      state.playerPiece = 'O';
+      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white';
+      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300';
+      resetBoard();
+    });
+
+    // Initial render on page load
+    window.onload = function() {
+      if (window.location.hash === '#play') {
+        modePlayBtn.click();
+      } else {
+        render();
+      }
+    };
+  </script>
+</body>
+</html>
