@@ -163,7 +163,7 @@
     <div class="flex items-stretch justify-center gap-3 sm:gap-4 w-full max-w-[480px]">
       
       <!-- Lichess Vertical Evaluation Bar -->
-      <div class="relative w-8 sm:w-9 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none">
+      <div id="eval-bar-wrapper" class="relative w-8 sm:w-9 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none">
         <!-- Black/O portion (top) -->
         <div class="w-full bg-[#1e1c18] transition-all duration-300 relative flex items-start justify-center pt-2">
           <span id="eval-text-top" class="mono-font text-[10px] font-bold text-gray-300 z-10 select-none"></span>
@@ -245,13 +245,13 @@
       <div class="bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg">
         <div class="flex items-center justify-between border-b border-[#363431] pb-2 mb-2">
           <div class="flex items-center space-x-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
-            <span class="font-bold text-sm text-white tracking-wide">StockTic 1.0</span>
-            <span class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 9/9</span>
+            <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
+            <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">StockTic 1.0</span>
+            <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 9/9</span>
           </div>
           <div class="flex items-center space-x-2 text-xs">
-            <span class="text-[#73706c]">Tablebase:</span>
-            <span class="text-[#629924] font-semibold mono-font">SOLVED</span>
+            <span id="engine-tablebase-label" class="text-[#73706c]">Tablebase:</span>
+            <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">SOLVED</span>
           </div>
         </div>
 
@@ -272,11 +272,90 @@
         </div>
       </div>
 
+      <!-- Play vs StockTic Settings (Shown when vs Engine is active) -->
+      <div id="play-engine-panel" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3">
+        <!-- Header & Reset -->
+        <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
+          <div class="flex items-center space-x-2">
+            <span class="text-sm">🤖</span>
+            <span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Practice vs StockTic</span>
+          </div>
+          <button id="btn-new-match" class="px-2.5 py-1 bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white rounded text-[11px] font-semibold transition flex items-center space-x-1">
+            <span>↺</span>
+            <span>New Game</span>
+          </button>
+        </div>
+
+        <!-- 1. Play as Side -->
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-300 font-medium">Play as:</span>
+          <div class="flex items-center space-x-2">
+            <button id="play-as-x-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1">
+              <span>✕</span>
+              <span>X (First)</span>
+            </button>
+            <button id="play-as-o-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1">
+              <span>◯</span>
+              <span>O (Second)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Engine Level Selection (Level 1 to 8) -->
+        <div class="pt-2 border-t border-[#363431]">
+          <div class="flex items-center justify-between mb-1.5">
+            <div class="flex items-center space-x-1.5">
+              <span class="text-xs text-gray-300 font-medium">Difficulty:</span>
+              <span id="level-display-name" class="text-xs font-bold text-[#7ec62f]">Level 8 · StockTic Max</span>
+            </div>
+            <span id="level-elo-badge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1e1c18] border border-[#629924]/50 text-[#7ec62f] mono-font">Elo 3000</span>
+          </div>
+
+          <!-- 8 Level Buttons -->
+          <div class="grid grid-cols-8 gap-1" id="level-buttons-container">
+            <button type="button" data-level="1" title="Level 1: Beginner (~600 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">1</button>
+            <button type="button" data-level="2" title="Level 2: Casual (~900 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">2</button>
+            <button type="button" data-level="3" title="Level 3: Novice (~1200 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">3</button>
+            <button type="button" data-level="4" title="Level 4: Intermediate (~1500 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">4</button>
+            <button type="button" data-level="5" title="Level 5: Advanced (~1800 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">5</button>
+            <button type="button" data-level="6" title="Level 6: Expert (~2100 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">6</button>
+            <button type="button" data-level="7" title="Level 7: Master (~2400 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">7</button>
+            <button type="button" data-level="8" title="Level 8: StockTic Max (~3000 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm ring-1 ring-[#629924]">8</button>
+          </div>
+
+          <div id="level-description-box" class="text-[11px] text-gray-400 mt-1.5 italic">
+            Depth 9/9 · Solved Tablebase (Unbeatable)
+          </div>
+        </div>
+
+        <!-- 3. Evaluation & Hints Toggle (Turn Off Eval) -->
+        <div class="pt-2 border-t border-[#363431]">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-xs text-gray-300 font-semibold flex items-center space-x-1.5">
+                <span>Evaluation & Hints:</span>
+                <span id="eval-toggle-state-badge" class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-300">OFF</span>
+              </div>
+              <div id="eval-toggle-helper" class="text-[11px] text-gray-400 mt-0.5">Hidden for realistic match play</div>
+            </div>
+            <div class="flex items-center space-x-1 bg-[#1e1c18] p-0.5 rounded border border-[#363431]">
+              <button type="button" id="eval-toggle-off-btn" class="px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1 shadow-sm">
+                <span>Off</span>
+              </button>
+              <button type="button" id="eval-toggle-on-btn" class="px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white hover:bg-[#363431] transition flex items-center space-x-1">
+                <span>On</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
       <!-- Candidate Moves (MultiPV) Table -->
-      <div class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
+      <div id="candidate-moves-panel" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
         <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
-          <span class="text-[11px] text-[#73706c] mono-font">Ranked by score</span>
+          <span id="candidate-panel-title" class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
+          <span id="candidate-panel-subtitle" class="text-[11px] text-[#73706c] mono-font">Ranked by score</span>
         </div>
         <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-48 overflow-y-auto">
           <!-- Dynamically populated candidate rows -->
@@ -320,21 +399,6 @@
               Reset
             </button>
           </div>
-        </div>
-      </div>
-
-      <!-- Play vs StockTic Settings (Shown when vs Engine is active) -->
-      <div id="play-engine-panel" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg">
-        <div class="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Practice vs StockTic</div>
-        <div class="flex items-center justify-between">
-          <span class="text-xs text-gray-400">Play as:</span>
-          <div class="flex items-center space-x-2">
-            <button id="play-as-x-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white">X (White / First)</button>
-            <button id="play-as-o-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300">O (Black / Second)</button>
-          </div>
-        </div>
-        <div id="engine-message" class="text-xs text-yellow-500/90 mt-2 italic">
-          StockTic will play optimal theoretical moves.
         </div>
       </div>
 
@@ -582,6 +646,20 @@
     }
 
     /**
+     * StockTic Difficulty Levels (1 to 8, inspired by Lichess Stockfish)
+     */
+    const LEVELS = [
+      { level: 1, name: 'Beginner', elo: 600, desc: 'Casual random moves, misses wins and blocks, blunders frequently.' },
+      { level: 2, name: 'Casual', elo: 900, desc: 'Takes 1-move wins sometimes, frequently misses opponent blocks.' },
+      { level: 3, name: 'Novice', elo: 1200, desc: 'Takes obvious wins, 50% blocks, vulnerable to double-threat forks.' },
+      { level: 4, name: 'Intermediate', elo: 1500, desc: 'Takes wins, blocks direct threats, can be trapped by positional forks.' },
+      { level: 5, name: 'Advanced', elo: 1800, desc: 'Strong defense, rarely blunders, recognizes most tactical traps.' },
+      { level: 6, name: 'Expert', elo: 2100, desc: 'High accuracy (94% optimal moves), fiercely punishes mistakes.' },
+      { level: 7, name: 'Master', elo: 2400, desc: 'Deep positional tablebase calculation (98% optimal play).' },
+      { level: 8, name: 'StockTic Max', elo: 3000, desc: 'Depth 9/9 · Solved Tablebase (Mathematically Unbeatable).' }
+    ];
+
+    /**
      * Application State
      */
     const state = {
@@ -600,8 +678,124 @@
       showBadges: true,
       mode: 'analysis', // 'analysis' or 'play'
       playerPiece: 'X', // for play mode: 'X' or 'O'
-      hoveredSquare: null
+      engineLevel: 8, // 1 to 8 (default 8: StockTic Max)
+      playShowEval: false, // in play mode: false (realistic match play) or true (hints on)
+      hoveredSquare: null,
+      isEngineThinking: false
     };
+
+    /**
+     * Check if placing `piece` at `move` results in an immediate 3-in-a-row
+     */
+    function isImmediateWin(board, move, piece) {
+      const nextBoard = [...board];
+      nextBoard[move] = piece;
+      for (let i = 0; i < LINES.length; i++) {
+        const [a, b, c] = LINES[i];
+        if (nextBoard[a] === piece && nextBoard[b] === piece && nextBoard[c] === piece) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    /**
+     * Pick Engine move based on selected difficulty Level (1 to 8)
+     */
+    function getEngineMoveForLevel(board, turn, level) {
+      const legalMoves = [];
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === null) legalMoves.push(i);
+      }
+      if (legalMoves.length === 0) return null;
+      if (legalMoves.length === 1) return legalMoves[0];
+
+      const analysis = analyzePosition(board, turn);
+      const bestMove = analysis.bestMove;
+      const oppPiece = turn === 'X' ? 'O' : 'X';
+
+      // 1. Immediate 1-move win for engine
+      const winMoves = legalMoves.filter(m => isImmediateWin(board, m, turn));
+      // 2. Immediate 1-move block against opponent win
+      const blockMoves = legalMoves.filter(m => isImmediateWin(board, m, oppPiece));
+
+      // Level 8: StockTic Max (100% optimal minimax tablebase)
+      if (level >= 8) {
+        return bestMove;
+      }
+
+      // Level 1: Beginner (~80% random legal moves, misses wins and blocks)
+      if (level === 1) {
+        if (Math.random() < 0.8) {
+          return legalMoves[Math.floor(Math.random() * legalMoves.length)];
+        }
+        return bestMove;
+      }
+
+      // Level 2: Casual (Takes win ~65% of time; 50% random moves)
+      if (level === 2) {
+        if (winMoves.length > 0 && Math.random() < 0.65) {
+          return winMoves[0];
+        }
+        if (Math.random() < 0.5) {
+          return legalMoves[Math.floor(Math.random() * legalMoves.length)];
+        }
+        return bestMove;
+      }
+
+      // Level 3: Novice (Always wins if open; 50% blocks; 40% random)
+      if (level === 3) {
+        if (winMoves.length > 0) return winMoves[0];
+        if (blockMoves.length > 0 && Math.random() < 0.5) return blockMoves[0];
+        if (Math.random() < 0.4) {
+          return legalMoves[Math.floor(Math.random() * legalMoves.length)];
+        }
+        return bestMove;
+      }
+
+      // Level 4: Intermediate (Always wins, always blocks direct threats; 35% non-optimal)
+      if (level === 4) {
+        if (winMoves.length > 0) return winMoves[0];
+        if (blockMoves.length > 0) return blockMoves[0];
+        if (Math.random() < 0.35 && analysis.allMoves.length > 1) {
+          const suboptimal = analysis.allMoves.slice(1);
+          return suboptimal[Math.floor(Math.random() * suboptimal.length)].move;
+        }
+        return bestMove;
+      }
+
+      // Level 5: Advanced (Always wins and blocks; 15% non-optimal)
+      if (level === 5) {
+        if (winMoves.length > 0) return winMoves[0];
+        if (blockMoves.length > 0) return blockMoves[0];
+        if (Math.random() < 0.15 && analysis.allMoves.length > 1) {
+          return analysis.allMoves[1].move;
+        }
+        return bestMove;
+      }
+
+      // Level 6: Expert (Always wins and blocks; 6% non-optimal)
+      if (level === 6) {
+        if (winMoves.length > 0) return winMoves[0];
+        if (blockMoves.length > 0) return blockMoves[0];
+        if (Math.random() < 0.06 && analysis.allMoves.length > 1) {
+          return analysis.allMoves[1].move;
+        }
+        return bestMove;
+      }
+
+      // Level 7: Master (Always wins and blocks; 2% non-optimal)
+      if (level === 7) {
+        if (winMoves.length > 0) return winMoves[0];
+        if (blockMoves.length > 0) return blockMoves[0];
+        if (Math.random() < 0.02 && analysis.allMoves.length > 1) {
+          return analysis.allMoves[1].move;
+        }
+        return bestMove;
+      }
+
+      return bestMove;
+    }
 
     /**
      * Format theoretical evaluation into +1.00 / 0.00 / -1.00
@@ -667,8 +861,8 @@
       // Check if square is empty
       if (current.board[index] !== null) return;
 
-      // In play mode, prevent clicking if it's engine's turn
-      if (state.mode === 'play' && current.turn !== state.playerPiece) {
+      // In play mode, prevent clicking if it's engine's turn or engine is calculating
+      if (state.mode === 'play' && (current.turn !== state.playerPiece || state.isEngineThinking)) {
         return;
       }
 
@@ -724,23 +918,28 @@
         const nextState = state.history[state.currentPly];
         const gameOver = checkWinner(nextState.board);
         if (!gameOver && nextState.turn !== state.playerPiece) {
+          state.isEngineThinking = true;
+          render();
+          const thinkTime = state.engineLevel >= 6 ? 400 : 260;
           setTimeout(() => {
             makeEngineMove();
-          }, 350);
+            state.isEngineThinking = false;
+            render();
+          }, thinkTime);
         }
       }
     }
 
     /**
-     * Optimal Engine Move Execution
+     * Engine Move Execution
      */
     function makeEngineMove() {
       const current = state.history[state.currentPly];
       if (checkWinner(current.board)) return;
 
-      const analysis = analyzePosition(current.board, current.turn);
-      if (analysis.bestMove !== null) {
-        executeMove(analysis.bestMove);
+      const chosenMove = getEngineMoveForLevel(current.board, current.turn, state.engineLevel);
+      if (chosenMove !== null && chosenMove !== undefined) {
+        executeMove(chosenMove);
       }
     }
 
@@ -751,6 +950,14 @@
       const current = state.history[state.currentPly];
       const analysis = analyzePosition(current.board, current.turn);
       const winStatus = checkWinner(current.board);
+      const isPlayMode = state.mode === 'play';
+      const showEval = !isPlayMode || state.playShowEval;
+
+      // 0. Toggle vertical eval bar visibility
+      const evalBarWrapper = document.getElementById('eval-bar-wrapper');
+      if (evalBarWrapper) {
+        evalBarWrapper.classList.toggle('hidden', isPlayMode && !state.playShowEval);
+      }
 
       // 1. Update Board Coordinates labels
       const colLabels = state.flipped ? ['c', 'b', 'a'] : ['a', 'b', 'c'];
@@ -809,8 +1016,8 @@
             </svg>
           `;
         } else {
-          // Empty cell: display Evaluation Badge if enabled and game not over
-          if (!winStatus && state.showBadges && moveScoreMap.has(idx)) {
+          // Empty cell: display Evaluation Badge only if eval is enabled and game not over
+          if (!winStatus && showEval && state.showBadges && moveScoreMap.has(idx)) {
             const score = moveScoreMap.get(idx);
             const scoreStr = formatEval(score);
 
@@ -839,12 +1046,16 @@
         // Cell Interactions
         cell.addEventListener('click', () => handleSquareClick(idx));
         cell.addEventListener('mouseenter', () => {
-          state.hoveredSquare = idx;
-          updateArrows();
+          if (showEval) {
+            state.hoveredSquare = idx;
+            updateArrows();
+          }
         });
         cell.addEventListener('mouseleave', () => {
-          state.hoveredSquare = null;
-          updateArrows();
+          if (showEval) {
+            state.hoveredSquare = null;
+            updateArrows();
+          }
         });
 
         grid.appendChild(cell);
@@ -854,7 +1065,8 @@
       updateArrows();
       updateWinLine(winStatus);
 
-      // 4. Update Evaluation Bar & Numerical Displays
+      // 4. Update Engine Header & Evaluation Bar
+      updateEngineHeader();
       updateEvalBar(analysis.score, winStatus);
 
       // 5. Update Status & Turn Indicators
@@ -862,18 +1074,24 @@
       const turnIcon = document.getElementById('turn-icon');
       if (winStatus) {
         if (winStatus.winner === 'Draw') {
-          turnLabel.textContent = 'Game Drawn (0.00)';
+          turnLabel.textContent = 'Game Drawn';
           turnIcon.className = 'w-3 h-3 rounded-full bg-yellow-500 inline-block';
         } else {
-          turnLabel.textContent = `${winStatus.winner} Wins! (${winStatus.winner === 'X' ? '+1.00' : '-1.00'})`;
+          turnLabel.textContent = `${winStatus.winner} Wins!`;
           turnIcon.className = `w-3 h-3 rounded-full ${winStatus.winner === 'X' ? 'bg-white' : 'bg-gray-400'} inline-block`;
         }
+      } else if (isPlayMode && state.isEngineThinking) {
+        turnLabel.textContent = `StockTic is thinking...`;
+        turnIcon.className = 'w-3 h-3 rounded-full bg-yellow-400 inline-block animate-ping';
       } else {
-        turnLabel.textContent = `${current.turn} to move`;
+        const isUserTurn = isPlayMode ? current.turn === state.playerPiece : true;
+        turnLabel.textContent = isPlayMode
+          ? (isUserTurn ? `Your move (${current.turn})` : `StockTic's move (${current.turn})`)
+          : `${current.turn} to move`;
         turnIcon.className = `w-3 h-3 rounded-full ${current.turn === 'X' ? 'bg-white' : 'bg-gray-500'} inline-block`;
       }
 
-      // 6. Update Candidate Moves (MultiPV) Table
+      // 6. Update Candidate Moves (MultiPV) or Match Card
       renderCandidateMoves(analysis, winStatus);
 
       // 7. Update Move History & Navigation buttons
@@ -907,7 +1125,8 @@
       const container = document.getElementById('svg-arrows');
       container.innerHTML = '';
 
-      if (!state.showArrows) return;
+      const showArrows = (state.mode === 'analysis' || state.playShowEval) && state.showArrows;
+      if (!showArrows) return;
 
       const current = state.history[state.currentPly];
       const winStatus = checkWinner(current.board);
@@ -915,10 +1134,6 @@
 
       const analysis = analyzePosition(current.board, current.turn);
       if (!analysis.bestMove && analysis.bestMove !== 0) return;
-
-      // Find top score among candidate moves
-      const topScore = analysis.score;
-      const bestMoves = analysis.allMoves.filter(m => m.score === topScore);
 
       // Draw primary best move arrow
       const targetMove = state.hoveredSquare !== null && analysis.allMoves.some(m => m.move === state.hoveredSquare)
@@ -981,6 +1196,44 @@
     }
 
     /**
+     * Update Engine Header Box Labels
+     */
+    function updateEngineHeader() {
+      const dot = document.getElementById('engine-status-dot');
+      const nameLabel = document.getElementById('engine-title-name');
+      const depthBadge = document.getElementById('engine-depth-tag');
+      const tablebaseLabel = document.getElementById('engine-tablebase-label');
+      const tablebaseStatus = document.getElementById('engine-tablebase-status');
+
+      if (!nameLabel) return;
+
+      if (state.mode === 'analysis') {
+        if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse';
+        nameLabel.textContent = 'StockTic 1.0';
+        if (depthBadge) depthBadge.textContent = 'depth 9/9';
+        if (tablebaseLabel) tablebaseLabel.textContent = 'Tablebase:';
+        if (tablebaseStatus) {
+          tablebaseStatus.textContent = 'SOLVED';
+          tablebaseStatus.className = 'text-[#629924] font-semibold mono-font';
+        }
+      } else {
+        const lvl = LEVELS[state.engineLevel - 1];
+        if (dot) {
+          dot.className = state.isEngineThinking
+            ? 'w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block animate-ping'
+            : 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block';
+        }
+        nameLabel.textContent = state.engineLevel === 8 ? 'StockTic Max' : `StockTic Lvl ${state.engineLevel}`;
+        if (depthBadge) depthBadge.textContent = `Elo ${lvl.elo}`;
+        if (tablebaseLabel) tablebaseLabel.textContent = 'Strength:';
+        if (tablebaseStatus) {
+          tablebaseStatus.textContent = lvl.name.toUpperCase();
+          tablebaseStatus.className = 'text-[#7ec62f] font-semibold mono-font text-[11px]';
+        }
+      }
+    }
+
+    /**
      * Update Eval Bar and Numeric Badges
      */
     function updateEvalBar(score, winStatus) {
@@ -990,15 +1243,50 @@
       const bigEval = document.getElementById('big-eval-badge');
       const evalInterpretation = document.getElementById('eval-interpretation');
       const summaryEval = document.getElementById('summary-eval-val');
+      const nodesCount = document.getElementById('nodes-count');
+      const speedLabel = document.getElementById('speed-label');
 
+      const isPlayMode = state.mode === 'play';
+      const showEval = !isPlayMode || state.playShowEval;
+      const current = state.history[state.currentPly];
+      const lvl = LEVELS[state.engineLevel - 1];
+
+      // If eval is OFF in Play mode
+      if (!showEval) {
+        if (summaryEval) summaryEval.textContent = 'Off';
+
+        if (winStatus) {
+          if (winStatus.winner === 'Draw') {
+            bigEval.textContent = '½ - ½';
+            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
+            evalInterpretation.textContent = 'Final Result: Draw';
+            if (summaryEval) summaryEval.textContent = '½-½';
+          } else {
+            const isUserWin = winStatus.winner === state.playerPiece;
+            bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
+            bigEval.className = isUserWin
+              ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
+              : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+            evalInterpretation.textContent = isUserWin ? '🎉 You Won the Game!' : 'StockTic Won';
+            if (summaryEval) summaryEval.textContent = winStatus.winner === 'X' ? '1-0' : '0-1';
+          }
+          if (nodesCount) nodesCount.textContent = 'Match Finished';
+          if (speedLabel) speedLabel.textContent = `vs Level ${state.engineLevel}`;
+        } else {
+          bigEval.textContent = 'VS';
+          bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-300';
+          evalInterpretation.textContent = `Match vs Level ${state.engineLevel} (${lvl.name})`;
+          if (nodesCount) nodesCount.textContent = 'Eval Hidden (Match)';
+          if (speedLabel) speedLabel.textContent = current.turn === state.playerPiece ? 'Your turn' : 'Engine thinking...';
+        }
+        return;
+      }
+
+      // Eval is ON (Analysis mode or Play mode with eval enabled)
       const formatted = formatEval(score);
-      summaryEval.textContent = formatted;
-      bigEval.textContent = formatted;
+      if (summaryEval) summaryEval.textContent = formatted;
+      if (bigEval) bigEval.textContent = formatted;
 
-      // Eval Bar Height calculation (from X / White's perspective)
-      // +1.00 -> 96% White fill
-      //  0.00 -> 50% White fill
-      // -1.00 -> 4% White fill
       let fillPct = 50;
       if (score === 1) fillPct = 96;
       else if (score === -1) fillPct = 4;
@@ -1009,27 +1297,36 @@
         fillPct = 100 - fillPct;
       }
 
-      barFill.style.height = `${fillPct}%`;
+      if (barFill) barFill.style.height = `${fillPct}%`;
 
       if (score > 0) {
-        textTop.textContent = '';
-        textBottom.textContent = formatted;
-        textBottom.className = 'mono-font text-[10px] font-black text-[#161512] z-10';
+        if (textTop) textTop.textContent = '';
+        if (textBottom) {
+          textBottom.textContent = formatted;
+          textBottom.className = 'mono-font text-[10px] font-black text-[#161512] z-10';
+        }
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
         evalInterpretation.textContent = 'Winning for X (Theoretical Win)';
       } else if (score < 0) {
-        textTop.textContent = formatted;
-        textTop.className = 'mono-font text-[10px] font-black text-white z-10';
-        textBottom.textContent = '';
+        if (textTop) {
+          textTop.textContent = formatted;
+          textTop.className = 'mono-font text-[10px] font-black text-white z-10';
+        }
+        if (textBottom) textBottom.textContent = '';
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
         evalInterpretation.textContent = 'Winning for O (Theoretical Win)';
       } else {
-        textTop.textContent = '';
-        textBottom.textContent = '0.00';
-        textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] z-10';
+        if (textTop) textTop.textContent = '';
+        if (textBottom) {
+          textBottom.textContent = '0.00';
+          textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] z-10';
+        }
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200';
         evalInterpretation.textContent = 'Theoretical Draw (Under Optimal Play)';
       }
+
+      if (nodesCount) nodesCount.textContent = 'Nodes: 549 / instant';
+      if (speedLabel) speedLabel.textContent = '0.00 ms (exact)';
 
       if (winStatus) {
         if (winStatus.winner === 'Draw') {
@@ -1041,11 +1338,121 @@
     }
 
     /**
-     * Render Candidate Moves (MultiPV) List
+     * Render Candidate Moves (MultiPV) List or Match Status Card
      */
     function renderCandidateMoves(analysis, winStatus) {
       const container = document.getElementById('candidate-moves-list');
+      const panelTitle = document.getElementById('candidate-panel-title');
+      const panelSubtitle = document.getElementById('candidate-panel-subtitle');
       container.innerHTML = '';
+
+      const isPlayMode = state.mode === 'play';
+      const showEval = !isPlayMode || state.playShowEval;
+      const current = state.history[state.currentPly];
+      const lvl = LEVELS[state.engineLevel - 1];
+
+      // In Play mode with Eval OFF: show dedicated Match Card
+      if (!showEval) {
+        if (panelTitle) panelTitle.textContent = 'Match Status';
+        if (panelSubtitle) panelSubtitle.textContent = 'Live Practice';
+
+        if (winStatus) {
+          const isUserWin = winStatus.winner === state.playerPiece;
+          const isDraw = winStatus.winner === 'Draw';
+
+          let bannerBg = isUserWin ? 'border-[#629924]/60 bg-[#629924]/10' : (isDraw ? 'border-yellow-500/60 bg-yellow-500/10' : 'border-[#c33a38]/60 bg-[#c33a38]/10');
+          let bannerTitle = isUserWin ? '🎉 VICTORY!' : (isDraw ? '🤝 THEORETICAL DRAW!' : 'DEFEAT');
+          let bannerMsg = isUserWin
+            ? `You defeated StockTic Level ${state.engineLevel} (${lvl.name})!`
+            : (isDraw ? 'Draw under optimal theoretical play. Well played!' : `StockTic Level ${state.engineLevel} won.`);
+
+          container.innerHTML = `
+            <div class="p-3.5 border ${bannerBg} rounded-lg m-2 space-y-2.5 select-none text-center">
+              <div class="font-extrabold text-sm uppercase tracking-wider ${isUserWin ? 'text-[#7ec62f]' : (isDraw ? 'text-yellow-400' : 'text-[#ef5350]')}">
+                ${bannerTitle}
+              </div>
+              <div class="text-xs text-gray-300">
+                ${bannerMsg}
+              </div>
+              <div class="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+                <button id="card-play-again-btn" class="px-3 py-1 text-xs rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold transition shadow">
+                  ↺ Play Again
+                </button>
+                <button id="card-review-analysis-btn" class="px-2.5 py-1 text-xs rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 transition">
+                  🔍 Review in Analysis
+                </button>
+                ${isUserWin && state.engineLevel < 8 ? `
+                  <button id="card-next-level-btn" class="px-2.5 py-1 text-xs rounded bg-[#3692e7] hover:bg-[#4ea2f0] text-white font-bold transition shadow">
+                    ⬆️ Challenge Level ${state.engineLevel + 1}
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          `;
+
+          const playAgainBtn = document.getElementById('card-play-again-btn');
+          if (playAgainBtn) playAgainBtn.addEventListener('click', resetBoard);
+
+          const reviewBtn = document.getElementById('card-review-analysis-btn');
+          if (reviewBtn) reviewBtn.addEventListener('click', reviewGameInAnalysis);
+
+          const nextLvlBtn = document.getElementById('card-next-level-btn');
+          if (nextLvlBtn) {
+            nextLvlBtn.addEventListener('click', () => {
+              setEngineLevel(state.engineLevel + 1);
+              resetBoard();
+            });
+          }
+          return;
+        }
+
+        // Match ongoing
+        const isUserTurn = current.turn === state.playerPiece;
+        container.innerHTML = `
+          <div class="p-3.5 space-y-2.5 select-none">
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full ${isUserTurn ? 'bg-[#629924]' : 'bg-yellow-400 animate-ping'}"></span>
+                <span class="font-bold ${isUserTurn ? 'text-[#7ec62f]' : 'text-yellow-400'}">
+                  ${isUserTurn ? 'Your Turn to Move' : 'StockTic is Thinking...'}
+                </span>
+              </div>
+              <span class="text-[11px] text-gray-400 mono-font">Ply #${state.currentPly + 1}</span>
+            </div>
+
+            <div class="bg-[#1e1c18] p-2 rounded border border-[#363431] text-xs flex items-center justify-between">
+              <div>
+                <span class="text-gray-400">Playing as:</span>
+                <strong class="text-white ml-1">${state.playerPiece === 'X' ? 'X (First)' : 'O (Second)'}</strong>
+              </div>
+              <div>
+                <span class="text-gray-400">Opponent:</span>
+                <strong class="text-[#7ec62f] ml-1">Level ${state.engineLevel} (${lvl.name})</strong>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[11px] text-[#73706c] italic">Evaluation hidden for fair match play.</span>
+              <button id="card-peek-eval-btn" class="px-2 py-0.5 text-[11px] rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1">
+                <span>👁️</span>
+                <span>Peek Eval / Hint</span>
+              </button>
+            </div>
+          </div>
+        `;
+
+        const peekBtn = document.getElementById('card-peek-eval-btn');
+        if (peekBtn) {
+          peekBtn.addEventListener('click', () => {
+            setPlayShowEval(true);
+          });
+        }
+        return;
+      }
+
+      // Eval is ON (Analysis or Play with hints)
+      if (panelTitle) panelTitle.textContent = 'Candidate Moves (MultiPV)';
+      if (panelSubtitle) panelSubtitle.textContent = 'Ranked by score';
 
       if (winStatus || analysis.allMoves.length === 0) {
         container.innerHTML = `
@@ -1111,6 +1518,10 @@
         return;
       }
 
+      const winStatus = checkWinner(state.history[state.currentPly].board);
+      const isPlayMode = state.mode === 'play';
+      const showAnnotations = !isPlayMode || state.playShowEval || winStatus;
+
       // Group moves into pairs: 1. MoveX MoveO  2. MoveX MoveO
       for (let i = 1; i < state.history.length; i++) {
         const moveNumber = Math.ceil(i / 2);
@@ -1128,7 +1539,7 @@
         const isActive = i === state.currentPly;
 
         let annotationBadge = '';
-        if (moveItem.annotation) {
+        if (moveItem.annotation && showAnnotations) {
           annotationBadge = `<sup class="font-bold ${moveItem.annotation.color}">${moveItem.annotation.glyph}</sup>`;
         }
 
@@ -1201,7 +1612,13 @@
       render();
 
       if (state.mode === 'play' && state.playerPiece === 'O') {
-        setTimeout(makeEngineMove, 400);
+        state.isEngineThinking = true;
+        render();
+        setTimeout(() => {
+          makeEngineMove();
+          state.isEngineThinking = false;
+          render();
+        }, 400);
       }
     }
 
@@ -1235,6 +1652,90 @@
       document.body.removeChild(tempInput);
     }
 
+    /**
+     * Level and Evaluation Controller Functions
+     */
+    function setEngineLevel(level) {
+      if (level < 1) level = 1;
+      if (level > 8) level = 8;
+      state.engineLevel = level;
+      try {
+        localStorage.setItem('stocktic_engine_level', level.toString());
+      } catch (e) {}
+
+      updateLevelUI();
+      render();
+      showToast(`StockTic difficulty set to Level ${level} (${LEVELS[level - 1].name})`);
+    }
+
+    function updateLevelUI() {
+      const lvl = LEVELS[state.engineLevel - 1];
+      const displayName = document.getElementById('level-display-name');
+      const eloBadge = document.getElementById('level-elo-badge');
+      const descBox = document.getElementById('level-description-box');
+
+      if (displayName) displayName.textContent = `Level ${state.engineLevel} · ${lvl.name}`;
+      if (eloBadge) eloBadge.textContent = `Elo ${lvl.elo}`;
+      if (descBox) descBox.textContent = lvl.desc;
+
+      const buttons = document.querySelectorAll('.level-btn');
+      buttons.forEach(btn => {
+        const bLevel = parseInt(btn.dataset.level, 10);
+        if (bLevel === state.engineLevel) {
+          btn.className = 'level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm ring-1 ring-[#629924]';
+        } else {
+          btn.className = 'level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        }
+      });
+    }
+
+    function setPlayShowEval(show) {
+      state.playShowEval = show;
+      try {
+        localStorage.setItem('stocktic_play_show_eval', show ? 'true' : 'false');
+      } catch (e) {}
+
+      updateEvalToggleUI();
+      render();
+      showToast(show ? 'Evaluation & hints enabled' : 'Evaluation hidden for match play');
+    }
+
+    function updateEvalToggleUI() {
+      const offBtn = document.getElementById('eval-toggle-off-btn');
+      const onBtn = document.getElementById('eval-toggle-on-btn');
+      const stateBadge = document.getElementById('eval-toggle-state-badge');
+      const helper = document.getElementById('eval-toggle-helper');
+
+      if (!offBtn || !onBtn) return;
+
+      if (state.playShowEval) {
+        onBtn.className = 'px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1 shadow-sm';
+        offBtn.className = 'px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white hover:bg-[#363431] transition flex items-center space-x-1';
+        if (stateBadge) {
+          stateBadge.textContent = 'ON';
+          stateBadge.className = 'text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+        }
+        if (helper) helper.textContent = 'Live eval bar, candidate moves & arrows visible';
+      } else {
+        offBtn.className = 'px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1 shadow-sm';
+        onBtn.className = 'px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white hover:bg-[#363431] transition flex items-center space-x-1';
+        if (stateBadge) {
+          stateBadge.textContent = 'OFF';
+          stateBadge.className = 'text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-300';
+        }
+        if (helper) helper.textContent = 'Hidden for realistic match play (no hints)';
+      }
+    }
+
+    function reviewGameInAnalysis() {
+      state.mode = 'analysis';
+      modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
+      modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
+      playPanel.classList.add('hidden');
+      render();
+      showToast('Switched to Analysis Mode: explore evaluations and blunder annotations');
+    }
+
     // Attach Event Listeners
     document.getElementById('nav-first').addEventListener('click', goFirst);
     document.getElementById('nav-prev').addEventListener('click', goPrev);
@@ -1243,8 +1744,13 @@
     document.getElementById('btn-reset').addEventListener('click', resetBoard);
     document.getElementById('btn-copy-fen').addEventListener('click', copyFen);
 
+    const btnNewMatch = document.getElementById('btn-new-match');
+    if (btnNewMatch) btnNewMatch.addEventListener('click', resetBoard);
+
     // Keyboard navigation
     window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
       if (e.key === 'ArrowLeft') {
         goPrev();
       } else if (e.key === 'ArrowRight') {
@@ -1255,6 +1761,15 @@
         goLast();
       } else if (e.key.toLowerCase() === 'f') {
         flipBoard();
+      } else if (e.key.toLowerCase() === 'r') {
+        resetBoard();
+      } else if (state.mode === 'play') {
+        const num = parseInt(e.key, 10);
+        if (num >= 1 && num <= 8) {
+          setEngineLevel(num);
+        } else if (e.key.toLowerCase() === 'e') {
+          setPlayShowEval(!state.playShowEval);
+        }
       }
     });
 
@@ -1305,6 +1820,8 @@
       modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
       modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
       playPanel.classList.remove('hidden');
+      updateLevelUI();
+      updateEvalToggleUI();
       resetBoard();
     });
 
@@ -1314,17 +1831,60 @@
 
     playAsXBtn.addEventListener('click', () => {
       state.playerPiece = 'X';
-      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white';
-      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300';
+      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
+      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
       resetBoard();
     });
 
     playAsOBtn.addEventListener('click', () => {
       state.playerPiece = 'O';
-      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white';
-      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300';
+      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
+      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
       resetBoard();
     });
+
+    // Level selector buttons (1 to 8)
+    document.querySelectorAll('.level-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lvl = parseInt(btn.dataset.level, 10);
+        if (lvl >= 1 && lvl <= 8) {
+          setEngineLevel(lvl);
+        }
+      });
+    });
+
+    // Evaluation toggle buttons (Off & On)
+    const evalToggleOffBtn = document.getElementById('eval-toggle-off-btn');
+    const evalToggleOnBtn = document.getElementById('eval-toggle-on-btn');
+
+    if (evalToggleOffBtn) {
+      evalToggleOffBtn.addEventListener('click', () => {
+        setPlayShowEval(false);
+      });
+    }
+
+    if (evalToggleOnBtn) {
+      evalToggleOnBtn.addEventListener('click', () => {
+        setPlayShowEval(true);
+      });
+    }
+
+    // Load persisted settings from localStorage
+    try {
+      const savedLevel = localStorage.getItem('stocktic_engine_level');
+      if (savedLevel) {
+        const parsed = parseInt(savedLevel, 10);
+        if (parsed >= 1 && parsed <= 8) state.engineLevel = parsed;
+      }
+      const savedEval = localStorage.getItem('stocktic_play_show_eval');
+      if (savedEval !== null) {
+        state.playShowEval = savedEval === 'true';
+      }
+    } catch (e) {}
+
+    // Initialize UI settings
+    updateLevelUI();
+    updateEvalToggleUI();
 
     // Initial render on page load
     window.onload = function() {
@@ -1334,6 +1894,14 @@
         render();
       }
     };
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#play' && state.mode !== 'play') {
+        modePlayBtn.click();
+      } else if (window.location.hash !== '#play' && state.mode === 'play') {
+        modeAnalysisBtn.click();
+      }
+    });
   </script>
 </body>
 </html>
