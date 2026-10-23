@@ -192,20 +192,23 @@
     <!-- LEFT SECTION: Dynamic Eval Bar + Flexible (m,n,k) Board -->
     <div id="board-workspace" class="flex items-stretch justify-center gap-2 sm:gap-3 w-full max-w-[680px]">
       
-      <!-- StockTic Vertical Evaluation Bar -->
-      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none flex-shrink-0">
-        <!-- Black/O portion (top) -->
-        <div class="w-full bg-[#1e1c18] transition-all duration-300 relative flex items-start justify-center pt-2">
-          <span id="eval-text-top" class="mono-font text-[10px] font-bold text-gray-300 z-10 select-none"></span>
+      <!-- StockTic Vertical Evaluation Bar (-100 to +100 Scale) -->
+      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#1e1c18] border border-[#363431] rounded overflow-hidden shadow-lg select-none flex-shrink-0" title="Win Probability Evaluation (-100 to +100: +100 = 100% Win for First Player, 0 = 50-50, -100 = 100% Win for Second Player)">
+        <!-- Dynamic White/X fill (covers bottom when normal, top when flipped) -->
+        <div id="eval-bar-fill" class="eval-bar-fill absolute left-0 right-0 w-full bg-[#f0f0f0]" style="bottom: 0; height: 50%;"></div>
+
+        <!-- 50-50 Center divider line (Eval: 0) -->
+        <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-red-500/50 z-20 pointer-events-none"></div>
+
+        <!-- Black/O portion text (top) -->
+        <div class="absolute top-0 left-0 right-0 pt-1.5 flex justify-center z-30 pointer-events-none">
+          <span id="eval-text-top" class="mono-font text-[10px] font-black text-white select-none"></span>
         </div>
 
-        <!-- Dynamic White/X fill (bottom) -->
-        <div id="eval-bar-fill" class="eval-bar-fill w-full bg-[#f0f0f0] flex items-end justify-center pb-2 relative" style="height: 50%;">
-          <span id="eval-text-bottom" class="mono-font text-[10px] font-bold text-[#161512] z-10 select-none">0.00</span>
+        <!-- White/X portion text (bottom) -->
+        <div class="absolute bottom-0 left-0 right-0 pb-1.5 flex justify-center z-30 pointer-events-none">
+          <span id="eval-text-bottom" class="mono-font text-[10px] font-black text-[#161512] select-none">0</span>
         </div>
-
-        <!-- 0.00 Center divider line -->
-        <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-red-500/30 z-0 pointer-events-none"></div>
       </div>
 
       <!-- Board Outer Frame -->
@@ -254,7 +257,7 @@
               <span id="under-board-variant-text">(3,3,3)</span> ⚙
             </button>
             <span id="board-eval-summary" class="text-white bg-[#262421] px-2 py-0.5 rounded border border-[#363431]">
-              Eval: <strong id="summary-eval-val" class="text-[#629924]">0.00</strong>
+              Eval: <strong id="summary-eval-val" class="text-[#629924]">0</strong>
             </span>
           </div>
         </div>
@@ -284,10 +287,10 @@
         <div class="flex items-center justify-between">
           <div class="flex items-baseline space-x-2">
             <span id="big-eval-badge" class="mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200">
-              0.00
+              0
             </span>
             <span id="eval-interpretation" class="text-xs font-semibold text-gray-400">
-              Theoretical Draw (Optimal Play)
+              0: 50-50 Balanced (Theoretical Draw)
             </span>
           </div>
           <div class="text-right text-[11px] text-[#73706c] mono-font">
@@ -713,13 +716,13 @@
 
       // k = 2
       if (k === 2) {
-        if (minDim === 1 && maxDim === 2) return 'Theoretical Draw (0.00)';
+        if (minDim === 1 && maxDim === 2) return 'Theoretical Draw (50-50)';
         if (maxDim >= 2) return 'First-Player Win';
       }
 
       // k = 3
       if (k === 3) {
-        if (minDim < 3) return 'Theoretical Draw (0.00)';
+        if (minDim < 3) return 'Theoretical Draw (50-50)';
         if (minDim === 3 && maxDim === 3) return 'Theoretical Draw (Solved)';
         if (minDim >= 3 && maxDim >= 4) return 'First-Player Win';
       }
@@ -1197,8 +1200,8 @@
       const terminal = checkWinner(board, rows, cols, k);
       if (terminal) {
         let score = 0;
-        if (terminal.winner === 'X') score = 1;
-        else if (terminal.winner === 'O') score = -1;
+        if (terminal.winner === 'X') score = 100;
+        else if (terminal.winner === 'O') score = -100;
         return {
           score,
           bestMove: null,
@@ -1226,10 +1229,10 @@
       if (directWins.length > 0) {
         const m = directWins[0];
         return {
-          score: isX ? 1.0 : -1.0,
+          score: isX ? 100 : -100,
           bestMove: m,
           pv: [m],
-          allMoves: [{ move: m, score: isX ? 1.0 : -1.0, rawScore: 1000000, tacticalDesc: 'Instant Win (+M1)', pv: [m] }],
+          allMoves: [{ move: m, score: isX ? 100 : -100, rawScore: 1000000, tacticalDesc: 'Instant Win (+100)', pv: [m] }],
           terminal: false
         };
       }
@@ -1274,15 +1277,15 @@
         let normScore = 0;
         let desc = item.desc;
         if (searchVal >= 999000) {
-          normScore = isX ? 1.0 : -1.0;
-          desc = 'Forced Win Sequence';
+          normScore = isX ? 100 : -100;
+          desc = 'Forced Win Sequence (+100)';
         } else if (searchVal <= -999000) {
-          normScore = isX ? -1.0 : 1.0;
-          desc = 'Allows Opponent Win (Fatal Blunder)';
+          normScore = isX ? -100 : 100;
+          desc = 'Allows Opponent Win (-100)';
         } else {
           const clamped = Math.max(-100000, Math.min(100000, searchVal));
           const raw = clamped / 100000;
-          normScore = isX ? raw * 0.85 : -raw * 0.85;
+          normScore = Math.round(isX ? raw * 85 : -raw * 85);
         }
 
         scoredMoves.push({
@@ -1318,8 +1321,8 @@
       const terminal = checkWinner(board, rows, cols, k);
       if (terminal) {
         let score = 0;
-        if (terminal.winner === 'X') score = 1;
-        else if (terminal.winner === 'O') score = -1;
+        if (terminal.winner === 'X') score = 100;
+        else if (terminal.winner === 'O') score = -100;
         const res = { score, bestMove: null, pv: [], allMoves: [], terminal: true, winner: terminal.winner, line: terminal.line };
         ttMap.set(key, res);
         return res;
@@ -1347,7 +1350,7 @@
           move,
           score: childScore,
           rawScore: isX ? childScore : -childScore,
-          tacticalDesc: childScore === 1 ? 'Theoretical Win (+M)' : (childScore === -1 ? 'Theoretical Loss (-M)' : 'Theoretical Draw (0.00)'),
+          tacticalDesc: childScore === 100 ? 'Theoretical Win (+100)' : (childScore === -100 ? 'Theoretical Loss (-100)' : 'Theoretical Draw (0)'),
           pv: [move, ...childAnalysis.pv]
         });
 
@@ -1523,10 +1526,11 @@
      * Format theoretical evaluation into string
      */
     function formatEval(val) {
-      if (val >= 0.99) return '+1.00';
-      if (val <= -0.99) return '-1.00';
-      if (Math.abs(val) < 0.01) return '0.00';
-      return (val > 0 ? '+' : '') + val.toFixed(2);
+      if (val >= 99.5) return '+100';
+      if (val <= -99.5) return '-100';
+      if (Math.abs(val) < 0.5) return '0';
+      const rounded = Math.round(val);
+      return (rounded > 0 ? '+' : '') + rounded;
     }
 
     /**
@@ -1559,9 +1563,9 @@
      */
     function classifyMove(evalBefore, evalAfter, turnMoved) {
       const delta = (turnMoved === 'X') ? (evalBefore - evalAfter) : (evalAfter - evalBefore);
-      if (delta <= 0.05) return { label: 'Best', glyph: '', color: 'text-[#629924]' };
-      if (delta <= 0.4) return { label: 'Inaccuracy', glyph: '?!', color: 'text-[#3692e7]' };
-      if (delta <= 0.8) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
+      if (delta <= 5) return { label: 'Best', glyph: '', color: 'text-[#629924]' };
+      if (delta <= 30) return { label: 'Inaccuracy', glyph: '?!', color: 'text-[#3692e7]' };
+      if (delta <= 65) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
       return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
     }
 
@@ -1603,12 +1607,12 @@
         const oppCanWin = isWinningMove(current.board, index, oppPiece, config.rows, config.cols, config.k);
 
         if (evalResult.isWin) {
-          evalAfter = isX ? 1.0 : -1.0;
+          evalAfter = isX ? 100 : -100;
         } else if (evalResult.isBlock) {
-          evalAfter = 0.0;
+          evalAfter = 0;
         } else {
           const raw = Math.min(100000, evalResult.score) / 100000;
-          evalAfter = isX ? raw * 0.8 : -raw * 0.8;
+          evalAfter = Math.round(isX ? raw * 80 : -raw * 80);
         }
       }
 
@@ -2030,44 +2034,94 @@
         return;
       }
 
-      // Eval is ON
+      // Eval is ON: Evaluation is on -100 to +100 scale
+      // +100: 100% win probability for first player (X)
+      // 0: 50-50 balanced / theoretical draw
+      // -100: 100% win probability for second player (O) (0% for first player)
       const formatted = formatEval(score);
       if (summaryEval) summaryEval.textContent = formatted;
       if (bigEval) bigEval.textContent = formatted;
 
-      let fillPct = 50 + score * 46;
-      fillPct = Math.max(4, Math.min(96, fillPct));
+      // Win probability for first player (X):
+      // When score = +100 -> winProb = 100% -> fillPct = 100%
+      // When score = 0 -> winProb = 50% -> fillPct = 50%
+      // When score = -100 -> winProb = 0% -> fillPct = 0%
+      let fillPct = 50 + (score / 2);
+      fillPct = Math.max(0, Math.min(100, fillPct));
 
-      if (state.flipped) {
-        fillPct = 100 - fillPct;
+      if (barFill) {
+        if (!state.flipped) {
+          barFill.style.top = 'auto';
+          barFill.style.bottom = '0';
+          barFill.style.height = `${fillPct}%`;
+        } else {
+          barFill.style.bottom = 'auto';
+          barFill.style.top = '0';
+          barFill.style.height = `${fillPct}%`;
+        }
       }
 
-      if (barFill) barFill.style.height = `${fillPct}%`;
-
-      if (score > 0.05) {
-        if (textTop) textTop.textContent = '';
-        if (textBottom) {
-          textBottom.textContent = formatted;
-          textBottom.className = 'mono-font text-[10px] font-black text-[#161512] z-10';
+      // Display numeric label on the evaluation bar
+      if (!state.flipped) {
+        if (score >= 0.5) {
+          if (textTop) textTop.textContent = '';
+          if (textBottom) {
+            textBottom.textContent = formatted;
+            textBottom.className = 'mono-font text-[10px] font-black text-[#161512] select-none';
+          }
+        } else if (score <= -0.5) {
+          if (textTop) {
+            textTop.textContent = formatted;
+            textTop.className = 'mono-font text-[10px] font-black text-white select-none';
+          }
+          if (textBottom) textBottom.textContent = '';
+        } else {
+          if (textTop) textTop.textContent = '';
+          if (textBottom) {
+            textBottom.textContent = '0';
+            textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] select-none';
+          }
         }
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
-        evalInterpretation.textContent = 'Advantage / Winning for X';
-      } else if (score < -0.05) {
-        if (textTop) {
-          textTop.textContent = formatted;
-          textTop.className = 'mono-font text-[10px] font-black text-white z-10';
-        }
-        if (textBottom) textBottom.textContent = '';
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-        evalInterpretation.textContent = 'Advantage / Winning for O';
       } else {
-        if (textTop) textTop.textContent = '';
-        if (textBottom) {
-          textBottom.textContent = '0.00';
-          textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] z-10';
+        if (score >= 0.5) {
+          if (textBottom) textBottom.textContent = '';
+          if (textTop) {
+            textTop.textContent = formatted;
+            textTop.className = 'mono-font text-[10px] font-black text-[#161512] select-none';
+          }
+        } else if (score <= -0.5) {
+          if (textBottom) {
+            textBottom.textContent = formatted;
+            textBottom.className = 'mono-font text-[10px] font-black text-white select-none';
+          }
+          if (textTop) textTop.textContent = '';
+        } else {
+          if (textBottom) textBottom.textContent = '';
+          if (textTop) {
+            textTop.textContent = '0';
+            textTop.className = 'mono-font text-[10px] font-bold text-[#161512] select-none';
+          }
         }
+      }
+
+      // Human-readable interpretation with exact win probabilities
+      if (score >= 99.5) {
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+        evalInterpretation.textContent = '+100: 100% Win Probability for First Player (X)';
+      } else if (score <= -99.5) {
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+        evalInterpretation.textContent = '-100: 100% Win Probability for Second Player (O)';
+      } else if (Math.abs(score) < 0.5) {
         bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200';
-        evalInterpretation.textContent = 'Theoretical Draw / Balanced';
+        evalInterpretation.textContent = '0: 50-50 Balanced (Theoretical Draw)';
+      } else if (score > 0) {
+        const winProb = Math.round(50 + score / 2);
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+        evalInterpretation.textContent = `${formatted}: ${winProb}% Win Probability for First Player (X)`;
+      } else {
+        const winProbO = Math.round(50 + Math.abs(score) / 2);
+        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+        evalInterpretation.textContent = `${formatted}: ${winProbO}% Win Probability for Second Player (O)`;
       }
 
       if (nodesCount) nodesCount.textContent = `Board: ${config.rows * config.cols} cells`;
@@ -2077,7 +2131,7 @@
         if (winStatus.winner === 'Draw') {
           bigEval.textContent = '½ - ½';
           bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
-          evalInterpretation.textContent = 'Final Result: Draw';
+          evalInterpretation.textContent = 'Final Result: Draw (50-50)';
           if (summaryEval) summaryEval.textContent = '½-½';
         } else {
           bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
@@ -2241,8 +2295,8 @@
         const coord = getCoord(cand.move, config.rows, config.cols);
 
         let badgeBg = 'bg-[#1e1c18] text-gray-300 border-[#363431]';
-        if (cand.score > 0.05) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50';
-        else if (cand.score < -0.05) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50';
+        if (cand.score > 2) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50';
+        else if (cand.score < -2) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50';
 
         row.innerHTML = `
           <div class="flex items-center space-x-2.5 overflow-hidden">
