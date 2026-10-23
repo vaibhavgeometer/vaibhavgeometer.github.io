@@ -483,7 +483,7 @@
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="5" data-n="5" data-k="4">
             <div class="font-bold text-white">5 × 5 (k=4)</div>
-            <div class="text-[10px] text-gray-400">First-Player Win</div>
+            <div class="text-[10px] text-gray-400">Theoretical Draw</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="7" data-n="7" data-k="5">
             <div class="font-bold text-white">7 × 7 (k=5)</div>
@@ -705,19 +705,56 @@
       const minDim = Math.min(m, n);
       const maxDim = Math.max(m, n);
 
+      // Trivially impossible to form k in a row
+      if (maxDim < k) return 'Theoretical Draw (Board < k)';
+
+      // k = 1: First move trivially wins
       if (k === 1) return 'First-Player Win (Turn 1)';
-      if (k === 2 && maxDim >= 2) return 'First-Player Win';
-      if (minDim === 3 && maxDim === 3 && k === 3) return 'Theoretical Draw (Solved)';
-      if (minDim >= 3 && maxDim >= 4 && k === 3) return 'First-Player Win';
-      if (minDim === 4 && maxDim === 4 && k === 4) return 'Theoretical Draw (Patashnik 1980)';
-      if (minDim >= 4 && maxDim >= 5 && k === 4) return 'First-Player Win';
-      if (minDim === 5 && maxDim === 5 && k === 4) return 'First-Player Win (Allis 1993)';
-      if (minDim === 5 && maxDim === 5 && k === 5) return 'Theoretical Draw (Erdős-Selfridge)';
-      if (minDim <= 7 && maxDim <= 7 && k === 5) return 'Theoretical Draw (Allis 1993)';
-      if (minDim >= 15 && maxDim >= 15 && k === 5) return 'First-Player Win (Gomoku Solved)';
-      if (minDim >= 8 && maxDim >= 8 && k === 5) return 'First-Player Win (Allis 1993)';
+
+      // k = 2
+      if (k === 2) {
+        if (minDim === 1 && maxDim === 2) return 'Theoretical Draw (0.00)';
+        if (maxDim >= 2) return 'First-Player Win';
+      }
+
+      // k = 3
+      if (k === 3) {
+        if (minDim < 3) return 'Theoretical Draw (0.00)';
+        if (minDim === 3 && maxDim === 3) return 'Theoretical Draw (Solved)';
+        if (minDim >= 3 && maxDim >= 4) return 'First-Player Win';
+      }
+
+      // k = 4
+      if (k === 4) {
+        // (5,5,4) is a draw => all m <= 5 and n <= 5 are draws
+        if (maxDim <= 5) return 'Theoretical Draw (Solved)';
+        // (m,4,4) is a draw for m <= 8, win for m >= 9
+        if (minDim === 4) {
+          if (maxDim <= 8) return 'Theoretical Draw (Solved)';
+          if (maxDim >= 9) return 'First-Player Win';
+        }
+        // (6,5,4) is a win => minDim >= 5 and maxDim >= 6 is a first-player win
+        if (minDim >= 5 && maxDim >= 6) return 'First-Player Win';
+        if (minDim >= 6) return 'First-Player Win';
+      }
+
+      // k = 5
+      if (k === 5) {
+        // Hsu & Ko (2018) proved (7,7,5) and (8,8,5) are draws => all m, n <= 8 are draws
+        if (maxDim <= 8) return 'Theoretical Draw (Hsu & Ko 2018)';
+        // Allis (1993) proved (15,15,5) Gomoku is a first-player win
+        if (minDim >= 15 && maxDim >= 15) return 'First-Player Win (Allis 1993)';
+      }
+
+      // k >= 8
       if (k >= 8) return 'Draw by Pairing Strategy (Plambeck)';
-      if (minDim >= 15 && k === 6) return 'Open Problem (Conjectured Draw)';
+
+      // k = 6 or 7
+      if (k === 6 || k === 7) {
+        if (maxDim <= k) return 'Theoretical Draw (Erdős-Selfridge)';
+        return 'Open Problem (Conjectured Draw)';
+      }
+
       if (minDim === k && maxDim === k && k >= 4) return 'Theoretical Draw';
       return 'Complex Positional Game';
     }
@@ -2534,7 +2571,17 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       sliderNVal.textContent = c;
       sliderKVal.textContent = k;
       modalTotalCells.textContent = `${r * c} cells (${r} × ${c})`;
-      modalTheoreticalVal.textContent = getTheoreticalValue(r, c, k);
+      const val = getTheoreticalValue(r, c, k);
+      modalTheoreticalVal.textContent = val;
+      if (val.includes('Win')) {
+        modalTheoreticalVal.className = 'mono-font font-bold text-yellow-400';
+      } else if (val.includes('Draw')) {
+        modalTheoreticalVal.className = 'mono-font font-bold text-sky-400';
+      } else if (val.includes('Open')) {
+        modalTheoreticalVal.className = 'mono-font font-bold text-purple-400';
+      } else {
+        modalTheoreticalVal.className = 'mono-font font-bold text-gray-300';
+      }
 
       // Highlight active preset button if dimensions match
       document.querySelectorAll('.preset-btn').forEach(btn => {

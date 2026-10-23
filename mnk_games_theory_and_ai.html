@@ -539,10 +539,18 @@
             <tr>
               <td><strong>(5, 5, 4)</strong></td>
               <td>5x5 4-in-a-row</td>
-              <td><span class="status-badge status-win">First Player Win</span></td>
-              <td>Solved (Allis, 1993)</td>
-              <td>Threat-Space Search (VCF / VCT).</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Solved</td>
+              <td>Second player forces draw with optimal defense; implies all (m,n,4) are draws for m,n &le; 5.</td>
               <td><a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="table-play-btn" title="Launch 5x5 (k=4) in Analysis Board">♟️ Play 5×5</a></td>
+            </tr>
+            <tr>
+              <td><strong>(6, 5, 4)</strong></td>
+              <td>6x5 4-in-a-row</td>
+              <td><span class="status-badge status-win">First Player Win</span></td>
+              <td>Solved</td>
+              <td>Smallest grid where 4-in-a-row is a forced win for first player (implies win for m &ge; 6, n &ge; 5).</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=6&n=5&k=4" class="table-play-btn" title="Launch 6x5 (k=4) in Analysis Board">♟️ Play 6×5</a></td>
             </tr>
             <tr>
               <td><strong>(5, 5, 5)</strong></td>
@@ -553,19 +561,19 @@
               <td><a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=5" class="table-play-btn" title="Launch 5x5 (k=5) in Analysis Board">♟️ Play 5×5</a></td>
             </tr>
             <tr>
-              <td><strong>(6, 6, 5) & (7, 7, 5)</strong></td>
-              <td>Small Gomoku</td>
+              <td><strong>(6, 6, 5)</strong></td>
+              <td>6x6 Gomoku</td>
               <td><span class="status-badge status-draw">Draw (0.00)</span></td>
               <td>Solved (Allis, 1993)</td>
               <td>Proof-Number Search (PNS) proves second player holds draw.</td>
-              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=7&n=7&k=5" class="table-play-btn" title="Launch 7x7 (k=5) in Analysis Board">♟️ Play 7×7</a></td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=6&n=6&k=5" class="table-play-btn" title="Launch 6x6 (k=5) in Analysis Board">♟️ Play 6×6</a></td>
             </tr>
             <tr>
-              <td><strong>(8, 8, 5)</strong></td>
-              <td>8x8 Gomoku</td>
-              <td><span class="status-badge status-win">First Player Win</span></td>
-              <td>Solved (Allis, 1993)</td>
-              <td>First player forces continuous four-threat chain (VCF).</td>
+              <td><strong>(7, 7, 5) & (8, 8, 5)</strong></td>
+              <td>7x7 & 8x8 Gomoku</td>
+              <td><span class="status-badge status-draw">Draw (0.00)</span></td>
+              <td>Hsu &amp; Ko (2018)</td>
+              <td>Computer search proves second player holds draw for all m, n &le; 8.</td>
               <td><a href="lichess_tic_tac_toe_analysis_board.html?m=8&n=8&k=5" class="table-play-btn" title="Launch 8x8 (k=5) in Analysis Board">♟️ Play 8×8</a></td>
             </tr>
             <tr>
