@@ -1228,6 +1228,192 @@
     }
 
     /**
+     * Count potential winning lines of length k passing through cell (r, c)
+     */
+    function countWinningLinesThroughCell(r, c, rows = config.rows, cols = config.cols, k = config.k) {
+      if (k === 1) return 1;
+      const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
+      let count = 0;
+      for (const [dr, dc] of directions) {
+        for (let s = 0; s < k; s++) {
+          const startR = r - dr * s;
+          const startC = c - dc * s;
+          const endR = r + dr * (k - 1 - s);
+          const endC = c + dc * (k - 1 - s);
+          if (startR >= 0 && startR < rows && startC >= 0 && startC < cols &&
+              endR >= 0 && endR < rows && endC >= 0 && endC < cols) {
+            count++;
+          }
+        }
+      }
+      return count;
+    }
+
+    /**
+     * Calculate Tactical Trickiness of a Move for the Opponent
+     * Evaluates how difficult this move is for an opponent to calculate, defend, and survive:
+     * - Immediate winning threats / unstoppable forks created
+     * - Opponent blunder rate: fraction of opponent legal replies that lose or blunder into forks
+     * - Unblocked winning rays of length k (with diagonal weighting for human blindspots)
+     * - Tactical center proximity & radiation
+     */
+    function calculateMoveTrickiness(board, move, turn, rows = config.rows, cols = config.cols, k = config.k) {
+      const opp = turn === 'X' ? 'O' : 'X';
+      const r = Math.floor(move / cols);
+      const c = move % cols;
+      const centerR = (rows - 1) / 2;
+      const centerC = (cols - 1) / 2;
+      const distSq = (r - centerR) ** 2 + (c - centerC) ** 2;
+
+      let trickiness = 100;
+
+      // 1. Tactical heuristic evaluation
+      const tactics = evaluateMoveTactics(board, move, turn, rows, cols, k);
+      trickiness += Math.min(6000, tactics.score / 20);
+
+      // 2. Temporarily place move to simulate opponent response difficulty
+      board[move] = turn;
+      try {
+        const emptyCells = [];
+        for (let i = 0; i < board.length; i++) {
+          if (board[i] === null) emptyCells.push(i);
+        }
+
+        if (emptyCells.length === 0) return trickiness;
+
+        // Check if 'turn' directly threatens instant win next ply
+        let directWinThreats = 0;
+        for (const sq of emptyCells) {
+          if (isWinningMove(board, sq, turn, rows, cols, k)) {
+            directWinThreats++;
+            if (directWinThreats >= 2) break;
+          }
+        }
+
+        if (directWinThreats >= 2) {
+          trickiness += 15000; // Unstoppable fork! Highest calculation difficulty
+        } else if (directWinThreats === 1) {
+          trickiness += 6000;  // Direct check: opponent is forced to play the only block
+        }
+
+        // 3. Opponent Blunder Simulation:
+        // How many opponent replies lose or allow an unstoppable fork?
+        let testMoves = emptyCells;
+        if (emptyCells.length > 25) {
+          testMoves = emptyCells.filter(sq => {
+            const er = Math.floor(sq / cols);
+            const ec = sq % cols;
+            return Math.max(Math.abs(er - r), Math.abs(ec - c)) <= 2;
+          });
+          if (testMoves.length < 10) {
+            testMoves = emptyCells.slice(0, 25);
+          }
+        }
+
+        let opponentBlunders = 0;
+        for (const oppMove of testMoves) {
+          board[oppMove] = opp;
+          try {
+            let canWin = false;
+            for (const reply of testMoves) {
+              if (reply !== oppMove && isWinningMove(board, reply, turn, rows, cols, k)) {
+                canWin = true;
+                break;
+              }
+            }
+            if (canWin) {
+              opponentBlunders++;
+            }
+          } finally {
+            board[oppMove] = null;
+          }
+        }
+
+        const blunderRatio = opponentBlunders / Math.max(1, testMoves.length);
+        trickiness += blunderRatio * 7000;
+        trickiness += opponentBlunders * 200;
+
+        // 4. Count active unblocked winning rays of length k through 'move'
+        const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
+        let activeRays = 0;
+        let diagonalRays = 0;
+        for (const [dr, dc] of directions) {
+          const isDiag = (dr !== 0 && dc !== 0);
+          for (let s = 0; s < k; s++) {
+            const startR = r - dr * s;
+            const startC = c - dc * s;
+            const endR = r + dr * (k - 1 - s);
+            const endC = c + dc * (k - 1 - s);
+            if (startR >= 0 && startR < rows && startC >= 0 && startC < cols &&
+                endR >= 0 && endR < rows && endC >= 0 && endC < cols) {
+              let blocked = false;
+              let friendlyCount = 0;
+              for (let step = 0; step < k; step++) {
+                const piece = board[(startR + dr * step) * cols + (startC + dc * step)];
+                if (piece === opp) { blocked = true; break; }
+                if (piece === turn) friendlyCount++;
+              }
+              if (!blocked) {
+                activeRays++;
+                if (isDiag) diagonalRays++;
+                trickiness += friendlyCount * 75;
+              }
+            }
+          }
+        }
+        trickiness += activeRays * 45;
+        trickiness += diagonalRays * 35; // Diagonals are tricky human blindspots
+
+        // 5. Center proximity bonus: central moves radiate tactical pressure across the entire board
+        trickiness += Math.max(0, 350 - distSq * 25);
+
+      } finally {
+        board[move] = null;
+      }
+
+      return Math.max(10, Math.round(trickiness));
+    }
+
+    /**
+     * Stochastically Pick a Move from Tied Best Candidates
+     * Selects one move at random with probability weighted by opponent trickiness.
+     */
+    function selectTrickyMoveStochastically(tiedMoves, board, turn, rows = config.rows, cols = config.cols, k = config.k) {
+      if (!tiedMoves || tiedMoves.length === 0) return null;
+      if (tiedMoves.length === 1) {
+        return (tiedMoves[0].move !== undefined) ? tiedMoves[0].move : tiedMoves[0];
+      }
+
+      // Compute trickiness for each tied candidate
+      const scoredCandidates = tiedMoves.map(item => {
+        const m = (item.move !== undefined) ? item.move : item;
+        const trickiness = calculateMoveTrickiness(board, m, turn, rows, cols, k);
+        return { move: m, trickiness };
+      });
+
+      // Power scaling (temperature) to heavily bias toward trickier moves while preserving variety
+      const gamma = 4.5;
+      const weights = scoredCandidates.map(c => Math.pow(c.trickiness, gamma));
+      const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+
+      if (totalWeight <= 0) {
+        return scoredCandidates[Math.floor(Math.random() * scoredCandidates.length)].move;
+      }
+
+      // Roulette wheel random selection
+      let r = Math.random() * totalWeight;
+      for (let i = 0; i < scoredCandidates.length; i++) {
+        r -= weights[i];
+        if (r <= 0) {
+          return scoredCandidates[i].move;
+        }
+      }
+
+      return scoredCandidates[0].move;
+    }
+
+
+    /**
      * Alpha-Beta Negamax Search with Transposition Table for Deep Combinations
      */
     function alphaBetaSearch(board, turn, depth, alpha, beta, rows, cols, k, startTime, timeLimit, stats) {
@@ -1441,7 +1627,6 @@
               break;
             }
           }
-          board[move] = null;
 
           let normScore = 0;
           let desc = item.desc;
@@ -1454,6 +1639,7 @@
             const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
             normScore = isX ? turnPos : -turnPos;
           }
+          board[move] = null;
 
           scoredMoves.push({
             move,
@@ -1598,7 +1784,6 @@
             break;
           }
         }
-        board[move] = null;
 
         let normScore = 0;
         let desc = item.desc;
@@ -1611,6 +1796,7 @@
           const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
           normScore = isX ? turnPos : -turnPos;
         }
+        board[move] = null;
 
         scoredMoves.push({
           move,
@@ -1673,21 +1859,31 @@
       const theoOutcome = getTheoreticalValue(rows, cols, k);
       const isTheoDraw = theoOutcome.startsWith('Theoretical Draw') || theoOutcome.startsWith('Draw');
       if (occupiedCount === 0 && isTheoDraw) {
-        const centerIdx = Math.floor(rows / 2) * cols + Math.floor(cols / 2);
+        const centerR = (rows - 1) / 2;
+        const centerC = (cols - 1) / 2;
         const allMoves = [];
         for (let i = 0; i < board.length; i++) {
+          const r = Math.floor(i / cols);
+          const c = i % cols;
+          const distSq = (r - centerR) ** 2 + (c - centerC) ** 2;
+          const chebyshev = Math.max(Math.abs(r - centerR), Math.abs(c - centerC));
+          const rays = countWinningLinesThroughCell(r, c, rows, cols, k);
+          // Moves near the center with more active rays receive higher rawScore
+          const rawScore = 10000 + rays * 500 - distSq * 50 - chebyshev * 20;
           allMoves.push({
             move: i,
             score: 0,
-            rawScore: 0,
+            rawScore,
             tacticalDesc: 'Theoretical Draw (0)',
             pv: [i]
           });
         }
+        allMoves.sort((a, b) => b.rawScore - a.rawScore);
+        const bestMove = allMoves[0].move;
         return {
           score: 0,
-          bestMove: centerIdx,
-          pv: [centerIdx],
+          bestMove,
+          pv: [bestMove],
           allMoves,
           terminal: false,
           winner: null,
@@ -1747,10 +1943,16 @@
         const childAnalysis = exactMinimax(nextBoard, nextTurn, rows, cols, k);
         const childScore = childAnalysis.score;
 
+        const r = Math.floor(move / cols);
+        const c = move % cols;
+        const distSq = (r - (rows - 1) / 2) ** 2 + (c - (cols - 1) / 2) ** 2;
+        const posBonus = 100 - distSq * 10;
+        const normScore = isX ? childScore : -childScore;
+
         moveEvaluations.push({
           move,
           score: childScore,
-          rawScore: isX ? childScore : -childScore,
+          rawScore: normScore * 1000 + posBonus,
           tacticalDesc: childScore === 100 ? 'Theoretical Win (+100)' : (childScore === -100 ? 'Theoretical Loss (-100)' : 'Theoretical Draw (0)'),
           pv: [move, ...childAnalysis.pv]
         });
@@ -1771,9 +1973,16 @@
       }
 
       moveEvaluations.sort((a, b) => {
-        if (isX) return b.score - a.score;
-        return a.score - b.score;
+        if (isX) {
+          if (b.score !== a.score) return b.score - a.score;
+        } else {
+          if (a.score !== b.score) return a.score - b.score;
+        }
+        return (b.rawScore || 0) - (a.rawScore || 0);
       });
+      bestMove = moveEvaluations[0].move;
+      bestPv = moveEvaluations[0].pv;
+      bestScore = moveEvaluations[0].score;
 
       const res = {
         score: bestScore,
@@ -2175,8 +2384,34 @@
       // 2. Direct 1-move block check
       const blockMoves = candidates.filter(m => isWinningMove(board, m, oppPiece, config.rows, config.cols, config.k));
 
-      // Level 8: SOTA Grandmaster
-      if (level >= 8) return bestMove;
+      // Level 8: SOTA Grandmaster (stochastic tricky move selection among tied best moves)
+      if (level >= 8) {
+        if (winMoves.length === 1) return winMoves[0];
+        if (winMoves.length > 1) {
+          return selectTrickyMoveStochastically(winMoves, board, turn, config.rows, config.cols, config.k);
+        }
+
+        // If multiple candidate moves share the exact same top evaluation, pick stochastically weighted by trickiness
+        if (analysis && analysis.allMoves && analysis.allMoves.length > 0) {
+          const isTurnX = turn === 'X';
+          const scored = analysis.allMoves.filter(m => board[m.move] === null);
+          if (scored.length > 0) {
+            const bestCand = scored[0];
+            const bestScoreForTurn = isTurnX ? bestCand.score : -bestCand.score;
+
+            // Collect all candidate moves that share the exact same best evaluation
+            const tiedMoves = scored.filter(m => {
+              const s = isTurnX ? m.score : -m.score;
+              return s === bestScoreForTurn;
+            });
+
+            if (tiedMoves.length > 1) {
+              return selectTrickyMoveStochastically(tiedMoves, board, turn, config.rows, config.cols, config.k);
+            }
+          }
+        }
+        return bestMove !== null && bestMove !== undefined ? bestMove : candidates[0];
+      }
 
       // Level 1: Beginner (85% random, misses wins & blocks)
       if (level === 1) {
@@ -2670,8 +2905,8 @@
         ? state.hoveredSquare
         : null;
 
-      // Cap at maximum 4 arrows to keep the board clean, readable, and elegant
-      const maxArrows = 4;
+      // Cap at maximum 5 arrows on 5x5 board (center + 4 orthogonal cross neighbors), or 4 arrows on other boards
+      const maxArrows = (config.rows === 5 && config.cols === 5) ? 5 : 4;
       for (const cand of candidates) {
         if (targetList.length >= maxArrows) break;
         if (current.board[cand.move] !== null) continue;
@@ -2680,9 +2915,11 @@
         const scoreDiff = bestScoreForTurn - candScoreForTurn;
 
         const isExactTie = (scoreDiff === 0);
-        const isClose = (scoreDiff <= 2 && Math.abs(bestRaw - (cand.rawScore || 0)) < 3000);
+        const isRawClose = Math.abs(bestRaw - (cand.rawScore || 0)) <= 2500;
+        const isClose = (scoreDiff <= 2 && isRawClose);
 
-        if (isExactTie || isClose) {
+        // When exact tie, prioritize moves with high rawScore (e.g. center proximity & tactical richness)
+        if ((isExactTie && isRawClose) || isClose || targetList.length === 0) {
           targetList.push({
             move: cand.move,
             score: cand.score,
