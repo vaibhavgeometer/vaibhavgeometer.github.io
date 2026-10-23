@@ -693,6 +693,77 @@
         By always expanding the <em>most-proving leaf</em> (the node with smallest proof number), PNS cuts through wide combinatorial spaces with surgical efficiency.
       </p>
 
+      <h3>D. Static Board Evaluation & Horizon Effect Mitigation</h3>
+      <p>
+        In discrete connection games like <code class="code-inline">(m,n,k)</code>, naive Alpha-Beta search often suffers from severe <strong>horizon oscillation</strong>. When leaf nodes at depth 0 are evaluated using hypothetical single-ply moves (<code class="code-inline">myBest - oppBest</code>), the engine simulates what the opponent could play on an imaginary extra turn. On theoretical draw boards such as <code class="code-inline">(5,5,4)</code>, this improperly credits unblocked tactical lines (&plusmn;50,000 pts) to whichever player just moved at depth 1, causing the evaluation to swing wildly (e.g. from 0 to &minus;42 to &plus;43) between consecutive plies.
+      </p>
+      <p>
+        StockTic solves this with a <strong>horizon-free static evaluation kernel</strong> &mathcal;E(B) = &mathcal;S<sub>X</sub>(B) &minus; &mathcal;S<sub>O</sub>(B) evaluated strictly on the existing board state without extra-turn credit:
+      </p>
+      <div class="math-callout">
+        <strong>Static Evaluation Kernel &mathcal;E(B):</strong><br>
+        1. <strong>Center Proximity:</strong> &sum; max(0, 10 &minus; 3 &middot; dist<sub>&infin;</sub>(cell, center))<br>
+        2. <strong>k-Line Potential:</strong> For every candidate line segment of length k:<br>
+        &nbsp;&nbsp;• Pure X segment of count p: +4 (p=1), +35 (p=k&minus;2), +300 (p=k&minus;1), +1,000,000 (p=k)<br>
+        &nbsp;&nbsp;• Pure O segment of count p: &minus;4 (p=1), &minus;35 (p=k&minus;2), &minus;300 (p=k&minus;1), &minus;1,000,000 (p=k)<br>
+        &nbsp;&nbsp;• Contested segments (containing both X and O) are discarded (0 pts).
+      </div>
+      <p>
+        Because contested segments are neutral and uncontested segments are symmetric, opening moves on theoretically drawn boards remain rock-solid at <strong>0</strong> (50–50 balanced), exactly matching grandmaster expectations.
+      </p>
+
+      <h3>E. The [-100, +100] Win Probability Evaluation Model</h3>
+      <p>
+        Chess engines have historically represented evaluations in centipawns (100 cp &approx; 1 pawn). However, in generalized <code class="code-inline">(m,n,k)</code> games, there is no material asymmetry or piece-capturing mechanic. To provide intuitive, mathematically rigorous feedback, StockTic adopts a standardized <strong>win probability scale from &minus;100 to &plus;100</strong>:
+      </p>
+      <div class="table-container" style="margin: 1.5rem 0;">
+        <table class="games-table">
+          <thead>
+            <tr>
+              <th>Evaluation</th>
+              <th>Win Probability P(X)</th>
+              <th>Win Probability P(O)</th>
+              <th>Game-Theoretic Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="mono-font font-bold text-[#7ec62f]">+100</span></td>
+              <td>100%</td>
+              <td>0%</td>
+              <td>Forced Win for First Player (X)</td>
+            </tr>
+            <tr>
+              <td><span class="mono-font font-bold text-[#7ec62f]">+50</span></td>
+              <td>75%</td>
+              <td>25%</td>
+              <td>Substantial Positional Advantage for X</td>
+            </tr>
+            <tr>
+              <td><span class="mono-font font-bold text-gray-300">0</span></td>
+              <td>50%</td>
+              <td>50%</td>
+              <td>Completely Balanced / Theoretical Draw</td>
+            </tr>
+            <tr>
+              <td><span class="mono-font font-bold text-[#ef5350]">&minus;50</span></td>
+              <td>25%</td>
+              <td>75%</td>
+              <td>Substantial Positional Advantage for O</td>
+            </tr>
+            <tr>
+              <td><span class="mono-font font-bold text-[#ef5350]">&minus;100</span></td>
+              <td>0%</td>
+              <td>100%</td>
+              <td>Forced Win for Second Player (O)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The vertical evaluation bar maps the score continuously via <code class="code-inline">fillPct = clamp(50 + score/2, 0, 100)</code> with a prominent 50–50 red center dividing line. Furthermore, on boards up to 10&times;10, StockTic computes and displays <strong>evaluation badges across all empty squares simultaneously</strong>, enabling players to instantly distinguish best moves (green), neutral preserving moves (gray), and game-losing blunders (red).
+      </p>
+
       <!-- Section 5: The 8-Level Difficulty Calibration -->
       <h2>5. How StockTic Levels 1–8 Are Calibrated</h2>
       <p>
@@ -708,6 +779,9 @@
         <li><strong>Level 7 (Master, ~2500 Elo):</strong> Iterative deepening with Zobrist transposition tables and killer-move ordering.</li>
         <li><strong>Level 8 (StockTic Max, ~3000 Elo):</strong> SOTA Grandmaster engine: exact retrograde tablebase on small boards, and deep Threat-Space Search + Alpha-Beta heuristic pruning on large boards up to 32&times;32.</li>
       </ul>
+      <p>
+        <strong>Match Evaluation Toggle (<code class="code-inline">vs Engine</code>):</strong> In play mode, players can toggle live evaluations and candidate hints ON or OFF. Turning evaluations OFF replicates authentic competitive tournament conditions with no hints or visual cues, while leaving post-game analysis accessible at any time.
+      </p>
 
       <!-- Section 6: Interactive Call to Action -->
       <div class="engine-cta-banner">

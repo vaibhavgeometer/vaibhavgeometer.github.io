@@ -1,17 +1,21 @@
-# IIT JAM Mathematics (MA) — 22-Year (2005–2026) Mock Test Series & Study Portal 📐
+# Vaibhav Geometer — Academic & Research Portals, Game Theory & SOTA AI 📐♟️
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Live Website](https://img.shields.io/badge/Live%20Portal-vaibhavgeometer.github.io%2FJAM-success?logo=github)](https://vaibhavgeometer.github.io/JAM/)
 [![Main Portfolio](https://img.shields.io/badge/Portfolio-vaibhavgeometer.github.io-blue?logo=github)](https://vaibhavgeometer.github.io/)
+[![JAM Live Portal](https://img.shields.io/badge/JAM%20Portal-vaibhavgeometer.github.io%2FJAM-success?logo=github)](https://vaibhavgeometer.github.io/JAM/)
+[![StockTic Engine](https://img.shields.io/badge/StockTic-SOTA%20(m%2Cn%2Ck)%20Analysis%20Board-629924)](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html)
+[![Theory & AI Article](https://img.shields.io/badge/Theory%20Article-(m%2Cn%2Ck)%20Theory%20%26%20AI-0284c7)](https://vaibhavgeometer.github.io/mnk_games_theory_and_ai.html)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-vaibhavgeometer%2Fvaibhavgeometer.github.io-181717?logo=github)](https://github.com/vaibhavgeometer/vaibhavgeometer.github.io)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![Mock PDFs](https://img.shields.io/badge/Mock%20Test%20PDFs-56%20Publication%20PDFs-indigo.svg)](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json)
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](JAM/assets/iit_jam_pyqs_categorized.json)
-[![Tic-Tac-Toe Analysis Board](https://img.shields.io/badge/Tic--Tac--Toe-StockTic%20Analysis%20Board-629924)](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html)
 
-> **Official academic portal and Computer-Based Test (CBT) mock simulator by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)** — hosted at **[`https://vaibhavgeometer.github.io/JAM/`](https://vaibhavgeometer.github.io/JAM/)** and featuring the complete **IIT JAM Mathematics (MA) 22-Year Historical Archive (2005–2026)** with **885 official PYQs**, **58 interactive mock test suites**, **56 pre-compiled publication-quality LaTeX Mock Test PDFs**, **14 topic-wise formula cheat sheets**, an authentic CBT examination simulator with virtual scientific calculator, a custom dynamic test & PDF generator, and master categorized JSON datasets.
+> **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring:
+> 1. **[IIT JAM Mathematics (MA) 22-Year Study Portal & CBT Simulator](https://vaibhavgeometer.github.io/JAM/)**: 885 official PYQs (2005–2026), 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator.
+> 2. **[StockTic SOTA (m,n,k)-Games & Tic-Tac-Toe Analysis Board](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html)**: Advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$), featuring standardized $[-100, +100]$ win probability eval bar, horizon-free static board evaluation, full-board square evaluations, 8 calibrated engine difficulty levels (600–3000 Elo), match evaluation privacy toggle, and Threat-Space Search (VCF/VCT).
+> 3. **[(m,n,k) Games Theory & AI Research Guide](https://vaibhavgeometer.github.io/mnk_games_theory_and_ai.html)**: Mathematical and algorithmic deep dive exploring Ramsey theory, Nash strategy-stealing, solved games catalog, static evaluation kernels, and proof-number search.
 
 ---
 
@@ -108,6 +112,25 @@
     "answer": "D"
   }
   ```
+
+### ♟️ 9. StockTic SOTA (m,n,k)-Games & Tic-Tac-Toe Analysis Board & Engine
+- **Arbitrary (m,n,k) Configurable Geometry ($1\times 1$ to $32\times 32$, $k=1..8$)**:
+  - Scales seamlessly from classic $3\times 3$ Tic-Tac-Toe, $4\times 4\times 4$ Qubic, and Connect Four to $15\times 15$ Gomoku and Beck's open $(\infty, \infty, k)$ problems.
+  - Interactive board modal with sliders, cell count metrics, and theoretical classification displays.
+- **Standardized [-100, +100] Win Probability Eval Bar**:
+  - Calibrated win probability model: $+100$ = 100% win for First Player ($X$), $0$ = 50–50 balanced / theoretical draw, $-100$ = 100% win for Second Player ($O$).
+  - Continuous vertical gauge with red 50–50 center line and board orientation flipping support.
+- **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**:
+  - Solves $(m,n,k)$ horizon oscillations by evaluating center Chebyshev proximity and unblocked line segmentation on the static board, eliminating erratic score swings on theoretical draws like $(5,5,4)$.
+- **All-Square Evaluation Badges & MultiPV Candidate Ranking**:
+  - Complete evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (Best in green, Neutral in gray, Blunder in red).
+  - MultiPV candidate moves list ranking top moves with real-time tactical annotations ("Instant Win", "Open 2 Build", "Positional Control", "Allows Opponent Win").
+- **8 Calibrated Engine Difficulty Tiers (600–3000 Elo)**:
+  - From Level 1 (Casual/Beginner) to Level 8 (StockTic Max) featuring Threat-Space Search (VCF/VCT), distance-2 neighborhood pruning, and retrograde tablebases.
+- **Match Play Mode (`vs Engine`) & Evaluation Privacy Toggle**:
+  - Play as X or O against any AI level with match evaluation toggle (turn evaluations OFF for realistic competitive tournament play, or ON for interactive learning).
+- **FEN String & Game Notation Tools**:
+  - Real-time FEN generation/parsing for $(m,n,k)$ positions, 1-click game record copying, and board state navigation.
 
 ---
 
@@ -218,6 +241,8 @@ vaibhavgeometer.github.io/
 ├── LICENSE                                    # MIT License
 ├── README.md                                  # Comprehensive documentation & portal guide
 ├── index.html                                 # Vaibhav Geometer personal portfolio & academic landing hub
+├── lichess_tic_tac_toe_analysis_board.html    # StockTic SOTA (m,n,k) Analysis Board & Engine
+├── mnk_games_theory_and_ai.html               # Deep-dive research guide to (m,n,k) game theory & SOTA AI
 ├── css/
 │   └── portfolio.css                          # Modern glassmorphism stylesheet for portfolio
 ├── js/
@@ -335,8 +360,16 @@ This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_test
 
 ---
 
-## 🚀 Recent Updates (August 2026 Code Audit)
+## 🚀 Recent Updates
 
+### October 2026 — StockTic Engine, Eval Bar & Analysis Board Major Update
+- **Win Probability Evaluation Bar (`[-100, +100]` Scale)**: Standardized the evaluation scale to intuitive win probability percentages ($+100$ = 100% win for First Player $X$, $0$ = 50–50 balanced / theoretical draw, $-100$ = 100% win for Second Player $O$). Features continuous height-matched fill, high-contrast borders, red 50–50 midpoint indicator line, and board flip orientation support.
+- **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**: Developed and implemented a static positional kernel evaluating Chebyshev center proximity and unblocked line counts. Completely eliminates leaf-node horizon oscillations, keeping opening moves on theoretical draw boards like $(5,5,4)$ rock-solid at $0$.
+- **All-Square Evaluation Badges**: Real-time evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (green for best moves, gray for equal/draws, red for blunders).
+- **Match Evaluation & Privacy Toggle**: Added play-mode toggle (`playShowEval`) to conceal engine evaluations and hints for competitive matches vs engine Levels 1–8.
+- **Research Article Expansion**: Published new sections in `mnk_games_theory_and_ai.html` covering static evaluation kernel mathematics, horizon effect mitigation, and win probability modeling.
+
+### August 2026 — JAM Portal & CBT Simulator Code Audit
 - **Simulator Engine Improvements:** Fixed an issue where the `C` keyboard shortcut for Option C conflicted with clearing responses. Refined the NAT evaluation logic for exact value single-answer keys to a strict `0.001` tolerance. Added support for hyphen (`-`) as a valid range delimiter.
 - **Custom Generator Enhancements:** Fixed silent truncation of multi-line titles on the cover page. Improved the robustness of question count chip syncing via `data-count` attributes.
 - **Data Pipeline:** Improved PDF generation path portability (removed absolute Typst `/` image paths) and optimized manifest newline rendering for cross-OS compatibility.
