@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=../JAM/mock-test/">
+  <title>Redirecting to IIT JAM Mock Tests...</title>
+  <script>
+    window.location.replace('../JAM/mock-test/' + window.location.search + window.location.hash);
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a id="r" href="../JAM/mock-test/">IIT JAM Mock Tests</a>...</p>
+  <script>
+    document.getElementById('r').href = '../JAM/mock-test/' + window.location.search + window.location.hash;
+  </script>
+</body>
+</html>

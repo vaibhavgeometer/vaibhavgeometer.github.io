@@ -240,70 +240,40 @@ The simulator strictly enforces the official IIT JAM marking guidelines:
 
 ## 📂 Repository Architecture
 
+The project is structured cleanly into **three dedicated functional domains**, preserving root configuration and maintaining 100% backward compatibility for all URLs:
+
 ```text
 vaibhavgeometer.github.io/
-├── .gitignore                                 # Git ignore rules
+│
+├── academic/                                  # 🎓 Academic & Examination Ecosystem (Demand 5)
+│   ├── index.html                             # Academic hub & exam selector
+│   ├── JAM/                                   # Complete IIT JAM Mathematics Portal
+│   │   ├── index.html                         # Main JAM examination portal & test generator
+│   │   ├── countdown/                         # Live JAM countdown timer
+│   │   ├── mock-test/                         # Authentic CBT examination simulator
+│   │   │   └── test.html                      # Real CBT testing interface & scientific calculator
+│   │   ├── css/ & js/                         # Exam styles & engines
+│   │   └── assets/                            # 56 Mock PDFs, PYQs, Formula Sheets, Answer Keys
+│   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024, 2025, 2026 PDFs)
+│   └── scripts/                               # Data pipeline & PDF generation compilers
+│
+├── mnk_games/                                 # ♟️ (m,n,k)-Games & StockTic Engine (Demand 5)
+│   ├── index.html                             # MNK Games overview & engine launcher
+│   ├── lichess_tic_tac_toe_analysis_board.html# StockTic SOTA (m,n,k,j) Analysis Board
+│   └── mnk_games_theory_and_ai.html           # Comprehensive Game Theory & AI Research Guide
+│
+├── website/                                   # 🌐 Main Website Rendering & Design Assets (Demand 5)
+│   ├── index.html                             # Personal portfolio & portal showcase
+│   ├── 404.html                               # Dynamic client-side router & 404 handler
+│   └── css/                                   # Glassmorphism design system & styles
+│
+├── scratch/                                   # 📝 Development notes & demands
+├── .gitignore                                 # Git ignore specifications
 ├── LICENSE                                    # MIT License
-├── README.md                                  # Comprehensive documentation & portal guide
-├── index.html                                 # Vaibhav Geometer personal portfolio & academic landing hub
-├── lichess_tic_tac_toe_analysis_board.html    # StockTic SOTA (m,n,k) Analysis Board & Engine
-├── mnk_games_theory_and_ai.html               # Deep-dive research guide to (m,n,k) game theory & SOTA AI
-├── css/
-│   └── portfolio.css                          # Modern glassmorphism stylesheet for portfolio
-├── js/
-│   └── portfolio.js                           # 3D Differential Geometry canvas engine & theme manager
-├── mock-test/
-│   ├── index.html                             # Backward-compatibility redirect -> JAM/mock-test/
-│   └── test.html                              # Backward-compatibility redirect -> JAM/mock-test/test.html
-├── countdown/
-│   └── index.html                             # Backward-compatibility redirect -> JAM/countdown/
-├── jam/
-│   └── index.html                             # Case-insensitive redirect -> JAM/
-├── JAM/                                       # Complete IIT JAM Mathematics Academic Ecosystem
-│   ├── index.html                             # Main JAM examination portal & custom test generator
-│   ├── css/
-│   │   └── style.css                          # Exam portal theme (Dark/Light) & responsive layout
-│   ├── js/
-│   │   ├── main.js                            # Portal controller, test renderers & filter engine
-│   │   ├── custom_pdf_generator.js            # In-browser dynamic LaTeX mock test PDF compiler
-│   │   ├── jspdf.umd.min.js                   # jsPDF vector PDF engine
-│   │   └── jspdf.plugin.autotable.min.js      # jsPDF AutoTable plugin
-│   ├── countdown/
-│   │   └── index.html                         # Live IIT JAM 2027 ticking countdown timer
-│   ├── mock-test/
-│   │   ├── index.html                         # Redirects to JAM/index.html
-│   │   ├── test.html                          # Authentic Computer-Based Test (CBT) simulator
-│   │   ├── css/
-│   │   │   └── app.css                        # CBT exam simulator master stylesheet
-│   │   └── js/
-│   │       ├── calculator.js                  # Virtual scientific calculator engine
-│   │       ├── mathjax_config.js              # MathJax 3 configuration & TeX macros
-│   │       ├── questions_data.js              # Master dataset: 22 Years + 27 Eras + 9 Full-Archive
-│   │       ├── results.js                     # Scorecard generator & performance analytics
-│   │       └── test_engine.js                 # Exam state machine, timer, palette & range checker
-│   └── assets/
-│       ├── iit_jam_pyqs_categorized.json      # Master categorized JSON dataset (885 PYQs)
-│       ├── Syllabus.pdf                       # Official IIT JAM Mathematics syllabus document
-│       ├── MA2005-2026_Original_PYQs.pdf      # 22-year comprehensive PYQ archive (2005–2026)
-│       ├── Mock Tests_PDF/                    # 56 pre-compiled publication-quality mock test PDFs
-│       │   ├── IIT_JAM_2005_Mock_Test.pdf ... IIT_JAM_2026_Mock_Test.pdf (22 Year Papers)
-│       │   ├── 2022-2026_Topic_*.pdf          # 9 Recent CBT subtopic mock test PDFs
-│       │   ├── 2015-2021_Topic_*.pdf          # 8 CBT subtopic mock test PDFs
-│       │   ├── 2005-2014_Topic_*.pdf          # 8 Classic subtopic mock test PDFs
-│       │   ├── Archive_2005-2026_Topic_*.pdf  # 9 Full-Archive subtopic mock test PDFs
-│       │   └── mock_tests_manifest.json       # Catalog of all 56 generated PDFs with stats
-│       ├── cheat-sheets/                      # 14 topic-wise formula & concept cheat sheets (PDF)
-│       ├── PYQs_Answer Keys/                  # Official master answer key PDFs (2005–2026)
-│       └── PYQs_Screenshots/                  # 885 high-resolution question paper screenshots
-└── scripts/
-    ├── generate_all_mock_test_pdfs.py         # Batch compiler generating all 56 Mock Test PDFs
-    ├── generate_all_22_years_data.py          # Master dataset compiler (Generates questions_data.js)
-    ├── generate_out_of_syllabus_pdf.py        # Out-of-syllabus LaTeX PDF compiler
-    ├── generate_project_statistics_pdf.py     # Project Analytics & Statistics PDF generator
-    ├── generate_random_ode_pdf.py             # Custom ODE test PDF generator script
-    ├── extract_pyqs_screenshots.py            # High-res question crop & extraction (2022–2026)
-    └── extract_all_pyqs_2005_2021.py          # Question extraction for classic & early CBT years
+└── README.md                                  # Master repository documentation
 ```
+
+> **Note on Zero Regressions (Demand 6):** For complete backward compatibility with existing bookmarks, search indexing, and GitHub Pages paths, root entry points (`index.html`, `lichess_tic_tac_toe_analysis_board.html`, `mnk_games_theory_and_ai.html`, `JAM/`, `CUET-PG/`, `mock-test/`, `countdown/`, `404.html`) remain accessible and functional without disrupting any academic content or examination simulators.
 
 ---
 
@@ -363,9 +333,15 @@ python scripts/generate_all_mock_test_pdfs.py
 ```
 This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_tests_manifest.json`.
 
----
-
 ## 🚀 Recent Updates
+
+### Late October 2026 — Tournament System, Offline Clocks, Multi-Player (m,n,k,j) & Board Editor Major Update (Demands 1–7)
+- **Tournament System for $(m,n,k)$-Games (Demand 1)**: Integrated competition suite supporting custom player rosters with mix of Humans and AI levels, instant presets (including "2 Humans, 5 AIs: Level 2, Level 2, Level 8, Level 7, Level 6", "8 AI Championship", "4 Humans Cup"), Round Robin ($1\times$ to $10\times$ cycles) with Berger polygon cyclic pairing and balanced color alternation, Single-elimination Knockout brackets, live standings with Sonneborn-Berger tiebreakers, and 1-click clipboard / JSON export.
+- **Offline Multiplayer with Lichess Clocks (Demand 2)**: Genuine cheat-free competitive match play (Human vs Human, Human vs AI, AI vs AI) with evaluation bars and hint arrows concealed. Precision chess-style clocks with initial base time and increment ($1+0$ Bullet, $3+2$ Blitz, $5+3$ Rapid, $10+5$ Classical, Custom) and automatic flagging at 00:00. Level 8 AI plays instantly in known opening book / tablebase positions, smoothly budgets time in unclear tactical positions, never flags, refrains from thinking on opponent's turn by default, with an optional Ponder toggle (ON/OFF).
+- **Generalized Multi-Player $(m,n,k,j)$ Games (Demand 3)**: Extends $(m,n,k)$-games to arbitrary $j=2, 3, 4, 5$ players with circular turn rotation (Player 1 $X$, Player 2 $O$, Player 3 $\blacktriangle$ Emerald, Player 4 $\blacksquare$ Sky Blue, Player 5 $\blacklozenge$ Purple), custom SVG geometries, and multi-opponent threat detection for AI levels 1 to 8.
+- **Board Editor & Frozen Obstacle Squares (Demand 4)**: Interactive position editor to place frozen squares (`#` / ❄️) where moves cannot be placed and streaks are blocked, place custom piece layouts, assign starting turns, and load directly into Analysis or Play modes.
+- **Clean Three-Folder Architecture (Demand 5 & 6)**: Reorganized repository into three clear domains (`academic/`, `mnk_games/`, `website/`), keeping root configuration (`.gitignore`, `README.md`, `LICENSE`, `scratch/`) and zero-regression entry points to guarantee 100% backward compatibility for all URLs and bookmarks.
+- **Complete & Partial Endgame Tablebases Catalog (Demand 7)**: Documented complete retrograde tablebases ($1\times 1$, $2\times 2$, $3\times 3, k=2$, $3\times 3, k=3$, $4\times 4, k=4$ Patashnik draw, $3\times 4, k=3$), partial tablebases & opening books ($5\times 5, k=4$ theoretical draw, $6\times 6, k=4$, $7\times 7, k=5$ Small Gomoku, $15\times 15, k=5$ Gomoku, $19\times 19, k=5$ Pente), and open classifications ($k \ge 6$) in `mnk_games_theory_and_ai.html`.
 
 ### October 2026 — StockTic Engine, Eval Bar & Analysis Board Major Update
 - **Progressive AI Thinking & Iterative Deepening (Lichess Style)**: Implemented an asynchronous iterative deepening search engine ($d=1..24$) with cooperative micro-yielding, PV move ordering, live telemetry (depth, nodes, kN/s, timer, progress bar, `Stop`/`Run` toggle), and real-time Principal Variation line display.

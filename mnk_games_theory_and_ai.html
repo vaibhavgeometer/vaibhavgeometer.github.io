@@ -1024,14 +1024,212 @@
         </li>
       </ul>
 
-      <!-- Section 8: Interactive Call to Action -->
+      <!-- Section 8: Complete & Partial Endgame Tablebases, Opening Books & Solved Statuses -->
+      <h2>8. Complete Tablebases, Partial Tablebases & Opening Books in StockTic</h2>
+      <p>
+        StockTic incorporates an integrated database of exact endgame tablebases, opening books, and heuristic knowledge derived from combinatorial game theory research (including Victor Allis, Stefan Reisch, and Patashnik):
+      </p>
+
+      <h3>Complete Retrograde Endgame Tablebases (100% Solved & Stored)</h3>
+      <p>
+        For smaller state spaces, StockTic features full retrograde transposition tablebases computed to the terminal leaf nodes, allowing Level 8 AI to play with mathematical perfection:
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Game $(m, n, k)$</th>
+              <th>State Space</th>
+              <th>Theoretic Result</th>
+              <th>Engine Storage & Execution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>(1, 1, 1)</strong></td>
+              <td>1 state</td>
+              <td><span class="badge badge-win">First-Player Win (1 ply)</span></td>
+              <td>Complete tablebase: instantaneous win on ply 1.</td>
+            </tr>
+            <tr>
+              <td><strong>(2, 2, 2)</strong></td>
+              <td>$3^4 = 81$ states</td>
+              <td><span class="badge badge-draw">Theoretical Draw</span></td>
+              <td>Complete tablebase: 4 plies maximum.</td>
+            </tr>
+            <tr>
+              <td><strong>(3, 3, 2)</strong></td>
+              <td>$3^9$ states</td>
+              <td><span class="badge badge-win">First-Player Win (3 plies)</span></td>
+              <td>Complete tablebase: forced win sequence stored.</td>
+            </tr>
+            <tr>
+              <td><strong>(3, 3, 3) Classic Tic-Tac-Toe</strong></td>
+              <td>5,478 legal states</td>
+              <td><span class="badge badge-draw">Theoretical Draw</span></td>
+              <td>Complete retrograde tablebase: evaluated instantly in 0ms with full minimax distance-to-mate/draw counters.</td>
+            </tr>
+            <tr>
+              <td><strong>(4, 4, 4) Patashnik 4-in-a-Row</strong></td>
+              <td>$\approx 6 \times 10^7$ raw states</td>
+              <td><span class="badge badge-draw">Theoretical Draw</span></td>
+              <td>Complete 60,000+ position symmetry-reduced tablebase cache; Level 8 AI plays optimal draw defense.</td>
+            </tr>
+            <tr>
+              <td><strong>(3, 4, 3) &amp; (4, 3, 3)</strong></td>
+              <td>$\approx 5 \times 10^5$ states</td>
+              <td><span class="badge badge-win">First-Player Win</span></td>
+              <td>Complete tablebase: First player forces a win in 7 plies.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Partial Tablebases & Opening Books</h3>
+      <p>
+        For medium-to-large boards where the full game tree exceeds memory capacity, StockTic utilizes verified opening books and partial endgame databases:
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Game $(m, n, k)$</th>
+              <th>Game-Theoretic Status</th>
+              <th>StockTic Database & AI Implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>(5, 5, 4)</strong></td>
+              <td><span class="badge badge-draw">Theoretical Draw</span> (Allis 1993, Cazenave)</td>
+              <td>Partial tablebase & verified book lines: center square bias, pairing defenses, and Level 8 tricky tactical move randomization on equal evaluations.</td>
+            </tr>
+            <tr>
+              <td><strong>(6, 6, 4)</strong></td>
+              <td><span class="badge badge-win">Theoretical Win for X</span> (Allis 1993)</td>
+              <td>Opening book stored for first-player initiative lines and threat-sequence acceleration.</td>
+            </tr>
+            <tr>
+              <td><strong>(7, 7, 4)</strong></td>
+              <td><span class="badge badge-win">Theoretical Win for X</span></td>
+              <td>Opening book favoring central 3&times;3 quadrant control and rapid double-threat forks.</td>
+            </tr>
+            <tr>
+              <td><strong>(7, 7, 5) Small Gomoku</strong></td>
+              <td><span class="badge badge-win">Theoretical Win for X</span> (L. Victor Allis)</td>
+              <td>Opening book covering standard Gomoku cross and direct openings; threat-space search extends to 12 plies.</td>
+            </tr>
+            <tr>
+              <td><strong>(8, 8, 5) &amp; (10, 10, 5)</strong></td>
+              <td><span class="badge badge-win">Theoretical Win for X</span></td>
+              <td>Opening books with center-biased star points, iterative deepening threat trees, and Zobrist transposition table caching.</td>
+            </tr>
+            <tr>
+              <td><strong>(15, 15, 5) Standard Gomoku</strong></td>
+              <td><span class="badge badge-win">Theoretical Win for X</span> (Freestyle)</td>
+              <td>Extensive opening library of standard professional openings (Direct 1–13, Indirect 1–13), deep Threat-Space Search (TSS), and proof-number heuristic pruning.</td>
+            </tr>
+            <tr>
+              <td><strong>(19, 19, 5) Go-Board Gomoku / Pente</strong></td>
+              <td><span class="badge badge-win">Theoretical Win for X</span></td>
+              <td>Opening book prioritizing tengen (center) and hoshi (star) coordinates with multi-directional open-three construction.</td>
+            </tr>
+            <tr>
+              <td><strong>$(m, n, 6)$ for large boards (e.g. 15&times;15, 32&times;32)</strong></td>
+              <td><span class="badge badge-draw">Theoretical Draw</span> or <span class="badge badge-open">Open</span></td>
+              <td>Heuristic evaluation: Pair-strategy defenses (Erdős-Selfridge &amp; Hales-Jewett theorems) proving second player can force a draw on infinite boards for $k \ge 8$.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 9: Advanced Competition Systems: Tournaments, Offline Multiplayer & Lichess Clocks -->
+      <h2>9. Tournament System & Offline Clock Multiplayer</h2>
+      <p>
+        StockTic includes a comprehensive competition infrastructure supporting tournaments, authentic offline match play, and precision chess-style clocks:
+      </p>
+
+      <h3>1. Advanced Tournament System</h3>
+      <ul>
+        <li>
+          <strong>Flexible Roster Management:</strong> Configure tournaments with any mixture of Human players and AI levels (1 to 8). Instant presets include:
+          <ul>
+            <li><strong>2 Humans, 5 AIs Preset:</strong> 2 Humans competing alongside StockTic Level 2, Level 2, Level 8 (Grandmaster), Level 7 (Master), and Level 6 (Expert).</li>
+            <li><strong>8 AI Championship:</strong> All 8 calibrated engine levels (Level 1 Novice to Level 8 Grandmaster) battling in an automated AI league.</li>
+            <li><strong>4 Humans Cup:</strong> Local multi-player tournament bracket.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Tournament Formats:</strong>
+          <ul>
+            <li><strong>Round Robin ($1\times$ to $10\times$ cycles):</strong> Built using the Berger cyclic polygon algorithm to guarantee balanced color alternation (White/Black) across all cycles.</li>
+            <li><strong>Single-Elimination Knockout:</strong> Traditional bracket with automatic seeding and progression to quarter-finals, semi-finals, and finals.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Live Standings & Sonneborn-Berger Tiebreaks:</strong> Calculates Points (1 for win, 0.5 for draw, 0 for loss), games played, win/loss/draw records, and Sonneborn-Berger quality scores (sum of defeated opponents' scores plus half of drawn opponents' scores).
+        </li>
+        <li>
+          <strong>Export & Reporting Toolbar:</strong> 1-click clipboard copy of formatted plain-text tournament summary, detailed game-by-game statistics (moves, duration, win streak), and raw JSON export.
+        </li>
+      </ul>
+
+      <h3>2. Offline Multiplayer with Lichess Time Controls</h3>
+      <ul>
+        <li>
+          <strong>Anti-Cheating / Authentic Match Play:</strong> In offline multiplayer mode, live candidate arrows, evaluation bars, and hints are completely hidden to replicate genuine competitive conditions.
+        </li>
+        <li>
+          <strong>Supported Match Types:</strong> Human vs Human, Human vs AI, and AI vs AI demonstration matches.
+        </li>
+        <li>
+          <strong>Precision Clocks with Increments:</strong> Features standard time controls including <strong>Unlimited</strong>, <strong>1+0 Bullet</strong>, <strong>3+2 Blitz</strong>, <strong>5+3 Rapid</strong>, and <strong>10+5 Classical</strong>, plus custom time inputs. Players flag automatically if time reaches 00:00.
+        </li>
+        <li>
+          <strong>Level 8 AI Time Budgeting:</strong>
+          <ul>
+            <li>Plays <em>instantaneously</em> (under 10ms) when in known book positions or solved endgame tablebases.</li>
+            <li>Allocates search time smoothly and proportionally to remaining clock time in unclear or tactical positions, guaranteeing that the AI never flags.</li>
+            <li>By default, AI does not think on opponent turn; a dedicated <strong>Ponder Toggle (ON/OFF)</strong> allows users to enable background opponent-turn calculation.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Section 10: Multi-Player Generalization (m,n,k,j) & Board Editor with Frozen Obstacles -->
+      <h2>10. Multi-Player Generalization $(m,n,k,j)$ &amp; Board Editor</h2>
+      <p>
+        Beyond classical two-player $(m,n,k)$-games, StockTic provides two major structural extensions:
+      </p>
+
+      <h3>Generalized Multi-Player Games $(m,n,k,j)$</h3>
+      <p>
+        The game is generalized to $j$ players ($j = 2, 3, 4, 5$) on an $m \times n$ board with winning streak $k$:
+      </p>
+      <ul>
+        <li><strong>Circular Turn Order:</strong> Turns advance cyclically: Player 1 ($\mathsf{X}$, White) &rarr; Player 2 ($\mathsf{O}$, Amber) &rarr; Player 3 ($\blacktriangle$, Emerald) &rarr; Player 4 ($\blacksquare$, Sky Blue) &rarr; Player 5 ($\blacklozenge$, Purple).</li>
+        <li><strong>Distinct Visual Symbols:</strong> Each player is represented by unique SVG geometry and theme-tailored high-contrast colors.</li>
+        <li><strong>Multi-Opponent Threat Detection:</strong> In $(m,n,k,j)$ games, AI levels 1 through 8 detect and counter immediate winning threats across all $j-1$ opponents before advancing their own alignments.</li>
+      </ul>
+
+      <h3>Board Editor &amp; Frozen Obstacle Squares</h3>
+      <p>
+        The interactive Board Editor enables players to construct arbitrary puzzle positions and custom board topologies:
+      </p>
+      <ul>
+        <li><strong>Frozen Obstacle Squares (<code class="code-inline">#</code> / ❄️):</strong> Squares can be designated as frozen barriers where moves cannot be placed. Any winning streak passing through a frozen square is broken, allowing the simulation of non-rectangular boards, hexagonal topologies, and maze obstacles.</li>
+        <li><strong>Custom Piece Placement:</strong> Place any configuration of $\mathsf{X}$, $\mathsf{O}$, and multi-player pieces ($\blacktriangle$, $\blacksquare$, $\blacklozenge$), or use the eraser tool.</li>
+        <li><strong>Quick Obstacle Presets:</strong> 1-click tools to "Freeze All Borders" or scatter "Random Obstacles".</li>
+        <li><strong>Seamless Engine Transfer:</strong> Send any custom board setup directly into <strong>Analysis Mode</strong> for instant minimax evaluation or <strong>Play Mode</strong> to play against the engine or friends.</li>
+      </ul>
+
+      <!-- Section 11: Interactive Call to Action -->
       <div class="engine-cta-banner">
         <div>
           <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: #ffffff; margin-bottom: 0.35rem;">
             Test (m,n,k)-Games in Real-Time
           </h3>
           <p style="color: #bababa; font-size: 0.95rem; margin-bottom: 0;">
-            Configure any board from 1&times;1 to 32&times;32 with k from 1 to 8 on the interactive StockTic analysis board.
+            Configure any board from 1&times;1 to 32&times;32 with k from 1 to 8, tournaments, clocks, and frozen obstacles on the interactive StockTic analysis board.
           </p>
         </div>
         <a href="lichess_tic_tac_toe_analysis_board.html" class="cta-button">

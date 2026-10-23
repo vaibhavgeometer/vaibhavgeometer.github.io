@@ -31,6 +31,16 @@
         return;
       }
 
+      if (lower === '/academic' || lower === '/academic/') {
+        window.location.replace('/academic/' + search + hash);
+        return;
+      }
+
+      if (lower === '/cuet' || lower === '/cuet/' || lower === '/cuet-pg' || lower === '/cuet-pg/') {
+        window.location.replace('/academic/CUET-PG/' + search + hash);
+        return;
+      }
+
       if (lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/tic-tac-toe/' || lower === '/analysis' || lower === '/analysis/' || lower === '/ttt' || lower === '/ttt/' || lower === '/gomoku' || lower === '/gomoku/' || lower === '/mnk' || lower === '/mnk/' || lower === '/play' || lower === '/play/' || lower === '/board' || lower === '/board/' || lower === '/stocktic' || lower === '/stocktic/') {
         window.location.replace('/lichess_tic_tac_toe_analysis_board.html' + search + hash);
         return;

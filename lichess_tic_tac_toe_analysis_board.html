@@ -114,6 +114,31 @@
       background-color: rgba(10, 10, 8, 0.75);
       backdrop-filter: blur(4px);
     }
+
+    /* Frozen / Obstacle Square */
+    .board-cell.frozen-square {
+      background-color: #162033 !important;
+      background-image: repeating-linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.15) 5px, transparent 5px, transparent 10px) !important;
+      box-shadow: inset 0 0 0 1.5px rgba(96, 165, 250, 0.5) !important;
+      cursor: not-allowed !important;
+    }
+    .board-cell.frozen-square:hover {
+      background-color: #1e293b !important;
+    }
+
+    /* Clocks styling */
+    .clock-active {
+      box-shadow: 0 0 0 2px #629924, 0 0 14px rgba(98, 153, 36, 0.45);
+      background-color: #1d2516 !important;
+      border-color: #629924 !important;
+    }
+    .clock-alert {
+      animation: clockPulseAlert 0.8s infinite alternate ease-in-out;
+    }
+    @keyframes clockPulseAlert {
+      from { color: #fca5a5; background-color: rgba(185, 28, 28, 0.25); border-color: #ef4444; }
+      to { color: #ffffff; background-color: rgba(220, 38, 38, 0.65); border-color: #f87171; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
@@ -212,6 +237,18 @@
 
       <!-- Board Outer Frame -->
       <div class="flex-1 flex flex-col items-center min-w-0">
+        <!-- Opponent Clock & Player Header (Top) -->
+        <div id="player-top-box" class="w-full mb-1.5 flex items-center justify-between text-xs px-2 py-1.5 rounded bg-[#1e1c18] border border-[#363431] select-none transition shadow-sm">
+          <div class="flex items-center space-x-2">
+            <span id="player-top-icon" class="w-4 h-4 rounded-full bg-amber-400 inline-flex items-center justify-center text-[10px] text-black font-black">O</span>
+            <span id="player-top-name" class="font-bold text-gray-200">StockTic L8</span>
+            <span id="player-top-badge" class="text-[10px] text-gray-400 px-1.5 py-0.2 rounded bg-[#262421] border border-[#363431]">AI · Elo 3000</span>
+          </div>
+          <div id="clock-o-container" class="px-2.5 py-0.5 rounded mono-font font-bold text-sm bg-[#262421] border border-[#363431] text-gray-200 transition">
+            <span id="clock-o-display">03:00</span>
+          </div>
+        </div>
+
         <!-- Interactive Board Container -->
         <div id="board-outer-container" class="relative w-full bg-[#1a1815] p-2 sm:p-3 rounded-lg border-2 border-[#363431] shadow-2xl overflow-hidden flex flex-col items-center justify-center">
           
@@ -247,6 +284,23 @@
 
         </div>
 
+        <!-- Player Clock & Player Header (Bottom) -->
+        <div id="player-bottom-box" class="w-full mt-1.5 flex items-center justify-between text-xs px-2 py-1.5 rounded bg-[#1e1c18] border border-[#363431] select-none transition shadow-sm">
+          <div class="flex items-center space-x-2">
+            <span id="player-bottom-icon" class="w-4 h-4 rounded-full bg-white inline-flex items-center justify-center text-[10px] text-black font-black">X</span>
+            <span id="player-bottom-name" class="font-bold text-gray-200">Player 1</span>
+            <span id="player-bottom-badge" class="text-[10px] text-gray-400 px-1.5 py-0.2 rounded bg-[#262421] border border-[#363431]">Human</span>
+          </div>
+          <div id="clock-x-container" class="px-2.5 py-0.5 rounded mono-font font-bold text-sm bg-[#262421] border border-[#363431] text-gray-200 transition">
+            <span id="clock-x-display">03:00</span>
+          </div>
+        </div>
+
+        <!-- Multi-player Strip for J >= 3 (Demand 3) -->
+        <div id="multiplayer-bar" class="w-full mt-1.5 hidden flex-wrap items-center justify-between gap-1.5 p-1.5 rounded bg-[#1e1c18] border border-[#363431] text-xs">
+          <!-- Dynamically populated J-player items with badges and clocks -->
+        </div>
+
         <!-- Board Footnote / Status Under Board -->
         <div class="w-full mt-2 flex items-center justify-between text-xs text-[#73706c] px-1">
           <div class="flex items-center space-x-2">
@@ -271,91 +325,145 @@
 
     </div>
 
-    <!-- RIGHT SECTION: Engine Readout, Play vs StockTic Settings, MultiPV Moves, History -->
-    <div class="w-full lg:w-[480px] flex flex-col space-y-4">
-      
-      <!-- Engine Evaluation Header Box (StockTic SOTA) -->
-      <div class="relative bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg space-y-2.5 overflow-hidden">
-        <!-- Progress bar on top/bottom of box -->
-        <div id="engine-progress-bar" class="absolute top-0 left-0 h-[2px] bg-[#629924] transition-all duration-200" style="width: 0%;"></div>
+    <!-- RIGHT SECTION: Mode Switcher, Engine, Play & Clocks, Tournament, Editor, History -->
+    <div class="w-full lg:w-[480px] flex flex-col space-y-3">
 
-        <!-- Engine Title & Solver Status -->
-        <div class="flex items-center justify-between border-b border-[#363431] pb-2">
-          <div class="flex items-center space-x-2">
-            <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
-            <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">StockTic SOTA</span>
-            <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 1/16</span>
-          </div>
-          <div class="flex items-center space-x-2 text-xs">
-            <span id="engine-tablebase-label" class="text-[#73706c]">Solver:</span>
-            <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">Ready</span>
-          </div>
-        </div>
+      <!-- 4 Main Mode Switcher Navigation Tabs -->
+      <div class="grid grid-cols-4 gap-1 p-1 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow-md">
+        <button id="tab-analysis-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow">
+          <span>🔍</span>
+          <span class="truncate">Analysis</span>
+        </button>
+        <button id="tab-play-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
+          <span>⚔️</span>
+          <span class="truncate">Play & Clocks</span>
+        </button>
+        <button id="tab-tournament-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
+          <span>🏆</span>
+          <span class="truncate">Tournament</span>
+        </button>
+        <button id="tab-editor-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
+          <span>🎨</span>
+          <span class="truncate">Editor</span>
+        </button>
+      </div>
 
-        <!-- Big Numerical Evaluation & Summary -->
-        <div class="flex items-center justify-between">
-          <div class="flex items-baseline space-x-2">
-            <span id="big-eval-badge" class="mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200">
-              0
-            </span>
-            <span id="eval-interpretation" class="text-xs font-semibold text-gray-400">
-              0: 50-50 Balanced (Theoretical Draw)
-            </span>
-          </div>
-          <div class="text-right text-[11px] text-[#73706c] mono-font">
-            <div id="nodes-count">Nodes: 0</div>
-            <div id="speed-label">0 kN/s</div>
-          </div>
-        </div>
+      <!-- PANEL 1: ANALYSIS MODE -->
+      <div id="panel-analysis" class="space-y-3">
+        <!-- Engine Evaluation Header Box (StockTic SOTA) -->
+        <div id="engine-card" class="relative bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg space-y-2.5 overflow-hidden">
+          <!-- Progress bar on top/bottom of box -->
+          <div id="engine-progress-bar" class="absolute top-0 left-0 h-[2px] bg-[#629924] transition-all duration-200" style="width: 0%;"></div>
 
-        <!-- SOTA AI Thinking Time & Engine Controls (Inspired by Lichess) -->
-        <div class="pt-2 border-t border-[#363431]/80 flex flex-wrap items-center justify-between gap-2 select-none">
-          <!-- Time Buttons -->
-          <div class="flex items-center space-x-1.5 text-xs">
-            <span class="text-[11px] font-semibold text-gray-400">Thinking:</span>
-            <div id="thinking-time-selector" class="inline-flex rounded bg-[#1a1815] p-0.5 border border-[#363431]">
-              <button data-time="1" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 1 second">1s</button>
-              <button data-time="5" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 5 seconds">5s</button>
-              <button data-time="10" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 10 seconds">10s</button>
-              <button data-time="30" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 30 seconds">30s</button>
-              <button data-time="unlimited" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Unlimited thinking until mathematically solved or stopped">∞</button>
+          <!-- Engine Title & Solver Status -->
+          <div class="flex items-center justify-between border-b border-[#363431] pb-2">
+            <div class="flex items-center space-x-2">
+              <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
+              <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">StockTic SOTA</span>
+              <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 1/16</span>
+            </div>
+            <div class="flex items-center space-x-2 text-xs">
+              <span id="engine-tablebase-label" class="text-[#73706c]">Solver:</span>
+              <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">Ready</span>
             </div>
           </div>
 
-          <!-- Stop / Run Button & Live Timer -->
+          <!-- Big Numerical Evaluation & Summary -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-baseline space-x-2">
+              <span id="big-eval-badge" class="mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200">
+                0
+              </span>
+              <span id="eval-interpretation" class="text-xs font-semibold text-gray-400">
+                0: 50-50 Balanced (Theoretical Draw)
+              </span>
+            </div>
+            <div class="text-right text-[11px] text-[#73706c] mono-font">
+              <div id="nodes-count">Nodes: 0</div>
+              <div id="speed-label">0 kN/s</div>
+            </div>
+          </div>
+
+          <!-- SOTA AI Thinking Time & Engine Controls -->
+          <div class="pt-2 border-t border-[#363431]/80 flex flex-wrap items-center justify-between gap-2 select-none">
+            <!-- Time Buttons -->
+            <div class="flex items-center space-x-1.5 text-xs">
+              <span class="text-[11px] font-semibold text-gray-400">Thinking:</span>
+              <div id="thinking-time-selector" class="inline-flex rounded bg-[#1a1815] p-0.5 border border-[#363431]">
+                <button data-time="1" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 1 second">1s</button>
+                <button data-time="5" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 5 seconds">5s</button>
+                <button data-time="10" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 10 seconds">10s</button>
+                <button data-time="30" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 30 seconds">30s</button>
+                <button data-time="unlimited" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Unlimited thinking until mathematically solved or stopped">∞</button>
+              </div>
+            </div>
+
+            <!-- Stop / Run Button & Live Timer -->
+            <div class="flex items-center space-x-2">
+              <span id="telemetry-timer" class="text-[11px] mono-font text-gray-400">0.0s / 5s</span>
+              <button id="btn-engine-toggle" class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white transition flex items-center space-x-1 border border-[#4a4742]" title="Stop or Restart Engine Calculation">
+                <span id="btn-engine-toggle-icon">⏹</span>
+                <span id="btn-engine-toggle-text">Stop</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Principal Variation (PV) Line -->
+          <div id="engine-pv-container" class="pt-1.5 border-t border-[#363431]/40 flex items-center text-[11px] mono-font text-gray-400 truncate">
+            <span class="text-gray-500 font-semibold mr-1.5 flex-shrink-0">PV:</span>
+            <span id="engine-pv-text" class="text-[#7ec62f] italic truncate select-text">Ready</span>
+          </div>
+        </div>
+
+        <!-- Candidate Moves (MultiPV) Table -->
+        <div id="candidate-moves-panel" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
+          <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
+            <span id="candidate-panel-title" class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
+            <span id="candidate-panel-subtitle" class="text-[11px] text-[#73706c] mono-font">Ranked by SOTA Score</span>
+          </div>
+          <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-52 overflow-y-auto">
+            <!-- Dynamically populated candidate rows -->
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 2: PLAY & CLOCKS (Demand 2) -->
+      <div id="panel-play" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
+        <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
           <div class="flex items-center space-x-2">
-            <span id="telemetry-timer" class="text-[11px] mono-font text-gray-400">0.0s / 5s</span>
-            <button id="btn-engine-toggle" class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white transition flex items-center space-x-1 border border-[#4a4742]" title="Stop or Restart Engine Calculation">
-              <span id="btn-engine-toggle-icon">⏹</span>
-              <span id="btn-engine-toggle-text">Stop</span>
+            <span class="text-sm">⚔️</span>
+            <span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Offline Match & Clocks</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <button id="btn-resign-match" class="px-2 py-0.5 bg-[#363431] hover:bg-[#c33a38]/80 text-gray-300 hover:text-white rounded text-[11px] font-semibold transition" title="Resign current match">
+              Resign
+            </button>
+            <button id="btn-new-match" class="px-2.5 py-1 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-[11px] font-semibold transition flex items-center space-x-1 shadow-sm">
+              <span>↺</span>
+              <span>New Match</span>
             </button>
           </div>
         </div>
 
-        <!-- Live Principal Variation (PV) Line -->
-        <div id="engine-pv-container" class="pt-1.5 border-t border-[#363431]/40 flex items-center text-[11px] mono-font text-gray-400 truncate">
-          <span class="text-gray-500 font-semibold mr-1.5 flex-shrink-0">PV:</span>
-          <span id="engine-pv-text" class="text-[#7ec62f] italic truncate select-text">Ready</span>
-        </div>
-      </div>
-
-      <!-- Play vs StockTic Settings Panel -->
-      <div id="play-engine-panel" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3">
-        <!-- Header & Reset -->
-        <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
-          <div class="flex items-center space-x-2">
-            <span class="text-sm">🤖</span>
-            <span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Practice vs StockTic</span>
+        <!-- 1. Match Type: Human vs Human, Human vs AI, AI vs AI -->
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 mb-1.5 uppercase tracking-wide">Match Type</label>
+          <div class="grid grid-cols-3 gap-1.5" id="match-type-selector">
+            <button type="button" data-type="human_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm">
+              👤 vs 🤖 Human/AI
+            </button>
+            <button type="button" data-type="human_vs_human" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">
+              👤 vs 👤 Pass & Play
+            </button>
+            <button type="button" data-type="ai_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">
+              🤖 vs 🤖 AI vs AI
+            </button>
           </div>
-          <button id="btn-new-match" class="px-2.5 py-1 bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white rounded text-[11px] font-semibold transition flex items-center space-x-1">
-            <span>↺</span>
-            <span>New Game</span>
-          </button>
         </div>
 
-        <!-- 1. Play as Side -->
-        <div class="flex items-center justify-between">
-          <span class="text-xs text-gray-300 font-medium">Play as:</span>
+        <!-- 2. Seat / Play as (for Human vs AI) -->
+        <div id="play-side-row" class="flex items-center justify-between pt-1">
+          <span class="text-xs text-gray-300 font-medium">Play as Side:</span>
           <div class="flex items-center space-x-2">
             <button id="play-as-x-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1">
               <span>✕</span>
@@ -368,17 +476,15 @@
           </div>
         </div>
 
-        <!-- 2. Engine Level Selection (Level 1 to 8) -->
-        <div class="pt-2 border-t border-[#363431]">
+        <!-- 3. Engine Difficulty Level (1 to 8) -->
+        <div id="play-difficulty-row" class="pt-2 border-t border-[#363431]">
           <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center space-x-1.5">
-              <span class="text-xs text-gray-300 font-medium">Difficulty:</span>
+              <span class="text-xs text-gray-300 font-medium">AI Strength:</span>
               <span id="level-display-name" class="text-xs font-bold text-[#7ec62f]">Level 8 · StockTic Max</span>
             </div>
             <span id="level-elo-badge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1e1c18] border border-[#629924]/50 text-[#7ec62f] mono-font">Elo 3000</span>
           </div>
-
-          <!-- 8 Level Buttons -->
           <div class="grid grid-cols-8 gap-1" id="level-buttons-container">
             <button type="button" data-level="1" title="Level 1: Beginner (~600 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">1</button>
             <button type="button" data-level="2" title="Level 2: Casual (~900 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">2</button>
@@ -389,43 +495,331 @@
             <button type="button" data-level="7" title="Level 7: Master (~2400 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">7</button>
             <button type="button" data-level="8" title="Level 8: StockTic Max (~3000 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm ring-1 ring-[#629924]">8</button>
           </div>
-
-          <div id="level-description-box" class="text-[11px] text-gray-400 mt-1.5 italic">
-            SOTA MNK Engine · Threat-Space Search & Tablebase
+          <div id="level-description-box" class="text-[11px] text-gray-400 mt-1 italic">
+            Level 8 AI uses opening books & tablebases instantly, manages clocks smoothly, and never flags.
           </div>
         </div>
 
-        <!-- 3. Evaluation & Hints Toggle (Turn Off Eval) -->
+        <!-- 4. Lichess-style Clocks & Time Controls (Demand 2) -->
         <div class="pt-2 border-t border-[#363431]">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-xs text-gray-300 font-semibold flex items-center space-x-1.5">
+              <span>⏱ Time Control:</span>
+              <span id="current-tc-display" class="text-[11px] font-bold text-[#7ec62f] mono-font">3+0 Blitz</span>
+            </span>
+            <span class="text-[10px] text-gray-400">Flag on 0:00</span>
+          </div>
+          <div class="grid grid-cols-4 sm:grid-cols-7 gap-1" id="tc-buttons-container">
+            <button type="button" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-init="0" data-inc="0">∞</button>
+            <button type="button" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-init="60" data-inc="0">1+0</button>
+            <button type="button" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm" data-init="180" data-inc="0">3+0</button>
+            <button type="button" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-init="180" data-inc="2">3+2</button>
+            <button type="button" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-init="300" data-inc="3">5+3</button>
+            <button type="button" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-init="600" data-inc="0">10+0</button>
+            <button type="button" id="tc-custom-btn" class="tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">Custom</button>
+          </div>
+          <!-- Custom TC inputs (hidden by default) -->
+          <div id="custom-tc-row" class="hidden mt-2 p-2 rounded bg-[#1e1c18] border border-[#363431] flex items-center justify-between text-xs">
+            <div class="flex items-center space-x-2">
+              <span>Minutes:</span>
+              <input type="number" id="custom-mins-input" min="1" max="60" value="5" class="w-12 bg-[#262421] border border-[#363431] rounded px-1.5 py-0.5 text-center text-white mono-font">
+            </div>
+            <div class="flex items-center space-x-2">
+              <span>Inc (s):</span>
+              <input type="number" id="custom-inc-input" min="0" max="60" value="3" class="w-12 bg-[#262421] border border-[#363431] rounded px-1.5 py-0.5 text-center text-white mono-font">
+            </div>
+            <button id="btn-apply-custom-tc" class="px-2 py-0.5 rounded bg-[#629924] text-white font-bold">Set</button>
+          </div>
+        </div>
+
+        <!-- 5. Advanced Engine Settings: Ponder Toggle & Fair Play Toggle (Demand 2) -->
+        <div class="pt-2 border-t border-[#363431] space-y-2">
+          <!-- Ponder Option -->
           <div class="flex items-center justify-between">
             <div>
               <div class="text-xs text-gray-300 font-semibold flex items-center space-x-1.5">
-                <span>Evaluation & Hints:</span>
-                <span id="eval-toggle-state-badge" class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-300">OFF</span>
+                <span>AI Ponder (Think on Opponent's Turn):</span>
+                <span id="ponder-toggle-badge" class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-400">OFF</span>
               </div>
-              <div id="eval-toggle-helper" class="text-[11px] text-gray-400 mt-0.5">Hidden for realistic match play</div>
+              <div class="text-[11px] text-gray-400">Normally OFF so engine only calculates on its own turn</div>
             </div>
             <div class="flex items-center space-x-1 bg-[#1e1c18] p-0.5 rounded border border-[#363431]">
-              <button type="button" id="eval-toggle-off-btn" class="px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1 shadow-sm">
-                <span>Off</span>
-              </button>
-              <button type="button" id="eval-toggle-on-btn" class="px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white hover:bg-[#363431] transition flex items-center space-x-1">
-                <span>On</span>
-              </button>
+              <button type="button" id="ponder-toggle-off-btn" class="px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition">Off</button>
+              <button type="button" id="ponder-toggle-on-btn" class="px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white transition">On</button>
+            </div>
+          </div>
+
+          <!-- Fair Play / No Cheat Option -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-xs text-gray-300 font-semibold flex items-center space-x-1.5">
+                <span>Fair Play (Hide Eval & Hints):</span>
+                <span id="eval-toggle-state-badge" class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-300">OFF</span>
+              </div>
+              <div class="text-[11px] text-gray-400">No cheating hints for competitive offline match</div>
+            </div>
+            <div class="flex items-center space-x-1 bg-[#1e1c18] p-0.5 rounded border border-[#363431]">
+              <button type="button" id="eval-toggle-off-btn" class="px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition">Off</button>
+              <button type="button" id="eval-toggle-on-btn" class="px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white transition">On</button>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Candidate Moves (MultiPV) Table -->
-      <div id="candidate-moves-panel" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
-        <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
-          <span id="candidate-panel-title" class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
-          <span id="candidate-panel-subtitle" class="text-[11px] text-[#73706c] mono-font">Ranked by SOTA Score</span>
+      <!-- PANEL 3: TOURNAMENT SYSTEM (Demand 1) -->
+      <div id="panel-tournament" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
+        <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
+          <div class="flex items-center space-x-2">
+            <span class="text-base">🏆</span>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Tournament System</div>
+              <div class="text-[10px] text-gray-400">Multi-Player Round Robin & Knockout</div>
+            </div>
+          </div>
+          <span id="tourn-variant-indicator" class="text-[11px] mono-font text-[#7ec62f] bg-[#1e1c18] px-2 py-0.5 rounded border border-[#363431]">(3,3,3)</span>
         </div>
-        <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-52 overflow-y-auto">
-          <!-- Dynamically populated candidate rows -->
+
+        <!-- Setup Card (Visible before tournament starts) -->
+        <div id="tourn-setup-box" class="space-y-3">
+          <!-- Format: Round Robin vs Knockout -->
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wide mb-1.5">Tournament Format</label>
+            <div class="grid grid-cols-2 gap-1.5">
+              <button type="button" id="tourn-format-rr-btn" class="p-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm">
+                🔄 Round Robin
+              </button>
+              <button type="button" id="tourn-format-ko-btn" class="p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">
+                ⚡ Knockout Bracket
+              </button>
+            </div>
+          </div>
+
+          <!-- Round Robin Cycles: 1x to 10x (Demand 1 line 6) -->
+          <div id="tourn-cycles-row" class="bg-[#1e1c18] p-2.5 rounded border border-[#363431]">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <span class="text-gray-300 font-semibold">Cycles (Number of times players face each other):</span>
+              <span id="tourn-cycles-val" class="mono-font text-[#7ec62f] font-bold bg-[#262421] px-2 py-0.5 rounded border border-[#629924]/40">1x (Single Round)</span>
+            </div>
+            <input type="range" id="tourn-cycles-slider" min="1" max="10" value="1" class="w-full accent-[#629924] cursor-pointer">
+            <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+              <span>1x</span><span>2x (Double)</span><span>3x</span><span>5x</span><span>10x (Decuple)</span>
+            </div>
+          </div>
+
+          <!-- Quick Presets for Roster (Demand 1 line 4) -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[11px] font-semibold text-gray-300 uppercase tracking-wide">Player Roster Presets</span>
+            </div>
+            <div class="grid grid-cols-3 gap-1.5 text-xs">
+              <button type="button" id="preset-roster-demand1" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" title="Demand 1: 2 Humans + 5 AIs (L2, L2, L8, L7, L6)">
+                <div class="font-bold text-[#7ec62f] truncate">2H + 5 AIs</div>
+                <div class="text-[10px] text-gray-400 truncate">L2, L2, L8, L7, L6</div>
+              </button>
+              <button type="button" id="preset-roster-8ai" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" title="All 8 AI engine levels from Beginner to Elo 3000">
+                <div class="font-bold text-white truncate">8 AI Championship</div>
+                <div class="text-[10px] text-gray-400 truncate">Levels 1 to 8</div>
+              </button>
+              <button type="button" id="preset-roster-4h" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" title="4 Human players Blitz cup">
+                <div class="font-bold text-white truncate">4 Humans Cup</div>
+                <div class="text-[10px] text-gray-400 truncate">Pass & Play</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Roster List -->
+          <div>
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-semibold text-gray-300">Active Roster (<span id="tourn-player-count">7</span> Players):</span>
+            </div>
+            <div id="tourn-players-list" class="max-h-36 overflow-y-auto space-y-1 bg-[#1e1c18] p-1.5 rounded border border-[#363431]">
+              <!-- Dynamically rendered players -->
+            </div>
+          </div>
+
+          <!-- Add Player Row -->
+          <div class="flex items-center space-x-1.5 pt-1 text-xs">
+            <input type="text" id="new-player-name" placeholder="Player Name" class="flex-1 bg-[#1e1c18] border border-[#363431] rounded px-2 py-1 text-white text-xs">
+            <select id="new-player-type" class="bg-[#1e1c18] border border-[#363431] rounded px-2 py-1 text-white text-xs">
+              <option value="human">Human</option>
+              <option value="ai-8">AI Level 8 (3000)</option>
+              <option value="ai-7">AI Level 7 (2400)</option>
+              <option value="ai-6">AI Level 6 (2100)</option>
+              <option value="ai-5">AI Level 5 (1800)</option>
+              <option value="ai-4">AI Level 4 (1500)</option>
+              <option value="ai-3">AI Level 3 (1200)</option>
+              <option value="ai-2">AI Level 2 (900)</option>
+              <option value="ai-1">AI Level 1 (600)</option>
+            </select>
+            <button type="button" id="btn-add-tourn-player" class="px-2.5 py-1 bg-[#363431] hover:bg-[#474440] text-white font-bold rounded transition text-xs whitespace-nowrap">
+              + Add
+            </button>
+          </div>
+
+          <!-- Start Tournament Button -->
+          <button type="button" id="btn-start-tournament" class="w-full py-2 bg-[#629924] hover:bg-[#72b02a] text-white font-bold rounded text-xs transition shadow-md flex items-center justify-center space-x-2">
+            <span>🚀 Initialize & Start Tournament</span>
+          </button>
+        </div>
+
+        <!-- Active Tournament Dashboard (Hidden until started) -->
+        <div id="tourn-active-dashboard" class="hidden space-y-3">
+          <!-- Current Match Status Banner -->
+          <div class="p-2.5 rounded bg-[#1e1c18] border border-[#363431] space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span id="tourn-match-index-label" class="text-gray-400 font-semibold uppercase tracking-wider text-[10px]">Match 1 of 21</span>
+              <span id="tourn-round-label" class="text-[#7ec62f] font-bold text-[11px]">Round 1</span>
+            </div>
+            <div id="tourn-current-match-title" class="text-sm font-bold text-white text-center py-1">
+              Human 1 (X) vs StockTic L8 (O)
+            </div>
+            <!-- Match Action Buttons -->
+            <div class="grid grid-cols-3 gap-1.5 pt-1">
+              <button type="button" id="btn-tourn-play-match" class="py-1 px-2 rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold text-xs transition text-center shadow">
+                ▶ Play Match
+              </button>
+              <button type="button" id="btn-tourn-sim-match" class="py-1 px-2 rounded bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white font-bold text-xs transition text-center">
+                ⚡ Simulate
+              </button>
+              <button type="button" id="btn-tourn-sim-all" class="py-1 px-2 rounded bg-[#3692e7] hover:bg-[#4ea2f0] text-white font-bold text-xs transition text-center shadow">
+                ⏩ Run All
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Standings Table -->
+          <div>
+            <div class="flex items-center justify-between text-xs mb-1">
+              <span class="font-bold text-gray-200 uppercase tracking-wider text-[11px]">Live Standings</span>
+              <span class="text-[10px] text-gray-400">Pts: W=1, D=0.5, L=0</span>
+            </div>
+            <div class="overflow-x-auto rounded border border-[#363431]">
+              <table class="w-full text-left text-xs bg-[#1e1c18]">
+                <thead class="bg-[#262421] text-gray-400 border-b border-[#363431] text-[10px] uppercase">
+                  <tr>
+                    <th class="py-1 px-1.5 text-center">#</th>
+                    <th class="py-1 px-2">Player</th>
+                    <th class="py-1 px-1 text-center">Pld</th>
+                    <th class="py-1 px-1 text-center">W</th>
+                    <th class="py-1 px-1 text-center">D</th>
+                    <th class="py-1 px-1 text-center">L</th>
+                    <th class="py-1 px-1.5 text-center font-bold text-[#7ec62f]">Pts</th>
+                    <th class="py-1 px-1.5 text-center text-gray-400">SB</th>
+                  </tr>
+                </thead>
+                <tbody id="tourn-standings-body" class="divide-y divide-[#363431] mono-font">
+                  <!-- Standings rows rendered here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Schedule & Recent Match Results -->
+          <div>
+            <span class="block text-[11px] font-bold text-gray-200 uppercase tracking-wider mb-1">Match Schedule & Results</span>
+            <div id="tourn-matches-list" class="max-h-32 overflow-y-auto space-y-1 bg-[#1e1c18] p-1.5 rounded border border-[#363431] text-xs">
+              <!-- Matches rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Tournament Export Toolbar (Demand 1 line 7) -->
+          <div class="flex flex-wrap items-center justify-between gap-1.5 pt-1 border-t border-[#363431]">
+            <button type="button" id="btn-tourn-copy-summary" class="flex-1 py-1 px-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-white font-semibold text-xs transition flex items-center justify-center space-x-1" title="Copy formatted text report of standings and all games">
+              <span>📋</span>
+              <span class="truncate">Copy Summary</span>
+            </button>
+            <button type="button" id="btn-tourn-copy-stats" class="flex-1 py-1 px-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-white font-semibold text-xs transition flex items-center justify-center space-x-1" title="Copy game-by-game statistics and moves">
+              <span>📊</span>
+              <span class="truncate">Game Stats</span>
+            </button>
+            <button type="button" id="btn-tourn-export-json" class="py-1 px-2.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white font-semibold text-xs transition" title="Export raw JSON">
+              JSON
+            </button>
+            <button type="button" id="btn-tourn-reset" class="py-1 px-2 rounded bg-[#363431] hover:bg-[#c33a38]/80 text-gray-300 hover:text-white font-semibold text-xs transition">
+              ↺ Reset
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PANEL 4: BOARD EDITOR & FROZEN SQUARES (Demand 4) -->
+      <div id="panel-editor" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
+        <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
+          <div class="flex items-center space-x-2">
+            <span class="text-base">🎨</span>
+            <div>
+              <div class="text-xs font-bold text-white uppercase tracking-wider">Board Editor & Obstacles</div>
+              <div class="text-[10px] text-gray-400">Setup frozen squares (#) and custom pieces</div>
+            </div>
+          </div>
+          <button id="btn-editor-clear-all" class="px-2 py-0.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-xs text-gray-300 hover:text-white transition">
+            Clear Board
+          </button>
+        </div>
+
+        <!-- Tool Palette -->
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wide mb-1.5">Select Placement Tool</label>
+          <div class="grid grid-cols-4 sm:grid-cols-7 gap-1" id="editor-palette">
+            <button type="button" data-tool="#" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400" title="Frozen Obstacle Square: Moves cannot be placed here and streaks are blocked">
+              ❄️ #
+            </button>
+            <button type="button" data-tool="X" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-white border-[#363431] hover:bg-[#363431]" title="Place X piece">
+              ✕ X
+            </button>
+            <button type="button" data-tool="O" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-amber-400 border-[#363431] hover:bg-[#363431]" title="Place O piece">
+              ◯ O
+            </button>
+            <button type="button" data-tool="▲" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-emerald-400 border-[#363431] hover:bg-[#363431]" title="Place Player 3 (▲)">
+              ▲ P3
+            </button>
+            <button type="button" data-tool="■" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-sky-400 border-[#363431] hover:bg-[#363431]" title="Place Player 4 (■)">
+              ■ P4
+            </button>
+            <button type="button" data-tool="◆" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-purple-400 border-[#363431] hover:bg-[#363431]" title="Place Player 5 (◆)">
+              ◆ P5
+            </button>
+            <button type="button" data-tool="erase" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-400 border-[#363431] hover:bg-[#363431]" title="Eraser: Clear cell">
+              🧹 Erase
+            </button>
+          </div>
+          <div class="text-[11px] text-gray-400 mt-1.5 italic">
+            Click any cell on the board to place or toggle the selected item. Frozen squares ❄️ permanently block moves and prevent winning streaks.
+          </div>
+        </div>
+
+        <!-- Next to Move Selector -->
+        <div class="flex items-center justify-between pt-1">
+          <span class="text-xs text-gray-300 font-medium">Starting Turn:</span>
+          <div class="flex items-center space-x-2">
+            <button id="editor-turn-x" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition">X to move</button>
+            <button id="editor-turn-o" class="px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition">O to move</button>
+          </div>
+        </div>
+
+        <!-- Quick Patterns & Utilities -->
+        <div class="pt-2 border-t border-[#363431]">
+          <span class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wide mb-1.5">Quick Obstacle Patterns</span>
+          <div class="grid grid-cols-2 gap-1.5 text-xs">
+            <button type="button" id="btn-editor-freeze-borders" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 transition text-center">
+              ❄️ Freeze All Borders
+            </button>
+            <button type="button" id="btn-editor-random-obs" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 transition text-center">
+              🎲 Random 4 Obstacles
+            </button>
+          </div>
+        </div>
+
+        <!-- Action / Transfer Buttons -->
+        <div class="pt-2 border-t border-[#363431] grid grid-cols-2 gap-2">
+          <button type="button" id="btn-editor-to-analysis" class="py-2 px-3 rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold text-xs transition shadow flex items-center justify-center space-x-1">
+            <span>🔍 Load into Analysis</span>
+          </button>
+          <button type="button" id="btn-editor-to-play" class="py-2 px-3 rounded bg-[#3692e7] hover:bg-[#4ea2f0] text-white font-bold text-xs transition shadow flex items-center justify-center space-x-1">
+            <span>⚔️ Play Position</span>
+          </button>
         </div>
       </div>
 
@@ -607,6 +1001,19 @@
             <span>7</span>
             <span>8</span>
           </div>
+        <!-- Player Count (J) for Generalized (m,n,k,j) -->
+        <div class="bg-[#1e1c18] p-2.5 rounded-lg border border-[#363431]">
+          <div class="flex items-center justify-between text-xs mb-1.5">
+            <span class="text-gray-300 font-semibold">Number of Players (J):</span>
+            <span id="slider-j-val" class="mono-font text-[#7ec62f] font-bold bg-[#262421] px-2 py-0.5 rounded border border-[#629924]/40">2 Players</span>
+          </div>
+          <div class="grid grid-cols-4 gap-1.5" id="player-j-buttons">
+            <button type="button" class="player-j-btn p-1.5 text-xs font-bold rounded bg-[#629924] text-white border border-[#629924]" data-j="2">2 (Classic)</button>
+            <button type="button" class="player-j-btn p-1.5 text-xs font-bold rounded bg-[#262421] text-gray-300 border border-[#363431] hover:bg-[#363431]" data-j="3">3 Players</button>
+            <button type="button" class="player-j-btn p-1.5 text-xs font-bold rounded bg-[#262421] text-gray-300 border border-[#363431] hover:bg-[#363431]" data-j="4">4 Players</button>
+            <button type="button" class="player-j-btn p-1.5 text-xs font-bold rounded bg-[#262421] text-gray-300 border border-[#363431] hover:bg-[#363431]" data-j="5">5 Players</button>
+          </div>
+          <div class="text-[10px] text-gray-400 mt-1">Optional generalized (m,n,k,j) game with circular player turns (X → O → ▲ → ■ → ◆).</div>
         </div>
       </div>
 
@@ -714,8 +1121,35 @@
       rows: 3,  // M: 1 to 32
       cols: 3,  // N: 1 to 32
       k: 3,     // K: 1 to 8 (must be <= max(rows, cols))
+      j: 2,     // J: 2 to 5 players (Demand 3)
       zoomMode: 'fit' // 'fit' or 'scroll'
     };
+
+    /**
+     * Generalized (m,n,k,j) Player Symbols & Distinct Colors
+     */
+    const PLAYERS = ['X', 'O', '▲', '■', '◆'];
+    const PLAYER_NAMES = {
+      'X': 'Player 1 (X)',
+      'O': 'Player 2 (O)',
+      '▲': 'Player 3 (▲)',
+      '■': 'Player 4 (■)',
+      '◆': 'Player 5 (◆)'
+    };
+    const PLAYER_COLORS = {
+      'X': '#ffffff',
+      'O': '#f59e0b',
+      '▲': '#10b981',
+      '■': '#38bdf8',
+      '◆': '#c084fc'
+    };
+
+    function getNextTurn(currentTurn, j = config.j || 2) {
+      const active = PLAYERS.slice(0, j);
+      const idx = active.indexOf(currentTurn);
+      if (idx === -1) return active[0];
+      return active[(idx + 1) % j];
+    }
 
     /**
      * Dynamic Column & Coordinate naming:
@@ -812,7 +1246,7 @@
     function checkWinner(board, rows = config.rows, cols = config.cols, k = config.k) {
       if (k === 1) {
         for (let i = 0; i < board.length; i++) {
-          if (board[i] !== null) return { winner: board[i], line: [i] };
+          if (board[i] !== null && board[i] !== '#') return { winner: board[i], line: [i] };
         }
         return null;
       }
@@ -821,7 +1255,7 @@
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const piece = board[r * cols + c];
-          if (!piece) continue;
+          if (!piece || piece === '#') continue;
 
           // 1. Horizontal (right)
           if (c + k <= cols) {
@@ -889,6 +1323,7 @@
      * Fast 1-move win verification for piece placed at idx
      */
     function isWinningMove(board, idx, piece, rows = config.rows, cols = config.cols, k = config.k) {
+      if (piece === '#') return false;
       if (board[idx] !== null && board[idx] !== piece) return false;
       if (k === 1) return true;
       const r = Math.floor(idx / cols);
@@ -2022,6 +2457,9 @@
     /**
      * Application State
      */
+    /**
+     * Application State
+     */
     const state = {
       history: [
         {
@@ -2036,7 +2474,7 @@
       flipped: false,
       showArrows: true,
       showBadges: true,
-      mode: 'analysis', // 'analysis' or 'play'
+      mode: 'analysis', // 'analysis', 'play', 'tournament', or 'editor'
       playerPiece: 'X', // 'X' or 'O'
       engineLevel: 8,   // 1 to 8
       playShowEval: false, // in play mode: false (realistic match) or true (hints on)
@@ -2047,6 +2485,902 @@
       enginePaused: false,
       currentAnalysis: null
     };
+
+    /**
+     * Lichess Clocks State (Demand 2)
+     */
+    const clockState = {
+      enabled: false,           // true if timed match
+      initialMs: 180000,        // default 3 minutes (180s)
+      incrementMs: 0,           // default 0s increment
+      tcName: '3+0 Blitz',
+      times: { 'X': 180000, 'O': 180000, '▲': 180000, '■': 180000, '◆': 180000 },
+      lastTickTime: null,
+      intervalId: null,
+      flaggedPlayer: null
+    };
+
+    /**
+     * Offline Match Mode State (Demand 2)
+     */
+    const playMatchState = {
+      matchType: 'human_vs_ai', // 'human_vs_ai', 'human_vs_human', 'ai_vs_ai'
+      playerXType: 'human',
+      playerOType: 'ai',
+      aiXLevel: 8,
+      aiOLevel: 8,
+      ponder: false,            // Demand 2 lines 20-21: Ponder toggle (default false)
+      fairPlay: true            // Demand 2 line 11: no analysis/cheating hints
+    };
+
+    /**
+     * Board Editor State (Demand 4)
+     */
+    const editorState = {
+      activeTool: '#',          // '#' (frozen obstacle), 'X', 'O', '▲', '■', '◆', 'erase'
+      turn: 'X'
+    };
+
+    /**
+     * Tournament System State (Demand 1)
+     */
+    const tournamentState = {
+      active: false,
+      format: 'round_robin',    // 'round_robin' or 'knockout'
+      cycles: 1,                // 1 to 10 (Demand 1 line 6)
+      players: [
+        { id: 'p1', name: 'Human 1', type: 'human', level: 8 },
+        { id: 'p2', name: 'Human 2', type: 'human', level: 8 },
+        { id: 'p3', name: 'StockTic L2 (Alpha)', type: 'ai', level: 2 },
+        { id: 'p4', name: 'StockTic L2 (Beta)', type: 'ai', level: 2 },
+        { id: 'p5', name: 'StockTic L8 (Grandmaster)', type: 'ai', level: 8 },
+        { id: 'p6', name: 'StockTic L7 (Master)', type: 'ai', level: 7 },
+        { id: 'p7', name: 'StockTic L6 (Expert)', type: 'ai', level: 6 }
+      ],
+      matches: [],
+      currentMatchIdx: 0,
+      standings: []
+    };
+
+    /**
+     * Clock Formatting & Ticking Engine (Demand 2)
+     */
+    function formatClockTime(ms) {
+      if (ms <= 0) return '00:00.0';
+      const totalSeconds = Math.floor(ms / 1000);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      const tenths = Math.floor((ms % 1000) / 100);
+
+      const mm = String(minutes).padStart(2, '0');
+      const ss = String(seconds).padStart(2, '0');
+
+      if (totalSeconds < 20) {
+        return `${mm}:${ss}.${tenths}`;
+      }
+      return `${mm}:${ss}`;
+    }
+
+    function initClocks(initialMs = clockState.initialMs, incrementMs = clockState.incrementMs, tcName = clockState.tcName) {
+      stopClock();
+      clockState.initialMs = initialMs;
+      clockState.incrementMs = incrementMs;
+      clockState.tcName = tcName;
+      clockState.flaggedPlayer = null;
+      clockState.enabled = initialMs > 0;
+      PLAYERS.forEach(p => {
+        clockState.times[p] = initialMs;
+      });
+      updateClockDisplays();
+    }
+
+    function startClock() {
+      if (!clockState.enabled) return;
+      if (clockState.intervalId) clearInterval(clockState.intervalId);
+      clockState.lastTickTime = performance.now();
+      clockState.intervalId = setInterval(tickClock, 50);
+    }
+
+    function stopClock() {
+      if (clockState.intervalId) {
+        clearInterval(clockState.intervalId);
+        clockState.intervalId = null;
+      }
+      clockState.lastTickTime = null;
+    }
+
+    function tickClock() {
+      if (!clockState.enabled || clockState.flaggedPlayer) return;
+      const now = performance.now();
+      const elapsed = now - (clockState.lastTickTime || now);
+      clockState.lastTickTime = now;
+
+      const current = state.history[state.currentPly];
+      if (!current || checkWinner(current.board)) {
+        stopClock();
+        return;
+      }
+
+      const activeTurn = current.turn;
+      if (clockState.times[activeTurn] !== undefined) {
+        clockState.times[activeTurn] -= elapsed;
+        if (clockState.times[activeTurn] <= 0) {
+          clockState.times[activeTurn] = 0;
+          flagPlayer(activeTurn);
+        }
+      }
+      updateClockDisplays();
+    }
+
+    function flagPlayer(player) {
+      stopClock();
+      clockState.flaggedPlayer = player;
+      playSound('blunder');
+      const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== player);
+      const winnerName = otherPlayers.join(' / ');
+      showToast(`Time Out! ${player} flagged. ${winnerName} won on time!`);
+      render();
+    }
+
+    function updateClockDisplays() {
+      const current = state.history[state.currentPly];
+      const activeTurn = current ? current.turn : 'X';
+
+      const clockXDisp = document.getElementById('clock-x-display');
+      const clockODisp = document.getElementById('clock-o-display');
+      const clockXCont = document.getElementById('clock-x-container');
+      const clockOCont = document.getElementById('clock-o-container');
+
+      if (!clockState.enabled) {
+        if (clockXDisp) clockXDisp.textContent = '∞';
+        if (clockODisp) clockODisp.textContent = '∞';
+        if (clockXCont) clockXCont.className = 'px-2.5 py-0.5 rounded mono-font font-bold text-sm bg-[#262421] border border-[#363431] text-gray-400';
+        if (clockOCont) clockOCont.className = 'px-2.5 py-0.5 rounded mono-font font-bold text-sm bg-[#262421] border border-[#363431] text-gray-400';
+        return;
+      }
+
+      const timeX = Math.max(0, clockState.times['X'] || 0);
+      if (clockXDisp) clockXDisp.textContent = formatClockTime(timeX);
+      if (clockXCont) {
+        const isActive = activeTurn === 'X' && !clockState.flaggedPlayer && !checkWinner(current.board);
+        const isAlert = timeX <= 10000;
+        let cls = 'px-2.5 py-0.5 rounded mono-font font-bold text-sm border transition ';
+        if (isAlert && isActive) cls += 'clock-alert ';
+        else if (isActive) cls += 'clock-active text-white ';
+        else cls += 'bg-[#262421] border-[#363431] text-gray-300 ';
+        clockXCont.className = cls;
+      }
+
+      const timeO = Math.max(0, clockState.times['O'] || 0);
+      if (clockODisp) clockODisp.textContent = formatClockTime(timeO);
+      if (clockOCont) {
+        const isActive = activeTurn === 'O' && !clockState.flaggedPlayer && !checkWinner(current.board);
+        const isAlert = timeO <= 10000;
+        let cls = 'px-2.5 py-0.5 rounded mono-font font-bold text-sm border transition ';
+        if (isAlert && isActive) cls += 'clock-alert ';
+        else if (isActive) cls += 'clock-active text-white ';
+        else cls += 'bg-[#262421] border-[#363431] text-gray-300 ';
+        clockOCont.className = cls;
+      }
+
+      if (config.j && config.j > 2) {
+        renderMultiplayerBar();
+      }
+    }
+
+    function renderMultiplayerBar() {
+      const bar = document.getElementById('multiplayer-bar');
+      if (!bar) return;
+      if (!config.j || config.j <= 2) {
+        bar.classList.add('hidden');
+        return;
+      }
+      bar.classList.remove('hidden');
+      bar.innerHTML = '';
+
+      const current = state.history[state.currentPly];
+      const activeTurn = current ? current.turn : 'X';
+      const activePlayers = PLAYERS.slice(0, config.j);
+
+      activePlayers.forEach((p) => {
+        const timeMs = Math.max(0, clockState.times[p] || 0);
+        const isActive = activeTurn === p && !clockState.flaggedPlayer && !checkWinner(current.board);
+        const isAlert = clockState.enabled && timeMs <= 10000 && isActive;
+
+        const item = document.createElement('div');
+        let itemClass = 'flex items-center space-x-1.5 px-2 py-1 rounded border ';
+        if (isAlert) itemClass += 'clock-alert ';
+        else if (isActive) itemClass += 'clock-active bg-[#262421] border-[#629924] text-white ';
+        else itemClass += 'bg-[#262421] border-[#363431] text-gray-300 ';
+
+        item.className = itemClass;
+        item.innerHTML = `
+          <span class="w-3.5 h-3.5 rounded-full inline-flex items-center justify-center text-[10px] font-bold" style="background-color: ${PLAYER_COLORS[p]}; color: #000;">${p}</span>
+          <span class="font-bold text-[11px]">${PLAYER_NAMES[p] || p}</span>
+          ${clockState.enabled ? `<span class="mono-font text-xs font-bold ${isActive ? 'text-[#7ec62f]' : 'text-gray-400'}">${formatClockTime(timeMs)}</span>` : ''}
+        `;
+        bar.appendChild(item);
+      });
+    }
+
+    function updatePlayerBoxes() {
+      const topName = document.getElementById('player-top-name');
+      const topBadge = document.getElementById('player-top-badge');
+      const topIcon = document.getElementById('player-top-icon');
+      const botName = document.getElementById('player-bottom-name');
+      const botBadge = document.getElementById('player-bottom-badge');
+      const botIcon = document.getElementById('player-bottom-icon');
+
+      const lvl = LEVELS[state.engineLevel - 1] || LEVELS[7];
+
+      if (state.mode === 'tournament') {
+        const match = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (match) {
+          if (botName) botName.textContent = match.playerX.name;
+          if (botBadge) botBadge.textContent = match.playerX.type === 'human' ? 'Human' : `AI · L${match.playerX.level}`;
+          if (botIcon) {
+            botIcon.textContent = 'X';
+            botIcon.className = 'w-4 h-4 rounded-full bg-white inline-flex items-center justify-center text-[10px] text-black font-black';
+          }
+          if (topName) topName.textContent = match.playerO.name;
+          if (topBadge) topBadge.textContent = match.playerO.type === 'human' ? 'Human' : `AI · L${match.playerO.level}`;
+          if (topIcon) {
+            topIcon.textContent = 'O';
+            topIcon.className = 'w-4 h-4 rounded-full bg-amber-400 inline-flex items-center justify-center text-[10px] text-black font-black';
+          }
+          return;
+        }
+      }
+
+      if (state.mode === 'play') {
+        if (playMatchState.matchType === 'human_vs_human') {
+          if (botName) botName.textContent = 'Player 1';
+          if (botBadge) botBadge.textContent = 'Human';
+          if (topName) topName.textContent = 'Player 2';
+          if (topBadge) topBadge.textContent = 'Human';
+        } else if (playMatchState.matchType === 'ai_vs_ai') {
+          if (botName) botName.textContent = 'StockTic AI (X)';
+          if (botBadge) botBadge.textContent = `Level ${state.engineLevel} · Elo ${lvl.elo}`;
+          if (topName) topName.textContent = 'StockTic AI (O)';
+          if (topBadge) topBadge.textContent = `Level ${state.engineLevel} · Elo ${lvl.elo}`;
+        } else {
+          // Human vs AI
+          if (state.playerPiece === 'X') {
+            if (botName) botName.textContent = 'You';
+            if (botBadge) botBadge.textContent = 'Human';
+            if (topName) topName.textContent = `StockTic Level ${state.engineLevel}`;
+            if (topBadge) topBadge.textContent = `AI · Elo ${lvl.elo}`;
+          } else {
+            if (botName) botName.textContent = `StockTic Level ${state.engineLevel}`;
+            if (botBadge) botBadge.textContent = `AI · Elo ${lvl.elo}`;
+            if (topName) topName.textContent = 'You';
+            if (topBadge) topBadge.textContent = 'Human';
+          }
+        }
+      } else {
+        // Analysis & Editor
+        if (botName) botName.textContent = 'Player 1 (X)';
+        if (botBadge) botBadge.textContent = state.mode === 'editor' ? 'Editor' : 'Analysis';
+        if (topName) topName.textContent = 'Player 2 (O)';
+        if (topBadge) topBadge.textContent = state.mode === 'editor' ? 'Editor' : 'Analysis';
+      }
+    }
+
+    function isTurnControlledByAi(turn) {
+      if (state.mode === 'tournament') {
+        const match = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (!match) return false;
+        const player = turn === 'X' ? match.playerX : match.playerO;
+        return player && player.type === 'ai';
+      }
+      if (state.mode === 'play') {
+        if (playMatchState.matchType === 'human_vs_human') return false;
+        if (playMatchState.matchType === 'ai_vs_ai') return true;
+        return turn !== state.playerPiece;
+      }
+      return false;
+    }
+
+    /**
+     * Level 8 AI Time Management Engine (Demand 2 lines 17-20)
+     */
+    function computeAiThinkDelay(board, turn, level) {
+      if (level < 8 && !clockState.enabled) {
+        return level >= 6 ? 360 : 220;
+      }
+
+      // Check for opening book / tablebase / direct 1-move win / 1-move forced block
+      const candidates = getCandidateMoves(board, config.rows, config.cols);
+      const isWin = candidates.some(m => isWinningMove(board, m, turn, config.rows, config.cols, config.k));
+      const opps = PLAYERS.slice(0, config.j || 2).filter(p => p !== turn);
+      const isForcedBlock = opps.some(opp => candidates.some(m => isWinningMove(board, m, opp, config.rows, config.cols, config.k)));
+
+      const totalCells = config.rows * config.cols;
+      let emptyCells = 0;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === null) emptyCells++;
+      }
+      const occupied = totalCells - emptyCells;
+
+      // In completely known positions (tablebase hit or opening book or forced win/block):
+      // Level 8 moves instantly (30ms to 40ms) to conserve time!
+      if (totalCells <= 9 || occupied <= 1 || isWin || isForcedBlock) {
+        return clockState.enabled ? 30 : 150;
+      }
+
+      if (!clockState.enabled) {
+        return 320;
+      }
+
+      // Timed match: smooth time budget based on remaining time and increment
+      const remMs = clockState.times[turn] || 180000;
+      const incMs = clockState.incrementMs || 0;
+      const budget = Math.min(remMs * 0.22, Math.max(60, (remMs / Math.max(1, emptyCells)) + incMs * 0.8));
+      return Math.min(budget, 3500);
+    }
+
+    /**
+     * Board Editor Helpers (Demand 4)
+     */
+    function handleEditorSquareClick(index) {
+      const current = state.history[state.currentPly];
+      const tool = editorState.activeTool;
+      const newBoard = [...current.board];
+
+      if (tool === 'erase') {
+        newBoard[index] = null;
+      } else if (tool === '#') {
+        newBoard[index] = newBoard[index] === '#' ? null : '#';
+      } else {
+        newBoard[index] = newBoard[index] === tool ? null : tool;
+      }
+
+      state.history = [{
+        board: newBoard,
+        turn: editorState.turn,
+        lastMove: index,
+        annotation: null,
+        evalBefore: 0,
+        evalAfter: 0
+      }];
+      state.currentPly = 0;
+      playSound('move');
+      render();
+    }
+
+    function clearEditorBoard() {
+      state.history = [{
+        board: Array(config.rows * config.cols).fill(null),
+        turn: editorState.turn,
+        lastMove: null,
+        annotation: null,
+        evalBefore: 0
+      }];
+      state.currentPly = 0;
+      render();
+      showToast('Board cleared');
+    }
+
+    function freezeBorders() {
+      const rows = config.rows;
+      const cols = config.cols;
+      const newBoard = Array(rows * cols).fill(null);
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (r === 0 || r === rows - 1 || c === 0 || c === cols - 1) {
+            newBoard[r * cols + c] = '#';
+          }
+        }
+      }
+      state.history = [{
+        board: newBoard,
+        turn: editorState.turn,
+        lastMove: null,
+        annotation: null,
+        evalBefore: 0
+      }];
+      state.currentPly = 0;
+      render();
+      showToast('Border squares frozen (#)');
+    }
+
+    function addRandomObstacles(count = 4) {
+      const rows = config.rows;
+      const cols = config.cols;
+      const total = rows * cols;
+      const newBoard = [...state.history[state.currentPly].board];
+      let placed = 0;
+      let attempts = 0;
+      while (placed < count && attempts < 100) {
+        attempts++;
+        const randIdx = Math.floor(Math.random() * total);
+        if (newBoard[randIdx] === null) {
+          newBoard[randIdx] = '#';
+          placed++;
+        }
+      }
+      state.history = [{
+        board: newBoard,
+        turn: editorState.turn,
+        lastMove: null,
+        annotation: null,
+        evalBefore: 0
+      }];
+      state.currentPly = 0;
+      render();
+      showToast(`Added ${placed} random obstacles (#)`);
+    }
+
+    function loadEditorToAnalysis() {
+      const editedBoard = [...state.history[state.currentPly].board];
+      switchMainMode('analysis');
+      state.history = [{
+        board: editedBoard,
+        turn: editorState.turn,
+        lastMove: null,
+        annotation: null,
+        evalBefore: 0
+      }];
+      state.currentPly = 0;
+      render();
+      startAsyncAnalysis(editedBoard, editorState.turn, 0);
+      showToast('Loaded custom position into Analysis');
+    }
+
+    function loadEditorToPlay() {
+      const editedBoard = [...state.history[state.currentPly].board];
+      switchMainMode('play');
+      state.history = [{
+        board: editedBoard,
+        turn: editorState.turn,
+        lastMove: null,
+        annotation: null,
+        evalBefore: 0
+      }];
+      state.currentPly = 0;
+      if (clockState.enabled) {
+        initClocks();
+        startClock();
+      }
+      render();
+      showToast('Playing from custom position');
+    }
+
+    /**
+     * Tournament System Engine (Demand 1)
+     */
+    function generateRoundRobinSchedule(players, cycles = 1) {
+      const n = players.length;
+      const list = [...players];
+      if (n % 2 !== 0) {
+        list.push({ id: 'bye', name: 'BYE', type: 'bye' });
+      }
+      const numRounds = list.length - 1;
+      const half = list.length / 2;
+      const matches = [];
+      let matchId = 1;
+
+      for (let c = 1; c <= cycles; c++) {
+        const roundList = [...list];
+        for (let round = 1; round <= numRounds; round++) {
+          for (let i = 0; i < half; i++) {
+            const p1 = roundList[i];
+            const p2 = roundList[roundList.length - 1 - i];
+            if (p1.id !== 'bye' && p2.id !== 'bye') {
+              const isEvenCycle = (c % 2 === 0);
+              const playerX = isEvenCycle ? p2 : p1;
+              const playerO = isEvenCycle ? p1 : p2;
+              matches.push({
+                id: matchId++,
+                cycle: c,
+                round,
+                playerX,
+                playerO,
+                winner: null,
+                resultStr: '*',
+                moves: [],
+                plies: 0,
+                status: 'scheduled'
+              });
+            }
+          }
+          const fixed = roundList[0];
+          const last = roundList.pop();
+          roundList.splice(1, 0, last);
+        }
+      }
+      return matches;
+    }
+
+    function generateKnockoutSchedule(players) {
+      const matches = [];
+      let matchId = 1;
+      const half = Math.floor(players.length / 2);
+      for (let i = 0; i < half; i++) {
+        matches.push({
+          id: matchId++,
+          cycle: 1,
+          round: 1,
+          playerX: players[i * 2],
+          playerO: players[i * 2 + 1],
+          winner: null,
+          resultStr: '*',
+          moves: [],
+          plies: 0,
+          status: 'scheduled'
+        });
+      }
+      return matches;
+    }
+
+    function calculateStandings() {
+      const statsMap = new Map();
+      tournamentState.players.forEach(p => {
+        statsMap.set(p.id, {
+          player: p,
+          played: 0,
+          won: 0,
+          drawn: 0,
+          lost: 0,
+          points: 0,
+          sb: 0,
+          opponentsDefeated: [],
+          opponentsDrawn: []
+        });
+      });
+
+      tournamentState.matches.forEach(m => {
+        if (m.status === 'finished' && m.winner) {
+          const sX = statsMap.get(m.playerX.id);
+          const sO = statsMap.get(m.playerO.id);
+          if (!sX || !sO) return;
+
+          sX.played++;
+          sO.played++;
+
+          if (m.winner === 'Draw') {
+            sX.drawn++;
+            sO.drawn++;
+            sX.points += 0.5;
+            sO.points += 0.5;
+            sX.opponentsDrawn.push(m.playerO.id);
+            sO.opponentsDrawn.push(m.playerX.id);
+          } else if (m.winner === m.playerX.id) {
+            sX.won++;
+            sO.lost++;
+            sX.points += 1;
+            sX.opponentsDefeated.push(m.playerO.id);
+          } else if (m.winner === m.playerO.id) {
+            sO.won++;
+            sX.lost++;
+            sO.points += 1;
+            sO.opponentsDefeated.push(m.playerX.id);
+          }
+        }
+      });
+
+      statsMap.forEach(s => {
+        let sb = 0;
+        s.opponentsDefeated.forEach(oppId => {
+          const opp = statsMap.get(oppId);
+          if (opp) sb += opp.points;
+        });
+        s.opponentsDrawn.forEach(oppId => {
+          const opp = statsMap.get(oppId);
+          if (opp) sb += opp.points * 0.5;
+        });
+        s.sb = sb;
+      });
+
+      const standings = Array.from(statsMap.values());
+      standings.sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        return b.sb - a.sb;
+      });
+
+      tournamentState.standings = standings;
+      return standings;
+    }
+
+    function simulateSingleMatch(match) {
+      if (!match || match.status === 'finished') return;
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      let simBoard = Array(rows * cols).fill(null);
+      let turn = 'X';
+      const moves = [];
+      let winner = null;
+
+      for (let ply = 0; ply < rows * cols; ply++) {
+        const pLevel = turn === 'X' ? (match.playerX.level || 8) : (match.playerO.level || 8);
+        const move = getEngineMoveForLevel(simBoard, turn, pLevel);
+        if (move === null || move === undefined) break;
+
+        simBoard[move] = turn;
+        moves.push({ ply, turn, move, coord: getCoord(move, rows, cols) });
+
+        const term = checkWinner(simBoard, rows, cols, k);
+        if (term) {
+          if (term.winner === 'Draw') {
+            winner = 'Draw';
+            match.resultStr = '½ - ½';
+          } else if (term.winner === 'X') {
+            winner = match.playerX.id;
+            match.resultStr = '1 - 0';
+          } else {
+            winner = match.playerO.id;
+            match.resultStr = '0 - 1';
+          }
+          break;
+        }
+        turn = turn === 'X' ? 'O' : 'X';
+      }
+
+      if (!winner) {
+        winner = 'Draw';
+        match.resultStr = '½ - ½';
+      }
+
+      match.winner = winner;
+      match.moves = moves;
+      match.plies = moves.length;
+      match.status = 'finished';
+    }
+
+    function simulateAllTournamentMatches() {
+      tournamentState.matches.forEach(m => {
+        if (m.status !== 'finished') {
+          simulateSingleMatch(m);
+        }
+      });
+      calculateStandings();
+      updateTournamentUI();
+      showToast('All tournament matches simulated!');
+    }
+
+    function loadTournamentMatch(idx) {
+      if (idx < 0 || idx >= tournamentState.matches.length) return;
+      tournamentState.currentMatchIdx = idx;
+      const match = tournamentState.matches[idx];
+
+      state.history = [{
+        board: Array(config.rows * config.cols).fill(null),
+        turn: 'X',
+        lastMove: null,
+        annotation: null,
+        evalBefore: 0
+      }];
+      state.currentPly = 0;
+
+      if (clockState.enabled) {
+        initClocks();
+        startClock();
+      }
+
+      render();
+      updateTournamentUI();
+    }
+
+    function updateTournamentUI() {
+      const setupBox = document.getElementById('tourn-setup-box');
+      const activeDash = document.getElementById('tourn-active-dashboard');
+      const playerCountSpan = document.getElementById('tourn-player-count');
+      const playersList = document.getElementById('tourn-players-list');
+      const variantInd = document.getElementById('tourn-variant-indicator');
+
+      if (variantInd) variantInd.textContent = `(${config.rows}, ${config.cols}, ${config.k})`;
+      if (playerCountSpan) playerCountSpan.textContent = tournamentState.players.length;
+
+      // Render Roster List in Setup Box
+      if (playersList) {
+        playersList.innerHTML = '';
+        tournamentState.players.forEach((p, idx) => {
+          const row = document.createElement('div');
+          row.className = 'flex items-center justify-between text-xs px-2 py-1 rounded bg-[#262421] border border-[#363431]';
+          const typeBadge = p.type === 'human'
+            ? `<span class="text-[10px] px-1.5 py-0.2 rounded bg-[#629924]/20 text-[#7ec62f] font-semibold border border-[#629924]/40">Human</span>`
+            : `<span class="text-[10px] px-1.5 py-0.2 rounded bg-[#3692e7]/20 text-[#38bdf8] font-semibold border border-[#3692e7]/40 mono-font">AI L${p.level}</span>`;
+
+          row.innerHTML = `
+            <div class="flex items-center space-x-2">
+              <span class="text-gray-400 mono-font text-[10px]">#${idx + 1}</span>
+              <span class="font-bold text-white">${p.name}</span>
+              ${typeBadge}
+            </div>
+            <button class="btn-del-player text-gray-400 hover:text-red-400 text-sm font-bold px-1 transition" data-id="${p.id}">&times;</button>
+          `;
+          playersList.appendChild(row);
+        });
+
+        document.querySelectorAll('.btn-del-player').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const id = e.target.dataset.id;
+            tournamentState.players = tournamentState.players.filter(pl => pl.id !== id);
+            updateTournamentUI();
+          });
+        });
+      }
+
+      if (!tournamentState.active) {
+        if (setupBox) setupBox.classList.remove('hidden');
+        if (activeDash) activeDash.classList.add('hidden');
+        return;
+      }
+
+      // Active Dashboard
+      if (setupBox) setupBox.classList.add('hidden');
+      if (activeDash) activeDash.classList.remove('hidden');
+
+      const matchIdx = tournamentState.currentMatchIdx;
+      const match = tournamentState.matches[matchIdx];
+
+      const matchIndexLabel = document.getElementById('tourn-match-index-label');
+      const roundLabel = document.getElementById('tourn-round-label');
+      const matchTitle = document.getElementById('tourn-current-match-title');
+
+      if (match) {
+        if (matchIndexLabel) matchIndexLabel.textContent = `Match ${matchIdx + 1} of ${tournamentState.matches.length}`;
+        if (roundLabel) roundLabel.textContent = `Round ${match.round} · Cycle ${match.cycle}`;
+        if (matchTitle) matchTitle.textContent = `${match.playerX.name} (X) vs ${match.playerO.name} (O)`;
+      }
+
+      // Live Standings Table
+      calculateStandings();
+      const standingsBody = document.getElementById('tourn-standings-body');
+      if (standingsBody) {
+        standingsBody.innerHTML = '';
+        tournamentState.standings.forEach((s, idx) => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-[#262421] transition';
+          const typeStr = s.player.type === 'human' ? '👤' : `🤖${s.player.level}`;
+          tr.innerHTML = `
+            <td class="py-1 px-1.5 text-center text-gray-400">#${idx + 1}</td>
+            <td class="py-1 px-2 font-bold text-white truncate max-w-[130px] flex items-center space-x-1">
+              <span class="text-[10px] text-gray-400">${typeStr}</span>
+              <span class="truncate">${s.player.name}</span>
+            </td>
+            <td class="py-1 px-1 text-center text-gray-300">${s.played}</td>
+            <td class="py-1 px-1 text-center text-[#7ec62f] font-semibold">${s.won}</td>
+            <td class="py-1 px-1 text-center text-yellow-400">${s.drawn}</td>
+            <td class="py-1 px-1 text-center text-red-400">${s.lost}</td>
+            <td class="py-1 px-1.5 text-center font-bold text-[#7ec62f]">${s.points}</td>
+            <td class="py-1 px-1.5 text-center text-gray-400">${s.sb.toFixed(1)}</td>
+          `;
+          standingsBody.appendChild(tr);
+        });
+      }
+
+      // Matches List
+      const matchesList = document.getElementById('tourn-matches-list');
+      if (matchesList) {
+        matchesList.innerHTML = '';
+        tournamentState.matches.forEach((m, idx) => {
+          const row = document.createElement('div');
+          const isCurrent = idx === tournamentState.currentMatchIdx;
+          let rowClass = 'flex items-center justify-between px-2 py-1 rounded transition text-[11px] ';
+          if (isCurrent) rowClass += 'bg-[#629924]/20 border border-[#629924] ';
+          else rowClass += 'bg-[#262421] border border-[#363431] hover:bg-[#363431] cursor-pointer ';
+
+          row.className = rowClass;
+          row.innerHTML = `
+            <div class="flex items-center space-x-1.5 truncate">
+              <span class="text-gray-400 mono-font">#${m.id}</span>
+              <span class="font-semibold text-white truncate">${m.playerX.name}</span>
+              <span class="text-gray-400">vs</span>
+              <span class="font-semibold text-white truncate">${m.playerO.name}</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="mono-font font-bold ${m.resultStr !== '*' ? 'text-[#7ec62f]' : 'text-gray-400'}">${m.resultStr}</span>
+              <span class="text-[10px] text-gray-400">${m.status}</span>
+            </div>
+          `;
+          row.addEventListener('click', () => loadTournamentMatch(idx));
+          matchesList.appendChild(row);
+        });
+      }
+    }
+
+    function copyTournamentSummary() {
+      calculateStandings();
+      const variant = `(${config.rows}, ${config.cols}, ${config.k})`;
+      const formatStr = tournamentState.format === 'round_robin'
+        ? `Round Robin (${tournamentState.cycles}x Cycles)`
+        : 'Knockout Bracket';
+
+      let out = `# StockTic (m,n,k) Tournament Summary\n`;
+      out += `**Variant:** ${variant} | **Format:** ${formatStr} | **Date:** ${new Date().toLocaleDateString()}\n\n`;
+      out += `## Final Standings\n`;
+      out += `| Rank | Player | Type | Pld | W | D | L | Points | SB Score |\n`;
+      out += `|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n`;
+
+      tournamentState.standings.forEach((s, idx) => {
+        const typeStr = s.player.type === 'human' ? 'Human' : `AI L${s.player.level}`;
+        out += `| #${idx + 1} | ${s.player.name} | ${typeStr} | ${s.played} | ${s.won} | ${s.drawn} | ${s.lost} | **${s.points}** | ${s.sb.toFixed(1)} |\n`;
+      });
+
+      out += `\n## Match Schedule & Results\n`;
+      out += `| Match | Round | Player X | Player O | Score | Plies |\n`;
+      out += `|:---:|:---:|:---|:---|:---:|:---:|\n`;
+      tournamentState.matches.forEach(m => {
+        out += `| #${m.id} | R${m.round} (C${m.cycle}) | ${m.playerX.name} | ${m.playerO.name} | **${m.resultStr}** | ${m.plies || '-'} |\n`;
+      });
+
+      copyTextToClipboard(out, 'Tournament summary copied to clipboard');
+    }
+
+    function copyTournamentGameStats() {
+      let out = `# StockTic Tournament Game-by-Game Statistics\n\n`;
+      tournamentState.matches.forEach(m => {
+        out += `### Match #${m.id}: ${m.playerX.name} (X) vs ${m.playerO.name} (O)\n`;
+        out += `- **Round:** ${m.round} (Cycle ${m.cycle})\n`;
+        out += `- **Result:** ${m.resultStr}\n`;
+        out += `- **Plies:** ${m.plies || 0}\n`;
+        if (m.moves && m.moves.length > 0) {
+          const moveCoords = m.moves.map(mv => `${mv.turn}:${mv.coord}`).join(' ');
+          out += `- **Moves:** \`${moveCoords}\`\n`;
+        }
+        out += `\n`;
+      });
+      copyTextToClipboard(out, 'Tournament game statistics copied');
+    }
+
+    function exportTournamentJson() {
+      const data = {
+        title: "StockTic MNK Tournament",
+        variant: { rows: config.rows, cols: config.cols, k: config.k, j: config.j || 2 },
+        format: tournamentState.format,
+        cycles: tournamentState.cycles,
+        standings: tournamentState.standings,
+        matches: tournamentState.matches,
+        exportedAt: new Date().toISOString()
+      };
+      copyTextToClipboard(JSON.stringify(data, null, 2), 'Tournament JSON copied');
+    }
+
+    /**
+     * Main 4-Mode Switcher Navigation (Analysis, Play, Tournament, Editor)
+     */
+    function switchMainMode(mode) {
+      state.mode = mode;
+
+      const tabAnalysisBtn = document.getElementById('tab-analysis-btn');
+      const tabPlayBtn = document.getElementById('tab-play-btn');
+      const tabTournBtn = document.getElementById('tab-tournament-btn');
+      const tabEditorBtn = document.getElementById('tab-editor-btn');
+
+      const panelAnalysis = document.getElementById('panel-analysis');
+      const panelPlay = document.getElementById('panel-play');
+      const panelTourn = document.getElementById('panel-tournament');
+      const panelEditor = document.getElementById('panel-editor');
+
+      [tabAnalysisBtn, tabPlayBtn, tabTournBtn, tabEditorBtn].forEach(btn => {
+        if (btn) btn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]';
+      });
+
+      [panelAnalysis, panelPlay, panelTourn, panelEditor].forEach(p => {
+        if (p) p.classList.add('hidden');
+      });
+
+      if (mode === 'analysis') {
+        if (tabAnalysisBtn) tabAnalysisBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
+        if (panelAnalysis) panelAnalysis.classList.remove('hidden');
+        stopClock();
+      } else if (mode === 'play') {
+        if (tabPlayBtn) tabPlayBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
+        if (panelPlay) panelPlay.classList.remove('hidden');
+      } else if (mode === 'tournament') {
+        if (tabTournBtn) tabTournBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
+        if (panelTourn) panelTourn.classList.remove('hidden');
+        updateTournamentUI();
+      } else if (mode === 'editor') {
+        if (tabEditorBtn) tabEditorBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
+        if (panelEditor) panelEditor.classList.remove('hidden');
+        stopClock();
+      }
+
+      render();
+    }
 
     /**
      * Abort any ongoing asynchronous engine search
@@ -2377,12 +3711,17 @@
 
       const analysis = analyzePosition(board, turn);
       const bestMove = analysis.bestMove;
-      const oppPiece = turn === 'X' ? 'O' : 'X';
+      const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== turn);
 
       // 1. Direct 1-move win check
       const winMoves = candidates.filter(m => isWinningMove(board, m, turn, config.rows, config.cols, config.k));
-      // 2. Direct 1-move block check
-      const blockMoves = candidates.filter(m => isWinningMove(board, m, oppPiece, config.rows, config.cols, config.k));
+      // 2. Direct 1-move block check across ALL other j-1 opponents (Demand 3)
+      const allBlockMoves = [];
+      for (const opp of otherPlayers) {
+        const oppWin = candidates.filter(m => isWinningMove(board, m, opp, config.rows, config.cols, config.k));
+        allBlockMoves.push(...oppWin);
+      }
+      const blockMoves = Array.from(new Set(allBlockMoves));
 
       // Level 8: SOTA Grandmaster (stochastic tricky move selection among tied best moves)
       if (level >= 8) {
@@ -2535,14 +3874,27 @@
      * Square Click Handler
      */
     function handleSquareClick(index) {
+      if (state.mode === 'editor') {
+        handleEditorSquareClick(index);
+        return;
+      }
+
       const current = state.history[state.currentPly];
       const winCheck = checkWinner(current.board);
-      if (winCheck) return; // Game over
+      if (winCheck || clockState.flaggedPlayer) return; // Game over
 
-      if (current.board[index] !== null) return;
+      if (current.board[index] !== null) return; // Cell occupied or frozen (#)
 
-      if (state.mode === 'play' && (current.turn !== state.playerPiece || state.isEngineThinking)) {
-        return;
+      if (state.mode === 'play') {
+        const isAiTurn = isTurnControlledByAi(current.turn);
+        if (isAiTurn || state.isEngineThinking) return;
+      }
+
+      if (state.mode === 'tournament') {
+        const match = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (!match || match.status === 'finished') return;
+        const player = current.turn === 'X' ? match.playerX : match.playerO;
+        if (player.type !== 'human') return;
       }
 
       executeMove(index);
@@ -2562,12 +3914,8 @@
       if (targetMoveEval) {
         evalAfter = targetMoveEval.score;
       } else {
-        // Fallback: evaluate the tactics of this specific move directly if outside candidate set
         const evalResult = evaluateMoveTactics(current.board, index, current.turn, config.rows, config.cols, config.k);
         const isX = current.turn === 'X';
-        const oppPiece = isX ? 'O' : 'X';
-        const oppCanWin = isWinningMove(current.board, index, oppPiece, config.rows, config.cols, config.k);
-
         if (evalResult.isWin) {
           evalAfter = isX ? 100 : -100;
         } else if (evalResult.isBlock) {
@@ -2580,15 +3928,35 @@
 
       const newBoard = [...current.board];
       newBoard[index] = current.turn;
-      const nextTurn = current.turn === 'X' ? 'O' : 'X';
+      const nextTurn = getNextTurn(current.turn, config.j || 2);
+
+      // Add clock increment to the player who just moved
+      if (clockState.enabled) {
+        if (clockState.times[current.turn] !== undefined) {
+          clockState.times[current.turn] += clockState.incrementMs;
+        }
+      }
 
       const quality = classifyMove(evalBefore, evalAfter, current.turn);
 
-      // Play Sound
+      // Check Terminal Outcome
       const terminalAfter = checkWinner(newBoard);
       if (terminalAfter) {
+        stopClock();
         if (terminalAfter.winner === 'Draw') playSound('draw');
         else playSound('win');
+
+        if (state.mode === 'tournament') {
+          const match = tournamentState.matches[tournamentState.currentMatchIdx];
+          if (match && match.status !== 'finished') {
+            match.winner = terminalAfter.winner === 'Draw' ? 'Draw' : (terminalAfter.winner === 'X' ? match.playerX.id : match.playerO.id);
+            match.resultStr = terminalAfter.winner === 'Draw' ? '½ - ½' : (terminalAfter.winner === 'X' ? '1 - 0' : '0 - 1');
+            match.status = 'finished';
+            match.plies = state.currentPly + 1;
+            calculateStandings();
+            updateTournamentUI();
+          }
+        }
       } else {
         if (quality.label === 'Blunder') playSound('blunder');
         else playSound('move');
@@ -2610,20 +3978,38 @@
 
       render();
 
-      // Trigger engine move in play mode
-      if (state.mode === 'play') {
-        const nextState = state.history[state.currentPly];
-        const gameOver = checkWinner(nextState.board);
-        if (!gameOver && nextState.turn !== state.playerPiece) {
-          state.isEngineThinking = true;
-          render();
-          const thinkDelay = state.engineLevel >= 6 ? 360 : 220;
-          if (engineTimeoutId) clearTimeout(engineTimeoutId);
-          engineTimeoutId = setTimeout(() => {
-            makeEngineMove();
-            state.isEngineThinking = false;
+      // Trigger AI move
+      if (!terminalAfter && !clockState.flaggedPlayer) {
+        if (state.mode === 'play') {
+          const nextState = state.history[state.currentPly];
+          if (isTurnControlledByAi(nextState.turn)) {
+            state.isEngineThinking = true;
             render();
-          }, thinkDelay);
+            const thinkDelay = computeAiThinkDelay(nextState.board, nextState.turn, state.engineLevel);
+            if (engineTimeoutId) clearTimeout(engineTimeoutId);
+            engineTimeoutId = setTimeout(() => {
+              makeEngineMoveForLevel(state.engineLevel);
+              state.isEngineThinking = false;
+              render();
+            }, thinkDelay);
+          }
+        } else if (state.mode === 'tournament') {
+          const match = tournamentState.matches[tournamentState.currentMatchIdx];
+          if (match && match.status !== 'finished') {
+            const nextState = state.history[state.currentPly];
+            const nextPlayer = nextState.turn === 'X' ? match.playerX : match.playerO;
+            if (nextPlayer.type === 'ai') {
+              state.isEngineThinking = true;
+              render();
+              const thinkDelay = computeAiThinkDelay(nextState.board, nextState.turn, nextPlayer.level || 8);
+              if (engineTimeoutId) clearTimeout(engineTimeoutId);
+              engineTimeoutId = setTimeout(() => {
+                makeEngineMoveForLevel(nextPlayer.level || 8);
+                state.isEngineThinking = false;
+                render();
+              }, thinkDelay);
+            }
+          }
         }
       }
     }
@@ -2631,14 +4017,18 @@
     /**
      * Engine Move
      */
-    function makeEngineMove() {
+    function makeEngineMoveForLevel(lvl = state.engineLevel) {
       const current = state.history[state.currentPly];
-      if (checkWinner(current.board)) return;
+      if (checkWinner(current.board) || clockState.flaggedPlayer) return;
 
-      const chosenMove = getEngineMoveForLevel(current.board, current.turn, state.engineLevel);
+      const chosenMove = getEngineMoveForLevel(current.board, current.turn, lvl);
       if (chosenMove !== null && chosenMove !== undefined) {
         executeMove(chosenMove);
       }
+    }
+
+    function makeEngineMove() {
+      makeEngineMoveForLevel(state.engineLevel);
     }
 
     /**
@@ -2712,7 +4102,19 @@
           }
 
           const piece = current.board[idx];
-          if (piece === 'X') {
+          if (piece === '#') {
+            cell.classList.add('frozen-square');
+            cell.innerHTML = `
+              <div class="flex items-center justify-center w-full h-full text-sky-300 drop-shadow select-none pointer-events-none">
+                <svg class="w-[62%] h-[62%]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <line x1="12" y1="2" x2="12" y2="22"></line>
+                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                  <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"></line>
+                </svg>
+              </div>
+            `;
+          } else if (piece === 'X') {
             const strokeWidth = cellSizePx < 28 ? '3.5' : '2.8';
             cell.innerHTML = `
               <svg class="w-[78%] h-[78%] text-white drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
@@ -2723,8 +4125,26 @@
           } else if (piece === 'O') {
             const strokeWidth = cellSizePx < 28 ? '3.8' : '3.0';
             cell.innerHTML = `
-              <svg class="w-[78%] h-[78%] text-[#e8e4df] drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
+              <svg class="w-[78%] h-[78%] text-amber-400 drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
                 <circle cx="12" cy="12" r="8"></circle>
+              </svg>
+            `;
+          } else if (piece === '▲') {
+            cell.innerHTML = `
+              <svg class="w-[78%] h-[78%] text-emerald-400 drop-shadow-md fill-current" viewBox="0 0 24 24">
+                <polygon points="12,4 21,20 3,20"></polygon>
+              </svg>
+            `;
+          } else if (piece === '■') {
+            cell.innerHTML = `
+              <svg class="w-[72%] h-[72%] text-sky-400 drop-shadow-md fill-current" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              </svg>
+            `;
+          } else if (piece === '◆') {
+            cell.innerHTML = `
+              <svg class="w-[75%] h-[75%] text-purple-400 drop-shadow-md fill-current" viewBox="0 0 24 24">
+                <polygon points="12,2 22,12 12,22 2,12"></polygon>
               </svg>
             `;
           } else {
@@ -2773,7 +4193,7 @@
         }
       }
 
-      // 3. Update SVG Arrows & Winning Strike Line (Synchronized Pixel Coordinate Space)
+      // 3. Update SVG Arrows & Winning Strike Line
       const gap = (Math.max(rows, cols) > 16) ? 1 : 2;
       const totalW = cols * cellSizePx + (cols - 1) * gap;
       const totalH = rows * cellSizePx + (rows - 1) * gap;
@@ -2798,14 +4218,23 @@
       // 5. Update Status & Turn Indicators
       const turnLabel = document.getElementById('turn-label');
       const turnIcon = document.getElementById('turn-icon');
-      if (winStatus) {
+      if (clockState.flaggedPlayer) {
+        const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== clockState.flaggedPlayer);
+        turnLabel.textContent = `Time Out! ${clockState.flaggedPlayer} flagged. ${otherPlayers.join('/')} won on time!`;
+        turnIcon.className = 'w-3 h-3 rounded-full bg-red-500 inline-block';
+      } else if (winStatus) {
         if (winStatus.winner === 'Draw') {
           turnLabel.textContent = 'Game Drawn';
           turnIcon.className = 'w-3 h-3 rounded-full bg-yellow-500 inline-block';
         } else {
           turnLabel.textContent = `${winStatus.winner} Wins (${config.k} in a row)!`;
-          turnIcon.className = `w-3 h-3 rounded-full ${winStatus.winner === 'X' ? 'bg-white' : 'bg-gray-400'} inline-block`;
+          const winColor = PLAYER_COLORS[winStatus.winner] || '#ffffff';
+          turnIcon.className = `w-3 h-3 rounded-full inline-block`;
+          turnIcon.style.backgroundColor = winColor;
         }
+      } else if (state.mode === 'editor') {
+        turnLabel.textContent = `Editor Mode (Tool: ${editorState.activeTool})`;
+        turnIcon.className = 'w-3 h-3 rounded-full bg-sky-400 inline-block';
       } else if (isPlayMode && state.isEngineThinking) {
         turnLabel.textContent = `StockTic is thinking...`;
         turnIcon.className = 'w-3 h-3 rounded-full bg-yellow-400 inline-block animate-ping';
@@ -2814,8 +4243,14 @@
         turnLabel.textContent = isPlayMode
           ? (isUserTurn ? `Your move (${current.turn})` : `StockTic's move (${current.turn})`)
           : `${current.turn} to move`;
-        turnIcon.className = `w-3 h-3 rounded-full ${current.turn === 'X' ? 'bg-white' : 'bg-gray-500'} inline-block`;
+        const currColor = PLAYER_COLORS[current.turn] || '#ffffff';
+        turnIcon.className = `w-3 h-3 rounded-full inline-block`;
+        turnIcon.style.backgroundColor = currColor;
       }
+
+      // Update Player Names, Badges, and Dual Clocks
+      updatePlayerBoxes();
+      updateClockDisplays();
 
       // 6. Update Candidate Moves (MultiPV) or Match Card
       renderCandidateMoves(analysis, winStatus);
@@ -3821,11 +5256,14 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     /**
      * Board Dimension & Configuration Controller
      */
-    function updateBoardConfiguration(rows, cols, k) {
+    function updateBoardConfiguration(rows, cols, k, j) {
       rows = Math.max(1, Math.min(32, parseInt(rows, 10) || 3));
       cols = Math.max(1, Math.min(32, parseInt(cols, 10) || 3));
       const maxPossibleK = Math.max(rows, cols);
       k = Math.max(1, Math.min(8, Math.min(maxPossibleK, parseInt(k, 10) || 3)));
+      if (j !== undefined) {
+        config.j = Math.max(2, Math.min(5, parseInt(j, 10) || 2));
+      }
 
       config.rows = rows;
       config.cols = cols;
@@ -3835,11 +5273,12 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         localStorage.setItem('stocktic_rows', rows.toString());
         localStorage.setItem('stocktic_cols', cols.toString());
         localStorage.setItem('stocktic_k', k.toString());
+        if (config.j) localStorage.setItem('stocktic_j', config.j.toString());
       } catch (e) {}
 
       ttMap.clear();
       resetBoard();
-      showToast(`Board updated: ${rows}×${cols} with k=${k} to win!`);
+      showToast(`Board updated: ${rows}×${cols} with k=${k} to win! (${config.j || 2} players)`);
     }
 
     // Modal UI controllers
@@ -3859,11 +5298,35 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     const modalTotalCells = document.getElementById('modal-total-cells');
     const modalTheoreticalVal = document.getElementById('modal-theoretical-val');
 
+    let modalSelectedJ = config.j || 2;
+
+    function updatePlayerJUI(jVal) {
+      modalSelectedJ = jVal;
+      const sliderJVal = document.getElementById('slider-j-val');
+      if (sliderJVal) sliderJVal.textContent = `${jVal} Players`;
+      document.querySelectorAll('.player-j-btn').forEach(btn => {
+        const val = parseInt(btn.dataset.j, 10);
+        if (val === jVal) {
+          btn.className = 'player-j-btn p-1.5 text-xs font-bold rounded bg-[#629924] text-white border border-[#629924] shadow-sm';
+        } else {
+          btn.className = 'player-j-btn p-1.5 text-xs font-bold rounded bg-[#262421] text-gray-300 border border-[#363431] hover:bg-[#363431]';
+        }
+      });
+    }
+
+    document.querySelectorAll('.player-j-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const j = parseInt(btn.dataset.j, 10);
+        updatePlayerJUI(j);
+      });
+    });
+
     function syncModalInputs() {
       inputRows.value = config.rows;
       inputCols.value = config.cols;
       inputK.max = Math.max(config.rows, config.cols);
       inputK.value = config.k;
+      updatePlayerJUI(config.j || 2);
       updateModalDisplays();
     }
 
@@ -3942,7 +5405,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const r = parseInt(inputRows.value, 10);
       const c = parseInt(inputCols.value, 10);
       const k = parseInt(inputK.value, 10);
-      updateBoardConfiguration(r, c, k);
+      updateBoardConfiguration(r, c, k, modalSelectedJ);
       closeModal();
     });
 
@@ -4051,46 +5514,56 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       }, 120);
     });
 
-    // Switch between Analysis and Play vs Engine
+    // Main 4-Tab Switching Listeners
+    const tabAnalysisBtn = document.getElementById('tab-analysis-btn');
+    const tabPlayBtn = document.getElementById('tab-play-btn');
+    const tabTournBtn = document.getElementById('tab-tournament-btn');
+    const tabEditorBtn = document.getElementById('tab-editor-btn');
+
+    if (tabAnalysisBtn) tabAnalysisBtn.addEventListener('click', () => switchMainMode('analysis'));
+    if (tabPlayBtn) tabPlayBtn.addEventListener('click', () => switchMainMode('play'));
+    if (tabTournBtn) tabTournBtn.addEventListener('click', () => switchMainMode('tournament'));
+    if (tabEditorBtn) tabEditorBtn.addEventListener('click', () => switchMainMode('editor'));
+
+    // Switch between Analysis and Play vs Engine (History header buttons)
     const modeAnalysisBtn = document.getElementById('mode-analysis-btn');
     const modePlayBtn = document.getElementById('mode-play-btn');
-    const playPanel = document.getElementById('play-engine-panel');
 
-    modeAnalysisBtn.addEventListener('click', () => {
-      state.mode = 'analysis';
-      modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
-      modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
-      playPanel.classList.add('hidden');
-      render();
-    });
+    if (modeAnalysisBtn) {
+      modeAnalysisBtn.addEventListener('click', () => {
+        switchMainMode('analysis');
+      });
+    }
 
-    modePlayBtn.addEventListener('click', () => {
-      state.mode = 'play';
-      modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
-      modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
-      playPanel.classList.remove('hidden');
-      updateLevelUI();
-      updateEvalToggleUI();
-      resetBoard();
-    });
+    if (modePlayBtn) {
+      modePlayBtn.addEventListener('click', () => {
+        switchMainMode('play');
+        updateLevelUI();
+        updateEvalToggleUI();
+      });
+    }
 
-    // Play as X / O toggle
+    // Play as X / O toggle (Practice Panel)
     const playAsXBtn = document.getElementById('play-as-x-btn');
     const playAsOBtn = document.getElementById('play-as-o-btn');
 
-    playAsXBtn.addEventListener('click', () => {
-      state.playerPiece = 'X';
-      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
-      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
-      resetBoard();
-    });
+    if (playAsXBtn) {
+      playAsXBtn.addEventListener('click', () => {
+        state.playerPiece = 'X';
+        playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
+        if (playAsOBtn) playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
+        resetBoard();
+      });
+    }
 
-    playAsOBtn.addEventListener('click', () => {
-      state.playerPiece = 'O';
-      playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
-      playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
-      resetBoard();
-    });
+    if (playAsOBtn) {
+      playAsOBtn.addEventListener('click', () => {
+        state.playerPiece = 'O';
+        playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
+        if (playAsXBtn) playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
+        resetBoard();
+      });
+    }
 
     // Level selector buttons (1 to 8)
     document.querySelectorAll('.level-btn').forEach(btn => {
@@ -4107,7 +5580,415 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     if (evalToggleOffBtn) evalToggleOffBtn.addEventListener('click', () => setPlayShowEval(false));
     if (evalToggleOnBtn) evalToggleOnBtn.addEventListener('click', () => setPlayShowEval(true));
 
-    // Load persisted settings from localStorage
+    // Thinking time selector buttons (1s, 5s, 10s, 30s, ∞)
+    document.querySelectorAll('.thinking-time-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setEngineThinkingTime(btn.dataset.time);
+      });
+    });
+
+    // Engine Stop / Run toggle button
+    const btnEngineToggle = document.getElementById('btn-engine-toggle');
+    if (btnEngineToggle) {
+      btnEngineToggle.addEventListener('click', toggleEngineCalculation);
+    }
+
+    // ==========================================
+    // PLAY & CLOCKS PANEL CONTROLS (Demand 2)
+    // ==========================================
+    document.querySelectorAll('.match-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mType = btn.dataset.type;
+        playMatchState.type = mType;
+        document.querySelectorAll('.match-type-btn').forEach(b => {
+          b.className = (b.dataset.type === mType)
+            ? 'match-type-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm'
+            : 'match-type-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        });
+        const subHva = document.getElementById('play-hva-suboptions');
+        const subAva = document.getElementById('play-ava-suboptions');
+        if (subHva) subHva.classList.toggle('hidden', mType !== 'hva');
+        if (subAva) subAva.classList.toggle('hidden', mType !== 'ava');
+        updatePlayerBoxes();
+        resetBoard();
+      });
+    });
+
+    const playAiSelect = document.getElementById('play-ai-level-select');
+    if (playAiSelect) {
+      playAiSelect.addEventListener('change', (e) => {
+        playMatchState.hvaAiLevel = parseInt(e.target.value, 10);
+        updatePlayerBoxes();
+      });
+    }
+
+    const avaAi1 = document.getElementById('play-ava-ai1-select');
+    if (avaAi1) {
+      avaAi1.addEventListener('change', (e) => {
+        playMatchState.avaAi1Level = parseInt(e.target.value, 10);
+        updatePlayerBoxes();
+      });
+    }
+
+    const avaAi2 = document.getElementById('play-ava-ai2-select');
+    if (avaAi2) {
+      avaAi2.addEventListener('change', (e) => {
+        playMatchState.avaAi2Level = parseInt(e.target.value, 10);
+        updatePlayerBoxes();
+      });
+    }
+
+    const playColorX = document.getElementById('play-color-x-btn');
+    const playColorO = document.getElementById('play-color-o-btn');
+    if (playColorX && playColorO) {
+      playColorX.addEventListener('click', () => {
+        playMatchState.hvaUserPiece = 'X';
+        playColorX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
+        playColorO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
+        updatePlayerBoxes();
+        resetBoard();
+      });
+      playColorO.addEventListener('click', () => {
+        playMatchState.hvaUserPiece = 'O';
+        playColorO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
+        playColorX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
+        updatePlayerBoxes();
+        resetBoard();
+      });
+    }
+
+    // Time Control Presets
+    document.querySelectorAll('.tc-preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const min = parseInt(btn.dataset.min, 10);
+        const inc = parseInt(btn.dataset.inc, 10);
+        playMatchState.baseMinutes = min;
+        playMatchState.incrementSec = inc;
+        document.querySelectorAll('.tc-preset-btn').forEach(b => {
+          b.className = (b === btn)
+            ? 'tc-preset-btn py-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm'
+            : 'tc-preset-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        });
+        const inMin = document.getElementById('input-tc-base');
+        const inInc = document.getElementById('input-tc-inc');
+        if (inMin) inMin.value = min;
+        if (inInc) inInc.value = inc;
+        initClocks();
+        showToast(`Clock: ${min > 0 ? min + ' min' : 'Unlimited'}${inc > 0 ? ' + ' + inc + 's' : ''}`);
+      });
+    });
+
+    const inTcBase = document.getElementById('input-tc-base');
+    const inTcInc = document.getElementById('input-tc-inc');
+    if (inTcBase) {
+      inTcBase.addEventListener('change', () => {
+        playMatchState.baseMinutes = Math.max(0, parseInt(inTcBase.value, 10) || 0);
+        initClocks();
+      });
+    }
+    if (inTcInc) {
+      inTcInc.addEventListener('change', () => {
+        playMatchState.incrementSec = Math.max(0, parseInt(inTcInc.value, 10) || 0);
+        initClocks();
+      });
+    }
+
+    // Ponder Toggles
+    const ponderOff = document.getElementById('ponder-toggle-off-btn');
+    const ponderOn = document.getElementById('ponder-toggle-on-btn');
+    const ponderBadge = document.getElementById('ponder-state-badge');
+    if (ponderOff && ponderOn) {
+      ponderOff.addEventListener('click', () => {
+        playMatchState.ponder = false;
+        ponderOff.className = 'px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1 shadow-sm';
+        ponderOn.className = 'px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white hover:bg-[#363431] transition flex items-center space-x-1';
+        if (ponderBadge) {
+          ponderBadge.textContent = 'OFF';
+          ponderBadge.className = 'text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-300';
+        }
+        showToast('AI Pondering disabled (normal behavior)');
+      });
+      ponderOn.addEventListener('click', () => {
+        playMatchState.ponder = true;
+        ponderOn.className = 'px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1 shadow-sm';
+        ponderOff.className = 'px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white hover:bg-[#363431] transition flex items-center space-x-1';
+        if (ponderBadge) {
+          ponderBadge.textContent = 'ON';
+          ponderBadge.className = 'text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+        }
+        showToast('AI Pondering enabled: engine calculates during opponent turn');
+      });
+    }
+
+    // Resign Match
+    const btnResign = document.getElementById('btn-resign-match');
+    if (btnResign) {
+      btnResign.addEventListener('click', () => {
+        if (state.gameOver) return;
+        const current = state.history[state.currentPly];
+        const resigningTurn = current.turn;
+        const winner = resigningTurn === 'X' ? 'O' : 'X';
+        state.gameOver = true;
+        state.winner = winner;
+        stopClock();
+        showToast(`Player ${resigningTurn} resigned. Player ${winner} wins!`);
+        render();
+      });
+    }
+
+    // ==========================================
+    // TOURNAMENT PANEL CONTROLS (Demand 1)
+    // ==========================================
+    function renderTournamentRoster() {
+      const container = document.getElementById('tourn-roster-list');
+      const countBadge = document.getElementById('tourn-player-count-badge');
+      if (countBadge) countBadge.textContent = `${tournamentState.roster.length} Players`;
+      if (!container) return;
+
+      if (tournamentState.roster.length === 0) {
+        container.innerHTML = '<div class="text-[11px] text-gray-500 italic p-1">No players added yet. Pick a preset above or add players below.</div>';
+        return;
+      }
+
+      container.innerHTML = tournamentState.roster.map((p, idx) => `
+        <div class="flex items-center justify-between bg-[#262421] px-2 py-1 rounded border border-[#363431]">
+          <div class="flex items-center space-x-2 truncate">
+            <span class="text-[10px] text-gray-400 mono-font">${idx + 1}.</span>
+            <span class="font-medium text-gray-200 text-xs truncate">${p.name}</span>
+            ${p.type === 'human'
+              ? '<span class="text-[10px] px-1 rounded bg-[#363431] text-sky-300">Human</span>'
+              : `<span class="text-[10px] px-1 rounded bg-[#629924]/20 border border-[#629924]/40 text-[#7ec62f]">L${p.level}</span>`
+            }
+          </div>
+          <button type="button" class="text-gray-500 hover:text-rose-400 text-xs px-1" onclick="removeTournPlayer(${idx})" title="Remove player">&times;</button>
+        </div>
+      `).join('');
+    }
+
+    window.removeTournPlayer = function(idx) {
+      tournamentState.roster.splice(idx, 1);
+      renderTournamentRoster();
+    };
+
+    const btnFmtRR = document.getElementById('tourn-format-rr-btn');
+    const btnFmtKO = document.getElementById('tourn-format-ko-btn');
+    const cyclesContainer = document.getElementById('tourn-cycles-container');
+    if (btnFmtRR && btnFmtKO) {
+      btnFmtRR.addEventListener('click', () => {
+        tournamentState.format = 'round_robin';
+        btnFmtRR.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
+        btnFmtKO.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        if (cyclesContainer) cyclesContainer.classList.remove('hidden');
+      });
+      btnFmtKO.addEventListener('click', () => {
+        tournamentState.format = 'knockout';
+        btnFmtKO.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
+        btnFmtRR.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        if (cyclesContainer) cyclesContainer.classList.add('hidden');
+      });
+    }
+
+    const cyclesSlider = document.getElementById('tourn-cycles-slider');
+    const cyclesVal = document.getElementById('tourn-cycles-val');
+    if (cyclesSlider) {
+      cyclesSlider.addEventListener('input', (e) => {
+        const c = parseInt(e.target.value, 10);
+        tournamentState.cycles = c;
+        if (cyclesVal) cyclesVal.textContent = `${c}x`;
+      });
+    }
+
+    // Demand 1 Preset: "2 humans, 5 ais (level 2, level 2, level 8, level 7, level 6)"
+    const presetDemand1 = document.getElementById('preset-roster-demand1');
+    const preset8Ai = document.getElementById('preset-roster-8ai');
+    const preset4H = document.getElementById('preset-roster-4h');
+
+    if (presetDemand1) {
+      presetDemand1.addEventListener('click', () => {
+        tournamentState.roster = [
+          { id: 'h1', name: 'Human 1', type: 'human', level: null },
+          { id: 'h2', name: 'Human 2', type: 'human', level: null },
+          { id: 'ai2_1', name: 'StockTic L2 (A)', type: 'ai', level: 2 },
+          { id: 'ai2_2', name: 'StockTic L2 (B)', type: 'ai', level: 2 },
+          { id: 'ai8', name: 'StockTic L8 (Grandmaster)', type: 'ai', level: 8 },
+          { id: 'ai7', name: 'StockTic L7 (Master)', type: 'ai', level: 7 },
+          { id: 'ai6', name: 'StockTic L6 (Expert)', type: 'ai', level: 6 }
+        ];
+        renderTournamentRoster();
+        showToast('Loaded preset: 2 Humans, 5 AIs (L2, L2, L8, L7, L6)');
+      });
+    }
+
+    if (preset8Ai) {
+      preset8Ai.addEventListener('click', () => {
+        tournamentState.roster = [];
+        for (let l = 1; l <= 8; l++) {
+          tournamentState.roster.push({
+            id: `ai_${l}`,
+            name: `StockTic L${l} (${LEVELS[l-1].name})`,
+            type: 'ai',
+            level: l
+          });
+        }
+        renderTournamentRoster();
+        showToast('Loaded preset: 8 AIs (Levels 1 to 8)');
+      });
+    }
+
+    if (preset4H) {
+      preset4H.addEventListener('click', () => {
+        tournamentState.roster = [
+          { id: 'h1', name: 'Player 1', type: 'human', level: null },
+          { id: 'h2', name: 'Player 2', type: 'human', level: null },
+          { id: 'h3', name: 'Player 3', type: 'human', level: null },
+          { id: 'h4', name: 'Player 4', type: 'human', level: null }
+        ];
+        renderTournamentRoster();
+        showToast('Loaded preset: 4 Humans');
+      });
+    }
+
+    const btnAddTournPlayer = document.getElementById('btn-add-tourn-player');
+    if (btnAddTournPlayer) {
+      btnAddTournPlayer.addEventListener('click', () => {
+        const nameInput = document.getElementById('new-player-name');
+        const typeSelect = document.getElementById('new-player-type');
+        const name = (nameInput && nameInput.value.trim()) || `Player ${tournamentState.roster.length + 1}`;
+        const typeVal = typeSelect ? typeSelect.value : 'human';
+        if (typeVal === 'human') {
+          tournamentState.roster.push({
+            id: `h_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
+            name,
+            type: 'human',
+            level: null
+          });
+        } else {
+          const lvl = parseInt(typeVal, 10);
+          tournamentState.roster.push({
+            id: `ai_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
+            name,
+            type: 'ai',
+            level: lvl
+          });
+        }
+        if (nameInput) nameInput.value = '';
+        renderTournamentRoster();
+      });
+    }
+
+    const btnStartTourn = document.getElementById('btn-start-tournament');
+    if (btnStartTourn) {
+      btnStartTourn.addEventListener('click', () => {
+        if (tournamentState.roster.length < 2) {
+          showToast('Need at least 2 players to start a tournament!');
+          return;
+        }
+        if (tournamentState.format === 'round_robin') {
+          generateRoundRobinSchedule();
+        } else {
+          generateKnockoutSchedule();
+        }
+        calculateStandings();
+        updateTournamentUI();
+        showToast('Tournament started! Matches scheduled.');
+      });
+    }
+
+    const btnTournPlay = document.getElementById('btn-tourn-play-match');
+    if (btnTournPlay) {
+      btnTournPlay.addEventListener('click', () => {
+        const unplayed = tournamentState.matches.find(m => !m.completed);
+        if (!unplayed) {
+          showToast('All matches are completed!');
+          return;
+        }
+        loadTournamentMatch(unplayed.id);
+      });
+    }
+
+    const btnTournSim = document.getElementById('btn-tourn-sim-match');
+    if (btnTournSim) {
+      btnTournSim.addEventListener('click', () => {
+        simulateSingleMatch();
+      });
+    }
+
+    const btnTournSimAll = document.getElementById('btn-tourn-sim-all');
+    if (btnTournSimAll) {
+      btnTournSimAll.addEventListener('click', () => {
+        simulateAllTournamentMatches();
+      });
+    }
+
+    const btnTournReset = document.getElementById('btn-tourn-reset');
+    if (btnTournReset) {
+      btnTournReset.addEventListener('click', () => {
+        tournamentState.matches = [];
+        tournamentState.standings = [];
+        tournamentState.activeMatchId = null;
+        updateTournamentUI();
+        showToast('Tournament reset.');
+      });
+    }
+
+    const btnCopyTournSummary = document.getElementById('btn-tourn-copy-summary');
+    if (btnCopyTournSummary) btnCopyTournSummary.addEventListener('click', copyTournamentSummary);
+
+    const btnCopyTournStats = document.getElementById('btn-tourn-copy-stats');
+    if (btnCopyTournStats) btnCopyTournStats.addEventListener('click', copyTournamentGameStats);
+
+    const btnExportTournJson = document.getElementById('btn-tourn-export-json');
+    if (btnExportTournJson) btnExportTournJson.addEventListener('click', exportTournamentJson);
+
+    // ==========================================
+    // BOARD EDITOR PANEL CONTROLS (Demand 4)
+    // ==========================================
+    document.querySelectorAll('.editor-tool-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        editorState.selectedTool = btn.dataset.tool;
+        document.querySelectorAll('.editor-tool-btn').forEach(b => {
+          if (b.dataset.tool === editorState.selectedTool) {
+            b.className = 'editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400';
+          } else {
+            b.className = 'editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+          }
+        });
+      });
+    });
+
+    const editTurnX = document.getElementById('editor-turn-x');
+    const editTurnO = document.getElementById('editor-turn-o');
+    if (editTurnX && editTurnO) {
+      editTurnX.addEventListener('click', () => {
+        editorState.turn = 'X';
+        editTurnX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
+        editTurnO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
+      });
+      editTurnO.addEventListener('click', () => {
+        editorState.turn = 'O';
+        editTurnO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
+        editTurnX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
+      });
+    }
+
+    const btnClearEditor = document.getElementById('btn-editor-clear-all');
+    if (btnClearEditor) btnClearEditor.addEventListener('click', clearEditorBoard);
+
+    const btnFreezeBorders = document.getElementById('btn-editor-freeze-borders');
+    if (btnFreezeBorders) btnFreezeBorders.addEventListener('click', freezeBorders);
+
+    const btnRandomObs = document.getElementById('btn-editor-random-obs');
+    if (btnRandomObs) btnRandomObs.addEventListener('click', addRandomObstacles);
+
+    const btnEditorToAnalysis = document.getElementById('btn-editor-to-analysis');
+    if (btnEditorToAnalysis) btnEditorToAnalysis.addEventListener('click', loadEditorToAnalysis);
+
+    const btnEditorToPlay = document.getElementById('btn-editor-to-play');
+    if (btnEditorToPlay) btnEditorToPlay.addEventListener('click', loadEditorToPlay);
+
+    // ==========================================
+    // PERSISTENCE & INITIALIZATION
+    // ==========================================
     try {
       const savedLevel = localStorage.getItem('stocktic_engine_level');
       if (savedLevel) {
@@ -4129,10 +6010,14 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const savedRows = localStorage.getItem('stocktic_rows');
       const savedCols = localStorage.getItem('stocktic_cols');
       const savedK = localStorage.getItem('stocktic_k');
+      const savedJ = localStorage.getItem('stocktic_j');
       if (savedRows && savedCols && savedK) {
         config.rows = Math.max(1, Math.min(32, parseInt(savedRows, 10)));
         config.cols = Math.max(1, Math.min(32, parseInt(savedCols, 10)));
         config.k = Math.max(1, Math.min(8, Math.min(Math.max(config.rows, config.cols), parseInt(savedK, 10))));
+      }
+      if (savedJ) {
+        config.j = Math.max(2, Math.min(5, parseInt(savedJ, 10)));
       }
       const savedThinkingTime = localStorage.getItem('stocktic_thinking_time');
       if (savedThinkingTime) {
@@ -4140,31 +6025,32 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       }
     } catch (e) {}
 
-    // Thinking time selector buttons (1s, 5s, 10s, 30s, ∞)
-    document.querySelectorAll('.thinking-time-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setEngineThinkingTime(btn.dataset.time);
-      });
-    });
-
-    // Engine Stop / Run toggle button
-    const btnEngineToggle = document.getElementById('btn-engine-toggle');
-    if (btnEngineToggle) {
-      btnEngineToggle.addEventListener('click', toggleEngineCalculation);
-    }
-
     // Initialize UI settings
     updateLevelUI();
     updateEvalToggleUI();
     updateThinkingTimeUI();
 
+    // Default tournament roster preset (Demand 1 line 4)
+    tournamentState.roster = [
+      { id: 'h1', name: 'Human 1', type: 'human', level: null },
+      { id: 'h2', name: 'Human 2', type: 'human', level: null },
+      { id: 'ai2_1', name: 'StockTic L2 (A)', type: 'ai', level: 2 },
+      { id: 'ai2_2', name: 'StockTic L2 (B)', type: 'ai', level: 2 },
+      { id: 'ai8', name: 'StockTic L8 (Grandmaster)', type: 'ai', level: 8 },
+      { id: 'ai7', name: 'StockTic L7 (Master)', type: 'ai', level: 7 },
+      { id: 'ai6', name: 'StockTic L6 (Expert)', type: 'ai', level: 6 }
+    ];
+    renderTournamentRoster();
+    initClocks();
+
     // Initial render on page load
     window.onload = function() {
-      // Check URL parameters: ?m=15&n=15&k=5 or ?rows=15&cols=15&k=5
+      // Check URL parameters: ?m=15&n=15&k=5&j=3&level=8
       const urlParams = new URLSearchParams(window.location.search);
       const paramM = urlParams.get('m') || urlParams.get('rows');
       const paramN = urlParams.get('n') || urlParams.get('cols');
       const paramK = urlParams.get('k');
+      const paramJ = urlParams.get('j') || urlParams.get('players');
       const paramLevel = urlParams.get('level') || urlParams.get('l');
 
       if (paramLevel) {
@@ -4172,25 +6058,34 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         if (lvl >= 1 && lvl <= 8) setEngineLevel(lvl);
       }
 
-      if (paramM || paramN || paramK) {
+      if (paramM || paramN || paramK || paramJ) {
         const r = parseInt(paramM || config.rows, 10);
         const c = parseInt(paramN || config.cols, 10);
         const k = parseInt(paramK || config.k, 10);
-        updateBoardConfiguration(r, c, k);
+        const j = parseInt(paramJ || config.j || 2, 10);
+        updateBoardConfiguration(r, c, k, j);
       } else {
         resetBoard();
       }
 
-      if (window.location.hash === '#play' && state.mode !== 'play') {
-        modePlayBtn.click();
+      if (window.location.hash === '#play') {
+        switchMainMode('play');
+      } else if (window.location.hash === '#tournament') {
+        switchMainMode('tournament');
+      } else if (window.location.hash === '#editor') {
+        switchMainMode('editor');
       }
     };
 
     window.addEventListener('hashchange', () => {
-      if (window.location.hash === '#play' && state.mode !== 'play') {
-        modePlayBtn.click();
-      } else if (window.location.hash !== '#play' && state.mode === 'play') {
-        modeAnalysisBtn.click();
+      if (window.location.hash === '#play') {
+        switchMainMode('play');
+      } else if (window.location.hash === '#tournament') {
+        switchMainMode('tournament');
+      } else if (window.location.hash === '#editor') {
+        switchMainMode('editor');
+      } else if (window.location.hash === '#analysis' || !window.location.hash) {
+        switchMainMode('analysis');
       }
     });
   </script>
