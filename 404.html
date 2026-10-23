@@ -31,12 +31,12 @@
         return;
       }
 
-      if (lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/analysis' || lower === '/ttt' || lower === '/gomoku' || lower === '/mnk') {
+      if (lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/tic-tac-toe/' || lower === '/analysis' || lower === '/analysis/' || lower === '/ttt' || lower === '/ttt/' || lower === '/gomoku' || lower === '/gomoku/' || lower === '/mnk' || lower === '/mnk/' || lower === '/play' || lower === '/play/' || lower === '/board' || lower === '/board/' || lower === '/stocktic' || lower === '/stocktic/') {
         window.location.replace('/lichess_tic_tac_toe_analysis_board.html' + search + hash);
         return;
       }
 
-      if (lower === '/theory' || lower === '/article' || lower === '/mnk-theory' || lower === '/game-theory') {
+      if (lower === '/theory' || lower === '/theory/' || lower === '/article' || lower === '/article/' || lower === '/mnk-theory' || lower === '/mnk-theory/' || lower === '/game-theory' || lower === '/game-theory/') {
         window.location.replace('/mnk_games_theory_and_ai.html' + search + hash);
         return;
       }
@@ -79,7 +79,10 @@
         <span>🚀</span> <span>IIT JAM Mathematics Portal</span>
       </a>
       <a href="/lichess_tic_tac_toe_analysis_board.html" class="btn-secondary" style="text-decoration:none;">
-        <span>♟️</span> <span>Tic-Tac-Toe Analysis Board</span>
+        <span>♟️</span> <span>(m,n,k) &amp; Tic-Tac-Toe Analysis Board</span>
+      </a>
+      <a href="/mnk_games_theory_and_ai.html" class="btn-secondary" style="text-decoration:none;">
+        <span>📖</span> <span>(m,n,k) Game Theory &amp; AI</span>
       </a>
       <a href="/" class="btn-secondary" style="text-decoration:none;">
         <span>🏠</span> <span>Vaibhav Geometer Home</span>

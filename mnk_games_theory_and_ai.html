@@ -231,6 +231,47 @@
       border: 1px solid rgba(239, 68, 68, 0.4);
     }
 
+    [data-theme="light"] .status-win {
+      background: rgba(46, 125, 50, 0.12);
+      color: #2e7d32;
+      border-color: rgba(46, 125, 50, 0.35);
+    }
+
+    [data-theme="light"] .status-draw {
+      background: rgba(180, 83, 9, 0.12);
+      color: #b45309;
+      border-color: rgba(180, 83, 9, 0.35);
+    }
+
+    [data-theme="light"] .status-open {
+      background: rgba(185, 28, 28, 0.12);
+      color: #b91c1c;
+      border-color: rgba(185, 28, 28, 0.35);
+    }
+
+    .table-play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--accent-cyan);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .table-play-btn:hover {
+      background: #629924;
+      color: #ffffff;
+      border-color: #629924;
+      transform: translateY(-1px);
+    }
+
     /* Algorithm Card Grid */
     .algo-grid {
       display: grid;
@@ -451,6 +492,7 @@
               <th>Game-Theoretic Value</th>
               <th>Solver / Year</th>
               <th>Complexity / Proof Method</th>
+              <th>Interactive</th>
             </tr>
           </thead>
           <tbody>
@@ -460,6 +502,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Trivial</td>
               <td>Move 1 instant win on any cell.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=1&n=1&k=1" class="table-play-btn" title="Launch 1x1 in Analysis Board">♟️ Play 1×1</a></td>
             </tr>
             <tr>
               <td><strong>(2, 2, 2) to (m, n, 2)</strong></td>
@@ -467,6 +510,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Trivial (m,n &ge; 2)</td>
               <td>Center or adjacent play guarantees unstoppable double threat.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=2&n=2&k=2" class="table-play-btn" title="Launch 2x2 in Analysis Board">♟️ Play 2×2</a></td>
             </tr>
             <tr>
               <td><strong>(3, 3, 3)</strong></td>
@@ -474,6 +518,7 @@
               <td><span class="status-badge status-draw">Draw (0.00)</span></td>
               <td>Ancient / Tablebase</td>
               <td>Exact retrograde minimax (549 terminal nodes).</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=3&n=3&k=3" class="table-play-btn" title="Launch 3x3 in Analysis Board">♟️ Analyze 3×3</a></td>
             </tr>
             <tr>
               <td><strong>(4, 3, 3) & (4, 4, 3)</strong></td>
@@ -481,6 +526,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Combinatorial analysis</td>
               <td>Board space permits unstoppable forks by move 5.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=4&n=4&k=3" class="table-play-btn" title="Launch 4x4 (k=3) in Analysis Board">♟️ Play 4×4</a></td>
             </tr>
             <tr>
               <td><strong>(4, 4, 4)</strong></td>
@@ -488,6 +534,7 @@
               <td><span class="status-badge status-draw">Draw (0.00)</span></td>
               <td>Solved (Patashnik, 1980)</td>
               <td>Exhaustive computer search + symmetry reduction.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=4&n=4&k=4" class="table-play-btn" title="Launch 4x4 (k=4) in Analysis Board">♟️ Analyze 4×4</a></td>
             </tr>
             <tr>
               <td><strong>(5, 5, 4)</strong></td>
@@ -495,6 +542,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Solved (Allis, 1993)</td>
               <td>Threat-Space Search (VCF / VCT).</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="table-play-btn" title="Launch 5x5 (k=4) in Analysis Board">♟️ Play 5×5</a></td>
             </tr>
             <tr>
               <td><strong>(5, 5, 5)</strong></td>
@@ -502,6 +550,7 @@
               <td><span class="status-badge status-draw">Draw (0.00)</span></td>
               <td>Solved</td>
               <td>Erdős-Selfridge pairing strategies force draw.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=5" class="table-play-btn" title="Launch 5x5 (k=5) in Analysis Board">♟️ Play 5×5</a></td>
             </tr>
             <tr>
               <td><strong>(6, 6, 5) & (7, 7, 5)</strong></td>
@@ -509,6 +558,7 @@
               <td><span class="status-badge status-draw">Draw (0.00)</span></td>
               <td>Solved (Allis, 1993)</td>
               <td>Proof-Number Search (PNS) proves second player holds draw.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=7&n=7&k=5" class="table-play-btn" title="Launch 7x7 (k=5) in Analysis Board">♟️ Play 7×7</a></td>
             </tr>
             <tr>
               <td><strong>(8, 8, 5)</strong></td>
@@ -516,6 +566,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Solved (Allis, 1993)</td>
               <td>First player forces continuous four-threat chain (VCF).</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=8&n=8&k=5" class="table-play-btn" title="Launch 8x8 (k=5) in Analysis Board">♟️ Play 8×8</a></td>
             </tr>
             <tr>
               <td><strong>(15, 15, 5)</strong></td>
@@ -523,6 +574,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Victor Allis (1993)</td>
               <td>Milestone Ph.D. dissertation using Threat-Space Search & PNS.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=15&n=15&k=5" class="table-play-btn" title="Launch 15x15 Gomoku in Analysis Board">♟️ Play Gomoku</a></td>
             </tr>
             <tr>
               <td><strong>(19, 19, 5)</strong></td>
@@ -530,6 +582,7 @@
               <td><span class="status-badge status-win">First Player Win</span></td>
               <td>Victor Allis (1993)</td>
               <td>First-player advantage is decisive on large open boards.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=19&n=19&k=5" class="table-play-btn" title="Launch 19x19 in Analysis Board">♟️ Play 19×19</a></td>
             </tr>
             <tr>
               <td><strong>(&infin;, &infin;, 8)</strong></td>
@@ -537,6 +590,7 @@
               <td><span class="status-badge status-draw">Draw (0.00)</span></td>
               <td>Plambeck (1985) / Zebedin (1995)</td>
               <td>Pairing strategy tiles the plane into defensive pairs.</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=32&n=32&k=8" class="table-play-btn" title="Launch 32x32 (k=8) in Analysis Board">♟️ Test 32×32</a></td>
             </tr>
             <tr>
               <td><strong>(&infin;, &infin;, 6)</strong></td>
@@ -544,6 +598,7 @@
               <td><span class="status-badge status-open">OPEN PROBLEM</span></td>
               <td>Unsolved</td>
               <td>Conjectured to be a Draw (J. Beck, 2008), but unproven!</td>
+              <td><a href="lichess_tic_tac_toe_analysis_board.html?m=32&n=32&k=6" class="table-play-btn" title="Launch 32x32 (k=6) in Analysis Board">♟️ Test Open</a></td>
             </tr>
           </tbody>
         </table>
@@ -560,7 +615,7 @@
           <div class="algo-card-icon">🧠</div>
           <div class="algo-card-title">1. Retrograde Minimax</div>
           <div class="algo-card-desc">
-            Exact tablebase generation with full depth search for <code class="code-inline">mn &le; 16</code>. Guarantees mathematical perfection without heuristic estimation.
+            Exact tablebase generation with full depth search for <code class="code-inline">mn &le; 9</code> (and selective Threat-Space Search for larger boards). Guarantees mathematical perfection without heuristic estimation.
           </div>
         </div>
 

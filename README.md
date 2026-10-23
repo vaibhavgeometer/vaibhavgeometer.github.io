@@ -20,8 +20,8 @@
 | Resource | Description | Direct Link |
 | :--- | :--- | :--- |
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
-| 🌐 **Main Portfolio** | Vaibhav Geometer research hub & 3D geometry sandbox | [vaibhavgeometer.github.io](https://vaibhavgeometer.github.io/) |
-| ♟️ **Tic-Tac-Toe Analysis Board** | Lichess-style analysis board with StockTic 1.0 minimax engine & solved tablebase | [Launch Analysis Board](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html) |
+| ♟️ **(m,n,k) & Tic-Tac-Toe Analysis Board** | Lichess-style analysis board for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$) with StockTic AI (Levels 1–8), solved tablebase & MultiPV analysis | [Launch Analysis Board](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html) |
+| 📖 **(m,n,k) Games Theory & AI** | Deep-dive research into Ramsey theory, Nash strategy-stealing, solved games catalog & AI algorithms | [Read Theory Article](https://vaibhavgeometer.github.io/mnk_games_theory_and_ai.html) |
 | 💻 **CBT Simulator** | Real exam interface with palette, timer & scientific calculator | [Launch Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
 | ⏳ **JAM 2027 Countdown** | Live ticking countdown timer to 14 Feb 2027 | [Open Countdown](https://vaibhavgeometer.github.io/JAM/countdown/) |
 | 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & answer keys | [View Manifest](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |

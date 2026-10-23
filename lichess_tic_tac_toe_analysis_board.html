@@ -702,18 +702,23 @@
      * Check Theoretical Game Value from Literature
      */
     function getTheoreticalValue(m, n, k) {
+      const minDim = Math.min(m, n);
+      const maxDim = Math.max(m, n);
+
       if (k === 1) return 'First-Player Win (Turn 1)';
-      if (k === 2 && (m >= 2 || n >= 2)) return 'First-Player Win';
-      if (m === 3 && n === 3 && k === 3) return 'Theoretical Draw (Solved)';
-      if (m === 4 && n === 4 && k === 4) return 'Theoretical Draw (Patashnik 1980)';
-      if ((m >= 4 && n >= 4 && k === 3) || (m === 4 && n === 3 && k === 3)) return 'First-Player Win';
-      if (m === 5 && n === 5 && k === 4) return 'First-Player Win (Allis 1993)';
-      if (m === 5 && n === 5 && k === 5) return 'Theoretical Draw (Erdős-Selfridge)';
-      if ((m === 6 || m === 7) && (n === 6 || n === 7) && k === 5) return 'Theoretical Draw (Allis 1993)';
-      if (m >= 8 && n >= 8 && k === 5) return 'First-Player Win (Allis 1993)';
-      if (m >= 15 && n >= 15 && k === 5) return 'First-Player Win (Gomoku Solved)';
+      if (k === 2 && maxDim >= 2) return 'First-Player Win';
+      if (minDim === 3 && maxDim === 3 && k === 3) return 'Theoretical Draw (Solved)';
+      if (minDim >= 3 && maxDim >= 4 && k === 3) return 'First-Player Win';
+      if (minDim === 4 && maxDim === 4 && k === 4) return 'Theoretical Draw (Patashnik 1980)';
+      if (minDim >= 4 && maxDim >= 5 && k === 4) return 'First-Player Win';
+      if (minDim === 5 && maxDim === 5 && k === 4) return 'First-Player Win (Allis 1993)';
+      if (minDim === 5 && maxDim === 5 && k === 5) return 'Theoretical Draw (Erdős-Selfridge)';
+      if (minDim <= 7 && maxDim <= 7 && k === 5) return 'Theoretical Draw (Allis 1993)';
+      if (minDim >= 15 && maxDim >= 15 && k === 5) return 'First-Player Win (Gomoku Solved)';
+      if (minDim >= 8 && maxDim >= 8 && k === 5) return 'First-Player Win (Allis 1993)';
       if (k >= 8) return 'Draw by Pairing Strategy (Plambeck)';
-      if (k === 6) return 'Open Problem (Conjectured Draw)';
+      if (minDim >= 15 && k === 6) return 'Open Problem (Conjectured Draw)';
+      if (minDim === k && maxDim === k && k >= 4) return 'Theoretical Draw';
       return 'Complex Positional Game';
     }
 
@@ -805,6 +810,7 @@
      * Fast 1-move win verification for piece placed at idx
      */
     function isWinningMove(board, idx, piece, rows = config.rows, cols = config.cols, k = config.k) {
+      if (board[idx] !== null && board[idx] !== piece) return false;
       if (k === 1) return true;
       const r = Math.floor(idx / cols);
       const c = idx % cols;
@@ -858,14 +864,7 @@
         if (board[i] !== null) occupiedCount++;
       }
 
-      // If board is empty, offer center square plus immediate neighbors
-      if (occupiedCount === 0) {
-        const centerR = Math.floor(rows / 2);
-        const centerC = Math.floor(cols / 2);
-        return [centerR * cols + centerC];
-      }
-
-      // Small boards: all empty cells
+      // Small boards (<= 16 cells): evaluate all empty cells
       if (rows * cols <= 16) {
         for (let i = 0; i < board.length; i++) {
           if (board[i] === null) legal.push(i);
@@ -873,9 +872,26 @@
         return legal;
       }
 
+      // If larger board is empty, offer center square plus immediate Chebyshev distance <= 1 neighbors
+      if (occupiedCount === 0) {
+        const centerR = Math.floor(rows / 2);
+        const centerC = Math.floor(cols / 2);
+        const openingCandidates = [];
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            const nr = centerR + dr;
+            const nc = centerC + dc;
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
+              openingCandidates.push(nr * cols + nc);
+            }
+          }
+        }
+        return openingCandidates;
+      }
+
       // Medium/Large boards: Chebyshev distance <= 2
       const candidateSet = new Set();
-      const dist = (rows * cols > 256) ? 2 : 2;
+      const dist = 2;
 
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
@@ -1083,16 +1099,26 @@
         return { score: 0, bestMove: null, pv: [], allMoves: [], terminal: false };
       }
 
+      // Check if opponent has an immediate unblocked 1-move win
+      const oppPiece = isX ? 'O' : 'X';
+      const oppWinMoves = candidates.filter(m => isWinningMove(board, m, oppPiece, rows, cols, k));
+
       const evaluations = [];
 
       for (const move of candidates) {
         const evalResult = evaluateMoveTactics(board, move, turn, rows, cols, k);
         // Normalize score between -1.0 and +1.0 for UI eval bar
         let normScore = 0;
+        let tacticalDesc = evalResult.desc;
+
         if (evalResult.isWin) {
           normScore = isX ? 1.0 : -1.0;
         } else if (evalResult.isBlock) {
-          normScore = isX ? 0.45 : -0.45;
+          normScore = isX ? 0.25 : -0.25;
+        } else if (oppWinMoves.length > 0) {
+          // Player failed to block an immediate opponent winning move! Fatal blunder!
+          normScore = isX ? -1.0 : 1.0;
+          tacticalDesc = 'Allows Opponent Win (Fatal Blunder)';
         } else {
           const raw = Math.min(100000, evalResult.score) / 100000;
           normScore = isX ? raw * 0.8 : -raw * 0.8;
@@ -1101,16 +1127,15 @@
         evaluations.push({
           move,
           score: normScore,
-          rawScore: evalResult.score,
-          tacticalDesc: evalResult.desc,
+          rawScore: (oppWinMoves.length > 0 && !evalResult.isWin && !evalResult.isBlock) ? -1000000 : evalResult.score,
+          tacticalDesc: tacticalDesc,
           pv: [move]
         });
       }
 
       // Sort candidate moves so best move for current turn appears first
       evaluations.sort((a, b) => {
-        if (isX) return b.rawScore - a.rawScore;
-        return b.rawScore - a.rawScore; // both ranked by current player's raw tactical goodness
+        return b.rawScore - a.rawScore;
       });
 
       const best = evaluations[0];
@@ -1214,6 +1239,11 @@
       { level: 7, name: 'Master', elo: 2400, desc: 'Deep threat-space evaluation with neighborhood pruning.' },
       { level: 8, name: 'StockTic SOTA Max', elo: 3000, desc: 'SOTA (m,n,k) Grandmaster Engine (Tablebase + Deep Threat-Space Search).' }
     ];
+
+    /**
+     * Engine Timeout Tracker
+     */
+    let engineTimeoutId = null;
 
     /**
      * Application State
@@ -1371,7 +1401,7 @@
      */
     function classifyMove(evalBefore, evalAfter, turnMoved) {
       const delta = (turnMoved === 'X') ? (evalBefore - evalAfter) : (evalAfter - evalBefore);
-      if (delta <= 0.05) return { label: 'Best', glyph: '!', color: 'text-[#629924]' };
+      if (delta <= 0.05) return { label: 'Best', glyph: '', color: 'text-[#629924]' };
       if (delta <= 0.4) return { label: 'Inaccuracy', glyph: '?!', color: 'text-[#3692e7]' };
       if (delta <= 0.8) return { label: 'Mistake', glyph: '?', color: 'text-[#e69f00]' };
       return { label: 'Blunder', glyph: '??', color: 'text-[#c33a38]' };
@@ -1402,8 +1432,27 @@
       const analysisCurrent = analyzePosition(current.board, current.turn);
       const evalBefore = analysisCurrent.score;
 
-      const targetMoveEval = analysisCurrent.allMoves.find(m => m.move === index);
-      const evalAfter = targetMoveEval ? targetMoveEval.score : evalBefore;
+      const targetMoveEval = analysisCurrent.allMoves ? analysisCurrent.allMoves.find(m => m.move === index) : null;
+      let evalAfter = evalBefore;
+
+      if (targetMoveEval) {
+        evalAfter = targetMoveEval.score;
+      } else {
+        // Fallback: evaluate the tactics of this specific move directly if outside candidate set
+        const evalResult = evaluateMoveTactics(current.board, index, current.turn, config.rows, config.cols, config.k);
+        const isX = current.turn === 'X';
+        const oppPiece = isX ? 'O' : 'X';
+        const oppCanWin = isWinningMove(current.board, index, oppPiece, config.rows, config.cols, config.k);
+
+        if (evalResult.isWin) {
+          evalAfter = isX ? 1.0 : -1.0;
+        } else if (evalResult.isBlock) {
+          evalAfter = 0.0;
+        } else {
+          const raw = Math.min(100000, evalResult.score) / 100000;
+          evalAfter = isX ? raw * 0.8 : -raw * 0.8;
+        }
+      }
 
       const newBoard = [...current.board];
       newBoard[index] = current.turn;
@@ -1445,7 +1494,8 @@
           state.isEngineThinking = true;
           render();
           const thinkDelay = state.engineLevel >= 6 ? 360 : 220;
-          setTimeout(() => {
+          if (engineTimeoutId) clearTimeout(engineTimeoutId);
+          engineTimeoutId = setTimeout(() => {
             makeEngineMove();
             state.isEngineThinking = false;
             render();
@@ -1681,13 +1731,17 @@
       const target = getCellCenter(targetMove);
       const radius = Math.min(target.cellW, target.cellH) * 0.4;
 
+      const isHoverAlt = (state.hoveredSquare !== null && state.hoveredSquare !== analysis.bestMove);
+      const arrowColor = isHoverAlt ? '#3692e7' : '#629924';
+      const markerId = isHoverAlt ? 'url(#arrowhead-blue)' : 'url(#arrowhead-green)';
+
       // Circle highlight
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circle.setAttribute('cx', target.x);
       circle.setAttribute('cy', target.y);
       circle.setAttribute('r', radius);
       circle.setAttribute('fill', 'none');
-      circle.setAttribute('stroke', '#629924');
+      circle.setAttribute('stroke', arrowColor);
       circle.setAttribute('stroke-width', Math.max(2, Math.min(8, radius * 0.2)));
       circle.setAttribute('stroke-dasharray', '6 3');
       circle.setAttribute('opacity', '0.85');
@@ -1702,10 +1756,10 @@
         arrow.setAttribute('y1', target.y - offset);
         arrow.setAttribute('x2', target.x - radius * 0.3);
         arrow.setAttribute('y2', target.y - radius * 0.3);
-        arrow.setAttribute('stroke', '#629924');
+        arrow.setAttribute('stroke', arrowColor);
         arrow.setAttribute('stroke-width', Math.max(3, radius * 0.22));
         arrow.setAttribute('stroke-linecap', 'round');
-        arrow.setAttribute('marker-end', 'url(#arrowhead-green)');
+        arrow.setAttribute('marker-end', markerId);
         arrow.setAttribute('opacity', '0.9');
         container.appendChild(arrow);
       }
@@ -1862,7 +1916,19 @@
       if (speedLabel) speedLabel.textContent = 'SOTA Fast Search';
 
       if (winStatus) {
-        evalInterpretation.textContent = (winStatus.winner === 'Draw') ? 'Final Result: Draw' : `Final Result: ${winStatus.winner} Won`;
+        if (winStatus.winner === 'Draw') {
+          bigEval.textContent = '½ - ½';
+          bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
+          evalInterpretation.textContent = 'Final Result: Draw';
+          if (summaryEval) summaryEval.textContent = '½-½';
+        } else {
+          bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
+          bigEval.className = (winStatus.winner === 'X')
+            ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
+            : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+          evalInterpretation.textContent = `Final Result: ${winStatus.winner} Won (${config.k} in a row)`;
+          if (summaryEval) summaryEval.textContent = winStatus.winner === 'X' ? '1-0' : '0-1';
+        }
       }
     }
 
@@ -2136,6 +2202,12 @@
     }
 
     function resetBoard() {
+      if (engineTimeoutId) {
+        clearTimeout(engineTimeoutId);
+        engineTimeoutId = null;
+      }
+      state.isEngineThinking = false;
+
       state.history = [
         {
           board: Array(config.rows * config.cols).fill(null),
@@ -2152,7 +2224,7 @@
       if (state.mode === 'play' && state.playerPiece === 'O') {
         state.isEngineThinking = true;
         render();
-        setTimeout(() => {
+        engineTimeoutId = setTimeout(() => {
           makeEngineMove();
           state.isEngineThinking = false;
           render();
@@ -2243,12 +2315,12 @@
           outcome = 'Draw (½ - ½, Board Full / No legal moves)';
           pgnResult = '1/2-1/2';
         } else if (winStatus.winner === 'X') {
-          const entity = isPlayMode ? (state.playerPiece === 'X' ? 'Human' : `StockTic Lvl ${state.engineLevel}`) : 'Player X';
-          outcome = `Player X (${entity}) Won! (1-0, ${k} in a row)`;
+          const entity = isPlayMode ? (state.playerPiece === 'X' ? 'Human' : `StockTic Lvl ${state.engineLevel}`) : '';
+          outcome = isPlayMode ? `Player X (${entity}) Won! (1-0, ${k} in a row)` : `Player X Won! (1-0, ${k} in a row)`;
           pgnResult = '1-0';
         } else if (winStatus.winner === 'O') {
-          const entity = isPlayMode ? (state.playerPiece === 'O' ? 'Human' : `StockTic Lvl ${state.engineLevel}`) : 'Player O';
-          outcome = `Player O (${entity}) Won! (0-1, ${k} in a row)`;
+          const entity = isPlayMode ? (state.playerPiece === 'O' ? 'Human' : `StockTic Lvl ${state.engineLevel}`) : '';
+          outcome = isPlayMode ? `Player O (${entity}) Won! (0-1, ${k} in a row)` : `Player O Won! (0-1, ${k} in a row)`;
           pgnResult = '0-1';
         }
       }
@@ -2292,6 +2364,7 @@ PGN Specification:
 [Event "StockTic (m,n,k) Match"]
 [Site "vaibhavgeometer.github.io"]
 [Date "${dateStr}"]
+[Variant "(${rows},${cols},${k})"]
 [Board "${rows}x${cols}"]
 [WinStreak "${k}"]
 [Mode "${isPlayMode ? 'Practice vs Engine' : 'Analysis'}"]
@@ -2462,6 +2535,18 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       sliderKVal.textContent = k;
       modalTotalCells.textContent = `${r * c} cells (${r} × ${c})`;
       modalTheoreticalVal.textContent = getTheoreticalValue(r, c, k);
+
+      // Highlight active preset button if dimensions match
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        const pm = parseInt(btn.dataset.m, 10);
+        const pn = parseInt(btn.dataset.n, 10);
+        const pk = parseInt(btn.dataset.k, 10);
+        const isMatch = (pm === r && pn === c && pk === k);
+        btn.classList.toggle('border-[#629924]', isMatch);
+        btn.classList.toggle('bg-[#629924]/15', isMatch);
+        btn.classList.toggle('ring-1', isMatch);
+        btn.classList.toggle('ring-[#629924]', isMatch);
+      });
     }
 
     function openModal() {
@@ -2534,7 +2619,15 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
     // Keyboard navigation
     window.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      const modalEl = document.getElementById('board-config-modal');
+      const isModalOpen = modalEl && !modalEl.classList.contains('hidden');
+
+      if (e.key === 'Escape') {
+        if (isModalOpen) closeModal();
+        return;
+      }
+
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || isModalOpen) return;
 
       if (e.key === 'ArrowLeft') {
         goPrev();
@@ -2584,9 +2677,21 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     // Toggle Sound
     document.getElementById('toggle-sound-btn').addEventListener('click', () => {
       soundEnabled = !soundEnabled;
+      try {
+        localStorage.setItem('stocktic_sound_enabled', soundEnabled ? 'true' : 'false');
+      } catch (e) {}
       document.getElementById('sound-icon-on').classList.toggle('hidden', !soundEnabled);
       document.getElementById('sound-icon-off').classList.toggle('hidden', soundEnabled);
       showToast(soundEnabled ? 'Audio enabled' : 'Audio muted');
+    });
+
+    // Window Resize Debounced Listener
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        render();
+      }, 120);
     });
 
     // Switch between Analysis and Play vs Engine
@@ -2656,6 +2761,14 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       if (savedEval !== null) {
         state.playShowEval = savedEval === 'true';
       }
+      const savedSound = localStorage.getItem('stocktic_sound_enabled');
+      if (savedSound !== null) {
+        soundEnabled = (savedSound === 'true');
+        const iconOn = document.getElementById('sound-icon-on');
+        const iconOff = document.getElementById('sound-icon-off');
+        if (iconOn) iconOn.classList.toggle('hidden', !soundEnabled);
+        if (iconOff) iconOff.classList.toggle('hidden', soundEnabled);
+      }
       const savedRows = localStorage.getItem('stocktic_rows');
       const savedCols = localStorage.getItem('stocktic_cols');
       const savedK = localStorage.getItem('stocktic_k');
@@ -2672,22 +2785,29 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
     // Initial render on page load
     window.onload = function() {
-      // Check URL parameters: ?m=15&n=15&k=5
+      // Check URL parameters: ?m=15&n=15&k=5 or ?rows=15&cols=15&k=5
       const urlParams = new URLSearchParams(window.location.search);
-      const paramM = urlParams.get('m');
-      const paramN = urlParams.get('n');
+      const paramM = urlParams.get('m') || urlParams.get('rows');
+      const paramN = urlParams.get('n') || urlParams.get('cols');
       const paramK = urlParams.get('k');
+      const paramLevel = urlParams.get('level') || urlParams.get('l');
+
+      if (paramLevel) {
+        const lvl = parseInt(paramLevel, 10);
+        if (lvl >= 1 && lvl <= 8) setEngineLevel(lvl);
+      }
+
       if (paramM || paramN || paramK) {
         const r = parseInt(paramM || config.rows, 10);
         const c = parseInt(paramN || config.cols, 10);
         const k = parseInt(paramK || config.k, 10);
         updateBoardConfiguration(r, c, k);
-      }
-
-      if (window.location.hash === '#play') {
-        modePlayBtn.click();
       } else {
         resetBoard();
+      }
+
+      if (window.location.hash === '#play' && state.mode !== 'play') {
+        modePlayBtn.click();
       }
     };
 
