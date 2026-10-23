@@ -963,25 +963,25 @@
 
       // 1. Direct Instant Win
       if (isWinningMove(board, idx, piece, rows, cols, k)) {
-        return { score: 1000000, desc: `Instant Win (+M1)`, isWin: true };
+        return { score: 1000000, desc: `Instant Win (+M1)`, isWin: true, isBlock: false };
       }
 
       // 2. Direct Opponent Block (Mandatory)
       if (isWinningMove(board, idx, oppPiece, rows, cols, k)) {
-        return { score: 850000, desc: `Blocks Opponent Win (-M1)`, isBlock: true };
+        return { score: 850000, desc: `Blocks Opponent Win (-M1)`, isWin: false, isBlock: true };
       }
 
+      const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
       let offensiveScore = 0;
       let defensiveScore = 0;
-      let openThreats = 0;
+      let myLiveThreats = 0;
+      let mySleepThreats = 0;
+      let oppLiveThreats = 0;
+      let oppSleepThreats = 0;
 
-      const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
-
-      // Temporarily place piece
+      // Temporarily place friendly piece
       board[idx] = piece;
-
       for (const [dr, dc] of directions) {
-        // Count friendly stones and open ends
         let friendly = 1;
         let openEnds = 0;
 
@@ -1011,29 +1011,30 @@
           step++;
         }
 
-        // Score line
         if (friendly >= k - 1) {
           if (openEnds === 2) {
-            offensiveScore += 90000; // Open (k-1) / Live Four (unstoppable)
-            openThreats++;
+            // Live (k-1): Unstoppable live threat!
+            offensiveScore += 350000;
+            myLiveThreats++;
           } else if (openEnds === 1) {
-            offensiveScore += 12000; // Sleep Four
+            // Closed (k-1): Check
+            offensiveScore += 35000;
+            mySleepThreats++;
           }
         } else if (friendly >= k - 2 && k >= 4) {
           if (openEnds === 2) {
-            offensiveScore += 4500; // Open Three
-            openThreats++;
+            offensiveScore += 12000;
+            myLiveThreats++;
           } else if (openEnds === 1) {
-            offensiveScore += 800;
+            offensiveScore += 2000;
           }
         } else if (friendly >= k - 3 && k >= 5) {
-          if (openEnds === 2) offensiveScore += 250;
+          if (openEnds === 2) offensiveScore += 800;
         }
       }
+      board[idx] = null;
 
-      board[idx] = null; // restore
-
-      // Check opponent potential at idx
+      // Temporarily place opponent piece to evaluate defensive denial
       board[idx] = oppPiece;
       for (const [dr, dc] of directions) {
         let oppFriendly = 1;
@@ -1065,38 +1066,121 @@
           step++;
         }
 
-        if (oppFriendly >= k - 1 && oppOpen === 2) {
-          defensiveScore += 65000; // Block Opponent Open Four
-        } else if (oppFriendly >= k - 1 && oppOpen === 1) {
-          defensiveScore += 8000;
-        } else if (oppFriendly >= k - 2 && oppOpen === 2 && k >= 4) {
-          defensiveScore += 3500;
+        if (oppFriendly >= k - 1) {
+          if (oppOpen === 2) {
+            // Deny opponent's Live (k-1)
+            defensiveScore += 300000;
+            oppLiveThreats++;
+          } else if (oppOpen === 1) {
+            defensiveScore += 25000;
+            oppSleepThreats++;
+          }
+        } else if (oppFriendly >= k - 2 && k >= 4) {
+          if (oppOpen === 2) {
+            defensiveScore += 10000;
+            oppLiveThreats++;
+          } else if (oppOpen === 1) {
+            defensiveScore += 1500;
+          }
         }
       }
-      board[idx] = null; // restore
+      board[idx] = null;
 
-      // Double-Threat / Fork Bonus
+      // Double-Threat Fork Bonuses
       let forkBonus = 0;
-      if (openThreats >= 2) {
-        forkBonus = 35000;
+      if (myLiveThreats >= 2 || (myLiveThreats >= 1 && mySleepThreats >= 1)) {
+        forkBonus = 220000;
+      }
+      if (oppLiveThreats >= 2 || (oppLiveThreats >= 1 && oppSleepThreats >= 1)) {
+        defensiveScore += 180000;
       }
 
-      // Center proximity bonus
+      // Center proximity bonus (Chebyshev distance so diagonal adjacent squares are not penalized)
       const centerR = (rows - 1) / 2;
       const centerC = (cols - 1) / 2;
-      const distFromCenter = Math.hypot(r - centerR, c - centerC);
-      const centerBonus = Math.max(0, 100 - distFromCenter * 5);
+      const distFromCenter = Math.max(Math.abs(r - centerR), Math.abs(c - centerC));
+      const centerBonus = Math.max(0, 100 - distFromCenter * 8);
 
       const totalScore = offensiveScore + defensiveScore + forkBonus + centerBonus;
-
       let desc = 'Positional Control';
       if (forkBonus > 0) desc = 'Double-Threat Fork (+Fork)';
-      else if (offensiveScore >= 90000) desc = `Open ${k-1} Threat (+Live4)`;
-      else if (defensiveScore >= 65000) desc = `Denies Opponent Open ${k-1}`;
-      else if (offensiveScore >= 10000) desc = `Closed ${k-1} Check`;
-      else if (offensiveScore >= 4000) desc = `Open ${k-2} Build`;
+      else if (offensiveScore >= 350000) desc = `Open ${k-1} Threat (+Live4)`;
+      else if (defensiveScore >= 300000) desc = `Denies Opponent Open ${k-1}`;
+      else if (offensiveScore >= 30000) desc = `Closed ${k-1} Check`;
+      else if (defensiveScore >= 20000) desc = `Blocks Opponent Check`;
+      else if (offensiveScore >= 10000) desc = `Open ${k-2} Build`;
 
       return { score: totalScore, desc, isWin: false, isBlock: false };
+    }
+
+    /**
+     * Alpha-Beta Negamax Search with Transposition Table for Deep Combinations
+     */
+    function alphaBetaSearch(board, turn, depth, alpha, beta, rows, cols, k, startTime, timeLimit) {
+      if (Date.now() - startTime > timeLimit) return 0;
+
+      const opp = turn === 'X' ? 'O' : 'X';
+      const term = checkWinner(board, rows, cols, k);
+      if (term) {
+        if (term.winner === turn) return 1000000 + depth;
+        if (term.winner === 'Draw') return 0;
+        return -1000000 - depth;
+      }
+
+      if (depth === 0) {
+        // Quiescence/tactical evaluation
+        const cands = getCandidateMoves(board, rows, cols);
+        let myBest = 0;
+        let oppBest = 0;
+        for (const m of cands) {
+          const sM = evaluateMoveTactics(board, m, turn, rows, cols, k).score;
+          if (sM > myBest) myBest = sM;
+          const sO = evaluateMoveTactics(board, m, opp, rows, cols, k).score;
+          if (sO > oppBest) oppBest = sO;
+        }
+        return myBest - oppBest * 1.1;
+      }
+
+      const key = board.map(c => c || '.').join('') + turn + depth;
+      if (ttMap.has(key)) return ttMap.get(key);
+
+      const candidates = getCandidateMoves(board, rows, cols);
+      if (candidates.length === 0) return 0;
+
+      // 1. Direct Win
+      for (const m of candidates) {
+        if (isWinningMove(board, m, turn, rows, cols, k)) return 1000000 + depth;
+      }
+
+      // 2. Direct Block
+      const oppWins = candidates.filter(m => isWinningMove(board, m, opp, rows, cols, k));
+      let searchMoves = candidates;
+      if (oppWins.length > 0) {
+        searchMoves = oppWins;
+      } else {
+        // Order moves by tactical heuristic
+        searchMoves.sort((a, b) => {
+          const sA = evaluateMoveTactics(board, a, turn, rows, cols, k).score;
+          const sB = evaluateMoveTactics(board, b, turn, rows, cols, k).score;
+          return sB - sA;
+        });
+        const maxBranch = rows * cols <= 25 ? 12 : 8;
+        searchMoves = searchMoves.slice(0, maxBranch);
+      }
+
+      let bestVal = -Infinity;
+      for (const move of searchMoves) {
+        board[move] = turn;
+        const val = -alphaBetaSearch(board, opp, depth - 1, -beta, -alpha, rows, cols, k, startTime, timeLimit);
+        board[move] = null;
+
+        if (val > bestVal) bestVal = val;
+        if (val > alpha) alpha = val;
+        if (alpha >= beta) break;
+      }
+
+      ttMap.set(key, bestVal);
+      return bestVal;
     }
 
     /**
@@ -1107,6 +1191,7 @@
       const cols = config.cols;
       const k = config.k;
       const isX = turn === 'X';
+      const opp = isX ? 'O' : 'X';
 
       // 1. Check Terminal
       const terminal = checkWinner(board, rows, cols, k);
@@ -1130,57 +1215,93 @@
         return exactMinimax(board, turn, rows, cols, k);
       }
 
-      // 3. SOTA Heuristic Threat-Space Analysis
+      // 3. SOTA Alpha-Beta Search for Larger Boards
       const candidates = getCandidateMoves(board, rows, cols);
       if (candidates.length === 0) {
         return { score: 0, bestMove: null, pv: [], allMoves: [], terminal: false };
       }
 
-      // Check if opponent has an immediate unblocked 1-move win
-      const oppPiece = isX ? 'O' : 'X';
-      const oppWinMoves = candidates.filter(m => isWinningMove(board, m, oppPiece, rows, cols, k));
+      // Direct 1-move win check
+      const directWins = candidates.filter(m => isWinningMove(board, m, turn, rows, cols, k));
+      if (directWins.length > 0) {
+        const m = directWins[0];
+        return {
+          score: isX ? 1.0 : -1.0,
+          bestMove: m,
+          pv: [m],
+          allMoves: [{ move: m, score: isX ? 1.0 : -1.0, rawScore: 1000000, tacticalDesc: 'Instant Win (+M1)', pv: [m] }],
+          terminal: false
+        };
+      }
 
+      // Direct opponent win check
+      const oppWinMoves = candidates.filter(m => isWinningMove(board, m, opp, rows, cols, k));
+
+      // Calculate initial tactical heuristic for candidate sorting
       const evaluations = [];
-
       for (const move of candidates) {
         const evalResult = evaluateMoveTactics(board, move, turn, rows, cols, k);
-        // Normalize score between -1.0 and +1.0 for UI eval bar
-        let normScore = 0;
-        let tacticalDesc = evalResult.desc;
-
-        if (evalResult.isWin) {
-          normScore = isX ? 1.0 : -1.0;
-        } else if (evalResult.isBlock) {
-          normScore = isX ? 0.25 : -0.25;
-        } else if (oppWinMoves.length > 0) {
-          // Player failed to block an immediate opponent winning move! Fatal blunder!
-          normScore = isX ? -1.0 : 1.0;
-          tacticalDesc = 'Allows Opponent Win (Fatal Blunder)';
-        } else {
-          const raw = Math.min(100000, evalResult.score) / 100000;
-          normScore = isX ? raw * 0.8 : -raw * 0.8;
-        }
-
         evaluations.push({
           move,
+          initialScore: evalResult.score,
+          desc: evalResult.desc,
+          isBlock: evalResult.isBlock
+        });
+      }
+      evaluations.sort((a, b) => b.initialScore - a.initialScore);
+
+      // Search depth determination
+      let searchDepth = 4;
+      if (rows * cols <= 16) searchDepth = 5;
+      else if (rows * cols <= 25) searchDepth = 4;
+      else if (rows * cols <= 64) searchDepth = 3;
+      else searchDepth = 2;
+
+      const startTime = Date.now();
+      const timeLimit = 350; // ms
+      ttMap.clear();
+
+      const candidateLimit = rows * cols <= 25 ? 14 : 10;
+      const searchCandidates = evaluations.slice(0, candidateLimit);
+      const scoredMoves = [];
+
+      for (const item of searchCandidates) {
+        const move = item.move;
+        board[move] = turn;
+        const searchVal = -alphaBetaSearch(board, opp, searchDepth - 1, -Infinity, Infinity, rows, cols, k, startTime, timeLimit);
+        board[move] = null;
+
+        let normScore = 0;
+        let desc = item.desc;
+        if (searchVal >= 999000) {
+          normScore = isX ? 1.0 : -1.0;
+          desc = 'Forced Win Sequence';
+        } else if (searchVal <= -999000) {
+          normScore = isX ? -1.0 : 1.0;
+          desc = 'Allows Opponent Win (Fatal Blunder)';
+        } else {
+          const clamped = Math.max(-100000, Math.min(100000, searchVal));
+          const raw = clamped / 100000;
+          normScore = isX ? raw * 0.85 : -raw * 0.85;
+        }
+
+        scoredMoves.push({
+          move,
+          rawScore: searchVal,
           score: normScore,
-          rawScore: (oppWinMoves.length > 0 && !evalResult.isWin && !evalResult.isBlock) ? -1000000 : evalResult.score,
-          tacticalDesc: tacticalDesc,
+          tacticalDesc: desc,
           pv: [move]
         });
       }
 
-      // Sort candidate moves so best move for current turn appears first
-      evaluations.sort((a, b) => {
-        return b.rawScore - a.rawScore;
-      });
+      scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
+      const best = scoredMoves[0];
 
-      const best = evaluations[0];
       return {
         score: best ? best.score : 0,
-        bestMove: best ? best.move : null,
+        bestMove: best ? best.move : candidates[0],
         pv: best ? best.pv : [],
-        allMoves: evaluations,
+        allMoves: scoredMoves,
         terminal: false,
         winner: null,
         line: null
