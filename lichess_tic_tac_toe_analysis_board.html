@@ -193,21 +193,21 @@
     <div id="board-workspace" class="flex items-stretch justify-center gap-2 sm:gap-3 w-full max-w-[680px]">
       
       <!-- StockTic Vertical Evaluation Bar (-100 to +100 Scale) -->
-      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#1e1c18] border border-[#363431] rounded overflow-hidden shadow-lg select-none flex-shrink-0" title="Win Probability Evaluation (-100 to +100: +100 = 100% Win for First Player, 0 = 50-50, -100 = 100% Win for Second Player)">
+      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#262421] border border-[#4a4742] rounded overflow-hidden shadow-lg select-none flex-shrink-0" title="Win Probability Evaluation (-100 to +100: +100 = 100% Win for First Player, 0 = 50-50, -100 = 100% Win for Second Player)">
         <!-- Dynamic White/X fill (covers bottom when normal, top when flipped) -->
         <div id="eval-bar-fill" class="eval-bar-fill absolute left-0 right-0 w-full bg-[#f0f0f0]" style="bottom: 0; height: 50%;"></div>
 
         <!-- 50-50 Center divider line (Eval: 0) -->
-        <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-red-500/50 z-20 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-0 right-0 h-[1.5px] bg-red-500/75 z-20 pointer-events-none"></div>
 
         <!-- Black/O portion text (top) -->
         <div class="absolute top-0 left-0 right-0 pt-1.5 flex justify-center z-30 pointer-events-none">
-          <span id="eval-text-top" class="mono-font text-[10px] font-black text-white select-none"></span>
+          <span id="eval-text-top" class="mono-font text-[10px] sm:text-[11px] font-black text-white select-none"></span>
         </div>
 
         <!-- White/X portion text (bottom) -->
         <div class="absolute bottom-0 left-0 right-0 pb-1.5 flex justify-center z-30 pointer-events-none">
-          <span id="eval-text-bottom" class="mono-font text-[10px] font-black text-[#161512] select-none">0</span>
+          <span id="eval-text-bottom" class="mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none">0</span>
         </div>
       </div>
 
@@ -1123,6 +1123,72 @@
     }
 
     /**
+     * SOTA Static Evaluation of Board State for (M, N, K)
+     * Evaluates positional control and line potential without horizon oscillation
+     */
+    function evaluateBoardState(board, rows, cols, k) {
+      const directions = [
+        [0, 1],   // horizontal
+        [1, 0],   // vertical
+        [1, 1],   // main diag
+        [1, -1]   // anti diag
+      ];
+
+      let scoreX = 0;
+      let scoreO = 0;
+
+      const centerR = (rows - 1) / 2;
+      const centerC = (cols - 1) / 2;
+
+      // 1. Center proximity weights
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const p = board[r * cols + c];
+          if (!p) continue;
+          const dist = Math.max(Math.abs(r - centerR), Math.abs(c - centerC));
+          const val = Math.max(0, 10 - dist * 3);
+          if (p === 'X') scoreX += val;
+          else scoreO += val;
+        }
+      }
+
+      // 2. Lines of length k
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          for (const [dr, dc] of directions) {
+            const endR = r + dr * (k - 1);
+            const endC = c + dc * (k - 1);
+            if (endR < 0 || endR >= rows || endC < 0 || endC >= cols) continue;
+
+            let numX = 0;
+            let numO = 0;
+            for (let step = 0; step < k; step++) {
+              const piece = board[(r + dr * step) * cols + (c + dc * step)];
+              if (piece === 'X') numX++;
+              else if (piece === 'O') numO++;
+            }
+
+            if (numX > 0 && numO > 0) continue; // blocked line for both
+
+            if (numX > 0) {
+              if (numX === k) scoreX += 1000000;
+              else if (numX === k - 1) scoreX += 300;
+              else if (numX === k - 2 && k >= 4) scoreX += 35;
+              else if (numX === 1) scoreX += 4;
+            } else if (numO > 0) {
+              if (numO === k) scoreO += 1000000;
+              else if (numO === k - 1) scoreO += 300;
+              else if (numO === k - 2 && k >= 4) scoreO += 35;
+              else if (numO === 1) scoreO += 4;
+            }
+          }
+        }
+      }
+
+      return scoreX - scoreO;
+    }
+
+    /**
      * Alpha-Beta Negamax Search with Transposition Table for Deep Combinations
      */
     function alphaBetaSearch(board, turn, depth, alpha, beta, rows, cols, k, startTime, timeLimit) {
@@ -1137,17 +1203,8 @@
       }
 
       if (depth === 0) {
-        // Quiescence/tactical evaluation
-        const cands = getCandidateMoves(board, rows, cols);
-        let myBest = 0;
-        let oppBest = 0;
-        for (const m of cands) {
-          const sM = evaluateMoveTactics(board, m, turn, rows, cols, k).score;
-          if (sM > myBest) myBest = sM;
-          const sO = evaluateMoveTactics(board, m, opp, rows, cols, k).score;
-          if (sO > oppBest) oppBest = sO;
-        }
-        return myBest - oppBest;
+        const net = evaluateBoardState(board, rows, cols, k);
+        return turn === 'X' ? net : -net;
       }
 
       const key = board.map(c => c || '.').join('') + turn + depth;
@@ -1360,9 +1417,9 @@
           normScore = isX ? -100 : 100;
           desc = 'Allows Opponent Win (-100)';
         } else {
-          const clamped = Math.max(-100000, Math.min(100000, searchVal));
-          const raw = clamped / 100000;
-          normScore = Math.round(isX ? raw * 85 : -raw * 85);
+          const clamped = Math.max(-500, Math.min(500, searchVal));
+          const turnPosScore = Math.round(clamped / 35);
+          normScore = isX ? turnPosScore : -turnPosScore;
         }
 
         scoredMoves.push({
@@ -1394,8 +1451,10 @@
             normScore = isX ? -100 : 100;
             desc = 'Allows Opponent Win (-100)';
           } else {
-            const raw = Math.min(100000, item.initialScore) / 100000;
-            normScore = Math.round(isX ? raw * 35 : -raw * 35);
+            const net = evaluateBoardState(board, rows, cols, k);
+            const turnVal = isX ? net : -net;
+            const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
+            normScore = isX ? turnPos : -turnPos;
           }
 
           scoredMoves.push({
@@ -1410,9 +1469,11 @@
 
       scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
       const best = scoredMoves[0];
+      let finalScore = best ? best.score : 0;
+      if (Math.abs(finalScore) <= 2) finalScore = 0;
 
       return {
-        score: best ? best.score : 0,
+        score: finalScore,
         bestMove: best ? best.move : targetMoves[0],
         pv: best ? best.pv : [],
         allMoves: scoredMoves,
@@ -1881,10 +1942,17 @@
             if (!winStatus && showEval && state.showBadges && candidateScoreMap.has(idx) && Math.max(rows, cols) <= 10) {
               const score = candidateScoreMap.get(idx);
               const badge = document.createElement('div');
-              badge.className = `absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${
-                score > 0 ? 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold' :
-                (score < 0 ? 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold' : 'bg-[#1e1c18]/90 text-gray-200 border-[#4a4742] font-semibold')
-              }`;
+              const isTurnX = current.turn === 'X';
+              const moveValForTurn = isTurnX ? score : -score;
+
+              let styleClass = 'bg-[#1e1c18]/90 text-gray-200 border-[#4a4742] font-semibold';
+              if (moveValForTurn >= 10) {
+                styleClass = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+              } else if (moveValForTurn <= -10) {
+                styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+              }
+
+              badge.className = `absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${styleClass}`;
               badge.textContent = formatEval(score);
               cell.appendChild(badge);
             }
@@ -2174,43 +2242,43 @@
 
       // Display numeric label on the evaluation bar
       if (!state.flipped) {
-        if (score >= 0.5) {
+        if (score >= 1.5) {
           if (textTop) textTop.textContent = '';
           if (textBottom) {
             textBottom.textContent = formatted;
-            textBottom.className = 'mono-font text-[10px] font-black text-[#161512] select-none';
+            textBottom.className = 'mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none';
           }
-        } else if (score <= -0.5) {
+        } else if (score <= -1.5) {
           if (textTop) {
             textTop.textContent = formatted;
-            textTop.className = 'mono-font text-[10px] font-black text-white select-none';
+            textTop.className = 'mono-font text-[10px] sm:text-[11px] font-black text-white select-none';
           }
           if (textBottom) textBottom.textContent = '';
         } else {
           if (textTop) textTop.textContent = '';
           if (textBottom) {
             textBottom.textContent = '0';
-            textBottom.className = 'mono-font text-[10px] font-bold text-[#161512] select-none';
+            textBottom.className = 'mono-font text-[10px] sm:text-[11px] font-bold text-[#161512] select-none';
           }
         }
       } else {
-        if (score >= 0.5) {
+        if (score >= 1.5) {
           if (textBottom) textBottom.textContent = '';
           if (textTop) {
             textTop.textContent = formatted;
-            textTop.className = 'mono-font text-[10px] font-black text-[#161512] select-none';
+            textTop.className = 'mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none';
           }
-        } else if (score <= -0.5) {
+        } else if (score <= -1.5) {
           if (textBottom) {
             textBottom.textContent = formatted;
-            textBottom.className = 'mono-font text-[10px] font-black text-white select-none';
+            textBottom.className = 'mono-font text-[10px] sm:text-[11px] font-black text-white select-none';
           }
           if (textTop) textTop.textContent = '';
         } else {
           if (textBottom) textBottom.textContent = '';
           if (textTop) {
             textTop.textContent = '0';
-            textTop.className = 'mono-font text-[10px] font-bold text-[#161512] select-none';
+            textTop.className = 'mono-font text-[10px] sm:text-[11px] font-bold text-[#161512] select-none';
           }
         }
       }
@@ -2406,8 +2474,10 @@
         const coord = getCoord(cand.move, config.rows, config.cols);
 
         let badgeBg = 'bg-[#1e1c18] text-gray-300 border-[#363431]';
-        if (cand.score > 2) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50';
-        else if (cand.score < -2) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50';
+        const isTurnX = current.turn === 'X';
+        const moveVal = isTurnX ? cand.score : -cand.score;
+        if (moveVal > 2) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+        else if (moveVal < -2) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
 
         row.innerHTML = `
           <div class="flex items-center space-x-2.5 overflow-hidden">
