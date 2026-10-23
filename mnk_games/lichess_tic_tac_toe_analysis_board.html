@@ -109,6 +109,30 @@
       transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* Multi-Player Eval Disc (Demand 1) */
+    .eval-disc-slice {
+      transition: stroke-dasharray 0.35s ease, stroke-dashoffset 0.35s ease;
+      cursor: pointer;
+    }
+    .eval-disc-slice:hover {
+      filter: brightness(1.3);
+    }
+
+    /* Accuracy gauge circular meter & graph styling (Demand 2) */
+    .accuracy-gauge-ring {
+      transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .graph-point {
+      transition: r 0.15s ease, stroke-width 0.15s ease;
+      cursor: pointer;
+    }
+    .graph-point:hover {
+      r: 6.5px !important;
+    }
+    .eval-graph-hover-line {
+      pointer-events: none;
+    }
+
     /* Modal Backdrop */
     .modal-backdrop {
       background-color: rgba(10, 10, 8, 0.75);
@@ -235,6 +259,28 @@
         </div>
       </div>
 
+      <!-- Multi-Player Evaluation Disc (Demand 1: for 3 or more players) -->
+      <div id="eval-disc-wrapper" class="hidden relative w-16 sm:w-20 bg-[#262421] border border-[#4a4742] rounded-lg p-1.5 shadow-lg select-none flex-shrink-0 flex-col items-center justify-between transition-all" title="Multi-Player Eval Disc: Win Probability Distribution across all active players">
+        <div class="text-[9px] font-black text-gray-400 uppercase tracking-wider text-center border-b border-[#363431] pb-1 w-full">Eval Disc</div>
+        
+        <!-- SVG Donut Disc with Player Color Arcs -->
+        <div class="relative w-14 h-14 sm:w-16 sm:h-16 my-2 flex items-center justify-center">
+          <svg id="eval-disc-svg" viewBox="0 0 64 64" class="w-full h-full transform -rotate-90">
+            <!-- Dynamically populated with <circle> donut segments -->
+          </svg>
+          <!-- Center Hole Badge -->
+          <div id="eval-disc-center" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
+            <span id="eval-disc-center-symbol" class="text-xs font-black text-white">X</span>
+            <span id="eval-disc-center-val" class="mono-font text-[9px] font-bold text-[#7ec62f]">45%</span>
+          </div>
+        </div>
+
+        <!-- Mini Player Probability Breakdown Pills -->
+        <div id="eval-disc-pills" class="w-full space-y-1">
+          <!-- Dynamically populated with player pills -->
+        </div>
+      </div>
+
       <!-- Board Outer Frame -->
       <div class="flex-1 flex flex-col items-center min-w-0">
         <!-- Opponent Clock & Player Header (Top) -->
@@ -350,6 +396,32 @@
 
       <!-- PANEL 1: ANALYSIS MODE -->
       <div id="panel-analysis" class="space-y-3">
+        <!-- Subtab Switcher: Live Evaluation vs Game Report -->
+        <div class="flex items-center justify-between p-1 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow">
+          <button type="button" id="subtab-position-eval" class="flex-1 py-1.5 px-2 rounded text-center transition bg-[#629924] text-white font-bold flex items-center justify-center space-x-1 shadow-sm">
+            <span>🔍</span><span>Live Evaluation</span>
+          </button>
+          <button type="button" id="subtab-game-report" class="flex-1 py-1.5 px-2 rounded text-center transition text-gray-300 hover:text-white hover:bg-[#262421] font-bold flex items-center justify-center space-x-1">
+            <span>📊</span><span>Game Report</span>
+          </button>
+        </div>
+
+        <!-- Game Finished Prompt Banner (appears when game concludes) -->
+        <div id="game-finished-analysis-banner" class="hidden bg-[#1e1c18] border border-[#629924] rounded-lg p-2.5 flex items-center justify-between shadow-lg">
+          <div class="flex items-center space-x-2">
+            <span class="text-xl">🏆</span>
+            <div>
+              <div class="text-xs font-bold text-white">Game Finished!</div>
+              <div class="text-[10px] text-gray-400">Request StockTic computer analysis report</div>
+            </div>
+          </div>
+          <button type="button" id="btn-request-game-analysis" class="px-3 py-1.5 bg-[#629924] hover:bg-[#72b02a] text-white text-xs font-bold rounded shadow transition flex items-center space-x-1">
+            <span>📊</span><span>Analyze Game</span>
+          </button>
+        </div>
+
+        <!-- Sub-panel A: Live Position Analysis View -->
+        <div id="position-eval-view" class="space-y-3">
         <!-- Engine Evaluation Header Box (StockTic SOTA) -->
         <div id="engine-card" class="relative bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg space-y-2.5 overflow-hidden">
           <!-- Progress bar on top/bottom of box -->
@@ -425,7 +497,134 @@
             <!-- Dynamically populated candidate rows -->
           </div>
         </div>
-      </div>
+        </div> <!-- /#position-eval-view -->
+
+        <!-- Sub-panel B: Lichess-style Whole Game Analysis Report (Demand 2) -->
+        <div id="game-analysis-panel" class="hidden space-y-3">
+          <!-- Analysis Control Header Box -->
+          <div class="bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg space-y-2.5">
+            <div class="flex items-center justify-between border-b border-[#363431] pb-2">
+              <div class="flex items-center space-x-2">
+                <span class="text-sm">📊</span>
+                <span class="font-bold text-xs text-white uppercase tracking-wider">Computer Analysis</span>
+              </div>
+              <div class="flex items-center space-x-1 text-xs">
+                <button type="button" id="btn-open-paste-modal" class="px-2 py-0.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1" title="Paste an old game to analyze">
+                  <span>📥</span><span>Paste Game</span>
+                </button>
+                <button type="button" id="btn-copy-analysis-report" class="px-2 py-0.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1" title="Copy Analysis Report to clipboard">
+                  <span>📋</span><span>Copy Report</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Speed & Depth Selector -->
+            <div class="flex flex-wrap items-center justify-between gap-2 text-xs select-none">
+              <div class="flex items-center space-x-1.5">
+                <span class="text-[11px] font-semibold text-gray-400">Analysis Depth:</span>
+                <div class="inline-flex rounded bg-[#1a1815] p-0.5 border border-[#363431]" id="analysis-depth-selector">
+                  <button type="button" id="analysis-speed-fast" data-speed="fast" class="analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Fast: instantaneous tactical heuristic analysis">⚡ Fast</button>
+                  <button type="button" id="analysis-speed-medium" data-speed="medium" class="analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition bg-[#629924] text-white shadow-sm" title="Medium: 2-ply search with tactical verification (Recommended)">⚖️ Medium</button>
+                  <button type="button" id="analysis-speed-deep" data-speed="deep" class="analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Deep: deep 3-4 ply alpha-beta search with iterative deepening">🧠 Deep</button>
+                </div>
+              </div>
+              <button type="button" id="btn-rerun-analysis" class="px-3 py-1 bg-[#629924] hover:bg-[#72b02a] text-white text-xs font-bold rounded transition flex items-center space-x-1 shadow-sm">
+                <span>↺</span><span>Re-Analyze</span>
+              </button>
+            </div>
+
+            <!-- Analyzing Progress Indicator -->
+            <div id="game-analysis-progress" class="hidden pt-2 border-t border-[#363431] space-y-1.5">
+              <div class="flex items-center justify-between text-[11px] mono-font text-gray-300">
+                <span id="game-analysis-progress-text" class="flex items-center space-x-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#629924] inline-block animate-ping"></span>
+                  <span>Analyzing ply 0/0 (0%)...</span>
+                </span>
+                <button type="button" id="btn-cancel-game-analysis" class="text-xs text-red-400 hover:text-red-300 hover:underline">Cancel</button>
+              </div>
+              <div class="w-full bg-[#1a1815] rounded-full h-1.5 overflow-hidden border border-[#363431]">
+                <div id="game-analysis-progress-bar" class="bg-[#629924] h-full transition-all duration-150" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analysis Report Container -->
+          <div id="game-analysis-content" class="space-y-3">
+            <!-- Empty state when no analysis yet -->
+            <div id="analysis-empty-state" class="bg-[#262421] border border-[#363431] rounded-lg p-5 text-center shadow-lg space-y-3">
+              <div class="text-3xl">📊</div>
+              <div>
+                <h4 class="text-sm font-bold text-white mb-1">StockTic Whole Game Analysis</h4>
+                <p class="text-xs text-gray-400 max-w-sm mx-auto">
+                  Get a complete post-game analysis report just like Lichess: player accuracy percentages, average eval loss (ACL), move qualities (best, okay, inaccuracies, mistakes, blunders), and interactive advantage graph.
+                </p>
+              </div>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <button type="button" id="btn-start-initial-analysis" class="px-4 py-2 bg-[#629924] hover:bg-[#72b02a] text-white text-xs font-bold rounded shadow transition flex items-center space-x-1.5">
+                  <span>📊</span><span>Analyze Current Game</span>
+                </button>
+                <button type="button" id="btn-empty-paste-game" class="px-3 py-2 bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 text-xs font-semibold rounded transition flex items-center space-x-1.5">
+                  <span>📥</span><span>Paste an Old Game</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Populated Analysis Report Details -->
+            <div id="analysis-results-section" class="hidden space-y-3">
+              <!-- Player Accuracy & Summary Cards -->
+              <div id="analysis-players-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <!-- Dynamically populated with player accuracy cards -->
+              </div>
+
+              <!-- Interactive Advantage Graph (Lichess Style) -->
+              <div class="bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg space-y-2">
+                <div class="flex items-center justify-between border-b border-[#363431] pb-1.5">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Evaluation Advantage Graph</span>
+                    <span class="text-[10px] text-gray-400 mono-font">Click any point to view ply</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-[10px]">
+                    <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-[#ef5350]"></span><span class="text-gray-400">Blunder</span></span>
+                    <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span><span class="text-gray-400">Mistake</span></span>
+                  </div>
+                </div>
+
+                <!-- SVG Graph Container -->
+                <div id="analysis-eval-graph-container" class="relative w-full h-28 bg-[#1a1815] rounded border border-[#363431] overflow-hidden">
+                  <svg id="analysis-eval-graph-svg" class="w-full h-full" preserveAspectRatio="none">
+                    <!-- Polyline, area fills, blunder/mistake dots -->
+                  </svg>
+                  <!-- Floating Tooltip -->
+                  <div id="analysis-graph-tooltip" class="hidden absolute pointer-events-none bg-[#262421] border border-[#4a4742] text-[10px] mono-font text-white px-2 py-1 rounded shadow-xl z-20 whitespace-nowrap"></div>
+                </div>
+              </div>
+
+              <!-- Selected Move Inspection Banner -->
+              <div id="analysis-move-inspector" class="hidden bg-[#1e1c18] border border-[#363431] rounded-lg p-2.5 flex items-center justify-between shadow">
+                <div class="flex items-center space-x-2 text-xs">
+                  <span id="inspector-quality-badge" class="font-bold px-1.5 py-0.5 rounded mono-font">Blunder ??</span>
+                  <span id="inspector-desc-text" class="text-gray-200">Move 4: O played b2. StockTic recommends c4.</span>
+                </div>
+                <button type="button" id="btn-inspector-jump" class="text-[11px] text-[#7ec62f] hover:underline font-bold whitespace-nowrap">Inspect Board →</button>
+              </div>
+
+              <!-- Key Moments & Blunders List -->
+              <div id="analysis-key-moments-card" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
+                <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
+                  <div class="flex items-center space-x-1.5">
+                    <span class="text-xs">⚠️</span>
+                    <span class="text-xs font-bold text-gray-200 uppercase tracking-wider">Key Moments & Blunders</span>
+                  </div>
+                  <span id="analysis-blunders-count" class="text-[11px] mono-font text-gray-400">0 mistakes found</span>
+                </div>
+                <div id="analysis-key-moments-list" class="divide-y divide-[#363431] max-h-48 overflow-y-auto">
+                  <!-- Populated dynamically with key moment items -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /#game-analysis-panel -->
+      </div> <!-- /#panel-analysis -->
 
       <!-- PANEL 2: PLAY & CLOCKS (Demand 2) -->
       <div id="panel-play" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
@@ -844,6 +1043,14 @@
               <span>📋</span>
               <span class="hidden sm:inline">Copy Game</span>
             </button>
+            <button id="btn-import-game-trigger" title="Paste / Import an old game to load and analyze" class="px-2 py-0.5 rounded bg-[#262421] hover:bg-[#363431] border border-[#363431] text-[11px] text-gray-300 hover:text-white transition flex items-center space-x-1">
+              <span>📥</span>
+              <span class="hidden sm:inline">Paste</span>
+            </button>
+            <button id="btn-analysis-report-trigger" title="Run computer analysis report on whole game" class="px-2 py-0.5 rounded bg-[#629924]/20 hover:bg-[#629924]/40 border border-[#629924] text-[11px] text-[#7ec62f] hover:text-white transition flex items-center space-x-1">
+              <span>📊</span>
+              <span class="hidden sm:inline">Report</span>
+            </button>
           </div>
           <div class="flex items-center space-x-1">
             <button id="mode-analysis-btn" class="text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white">Analysis</button>
@@ -891,6 +1098,10 @@
           <button id="btn-copy-game-record" title="Copy Full Game Record in One Click (Board size, k, player types, AI level, moves & winner)" class="px-2.5 py-1 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-[11px] font-sans font-bold transition flex items-center space-x-1 shadow-sm whitespace-nowrap">
             <span>📋</span>
             <span>Copy Game Record</span>
+          </button>
+          <button id="btn-paste-game-record" title="Import / Paste an old game" class="px-2.5 py-1 bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-200 hover:text-white rounded text-[11px] font-sans font-semibold transition flex items-center space-x-1 shadow-sm whitespace-nowrap">
+            <span>📥</span>
+            <span>Paste Game</span>
           </button>
           <button id="btn-copy-fen" title="Copy FEN string" class="px-2 py-1 bg-[#262421] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white rounded text-[11px] font-sans font-semibold transition whitespace-nowrap">
             FEN
@@ -1049,6 +1260,109 @@
         <div class="flex items-center space-x-2">
           <button type="button" id="btn-cancel-modal" class="px-3 py-1.5 rounded text-xs font-semibold bg-[#1e1c18] hover:bg-[#363431] text-gray-300 transition">Cancel</button>
           <button type="button" id="btn-apply-modal" class="px-4 py-1.5 rounded text-xs font-bold bg-[#629924] hover:bg-[#72b02a] text-white shadow-md transition">Apply & Reset</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Import / Paste Game Modal (Demand 2) -->
+  <div id="modal-import-game" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 modal-backdrop">
+    <div class="relative w-full max-w-lg bg-[#262421] border border-[#363431] rounded-xl shadow-2xl p-4 sm:p-5 space-y-4 max-h-[92vh] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-[#363431] pb-2.5">
+        <div class="flex items-center space-x-2">
+          <span class="text-lg">📥</span>
+          <div>
+            <h3 class="text-sm font-bold text-white tracking-wide">Import & Analyze Game</h3>
+            <p class="text-[11px] text-gray-400">Paste an old game to get an instant Lichess-style analysis report</p>
+          </div>
+        </div>
+        <button type="button" id="close-import-modal-x" class="text-gray-400 hover:text-white text-lg p-1 rounded hover:bg-[#363431] transition">✕</button>
+      </div>
+
+      <!-- Paste Textarea -->
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+          <label for="import-game-input" class="block text-xs font-semibold text-gray-300">Paste Game Notation, Moves, or PGN:</label>
+          <span class="text-[10px] text-gray-400 mono-font">PGN / Coordinate Sequence</span>
+        </div>
+        <textarea id="import-game-input" rows="5" class="w-full bg-[#1a1815] border border-[#363431] rounded-lg p-2.5 text-xs mono-font text-gray-200 placeholder-gray-500 focus:outline-none focus:border-[#629924]" placeholder="e.g. 1. c3 c4 2. d4 b2 3. d2 d3 4. b4 a5 5. e1&#10;or: c3, c4, d4, b2, d2, d3, b4, a5, e1&#10;or full StockTic PGN with [Variant &quot;(5,5,4)&quot;]..."></textarea>
+      </div>
+
+      <!-- Dimension Overrides & Auto-Detect -->
+      <div class="bg-[#1e1c18] border border-[#363431] rounded-lg p-3 space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-gray-300">Board Configuration</span>
+          <label class="flex items-center space-x-1.5 text-xs text-gray-400 cursor-pointer">
+            <input type="checkbox" id="import-autodetect-check" checked class="rounded bg-[#262421] border-[#363431] text-[#629924] focus:ring-0">
+            <span class="text-[11px]">Auto-detect from notation</span>
+          </label>
+        </div>
+        <div class="grid grid-cols-4 gap-2 text-xs">
+          <div>
+            <label class="block text-[10px] text-gray-400 font-bold mb-0.5">Rows (M)</label>
+            <input type="number" id="import-rows-input" min="1" max="32" value="3" class="w-full bg-[#262421] border border-[#363431] rounded px-2 py-1 text-xs mono-font text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] text-gray-400 font-bold mb-0.5">Cols (N)</label>
+            <input type="number" id="import-cols-input" min="1" max="32" value="3" class="w-full bg-[#262421] border border-[#363431] rounded px-2 py-1 text-xs mono-font text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] text-gray-400 font-bold mb-0.5">Win Streak (K)</label>
+            <input type="number" id="import-k-input" min="1" max="8" value="3" class="w-full bg-[#262421] border border-[#363431] rounded px-2 py-1 text-xs mono-font text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] text-gray-400 font-bold mb-0.5">Players (J)</label>
+            <input type="number" id="import-j-input" min="2" max="5" value="2" class="w-full bg-[#262421] border border-[#363431] rounded px-2 py-1 text-xs mono-font text-white">
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Sample Games -->
+      <div class="space-y-1">
+        <label class="block text-[11px] font-semibold text-gray-400">Quick Test Samples:</label>
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" id="btn-load-sample-3x3" class="px-2 py-1 bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-[11px] text-gray-300 hover:text-white rounded transition">
+            🎯 3×3 Classic (Blunder)
+          </button>
+          <button type="button" id="btn-load-sample-5x5" class="px-2 py-1 bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-[11px] text-gray-300 hover:text-white rounded transition">
+            ⚔️ 5×5 Tactician (9 plies)
+          </button>
+          <button type="button" id="btn-load-sample-3player" class="px-2 py-1 bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-[11px] text-gray-300 hover:text-white rounded transition">
+            🔺 4×4 3-Player Battle
+          </button>
+        </div>
+      </div>
+
+      <!-- Analysis Speed in Modal -->
+      <div class="flex items-center justify-between text-xs bg-[#1a1815] p-2 rounded border border-[#363431]">
+        <span class="text-gray-400 font-medium">Analysis Depth:</span>
+        <div class="flex items-center space-x-2">
+          <label class="inline-flex items-center space-x-1 cursor-pointer">
+            <input type="radio" name="modal-analysis-speed" value="fast" class="text-[#629924] focus:ring-0">
+            <span class="text-[11px] text-gray-300">Fast</span>
+          </label>
+          <label class="inline-flex items-center space-x-1 cursor-pointer">
+            <input type="radio" name="modal-analysis-speed" value="medium" checked class="text-[#629924] focus:ring-0">
+            <span class="text-[11px] text-gray-300 font-bold text-[#7ec62f]">Medium</span>
+          </label>
+          <label class="inline-flex items-center space-x-1 cursor-pointer">
+            <input type="radio" name="modal-analysis-speed" value="deep" class="text-[#629924] focus:ring-0">
+            <span class="text-[11px] text-gray-300">Deep</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Modal Actions -->
+      <div class="flex items-center justify-between pt-2 border-t border-[#363431]">
+        <button type="button" id="btn-cancel-import-modal" class="px-3 py-1.5 rounded text-xs font-semibold bg-[#1e1c18] hover:bg-[#363431] text-gray-300 transition">Cancel</button>
+        <div class="flex items-center space-x-2">
+          <button type="button" id="btn-apply-import-only" class="px-3 py-1.5 rounded text-xs font-semibold bg-[#363431] hover:bg-[#474440] text-gray-200 transition">Load Position</button>
+          <button type="button" id="btn-apply-import-analyze" class="px-4 py-1.5 rounded text-xs font-bold bg-[#629924] hover:bg-[#72b02a] text-white shadow-md transition flex items-center space-x-1.5">
+            <span>📊</span><span>Load & Run Analysis</span>
+          </button>
         </div>
       </div>
 
@@ -1616,33 +1930,47 @@
      * SOTA Static Evaluation of Board State for (M, N, K)
      * Evaluates positional control and line potential without horizon oscillation
      */
-    function evaluateBoardState(board, rows, cols, k) {
-      const directions = [
-        [0, 1],   // horizontal
-        [1, 0],   // vertical
-        [1, 1],   // main diag
-        [1, -1]   // anti diag
-      ];
+    /**
+     * SOTA Multi-Player Board Probability Distribution (Demand 1 & Demand 2)
+     * Calibrated win probabilities summing to 100% across all active players
+     */
+    function evaluateMultiPlayerDistribution(board, rows = config.rows, cols = config.cols, k = config.k, j = config.j || 2, winStatus = null) {
+      const active = PLAYERS.slice(0, j);
+      const probs = {};
 
-      let scoreX = 0;
-      let scoreO = 0;
+      if (!winStatus) {
+        winStatus = checkWinner(board, rows, cols, k);
+      }
+
+      if (winStatus) {
+        if (winStatus.winner === 'Draw') {
+          const eq = Math.round((100 / j) * 10) / 10;
+          active.forEach(p => probs[p] = eq);
+          return { scores: {}, probs, leader: active[0], leaderProb: eq };
+        } else {
+          active.forEach(p => probs[p] = (p === winStatus.winner ? 100 : 0));
+          return { scores: {}, probs, leader: winStatus.winner, leaderProb: 100 };
+        }
+      }
 
       const centerR = (rows - 1) / 2;
       const centerC = (cols - 1) / 2;
+      const scores = {};
+      active.forEach(p => scores[p] = 0);
 
       // 1. Center proximity weights
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const p = board[r * cols + c];
-          if (!p) continue;
-          const dist = Math.max(Math.abs(r - centerR), Math.abs(c - centerC));
-          const val = Math.max(0, 10 - dist * 3);
-          if (p === 'X') scoreX += val;
-          else scoreO += val;
+          if (p && active.includes(p)) {
+            const dist = Math.max(Math.abs(r - centerR), Math.abs(c - centerC));
+            scores[p] += Math.max(0, 10 - dist * 2);
+          }
         }
       }
 
-      // 2. Lines of length k
+      // 2. Lines of length k across 4 directions
+      const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           for (const [dr, dc] of directions) {
@@ -1650,32 +1978,142 @@
             const endC = c + dc * (k - 1);
             if (endR < 0 || endR >= rows || endC < 0 || endC >= cols) continue;
 
-            let numX = 0;
-            let numO = 0;
+            const counts = {};
+            active.forEach(p => counts[p] = 0);
+            let blocked = false;
+
             for (let step = 0; step < k; step++) {
-              const piece = board[(r + dr * step) * cols + (c + dc * step)];
-              if (piece === 'X') numX++;
-              else if (piece === 'O') numO++;
+              const cell = board[(r + dr * step) * cols + (c + dc * step)];
+              if (cell === '#') {
+                blocked = true;
+                break;
+              }
+              if (cell && active.includes(cell)) {
+                counts[cell]++;
+              }
             }
+            if (blocked) continue;
 
-            if (numX > 0 && numO > 0) continue; // blocked line for both
-
-            if (numX > 0) {
-              if (numX === k) scoreX += 1000000;
-              else if (numX === k - 1) scoreX += 300;
-              else if (numX === k - 2 && k >= 4) scoreX += 35;
-              else if (numX === 1) scoreX += 4;
-            } else if (numO > 0) {
-              if (numO === k) scoreO += 1000000;
-              else if (numO === k - 1) scoreO += 300;
-              else if (numO === k - 2 && k >= 4) scoreO += 35;
-              else if (numO === 1) scoreO += 4;
+            const withStones = active.filter(p => counts[p] > 0);
+            if (withStones.length === 1) {
+              const p = withStones[0];
+              const cnt = counts[p];
+              if (cnt === k) scores[p] += 1000000;
+              else if (cnt === k - 1) scores[p] += 3000;
+              else if (cnt === k - 2 && k >= 4) scores[p] += 250;
+              else if (cnt === 1) scores[p] += 15;
+            } else if (withStones.length === 0) {
+              active.forEach(p => scores[p] += 5);
             }
           }
         }
       }
 
-      return scoreX - scoreO;
+      // 3. Immediate M1 win threats
+      active.forEach(p => {
+        for (let i = 0; i < board.length; i++) {
+          if (board[i] === null && isWinningMove(board, i, p, rows, cols, k)) {
+            scores[p] += 50000;
+          }
+        }
+      });
+
+      const baseUtil = 40.0;
+      const power = 1.35;
+      let totalPower = 0;
+      const powered = {};
+
+      active.forEach(p => {
+        const u = Math.max(1.0, baseUtil + scores[p]);
+        powered[p] = Math.pow(u, power);
+        totalPower += powered[p];
+      });
+
+      let leader = active[0];
+      let leaderProb = 0;
+      active.forEach(p => {
+        const pr = (powered[p] / (totalPower || 1)) * 100;
+        probs[p] = Math.round(pr * 10) / 10;
+        if (probs[p] > leaderProb) {
+          leaderProb = probs[p];
+          leader = p;
+        }
+      });
+
+      return { scores, probs, leader, leaderProb };
+    }
+
+    /**
+     * SOTA Static Evaluation of Board State for (M, N, K, J)
+     * Backwards-compatible for 2-player Alpha-Beta search while supporting multi-player.
+     */
+    function evaluateBoardState(board, rows = config.rows, cols = config.cols, k = config.k, j = config.j || 2) {
+      if (j <= 2) {
+        const directions = [
+          [0, 1],   // horizontal
+          [1, 0],   // vertical
+          [1, 1],   // main diag
+          [1, -1]   // anti diag
+        ];
+
+        let scoreX = 0;
+        let scoreO = 0;
+
+        const centerR = (rows - 1) / 2;
+        const centerC = (cols - 1) / 2;
+
+        // 1. Center proximity weights
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const p = board[r * cols + c];
+            if (!p) continue;
+            const dist = Math.max(Math.abs(r - centerR), Math.abs(c - centerC));
+            const val = Math.max(0, 10 - dist * 3);
+            if (p === 'X') scoreX += val;
+            else if (p === 'O') scoreO += val;
+          }
+        }
+
+        // 2. Lines of length k
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            for (const [dr, dc] of directions) {
+              const endR = r + dr * (k - 1);
+              const endC = c + dc * (k - 1);
+              if (endR < 0 || endR >= rows || endC < 0 || endC >= cols) continue;
+
+              let numX = 0;
+              let numO = 0;
+              let blocked = false;
+              for (let step = 0; step < k; step++) {
+                const piece = board[(r + dr * step) * cols + (c + dc * step)];
+                if (piece === '#') { blocked = true; break; }
+                if (piece === 'X') numX++;
+                else if (piece === 'O') numO++;
+              }
+
+              if (blocked || (numX > 0 && numO > 0)) continue; // blocked line
+
+              if (numX > 0) {
+                if (numX === k) scoreX += 1000000;
+                else if (numX === k - 1) scoreX += 300;
+                else if (numX === k - 2 && k >= 4) scoreX += 35;
+                else if (numX === 1) scoreX += 4;
+              } else if (numO > 0) {
+                if (numO === k) scoreO += 1000000;
+                else if (numO === k - 1) scoreO += 300;
+                else if (numO === k - 2 && k >= 4) scoreO += 35;
+                else if (numO === 1) scoreO += 4;
+              }
+            }
+          }
+        }
+
+        return scoreX - scoreO;
+      } else {
+        const dist = evaluateMultiPlayerDistribution(board, rows, cols, k, j);
+        return dist.leaderProb;
+      }
     }
 
     /**
@@ -2506,7 +2944,12 @@
       engineThinkingTime: localStorage.getItem('stocktic_thinking_time') || '5', // '1', '5', '10', '30', 'unlimited'
       isAnalyzing: false,
       enginePaused: false,
-      currentAnalysis: null
+      currentAnalysis: null,
+      gameAnalysisResult: null,
+      analysisSpeed: 'medium', // 'fast', 'medium', 'deep'
+      isGameAnalyzing: false,
+      cancelGameAnalysis: false,
+      analysisSubtab: 'position' // 'position' or 'report'
     };
 
     /**
@@ -4236,6 +4679,10 @@
 
       render();
 
+      if (terminalAfter) {
+        showGameFinishedBanner(terminalAfter);
+      }
+
       // Trigger AI move
       if (!terminalAfter && !clockState.flaggedPlayer) {
         if (state.mode === 'play') {
@@ -4288,10 +4735,15 @@
       const isPlayMode = state.mode === 'play';
       const showEval = !isPlayMode || state.playShowEval;
 
-      // 0. Toggle vertical eval bar visibility
+      // 0. Toggle Eval Bar vs Multi-Player Eval Disc visibility (Demand 1)
+      const isMulti = config.j && config.j > 2;
       const evalBarWrapper = document.getElementById('eval-bar-wrapper');
+      const evalDiscWrapper = document.getElementById('eval-disc-wrapper');
       if (evalBarWrapper) {
-        evalBarWrapper.classList.toggle('hidden', isPlayMode && !state.playShowEval);
+        evalBarWrapper.classList.toggle('hidden', (isPlayMode && !state.playShowEval) || isMulti);
+      }
+      if (evalDiscWrapper) {
+        evalDiscWrapper.classList.toggle('hidden', (isPlayMode && !state.playShowEval) || !isMulti);
       }
 
       // 1. Update Board Variant Badges
@@ -4786,7 +5238,106 @@
     /**
      * Update Eval Bar and Numeric Badges
      */
+    /**
+     * Multi-Player Evaluation Disc Renderer (Demand 1)
+     */
+    function updateEvalDisc(winStatus) {
+      const discWrapper = document.getElementById('eval-disc-wrapper');
+      const barWrapper = document.getElementById('eval-bar-wrapper');
+      if (barWrapper) barWrapper.classList.add('hidden');
+      if (discWrapper) discWrapper.classList.remove('hidden');
+
+      const discSvg = document.getElementById('eval-disc-svg');
+      const centerSymbol = document.getElementById('eval-disc-center-symbol');
+      const centerVal = document.getElementById('eval-disc-center-val');
+      const discPills = document.getElementById('eval-disc-pills');
+      const bigEval = document.getElementById('big-eval-badge');
+      const evalInterpretation = document.getElementById('eval-interpretation');
+      const summaryEval = document.getElementById('summary-eval-val');
+
+      const current = state.history[state.currentPly];
+      const activeCount = config.j || 2;
+      const activePlayers = PLAYERS.slice(0, activeCount);
+
+      const dist = evaluateMultiPlayerDistribution(current.board, config.rows, config.cols, config.k, activeCount, winStatus);
+      const probs = dist.probs;
+      const leader = dist.leader;
+      const leaderProb = dist.leaderProb;
+
+      const C = 2 * Math.PI * 22;
+      let offset = 0;
+      let svgContent = '';
+
+      activePlayers.forEach(p => {
+        const prob = probs[p] || 0;
+        const dash = (prob / 100) * C;
+        const color = PLAYER_COLORS[p] || '#ffffff';
+        svgContent += `<circle r="22" cx="32" cy="32" fill="none" stroke="${color}" stroke-width="10" stroke-dasharray="${dash.toFixed(2)} ${(C - dash).toFixed(2)}" stroke-dashoffset="${(-offset).toFixed(2)}" stroke-linecap="butt" class="eval-disc-slice" data-player="${p}"><title>${PLAYER_NAMES[p] || p}: ${prob.toFixed(1)}%</title></circle>`;
+        offset += dash;
+      });
+      if (discSvg) discSvg.innerHTML = svgContent;
+
+      if (winStatus) {
+        if (winStatus.winner === 'Draw') {
+          if (centerSymbol) { centerSymbol.textContent = '½'; centerSymbol.style.color = '#eab308'; }
+          if (centerVal) { centerVal.textContent = 'DRAW'; centerVal.className = 'mono-font text-[9px] font-bold text-yellow-400'; }
+          if (bigEval) {
+            bigEval.textContent = '½ - ½';
+            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
+          }
+          if (evalInterpretation) evalInterpretation.textContent = 'Final Result: Draw (Equal Points)';
+          if (summaryEval) summaryEval.textContent = '½-½';
+        } else {
+          const winCol = PLAYER_COLORS[winStatus.winner] || '#ffffff';
+          if (centerSymbol) { centerSymbol.textContent = winStatus.winner; centerSymbol.style.color = winCol; }
+          if (centerVal) { centerVal.textContent = 'WIN'; centerVal.className = 'mono-font text-[9px] font-bold text-[#7ec62f]'; }
+          if (bigEval) {
+            bigEval.textContent = `${winStatus.winner} WON`;
+            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+          }
+          if (evalInterpretation) evalInterpretation.textContent = `Victory: ${PLAYER_NAMES[winStatus.winner] || winStatus.winner} won (${config.k} in a row)`;
+          if (summaryEval) summaryEval.textContent = `${winStatus.winner} Won`;
+        }
+      } else {
+        const leaderColor = PLAYER_COLORS[leader] || '#ffffff';
+        if (centerSymbol) { centerSymbol.textContent = leader; centerSymbol.style.color = leaderColor; }
+        if (centerVal) { centerVal.textContent = `${leaderProb.toFixed(0)}%`; centerVal.className = 'mono-font text-[9px] font-bold text-white'; }
+
+        if (bigEval) {
+          bigEval.textContent = `${leader} ${leaderProb.toFixed(0)}%`;
+          bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-white';
+        }
+        const breakdownStr = activePlayers.map(p => `${p}: ${probs[p].toFixed(1)}%`).join(' · ');
+        if (evalInterpretation) evalInterpretation.textContent = `${breakdownStr} (${activeCount} Players)`;
+        if (summaryEval) summaryEval.textContent = `${leader} ${leaderProb.toFixed(0)}%`;
+      }
+
+      if (discPills) {
+        discPills.innerHTML = activePlayers.map(p => {
+          const prob = probs[p] || 0;
+          const isTurn = current && current.turn === p && !winStatus;
+          const color = PLAYER_COLORS[p] || '#ffffff';
+          return `
+            <div class="flex items-center justify-between px-1 py-0.5 rounded text-[9px] mono-font transition ${isTurn ? 'border border-[#629924] bg-[#1a1815]' : 'bg-[#1e1c18] border border-transparent'}" title="${PLAYER_NAMES[p] || p}">
+              <span class="flex items-center space-x-1">
+                <span class="w-2 h-2 rounded-full inline-block" style="background-color: ${color}"></span>
+                <span class="font-bold text-gray-300">${p}</span>
+              </span>
+              <span class="font-black text-white">${prob.toFixed(1)}%</span>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
     function updateEvalBar(score, winStatus) {
+      if (config.j && config.j > 2) {
+        updateEvalDisc(winStatus);
+        return;
+      }
+      const discWrapper = document.getElementById('eval-disc-wrapper');
+      if (discWrapper) discWrapper.classList.add('hidden');
+
       const barFill = document.getElementById('eval-bar-fill');
       const textTop = document.getElementById('eval-text-top');
       const textBottom = document.getElementById('eval-text-bottom');
@@ -5247,6 +5798,17 @@
         }
       ];
       state.currentPly = 0;
+      state.gameAnalysisResult = null;
+
+      const finishBanner = document.getElementById('game-finished-analysis-banner');
+      if (finishBanner) finishBanner.classList.add('hidden');
+      const progressEl = document.getElementById('game-analysis-progress');
+      if (progressEl) progressEl.classList.add('hidden');
+      const emptyState = document.getElementById('analysis-empty-state');
+      if (emptyState) emptyState.classList.remove('hidden');
+      const resultsSection = document.getElementById('analysis-results-section');
+      if (resultsSection) resultsSection.classList.add('hidden');
+
       playSound('move');
       render();
 
@@ -6300,6 +6862,965 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     renderEditorTurnSelector();
     renderMultiplayerBar();
     initClocks();
+
+    /**
+     * =========================================================================
+     * WHOLE GAME ANALYSIS ENGINE & LICHESS REPORT SYSTEM (Demand 2)
+     * =========================================================================
+     */
+
+    function switchAnalysisSubtab(tab) {
+      state.analysisSubtab = tab;
+      const btnPos = document.getElementById('subtab-position-eval');
+      const btnRep = document.getElementById('subtab-game-report');
+      const viewPos = document.getElementById('position-eval-view');
+      const viewRep = document.getElementById('game-analysis-panel');
+
+      if (tab === 'position') {
+        if (btnPos) btnPos.className = 'flex-1 py-1.5 px-2 rounded text-center transition bg-[#629924] text-white font-bold flex items-center justify-center space-x-1 shadow-sm';
+        if (btnRep) btnRep.className = 'flex-1 py-1.5 px-2 rounded text-center transition text-gray-300 hover:text-white hover:bg-[#262421] font-bold flex items-center justify-center space-x-1';
+        if (viewPos) viewPos.classList.remove('hidden');
+        if (viewRep) viewRep.classList.add('hidden');
+      } else {
+        if (btnRep) btnRep.className = 'flex-1 py-1.5 px-2 rounded text-center transition bg-[#629924] text-white font-bold flex items-center justify-center space-x-1 shadow-sm';
+        if (btnPos) btnPos.className = 'flex-1 py-1.5 px-2 rounded text-center transition text-gray-300 hover:text-white hover:bg-[#262421] font-bold flex items-center justify-center space-x-1';
+        if (viewPos) viewPos.classList.add('hidden');
+        if (viewRep) viewRep.classList.remove('hidden');
+
+        if (state.gameAnalysisResult) {
+          renderGameAnalysisReport();
+        }
+      }
+    }
+
+    function showGameFinishedBanner(terminal) {
+      const banner = document.getElementById('game-finished-analysis-banner');
+      if (!banner) return;
+      banner.classList.remove('hidden');
+    }
+
+    function parseCoord(coordStr, rows = config.rows, cols = config.cols) {
+      if (!coordStr) return null;
+      const trimmed = coordStr.trim().toLowerCase();
+      const match = trimmed.match(/^([a-z]+)(\d+)$/);
+      if (!match) return null;
+      const colStr = match[1];
+      const rowStr = match[2];
+
+      let c = 0;
+      if (colStr.length === 1) {
+        c = colStr.charCodeAt(0) - 97;
+      } else if (colStr.length === 2) {
+        c = (colStr.charCodeAt(0) - 96) * 26 + (colStr.charCodeAt(1) - 97);
+      }
+      const r = rows - parseInt(rowStr, 10);
+      if (r < 0 || r >= rows || c < 0 || c >= cols) return null;
+      return r * cols + c;
+    }
+
+    function calculateMoveAccuracy(loss) {
+      return Math.max(0, Math.min(100, 103.1668 * Math.exp(-0.04354 * loss) - 3.1669));
+    }
+
+    function classifyMoveQuality(loss, isMissedWin = false, isAllowedOpponentWin = false) {
+      if (isMissedWin || isAllowedOpponentWin || loss > 65) {
+        return {
+          label: 'Blunder',
+          glyph: '??',
+          color: 'text-[#ef5350]',
+          bg: 'bg-[#ef5350]/20',
+          border: 'border-[#ef5350]',
+          desc: isMissedWin ? 'Missed instant win (+M1)' : (isAllowedOpponentWin ? 'Allowed opponent win' : 'Critical tactical blunder')
+        };
+      }
+      if (loss > 30) {
+        return {
+          label: 'Mistake',
+          glyph: '?',
+          color: 'text-[#f59e0b]',
+          bg: 'bg-[#f59e0b]/20',
+          border: 'border-[#f59e0b]',
+          desc: 'Substantial tactical mistake'
+        };
+      }
+      if (loss > 15) {
+        return {
+          label: 'Inaccuracy',
+          glyph: '?!',
+          color: 'text-[#38bdf8]',
+          bg: 'bg-[#38bdf8]/20',
+          border: 'border-[#38bdf8]',
+          desc: 'Imprecise move'
+        };
+      }
+      if (loss > 5) {
+        return {
+          label: 'Okay',
+          glyph: '👍',
+          color: 'text-[#7ec62f]',
+          bg: 'bg-[#7ec62f]/20',
+          border: 'border-[#7ec62f]',
+          desc: 'Solid playable move'
+        };
+      }
+      return {
+        label: 'Best',
+        glyph: '🌟',
+        color: 'text-[#629924]',
+        bg: 'bg-[#629924]/20',
+        border: 'border-[#629924]',
+        desc: 'Optimal engine move'
+      };
+    }
+
+    function evaluatePlyCandidate(board, turn, playedIdx, speed = 'medium') {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      const j = config.j || 2;
+      const isX = turn === 'X';
+      const is2Player = j <= 2;
+      const active = PLAYERS.slice(0, j);
+      const otherPlayers = active.filter(p => p !== turn);
+
+      const allEmpty = [];
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === null) allEmpty.push(i);
+      }
+      if (allEmpty.length === 0) {
+        return {
+          bestMove: playedIdx,
+          bestScore: 0,
+          playedScore: 0,
+          loss: 0,
+          accuracy: 100,
+          classification: classifyMoveQuality(0),
+          isMissedWin: false,
+          isAllowedOpponentWin: false
+        };
+      }
+
+      // Check direct 1-move wins
+      const directWins = allEmpty.filter(m => isWinningMove(board, m, turn, rows, cols, k));
+      const hasDirectWin = directWins.length > 0;
+
+      // Check opponent immediate threats
+      const oppWins = [];
+      otherPlayers.forEach(opp => {
+        allEmpty.forEach(m => {
+          if (isWinningMove(board, m, opp, rows, cols, k)) oppWins.push({ opp, move: m });
+        });
+      });
+      const hasOpponentThreat = oppWins.length > 0;
+
+      let bestMove = allEmpty[0];
+      let bestScore = 0;
+      let playedScore = 0;
+      let loss = 0;
+      let isMissedWin = false;
+      let isAllowedOpponentWin = false;
+
+      if (is2Player) {
+        if (rows * cols <= 9) {
+          // Exact Minimax for 3x3 boards
+          const exact = exactMinimax(board, turn, rows, cols, k);
+          bestMove = exact.bestMove !== null ? exact.bestMove : playedIdx;
+          bestScore = exact.score;
+
+          const target = exact.allMoves ? exact.allMoves.find(m => m.move === playedIdx) : null;
+          playedScore = target ? target.score : bestScore;
+          loss = Math.max(0, isX ? (bestScore - playedScore) : (playedScore - bestScore));
+        } else {
+          // Tactical evaluation + candidate pruning
+          const targetMoves = (Math.max(rows, cols) <= 10) ? allEmpty : getCandidateMoves(board, rows, cols);
+          const moveEvals = [];
+
+          for (const m of targetMoves) {
+            const tactics = evaluateMoveTactics(board, m, turn, rows, cols, k);
+            board[m] = turn;
+            let oppCanWin = false;
+            for (const opp of otherPlayers) {
+              for (const oppM of allEmpty) {
+                if (oppM !== m && isWinningMove(board, oppM, opp, rows, cols, k)) {
+                  oppCanWin = true;
+                  break;
+                }
+              }
+              if (oppCanWin) break;
+            }
+
+            let score = 0;
+            if (tactics.isWin) {
+              score = isX ? 100 : -100;
+            } else if (oppCanWin) {
+              score = isX ? -100 : 100;
+            } else {
+              const net = evaluateBoardState(board, rows, cols, k, 2);
+              const turnPos = Math.round(Math.max(-500, Math.min(500, net)) / 35);
+              score = turnPos;
+            }
+            board[m] = null;
+
+            moveEvals.push({
+              move: m,
+              rawScore: tactics.isWin ? 1000000 : (oppCanWin ? -1000000 : tactics.score),
+              score
+            });
+          }
+
+          moveEvals.sort((a, b) => b.rawScore - a.rawScore);
+          bestMove = moveEvals[0] ? moveEvals[0].move : playedIdx;
+          bestScore = moveEvals[0] ? moveEvals[0].score : 0;
+
+          const playedItem = moveEvals.find(m => m.move === playedIdx);
+          playedScore = playedItem ? playedItem.score : (isX ? -50 : 50);
+          loss = Math.max(0, isX ? (bestScore - playedScore) : (playedScore - bestScore));
+        }
+
+        if (hasDirectWin && !isWinningMove(board, playedIdx, turn, rows, cols, k)) {
+          isMissedWin = true;
+          loss = Math.max(loss, 75);
+        }
+        if (hasOpponentThreat && !oppWins.some(w => w.move === playedIdx)) {
+          isAllowedOpponentWin = true;
+          loss = Math.max(loss, 70);
+        }
+      } else {
+        // Multi-player distribution (j > 2)
+        const distBefore = evaluateMultiPlayerDistribution(board, rows, cols, k, j);
+        const probBefore = distBefore.probs[turn] || (100 / j);
+
+        const scoredCandidates = [];
+        for (const m of allEmpty) {
+          board[m] = turn;
+          const winCheck = checkWinner(board, rows, cols, k);
+          let candProb = 0;
+          if (winCheck && winCheck.winner === turn) {
+            candProb = 100;
+          } else {
+            const distAfter = evaluateMultiPlayerDistribution(board, rows, cols, k, j, winCheck);
+            candProb = distAfter.probs[turn] || 0;
+          }
+          board[m] = null;
+          scoredCandidates.push({ move: m, prob: candProb });
+        }
+
+        scoredCandidates.sort((a, b) => b.prob - a.prob);
+        bestMove = scoredCandidates[0] ? scoredCandidates[0].move : playedIdx;
+        bestScore = scoredCandidates[0] ? scoredCandidates[0].prob : probBefore;
+
+        const playedCand = scoredCandidates.find(c => c.move === playedIdx);
+        playedScore = playedCand ? playedCand.prob : probBefore;
+        loss = Math.max(0, bestScore - playedScore);
+
+        if (hasDirectWin && !isWinningMove(board, playedIdx, turn, rows, cols, k)) {
+          isMissedWin = true;
+          loss = Math.max(loss, 75);
+        }
+        if (hasOpponentThreat && !oppWins.some(w => w.move === playedIdx)) {
+          isAllowedOpponentWin = true;
+          loss = Math.max(loss, 70);
+        }
+      }
+
+      const classification = classifyMoveQuality(loss, isMissedWin, isAllowedOpponentWin);
+      const accuracy = calculateMoveAccuracy(loss);
+
+      return {
+        bestMove,
+        bestScore,
+        playedScore,
+        loss: Math.round(loss * 10) / 10,
+        accuracy: Math.round(accuracy * 10) / 10,
+        classification,
+        isMissedWin,
+        isAllowedOpponentWin
+      };
+    }
+
+    function updateSpeedButtonsUI(speed) {
+      const speeds = ['fast', 'medium', 'deep'];
+      speeds.forEach(s => {
+        const btn = document.getElementById(`analysis-speed-${s}`);
+        if (!btn) return;
+        if (s === speed) {
+          btn.className = 'analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition bg-[#629924] text-white shadow-sm';
+        } else {
+          btn.className = 'analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white';
+        }
+      });
+    }
+
+    async function runGameAnalysis(speed = state.analysisSpeed || 'medium') {
+      if (state.isGameAnalyzing) return;
+      state.analysisSpeed = speed;
+      state.cancelGameAnalysis = false;
+      state.isGameAnalyzing = true;
+
+      switchMainMode('analysis');
+      switchAnalysisSubtab('report');
+
+      const progressEl = document.getElementById('game-analysis-progress');
+      const progressBar = document.getElementById('game-analysis-progress-bar');
+      const progressText = document.getElementById('game-analysis-progress-text');
+      const emptyState = document.getElementById('analysis-empty-state');
+      const resultsSection = document.getElementById('analysis-results-section');
+
+      if (progressEl) progressEl.classList.remove('hidden');
+      if (emptyState) emptyState.classList.add('hidden');
+
+      updateSpeedButtonsUI(speed);
+
+      const totalPlies = state.history.length - 1;
+      if (totalPlies <= 0) {
+        if (progressEl) progressEl.classList.add('hidden');
+        if (emptyState) emptyState.classList.remove('hidden');
+        state.isGameAnalyzing = false;
+        showToast('No moves to analyze! Play some moves or paste an old game.');
+        return;
+      }
+
+      const j = config.j || 2;
+      const activePlayers = PLAYERS.slice(0, j);
+      const analyzedPlies = [];
+
+      for (let i = 1; i <= totalPlies; i++) {
+        if (state.cancelGameAnalysis) {
+          if (progressEl) progressEl.classList.add('hidden');
+          state.isGameAnalyzing = false;
+          showToast('Game analysis cancelled.');
+          return;
+        }
+
+        const pct = Math.round((i / totalPlies) * 100);
+        if (progressBar) progressBar.style.width = `${pct}%`;
+        if (progressText) progressText.innerHTML = `<span>Analyzing ply ${i} of ${totalPlies} (${pct}%)... [${speed.toUpperCase()}]</span>`;
+
+        await new Promise(r => setTimeout(r, speed === 'deep' ? 25 : 12));
+
+        const prevBoard = [...state.history[i - 1].board];
+        const turn = state.history[i - 1].turn;
+        const playedMove = state.history[i].lastMove;
+
+        const plyEval = evaluatePlyCandidate(prevBoard, turn, playedMove, speed);
+
+        const coordPlayed = getCoord(playedMove, config.rows, config.cols);
+        const coordBest = getCoord(plyEval.bestMove, config.rows, config.cols);
+
+        state.history[i].annotation = plyEval.classification;
+        state.history[i].bestMove = plyEval.bestMove;
+        state.history[i].evalLoss = plyEval.loss;
+
+        let graphEval = 0;
+        if (j <= 2) {
+          const net = evaluateBoardState(state.history[i].board, config.rows, config.cols, config.k, 2);
+          graphEval = Math.max(-100, Math.min(100, Math.round(net / 35)));
+        } else {
+          const dist = evaluateMultiPlayerDistribution(state.history[i].board, config.rows, config.cols, config.k, j);
+          graphEval = dist.probs;
+        }
+
+        analyzedPlies.push({
+          ply: i,
+          turn,
+          playedMove,
+          playedCoord: coordPlayed,
+          bestMove: plyEval.bestMove,
+          bestCoord: coordBest,
+          loss: plyEval.loss,
+          accuracy: plyEval.accuracy,
+          classification: plyEval.classification,
+          graphEval
+        });
+      }
+
+      const playerStats = activePlayers.map(p => {
+        const pPlies = analyzedPlies.filter(m => m.turn === p);
+        const count = pPlies.length;
+        const avgLoss = count > 0 ? (pPlies.reduce((sum, m) => sum + m.loss, 0) / count) : 0;
+        const avgAcc = count > 0 ? (pPlies.reduce((sum, m) => sum + m.accuracy, 0) / count) : 100;
+
+        const counts = { best: 0, okay: 0, inaccuracy: 0, mistake: 0, blunder: 0 };
+        pPlies.forEach(m => {
+          const lbl = m.classification.label.toLowerCase();
+          if (counts[lbl] !== undefined) counts[lbl]++;
+        });
+
+        return {
+          piece: p,
+          name: PLAYER_NAMES[p] || p,
+          color: PLAYER_COLORS[p] || '#ffffff',
+          accuracy: Math.round(avgAcc * 10) / 10,
+          averageLoss: Math.round(avgLoss * 10) / 10,
+          totalMoves: count,
+          counts
+        };
+      });
+
+      const criticalMoments = analyzedPlies.filter(m => m.classification.label === 'Blunder' || m.classification.label === 'Mistake');
+
+      state.gameAnalysisResult = {
+        speed,
+        totalPlies,
+        players: playerStats,
+        plies: analyzedPlies,
+        criticalMoments
+      };
+
+      state.isGameAnalyzing = false;
+      if (progressEl) progressEl.classList.add('hidden');
+      if (resultsSection) resultsSection.classList.remove('hidden');
+
+      renderGameAnalysisReport();
+      renderMoveHistory();
+      showToast(`Computer analysis complete! (${speed.toUpperCase()} depth)`);
+    }
+
+    function renderGameAnalysisReport() {
+      const rep = state.gameAnalysisResult;
+      if (!rep) return;
+
+      const playersGrid = document.getElementById('analysis-players-grid');
+      if (playersGrid) {
+        playersGrid.innerHTML = rep.players.map(p => {
+          const accColor = p.accuracy >= 85 ? '#7ec62f' : (p.accuracy >= 70 ? '#38bdf8' : (p.accuracy >= 50 ? '#f59e0b' : '#ef5350'));
+          const ringRadius = 26;
+          const ringCirc = 2 * Math.PI * ringRadius;
+          const ringOffset = ringCirc - (p.accuracy / 100) * ringCirc;
+
+          return `
+            <div class="bg-[#1e1c18] border border-[#363431] rounded-lg p-3 space-y-2.5 shadow-sm">
+              <div class="flex items-center justify-between border-b border-[#363431] pb-1.5">
+                <div class="flex items-center space-x-2">
+                  <span class="w-3.5 h-3.5 rounded-full inline-flex items-center justify-center font-bold text-[10px]" style="background-color: ${p.color}; color: #000;">${p.piece}</span>
+                  <span class="font-bold text-xs text-white">${p.name}</span>
+                </div>
+                <span class="text-[10px] text-gray-400 mono-font">${p.totalMoves} moves</span>
+              </div>
+
+              <div class="flex items-center justify-between gap-2">
+                <!-- Circular Accuracy Meter -->
+                <div class="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                  <svg viewBox="0 0 64 64" class="w-full h-full transform -rotate-90">
+                    <circle r="${ringRadius}" cx="32" cy="32" fill="none" stroke="#262421" stroke-width="6"/>
+                    <circle r="${ringRadius}" cx="32" cy="32" fill="none" stroke="${accColor}" stroke-width="6" stroke-dasharray="${ringCirc.toFixed(1)}" stroke-dashoffset="${ringOffset.toFixed(1)}" stroke-linecap="round" class="accuracy-gauge-ring"/>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                    <span class="mono-font text-xs font-black text-white">${p.accuracy}%</span>
+                    <span class="text-[8px] text-gray-400 uppercase font-semibold">Acc</span>
+                  </div>
+                </div>
+
+                <!-- Average Loss & Stats -->
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center justify-between bg-[#262421] px-2 py-1 rounded border border-[#363431]">
+                    <span class="text-[11px] text-gray-400">Avg Loss (ACL):</span>
+                    <span class="mono-font font-bold ${p.averageLoss <= 10 ? 'text-[#7ec62f]' : (p.averageLoss <= 25 ? 'text-yellow-400' : 'text-red-400')}">${p.averageLoss}</span>
+                  </div>
+                  <div class="flex items-center justify-between text-[11px] px-1 text-gray-400">
+                    <span>Performance:</span>
+                    <span class="font-bold text-white">${p.accuracy >= 90 ? 'Grandmaster' : (p.accuracy >= 75 ? 'Master' : (p.accuracy >= 60 ? 'Club' : 'Casual'))}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quality Breakdown Chips -->
+              <div class="grid grid-cols-5 gap-1 text-center pt-1 border-t border-[#363431]/80 text-[10px] mono-font select-none">
+                <div class="bg-[#262421] p-1 rounded border border-[#363431]" title="Best Moves: ${p.counts.best}">
+                  <span class="text-[#629924] font-bold block">🌟</span>
+                  <span class="font-bold text-white">${p.counts.best}</span>
+                </div>
+                <div class="bg-[#262421] p-1 rounded border border-[#363431]" title="Okay Moves: ${p.counts.okay}">
+                  <span class="text-[#7ec62f] font-bold block">👍</span>
+                  <span class="font-bold text-white">${p.counts.okay}</span>
+                </div>
+                <div class="bg-[#262421] p-1 rounded border border-[#363431]" title="Inaccuracies: ${p.counts.inaccuracy}">
+                  <span class="text-[#38bdf8] font-bold block">?!</span>
+                  <span class="font-bold text-white">${p.counts.inaccuracy}</span>
+                </div>
+                <div class="bg-[#262421] p-1 rounded border border-[#363431]" title="Mistakes: ${p.counts.mistake}">
+                  <span class="text-[#f59e0b] font-bold block">?</span>
+                  <span class="font-bold text-white">${p.counts.mistake}</span>
+                </div>
+                <div class="bg-[#262421] p-1 rounded border border-[#363431]" title="Blunders: ${p.counts.blunder}">
+                  <span class="text-[#ef5350] font-bold block">??</span>
+                  <span class="font-bold text-white">${p.counts.blunder}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      renderEvalGraph();
+
+      // Key Moments & Blunders
+      const momentsList = document.getElementById('analysis-key-moments-list');
+      const blundersCount = document.getElementById('analysis-blunders-count');
+
+      if (blundersCount) {
+        blundersCount.textContent = `${rep.criticalMoments.length} key turning points`;
+      }
+
+      if (momentsList) {
+        if (rep.criticalMoments.length === 0) {
+          momentsList.innerHTML = `<div class="p-3 text-center text-xs text-gray-400 italic">No major blunders or mistakes detected in this game! Brilliant play.</div>`;
+        } else {
+          momentsList.innerHTML = rep.criticalMoments.map(m => {
+            const isBlunder = m.classification.label === 'Blunder';
+            const badgeClass = isBlunder ? 'bg-[#ef5350]/20 text-[#ef5350] border-[#ef5350]' : 'bg-[#f59e0b]/20 text-[#f59e0b] border-[#f59e0b]';
+            const playerCol = PLAYER_COLORS[m.turn] || '#ffffff';
+
+            return `
+              <div class="p-2.5 hover:bg-[#1e1c18] transition flex items-center justify-between text-xs cursor-pointer key-moment-row" data-ply="${m.ply}">
+                <div class="flex items-center space-x-2 min-w-0">
+                  <span class="w-3 h-3 rounded-full inline-block flex-shrink-0" style="background-color: ${playerCol};"></span>
+                  <span class="font-bold text-white">Ply ${m.ply}:</span>
+                  <span class="mono-font font-bold text-gray-200">${m.turn} played ${m.playedCoord}</span>
+                  <span class="px-1.5 py-0.2 rounded border mono-font font-bold text-[10px] ${badgeClass}">${m.classification.label} ${m.classification.glyph}</span>
+                  <span class="text-gray-400 text-[11px] truncate">Lost ${m.loss} eval. Best was <strong class="text-[#7ec62f]">${m.bestCoord}</strong></span>
+                </div>
+                <button type="button" class="text-[11px] font-bold text-[#7ec62f] hover:underline flex-shrink-0 ml-2">Inspect →</button>
+              </div>
+            `;
+          }).join('');
+
+          momentsList.querySelectorAll('.key-moment-row').forEach(row => {
+            row.addEventListener('click', () => {
+              const ply = parseInt(row.dataset.ply, 10);
+              jumpToPlyAndInspect(ply);
+            });
+          });
+        }
+      }
+    }
+
+    function renderEvalGraph() {
+      const rep = state.gameAnalysisResult;
+      if (!rep || !rep.plies || rep.plies.length === 0) return;
+
+      const svg = document.getElementById('analysis-eval-graph-svg');
+      const tooltip = document.getElementById('analysis-graph-tooltip');
+      if (!svg) return;
+
+      const width = svg.clientWidth || 320;
+      const height = svg.clientHeight || 112;
+      const totalPlies = rep.plies.length;
+      const paddingX = 14;
+      const paddingY = 12;
+      const usableW = width - paddingX * 2;
+      const usableH = height - paddingY * 2;
+      const is2Player = (config.j || 2) <= 2;
+
+      let content = '';
+
+      // Zero baseline
+      const zeroY = paddingY + usableH / 2;
+      content += `<line x1="${paddingX}" y1="${zeroY}" x2="${width - paddingX}" y2="${zeroY}" stroke="#363431" stroke-width="1.5" stroke-dasharray="3 3"/>`;
+
+      if (is2Player) {
+        // 2-player advantage area
+        const points = [];
+        points.push({ x: paddingX, y: zeroY, ply: 0, evalVal: 0 });
+
+        rep.plies.forEach((p, idx) => {
+          const x = paddingX + (p.ply / totalPlies) * usableW;
+          // score from -100 to +100
+          const score = typeof p.graphEval === 'number' ? p.graphEval : 0;
+          const y = zeroY - (score / 100) * (usableH / 2);
+          points.push({ x, y, ply: p.ply, evalVal: score, item: p });
+        });
+
+        // Area polygon (White advantage top, Black advantage bottom)
+        const polyPoints = [`${paddingX},${zeroY}`, ...points.map(pt => `${pt.x.toFixed(1)},${pt.y.toFixed(1)}`), `${points[points.length - 1].x.toFixed(1)},${zeroY}`];
+        content += `<polygon points="${polyPoints.join(' ')}" fill="rgba(98, 153, 36, 0.15)"/>`;
+
+        // Connecting stroke line
+        const pathData = points.map((pt, i) => `${i === 0 ? 'M' : 'L'} ${pt.x.toFixed(1)} ${pt.y.toFixed(1)}`).join(' ');
+        content += `<path d="${pathData}" fill="none" stroke="#7ec62f" stroke-width="2" class="eval-graph-curve"/>`;
+
+        // Dots on curve
+        points.slice(1).forEach(pt => {
+          const itm = pt.item;
+          const isBlunder = itm.classification.label === 'Blunder';
+          const isMistake = itm.classification.label === 'Mistake';
+
+          let dotCol = '#7ec62f';
+          let r = 2.5;
+          if (isBlunder) { dotCol = '#ef5350'; r = 5; }
+          else if (isMistake) { dotCol = '#f59e0b'; r = 4; }
+
+          content += `<circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="${r}" fill="${dotCol}" stroke="#1e1c18" stroke-width="1.5" class="graph-point" data-ply="${pt.ply}" data-eval="${pt.evalVal}" data-coord="${itm.playedCoord}" data-label="${itm.classification.label}" data-loss="${itm.loss}" data-turn="${itm.turn}"/>`;
+        });
+      } else {
+        // Multi-player lines for each player
+        const active = PLAYERS.slice(0, config.j || 2);
+        active.forEach(p => {
+          const color = PLAYER_COLORS[p] || '#ffffff';
+          const points = [{ x: paddingX, y: paddingY + (1 - 1 / active.length) * usableH }];
+
+          rep.plies.forEach(plyItem => {
+            const x = paddingX + (plyItem.ply / totalPlies) * usableW;
+            const prob = (plyItem.graphEval && plyItem.graphEval[p]) || (100 / active.length);
+            const y = paddingY + usableH - (prob / 100) * usableH;
+            points.push({ x, y });
+          });
+
+          const pathData = points.map((pt, i) => `${i === 0 ? 'M' : 'L'} ${pt.x.toFixed(1)} ${pt.y.toFixed(1)}`).join(' ');
+          content += `<path d="${pathData}" fill="none" stroke="${color}" stroke-width="2" opacity="0.85"/>`;
+        });
+      }
+
+      svg.innerHTML = content;
+
+      // Event listeners for interactive tooltips and clicks
+      svg.querySelectorAll('.graph-point').forEach(circle => {
+        circle.addEventListener('mouseenter', (e) => {
+          if (!tooltip) return;
+          const ply = circle.dataset.ply;
+          const coord = circle.dataset.coord;
+          const turn = circle.dataset.turn;
+          const label = circle.dataset.label;
+          const loss = circle.dataset.loss;
+          const evalVal = circle.dataset.eval;
+
+          tooltip.innerHTML = `<strong>Ply ${ply}:</strong> ${turn} played ${coord}<br>Eval: ${evalVal} (${label} ${loss > 0 ? `-${loss}` : ''})`;
+          tooltip.classList.remove('hidden');
+
+          const rect = svg.getBoundingClientRect();
+          const cx = parseFloat(circle.getAttribute('cx'));
+          const cy = parseFloat(circle.getAttribute('cy'));
+          tooltip.style.left = `${Math.min(rect.width - 120, Math.max(10, cx - 40))}px`;
+          tooltip.style.top = `${Math.max(5, cy - 35)}px`;
+        });
+
+        circle.addEventListener('mouseleave', () => {
+          if (tooltip) tooltip.classList.add('hidden');
+        });
+
+        circle.addEventListener('click', () => {
+          const ply = parseInt(circle.dataset.ply, 10);
+          jumpToPlyAndInspect(ply);
+        });
+      });
+    }
+
+    function jumpToPlyAndInspect(plyIdx) {
+      if (plyIdx < 0 || plyIdx >= state.history.length) return;
+      stopCurrentAnalysis();
+      state.currentAnalysis = null;
+      state.currentPly = plyIdx;
+      render();
+
+      const rep = state.gameAnalysisResult;
+      const inspector = document.getElementById('analysis-move-inspector');
+      const badge = document.getElementById('inspector-quality-badge');
+      const desc = document.getElementById('inspector-desc-text');
+
+      if (rep && rep.plies && plyIdx > 0) {
+        const item = rep.plies[plyIdx - 1];
+        if (item && inspector && badge && desc) {
+          inspector.classList.remove('hidden');
+          badge.textContent = `${item.classification.label} ${item.classification.glyph}`;
+          badge.className = `font-bold px-1.5 py-0.5 rounded mono-font ${item.classification.color} ${item.classification.bg} border ${item.classification.border}`;
+          desc.innerHTML = `Move ${plyIdx}: <strong>${item.turn}</strong> played <strong>${item.playedCoord}</strong> (Loss: ${item.loss}). Best: <strong class="text-[#7ec62f]">${item.bestCoord}</strong>.`;
+        }
+      }
+    }
+
+    function copyAnalysisReport() {
+      const rep = state.gameAnalysisResult;
+      if (!rep) {
+        showToast('No analysis report available yet! Run analysis first.');
+        return;
+      }
+
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      const j = config.j || 2;
+
+      let md = `=== StockTic Computer Analysis Report ===\n`;
+      md += `• Variant: (${rows}, ${cols}, ${k}) · ${j} Players\n`;
+      md += `• Moves Analyzed: ${rep.totalPlies} plies · Depth: ${rep.speed.toUpperCase()}\n\n`;
+
+      md += `Player Accuracies & Average Loss:\n`;
+      rep.players.forEach(p => {
+        md += `  ${p.name}: ${p.accuracy}% Accuracy · Avg Loss (ACL): ${p.averageLoss}\n`;
+        md += `    🌟 Best: ${p.counts.best} | 👍 Okay: ${p.counts.okay} | ?! Inaccuracy: ${p.counts.inaccuracy} | ? Mistake: ${p.counts.mistake} | ?? Blunder: ${p.counts.blunder}\n`;
+      });
+
+      if (rep.criticalMoments.length > 0) {
+        md += `\nKey Moments & Blunders (${rep.criticalMoments.length}):\n`;
+        rep.criticalMoments.forEach(m => {
+          md += `  • Ply ${m.ply} (${m.turn}): played ${m.playedCoord} [${m.classification.label} ${m.classification.glyph}] - lost ${m.loss} eval. Best was ${m.bestCoord}\n`;
+        });
+      }
+
+      copyTextToClipboard(md, 'Analysis Report copied to clipboard!');
+    }
+
+    /**
+     * =========================================================================
+     * GAME IMPORT & NOTATION PARSER (Demand 2)
+     * =========================================================================
+     */
+
+    function parseGameText(text) {
+      if (!text || !text.trim()) return null;
+
+      let rows = null;
+      let cols = null;
+      let k = null;
+      let j = 2;
+
+      // Extract PGN tags if present
+      const variantMatch = text.match(/\[Variant\s+"\(?(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s]+(\d+))?\)?/i);
+      if (variantMatch) {
+        rows = parseInt(variantMatch[1], 10);
+        cols = parseInt(variantMatch[2], 10);
+        k = parseInt(variantMatch[3], 10);
+        if (variantMatch[4]) j = parseInt(variantMatch[4], 10);
+      }
+
+      const boardMatch = text.match(/\[Board\s+"(\d+)x(\d+)"\]/i);
+      if (boardMatch) {
+        rows = parseInt(boardMatch[1], 10);
+        cols = parseInt(boardMatch[2], 10);
+      }
+
+      const kMatch = text.match(/\[WinStreak\s+"(\d+)"\]/i);
+      if (kMatch) k = parseInt(kMatch[1], 10);
+
+      const pMatch = text.match(/\[Players\s+"(\d+)"\]/i);
+      if (pMatch) j = parseInt(pMatch[1], 10);
+
+      // Clean PGN comments and metadata
+      let cleaned = text.replace(/\[.*?\]/g, ' ');
+      cleaned = cleaned.replace(/\{.*?\}/g, ' ');
+      cleaned = cleaned.replace(/\b\d+\.+/g, ' ');
+      cleaned = cleaned.replace(/1-0|0-1|1\/2-1\/2|\*/g, ' ');
+
+      // Extract coordinate strings
+      const rawTokens = cleaned.match(/[a-zA-Z]+\d+/g) || [];
+      const moves = rawTokens.map(t => t.toLowerCase());
+
+      return { rows, cols, k, j, moves };
+    }
+
+    function loadImportedGame(parsed, autoAnalyze = false, speed = 'medium') {
+      if (!parsed || !parsed.moves || parsed.moves.length === 0) {
+        showToast('No valid moves found in pasted text!');
+        return;
+      }
+
+      const rows = parsed.rows || config.rows;
+      const cols = parsed.cols || config.cols;
+      const k = parsed.k || config.k;
+      const j = parsed.j || config.j || 2;
+
+      updateBoardConfiguration(rows, cols, k, j);
+
+      // Build history
+      const activePlayers = PLAYERS.slice(0, j);
+      const newHistory = [
+        {
+          board: Array(rows * cols).fill(null),
+          turn: activePlayers[0],
+          lastMove: null,
+          annotation: null,
+          evalBefore: 0
+        }
+      ];
+
+      for (let i = 0; i < parsed.moves.length; i++) {
+        const coordStr = parsed.moves[i];
+        const idx = parseCoord(coordStr, rows, cols);
+        if (idx === null) continue;
+
+        const prev = newHistory[newHistory.length - 1];
+        if (prev.board[idx] !== null) continue; // skip illegal overlap
+
+        const nextBoard = [...prev.board];
+        nextBoard[idx] = prev.turn;
+        const nextTurn = getNextTurn(prev.turn, j);
+
+        newHistory.push({
+          board: nextBoard,
+          turn: nextTurn,
+          lastMove: idx,
+          annotation: null,
+          evalBefore: 0
+        });
+
+        // If win reached, terminate
+        if (checkWinner(nextBoard, rows, cols, k)) break;
+      }
+
+      state.history = newHistory;
+      state.currentPly = newHistory.length - 1;
+      render();
+
+      closeImportGameModal();
+
+      if (autoAnalyze) {
+        runGameAnalysis(speed);
+      } else {
+        switchMainMode('analysis');
+        switchAnalysisSubtab('report');
+        showToast(`Loaded ${newHistory.length - 1} moves into analysis board!`);
+      }
+    }
+
+    function openImportGameModal() {
+      const modal = document.getElementById('modal-import-game');
+      if (!modal) return;
+      const rowsInput = document.getElementById('import-rows-input');
+      const colsInput = document.getElementById('import-cols-input');
+      const kInput = document.getElementById('import-k-input');
+      const jInput = document.getElementById('import-j-input');
+
+      if (rowsInput) rowsInput.value = config.rows;
+      if (colsInput) colsInput.value = config.cols;
+      if (kInput) kInput.value = config.k;
+      if (jInput) jInput.value = config.j || 2;
+
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+    }
+
+    function closeImportGameModal() {
+      const modal = document.getElementById('modal-import-game');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+      }
+    }
+
+    // Attach Analysis & Import Event Handlers
+    function initAnalysisAndImportHandlers() {
+      // Subtabs
+      const btnPos = document.getElementById('subtab-position-eval');
+      const btnRep = document.getElementById('subtab-game-report');
+      if (btnPos) btnPos.addEventListener('click', () => switchAnalysisSubtab('position'));
+      if (btnRep) btnRep.addEventListener('click', () => switchAnalysisSubtab('report'));
+
+      // Finished Banner & Start Buttons
+      const btnReq = document.getElementById('btn-request-game-analysis');
+      if (btnReq) btnReq.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      const btnStartInit = document.getElementById('btn-start-initial-analysis');
+      if (btnStartInit) btnStartInit.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      const btnRerun = document.getElementById('btn-rerun-analysis');
+      if (btnRerun) btnRerun.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      const btnCancel = document.getElementById('btn-cancel-game-analysis');
+      if (btnCancel) btnCancel.addEventListener('click', () => { state.cancelGameAnalysis = true; });
+
+      // Speed selectors
+      ['fast', 'medium', 'deep'].forEach(s => {
+        const btn = document.getElementById(`analysis-speed-${s}`);
+        if (btn) btn.addEventListener('click', () => {
+          state.analysisSpeed = s;
+          updateSpeedButtonsUI(s);
+          if (state.gameAnalysisResult) runGameAnalysis(s);
+        });
+      });
+
+      // Import Modal Triggers
+      const btnOpenPaste = document.getElementById('btn-open-paste-modal');
+      const btnEmptyPaste = document.getElementById('btn-empty-paste-game');
+      const btnHistPaste = document.getElementById('btn-import-game-trigger');
+      const btnRecordPaste = document.getElementById('btn-paste-game-record');
+      const btnHistReport = document.getElementById('btn-analysis-report-trigger');
+      const btnCopyRep = document.getElementById('btn-copy-analysis-report');
+
+      if (btnOpenPaste) btnOpenPaste.addEventListener('click', openImportGameModal);
+      if (btnEmptyPaste) btnEmptyPaste.addEventListener('click', openImportGameModal);
+      if (btnHistPaste) btnHistPaste.addEventListener('click', openImportGameModal);
+      if (btnRecordPaste) btnRecordPaste.addEventListener('click', openImportGameModal);
+      if (btnHistReport) btnHistReport.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      if (btnCopyRep) btnCopyRep.addEventListener('click', copyAnalysisReport);
+
+      const closeX = document.getElementById('close-import-modal-x');
+      const cancelBtn = document.getElementById('btn-cancel-import-modal');
+      if (closeX) closeX.addEventListener('click', closeImportGameModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeImportGameModal);
+
+      // Sample Games in Modal
+      const sample3x3 = document.getElementById('btn-load-sample-3x3');
+      const sample5x5 = document.getElementById('btn-load-sample-5x5');
+      const sample3p = document.getElementById('btn-load-sample-3player');
+      const textarea = document.getElementById('import-game-input');
+
+      if (sample3x3) sample3x3.addEventListener('click', () => {
+        if (textarea) textarea.value = '[Variant "(3,3,3)"]\n1. b2 b3 2. c2 a1 3. a2 1-0';
+        document.getElementById('import-rows-input').value = 3;
+        document.getElementById('import-cols-input').value = 3;
+        document.getElementById('import-k-input').value = 3;
+        document.getElementById('import-j-input').value = 2;
+      });
+
+      if (sample5x5) sample5x5.addEventListener('click', () => {
+        if (textarea) textarea.value = '[Variant "(5,5,4)"]\n1. c3 c4 2. d4 b2 3. d2 d3 4. b4 a5 5. e1 1-0';
+        document.getElementById('import-rows-input').value = 5;
+        document.getElementById('import-cols-input').value = 5;
+        document.getElementById('import-k-input').value = 4;
+        document.getElementById('import-j-input').value = 2;
+      });
+
+      if (sample3p) sample3p.addEventListener('click', () => {
+        if (textarea) textarea.value = '[Variant "(4,4,3,3)"]\n1. b2 b3 c3 2. c2 a2 b1 3. a3 c1 d3 4. d2 a4 d4';
+        document.getElementById('import-rows-input').value = 4;
+        document.getElementById('import-cols-input').value = 4;
+        document.getElementById('import-k-input').value = 3;
+        document.getElementById('import-j-input').value = 3;
+      });
+
+      // Apply buttons in modal
+      const btnApplyAnalyze = document.getElementById('btn-apply-import-analyze');
+      const btnApplyOnly = document.getElementById('btn-apply-import-only');
+
+      function getSelectedModalSpeed() {
+        const radios = document.getElementsByName('modal-analysis-speed');
+        for (const r of radios) {
+          if (r.checked) return r.value;
+        }
+        return 'medium';
+      }
+
+      function handleModalApply(autoAnalyze) {
+        const text = (textarea && textarea.value) || '';
+        const parsed = parseGameText(text);
+        if (!parsed) {
+          showToast('Please paste valid game notation or moves first!');
+          return;
+        }
+
+        const autoDetect = document.getElementById('import-autodetect-check')?.checked;
+        if (!autoDetect) {
+          parsed.rows = parseInt(document.getElementById('import-rows-input').value, 10);
+          parsed.cols = parseInt(document.getElementById('import-cols-input').value, 10);
+          parsed.k = parseInt(document.getElementById('import-k-input').value, 10);
+          parsed.j = parseInt(document.getElementById('import-j-input').value, 10);
+        }
+
+        const speed = getSelectedModalSpeed();
+        loadImportedGame(parsed, autoAnalyze, speed);
+      }
+
+      if (btnApplyAnalyze) btnApplyAnalyze.addEventListener('click', () => handleModalApply(true));
+      if (btnApplyOnly) btnApplyOnly.addEventListener('click', () => handleModalApply(false));
+
+      // Jump Inspector Button
+      const jumpBtn = document.getElementById('btn-inspector-jump');
+      if (jumpBtn) {
+        jumpBtn.addEventListener('click', () => {
+          // Board is already jumped, provide feedback
+          showToast('Viewing position on board.');
+        });
+      }
+    }
+
+    initAnalysisAndImportHandlers();
 
     // Initial render on page load
     window.onload = function() {

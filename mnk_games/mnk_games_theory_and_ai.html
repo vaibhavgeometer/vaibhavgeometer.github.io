@@ -975,6 +975,40 @@
         The vertical evaluation bar maps the score continuously via <code class="code-inline">fillPct = clamp(50 + score/2, 0, 100)</code> with a prominent 50–50 red center dividing line. Furthermore, on boards up to 10&times;10, StockTic computes and displays <strong>evaluation badges across all empty squares simultaneously</strong>, enabling players to instantly distinguish best moves (green), neutral preserving moves (gray), and game-losing blunders (red).
       </p>
 
+            <h3>F. Multi-Player Evaluation Disc for (m,n,k,j) Games (j &ge; 3)</h3>
+      <p>
+        In discrete multi-player combinatorial games with <code class="code-inline">j &ge; 3</code> participants, the classical zero-sum tug-of-war linear evaluation bar becomes mathematically meaningless. A one-dimensional bar cannot represent independent threat configurations across 3, 4, or 5 competing players. To address this, StockTic introduces the <strong>Multi-Player Evaluation Disc</strong>:
+      </p>
+      <ul>
+        <li><strong>Multi-Agent Probability Distribution:</strong> Rather than a scalar score, the engine computes a calibrated probability simplex &Delta;<sup>j-1</sup> = {P(P<sub>1</sub>), P(P<sub>2</sub>), &hellip;, P(P<sub>j</sub>)} where &sum; P(P<sub>i</sub>) = 100%.</li>
+        <li><strong>Segment Ownership &amp; Threat Space:</strong> A line segment of length <code class="code-inline">k</code> is active for player P<sub>i</sub> if and only if no opponent stones or frozen barriers occupy that segment. Uncontested segments contribute to potential threat utility U<sub>i</sub>.</li>
+        <li><strong>SVG Donut Architecture:</strong> The disc partitions a radial circumference C = 2&pi;R into arc lengths proportional to each player's win probability, rendered using high-DPI SVG strokes with each player's signature color (X = white, O = amber, &blacktriangle; = emerald, &blacksquare; = sky blue, &blacklozenge; = purple).</li>
+        <li><strong>Dynamic Leader Telemetry:</strong> The central core displays the current positional leader and probability share, while individual percentage pills beneath provide micro-telemetry on each turn.</li>
+      </ul>
+
+      <h3>G. Lichess-Inspired Whole Game Analysis &amp; Accuracy Engine</h3>
+      <p>
+        Post-game evaluation enables players and researchers to inspect every move of a completed or pasted match, discovering tactical turning points and calculating game-wide performance metrics:
+      </p>
+      <ul>
+        <li><strong>Move Quality Classification:</strong> For each ply, the engine compares the played move against the principal variation best move, calculating the evaluation drop &Delta; = max(0, V<sub>best</sub> &minus; V<sub>played</sub>):
+          <ul style="margin-top: 0.5rem;">
+            <li><span class="mono-font font-bold text-[#629924]">&starf; Best:</span> &Delta; &le; 5 eval drop (optimal engine choice)</li>
+            <li><span class="mono-font font-bold text-[#7ec62f]">&check; Okay:</span> 5 &lt; &Delta; &le; 15 eval drop (solid playable move)</li>
+            <li><span class="mono-font font-bold text-[#38bdf8]">?! Inaccuracy:</span> 15 &lt; &Delta; &le; 30 eval drop (slight suboptimal play)</li>
+            <li><span class="mono-font font-bold text-[#f59e0b]">? Mistake:</span> 30 &lt; &Delta; &le; 65 eval drop (significant tactical setback)</li>
+            <li><span class="mono-font font-bold text-[#ef5350]">?? Blunder:</span> &Delta; &gt; 65 eval drop, missed instant win, or allowed opponent win</li>
+          </ul>
+        </li>
+        <li><strong>Average Eval Loss (ACL Equivalent):</strong> The arithmetic mean of evaluation drops across all moves made by a player, &sum; &Delta;<sub>m</sub> / N<sub>moves</sub>, directly mirroring Lichess's Average Centipawn Loss.</li>
+        <li><strong>Calibrated Game Accuracy:</strong> Each move's accuracy is derived from an exponential loss decay curve:
+          <div class="code-block" style="margin: 0.75rem 0;">Accuracy(m) = clamp(103.1668 &times; exp(&minus;0.04354 &times; &Delta;) &minus; 3.1669, 0, 100)%</div>
+          The player's overall game accuracy is the mean accuracy across all plies, displayed in a circular SVG meter.
+        </li>
+        <li><strong>Multi-Speed Precision:</strong> Players can select <strong>Fast</strong> (instantaneous tactical scan), <strong>Medium</strong> (2-ply candidate search), or <strong>Deep</strong> (3–4 ply iterative deepening).</li>
+        <li><strong>Universal Game Import:</strong> Supports pasting arbitrary PGNs, coordinate sequences (e.g. <code class="code-inline">1. c3 c4 2. d4 b2</code>), and multi-player notations with automated dimension detection.</li>
+      </ul>
+
       <!-- Section 6: The 8-Level Difficulty Calibration -->
       <h2>6. How StockTic Levels 1–8 Are Calibrated</h2>
       <p>
