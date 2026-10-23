@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lichess (m,n,k)-Games & Tic-Tac-Toe Analysis Board</title>
-  <meta name="description" content="Lichess-style analysis board for generalized (m,n,k)-games from 1x1 to 32x32 and k in a row from 1 to 8. Powered by SOTA Threat-Space Search, iterative deepening, and solved tablebases.">
+  <title>StockTic (m,n,k)-Games & Tic-Tac-Toe Analysis Board</title>
+  <meta name="description" content="StockTic analysis board for generalized (m,n,k)-games from 1x1 to 32x32 and k in a row from 1 to 8. Powered by SOTA Threat-Space Search, iterative deepening, and solved tablebases.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,7 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Custom Lichess Dark Palette */
+    /* Custom StockTic Dark Palette */
     :root {
       --bg-darkest: #161512;
       --bg-panel: #262421;
@@ -36,10 +36,10 @@
       --text-main: #bababa;
       --text-bright: #ffffff;
       --text-muted: #73706c;
-      --lichess-green: #629924;
-      --lichess-blue: #3692e7;
-      --lichess-red: #c33a38;
-      --lichess-gold: #e69f00;
+      --stocktic-green: #629924;
+      --stocktic-blue: #3692e7;
+      --stocktic-red: #c33a38;
+      --stocktic-gold: #e69f00;
       --board-light: #322f2b;
       --board-dark: #272522;
       --board-border: #1a1815;
@@ -122,12 +122,12 @@
   <!-- Top Navigation Bar -->
   <header class="bg-[#1e1c18] border-b border-[#363431] px-4 py-2.5 flex items-center justify-between shadow-md select-none sticky top-0 z-40">
     <div class="flex items-center space-x-2 sm:space-x-3">
-      <!-- Lichess Logo & Title -->
+      <!-- StockTic Logo & Title -->
       <a href="./" class="flex items-center space-x-2 group" title="Vaibhav Geometer Home">
         <svg class="w-7 h-7 text-white fill-current group-hover:text-[#629924] transition" viewBox="0 0 24 24">
           <path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/>
         </svg>
-        <span class="font-extrabold text-lg text-white tracking-wide">lichess<span class="text-[#629924]">.org</span></span>
+        <span class="font-extrabold text-lg text-white tracking-wide">Stock<span class="text-[#629924]">Tic</span></span>
       </a>
 
       <span class="text-[#73706c] hidden sm:inline">|</span>
@@ -192,7 +192,7 @@
     <!-- LEFT SECTION: Dynamic Eval Bar + Flexible (m,n,k) Board -->
     <div id="board-workspace" class="flex items-stretch justify-center gap-2 sm:gap-3 w-full max-w-[680px]">
       
-      <!-- Lichess Vertical Evaluation Bar -->
+      <!-- StockTic Vertical Evaluation Bar -->
       <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#1e1c18] border border-[#363431] rounded flex flex-col justify-between overflow-hidden shadow-lg select-none flex-shrink-0">
         <!-- Black/O portion (top) -->
         <div class="w-full bg-[#1e1c18] transition-all duration-300 relative flex items-start justify-center pt-2">
@@ -408,7 +408,7 @@
           <!-- Move badges rendered here -->
         </div>
 
-        <!-- Navigation Buttons (Lichess Style: First, Prev, Next, Last, Reset) -->
+        <!-- Navigation Buttons (StockTic Style: First, Prev, Next, Last, Reset) -->
         <div class="bg-[#1e1c18] border-t border-[#363431] px-2 py-1.5 flex items-center justify-between">
           <div class="flex items-center space-x-1">
             <button id="nav-first" title="First Move (Home / Left Key)" class="p-2 rounded hover:bg-[#363431] text-gray-300 transition">
@@ -1866,7 +1866,7 @@
     }
 
     /**
-     * Render Lichess-style Arrows
+     * Render StockTic Dynamic Arrows
      */
     function updateArrows() {
       const container = document.getElementById('svg-arrows');

@@ -237,7 +237,7 @@ body {
   background: var(--accent-gradient);
 }
 
-/* Engine Card Variant (Lichess Aesthetic) */
+/* Engine Card Variant (StockTic Aesthetic) */
 .engine-card::before {
   background: linear-gradient(135deg, #629924 0%, #3692e7 100%);
 }
