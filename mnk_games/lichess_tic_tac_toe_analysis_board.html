@@ -445,58 +445,68 @@
           </div>
         </div>
 
-        <!-- 1. Match Type: Human vs Human, Human vs AI, AI vs AI -->
+        <!-- 1. Match Mode Presets -->
         <div>
-          <label class="block text-[11px] font-semibold text-gray-300 mb-1.5 uppercase tracking-wide">Match Type</label>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wide">Match Mode Presets</label>
+            <span id="play-player-count-badge" class="text-[10px] mono-font text-[#7ec62f] bg-[#1e1c18] px-1.5 py-0.5 rounded border border-[#363431]">2 Players</span>
+          </div>
           <div class="grid grid-cols-3 gap-1.5" id="match-type-selector">
-            <button type="button" data-type="human_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm">
+            <button type="button" id="preset-human-vs-ai" data-type="human_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm" title="Player 1 is Human, Opponents are AI">
               👤 vs 🤖 Human/AI
             </button>
-            <button type="button" data-type="human_vs_human" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">
+            <button type="button" id="preset-pass-play" data-type="human_vs_human" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" title="All active players are Human (Pass & Play)">
               👤 vs 👤 Pass & Play
             </button>
-            <button type="button" data-type="ai_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">
+            <button type="button" id="preset-ai-vs-ai" data-type="ai_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" title="All active players are AI">
               🤖 vs 🤖 AI vs AI
             </button>
           </div>
         </div>
 
-        <!-- 2. Seat / Play as (for Human vs AI) -->
-        <div id="play-side-row" class="flex items-center justify-between pt-1">
-          <span class="text-xs text-gray-300 font-medium">Play as Side:</span>
-          <div class="flex items-center space-x-2">
-            <button id="play-as-x-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1">
-              <span>✕</span>
-              <span>X (First)</span>
-            </button>
-            <button id="play-as-o-btn" class="px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1">
-              <span>◯</span>
-              <span>O (Second)</span>
-            </button>
+        <!-- 2. Active Players Configuration (Demand 1 & Demand 3: Human or AI, and level for Player 1, 2, 3...) -->
+        <div class="pt-2 border-t border-[#363431]">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-gray-300 font-semibold uppercase tracking-wide">Player Types & AI Levels:</span>
+            <span class="text-[10px] text-gray-400">Configure each player</span>
+          </div>
+          <div id="play-roster-list" class="space-y-1.5">
+            <!-- Dynamically populated for all active players 1..J with piece badges, Human/AI toggle, and AI level selector -->
           </div>
         </div>
 
-        <!-- 3. Engine Difficulty Level (1 to 8) -->
-        <div id="play-difficulty-row" class="pt-2 border-t border-[#363431]">
-          <div class="flex items-center justify-between mb-1.5">
-            <div class="flex items-center space-x-1.5">
-              <span class="text-xs text-gray-300 font-medium">AI Strength:</span>
-              <span id="level-display-name" class="text-xs font-bold text-[#7ec62f]">Level 8 · StockTic Max</span>
+        <!-- 3. AI vs AI & Auto-Play Controls (Demand 4: Dedicated Start AI vs AI button & controls) -->
+        <div id="ai-controls-card" class="pt-2 border-t border-[#363431] space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-gray-300 font-semibold flex items-center space-x-1">
+              <span>🤖 AI Engine Game:</span>
+            </span>
+            <div class="flex items-center space-x-1" id="ai-speed-buttons">
+              <span class="text-[10px] text-gray-400 mr-0.5">Speed:</span>
+              <button type="button" class="ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-speed="150" title="Fast thinking delay: 150ms">⚡ Fast</button>
+              <button type="button" class="ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#629924] text-white border-[#629924]" data-speed="450" title="Normal thinking delay: 450ms">⏱ Normal</button>
+              <button type="button" class="ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-speed="1000" title="Deep thinking delay: 1000ms">🧠 Deep</button>
             </div>
-            <span id="level-elo-badge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1e1c18] border border-[#629924]/50 text-[#7ec62f] mono-font">Elo 3000</span>
           </div>
-          <div class="grid grid-cols-8 gap-1" id="level-buttons-container">
-            <button type="button" data-level="1" title="Level 1: Beginner (~600 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">1</button>
-            <button type="button" data-level="2" title="Level 2: Casual (~900 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">2</button>
-            <button type="button" data-level="3" title="Level 3: Novice (~1200 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">3</button>
-            <button type="button" data-level="4" title="Level 4: Intermediate (~1500 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">4</button>
-            <button type="button" data-level="5" title="Level 5: Advanced (~1800 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">5</button>
-            <button type="button" data-level="6" title="Level 6: Expert (~2100 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">6</button>
-            <button type="button" data-level="7" title="Level 7: Master (~2400 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">7</button>
-            <button type="button" data-level="8" title="Level 8: StockTic Max (~3000 Elo)" class="level-btn py-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm ring-1 ring-[#629924]">8</button>
-          </div>
-          <div id="level-description-box" class="text-[11px] text-gray-400 mt-1 italic">
-            Level 8 AI uses opening books & tablebases instantly, manages clocks smoothly, and never flags.
+          
+          <button type="button" id="btn-start-ai-game" class="w-full py-2 px-3 rounded font-bold text-xs bg-[#629924] hover:bg-[#72b02a] text-white transition flex items-center justify-center space-x-2 shadow-md">
+            <span class="text-sm">🤖</span>
+            <span id="btn-start-ai-label">Start AI vs AI Game</span>
+          </button>
+
+          <div id="ai-active-controls" class="hidden grid grid-cols-3 gap-1.5">
+            <button type="button" id="btn-ai-pause" class="py-1.5 px-2 rounded bg-[#363431] hover:bg-[#474440] text-white font-bold text-xs transition flex items-center justify-center space-x-1">
+              <span id="ai-pause-icon">⏸</span>
+              <span id="ai-pause-label">Pause</span>
+            </button>
+            <button type="button" id="btn-ai-step" class="py-1.5 px-2 rounded bg-[#363431] hover:bg-[#474440] text-white font-bold text-xs transition flex items-center justify-center space-x-1" title="Trigger next AI move immediately">
+              <span>⏩</span>
+              <span>Step Move</span>
+            </button>
+            <button type="button" id="btn-ai-stop" class="py-1.5 px-2 rounded bg-[#c33a38] hover:bg-[#d64543] text-white font-bold text-xs transition flex items-center justify-center space-x-1" title="Stop AI auto-play">
+              <span>⏹</span>
+              <span>Stop</span>
+            </button>
           </div>
         </div>
 
@@ -790,12 +800,14 @@
           </div>
         </div>
 
-        <!-- Next to Move Selector -->
-        <div class="flex items-center justify-between pt-1">
-          <span class="text-xs text-gray-300 font-medium">Starting Turn:</span>
-          <div class="flex items-center space-x-2">
-            <button id="editor-turn-x" class="px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition">X to move</button>
-            <button id="editor-turn-o" class="px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition">O to move</button>
+        <!-- Next to Move Selector (Dynamic for J >= 2) -->
+        <div class="flex flex-col space-y-1.5 pt-1">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-gray-300 font-semibold uppercase tracking-wide">Starting Turn:</span>
+            <span id="editor-current-turn-badge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-[#7ec62f]">Player 1 (X) to move</span>
+          </div>
+          <div id="editor-turn-container" class="flex flex-wrap items-center gap-1.5">
+            <!-- Dynamically populated buttons for all active players 1..J -->
           </div>
         </div>
 
@@ -1442,7 +1454,8 @@
      * SOTA Threat-Space Pattern Evaluation for move
      */
     function evaluateMoveTactics(board, idx, piece, rows = config.rows, cols = config.cols, k = config.k) {
-      const oppPiece = piece === 'X' ? 'O' : 'X';
+      const activePlayers = PLAYERS.slice(0, config.j || 2);
+      const otherPlayers = activePlayers.filter(p => p !== piece);
       const r = Math.floor(idx / cols);
       const c = idx % cols;
 
@@ -1451,9 +1464,11 @@
         return { score: 1000000, desc: `Instant Win (+M1)`, isWin: true, isBlock: false };
       }
 
-      // 2. Direct Opponent Block (Mandatory)
-      if (isWinningMove(board, idx, oppPiece, rows, cols, k)) {
-        return { score: 850000, desc: `Blocks Opponent Win (-M1)`, isWin: false, isBlock: true };
+      // 2. Direct Opponent Block (Mandatory) across all opponents
+      for (const opp of otherPlayers) {
+        if (isWinningMove(board, idx, opp, rows, cols, k)) {
+          return { score: 850000, desc: `Blocks ${opp} Win (-M1)`, isWin: false, isBlock: true };
+        }
       }
 
       const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
@@ -1518,56 +1533,57 @@
       }
       board[idx] = null;
 
-      // Temporarily place opponent piece to evaluate defensive denial
-      board[idx] = oppPiece;
-      for (const [dr, dc] of directions) {
-        let oppFriendly = 1;
-        let oppOpen = 0;
+      // Temporarily place each opponent's piece to evaluate defensive denial
+      for (const oppPiece of otherPlayers) {
+        board[idx] = oppPiece;
+        for (const [dr, dc] of directions) {
+          let oppFriendly = 1;
+          let oppOpen = 0;
 
-        let step = 1;
-        while (step < k) {
-          const nr = r + dr * step;
-          const nc = c + dc * step;
-          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
-          if (board[nr * cols + nc] === oppPiece) oppFriendly++;
-          else {
-            if (board[nr * cols + nc] === null) oppOpen++;
-            break;
+          let step = 1;
+          while (step < k) {
+            const nr = r + dr * step;
+            const nc = c + dc * step;
+            if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+            if (board[nr * cols + nc] === oppPiece) oppFriendly++;
+            else {
+              if (board[nr * cols + nc] === null) oppOpen++;
+              break;
+            }
+            step++;
           }
-          step++;
-        }
 
-        step = 1;
-        while (step < k) {
-          const nr = r - dr * step;
-          const nc = c - dc * step;
-          if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
-          if (board[nr * cols + nc] === oppPiece) oppFriendly++;
-          else {
-            if (board[nr * cols + nc] === null) oppOpen++;
-            break;
+          step = 1;
+          while (step < k) {
+            const nr = r - dr * step;
+            const nc = c - dc * step;
+            if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) break;
+            if (board[nr * cols + nc] === oppPiece) oppFriendly++;
+            else {
+              if (board[nr * cols + nc] === null) oppOpen++;
+              break;
+            }
+            step++;
           }
-          step++;
-        }
 
-        if (oppFriendly >= k - 1) {
-          if (oppOpen === 2) {
-            // Deny opponent's Live (k-1)
-            defensiveScore += 300000;
-            oppLiveThreats++;
-          } else if (oppOpen === 1) {
-            defensiveScore += 25000;
-            oppSleepThreats++;
-          }
-        } else if (oppFriendly >= k - 2 && k >= 4) {
-          if (oppOpen === 2) {
-            defensiveScore += 10000;
-          } else if (oppOpen === 1) {
-            defensiveScore += 1500;
+          if (oppFriendly >= k - 1) {
+            if (oppOpen === 2) {
+              defensiveScore += 300000;
+              oppLiveThreats++;
+            } else if (oppOpen === 1) {
+              defensiveScore += 25000;
+              oppSleepThreats++;
+            }
+          } else if (oppFriendly >= k - 2 && k >= 4) {
+            if (oppOpen === 2) {
+              defensiveScore += 10000;
+            } else if (oppOpen === 1) {
+              defensiveScore += 1500;
+            }
           }
         }
+        board[idx] = null;
       }
-      board[idx] = null;
 
       // Double-Threat Fork Bonuses
       let forkBonus = 0;
@@ -2136,7 +2152,8 @@
       const cols = config.cols;
       const k = config.k;
       const isX = turn === 'X';
-      const opp = isX ? 'O' : 'X';
+      const activePlayers = PLAYERS.slice(0, config.j || 2);
+      const otherPlayers = activePlayers.filter(p => p !== turn);
 
       const allEmpty = [];
       for (let i = 0; i < board.length; i++) {
@@ -2157,11 +2174,14 @@
           const isWin = isWinningMove(board, move, turn, rows, cols, k);
           board[move] = turn;
           let oppCanWin = false;
-          for (const oppM of allEmpty) {
-            if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
-              oppCanWin = true;
-              break;
+          for (const opp of otherPlayers) {
+            for (const oppM of allEmpty) {
+              if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
+                oppCanWin = true;
+                break;
+              }
             }
+            if (oppCanWin) break;
           }
           board[move] = null;
 
@@ -2213,11 +2233,14 @@
         const move = item.move;
         board[move] = turn;
         let oppCanWin = false;
-        for (const oppM of allEmpty) {
-          if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
-            oppCanWin = true;
-            break;
+        for (const opp of otherPlayers) {
+          for (const oppM of allEmpty) {
+            if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
+              oppCanWin = true;
+              break;
+            }
           }
+          if (oppCanWin) break;
         }
 
         let normScore = 0;
@@ -2501,20 +2524,48 @@
     };
 
     /**
-     * Offline Match Mode State (Demand 2)
+     * Multi-Player Match Mode State (Demand 1 & Demand 4)
+     * Every player (Player 1, 2, 3...) can be selected as Human or AI, with its own engine level (1 to 8).
      */
     const playMatchState = {
-      matchType: 'human_vs_ai', // 'human_vs_ai', 'human_vs_human', 'ai_vs_ai'
-      playerXType: 'human',
-      playerOType: 'ai',
-      aiXLevel: 8,
-      aiOLevel: 8,
-      ponder: false,            // Demand 2 lines 20-21: Ponder toggle (default false)
-      fairPlay: true            // Demand 2 line 11: no analysis/cheating hints
+      preset: 'hva', // 'hva', 'hvh', 'ava', or 'custom'
+      players: [
+        { piece: 'X', name: 'Player 1 (X)', type: 'human', level: 8 },
+        { piece: 'O', name: 'Player 2 (O)', type: 'ai', level: 8 },
+        { piece: '▲', name: 'Player 3 (▲)', type: 'ai', level: 6 },
+        { piece: '■', name: 'Player 4 (■)', type: 'human', level: 5 },
+        { piece: '◆', name: 'Player 5 (◆)', type: 'ai', level: 4 }
+      ],
+      aiGameRunning: false,
+      aiGamePaused: false,
+      aiDelayMs: 450,
+      ponder: false,
+      fairPlay: true
     };
 
+    function getPlayerConfig(piece) {
+      let p = playMatchState.players.find(pl => pl.piece === piece);
+      if (!p) {
+        p = { piece, name: PLAYER_NAMES[piece] || piece, type: 'human', level: 8 };
+        playMatchState.players.push(p);
+      }
+      return p;
+    }
+
+    function getAiLevelForTurn(turn) {
+      if (state.mode === 'tournament') {
+        const match = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (match) {
+          const p = turn === 'X' ? match.playerX : match.playerO;
+          return p ? (p.level || 8) : 8;
+        }
+      }
+      const p = getPlayerConfig(turn);
+      return p.level || 8;
+    }
+
     /**
-     * Board Editor State (Demand 4)
+     * Board Editor State (Demand 2)
      */
     const editorState = {
       activeTool: '#',          // '#' (frozen obstacle), 'X', 'O', '▲', '■', '◆', 'erase'
@@ -2711,8 +2762,6 @@
       const botBadge = document.getElementById('player-bottom-badge');
       const botIcon = document.getElementById('player-bottom-icon');
 
-      const lvl = LEVELS[state.engineLevel - 1] || LEVELS[7];
-
       if (state.mode === 'tournament') {
         const match = tournamentState.matches[tournamentState.currentMatchIdx];
         if (match) {
@@ -2733,29 +2782,23 @@
       }
 
       if (state.mode === 'play') {
-        if (playMatchState.matchType === 'human_vs_human') {
-          if (botName) botName.textContent = 'Player 1';
-          if (botBadge) botBadge.textContent = 'Human';
-          if (topName) topName.textContent = 'Player 2';
-          if (topBadge) topBadge.textContent = 'Human';
-        } else if (playMatchState.matchType === 'ai_vs_ai') {
-          if (botName) botName.textContent = 'StockTic AI (X)';
-          if (botBadge) botBadge.textContent = `Level ${state.engineLevel} · Elo ${lvl.elo}`;
-          if (topName) topName.textContent = 'StockTic AI (O)';
-          if (topBadge) topBadge.textContent = `Level ${state.engineLevel} · Elo ${lvl.elo}`;
-        } else {
-          // Human vs AI
-          if (state.playerPiece === 'X') {
-            if (botName) botName.textContent = 'You';
-            if (botBadge) botBadge.textContent = 'Human';
-            if (topName) topName.textContent = `StockTic Level ${state.engineLevel}`;
-            if (topBadge) topBadge.textContent = `AI · Elo ${lvl.elo}`;
-          } else {
-            if (botName) botName.textContent = `StockTic Level ${state.engineLevel}`;
-            if (botBadge) botBadge.textContent = `AI · Elo ${lvl.elo}`;
-            if (topName) topName.textContent = 'You';
-            if (topBadge) topBadge.textContent = 'Human';
-          }
+        const pX = getPlayerConfig('X');
+        const pO = getPlayerConfig('O');
+
+        if (botName) botName.textContent = pX.name;
+        if (botBadge) {
+          botBadge.textContent = pX.type === 'human' ? 'Human' : `AI · L${pX.level}`;
+          botBadge.className = pX.type === 'human'
+            ? 'text-[10px] px-1.5 py-0.2 rounded bg-[#363431] text-sky-300 font-semibold'
+            : 'text-[10px] px-1.5 py-0.2 rounded bg-[#629924]/20 border border-[#629924]/50 text-[#7ec62f] font-semibold';
+        }
+
+        if (topName) topName.textContent = pO.name;
+        if (topBadge) {
+          topBadge.textContent = pO.type === 'human' ? 'Human' : `AI · L${pO.level}`;
+          topBadge.className = pO.type === 'human'
+            ? 'text-[10px] px-1.5 py-0.2 rounded bg-[#363431] text-sky-300 font-semibold'
+            : 'text-[10px] px-1.5 py-0.2 rounded bg-[#629924]/20 border border-[#629924]/50 text-[#7ec62f] font-semibold';
         }
       } else {
         // Analysis & Editor
@@ -2774,11 +2817,226 @@
         return player && player.type === 'ai';
       }
       if (state.mode === 'play') {
-        if (playMatchState.matchType === 'human_vs_human') return false;
-        if (playMatchState.matchType === 'ai_vs_ai') return true;
-        return turn !== state.playerPiece;
+        const p = getPlayerConfig(turn);
+        return p.type === 'ai';
       }
       return false;
+    }
+
+    /**
+     * AI Engine & Auto-Play Controller (Demand 1 & Demand 4)
+     */
+    function triggerAiIfTurn() {
+      if (state.mode !== 'play') return;
+      const current = state.history[state.currentPly];
+      if (checkWinner(current.board) || clockState.flaggedPlayer) {
+        if (playMatchState.aiGameRunning) {
+          stopAiGame();
+        }
+        return;
+      }
+      if (!isTurnControlledByAi(current.turn)) return;
+      if (playMatchState.aiGamePaused) return;
+
+      state.isEngineThinking = true;
+      render();
+
+      const lvl = getAiLevelForTurn(current.turn);
+      const thinkDelay = playMatchState.aiGameRunning ? playMatchState.aiDelayMs : computeAiThinkDelay(current.board, current.turn, lvl);
+
+      if (engineTimeoutId) clearTimeout(engineTimeoutId);
+      engineTimeoutId = setTimeout(() => {
+        makeEngineMoveForLevel(lvl);
+        state.isEngineThinking = false;
+        render();
+      }, thinkDelay);
+    }
+
+    function startAiGame() {
+      const activeCount = config.j || 2;
+      for (let i = 0; i < activeCount; i++) {
+        const piece = PLAYERS[i];
+        const p = getPlayerConfig(piece);
+        p.type = 'ai';
+      }
+      playMatchState.aiGameRunning = true;
+      playMatchState.aiGamePaused = false;
+      renderPlayRoster();
+      updatePlayerBoxes();
+
+      const startBtnLabel = document.getElementById('btn-start-ai-label');
+      if (startBtnLabel) startBtnLabel.textContent = 'Restart AI vs AI Game';
+
+      const activeControls = document.getElementById('ai-active-controls');
+      if (activeControls) activeControls.classList.remove('hidden');
+
+      const current = state.history[state.currentPly];
+      if (checkWinner(current.board) || clockState.flaggedPlayer || current.board.some(c => c !== null)) {
+        resetBoard();
+      } else {
+        triggerAiIfTurn();
+      }
+      showToast('AI vs AI Game started!');
+    }
+
+    function pauseAiGame() {
+      playMatchState.aiGamePaused = !playMatchState.aiGamePaused;
+      const pauseIcon = document.getElementById('ai-pause-icon');
+      const pauseLabel = document.getElementById('ai-pause-label');
+      if (pauseIcon) pauseIcon.textContent = playMatchState.aiGamePaused ? '▶' : '⏸';
+      if (pauseLabel) pauseLabel.textContent = playMatchState.aiGamePaused ? 'Resume' : 'Pause';
+
+      if (!playMatchState.aiGamePaused) {
+        triggerAiIfTurn();
+        showToast('AI Game resumed');
+      } else {
+        if (engineTimeoutId) {
+          clearTimeout(engineTimeoutId);
+          engineTimeoutId = null;
+        }
+        state.isEngineThinking = false;
+        render();
+        showToast('AI Game paused');
+      }
+    }
+
+    function stepAiGame() {
+      const current = state.history[state.currentPly];
+      if (checkWinner(current.board) || clockState.flaggedPlayer) {
+        showToast('Game over, no further moves');
+        return;
+      }
+      const lvl = getAiLevelForTurn(current.turn);
+      makeEngineMoveForLevel(lvl);
+    }
+
+    function stopAiGame() {
+      playMatchState.aiGameRunning = false;
+      playMatchState.aiGamePaused = false;
+      if (engineTimeoutId) {
+        clearTimeout(engineTimeoutId);
+        engineTimeoutId = null;
+      }
+      state.isEngineThinking = false;
+      const startBtnLabel = document.getElementById('btn-start-ai-label');
+      if (startBtnLabel) startBtnLabel.textContent = 'Start AI vs AI Game';
+      const activeControls = document.getElementById('ai-active-controls');
+      if (activeControls) activeControls.classList.add('hidden');
+      render();
+      showToast('AI Game stopped');
+    }
+
+    /**
+     * Render Active Play Roster (Demand 1 & Demand 3)
+     */
+    function renderPlayRoster() {
+      const container = document.getElementById('play-roster-list');
+      if (!container) return;
+      const activeCount = config.j || 2;
+      container.innerHTML = '';
+
+      for (let i = 0; i < activeCount; i++) {
+        const piece = PLAYERS[i];
+        const p = getPlayerConfig(piece);
+        const row = document.createElement('div');
+        row.className = 'flex items-center justify-between bg-[#1e1c18] px-2.5 py-1.5 rounded-lg border border-[#363431] text-xs';
+
+        row.innerHTML = `
+          <div class="flex items-center space-x-2">
+            <span class="w-4 h-4 rounded-full inline-flex items-center justify-center font-bold text-[10px]" style="background-color: ${PLAYER_COLORS[piece]}; color: #000;">${piece}</span>
+            <span class="font-semibold text-gray-200">${p.name}</span>
+          </div>
+
+          <div class="flex items-center space-x-1.5">
+            <!-- Type Selector: Human or AI -->
+            <div class="inline-flex rounded-md p-0.5 bg-[#262421] border border-[#363431]">
+              <button type="button" class="player-type-toggle px-2 py-0.5 rounded text-[11px] font-bold transition ${p.type === 'human' ? 'bg-[#3692e7] text-white shadow' : 'text-gray-400 hover:text-white'}" data-piece="${piece}" data-type="human" title="Play as Human">
+                👤 Human
+              </button>
+              <button type="button" class="player-type-toggle px-2 py-0.5 rounded text-[11px] font-bold transition ${p.type === 'ai' ? 'bg-[#629924] text-white shadow' : 'text-gray-400 hover:text-white'}" data-piece="${piece}" data-type="ai" title="Controlled by StockTic Engine">
+                🤖 AI
+              </button>
+            </div>
+
+            <!-- Engine Level Selector (Visible when AI is selected) -->
+            <div class="${p.type === 'ai' ? '' : 'hidden'} play-level-wrap flex items-center space-x-1">
+              <select class="play-level-select bg-[#262421] text-gray-200 border border-[#363431] text-[11px] font-bold rounded px-1.5 py-0.5 focus:border-[#629924] outline-none" data-piece="${piece}" title="Select Engine Level">
+                <option value="1" ${p.level === 1 ? 'selected' : ''}>L1 · 600</option>
+                <option value="2" ${p.level === 2 ? 'selected' : ''}>L2 · 900</option>
+                <option value="3" ${p.level === 3 ? 'selected' : ''}>L3 · 1200</option>
+                <option value="4" ${p.level === 4 ? 'selected' : ''}>L4 · 1500</option>
+                <option value="5" ${p.level === 5 ? 'selected' : ''}>L5 · 1800</option>
+                <option value="6" ${p.level === 6 ? 'selected' : ''}>L6 · 2100</option>
+                <option value="7" ${p.level === 7 ? 'selected' : ''}>L7 · 2400</option>
+                <option value="8" ${p.level === 8 ? 'selected' : ''}>L8 · 3000</option>
+              </select>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(row);
+      }
+
+      // Wire up toggle and select events
+      container.querySelectorAll('.player-type-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const piece = btn.dataset.piece;
+          const type = btn.dataset.type;
+          const p = getPlayerConfig(piece);
+          p.type = type;
+          renderPlayRoster();
+          updatePlayerBoxes();
+          renderMultiplayerBar();
+          triggerAiIfTurn();
+        });
+      });
+
+      container.querySelectorAll('.play-level-select').forEach(sel => {
+        sel.addEventListener('change', (e) => {
+          const piece = sel.dataset.piece;
+          const lvl = parseInt(e.target.value, 10);
+          const p = getPlayerConfig(piece);
+          p.level = lvl;
+          updatePlayerBoxes();
+          showToast(`${p.name} set to Level ${lvl}`);
+        });
+      });
+    }
+
+    /**
+     * Render Editor Turn Selector (Demand 2 & Demand 3)
+     */
+    function renderEditorTurnSelector() {
+      const container = document.getElementById('editor-turn-container');
+      const badge = document.getElementById('editor-current-turn-badge');
+      if (!container) return;
+      const activeCount = config.j || 2;
+      const activePlayers = PLAYERS.slice(0, activeCount);
+      if (!activePlayers.includes(editorState.turn)) {
+        editorState.turn = activePlayers[0];
+      }
+
+      if (badge) {
+        badge.textContent = `${PLAYER_NAMES[editorState.turn] || editorState.turn} to move`;
+      }
+
+      container.innerHTML = activePlayers.map(p => {
+        const isSelected = p === editorState.turn;
+        const cls = isSelected
+          ? 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition'
+          : 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
+        return `<button type="button" class="editor-turn-btn ${cls}" data-turn="${p}">${p} to move</button>`;
+      }).join('');
+
+      container.querySelectorAll('.editor-turn-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          editorState.turn = btn.dataset.turn;
+          renderEditorTurnSelector();
+          const current = state.history[state.currentPly];
+          if (current) current.turn = editorState.turn;
+          render();
+        });
+      });
     }
 
     /**
@@ -3981,18 +4239,7 @@
       // Trigger AI move
       if (!terminalAfter && !clockState.flaggedPlayer) {
         if (state.mode === 'play') {
-          const nextState = state.history[state.currentPly];
-          if (isTurnControlledByAi(nextState.turn)) {
-            state.isEngineThinking = true;
-            render();
-            const thinkDelay = computeAiThinkDelay(nextState.board, nextState.turn, state.engineLevel);
-            if (engineTimeoutId) clearTimeout(engineTimeoutId);
-            engineTimeoutId = setTimeout(() => {
-              makeEngineMoveForLevel(state.engineLevel);
-              state.isEngineThinking = false;
-              render();
-            }, thinkDelay);
-          }
+          triggerAiIfTurn();
         } else if (state.mode === 'tournament') {
           const match = tournamentState.matches[tournamentState.currentMatchIdx];
           if (match && match.status !== 'finished') {
@@ -5003,14 +5250,8 @@
       playSound('move');
       render();
 
-      if (state.mode === 'play' && state.playerPiece === 'O') {
-        state.isEngineThinking = true;
-        render();
-        engineTimeoutId = setTimeout(() => {
-          makeEngineMove();
-          state.isEngineThinking = false;
-          render();
-        }, 360);
+      if (state.mode === 'play') {
+        triggerAiIfTurn();
       }
     }
 
@@ -5277,6 +5518,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       } catch (e) {}
 
       ttMap.clear();
+      renderPlayRoster();
+      renderEditorTurnSelector();
+      renderMultiplayerBar();
       resetBoard();
       showToast(`Board updated: ${rows}×${cols} with k=${k} to win! (${config.j || 2} players)`);
     }
@@ -5596,66 +5840,89 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     // ==========================================
     // PLAY & CLOCKS PANEL CONTROLS (Demand 2)
     // ==========================================
-    document.querySelectorAll('.match-type-btn').forEach(btn => {
+    // Quick Match Presets (Demand 1 & Demand 4)
+    document.querySelectorAll('.match-preset-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const mType = btn.dataset.type;
-        playMatchState.type = mType;
-        document.querySelectorAll('.match-type-btn').forEach(b => {
-          b.className = (b.dataset.type === mType)
-            ? 'match-type-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm'
-            : 'match-type-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        const preset = btn.dataset.preset;
+        playMatchState.preset = preset;
+        const activeCount = config.j || 2;
+
+        document.querySelectorAll('.match-preset-btn').forEach(b => {
+          if (b === btn) {
+            b.className = 'match-preset-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
+          } else {
+            b.className = 'match-preset-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+          }
         });
-        const subHva = document.getElementById('play-hva-suboptions');
-        const subAva = document.getElementById('play-ava-suboptions');
-        if (subHva) subHva.classList.toggle('hidden', mType !== 'hva');
-        if (subAva) subAva.classList.toggle('hidden', mType !== 'ava');
-        updatePlayerBoxes();
-        resetBoard();
+
+        if (preset === 'hva') {
+          // Player 1 = Human, others = AI
+          for (let i = 0; i < activeCount; i++) {
+            const piece = PLAYERS[i];
+            const p = getPlayerConfig(piece);
+            p.type = (i === 0) ? 'human' : 'ai';
+          }
+          stopAiGame();
+          renderPlayRoster();
+          updatePlayerBoxes();
+          resetBoard();
+          showToast('Match preset: Player 1 (Human) vs AI');
+        } else if (preset === 'hvh') {
+          // All active players = Human
+          for (let i = 0; i < activeCount; i++) {
+            const piece = PLAYERS[i];
+            const p = getPlayerConfig(piece);
+            p.type = 'human';
+          }
+          stopAiGame();
+          renderPlayRoster();
+          updatePlayerBoxes();
+          resetBoard();
+          showToast('Match preset: Pass & Play (All Humans)');
+        } else if (preset === 'ava') {
+          startAiGame();
+        }
       });
     });
 
-    const playAiSelect = document.getElementById('play-ai-level-select');
-    if (playAiSelect) {
-      playAiSelect.addEventListener('change', (e) => {
-        playMatchState.hvaAiLevel = parseInt(e.target.value, 10);
-        updatePlayerBoxes();
+    // AI Engine Game Buttons (Demand 4)
+    const btnStartAiGame = document.getElementById('btn-start-ai-game');
+    if (btnStartAiGame) {
+      btnStartAiGame.addEventListener('click', () => {
+        startAiGame();
       });
     }
 
-    const avaAi1 = document.getElementById('play-ava-ai1-select');
-    if (avaAi1) {
-      avaAi1.addEventListener('change', (e) => {
-        playMatchState.avaAi1Level = parseInt(e.target.value, 10);
-        updatePlayerBoxes();
-      });
+    const btnAiPause = document.getElementById('btn-ai-pause');
+    if (btnAiPause) {
+      btnAiPause.addEventListener('click', pauseAiGame);
     }
 
-    const avaAi2 = document.getElementById('play-ava-ai2-select');
-    if (avaAi2) {
-      avaAi2.addEventListener('change', (e) => {
-        playMatchState.avaAi2Level = parseInt(e.target.value, 10);
-        updatePlayerBoxes();
-      });
+    const btnAiStep = document.getElementById('btn-ai-step');
+    if (btnAiStep) {
+      btnAiStep.addEventListener('click', stepAiGame);
     }
 
-    const playColorX = document.getElementById('play-color-x-btn');
-    const playColorO = document.getElementById('play-color-o-btn');
-    if (playColorX && playColorO) {
-      playColorX.addEventListener('click', () => {
-        playMatchState.hvaUserPiece = 'X';
-        playColorX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
-        playColorO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
-        updatePlayerBoxes();
-        resetBoard();
-      });
-      playColorO.addEventListener('click', () => {
-        playMatchState.hvaUserPiece = 'O';
-        playColorO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
-        playColorX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
-        updatePlayerBoxes();
-        resetBoard();
-      });
+    const btnAiStop = document.getElementById('btn-ai-stop');
+    if (btnAiStop) {
+      btnAiStop.addEventListener('click', stopAiGame);
     }
+
+    // AI Speed Buttons
+    document.querySelectorAll('.ai-speed-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const speed = parseInt(btn.dataset.speed, 10);
+        playMatchState.aiDelayMs = speed;
+        document.querySelectorAll('.ai-speed-btn').forEach(b => {
+          if (b === btn) {
+            b.className = 'ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#629924] text-white border-[#629924]';
+          } else {
+            b.className = 'ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+          }
+        });
+        showToast(`AI Move speed set to ${speed}ms`);
+      });
+    });
 
     // Time Control Presets
     document.querySelectorAll('.tc-preset-btn').forEach(btn => {
@@ -5945,9 +6212,10 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     // ==========================================
     document.querySelectorAll('.editor-tool-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        editorState.activeTool = btn.dataset.tool;
         editorState.selectedTool = btn.dataset.tool;
         document.querySelectorAll('.editor-tool-btn').forEach(b => {
-          if (b.dataset.tool === editorState.selectedTool) {
+          if (b.dataset.tool === editorState.activeTool) {
             b.className = 'editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400';
           } else {
             b.className = 'editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
@@ -5956,20 +6224,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       });
     });
 
-    const editTurnX = document.getElementById('editor-turn-x');
-    const editTurnO = document.getElementById('editor-turn-o');
-    if (editTurnX && editTurnO) {
-      editTurnX.addEventListener('click', () => {
-        editorState.turn = 'X';
-        editTurnX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
-        editTurnO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
-      });
-      editTurnO.addEventListener('click', () => {
-        editorState.turn = 'O';
-        editTurnO.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition';
-        editTurnX.className = 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
-      });
-    }
+    renderEditorTurnSelector();
 
     const btnClearEditor = document.getElementById('btn-editor-clear-all');
     if (btnClearEditor) btnClearEditor.addEventListener('click', clearEditorBoard);
@@ -6041,6 +6296,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       { id: 'ai6', name: 'StockTic L6 (Expert)', type: 'ai', level: 6 }
     ];
     renderTournamentRoster();
+    renderPlayRoster();
+    renderEditorTurnSelector();
+    renderMultiplayerBar();
     initClocks();
 
     // Initial render on page load
