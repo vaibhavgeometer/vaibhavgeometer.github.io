@@ -904,21 +904,29 @@
         if (board[i] !== null) occupiedCount++;
       }
 
-      // Small boards (<= 16 cells): evaluate all empty cells
-      if (rows * cols <= 16) {
+      // Small to medium boards (<= 36 cells, e.g. up to 6x6): evaluate all empty cells
+      if (rows * cols <= 36) {
         for (let i = 0; i < board.length; i++) {
           if (board[i] === null) legal.push(i);
         }
         return legal;
       }
 
-      // If larger board is empty, offer center square plus immediate Chebyshev distance <= 1 neighbors
+      // If board is empty and compact (<= 100 cells, e.g. up to 10x10): return all empty cells
+      if (occupiedCount === 0 && rows * cols <= 100) {
+        for (let i = 0; i < board.length; i++) {
+          legal.push(i);
+        }
+        return legal;
+      }
+
+      // If empty on large board (> 100 cells), offer center square plus neighborhood
       if (occupiedCount === 0) {
         const centerR = Math.floor(rows / 2);
         const centerC = Math.floor(cols / 2);
         const openingCandidates = [];
-        for (let dr = -1; dr <= 1; dr++) {
-          for (let dc = -1; dc <= 1; dc++) {
+        for (let dr = -2; dr <= 2; dr++) {
+          for (let dc = -2; dc <= 2; dc++) {
             const nr = centerR + dr;
             const nc = centerC + dc;
             if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
@@ -1027,7 +1035,6 @@
         } else if (friendly >= k - 2 && k >= 4) {
           if (openEnds === 2) {
             offensiveScore += 12000;
-            myLiveThreats++;
           } else if (openEnds === 1) {
             offensiveScore += 2000;
           }
@@ -1081,7 +1088,6 @@
         } else if (oppFriendly >= k - 2 && k >= 4) {
           if (oppOpen === 2) {
             defensiveScore += 10000;
-            oppLiveThreats++;
           } else if (oppOpen === 1) {
             defensiveScore += 1500;
           }
@@ -1141,7 +1147,7 @@
           const sO = evaluateMoveTactics(board, m, opp, rows, cols, k).score;
           if (sO > oppBest) oppBest = sO;
         }
-        return myBest - oppBest * 1.1;
+        return myBest - oppBest;
       }
 
       const key = board.map(c => c || '.').join('') + turn + depth;
@@ -1213,36 +1219,105 @@
         };
       }
 
-      // 2. Small Board Exact Minimax (<= 9 cells, e.g. 3x3)
+      // Count occupied cells
+      let occupiedCount = 0;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] !== null) occupiedCount++;
+      }
+
+      // 2. Starting Position of Known Theoretical Draw (e.g. 5x5 k=4, 4x4 k=4, etc.)
+      const theoOutcome = getTheoreticalValue(rows, cols, k);
+      const isTheoDraw = theoOutcome.startsWith('Theoretical Draw') || theoOutcome.startsWith('Draw');
+      if (occupiedCount === 0 && isTheoDraw) {
+        const centerIdx = Math.floor(rows / 2) * cols + Math.floor(cols / 2);
+        const allMoves = [];
+        for (let i = 0; i < board.length; i++) {
+          allMoves.push({
+            move: i,
+            score: 0,
+            rawScore: 0,
+            tacticalDesc: 'Theoretical Draw (0)',
+            pv: [i]
+          });
+        }
+        return {
+          score: 0,
+          bestMove: centerIdx,
+          pv: [centerIdx],
+          allMoves,
+          terminal: false,
+          winner: null,
+          line: null
+        };
+      }
+
+      // 3. Small Board Exact Minimax (<= 9 cells, e.g. 3x3)
       if (rows * cols <= 9) {
         return exactMinimax(board, turn, rows, cols, k);
       }
 
-      // 3. SOTA Alpha-Beta Search for Larger Boards
-      const candidates = getCandidateMoves(board, rows, cols);
-      if (candidates.length === 0) {
+      // 4. Gather empty cells for evaluation.
+      // On boards up to 10x10, evaluate ALL empty squares so every square shows its badge.
+      const allEmpty = [];
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === null) allEmpty.push(i);
+      }
+      if (allEmpty.length === 0) {
         return { score: 0, bestMove: null, pv: [], allMoves: [], terminal: false };
       }
 
+      const targetMoves = (Math.max(rows, cols) <= 10) ? allEmpty : getCandidateMoves(board, rows, cols);
+
       // Direct 1-move win check
-      const directWins = candidates.filter(m => isWinningMove(board, m, turn, rows, cols, k));
+      const directWins = targetMoves.filter(m => isWinningMove(board, m, turn, rows, cols, k));
       if (directWins.length > 0) {
-        const m = directWins[0];
+        const bestMove = directWins[0];
+        const scoredMoves = [];
+        for (const move of targetMoves) {
+          const isWin = isWinningMove(board, move, turn, rows, cols, k);
+          board[move] = turn;
+          let oppCanWin = false;
+          for (const oppM of allEmpty) {
+            if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
+              oppCanWin = true;
+              break;
+            }
+          }
+          board[move] = null;
+
+          let score = 0;
+          let desc = '';
+          if (isWin) {
+            score = isX ? 100 : -100;
+            desc = 'Instant Win (+100)';
+          } else if (oppCanWin) {
+            score = isX ? -100 : 100;
+            desc = 'Allows Opponent Win (-100)';
+          } else {
+            score = isX ? -50 : 50;
+            desc = 'Missed Instant Win';
+          }
+          scoredMoves.push({
+            move,
+            rawScore: isWin ? 1000000 : (oppCanWin ? -1000000 : -500000),
+            score,
+            tacticalDesc: desc,
+            pv: [move]
+          });
+        }
+        scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
         return {
           score: isX ? 100 : -100,
-          bestMove: m,
-          pv: [m],
-          allMoves: [{ move: m, score: isX ? 100 : -100, rawScore: 1000000, tacticalDesc: 'Instant Win (+100)', pv: [m] }],
+          bestMove,
+          pv: [bestMove],
+          allMoves: scoredMoves,
           terminal: false
         };
       }
 
-      // Direct opponent win check
-      const oppWinMoves = candidates.filter(m => isWinningMove(board, m, opp, rows, cols, k));
-
       // Calculate initial tactical heuristic for candidate sorting
       const evaluations = [];
-      for (const move of candidates) {
+      for (const move of targetMoves) {
         const evalResult = evaluateMoveTactics(board, move, turn, rows, cols, k);
         evaluations.push({
           move,
@@ -1256,7 +1331,7 @@
       // Search depth determination
       let searchDepth = 4;
       if (rows * cols <= 16) searchDepth = 5;
-      else if (rows * cols <= 25) searchDepth = 4;
+      else if (rows * cols <= 25) searchDepth = 3;
       else if (rows * cols <= 64) searchDepth = 3;
       else searchDepth = 2;
 
@@ -1264,8 +1339,10 @@
       const timeLimit = 350; // ms
       ttMap.clear();
 
-      const candidateLimit = rows * cols <= 25 ? 14 : 10;
-      const searchCandidates = evaluations.slice(0, candidateLimit);
+      // Deep search top candidates, tactically evaluate the rest with blunder checks
+      const deepLimit = rows * cols <= 25 ? 16 : 10;
+      const searchCandidates = evaluations.slice(0, deepLimit);
+      const searchCandidateSet = new Set(searchCandidates.map(c => c.move));
       const scoredMoves = [];
 
       for (const item of searchCandidates) {
@@ -1297,12 +1374,46 @@
         });
       }
 
+      // Evaluate remaining moves to ensure all empty cells have evaluation badges
+      for (const item of evaluations) {
+        if (!searchCandidateSet.has(item.move)) {
+          const move = item.move;
+          board[move] = turn;
+          let oppCanWin = false;
+          for (const oppM of allEmpty) {
+            if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
+              oppCanWin = true;
+              break;
+            }
+          }
+          board[move] = null;
+
+          let normScore = 0;
+          let desc = item.desc;
+          if (oppCanWin) {
+            normScore = isX ? -100 : 100;
+            desc = 'Allows Opponent Win (-100)';
+          } else {
+            const raw = Math.min(100000, item.initialScore) / 100000;
+            normScore = Math.round(isX ? raw * 35 : -raw * 35);
+          }
+
+          scoredMoves.push({
+            move,
+            rawScore: oppCanWin ? -1000000 : item.initialScore - 200000,
+            score: normScore,
+            tacticalDesc: desc,
+            pv: [move]
+          });
+        }
+      }
+
       scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
       const best = scoredMoves[0];
 
       return {
         score: best ? best.score : 0,
-        bestMove: best ? best.move : candidates[0],
+        bestMove: best ? best.move : targetMoves[0],
         pv: best ? best.pv : [],
         allMoves: scoredMoves,
         terminal: false,
@@ -1772,7 +1883,7 @@
               const badge = document.createElement('div');
               badge.className = `absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${
                 score > 0 ? 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold' :
-                (score < 0 ? 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold' : 'bg-[#1e1c18]/90 text-gray-300 border-[#363431]')
+                (score < 0 ? 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold' : 'bg-[#1e1c18]/90 text-gray-200 border-[#4a4742] font-semibold')
               }`;
               badge.textContent = formatEval(score);
               cell.appendChild(badge);
