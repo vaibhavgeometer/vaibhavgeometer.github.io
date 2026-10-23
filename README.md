@@ -122,6 +122,11 @@
   - Continuous vertical gauge with red 50–50 center line and board orientation flipping support.
 - **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**:
   - Solves $(m,n,k)$ horizon oscillations by evaluating center Chebyshev proximity and unblocked line segmentation on the static board, eliminating erratic score swings on theoretical draws like $(5,5,4)$.
+- **Progressive AI Thinking & Iterative Deepening (Lichess Analysis Board Architecture)**:
+  - In unsolved positions, the AI thinks progressively deeper ($d=1, 2, 3, \dots, 24$), refining move evaluations, re-ranking candidate lines, and discovering tactical Principal Variations as time elapses.
+  - **AI Thinking Time Selector**: Quick pill selector offering `1s` (blitz), `5s` (standard analysis), `10s` (deep tactical search), `30s` (grandmaster ponder), and `∞` (unlimited until mathematically solved or stopped).
+  - **Live Engine Telemetry & PV**: Real-time depth indicator (`depth 7/24` or `depth Solved`), evaluated nodes counter, computation speed in kN/s, live elapsed timer, animated progress bar, `Stop`/`Run` calculation toggle, and full algebraic Principal Variation sequence (`PV: c4 d4 b2 c2 b3`).
+  - **Cooperative Asynchronous Non-blocking Architecture**: Micro-delays between ply searches keep the UI butter-smooth at 60fps with in-place board evaluation badge updates.
 - **All-Square Evaluation Badges & MultiPV Candidate Ranking**:
   - Complete evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (Best in green, Neutral in gray, Blunder in red).
   - MultiPV candidate moves list ranking top moves with real-time tactical annotations ("Instant Win", "Open 2 Build", "Positional Control", "Allows Opponent Win").
@@ -363,11 +368,13 @@ This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_test
 ## 🚀 Recent Updates
 
 ### October 2026 — StockTic Engine, Eval Bar & Analysis Board Major Update
+- **Progressive AI Thinking & Iterative Deepening (Lichess Style)**: Implemented an asynchronous iterative deepening search engine ($d=1..24$) with cooperative micro-yielding, PV move ordering, live telemetry (depth, nodes, kN/s, timer, progress bar, `Stop`/`Run` toggle), and real-time Principal Variation line display.
+- **Configurable AI Thinking Time**: Added interactive pill buttons allowing users to select engine thinking budgets: `1s`, `5s`, `10s`, `30s`, and `∞` (unlimited until mathematically solved or stopped).
 - **Win Probability Evaluation Bar (`[-100, +100]` Scale)**: Standardized the evaluation scale to intuitive win probability percentages ($+100$ = 100% win for First Player $X$, $0$ = 50–50 balanced / theoretical draw, $-100$ = 100% win for Second Player $O$). Features continuous height-matched fill, high-contrast borders, red 50–50 midpoint indicator line, and board flip orientation support.
 - **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**: Developed and implemented a static positional kernel evaluating Chebyshev center proximity and unblocked line counts. Completely eliminates leaf-node horizon oscillations, keeping opening moves on theoretical draw boards like $(5,5,4)$ rock-solid at $0$.
 - **All-Square Evaluation Badges**: Real-time evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (green for best moves, gray for equal/draws, red for blunders).
 - **Match Evaluation & Privacy Toggle**: Added play-mode toggle (`playShowEval`) to conceal engine evaluations and hints for competitive matches vs engine Levels 1–8.
-- **Research Article Expansion**: Published new sections in `mnk_games_theory_and_ai.html` covering static evaluation kernel mathematics, horizon effect mitigation, and win probability modeling.
+- **Research Article Expansion**: Published new sections in `mnk_games_theory_and_ai.html` covering progressive AI thinking, static evaluation kernel mathematics, horizon effect mitigation, and win probability modeling.
 
 ### August 2026 — JAM Portal & CBT Simulator Code Audit
 - **Simulator Engine Improvements:** Fixed an issue where the `C` keyboard shortcut for Option C conflicted with clearing responses. Refined the NAT evaluation logic for exact value single-answer keys to a strict `0.001` tolerance. Added support for hyphen (`-`) as a valid range delimiter.

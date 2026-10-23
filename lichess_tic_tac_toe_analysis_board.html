@@ -270,16 +270,20 @@
     <div class="w-full lg:w-[480px] flex flex-col space-y-4">
       
       <!-- Engine Evaluation Header Box (StockTic SOTA) -->
-      <div class="bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg">
-        <div class="flex items-center justify-between border-b border-[#363431] pb-2 mb-2">
+      <div class="relative bg-[#262421] border border-[#363431] rounded-lg p-3 shadow-lg space-y-2.5 overflow-hidden">
+        <!-- Progress bar on top/bottom of box -->
+        <div id="engine-progress-bar" class="absolute top-0 left-0 h-[2px] bg-[#629924] transition-all duration-200" style="width: 0%;"></div>
+
+        <!-- Engine Title & Solver Status -->
+        <div class="flex items-center justify-between border-b border-[#363431] pb-2">
           <div class="flex items-center space-x-2">
             <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
             <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">StockTic SOTA</span>
-            <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">TSS + PNS</span>
+            <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 1/16</span>
           </div>
           <div class="flex items-center space-x-2 text-xs">
-            <span id="engine-tablebase-label" class="text-[#73706c]">Engine:</span>
-            <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">SOTA MNK</span>
+            <span id="engine-tablebase-label" class="text-[#73706c]">Solver:</span>
+            <span id="engine-tablebase-status" class="text-[#629924] font-semibold mono-font">Ready</span>
           </div>
         </div>
 
@@ -294,9 +298,39 @@
             </span>
           </div>
           <div class="text-right text-[11px] text-[#73706c] mono-font">
-            <div id="nodes-count">Nodes: SOTA Pruned</div>
-            <div id="speed-label">Instant Calculation</div>
+            <div id="nodes-count">Nodes: 0</div>
+            <div id="speed-label">0 kN/s</div>
           </div>
+        </div>
+
+        <!-- SOTA AI Thinking Time & Engine Controls (Inspired by Lichess) -->
+        <div class="pt-2 border-t border-[#363431]/80 flex flex-wrap items-center justify-between gap-2 select-none">
+          <!-- Time Buttons -->
+          <div class="flex items-center space-x-1.5 text-xs">
+            <span class="text-[11px] font-semibold text-gray-400">Thinking:</span>
+            <div id="thinking-time-selector" class="inline-flex rounded bg-[#1a1815] p-0.5 border border-[#363431]">
+              <button data-time="1" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 1 second">1s</button>
+              <button data-time="5" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 5 seconds">5s</button>
+              <button data-time="10" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 10 seconds">10s</button>
+              <button data-time="30" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Think for 30 seconds">30s</button>
+              <button data-time="unlimited" class="thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Unlimited thinking until mathematically solved or stopped">∞</button>
+            </div>
+          </div>
+
+          <!-- Stop / Run Button & Live Timer -->
+          <div class="flex items-center space-x-2">
+            <span id="telemetry-timer" class="text-[11px] mono-font text-gray-400">0.0s / 5s</span>
+            <button id="btn-engine-toggle" class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white transition flex items-center space-x-1 border border-[#4a4742]" title="Stop or Restart Engine Calculation">
+              <span id="btn-engine-toggle-icon">⏹</span>
+              <span id="btn-engine-toggle-text">Stop</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Principal Variation (PV) Line -->
+        <div id="engine-pv-container" class="pt-1.5 border-t border-[#363431]/40 flex items-center text-[11px] mono-font text-gray-400 truncate">
+          <span class="text-gray-500 font-semibold mr-1.5 flex-shrink-0">PV:</span>
+          <span id="engine-pv-text" class="text-[#7ec62f] italic truncate select-text">Ready</span>
         </div>
       </div>
 
@@ -1191,8 +1225,15 @@
     /**
      * Alpha-Beta Negamax Search with Transposition Table for Deep Combinations
      */
-    function alphaBetaSearch(board, turn, depth, alpha, beta, rows, cols, k, startTime, timeLimit) {
-      if (Date.now() - startTime > timeLimit) return 0;
+    function alphaBetaSearch(board, turn, depth, alpha, beta, rows, cols, k, startTime, timeLimit, stats) {
+      if (stats) {
+        stats.nodes++;
+        if ((stats.nodes & 255) === 0 && (Date.now() - startTime > timeLimit)) {
+          return 0;
+        }
+      } else if (Date.now() - startTime > timeLimit) {
+        return 0;
+      }
 
       const opp = turn === 'X' ? 'O' : 'X';
       const term = checkWinner(board, rows, cols, k);
@@ -1207,8 +1248,11 @@
         return turn === 'X' ? net : -net;
       }
 
-      const key = board.map(c => c || '.').join('') + turn + depth;
-      if (ttMap.has(key)) return ttMap.get(key);
+      const key = board.map(c => c || '.').join('') + ' ' + turn;
+      const entry = ttMap.get(key);
+      if (entry && entry.depth >= depth) {
+        return entry.score;
+      }
 
       const candidates = getCandidateMoves(board, rows, cols);
       if (candidates.length === 0) return 0;
@@ -1230,91 +1274,244 @@
           const sB = evaluateMoveTactics(board, b, turn, rows, cols, k).score;
           return sB - sA;
         });
-        const maxBranch = rows * cols <= 25 ? 12 : 8;
+
+        // If transposition entry exists from prior depth, test bestMove first (PV Move Ordering)
+        if (entry && entry.bestMove !== null && entry.bestMove !== undefined) {
+          const idx = searchMoves.indexOf(entry.bestMove);
+          if (idx > 0) {
+            searchMoves.splice(idx, 1);
+            searchMoves.unshift(entry.bestMove);
+          }
+        }
+
+        const maxBranch = rows * cols <= 25 ? 14 : (rows * cols <= 64 ? 10 : 8);
         searchMoves = searchMoves.slice(0, maxBranch);
       }
 
       let bestVal = -Infinity;
+      let currentBestMove = searchMoves[0];
+
       for (const move of searchMoves) {
         board[move] = turn;
-        const val = -alphaBetaSearch(board, opp, depth - 1, -beta, -alpha, rows, cols, k, startTime, timeLimit);
+        const val = -alphaBetaSearch(board, opp, depth - 1, -beta, -alpha, rows, cols, k, startTime, timeLimit, stats);
         board[move] = null;
 
-        if (val > bestVal) bestVal = val;
+        if (val > bestVal) {
+          bestVal = val;
+          currentBestMove = move;
+        }
         if (val > alpha) alpha = val;
         if (alpha >= beta) break;
       }
 
-      ttMap.set(key, bestVal);
+      ttMap.set(key, { score: bestVal, depth, bestMove: currentBestMove });
       return bestVal;
     }
 
     /**
-     * SOTA (m, n, k) Engine Master Analysis Function
+     * Extract Principal Variation (PV) sequence from Transposition Table
      */
-    function analyzePosition(board, turn) {
+    function extractPvFromTT(board, turn, maxPlies = 6) {
+      const pv = [];
+      const b = [...board];
+      let currTurn = turn;
+      const visited = new Set();
+
+      for (let step = 0; step < maxPlies; step++) {
+        const key = b.map(c => c || '.').join('') + ' ' + currTurn;
+        const entry = ttMap.get(key);
+        if (!entry || entry.bestMove === null || entry.bestMove === undefined) break;
+        const move = entry.bestMove;
+        if (b[move] !== null || visited.has(key)) break;
+        visited.add(key);
+        pv.push(move);
+        b[move] = currTurn;
+        if (checkWinner(b, config.rows, config.cols, config.k)) break;
+        currTurn = currTurn === 'X' ? 'O' : 'X';
+      }
+      return pv;
+    }
+
+    /**
+     * Format move index array into algebraic coordinate string (e.g. "c3 d4 b2 c2")
+     */
+    function formatPvString(pv, rows = config.rows, cols = config.cols) {
+      if (!pv || pv.length === 0) return '—';
+      return pv.map(m => getCoord(m, rows, cols)).join(' ');
+    }
+
+    /**
+     * SOTA Engine Iterative Deepening Search Iteration for a single ply depth
+     * Non-blocking cooperative async yielding to keep UI butter-smooth at 60fps.
+     */
+    async function searchIteration(board, turn, depth, startTime, timeLimit, sessionId, prevBestMove) {
       const rows = config.rows;
       const cols = config.cols;
       const k = config.k;
       const isX = turn === 'X';
       const opp = isX ? 'O' : 'X';
 
-      // 1. Check Terminal
-      const terminal = checkWinner(board, rows, cols, k);
-      if (terminal) {
-        let score = 0;
-        if (terminal.winner === 'X') score = 100;
-        else if (terminal.winner === 'O') score = -100;
-        return {
-          score,
-          bestMove: null,
-          pv: [],
-          allMoves: [],
-          terminal: true,
-          winner: terminal.winner,
-          line: terminal.line
-        };
-      }
-
-      // Count occupied cells
-      let occupiedCount = 0;
+      const allEmpty = [];
       for (let i = 0; i < board.length; i++) {
-        if (board[i] !== null) occupiedCount++;
+        if (board[i] === null) allEmpty.push(i);
+      }
+      if (allEmpty.length === 0) return null;
+
+      const targetMoves = (Math.max(rows, cols) <= 10) ? allEmpty : getCandidateMoves(board, rows, cols);
+      const evaluations = [];
+      for (const move of targetMoves) {
+        const evalResult = evaluateMoveTactics(board, move, turn, rows, cols, k);
+        evaluations.push({
+          move,
+          initialScore: evalResult.score,
+          desc: evalResult.desc,
+          isBlock: evalResult.isBlock,
+          isWin: evalResult.isWin
+        });
       }
 
-      // 2. Starting Position of Known Theoretical Draw (e.g. 5x5 k=4, 4x4 k=4, etc.)
-      const theoOutcome = getTheoreticalValue(rows, cols, k);
-      const isTheoDraw = theoOutcome.startsWith('Theoretical Draw') || theoOutcome.startsWith('Draw');
-      if (occupiedCount === 0 && isTheoDraw) {
-        const centerIdx = Math.floor(rows / 2) * cols + Math.floor(cols / 2);
-        const allMoves = [];
-        for (let i = 0; i < board.length; i++) {
-          allMoves.push({
-            move: i,
-            score: 0,
-            rawScore: 0,
-            tacticalDesc: 'Theoretical Draw (0)',
-            pv: [i]
+      evaluations.sort((a, b) => b.initialScore - a.initialScore);
+      if (prevBestMove !== null && prevBestMove !== undefined) {
+        const pIdx = evaluations.findIndex(e => e.move === prevBestMove);
+        if (pIdx > 0) {
+          const item = evaluations.splice(pIdx, 1)[0];
+          evaluations.unshift(item);
+        }
+      }
+
+      const deepLimit = rows * cols <= 25 ? 16 : (rows * cols <= 64 ? 12 : 8);
+      const searchCandidates = evaluations.slice(0, deepLimit);
+      const searchCandidateSet = new Set(searchCandidates.map(c => c.move));
+      const scoredMoves = [];
+
+      let moveCounter = 0;
+      for (const item of searchCandidates) {
+        if (sessionId !== currentAnalysisSession || state.enginePaused) return null;
+        if (timeLimit !== Infinity && (Date.now() - startTime) >= timeLimit) break;
+
+        const move = item.move;
+        board[move] = turn;
+        const searchVal = -alphaBetaSearch(board, opp, depth - 1, -Infinity, Infinity, rows, cols, k, startTime, timeLimit, engineStats);
+        board[move] = null;
+
+        let normScore = 0;
+        let desc = item.desc;
+        if (searchVal >= 999000) {
+          normScore = isX ? 100 : -100;
+          desc = `Forced Win in ${Math.max(1, 1000000 + depth - searchVal)} ply`;
+        } else if (searchVal <= -999000) {
+          normScore = isX ? -100 : 100;
+          desc = 'Allows Opponent Win';
+        } else {
+          const clamped = Math.max(-500, Math.min(500, searchVal));
+          const turnPosScore = Math.round(clamped / 35);
+          normScore = isX ? turnPosScore : -turnPosScore;
+        }
+
+        scoredMoves.push({
+          move,
+          rawScore: searchVal,
+          score: normScore,
+          tacticalDesc: desc,
+          pv: [move]
+        });
+
+        moveCounter++;
+        if (moveCounter % 4 === 0) {
+          await new Promise(r => setTimeout(r, 0));
+        }
+      }
+
+      if (sessionId !== currentAnalysisSession || state.enginePaused) return null;
+
+      // Evaluate remaining empty cells for complete board badge coverage
+      for (const item of evaluations) {
+        if (!searchCandidateSet.has(item.move)) {
+          const move = item.move;
+          board[move] = turn;
+          let oppCanWin = false;
+          for (const oppM of allEmpty) {
+            if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
+              oppCanWin = true;
+              break;
+            }
+          }
+          board[move] = null;
+
+          let normScore = 0;
+          let desc = item.desc;
+          if (oppCanWin) {
+            normScore = isX ? -100 : 100;
+            desc = 'Allows Opponent Win (-100)';
+          } else {
+            const net = evaluateBoardState(board, rows, cols, k);
+            const turnVal = isX ? net : -net;
+            const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
+            normScore = isX ? turnPos : -turnPos;
+          }
+
+          scoredMoves.push({
+            move,
+            rawScore: oppCanWin ? -1000000 : item.initialScore - 200000,
+            score: normScore,
+            tacticalDesc: desc,
+            pv: [move]
           });
         }
-        return {
-          score: 0,
-          bestMove: centerIdx,
-          pv: [centerIdx],
-          allMoves,
+      }
+
+      scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
+      const best = scoredMoves[0];
+      let finalScore = best ? best.score : 0;
+      if (Math.abs(finalScore) <= 2) finalScore = 0;
+
+      // Store root position in ttMap for PV extraction and candidate move ordering
+      const rootKey = board.map(c => c || '.').join('') + ' ' + turn;
+      if (best) {
+        ttMap.set(rootKey, { score: best.rawScore, depth, bestMove: best.move });
+      }
+
+      // Populate Principal Variation for top candidate moves
+      for (let i = 0; i < Math.min(6, scoredMoves.length); i++) {
+        const cand = scoredMoves[i];
+        board[cand.move] = turn;
+        const subPv = extractPvFromTT(board, opp, Math.min(6, depth));
+        board[cand.move] = null;
+        cand.pv = [cand.move, ...subPv];
+      }
+
+      const rootPv = best ? best.pv : (targetMoves[0] !== undefined ? [targetMoves[0]] : []);
+      const isSolved = best && (best.rawScore >= 999000 || best.rawScore <= -999000 || depth >= allEmpty.length);
+
+      return {
+        bestMove: best ? best.move : targetMoves[0],
+        score: finalScore,
+        isSolved,
+        pv: rootPv,
+        analysis: {
+          score: finalScore,
+          bestMove: best ? best.move : targetMoves[0],
+          pv: rootPv,
+          allMoves: scoredMoves,
           terminal: false,
-          winner: null,
-          line: null
-        };
-      }
+          depth,
+          isSolved
+        }
+      };
+    }
 
-      // 3. Small Board Exact Minimax (<= 9 cells, e.g. 3x3)
-      if (rows * cols <= 9) {
-        return exactMinimax(board, turn, rows, cols, k);
-      }
+    /**
+     * Fast Synchronous 1-Ply Position Analyzer (<3ms)
+     * Provides instantaneous board badges, arrows, and eval on move placement
+     * while the async engine warms up iterative deepening.
+     */
+    function quickAnalyzePosition(board, turn) {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      const isX = turn === 'X';
+      const opp = isX ? 'O' : 'X';
 
-      // 4. Gather empty cells for evaluation.
-      // On boards up to 10x10, evaluate ALL empty squares so every square shows its badge.
       const allEmpty = [];
       for (let i = 0; i < board.length; i++) {
         if (board[i] === null) allEmpty.push(i);
@@ -1325,7 +1522,7 @@
 
       const targetMoves = (Math.max(rows, cols) <= 10) ? allEmpty : getCandidateMoves(board, rows, cols);
 
-      // Direct 1-move win check
+      // Check direct 1-move win
       const directWins = targetMoves.filter(m => isWinningMove(board, m, turn, rows, cols, k));
       if (directWins.length > 0) {
         const bestMove = directWins[0];
@@ -1372,7 +1569,7 @@
         };
       }
 
-      // Calculate initial tactical heuristic for candidate sorting
+      // Tactical pattern heuristic
       const evaluations = [];
       for (const move of targetMoves) {
         const evalResult = evaluateMoveTactics(board, move, turn, rows, cols, k);
@@ -1385,86 +1582,38 @@
       }
       evaluations.sort((a, b) => b.initialScore - a.initialScore);
 
-      // Search depth determination
-      let searchDepth = 4;
-      if (rows * cols <= 16) searchDepth = 5;
-      else if (rows * cols <= 25) searchDepth = 3;
-      else if (rows * cols <= 64) searchDepth = 3;
-      else searchDepth = 2;
-
-      const startTime = Date.now();
-      const timeLimit = 350; // ms
-      ttMap.clear();
-
-      // Deep search top candidates, tactically evaluate the rest with blunder checks
-      const deepLimit = rows * cols <= 25 ? 16 : 10;
-      const searchCandidates = evaluations.slice(0, deepLimit);
-      const searchCandidateSet = new Set(searchCandidates.map(c => c.move));
       const scoredMoves = [];
-
-      for (const item of searchCandidates) {
+      for (const item of evaluations) {
         const move = item.move;
         board[move] = turn;
-        const searchVal = -alphaBetaSearch(board, opp, searchDepth - 1, -Infinity, Infinity, rows, cols, k, startTime, timeLimit);
+        let oppCanWin = false;
+        for (const oppM of allEmpty) {
+          if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
+            oppCanWin = true;
+            break;
+          }
+        }
         board[move] = null;
 
         let normScore = 0;
         let desc = item.desc;
-        if (searchVal >= 999000) {
-          normScore = isX ? 100 : -100;
-          desc = 'Forced Win Sequence (+100)';
-        } else if (searchVal <= -999000) {
+        if (oppCanWin) {
           normScore = isX ? -100 : 100;
           desc = 'Allows Opponent Win (-100)';
         } else {
-          const clamped = Math.max(-500, Math.min(500, searchVal));
-          const turnPosScore = Math.round(clamped / 35);
-          normScore = isX ? turnPosScore : -turnPosScore;
+          const net = evaluateBoardState(board, rows, cols, k);
+          const turnVal = isX ? net : -net;
+          const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
+          normScore = isX ? turnPos : -turnPos;
         }
 
         scoredMoves.push({
           move,
-          rawScore: searchVal,
+          rawScore: oppCanWin ? -1000000 : item.initialScore,
           score: normScore,
           tacticalDesc: desc,
           pv: [move]
         });
-      }
-
-      // Evaluate remaining moves to ensure all empty cells have evaluation badges
-      for (const item of evaluations) {
-        if (!searchCandidateSet.has(item.move)) {
-          const move = item.move;
-          board[move] = turn;
-          let oppCanWin = false;
-          for (const oppM of allEmpty) {
-            if (oppM !== move && isWinningMove(board, oppM, opp, rows, cols, k)) {
-              oppCanWin = true;
-              break;
-            }
-          }
-          board[move] = null;
-
-          let normScore = 0;
-          let desc = item.desc;
-          if (oppCanWin) {
-            normScore = isX ? -100 : 100;
-            desc = 'Allows Opponent Win (-100)';
-          } else {
-            const net = evaluateBoardState(board, rows, cols, k);
-            const turnVal = isX ? net : -net;
-            const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
-            normScore = isX ? turnPos : -turnPos;
-          }
-
-          scoredMoves.push({
-            move,
-            rawScore: oppCanWin ? -1000000 : item.initialScore - 200000,
-            score: normScore,
-            tacticalDesc: desc,
-            pv: [move]
-          });
-        }
       }
 
       scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
@@ -1481,6 +1630,81 @@
         winner: null,
         line: null
       };
+    }
+
+    /**
+     * Engine Master Analysis Function
+     * Returns instantly with quick or cached analysis, non-blocking.
+     */
+    function analyzePosition(board, turn) {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+
+      // 1. Check Terminal
+      const terminal = checkWinner(board, rows, cols, k);
+      if (terminal) {
+        let score = 0;
+        if (terminal.winner === 'X') score = 100;
+        else if (terminal.winner === 'O') score = -100;
+        return {
+          score,
+          bestMove: null,
+          pv: [],
+          allMoves: [],
+          terminal: true,
+          winner: terminal.winner,
+          line: terminal.line
+        };
+      }
+
+      // Count occupied cells
+      let occupiedCount = 0;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] !== null) occupiedCount++;
+      }
+
+      // 2. Starting Position of Known Theoretical Draw
+      const theoOutcome = getTheoreticalValue(rows, cols, k);
+      const isTheoDraw = theoOutcome.startsWith('Theoretical Draw') || theoOutcome.startsWith('Draw');
+      if (occupiedCount === 0 && isTheoDraw) {
+        const centerIdx = Math.floor(rows / 2) * cols + Math.floor(cols / 2);
+        const allMoves = [];
+        for (let i = 0; i < board.length; i++) {
+          allMoves.push({
+            move: i,
+            score: 0,
+            rawScore: 0,
+            tacticalDesc: 'Theoretical Draw (0)',
+            pv: [i]
+          });
+        }
+        return {
+          score: 0,
+          bestMove: centerIdx,
+          pv: [centerIdx],
+          allMoves,
+          terminal: false,
+          winner: null,
+          line: null,
+          isSolved: true
+        };
+      }
+
+      // 3. Small Board Exact Minimax (<= 9 cells, e.g. 3x3)
+      if (rows * cols <= 9) {
+        const exact = exactMinimax(board, turn, rows, cols, k);
+        exact.isSolved = true;
+        return exact;
+      }
+
+      // 4. Return cached deepened analysis if current board matches
+      if (state.currentAnalysis && state.currentAnalysis.boardKey === board.map(c => c || '.').join('') + ' ' + turn) {
+        return state.currentAnalysis;
+      }
+
+      // 5. Fallback to quick synchronous 1-ply tactical analysis
+      return quickAnalyzePosition(board, turn);
     }
 
     /**
@@ -1574,9 +1798,12 @@
     ];
 
     /**
-     * Engine Timeout Tracker
+     * Engine Timeout Tracker & Live Telemetry
      */
     let engineTimeoutId = null;
+    let engineStats = { nodes: 0 };
+    let currentAnalysisSession = 0;
+    let telemetryTimerInterval = null;
 
     /**
      * Application State
@@ -1600,8 +1827,331 @@
       engineLevel: 8,   // 1 to 8
       playShowEval: false, // in play mode: false (realistic match) or true (hints on)
       hoveredSquare: null,
-      isEngineThinking: false
+      isEngineThinking: false,
+      engineThinkingTime: localStorage.getItem('stocktic_thinking_time') || '5', // '1', '5', '10', '30', 'unlimited'
+      isAnalyzing: false,
+      enginePaused: false,
+      currentAnalysis: null
     };
+
+    /**
+     * Abort any ongoing asynchronous engine search
+     */
+    function stopCurrentAnalysis() {
+      currentAnalysisSession++;
+      state.isAnalyzing = false;
+      if (telemetryTimerInterval) {
+        clearInterval(telemetryTimerInterval);
+        telemetryTimerInterval = null;
+      }
+      const progressBar = document.getElementById('engine-progress-bar');
+      if (progressBar && !state.enginePaused) {
+        progressBar.style.width = '0%';
+      }
+    }
+
+    /**
+     * Live in-place board evaluation badge updater
+     */
+    function updateBoardBadges(analysis) {
+      if (!analysis || !analysis.allMoves) return;
+      const moveScoreMap = new Map();
+      analysis.allMoves.forEach(m => moveScoreMap.set(m.move, m.score));
+
+      const isTurnX = state.history[state.currentPly].turn === 'X';
+      const badges = document.querySelectorAll('.eval-badge');
+      badges.forEach(badge => {
+        const idx = parseInt(badge.dataset.idx, 10);
+        if (moveScoreMap.has(idx)) {
+          const score = moveScoreMap.get(idx);
+          const moveVal = isTurnX ? score : -score;
+          badge.textContent = formatEval(score);
+
+          let styleClass = 'bg-[#1e1c18]/90 text-gray-200 border-[#4a4742] font-semibold';
+          if (moveVal >= 10) {
+            styleClass = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+          } else if (moveVal <= -10) {
+            styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+          }
+          badge.className = `eval-badge absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${styleClass}`;
+        }
+      });
+    }
+
+    /**
+     * Update StockTic Engine Telemetry and live PV line in Engine Header Box
+     */
+    function updateEngineTelemetry(data) {
+      const depthBadge = document.getElementById('engine-depth-tag');
+      const nodesCount = document.getElementById('nodes-count');
+      const speedLabel = document.getElementById('speed-label');
+      const timerDisplay = document.getElementById('telemetry-timer');
+      const progressBar = document.getElementById('engine-progress-bar');
+      const pvText = document.getElementById('engine-pv-text');
+      const statusLabel = document.getElementById('engine-tablebase-status');
+
+      if (data.isSolved) {
+        if (depthBadge) depthBadge.textContent = 'depth Solved';
+        if (statusLabel) {
+          statusLabel.textContent = 'SOLVED';
+          statusLabel.className = 'text-[#629924] font-semibold mono-font';
+        }
+        if (progressBar) progressBar.style.width = '100%';
+        if (timerDisplay) {
+          const limitStr = state.engineThinkingTime === 'unlimited' ? '∞' : `${state.engineThinkingTime}s`;
+          timerDisplay.textContent = `Solved / ${limitStr}`;
+        }
+      } else {
+        if (depthBadge && data.depth) {
+          depthBadge.textContent = `depth ${data.depth}/${data.maxDepth || 24}`;
+        }
+        if (statusLabel) {
+          statusLabel.textContent = state.isAnalyzing ? 'Thinking...' : 'Ready';
+          statusLabel.className = state.isAnalyzing ? 'text-yellow-400 font-semibold mono-font animate-pulse' : 'text-[#629924] font-semibold mono-font';
+        }
+      }
+
+      if (nodesCount && data.nodes !== undefined) {
+        nodesCount.textContent = `Nodes: ${data.nodes.toLocaleString()}`;
+      }
+
+      if (speedLabel && data.knps !== undefined) {
+        speedLabel.textContent = `${data.knps} kN/s`;
+      }
+
+      if (pvText && data.pvText) {
+        pvText.textContent = data.pvText;
+      }
+    }
+
+    /**
+     * Start Asynchronous Progressive Thinking (Iterative Deepening Negamax)
+     */
+    async function startAsyncAnalysis(board, turn, targetPly) {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+
+      // Check if position is already solved
+      const term = checkWinner(board, rows, cols, k);
+      if (term) {
+        updateEngineTelemetry({ isSolved: true, nodes: 0, knps: '0', pvText: term.winner === 'Draw' ? 'Draw' : `${term.winner} Won` });
+        return;
+      }
+
+      let emptyCount = 0;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === null) emptyCount++;
+      }
+      if (emptyCount === 0) return;
+
+      const theoOutcome = getTheoreticalValue(rows, cols, k);
+      const isTheoDraw = theoOutcome.startsWith('Theoretical Draw') || theoOutcome.startsWith('Draw');
+      const occupiedCount = board.length - emptyCount;
+
+      if (occupiedCount === 0 && isTheoDraw) {
+        updateEngineTelemetry({ isSolved: true, nodes: 1, knps: '0', pvText: 'Theoretical Draw (50-50)' });
+        return;
+      }
+
+      if (rows * cols <= 9) {
+        const exact = exactMinimax(board, turn, rows, cols, k);
+        const pvStr = formatPvString(exact.pv, rows, cols);
+        updateEngineTelemetry({ isSolved: true, nodes: ttMap.size, knps: 'Instant', pvText: pvStr });
+        return;
+      }
+
+      // Position is unsolved: begin iterative deepening with progressive thinking
+      stopCurrentAnalysis();
+      const mySession = ++currentAnalysisSession;
+      state.isAnalyzing = true;
+      engineStats.nodes = 0;
+
+      // Determine thinking time limit
+      const timeSetting = state.engineThinkingTime || '5';
+      let timeLimit = 5000;
+      let timeLimitStr = '5s';
+      if (timeSetting === '1') { timeLimit = 1000; timeLimitStr = '1s'; }
+      else if (timeSetting === '5') { timeLimit = 5000; timeLimitStr = '5s'; }
+      else if (timeSetting === '10') { timeLimit = 10000; timeLimitStr = '10s'; }
+      else if (timeSetting === '30') { timeLimit = 30000; timeLimitStr = '30s'; }
+      else if (timeSetting === 'unlimited') { timeLimit = Infinity; timeLimitStr = '∞'; }
+
+      const startTime = Date.now();
+      const maxPossibleDepth = Math.min(24, emptyCount);
+
+      // Start live telemetry ticker
+      const timerDisplay = document.getElementById('telemetry-timer');
+      const speedLabel = document.getElementById('speed-label');
+      const nodesCount = document.getElementById('nodes-count');
+      const progressBar = document.getElementById('engine-progress-bar');
+      const statusLabel = document.getElementById('engine-tablebase-status');
+      const toggleBtnText = document.getElementById('btn-engine-toggle-text');
+      const toggleBtnIcon = document.getElementById('btn-engine-toggle-icon');
+
+      if (toggleBtnText) toggleBtnText.textContent = 'Stop';
+      if (toggleBtnIcon) toggleBtnIcon.textContent = '⏹';
+      if (statusLabel) {
+        statusLabel.textContent = 'Thinking...';
+        statusLabel.className = 'text-yellow-400 font-semibold mono-font animate-pulse';
+      }
+
+      telemetryTimerInterval = setInterval(() => {
+        if (mySession !== currentAnalysisSession || state.enginePaused) return;
+        const elapsed = Date.now() - startTime;
+        const elapsedSec = (elapsed / 1000).toFixed(1);
+        if (timerDisplay) timerDisplay.textContent = `${elapsedSec}s / ${timeLimitStr}`;
+
+        const knps = elapsed > 0 ? (engineStats.nodes / elapsed).toFixed(1) : '0';
+        if (speedLabel) speedLabel.textContent = `${knps} kN/s`;
+        if (nodesCount) nodesCount.textContent = `Nodes: ${engineStats.nodes.toLocaleString()}`;
+
+        if (progressBar) {
+          if (timeLimit !== Infinity) {
+            const pct = Math.min(100, Math.round((elapsed / timeLimit) * 100));
+            progressBar.style.width = `${pct}%`;
+          } else {
+            // Pulse progress bar for unlimited mode
+            const pulse = (Math.sin(elapsed / 250) + 1) * 45 + 10;
+            progressBar.style.width = `${pulse}%`;
+          }
+        }
+      }, 80);
+
+      let bestMoveOverall = null;
+      let lastCompletedAnalysis = null;
+
+      for (let depth = 1; depth <= maxPossibleDepth; depth++) {
+        if (mySession !== currentAnalysisSession || state.enginePaused) break;
+        if (timeLimit !== Infinity && (Date.now() - startTime) >= timeLimit) break;
+
+        const iterResult = await searchIteration(board, turn, depth, startTime, timeLimit, mySession, bestMoveOverall);
+        if (!iterResult || mySession !== currentAnalysisSession || state.enginePaused) break;
+
+        bestMoveOverall = iterResult.bestMove;
+        lastCompletedAnalysis = iterResult.analysis;
+        lastCompletedAnalysis.boardKey = board.map(c => c || '.').join('') + ' ' + turn;
+        state.currentAnalysis = lastCompletedAnalysis;
+
+        // Extract Principal Variation
+        const pvMoves = extractPvFromTT(board, turn, Math.min(8, depth + 1));
+        const pvText = formatPvString(pvMoves, rows, cols);
+
+        const elapsed = Date.now() - startTime;
+        const knps = elapsed > 0 ? (engineStats.nodes / elapsed).toFixed(1) : '0';
+
+        updateEngineTelemetry({
+          depth,
+          maxDepth: maxPossibleDepth,
+          nodes: engineStats.nodes,
+          knps,
+          pvText,
+          isSolved: iterResult.isSolved
+        });
+
+        // Live in-place board evaluation updates
+        updateBoardBadges(lastCompletedAnalysis);
+        updateEvalBar(lastCompletedAnalysis.score, null);
+        renderCandidateMoves(lastCompletedAnalysis, null);
+        updateArrows();
+
+        // If mathematically proven win or loss, early terminate even in unlimited mode
+        if (iterResult.isSolved) {
+          if (progressBar) progressBar.style.width = '100%';
+          if (statusLabel) {
+            statusLabel.textContent = 'SOLVED';
+            statusLabel.className = 'text-[#629924] font-semibold mono-font';
+          }
+          break;
+        }
+      }
+
+      // Cleanup
+      if (telemetryTimerInterval) {
+        clearInterval(telemetryTimerInterval);
+        telemetryTimerInterval = null;
+      }
+
+      if (mySession === currentAnalysisSession) {
+        state.isAnalyzing = false;
+        if (progressBar) progressBar.style.width = '100%';
+        if (statusLabel && !statusLabel.textContent.includes('SOLVED')) {
+          statusLabel.textContent = 'Ready';
+          statusLabel.className = 'text-[#629924] font-semibold mono-font';
+        }
+        if (toggleBtnText) toggleBtnText.textContent = 'Run';
+        if (toggleBtnIcon) toggleBtnIcon.textContent = '▶';
+      }
+    }
+
+    /**
+     * User Thinking Time Selector Controller
+     */
+    function setEngineThinkingTime(timeStr) {
+      state.engineThinkingTime = timeStr;
+      try {
+        localStorage.setItem('stocktic_thinking_time', timeStr);
+      } catch (e) {}
+
+      updateThinkingTimeUI();
+
+      // If in analysis mode, restart engine thinking with new time limit
+      const current = state.history[state.currentPly];
+      const winCheck = checkWinner(current.board);
+      if (!winCheck && (state.mode === 'analysis' || state.playShowEval) && !state.enginePaused) {
+        startAsyncAnalysis(current.board, current.turn, state.currentPly);
+      }
+      showToast(`AI Thinking Time set to ${timeStr === 'unlimited' ? 'Unlimited (∞)' : timeStr + 's'}`);
+    }
+
+    function updateThinkingTimeUI() {
+      const activeTime = state.engineThinkingTime || '5';
+      document.querySelectorAll('.thinking-time-btn').forEach(btn => {
+        const isMatch = btn.dataset.time === activeTime;
+        if (isMatch) {
+          btn.className = 'thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded bg-[#629924] text-white shadow-sm transition';
+        } else {
+          btn.className = 'thinking-time-btn px-2 py-0.5 text-[11px] font-bold rounded text-gray-400 hover:text-white transition';
+        }
+      });
+      const timerDisplay = document.getElementById('telemetry-timer');
+      if (timerDisplay && !state.isAnalyzing) {
+        const limitStr = activeTime === 'unlimited' ? '∞' : `${activeTime}s`;
+        timerDisplay.textContent = `0.0s / ${limitStr}`;
+      }
+    }
+
+    /**
+     * Toggle Engine Run / Stop Button
+     */
+    function toggleEngineCalculation() {
+      const toggleBtnText = document.getElementById('btn-engine-toggle-text');
+      const toggleBtnIcon = document.getElementById('btn-engine-toggle-icon');
+      const statusLabel = document.getElementById('engine-tablebase-status');
+
+      if (state.isAnalyzing) {
+        // Stop current calculation
+        state.enginePaused = true;
+        stopCurrentAnalysis();
+        if (toggleBtnText) toggleBtnText.textContent = 'Run';
+        if (toggleBtnIcon) toggleBtnIcon.textContent = '▶';
+        if (statusLabel) {
+          statusLabel.textContent = 'PAUSED';
+          statusLabel.className = 'text-yellow-400 font-semibold mono-font';
+        }
+        showToast('Engine calculation paused');
+      } else {
+        // Run / Resume calculation
+        state.enginePaused = false;
+        if (toggleBtnText) toggleBtnText.textContent = 'Stop';
+        if (toggleBtnIcon) toggleBtnIcon.textContent = '⏹';
+        const current = state.history[state.currentPly];
+        if (!checkWinner(current.board)) {
+          startAsyncAnalysis(current.board, current.turn, state.currentPly);
+        }
+        showToast('Engine calculation running');
+      }
+    }
 
     /**
      * Pick Engine move based on selected difficulty Level (1 to 8)
@@ -1952,7 +2502,8 @@
                 styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
               }
 
-              badge.className = `absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${styleClass}`;
+              badge.className = `eval-badge absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${styleClass}`;
+              badge.dataset.idx = idx;
               badge.textContent = formatEval(score);
               cell.appendChild(badge);
             }
@@ -2021,6 +2572,13 @@
       // 8. Update FEN
       const fen = getFen(current.board, current.turn);
       document.getElementById('fen-string-display').textContent = fen;
+
+      // 9. Asynchronous SOTA Engine Progressive Thinking
+      if (!winStatus && showEval && !state.enginePaused && state.mode === 'analysis') {
+        startAsyncAnalysis(current.board, current.turn, state.currentPly);
+      } else {
+        stopCurrentAnalysis();
+      }
     }
 
     /**
@@ -2303,8 +2861,10 @@
         evalInterpretation.textContent = `${formatted}: ${winProbO}% Win Probability for Second Player (O)`;
       }
 
-      if (nodesCount) nodesCount.textContent = `Board: ${config.rows * config.cols} cells`;
-      if (speedLabel) speedLabel.textContent = 'SOTA Fast Search';
+      if (!state.isAnalyzing && engineStats.nodes === 0) {
+        if (nodesCount) nodesCount.textContent = `Board: ${config.rows * config.cols} cells`;
+        if (speedLabel) speedLabel.textContent = 'SOTA Fast Search';
+      }
 
       if (winStatus) {
         if (winStatus.winner === 'Draw') {
@@ -2479,11 +3039,16 @@
         if (moveVal > 2) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
         else if (moveVal < -2) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
 
+        let lineDesc = cand.tacticalDesc || 'Candidate';
+        if (cand.pv && cand.pv.length > 1) {
+          lineDesc = `PV: ${formatPvString(cand.pv, config.rows, config.cols)}`;
+        }
+
         row.innerHTML = `
           <div class="flex items-center space-x-2.5 overflow-hidden">
             <span class="text-[11px] font-bold ${isBest ? 'text-[#629924]' : 'text-gray-500'} mono-font">#${idx + 1}</span>
             <span class="font-bold text-white mono-font text-sm">${coord}</span>
-            <span class="text-[11px] text-gray-400 italic truncate max-w-[150px] sm:max-w-[210px]">${cand.tacticalDesc || 'Candidate'}</span>
+            <span class="text-[11px] text-gray-400 italic truncate max-w-[150px] sm:max-w-[210px]">${lineDesc}</span>
           </div>
           <div class="flex items-center space-x-2">
             ${isBest ? '<span class="text-[10px] bg-[#629924] text-white px-1.5 py-0.2 rounded font-semibold uppercase">Best</span>' : ''}
@@ -2549,6 +3114,8 @@
         moveBtn.innerHTML = `<span>${moveCoord}</span>${annotationBadge}`;
 
         moveBtn.addEventListener('click', () => {
+          stopCurrentAnalysis();
+          state.currentAnalysis = null;
           state.currentPly = i;
           render();
         });
@@ -2564,6 +3131,8 @@
      */
     function goFirst() {
       if (state.currentPly > 0) {
+        stopCurrentAnalysis();
+        state.currentAnalysis = null;
         state.currentPly = 0;
         playSound('move');
         render();
@@ -2572,6 +3141,8 @@
 
     function goPrev() {
       if (state.currentPly > 0) {
+        stopCurrentAnalysis();
+        state.currentAnalysis = null;
         state.currentPly--;
         playSound('move');
         render();
@@ -2580,6 +3151,8 @@
 
     function goNext() {
       if (state.currentPly < state.history.length - 1) {
+        stopCurrentAnalysis();
+        state.currentAnalysis = null;
         state.currentPly++;
         playSound('move');
         render();
@@ -2588,6 +3161,8 @@
 
     function goLast() {
       if (state.currentPly < state.history.length - 1) {
+        stopCurrentAnalysis();
+        state.currentAnalysis = null;
         state.currentPly = state.history.length - 1;
         playSound('move');
         render();
@@ -2595,6 +3170,8 @@
     }
 
     function resetBoard() {
+      stopCurrentAnalysis();
+      state.currentAnalysis = null;
       if (engineTimeoutId) {
         clearTimeout(engineTimeoutId);
         engineTimeoutId = null;
@@ -3180,11 +3757,29 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         config.cols = Math.max(1, Math.min(32, parseInt(savedCols, 10)));
         config.k = Math.max(1, Math.min(8, Math.min(Math.max(config.rows, config.cols), parseInt(savedK, 10))));
       }
+      const savedThinkingTime = localStorage.getItem('stocktic_thinking_time');
+      if (savedThinkingTime) {
+        state.engineThinkingTime = savedThinkingTime;
+      }
     } catch (e) {}
+
+    // Thinking time selector buttons (1s, 5s, 10s, 30s, ∞)
+    document.querySelectorAll('.thinking-time-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setEngineThinkingTime(btn.dataset.time);
+      });
+    });
+
+    // Engine Stop / Run toggle button
+    const btnEngineToggle = document.getElementById('btn-engine-toggle');
+    if (btnEngineToggle) {
+      btnEngineToggle.addEventListener('click', toggleEngineCalculation);
+    }
 
     // Initialize UI settings
     updateLevelUI();
     updateEvalToggleUI();
+    updateThinkingTimeUI();
 
     // Initial render on page load
     window.onload = function() {
