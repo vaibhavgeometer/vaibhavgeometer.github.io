@@ -263,11 +263,11 @@ vaibhavgeometer.github.io/
 │   ├── lichess_tic_tac_toe_analysis_board.html# StockTic SOTA (m,n,k,j) Analysis Board
 │   └── mnk_games_theory_and_ai.html           # Comprehensive Game Theory & AI Research Guide
 │
-├── website/                                   # 🌐 Main Website Rendering & Design Assets (Demand 5)
-│   ├── index.html                             # Personal portfolio & portal showcase
-│   ├── 404.html                               # Dynamic client-side router & 404 handler
+├── website/                                   # 🌐 Main Website Design & Styling Assets (Demand 5)
 │   └── css/                                   # Glassmorphism design system & styles
 │
+├── 404.html                                   # Dynamic client-side router & 404 handler
+├── index.html                                 # Personal portfolio & portal showcase
 ├── scratch/                                   # 📝 Development notes & demands
 ├── .gitignore                                 # Git ignore specifications
 ├── LICENSE                                    # MIT License
