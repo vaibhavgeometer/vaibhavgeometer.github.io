@@ -3838,23 +3838,36 @@
       match.moves = moves;
       match.plies = moves.length;
       match.status = 'finished';
+      match.completed = true;
     }
 
     function simulateAllTournamentMatches() {
+      let count = 0;
       tournamentState.matches.forEach(m => {
         if (m.status !== 'finished') {
           simulateSingleMatch(m);
+          count++;
         }
       });
       calculateStandings();
       updateTournamentUI();
-      showToast('All tournament matches simulated!');
+      if (count > 0) {
+        showToast(`Simulated ${count} tournament matches!`);
+      } else {
+        showToast('All matches are already completed!');
+      }
     }
 
     function loadTournamentMatch(idx) {
       if (idx < 0 || idx >= tournamentState.matches.length) return;
       tournamentState.currentMatchIdx = idx;
       const match = tournamentState.matches[idx];
+
+      if (engineTimeoutId) {
+        clearTimeout(engineTimeoutId);
+        engineTimeoutId = null;
+      }
+      state.isEngineThinking = false;
 
       state.history = [{
         board: Array(config.rows * config.cols).fill(null),
@@ -3872,6 +3885,19 @@
 
       render();
       updateTournamentUI();
+
+      if (state.mode === 'tournament' && match && match.playerX.type === 'ai' && match.status !== 'finished') {
+        state.isEngineThinking = true;
+        render();
+        const thinkDelay = computeAiThinkDelay(state.history[0].board, 'X', match.playerX.level || 8);
+        engineTimeoutId = setTimeout(() => {
+          const aiMove = getEngineMoveForLevel(state.history[state.currentPly].board, 'X', match.playerX.level || 8);
+          state.isEngineThinking = false;
+          if (aiMove !== null && aiMove !== undefined) {
+            executeMove(aiMove);
+          }
+        }, thinkDelay);
+      }
     }
 
     function updateTournamentUI() {
@@ -3887,31 +3913,36 @@
       // Render Roster List in Setup Box
       if (playersList) {
         playersList.innerHTML = '';
-        tournamentState.players.forEach((p, idx) => {
-          const row = document.createElement('div');
-          row.className = 'flex items-center justify-between text-xs px-2 py-1 rounded bg-[#262421] border border-[#363431]';
-          const typeBadge = p.type === 'human'
-            ? `<span class="text-[10px] px-1.5 py-0.2 rounded bg-[#629924]/20 text-[#7ec62f] font-semibold border border-[#629924]/40">Human</span>`
-            : `<span class="text-[10px] px-1.5 py-0.2 rounded bg-[#3692e7]/20 text-[#38bdf8] font-semibold border border-[#3692e7]/40 mono-font">AI L${p.level}</span>`;
+        if (tournamentState.players.length === 0) {
+          playersList.innerHTML = '<div class="text-[11px] text-gray-500 italic p-1">No players in roster. Pick a preset above or add players below.</div>';
+        } else {
+          tournamentState.players.forEach((p, idx) => {
+            const row = document.createElement('div');
+            row.className = 'flex items-center justify-between text-xs px-2 py-1 rounded bg-[#262421] border border-[#363431]';
+            const typeBadge = p.type === 'human'
+              ? `<span class="text-[10px] px-1.5 py-0.2 rounded bg-[#629924]/20 text-[#7ec62f] font-semibold border border-[#629924]/40">Human</span>`
+              : `<span class="text-[10px] px-1.5 py-0.2 rounded bg-[#3692e7]/20 text-[#38bdf8] font-semibold border border-[#3692e7]/40 mono-font">AI L${p.level}</span>`;
 
-          row.innerHTML = `
-            <div class="flex items-center space-x-2">
-              <span class="text-gray-400 mono-font text-[10px]">#${idx + 1}</span>
-              <span class="font-bold text-white">${p.name}</span>
-              ${typeBadge}
-            </div>
-            <button class="btn-del-player text-gray-400 hover:text-red-400 text-sm font-bold px-1 transition" data-id="${p.id}">&times;</button>
-          `;
-          playersList.appendChild(row);
-        });
-
-        document.querySelectorAll('.btn-del-player').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            const id = e.target.dataset.id;
-            tournamentState.players = tournamentState.players.filter(pl => pl.id !== id);
-            updateTournamentUI();
+            row.innerHTML = `
+              <div class="flex items-center space-x-2 truncate">
+                <span class="text-gray-400 mono-font text-[10px]">#${idx + 1}</span>
+                <span class="font-bold text-white truncate">${p.name}</span>
+                ${typeBadge}
+              </div>
+              <button type="button" class="btn-del-player text-gray-400 hover:text-red-400 text-sm font-bold px-1 transition" data-id="${p.id}" title="Remove player">&times;</button>
+            `;
+            playersList.appendChild(row);
           });
-        });
+
+          playersList.querySelectorAll('.btn-del-player').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const id = e.currentTarget.dataset.id;
+              tournamentState.players = tournamentState.players.filter(pl => pl.id !== id);
+              updateTournamentUI();
+            });
+          });
+        }
       }
 
       if (!tournamentState.active) {
@@ -4755,9 +4786,17 @@
             match.winner = terminalAfter.winner === 'Draw' ? 'Draw' : (terminalAfter.winner === 'X' ? match.playerX.id : match.playerO.id);
             match.resultStr = terminalAfter.winner === 'Draw' ? '½ - ½' : (terminalAfter.winner === 'X' ? '1 - 0' : '0 - 1');
             match.status = 'finished';
+            match.completed = true;
             match.plies = state.currentPly + 1;
+            match.moves = state.history.slice(1).map((h, i) => ({
+              ply: i,
+              turn: h.board[h.lastMove],
+              move: h.lastMove,
+              coord: getCoord(h.lastMove, config.rows, config.cols)
+            }));
             calculateStandings();
             updateTournamentUI();
+            showToast(`Match #${match.id} finished: ${match.resultStr}`);
           }
         }
       } else {
@@ -6670,52 +6709,41 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     // ==========================================
     // TOURNAMENT PANEL CONTROLS (Demand 1)
     // ==========================================
+    // Alias tournamentState.roster to tournamentState.players so both access the same array
+    if (!Object.getOwnPropertyDescriptor(tournamentState, 'roster')) {
+      Object.defineProperty(tournamentState, 'roster', {
+        get() { return this.players; },
+        set(val) { this.players = val; },
+        configurable: true
+      });
+    }
+
     function renderTournamentRoster() {
-      const container = document.getElementById('tourn-roster-list');
-      const countBadge = document.getElementById('tourn-player-count-badge');
-      if (countBadge) countBadge.textContent = `${tournamentState.roster.length} Players`;
-      if (!container) return;
-
-      if (tournamentState.roster.length === 0) {
-        container.innerHTML = '<div class="text-[11px] text-gray-500 italic p-1">No players added yet. Pick a preset above or add players below.</div>';
-        return;
-      }
-
-      container.innerHTML = tournamentState.roster.map((p, idx) => `
-        <div class="flex items-center justify-between bg-[#262421] px-2 py-1 rounded border border-[#363431]">
-          <div class="flex items-center space-x-2 truncate">
-            <span class="text-[10px] text-gray-400 mono-font">${idx + 1}.</span>
-            <span class="font-medium text-gray-200 text-xs truncate">${p.name}</span>
-            ${p.type === 'human'
-              ? '<span class="text-[10px] px-1 rounded bg-[#363431] text-sky-300">Human</span>'
-              : `<span class="text-[10px] px-1 rounded bg-[#629924]/20 border border-[#629924]/40 text-[#7ec62f]">L${p.level}</span>`
-            }
-          </div>
-          <button type="button" class="text-gray-500 hover:text-rose-400 text-xs px-1" onclick="removeTournPlayer(${idx})" title="Remove player">&times;</button>
-        </div>
-      `).join('');
+      updateTournamentUI();
     }
 
     window.removeTournPlayer = function(idx) {
-      tournamentState.roster.splice(idx, 1);
-      renderTournamentRoster();
+      if (idx >= 0 && idx < tournamentState.players.length) {
+        tournamentState.players.splice(idx, 1);
+        updateTournamentUI();
+      }
     };
 
     const btnFmtRR = document.getElementById('tourn-format-rr-btn');
     const btnFmtKO = document.getElementById('tourn-format-ko-btn');
-    const cyclesContainer = document.getElementById('tourn-cycles-container');
+    const cyclesRow = document.getElementById('tourn-cycles-row');
     if (btnFmtRR && btnFmtKO) {
       btnFmtRR.addEventListener('click', () => {
         tournamentState.format = 'round_robin';
-        btnFmtRR.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
-        btnFmtKO.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
-        if (cyclesContainer) cyclesContainer.classList.remove('hidden');
+        btnFmtRR.className = 'p-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
+        btnFmtKO.className = 'p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        if (cyclesRow) cyclesRow.classList.remove('hidden');
       });
       btnFmtKO.addEventListener('click', () => {
         tournamentState.format = 'knockout';
-        btnFmtKO.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
-        btnFmtRR.className = 'flex-1 py-1 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
-        if (cyclesContainer) cyclesContainer.classList.add('hidden');
+        btnFmtKO.className = 'p-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
+        btnFmtRR.className = 'p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        if (cyclesRow) cyclesRow.classList.add('hidden');
       });
     }
 
@@ -6725,7 +6753,10 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       cyclesSlider.addEventListener('input', (e) => {
         const c = parseInt(e.target.value, 10);
         tournamentState.cycles = c;
-        if (cyclesVal) cyclesVal.textContent = `${c}x`;
+        if (cyclesVal) {
+          const label = c === 1 ? '1x (Single Round)' : (c === 2 ? '2x (Double)' : (c === 10 ? '10x (Decuple)' : `${c}x`));
+          cyclesVal.textContent = label;
+        }
       });
     }
 
@@ -6736,111 +6767,151 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
     if (presetDemand1) {
       presetDemand1.addEventListener('click', () => {
-        tournamentState.roster = [
+        tournamentState.players = [
           { id: 'h1', name: 'Human 1', type: 'human', level: null },
           { id: 'h2', name: 'Human 2', type: 'human', level: null },
-          { id: 'ai2_1', name: 'StockTic L2 (A)', type: 'ai', level: 2 },
-          { id: 'ai2_2', name: 'StockTic L2 (B)', type: 'ai', level: 2 },
+          { id: 'ai2_1', name: 'StockTic L2 (Alpha)', type: 'ai', level: 2 },
+          { id: 'ai2_2', name: 'StockTic L2 (Beta)', type: 'ai', level: 2 },
           { id: 'ai8', name: 'StockTic L8 (Grandmaster)', type: 'ai', level: 8 },
           { id: 'ai7', name: 'StockTic L7 (Master)', type: 'ai', level: 7 },
           { id: 'ai6', name: 'StockTic L6 (Expert)', type: 'ai', level: 6 }
         ];
-        renderTournamentRoster();
+        updateTournamentUI();
         showToast('Loaded preset: 2 Humans, 5 AIs (L2, L2, L8, L7, L6)');
       });
     }
 
     if (preset8Ai) {
       preset8Ai.addEventListener('click', () => {
-        tournamentState.roster = [];
+        tournamentState.players = [];
         for (let l = 1; l <= 8; l++) {
-          tournamentState.roster.push({
+          const lvlName = (typeof LEVELS !== 'undefined' && LEVELS[l-1]) ? LEVELS[l-1].name : `Level ${l}`;
+          tournamentState.players.push({
             id: `ai_${l}`,
-            name: `StockTic L${l} (${LEVELS[l-1].name})`,
+            name: `StockTic L${l} (${lvlName})`,
             type: 'ai',
             level: l
           });
         }
-        renderTournamentRoster();
-        showToast('Loaded preset: 8 AIs (Levels 1 to 8)');
+        updateTournamentUI();
+        showToast('Loaded preset: 8 AI Championship (Levels 1 to 8)');
       });
     }
 
     if (preset4H) {
       preset4H.addEventListener('click', () => {
-        tournamentState.roster = [
+        tournamentState.players = [
           { id: 'h1', name: 'Player 1', type: 'human', level: null },
           { id: 'h2', name: 'Player 2', type: 'human', level: null },
           { id: 'h3', name: 'Player 3', type: 'human', level: null },
           { id: 'h4', name: 'Player 4', type: 'human', level: null }
         ];
-        renderTournamentRoster();
-        showToast('Loaded preset: 4 Humans');
+        updateTournamentUI();
+        showToast('Loaded preset: 4 Humans Cup');
       });
+    }
+
+    function handleAddTournamentPlayer() {
+      const nameInput = document.getElementById('new-player-name');
+      const typeSelect = document.getElementById('new-player-type');
+      const typeVal = typeSelect ? typeSelect.value : 'human';
+      const isHuman = (typeVal === 'human');
+      const lvl = isHuman ? null : (parseInt(typeVal.replace(/\D/g, ''), 10) || 1);
+
+      const humanCount = tournamentState.players.filter(p => p.type === 'human').length;
+      const defaultName = isHuman
+        ? `Human ${humanCount + 1}`
+        : `StockTic L${lvl} (${(typeof LEVELS !== 'undefined' && LEVELS[lvl-1]) ? LEVELS[lvl-1].name : 'Engine'})`;
+
+      const name = (nameInput && nameInput.value.trim()) || defaultName;
+
+      tournamentState.players.push({
+        id: `${isHuman ? 'h' : 'ai'}_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
+        name,
+        type: isHuman ? 'human' : 'ai',
+        level: lvl
+      });
+
+      if (nameInput) nameInput.value = '';
+      updateTournamentUI();
+      showToast(`Added player: ${name}`);
     }
 
     const btnAddTournPlayer = document.getElementById('btn-add-tourn-player');
     if (btnAddTournPlayer) {
-      btnAddTournPlayer.addEventListener('click', () => {
-        const nameInput = document.getElementById('new-player-name');
-        const typeSelect = document.getElementById('new-player-type');
-        const name = (nameInput && nameInput.value.trim()) || `Player ${tournamentState.roster.length + 1}`;
-        const typeVal = typeSelect ? typeSelect.value : 'human';
-        if (typeVal === 'human') {
-          tournamentState.roster.push({
-            id: `h_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
-            name,
-            type: 'human',
-            level: null
-          });
-        } else {
-          const lvl = parseInt(typeVal, 10);
-          tournamentState.roster.push({
-            id: `ai_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
-            name,
-            type: 'ai',
-            level: lvl
-          });
+      btnAddTournPlayer.addEventListener('click', handleAddTournamentPlayer);
+    }
+    const tournPlayerNameInput = document.getElementById('new-player-name');
+    if (tournPlayerNameInput) {
+      tournPlayerNameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleAddTournamentPlayer();
         }
-        if (nameInput) nameInput.value = '';
-        renderTournamentRoster();
       });
     }
 
     const btnStartTourn = document.getElementById('btn-start-tournament');
     if (btnStartTourn) {
       btnStartTourn.addEventListener('click', () => {
-        if (tournamentState.roster.length < 2) {
+        const players = tournamentState.players;
+        if (!players || players.length < 2) {
           showToast('Need at least 2 players to start a tournament!');
           return;
         }
+        tournamentState.active = true;
         if (tournamentState.format === 'round_robin') {
-          generateRoundRobinSchedule();
+          tournamentState.matches = generateRoundRobinSchedule(players, tournamentState.cycles || 1);
         } else {
-          generateKnockoutSchedule();
+          tournamentState.matches = generateKnockoutSchedule(players);
         }
+        if (!tournamentState.matches || tournamentState.matches.length === 0) {
+          showToast('Failed to schedule matches. Check player count.');
+          return;
+        }
+        tournamentState.currentMatchIdx = 0;
         calculateStandings();
         updateTournamentUI();
-        showToast('Tournament started! Matches scheduled.');
+        loadTournamentMatch(0);
+        showToast(`Tournament started! ${tournamentState.matches.length} matches scheduled.`);
       });
     }
 
     const btnTournPlay = document.getElementById('btn-tourn-play-match');
     if (btnTournPlay) {
       btnTournPlay.addEventListener('click', () => {
-        const unplayed = tournamentState.matches.find(m => !m.completed);
-        if (!unplayed) {
-          showToast('All matches are completed!');
-          return;
+        let currentMatch = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (!currentMatch || currentMatch.status === 'finished') {
+          const nextIdx = tournamentState.matches.findIndex(m => m.status !== 'finished');
+          if (nextIdx === -1) {
+            showToast('All matches are completed!');
+            return;
+          }
+          tournamentState.currentMatchIdx = nextIdx;
+          currentMatch = tournamentState.matches[nextIdx];
         }
-        loadTournamentMatch(unplayed.id);
+        loadTournamentMatch(tournamentState.currentMatchIdx);
+        showToast(`Loaded Match #${currentMatch.id}: ${currentMatch.playerX.name} vs ${currentMatch.playerO.name}`);
       });
     }
 
     const btnTournSim = document.getElementById('btn-tourn-sim-match');
     if (btnTournSim) {
       btnTournSim.addEventListener('click', () => {
-        simulateSingleMatch();
+        let currentMatch = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (!currentMatch || currentMatch.status === 'finished') {
+          const nextIdx = tournamentState.matches.findIndex(m => m.status !== 'finished');
+          if (nextIdx === -1) {
+            showToast('All tournament matches are already finished!');
+            return;
+          }
+          tournamentState.currentMatchIdx = nextIdx;
+          currentMatch = tournamentState.matches[nextIdx];
+        }
+        simulateSingleMatch(currentMatch);
+        calculateStandings();
+        updateTournamentUI();
+        showToast(`Simulated Match #${currentMatch.id}: ${currentMatch.resultStr}`);
       });
     }
 
@@ -6854,11 +6925,12 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     const btnTournReset = document.getElementById('btn-tourn-reset');
     if (btnTournReset) {
       btnTournReset.addEventListener('click', () => {
+        tournamentState.active = false;
         tournamentState.matches = [];
         tournamentState.standings = [];
-        tournamentState.activeMatchId = null;
+        tournamentState.currentMatchIdx = 0;
         updateTournamentUI();
-        showToast('Tournament reset.');
+        showToast('Tournament reset to setup.');
       });
     }
 
