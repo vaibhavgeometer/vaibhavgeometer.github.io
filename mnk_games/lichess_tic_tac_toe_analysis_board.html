@@ -2329,12 +2329,8 @@
         if (isWinningMove(board, m, turn, rows, cols, k)) return 1000000 + depth;
       }
 
-      // 2. Horizon-free quiescence at leaf depth
+      // 2. Leaf depth evaluation
       if (depth === 0) {
-        // If opponent has an unblocked instant win, evaluate as critical loss
-        for (const m of candidates) {
-          if (isWinningMove(board, m, opp, rows, cols, k)) return -1000000 - depth;
-        }
         const net = evaluateBoardState(board, rows, cols, k);
         return turn === 'X' ? net : -net;
       }
