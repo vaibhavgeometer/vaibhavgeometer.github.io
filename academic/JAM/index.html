@@ -21,6 +21,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tracker.css">
 </head>
 <body>
 
@@ -36,10 +37,15 @@
       </a>
 
       <div class="nav-actions">
-        <a href="../../website/" class="nav-link-btn" title="Return to Vaibhav Geometer Homepage">
+        <a href="../../" class="nav-link-btn" title="Return to Vaibhav Geometer Homepage">
           <span class="nav-btn-icon">🏠</span>
           <span class="nav-btn-label">Vaibhav Geometer</span>
         </a>
+        <button class="nav-link-btn" onclick="window.JAM_TRACKER.jumpToTracker()" title="Search & Track all 885 Official Examination Questions">
+          <span class="nav-btn-icon">🔍</span>
+          <span class="nav-btn-label">Search & Tracker</span>
+          <span id="nav-tracker-progress-pill" style="background:var(--accent); color:#fff; font-size:10px; font-weight:800; padding:1px 6px; border-radius:999px; margin-left:4px;">0%</span>
+        </button>
         <a href="assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Open Official IIT JAM Syllabus in new tab">
           <span class="nav-btn-icon">📜</span>
           <span class="nav-btn-label">Syllabus</span>
@@ -72,7 +78,17 @@
       <p class="hero-sub">Complete 22-Year Mock Test Series · 885 Official PYQs · 2005–2026</p>
       <p class="hero-desc">Authentic Computer Based Test (CBT) simulator with official paper screenshots, MCQ, MSQ & NAT option selectors, built-in scientific calculator, 14 formula cheat sheets, and verified master answer keys.</p>
       
-      <div class="hero-badges">
+      <!-- Quick Hero Search Input -->
+      <div class="hero-search-wrap">
+        <div class="hero-search-box">
+          <span style="font-size: 1.1rem; margin-right: 8px;">🔍</span>
+          <input type="text" id="hero-quick-search-input" class="hero-search-input" placeholder="Search 885 PYQs (e.g. 2013 Q17, 2005 7, differential equation, abelian group)..." onkeydown="if(event.key==='Enter') window.JAM_TRACKER.jumpToTracker(this.value)">
+          <button class="hero-search-btn" onclick="window.JAM_TRACKER.jumpToTracker(document.getElementById('hero-quick-search-input').value)">Search</button>
+        </div>
+      </div>
+
+      <div class="hero-badges" style="margin-top: 18px;">
+        <span class="hero-pill" style="cursor:pointer;" onclick="window.JAM_TRACKER.jumpToTracker()" title="View and track your progress">🎯 <strong>Progress:</strong> <span id="hero-progress-pill">0% Solved (0/885)</span></span>
         <span class="hero-pill">🏛 <strong>22</strong> Year Mock Tests</span>
         <span class="hero-pill">🎯 <strong>885</strong> Official PYQs</span>
         <span class="hero-pill">⚡ <strong>27</strong> Subtopic Mock Tests</span>
@@ -88,6 +104,9 @@
     <div class="main-tab-switcher">
       <button class="main-tab-btn active" onclick="window.switchMainTab('year-tests', this)">
         🏛 22-Year Mock Tests (2005–2026)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-pyq-tracker" onclick="window.switchMainTab('pyq-tracker', this)">
+        🎯 PYQ Tracker & Search (885 Qs)
       </button>
       <button class="main-tab-btn" onclick="window.switchMainTab('topic-tests', this)">
         ⚡ 27 Subtopic Mock Tests (3 Eras × 9 Topics)
@@ -118,7 +137,219 @@
         </div>
       </div>
 
-      <!-- Panel 2: Subtopic Mock Tests (3 Eras × 9 Topics = 27 Tests + 2005-2026 Archive) -->
+      <!-- Panel 2: PYQ Tracker & Question Bank (885 Questions) -->
+      <div id="tab-panel-pyq-tracker" class="tab-content-panel hidden">
+        
+        <!-- Header & Progress Box -->
+        <div class="tracker-header-box">
+          <div class="tracker-title-row">
+            <div class="tracker-title-group">
+              <h2 class="tracker-title">🎯 IIT JAM PYQ Tracker & Master Question Bank</h2>
+              <p class="tracker-subtitle">
+                Track your solving journey across all <strong>885 official examination questions</strong> (2005–2026). Mark questions as solved, tag difficulty, filter by year/topic/subtopic, search questions instantly by ID or mathematical keywords, or bulk mark topics in one click. All progress is saved automatically in your browser — zero login required.
+              </p>
+            </div>
+            <div class="tracker-actions-bar" style="margin-top:0;">
+              <button class="tracker-action-btn" id="btn-mark-oos-unnecessary" onclick="window.JAM_TRACKER.markAllOOSAsUnnecessary()" title="Toggle whether out of syllabus questions are marked unnecessary">
+                <span>🚫</span> <span>Mark Out of Syllabus as Unnecessary (87 Qs)</span>
+              </button>
+              <button class="tracker-action-btn" onclick="window.JAM_TRACKER.exportProgress()" title="Export your progress as a backup JSON file">
+                <span>💾</span> <span>Export Backup</span>
+              </button>
+              <button class="tracker-action-btn" onclick="window.JAM_TRACKER.importProgress()" title="Import progress from a previously exported JSON backup">
+                <span>📂</span> <span>Import</span>
+              </button>
+              <button class="tracker-action-btn danger" onclick="window.JAM_TRACKER.resetAllProgress()" title="Reset all progress and tags back to 0%">
+                <span>🔄</span> <span>Reset</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Overall Progress Card -->
+          <div class="progress-card">
+            <div class="progress-main-row">
+              <div class="progress-percentage-display" id="tracker-overall-percentage">
+                0<span style="font-size:1.5rem">%</span>
+              </div>
+              <div style="flex:1;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                  <span class="progress-percentage-label">Total PYQ Solving Progress</span>
+                  <span id="tracker-exact-percentage" style="font-size:0.85rem; font-weight:700; color:var(--text-main);">0 / 885 Total PYQs (0.0%)</span>
+                </div>
+                <div class="progress-bar-outer">
+                  <div class="progress-bar-fill" id="tracker-overall-bar" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Pills -->
+            <div class="progress-stats-pills">
+              <span class="tracker-stat-pill solved" id="stat-pill-solved">✓ 0 Solved</span>
+              <span class="tracker-stat-pill unsolved" id="stat-pill-unsolved">○ 885 Unsolved</span>
+              <span class="tracker-stat-pill unnecessary" id="stat-pill-unnecessary">🚫 0 Unnecessary</span>
+            </div>
+
+            <!-- Topic Progress Mini-Grid -->
+            <div class="topic-progress-grid" id="topic-progress-mini-grid">
+              <!-- Injected by pyq_tracker.js -->
+            </div>
+
+            <!-- Difficulty Distribution -->
+            <div class="difficulty-dist-row" id="difficulty-dist-pills">
+              <!-- Injected by pyq_tracker.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Box & Smart Chips Section -->
+        <div class="tracker-search-section">
+          <div class="tracker-search-bar">
+            <span class="tracker-search-icon">🔍</span>
+            <input type="text" id="tracker-search-input" class="tracker-search-input" placeholder="Search by Year + Q (e.g. '2013, Q17', '2005, 7', '7 2005'), Topic ('differential equation', 'abelian group'), or ID..." oninput="window.JAM_TRACKER.onSearchInput(this.value)">
+            <button id="tracker-search-clear-btn" class="tracker-search-clear-btn" onclick="window.JAM_TRACKER.clearSearch()" title="Clear search">✕</button>
+          </div>
+
+          <!-- Suggested Chips -->
+          <div class="tracker-search-chips">
+            <span class="search-chips-label">Quick Searches:</span>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('2013, Q17')">2013, Q17</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('2005, Q6')">2005, Q6</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('2005, 7')">2005, 7</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('2005 7')">2005 7</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('7 2005')">7 2005</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('differential equation')">Differential Equation</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('abelian group')">Abelian Group</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('matrices')">Matrices</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('finite dimensional vector spaces')">Vector Spaces</button>
+            <button class="search-chip" onclick="window.JAM_TRACKER.setSearchChip('integral calculus')">Integral Calculus</button>
+          </div>
+
+          <!-- Multi-Level Filter Toolbar -->
+          <div class="tracker-filter-bar">
+            <!-- Year Filter -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-year-select">Examination Year</label>
+              <select id="filter-year-select" class="filter-control-select" onchange="window.JAM_TRACKER.onYearChange(this.value)">
+                <option value="ALL">All Years (2005–2026)</option>
+                <option value="cbt">CBT Era (2015–2026)</option>
+                <option value="classic">Classic Era (2005–2014)</option>
+                <option value="2026">JAM 2026 (60 Qs)</option>
+                <option value="2025">JAM 2025 (60 Qs)</option>
+                <option value="2024">JAM 2024 (60 Qs)</option>
+                <option value="2023">JAM 2023 (60 Qs)</option>
+                <option value="2022">JAM 2022 (60 Qs)</option>
+                <option value="2021">JAM 2021 (60 Qs)</option>
+                <option value="2020">JAM 2020 (60 Qs)</option>
+                <option value="2019">JAM 2019 (60 Qs)</option>
+                <option value="2018">JAM 2018 (60 Qs)</option>
+                <option value="2017">JAM 2017 (60 Qs)</option>
+                <option value="2016">JAM 2016 (60 Qs)</option>
+                <option value="2015">JAM 2015 (60 Qs)</option>
+                <option value="2014">JAM 2014 (30 Qs)</option>
+                <option value="2013">JAM 2013 (10 Qs)</option>
+                <option value="2012">JAM 2012 (15 Qs)</option>
+                <option value="2011">JAM 2011 (15 Qs)</option>
+                <option value="2010">JAM 2010 (15 Qs)</option>
+                <option value="2009">JAM 2009 (15 Qs)</option>
+                <option value="2008">JAM 2008 (15 Qs)</option>
+                <option value="2007">JAM 2007 (15 Qs)</option>
+                <option value="2006">JAM 2006 (15 Qs)</option>
+                <option value="2005">JAM 2005 (15 Qs)</option>
+              </select>
+            </div>
+
+            <!-- Topic Filter -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-topic-select">Subject Topic</label>
+              <select id="filter-topic-select" class="filter-control-select" onchange="window.JAM_TRACKER.onTopicChange(this.value)">
+                <option value="ALL">All Topics</option>
+                <option value="Real Analysis">Real Analysis</option>
+                <option value="Multivariable Calculus and Differential Equations">Multivariable Calculus & ODE</option>
+                <option value="Linear Algebra and Algebra">Linear Algebra & Algebra</option>
+                <option value="Out of Syllabus">Out of Syllabus</option>
+              </select>
+            </div>
+
+            <!-- Subtopic Filter -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-subtopic-select">Subtopic</label>
+              <select id="filter-subtopic-select" class="filter-control-select" onchange="window.JAM_TRACKER.onSubtopicChange(this.value)">
+                <option value="ALL">All Subtopics</option>
+              </select>
+            </div>
+
+            <!-- Status Filter -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-status-select">Status</label>
+              <select id="filter-status-select" class="filter-control-select" onchange="window.JAM_TRACKER.onStatusChange(this.value)">
+                <option value="ALL">All Statuses</option>
+                <option value="solved">✓ Solved Only</option>
+                <option value="unsolved">○ Unsolved Only</option>
+                <option value="unnecessary">🚫 Unnecessary Only</option>
+              </select>
+            </div>
+
+            <!-- Difficulty Filter -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-diff-select">Difficulty Tag</label>
+              <select id="filter-diff-select" class="filter-control-select" onchange="window.JAM_TRACKER.onDifficultyChange(this.value)">
+                <option value="ALL">All Difficulties</option>
+                <option value="very_easy">🟢 Very Easy</option>
+                <option value="easy">🔵 Easy</option>
+                <option value="medium">🟡 Medium</option>
+                <option value="hard">🟠 Hard</option>
+                <option value="hardest">🟣 Hardest</option>
+                <option value="unrated">⚪ Unrated Only</option>
+              </select>
+            </div>
+
+            <!-- Sort By -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-sort-select">Sort Order</label>
+              <select id="filter-sort-select" class="filter-control-select" onchange="window.JAM_TRACKER.onSortChange(this.value)">
+                <option value="default">Newest Year First (2026 → 2005)</option>
+                <option value="year_asc">Oldest Year First (2005 → 2026)</option>
+                <option value="diff_desc">Difficulty (Hardest → Very Easy)</option>
+                <option value="diff_asc">Difficulty (Very Easy → Hardest)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bulk Action Ribbon -->
+        <div class="tracker-bulk-ribbon" id="tracker-bulk-ribbon">
+          <div class="bulk-results-count" id="tracker-results-count">
+            Loading 885 questions...
+          </div>
+          <div class="bulk-btn-group">
+            <button class="bulk-btn solve-all" onclick="window.JAM_TRACKER.bulkMarkFiltered(true)" title="Mark all questions matching current filter as solved in one click">
+              <span>✓</span> <span>Mark All Filtered as Solved</span>
+            </button>
+            <button class="bulk-btn unsolve-all" onclick="window.JAM_TRACKER.bulkMarkFiltered(false)" title="Mark all questions matching current filter as unsolved">
+              <span>○</span> <span>Mark All Filtered as Unsolved</span>
+            </button>
+            <button class="bulk-btn" onclick="window.JAM_TRACKER.resetFilters()" title="Reset all search queries and dropdown filters">
+              <span>✕</span> <span>Reset Filters</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Optional Notice Banner for special search queries -->
+        <div id="tracker-results-notice" class="hidden"></div>
+
+        <!-- Questions Grid -->
+        <div class="tracker-questions-grid" id="tracker-questions-container">
+          <!-- Injected via pyq_tracker.js -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="tracker-pagination" id="tracker-pagination-container">
+          <!-- Injected via pyq_tracker.js -->
+        </div>
+
+      </div>
+
+      <!-- Panel 3: Subtopic Mock Tests (3 Eras × 9 Topics = 27 Tests + 2005-2026 Archive) -->
       <div id="tab-panel-topic-tests" class="tab-content-panel hidden">
         <div class="topic-filters-wrapper">
           <div class="filter-group">
@@ -644,16 +875,21 @@
         <span aria-hidden="true">•</span>
         <a href="countdown/">JAM 2027 Countdown</a>
         <span aria-hidden="true">•</span>
-        <a href="../../website/">Vaibhav Geometer</a>
+        <a href="../../">Vaibhav Geometer</a>
       </div>
-      <p>© 2026 · IIT JAM Mathematics Mock Tests & Resource Portal · Created by <a href="../../website/" style="color:var(--accent);">Vaibhav Geometer</a> · Math rendered via <strong>MathJax 3</strong></p>
+      <p>© 2026 · IIT JAM Mathematics Mock Tests & Resource Portal · Created by <a href="../../" style="color:var(--accent);">Vaibhav Geometer</a> · Math rendered via <strong>MathJax 3</strong></p>
     </div>
   </footer>
+
+  <!-- Modal for High-Resolution Question Screenshot -->
+  <div id="tracker-question-modal" class="hidden"></div>
 
   <!-- Scripts -->
   <script src="js/jspdf.umd.min.js"></script>
   <script src="js/jspdf.plugin.autotable.min.js"></script>
   <script src="mock-test/js/questions_data.js"></script>
+  <script src="js/pyq_master_data.js"></script>
+  <script src="js/pyq_tracker.js"></script>
   <script src="js/custom_pdf_generator.js"></script>
   <script src="js/main.js"></script>
 </body>

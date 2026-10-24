@@ -15,6 +15,12 @@
       var search = window.location.search || '';
       var hash = window.location.hash || '';
 
+      if (lower === '/website' || lower === '/website/' || lower.indexOf('/website/') === 0) {
+        var sub = path.replace(/^\/website\/?/i, '');
+        window.location.replace('/' + sub + search + hash);
+        return;
+      }
+
       if (lower === '/jam' || lower === '/jam/' || lower.indexOf('/jam/') === 0) {
         var sub = path.replace(/^\/jam\/?/i, '');
         window.location.replace('/academic/JAM/' + sub + search + hash);
