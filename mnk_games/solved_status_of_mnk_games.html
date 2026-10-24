@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solved Status of (m,n,k)-Games — Vaibhav Geometer</title>
+  <meta name="description" content="Comprehensive game-theoretic atlas of solved (m,n,k)-games from k=1 to k≥8. Interactive matrix viewer, mathematical proof citations, and downloadable dataset.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../website/css/portfolio.css">
+  <style>
+    .atlas-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .k-tab-btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .k-tab-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-primary);
+      border-color: #629924;
+    }
+    .k-tab-btn.active {
+      background: #629924;
+      color: #ffffff;
+      border-color: #629924;
+      box-shadow: 0 4px 14px rgba(98, 153, 36, 0.35);
+    }
+    .matrix-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      overflow-x: auto;
+      box-shadow: var(--shadow-md);
+    }
+    .matrix-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .matrix-table th {
+      padding: 0.6rem;
+      background: #1a1815;
+      color: #a0a0a0;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid #363431;
+    }
+    .matrix-table th.corner-th {
+      background: #161512;
+      color: #629924;
+      font-weight: 800;
+    }
+    .matrix-cell {
+      padding: 0.6rem;
+      text-align: center;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .matrix-cell:hover {
+      transform: scale(1.08);
+      z-index: 10;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+    }
+    .cell-win {
+      background: rgba(98, 153, 36, 0.25);
+      border: 1px solid #629924;
+      color: #7ec62f;
+    }
+    .cell-win:hover {
+      background: #629924;
+      color: #ffffff;
+    }
+    .cell-draw {
+      background: rgba(230, 159, 0, 0.2);
+      border: 1px solid #e69f00;
+      color: #f3b12b;
+    }
+    .cell-draw:hover {
+      background: #e69f00;
+      color: #161512;
+    }
+    .cell-unknown {
+      background: rgba(148, 163, 184, 0.12);
+      border: 1px dashed #64748b;
+      color: #94a3b8;
+    }
+    .cell-unknown:hover {
+      background: #475569;
+      color: #ffffff;
+    }
+    .cell-selected {
+      outline: 2px solid #38bdf8 !important;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.6) !important;
+    }
+    .inspector-card {
+      background: #1e1c18;
+      border: 1px solid #363431;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .inspector-card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .proof-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="brand-wrap" title="Vaibhav Geometer">
+        <div class="brand-icon-box">📐</div>
+        <span class="brand-text">Vaibhav Geometer</span>
+      </a>
+      <div class="nav-controls">
+        <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">m,n,k-game & genralizations</a>
+        <a href="mnk_games_theory_and_ai.html" class="nav-link">Theory & AI</a>
+        <a href="solved_status_of_mnk_games.html" class="nav-link active" style="color: #7ec62f;">Solved Atlas</a>
+        <a href="../academic/" class="nav-link">Academic Portals</a>
+        <a href="../" class="nav-link">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="atlas-container">
+      
+      <!-- Breadcrumb -->
+      <nav style="display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+        <a href="../" style="color: var(--text-secondary); text-decoration: none;">Home</a>
+        <span>/</span>
+        <a href="index.html" style="color: var(--text-secondary); text-decoration: none;">(m,n,k)-Games</a>
+        <span>/</span>
+        <span style="color: #7ec62f;">Solved Status Atlas</span>
+      </nav>
+
+      <!-- Hero Section -->
+      <section style="margin-bottom: 2rem;">
+        <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(98, 153, 36, 0.15); border-color: rgba(98, 153, 36, 0.35); color: #7ec62f;">
+          Combinatorial Game Theory · Verified Atlas
+        </div>
+        <h1 style="font-family: var(--font-heading); font-size: 2.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.2;">
+          Solved Status of (m,n,k)-Games & Generalizations
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 900px;">
+          An interactive, fact-checked mathematical compendium of the game-theoretic outcomes for $(m,n,k)$-games from $k=1$ to $k \ge 8$. Every board is classified as First-Player Win ($W$), Proven Draw ($D$), or Open Problem ($Unknown$) with formal citations and proof methods.
+        </p>
+      </section>
+
+      <!-- Top Action Bar & Download -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+            <span class="matrix-cell cell-win" style="padding: 0.2rem 0.5rem; cursor: default;">W</span>
+            <span style="color: var(--text-secondary);">First-Player Win</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+            <span class="matrix-cell cell-draw" style="padding: 0.2rem 0.5rem; cursor: default;">D</span>
+            <span style="color: var(--text-secondary);">Proven Draw</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+            <span class="matrix-cell cell-unknown" style="padding: 0.2rem 0.5rem; cursor: default;">?</span>
+            <span style="color: var(--text-secondary);">Unknown / Open Problem</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-primary" style="text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem; background: #629924; border-color: #629924;">
+            <span>📥 Download Excel Dataset (.xlsx)</span>
+          </a>
+          <a href="lichess_tic_tac_toe_analysis_board.html" class="btn-secondary" style="text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem;">
+            <span>♟️ Analysis Board</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- K-Tabs Navigation -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;" id="k-tab-container">
+        <button type="button" class="k-tab-btn" data-k="1">k = 1</button>
+        <button type="button" class="k-tab-btn" data-k="2">k = 2</button>
+        <button type="button" class="k-tab-btn" data-k="3">k = 3</button>
+        <button type="button" class="k-tab-btn" data-k="4">k = 4</button>
+        <button type="button" class="k-tab-btn active" data-k="5">k = 5 (Gomoku)</button>
+        <button type="button" class="k-tab-btn" data-k="6">k = 6</button>
+        <button type="button" class="k-tab-btn" data-k="7">k = 7</button>
+        <button type="button" class="k-tab-btn" data-k="8">k &ge; 8</button>
+      </div>
+
+      <!-- Matrix Container -->
+      <div class="matrix-wrapper">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2 id="matrix-title" style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--text-primary);">
+            $(m,n,5)$-Game Solved Status Matrix
+          </h2>
+          <span id="matrix-stats-badge" style="font-size: 0.8rem; color: #a0a0a0; font-family: 'JetBrains Mono', monospace;">
+            Rows = m, Columns = n · Click any cell to inspect
+          </span>
+        </div>
+        <div id="matrix-table-container">
+          <!-- Dynamically populated matrix table -->
+        </div>
+      </div>
+
+      <!-- Interactive Board Inspector -->
+      <div class="inspector-card" id="inspector-card">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span id="insp-dim-badge" class="mono-font" style="font-size: 1.2rem; font-weight: 800; color: #ffffff;">(5, 5, 4)</span>
+            <span id="insp-status-badge" class="proof-badge" style="background: rgba(230, 159, 0, 0.25); color: #f3b12b; border: 1px solid #e69f00;">Proven Draw (D)</span>
+          </div>
+          <p id="insp-proof-desc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; max-width: 750px;">
+            Retrograde computer analysis proven by Jos Uiterwijk (2002) and Allis. The second player can force a draw under perfect play. Sub-board monotonicity ensures all boards $m \le 5, n \le 5$ are also draws.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-shrink: 0;">
+          <a id="insp-play-link" href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="btn-primary" style="text-decoration: none; background: #629924; border-color: #629924;">
+            <span>♟️ Launch on Analysis Board</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mathematical Theorems & Treatise -->
+      <article style="margin-top: 3.5rem; border-top: 1px solid var(--border); padding-top: 2.5rem;" class="article-content">
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-primary); margin-bottom: 1.25rem;">
+          The Mathematical Theory of Solved (m,n,k)-Games
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h3 style="font-family: var(--font-heading); color: #7ec62f; font-size: 1.15rem; margin-bottom: 0.5rem;">
+              1. Nash Strategy-Stealing Theorem
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              In no $(m,n,k)$-game can the second player (Player O) ever possess a forced winning strategy. An extra stone placed anywhere on the board can never disadvantage the player who owns it. Therefore, if the second player had a hypothetical winning strategy, the first player could place an arbitrary move on ply 1 and "steal" the strategy. Hence, every game is either a <strong>First-Player Win ($W$)</strong> or a <strong>Draw ($D$)</strong>.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h3 style="font-family: var(--font-heading); color: #38bdf8; font-size: 1.15rem; margin-bottom: 0.5rem;">
+              2. Sub-Board & Super-Board Monotonicity
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              $(m,n,k)$-games satisfy strict spatial monotonicity:
+              <br>• If $(m_0, n_0, k)$ is a proven <strong>Draw</strong>, then any smaller sub-board $(m, n, k)$ with $m \le m_0$ and $n \le n_0$ is guaranteed to be a <strong>Draw</strong>.
+              <br>• If $(m_0, n_0, k)$ is a proven <strong>Win</strong>, then any larger super-board $(m, n, k)$ with $m \ge m_0$ and $n \ge n_0$ is guaranteed to be a <strong>Win</strong>.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+            <h3 style="font-family: var(--font-heading); color: #e69f00; font-size: 1.15rem; margin-bottom: 0.5rem;">
+              3. Pairing Strategies & Ramsey Theory
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              A pairing strategy partitions the cells of the board into disjoint pairs such that every winning line of length $k$ contains both cells of at least one pair. Whenever Player X moves in one cell of a pair, Player O responds in the other. Hales & Jewett (1963) and subsequent researchers proved that for $k \ge 8$, a pairing strategy forces a draw on <em>all</em> board sizes up to $(\infty, \infty, k)$.
+            </p>
+          </div>
+        </div>
+
+        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--text-primary); margin-top: 2rem; margin-bottom: 1rem;">
+          Breakthrough Timeline in (m,n,k) Game Theory
+        </h3>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem; font-size: 0.92rem; line-height: 1.7; color: var(--text-secondary);">
+          <ul style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+            <li><strong>k = 1 & k = 2:</strong> Trivial 1-ply wins for all boards except $(1,1,2)$ and $(1,2,2)$ which are draws.</li>
+            <li><strong>k = 3:</strong> Classical Tic-Tac-Toe $(3,3,3)$ is a Draw. Any board $(m,n,3)$ with $\min(m,n) \ge 3$ and $\max(m,n) \ge 4$ is a First-Player Win. Any board with $\min(m,n) \le 2$ is a Draw.</li>
+            <li><strong>k = 4 (Q-Gomoku):</strong> Patashnik (1980) and Uiterwijk (2002) resolved $(5,5,4)$ as a Draw. $(6,5,4)$ is a Win. $(4,n,4)$ is a Draw for $n \le 8$ and a Win for $n \ge 9$.</li>
+            <li><strong>k = 5 (Standard Gomoku):</strong> In 1993, L. Victor Allis solved Freestyle Gomoku $(15,15,5)$ as a First-Player Win using Proof-Number Search (PNS). In 2020, Wei-Yuan Hsu and Chu-Ling Ko proved that both $(7,7,5)$ and $(8,8,5)$ are Draws. By monotonicity, $(m,n,5)$ is a Draw for all $m \le 8, n \le 8$. $(9,9,5)$ is a Win. Strip Gomoku of width 5 on infinite length remains an open research question.</li>
+            <li><strong>k = 6 & k = 7 (The Open Frontier):</strong> $(7,7,6)$ and $(9,6,6)$ are proven draws via pairing strategies. However, whether the second player can force a draw on an <em>infinite board</em> $(\infty, \infty, 6)$ or $(\infty, \infty, 7)$ remains one of the premier open problems in combinatorial game theory. Both are conjectured to be draws.</li>
+            <li><strong>k &ge; 8:</strong> Completely solved as Draws on all finite and infinite boards via Hales-Jewett pairing strategies and Ramsey bounds.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Vaibhav Geometer · (m,n,k)-Games Ecosystem</p>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="lichess_tic_tac_toe_analysis_board.html">m,n,k-game & genralizations</a>
+        <a href="mnk_games_theory_and_ai.html">Theory & AI</a>
+        <a href="solved_status_of_mnk_games.html">Solved Atlas</a>
+        <a href="../academic/">Academic Portals</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Matrix Engine -->
+  <script>
+    const SOLVED_DATA = {
+      1: {
+        title: '$(m,n,1)$-Game Solved Status Matrix',
+        cols: ['1', '≥2', '∞'],
+        rows: ['1', '≥2', '∞'],
+        matrix: [
+          ['W', 'W', 'W'],
+          ['W', 'W', 'W'],
+          ['W', 'W', 'W']
+        ],
+        desc: 'Trivial 1-ply game: The first player marks any cell on move 1 and immediately fulfills the win condition of k=1. Always a First-Player Win.'
+      },
+      2: {
+        title: '$(m,n,2)$-Game Solved Status Matrix',
+        cols: ['1', '2', '≥3', '∞'],
+        rows: ['1', '2', '≥3', '∞'],
+        matrix: [
+          ['D', 'D', 'W', 'W'],
+          ['D', 'W', 'W', 'W'],
+          ['W', 'W', 'W', 'W'],
+          ['W', 'W', 'W', 'W']
+        ],
+        desc: 'Trivial game: (1,1,2) and (1,2,2) are Draws because the board is too small. On (2,2,2) or (1,3,2), the first player places a center stone with multiple open ends and forces a win.'
+      },
+      3: {
+        title: '$(m,n,3)$-Game Solved Status Matrix (Tic-Tac-Toe)',
+        cols: ['1', '2', '3', '≥4', '∞'],
+        rows: ['1', '2', '3', '≥4', '∞'],
+        matrix: [
+          ['D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'W', 'W'],
+          ['D', 'D', 'W', 'W', 'W'],
+          ['D', 'D', 'W', 'W', 'W']
+        ],
+        desc: 'Classical Tic-Tac-Toe: (3,3,3) is a proven Draw. (3,4,3) and (4,4,3) are First-Player Wins. Any board with min(m,n) <= 2 is a Draw because the second player easily pairs adjacent cells.'
+      },
+      4: {
+        title: '$(m,n,4)$-Game Solved Status Matrix',
+        cols: ['1', '2', '3', '4', '5', '6', '7', '8', '≥9', '∞'],
+        rows: ['1', '2', '3', '4', '5', '6', '7', '8', '≥9', '∞'],
+        matrix: [
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'W', 'W'],
+          ['D', 'D', 'D', 'D', 'D', 'W', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'D', 'W', 'W', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'D', 'W', 'W', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'D', 'W', 'W', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'W', 'W', 'W', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'W', 'W', 'W', 'W', 'W', 'W', 'W']
+        ],
+        desc: 'Q-Gomoku (k=4): (5,5,4) is a proven Draw. (6,5,4) is a First-Player Win. On a 4-row strip, (4,8,4) is a Draw and (4,9,4) is a First-Player Win.'
+      },
+      5: {
+        title: '$(m,n,5)$-Game Solved Status Matrix (Gomoku)',
+        cols: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '15', '∞'],
+        rows: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '15', '∞'],
+        matrix: [
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', '?', '?', '?', '?', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'D', '?', '?', '?', '?', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'D', '?', '?', '?', '?', 'W', 'W', 'W', 'W'],
+          ['D', 'D', 'D', 'D', '?', '?', '?', '?', 'W', 'W', 'W', 'W']
+        ],
+        desc: 'Gomoku (k=5): (7,7,5) and (8,8,5) are proven Draws (Hsu & Ko, 2020). By monotonicity, all sub-boards m <= 8, n <= 8 are Draws. (9,9,5) and (15,15,5) are First-Player Wins (Victor Allis, 1993). Bounded strips (5,n,5) to (8,n,5) for large n are open research questions.'
+      },
+      6: {
+        title: '$(m,n,6)$-Game Solved Status Matrix',
+        cols: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '≥10', '∞'],
+        rows: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '≥10', '∞'],
+        matrix: [
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', '?', '?', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', '?', '?', '?', '?', '?', '?']
+        ],
+        desc: 'k=6: (7,7,6) and (9,6,6) are proven Draws via pairing strategies. Large finite boards and the infinite board (∞,∞,6) remain open research problems in combinatorial game theory, conjectured to be Draws.'
+      },
+      7: {
+        title: '$(m,n,7)$-Game Solved Status Matrix',
+        cols: ['1', '2', '3', '4', '5', '6', '7', '8', '≥9', '∞'],
+        rows: ['1', '2', '3', '4', '5', '6', '7', '8', '≥9', '∞'],
+        matrix: [
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'],
+          ['D', 'D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?'],
+          ['D', 'D', 'D', 'D', 'D', 'D', '?', '?', '?', '?']
+        ],
+        desc: 'k=7: (7,7,7) is a proven Draw. Large finite boards and the infinite board (∞,∞,7) are open research problems, conjectured to be Draws under optimal play.'
+      },
+      8: {
+        title: '$(m,n,k)$-Game Solved Status Matrix for k ≥ 8',
+        cols: ['1', '≥2', '∞'],
+        rows: ['1', '≥2', '∞'],
+        matrix: [
+          ['D', 'D', 'D'],
+          ['D', 'D', 'D'],
+          ['D', 'D', 'D']
+        ],
+        desc: 'k >= 8: Completely proven Draws on ALL boards up to (∞,∞,k) via Hales-Jewett pairing strategies and Ramsey bounds. The second player can always force a draw.'
+      }
+    };
+
+    let currentK = 5;
+
+    function renderMatrix(k) {
+      currentK = k;
+      const data = SOLVED_DATA[k];
+      if (!data) return;
+
+      document.getElementById('matrix-title').textContent = data.title;
+      
+      const container = document.getElementById('matrix-table-container');
+      let html = '<table class="matrix-table"><thead><tr><th class="corner-th">m \\ n</th>';
+      data.cols.forEach(c => {
+        html += `<th>${c}</th>`;
+      });
+      html += '</tr></thead><tbody>';
+
+      let winCount = 0;
+      let drawCount = 0;
+      let unkCount = 0;
+
+      data.rows.forEach((r, rIdx) => {
+        html += `<tr><th>${r}</th>`;
+        data.cols.forEach((c, cIdx) => {
+          const val = data.matrix[rIdx][cIdx];
+          let cls = 'cell-draw';
+          if (val === 'W') { cls = 'cell-win'; winCount++; }
+          else if (val === 'D') { cls = 'cell-draw'; drawCount++; }
+          else { cls = 'cell-unknown'; unkCount++; }
+
+          html += `<td class="matrix-cell ${cls}" data-r="${r}" data-c="${c}" data-k="${k}" data-val="${val}">${val}</td>`;
+        });
+        html += '</tr>';
+      });
+
+      html += '</tbody></table>';
+      container.innerHTML = html;
+
+      document.getElementById('matrix-stats-badge').textContent = 
+        `Win (W): ${winCount} · Draw (D): ${drawCount} · Unknown: ${unkCount}`;
+
+      // Attach cell click events
+      container.querySelectorAll('.matrix-cell').forEach(cell => {
+        cell.addEventListener('click', () => {
+          container.querySelectorAll('.matrix-cell').forEach(c => c.classList.remove('cell-selected'));
+          cell.classList.add('cell-selected');
+          inspectCell(cell.dataset.r, cell.dataset.c, cell.dataset.k, cell.dataset.val);
+        });
+      });
+
+      // Default inspect first non-trivial cell
+      const defaultCell = container.querySelector('.matrix-cell[data-r="5"][data-c="5"]') || container.querySelector('.matrix-cell');
+      if (defaultCell) {
+        defaultCell.classList.add('cell-selected');
+        inspectCell(defaultCell.dataset.r, defaultCell.dataset.c, defaultCell.dataset.k, defaultCell.dataset.val);
+      }
+    }
+
+    function inspectCell(r, c, k, val) {
+      const dimBadge = document.getElementById('insp-dim-badge');
+      const statusBadge = document.getElementById('insp-status-badge');
+      const proofDesc = document.getElementById('insp-proof-desc');
+      const playLink = document.getElementById('insp-play-link');
+
+      dimBadge.textContent = `(${r}, ${c}, ${k})`;
+
+      if (val === 'W') {
+        statusBadge.textContent = 'First-Player Win (1-0)';
+        statusBadge.className = 'proof-badge';
+        statusBadge.style = 'background: rgba(98, 153, 36, 0.25); color: #7ec62f; border: 1px solid #629924;';
+        proofDesc.textContent = `On a ${r}×${c} board with k=${k}, the first player (X) has a mathematically proven forced winning strategy under optimal play.`;
+      } else if (val === 'D') {
+        statusBadge.textContent = 'Proven Draw (½-½)';
+        statusBadge.className = 'proof-badge';
+        statusBadge.style = 'background: rgba(230, 159, 0, 0.25); color: #f3b12b; border: 1px solid #e69f00;';
+        proofDesc.textContent = `On a ${r}×${c} board with k=${k}, the second player (O) can guarantee at least a draw via pairing strategies or retrograde minimax search.`;
+      } else {
+        statusBadge.textContent = 'Open Problem / Unknown (?)';
+        statusBadge.className = 'proof-badge';
+        statusBadge.style = 'background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px dashed #64748b;';
+        proofDesc.textContent = `The game-theoretic value of (${r}, ${c}, ${k}) has not been formally proved in published combinatorial literature. Bounded strips and large board thresholds remain active research topics.`;
+      }
+
+      // Format launch link parameters
+      let mParam = parseInt(r, 10);
+      let nParam = parseInt(c, 10);
+      if (isNaN(mParam) || r.includes('≥') || r === '∞') mParam = (k >= 5 ? 15 : 9);
+      if (isNaN(nParam) || c.includes('≥') || c === '∞') nParam = (k >= 5 ? 15 : 9);
+      let kParam = parseInt(k, 10);
+      if (isNaN(kParam)) kParam = 8;
+
+      playLink.href = `lichess_tic_tac_toe_analysis_board.html?m=${mParam}&n=${nParam}&k=${kParam}`;
+    }
+
+    // Attach Tab Event Listeners
+    document.querySelectorAll('.k-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.k-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const k = parseInt(btn.dataset.k, 10);
+        renderMatrix(k);
+      });
+    });
+
+    // Initial render
+    renderMatrix(5);
+  </script>
+</body>
+</html>

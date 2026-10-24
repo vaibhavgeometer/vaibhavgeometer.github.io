@@ -14,8 +14,8 @@
 
 > **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring:
 > 1. **[IIT JAM Mathematics (MA) 22-Year Study Portal & CBT Simulator](https://vaibhavgeometer.github.io/JAM/)**: 885 official PYQs (2005–2026), 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator.
-> 2. **[StockTic SOTA (m,n,k)-Games & Tic-Tac-Toe Analysis Board](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html)**: Advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$), featuring standardized $[-100, +100]$ win probability eval bar, horizon-free static board evaluation, full-board square evaluations, 8 calibrated engine difficulty levels (600–3000 Elo), match evaluation privacy toggle, and Threat-Space Search (VCF/VCT).
-> 3. **[(m,n,k) Games Theory & AI Research Guide](https://vaibhavgeometer.github.io/mnk_games_theory_and_ai.html)**: Mathematical and algorithmic deep dive exploring Ramsey theory, Nash strategy-stealing, solved games catalog, static evaluation kernels, and proof-number search.
+> 2. **[m,n,k-game & genralizations](https://vaibhavgeometer.github.io/mnk_games/lichess_tic_tac_toe_analysis_board.html)**: Advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$), featuring standardized $[-100, +100]$ win probability eval bar, horizon-free static board evaluation, full-board square evaluations, 8 calibrated engine difficulty levels (600–3000 Elo), active obstacle barriers (`#`), Lichess clocks, Solved Status Atlas, and Threat-Space Search (VCF/VCT).
+> 3. **[(m,n,k) Games Theory & AI Research Guide](https://vaibhavgeometer.github.io/mnk_games/mnk_games_theory_and_ai.html)**: Mathematical and algorithmic deep dive exploring Ramsey theory, Nash strategy-stealing, solved games catalog, static evaluation kernels, and proof-number search.
 
 ---
 
@@ -24,8 +24,9 @@
 | Resource | Description | Direct Link |
 | :--- | :--- | :--- |
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
-| ♟️ **(m,n,k) & Tic-Tac-Toe Analysis Board** | StockTic analysis board for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$) with StockTic AI (Levels 1–8), solved tablebase & MultiPV analysis | [Launch Analysis Board](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html) |
-| 📖 **(m,n,k) Games Theory & AI** | Deep-dive research into Ramsey theory, Nash strategy-stealing, solved games catalog & AI algorithms | [Read Theory Article](https://vaibhavgeometer.github.io/mnk_games_theory_and_ai.html) |
+| ♟️ **m,n,k-game & genralizations** | Analysis board for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$) with SOTA AI (Levels 1–8), solved tablebases, Lichess clocks & MultiPV analysis | [Launch Analysis Board](https://vaibhavgeometer.github.io/mnk_games/lichess_tic_tac_toe_analysis_board.html) |
+| 📊 **Solved Status Atlas** | Verified matrix atlas of $(m,n,k)$ game solutions ($k=1$ to $k \ge 8$) with proofs & downloadable Excel dataset | [Explore Solved Atlas](https://vaibhavgeometer.github.io/mnk_games/solved_status_of_mnk_games.html) |
+| 📖 **(m,n,k) Games Theory & AI** | Deep-dive research into Ramsey theory, Nash strategy-stealing, solved games catalog & AI algorithms | [Read Theory Article](https://vaibhavgeometer.github.io/mnk_games/mnk_games_theory_and_ai.html) |
 | 💻 **CBT Simulator** | Real exam interface with palette, timer & scientific calculator | [Launch Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
 | ⏳ **JAM 2027 Countdown** | Live ticking countdown timer to 14 Feb 2027 | [Open Countdown](https://vaibhavgeometer.github.io/JAM/countdown/) |
 | 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & answer keys | [View Manifest](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |
@@ -113,7 +114,7 @@
   }
   ```
 
-### ♟️ 9. StockTic SOTA (m,n,k)-Games & Tic-Tac-Toe Analysis Board & Engine
+### ♟️ 9. m,n,k-game & genralizations Analysis Board & SOTA Engine
 - **Arbitrary (m,n,k) Configurable Geometry ($1\times 1$ to $32\times 32$, $k=1..8$)**:
   - Scales seamlessly from classic $3\times 3$ Tic-Tac-Toe, $4\times 4\times 4$ Qubic, and Connect Four to $15\times 15$ Gomoku and Beck's open $(\infty, \infty, k)$ problems.
   - Interactive board modal with sliders, cell count metrics, and theoretical classification displays.

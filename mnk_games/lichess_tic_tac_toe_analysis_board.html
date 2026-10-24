@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StockTic (m,n,k)-Games & Tic-Tac-Toe Analysis Board</title>
+  <title>m,n,k-game & genralizations</title>
   <meta name="description" content="StockTic analysis board for generalized (m,n,k)-games from 1x1 to 32x32 and k in a row from 1 to 8. Powered by SOTA Threat-Space Search, iterative deepening, and solved tablebases.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <!-- Tailwind CSS CDN -->
@@ -177,6 +177,7 @@
         </svg>
         <span class="font-extrabold text-lg text-white tracking-wide">Stock<span class="text-[#629924]">Tic</span></span>
       </a>
+      <span class="text-xs text-gray-300 font-semibold hidden lg:inline tracking-wide">m,n,k-game &amp; genralizations</span>
 
       <span class="text-[#73706c] hidden sm:inline">|</span>
 
@@ -187,10 +188,16 @@
         <span class="text-[10px] text-gray-400">▾</span>
       </button>
 
+      <!-- Solved Atlas Link -->
+      <a href="solved_status_of_mnk_games.html" title="Interactive Solved Status of (m,n,k)-Games from k=1 to k≥8" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
+        <span>📊</span>
+        <span>Solved Atlas</span>
+      </a>
+
       <!-- Theory Article Link -->
       <a href="mnk_games_theory_and_ai.html" title="Read Complete Research Article: Game States & SOTA AI Algorithms" class="hidden md:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
         <span>📖</span>
-        <span>(m,n,k) Theory & AI</span>
+        <span>Theory & AI</span>
       </a>
 
       <a href="../" title="Return to Portfolio" class="flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
@@ -680,11 +687,8 @@
             <span class="text-gray-300 font-semibold flex items-center space-x-1">
               <span>🤖 AI Engine Game:</span>
             </span>
-            <div class="flex items-center space-x-1" id="ai-speed-buttons">
-              <span class="text-[10px] text-gray-400 mr-0.5">Speed:</span>
-              <button type="button" class="ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-speed="150" title="Fast thinking delay: 150ms">⚡ Fast</button>
-              <button type="button" class="ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#629924] text-white border-[#629924]" data-speed="450" title="Normal thinking delay: 450ms">⏱ Normal</button>
-              <button type="button" class="ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" data-speed="1000" title="Deep thinking delay: 1000ms">🧠 Deep</button>
+            <div class="flex items-center space-x-1">
+              <span class="text-[10px] text-gray-400 font-mono">Dynamic SOTA Search</span>
             </div>
           </div>
           
@@ -1024,12 +1028,17 @@
         </div>
 
         <!-- Action / Transfer Buttons -->
-        <div class="pt-2 border-t border-[#363431] grid grid-cols-2 gap-2">
-          <button type="button" id="btn-editor-to-analysis" class="py-2 px-3 rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold text-xs transition shadow flex items-center justify-center space-x-1">
-            <span>🔍 Load into Analysis</span>
-          </button>
-          <button type="button" id="btn-editor-to-play" class="py-2 px-3 rounded bg-[#3692e7] hover:bg-[#4ea2f0] text-white font-bold text-xs transition shadow flex items-center justify-center space-x-1">
-            <span>⚔️ Play Position</span>
+        <div class="pt-2 border-t border-[#363431] space-y-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button type="button" id="btn-editor-to-analysis" class="py-2 px-3 rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold text-xs transition shadow flex items-center justify-center space-x-1">
+              <span>🔍 Load into Analysis</span>
+            </button>
+            <button type="button" id="btn-editor-to-play" class="py-2 px-3 rounded bg-[#3692e7] hover:bg-[#4ea2f0] text-white font-bold text-xs transition shadow flex items-center justify-center space-x-1">
+              <span>⚔️ Play Position</span>
+            </button>
+          </div>
+          <button type="button" id="btn-editor-reset-empty" class="w-full py-1.5 px-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 text-xs font-semibold transition text-center">
+            Standard Empty Board (Clear Obstacles)
           </button>
         </div>
       </div>
@@ -1494,7 +1503,7 @@
       return (totalRows - r).toString();
     }
 
-    function getCoord(idx, rows, cols) {
+    function getCoord(idx, rows = config.rows, cols = config.cols) {
       const r = Math.floor(idx / cols);
       const c = idx % cols;
       return getColName(c) + getRowName(r, rows);
@@ -2922,6 +2931,8 @@
      * Application State
      */
     const state = {
+      startingCustomBoard: null,
+      startingCustomTurn: 'X',
       history: [
         {
           board: Array(config.rows * config.cols).fill(null),
@@ -2956,7 +2967,7 @@
      * Lichess Clocks State (Demand 2)
      */
     const clockState = {
-      enabled: false,           // true if timed match
+      enabled: true,            // active by default with 3+0 Blitz
       initialMs: 180000,        // default 3 minutes (180s)
       incrementMs: 0,           // default 0s increment
       tcName: '3+0 Blitz',
@@ -3065,6 +3076,8 @@
       PLAYERS.forEach(p => {
         clockState.times[p] = initialMs;
       });
+      const tcDisplay = document.getElementById('current-tc-display');
+      if (tcDisplay) tcDisplay.textContent = tcName;
       updateClockDisplays();
     }
 
@@ -3285,14 +3298,13 @@
       render();
 
       const lvl = getAiLevelForTurn(current.turn);
-      const thinkDelay = playMatchState.aiGameRunning ? playMatchState.aiDelayMs : computeAiThinkDelay(current.board, current.turn, lvl);
-
       if (engineTimeoutId) clearTimeout(engineTimeoutId);
+      // Yield 16ms so UI updates to 'Engine thinking...' then run SOTA search with its allocated time budget
       engineTimeoutId = setTimeout(() => {
         makeEngineMoveForLevel(lvl);
         state.isEngineThinking = false;
         render();
-      }, thinkDelay);
+      }, 16);
     }
 
     function startAiGame() {
@@ -3486,38 +3498,28 @@
      * Level 8 AI Time Management Engine (Demand 2 lines 17-20)
      */
     function computeAiThinkDelay(board, turn, level) {
-      if (level < 8 && !clockState.enabled) {
-        return level >= 6 ? 360 : 220;
-      }
-
-      // Check for opening book / tablebase / direct 1-move win / 1-move forced block
       const candidates = getCandidateMoves(board, config.rows, config.cols);
       const isWin = candidates.some(m => isWinningMove(board, m, turn, config.rows, config.cols, config.k));
       const opps = PLAYERS.slice(0, config.j || 2).filter(p => p !== turn);
       const isForcedBlock = opps.some(opp => candidates.some(m => isWinningMove(board, m, opp, config.rows, config.cols, config.k)));
 
-      const totalCells = config.rows * config.cols;
       let emptyCells = 0;
       for (let i = 0; i < board.length; i++) {
         if (board[i] === null) emptyCells++;
       }
-      const occupied = totalCells - emptyCells;
 
-      // In completely known positions (tablebase hit or opening book or forced win/block):
-      // Level 8 moves instantly (30ms to 40ms) to conserve time!
-      if (totalCells <= 9 || occupied <= 1 || isWin || isForcedBlock) {
-        return clockState.enabled ? 30 : 150;
+      if (isWin || isForcedBlock || (config.rows * config.cols <= 9)) {
+        return 10;
       }
 
       if (!clockState.enabled) {
-        return 320;
+        return level >= 8 ? 450 : (level >= 6 ? 250 : 120);
       }
 
-      // Timed match: smooth time budget based on remaining time and increment
       const remMs = clockState.times[turn] || 180000;
       const incMs = clockState.incrementMs || 0;
-      const budget = Math.min(remMs * 0.22, Math.max(60, (remMs / Math.max(1, emptyCells)) + incMs * 0.8));
-      return Math.min(budget, 3500);
+      const budget = Math.min(remMs * 0.20, Math.max(80, (remMs / Math.max(2, emptyCells)) + incMs * 0.85));
+      return Math.min(budget, 2500);
     }
 
     /**
@@ -3630,6 +3632,8 @@
 
     function loadEditorToPlay() {
       const editedBoard = [...state.history[state.currentPly].board];
+      state.startingCustomBoard = [...editedBoard];
+      state.startingCustomTurn = editorState.turn;
       switchMainMode('play');
       state.history = [{
         board: editedBoard,
@@ -3641,10 +3645,17 @@
       state.currentPly = 0;
       if (clockState.enabled) {
         initClocks();
-        startClock();
       }
       render();
-      showToast('Playing from custom position');
+      triggerAiIfTurn();
+      showToast('Playing from custom position (Obstacles Active)');
+    }
+
+    function clearStartingCustomPosition() {
+      state.startingCustomBoard = null;
+      state.startingCustomTurn = 'X';
+      resetBoard();
+      showToast('Reset to standard empty board');
     }
 
     /**
@@ -4405,53 +4416,139 @@
     /**
      * Pick Engine move based on selected difficulty Level (1 to 8)
      */
+    /**
+     * SOTA Iterative Deepening Alpha-Beta Negamax Engine for Level 8 (3000 Elo)
+     */
+    function runSotaIterativeDeepening(board, turn, timeBudgetMs = 500, maxDepth = 6) {
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
+      const is2Player = (config.j || 2) <= 2;
+      const opp = turn === 'X' ? 'O' : 'X';
+      const candidates = getCandidateMoves(board, rows, cols);
+      if (candidates.length === 0) return null;
+      if (candidates.length === 1) return candidates[0];
+
+      // 1. Immediate Win
+      for (const m of candidates) {
+        if (isWinningMove(board, m, turn, rows, cols, k)) return m;
+      }
+
+      // 2. Immediate Forced Block
+      const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== turn);
+      const allBlockMoves = [];
+      for (const o of otherPlayers) {
+        const oWins = candidates.filter(m => isWinningMove(board, m, o, rows, cols, k));
+        allBlockMoves.push(...oWins);
+      }
+      const uniqueBlocks = Array.from(new Set(allBlockMoves));
+      if (uniqueBlocks.length === 1) return uniqueBlocks[0];
+
+      // 3. Small board exact minimax (<= 9 squares)
+      if (rows * cols <= 9) {
+        const exact = exactMinimax(board, turn, rows, cols, k);
+        if (exact && exact.bestMove !== null && exact.bestMove !== undefined) {
+          return exact.bestMove;
+        }
+      }
+
+      if (!is2Player) {
+        // Multi-player distribution search
+        const analysis = analyzePosition(board, turn);
+        return analysis.bestMove !== null ? analysis.bestMove : candidates[0];
+      }
+
+      const startTime = Date.now();
+      let bestMove = candidates[0];
+      let bestScore = -Infinity;
+      const stats = { nodes: 0 };
+      let rootMoves = uniqueBlocks.length > 0 ? [...uniqueBlocks] : [...candidates];
+
+      for (let depth = 1; depth <= maxDepth; depth++) {
+        const elapsed = Date.now() - startTime;
+        if (elapsed > timeBudgetMs && depth > 2) break;
+
+        // Order root moves by tactical heuristic
+        rootMoves.sort((a, bMove) => {
+          const sA = evaluateMoveTactics(board, a, turn, rows, cols, k).score;
+          const sB = evaluateMoveTactics(board, bMove, turn, rows, cols, k).score;
+          return sB - sA;
+        });
+
+        let currentBest = rootMoves[0];
+        let currentBestVal = -Infinity;
+        let alpha = -Infinity;
+        const beta = Infinity;
+
+        for (const m of rootMoves) {
+          if ((Date.now() - startTime > timeBudgetMs) && depth > 2) break;
+
+          board[m] = turn;
+          const val = -alphaBetaSearch(board, opp, depth - 1, -beta, -alpha, rows, cols, k, startTime, timeBudgetMs, stats);
+          board[m] = null;
+
+          if (val > currentBestVal) {
+            currentBestVal = val;
+            currentBest = m;
+          }
+          if (val > alpha) alpha = val;
+        }
+
+        bestMove = currentBest;
+        bestScore = currentBestVal;
+
+        // If forced win found, terminate search immediately
+        if (bestScore >= 1000000) break;
+      }
+
+      return bestMove;
+    }
+
     function getEngineMoveForLevel(board, turn, level) {
       const candidates = getCandidateMoves(board, config.rows, config.cols);
       if (candidates.length === 0) return null;
       if (candidates.length === 1) return candidates[0];
 
-      const analysis = analyzePosition(board, turn);
-      const bestMove = analysis.bestMove;
+      const rows = config.rows;
+      const cols = config.cols;
+      const k = config.k;
       const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== turn);
 
       // 1. Direct 1-move win check
-      const winMoves = candidates.filter(m => isWinningMove(board, m, turn, config.rows, config.cols, config.k));
-      // 2. Direct 1-move block check across ALL other j-1 opponents (Demand 3)
+      const winMoves = candidates.filter(m => isWinningMove(board, m, turn, rows, cols, k));
+      if (winMoves.length > 0 && level >= 2) {
+        return winMoves[0];
+      }
+
+      // 2. Direct 1-move block check across ALL other j-1 opponents
       const allBlockMoves = [];
       for (const opp of otherPlayers) {
-        const oppWin = candidates.filter(m => isWinningMove(board, m, opp, config.rows, config.cols, config.k));
+        const oppWin = candidates.filter(m => isWinningMove(board, m, opp, rows, cols, k));
         allBlockMoves.push(...oppWin);
       }
       const blockMoves = Array.from(new Set(allBlockMoves));
-
-      // Level 8: SOTA Grandmaster (stochastic tricky move selection among tied best moves)
-      if (level >= 8) {
-        if (winMoves.length === 1) return winMoves[0];
-        if (winMoves.length > 1) {
-          return selectTrickyMoveStochastically(winMoves, board, turn, config.rows, config.cols, config.k);
-        }
-
-        // If multiple candidate moves share the exact same top evaluation, pick stochastically weighted by trickiness
-        if (analysis && analysis.allMoves && analysis.allMoves.length > 0) {
-          const isTurnX = turn === 'X';
-          const scored = analysis.allMoves.filter(m => board[m.move] === null);
-          if (scored.length > 0) {
-            const bestCand = scored[0];
-            const bestScoreForTurn = isTurnX ? bestCand.score : -bestCand.score;
-
-            // Collect all candidate moves that share the exact same best evaluation
-            const tiedMoves = scored.filter(m => {
-              const s = isTurnX ? m.score : -m.score;
-              return s === bestScoreForTurn;
-            });
-
-            if (tiedMoves.length > 1) {
-              return selectTrickyMoveStochastically(tiedMoves, board, turn, config.rows, config.cols, config.k);
-            }
-          }
-        }
-        return bestMove !== null && bestMove !== undefined ? bestMove : candidates[0];
+      if (blockMoves.length === 1 && level >= 4) {
+        return blockMoves[0];
       }
+
+      // Level 8: SOTA Grandmaster (3000 Elo) - Iterative Deepening Alpha-Beta Negamax
+      if (level >= 8) {
+        const thinkMs = computeAiThinkDelay(board, turn, 8);
+        return runSotaIterativeDeepening(board, turn, thinkMs, 7);
+      }
+
+      // Level 7: Master (Depth 4 search)
+      if (level === 7) {
+        return runSotaIterativeDeepening(board, turn, 300, 4);
+      }
+
+      // Level 6: Expert (Depth 3 search)
+      if (level === 6) {
+        return runSotaIterativeDeepening(board, turn, 180, 3);
+      }
+
+      const analysis = analyzePosition(board, turn);
+      const bestMove = analysis.bestMove;
 
       // Level 1: Beginner (85% random, misses wins & blocks)
       if (level === 1) {
@@ -4630,6 +4727,11 @@
       const newBoard = [...current.board];
       newBoard[index] = current.turn;
       const nextTurn = getNextTurn(current.turn, config.j || 2);
+
+      // Start clock on first move if not yet started
+      if (clockState.enabled && !clockState.intervalId && !checkWinner(newBoard)) {
+        startClock();
+      }
 
       // Add clock increment to the player who just moved
       if (clockState.enabled) {
@@ -5788,10 +5890,15 @@
       }
       state.isEngineThinking = false;
 
+      const initialBoard = state.startingCustomBoard
+        ? [...state.startingCustomBoard]
+        : Array(config.rows * config.cols).fill(null);
+      const initialTurn = state.startingCustomBoard ? state.startingCustomTurn : 'X';
+
       state.history = [
         {
-          board: Array(config.rows * config.cols).fill(null),
-          turn: 'X',
+          board: initialBoard,
+          turn: initialTurn,
           lastMove: null,
           annotation: null,
           evalBefore: 0
@@ -5799,6 +5906,10 @@
       ];
       state.currentPly = 0;
       state.gameAnalysisResult = null;
+
+      if (clockState.enabled) {
+        initClocks();
+      }
 
       const finishBanner = document.getElementById('game-finished-analysis-banner');
       if (finishBanner) finishBanner.classList.add('hidden');
@@ -6470,55 +6581,46 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       btnAiStop.addEventListener('click', stopAiGame);
     }
 
-    // AI Speed Buttons
-    document.querySelectorAll('.ai-speed-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const speed = parseInt(btn.dataset.speed, 10);
-        playMatchState.aiDelayMs = speed;
-        document.querySelectorAll('.ai-speed-btn').forEach(b => {
-          if (b === btn) {
-            b.className = 'ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#629924] text-white border-[#629924]';
-          } else {
-            b.className = 'ai-speed-btn px-1.5 py-0.5 rounded text-[10px] font-bold border bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
-          }
-        });
-        showToast(`AI Move speed set to ${speed}ms`);
-      });
-    });
-
-    // Time Control Presets
+    // Time Control Presets (Demand 3: Fixed Time Controls & Removed AI Speed Buttons)
     document.querySelectorAll('.tc-preset-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const min = parseInt(btn.dataset.min, 10);
-        const inc = parseInt(btn.dataset.inc, 10);
-        playMatchState.baseMinutes = min;
-        playMatchState.incrementSec = inc;
+        if (btn.id === 'tc-custom-btn') {
+          const customRow = document.getElementById('custom-tc-row');
+          if (customRow) customRow.classList.toggle('hidden');
+          return;
+        }
+        const initSec = parseInt(btn.dataset.init, 10);
+        const incSec = parseInt(btn.dataset.inc, 10);
         document.querySelectorAll('.tc-preset-btn').forEach(b => {
           b.className = (b === btn)
-            ? 'tc-preset-btn py-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm'
-            : 'tc-preset-btn py-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+            ? 'tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm'
+            : 'tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
         });
-        const inMin = document.getElementById('input-tc-base');
-        const inInc = document.getElementById('input-tc-inc');
-        if (inMin) inMin.value = min;
-        if (inInc) inInc.value = inc;
-        initClocks();
-        showToast(`Clock: ${min > 0 ? min + ' min' : 'Unlimited'}${inc > 0 ? ' + ' + inc + 's' : ''}`);
+        const customRow = document.getElementById('custom-tc-row');
+        if (customRow) customRow.classList.add('hidden');
+        const tcLabel = btn.textContent.trim();
+        const tcName = initSec === 0 ? 'Unlimited' : (tcLabel.includes('+') ? tcLabel : `${Math.floor(initSec / 60)}+${incSec}`);
+        initClocks(initSec * 1000, incSec * 1000, tcName);
+        showToast(`Time control set to: ${tcName}`);
       });
     });
 
-    const inTcBase = document.getElementById('input-tc-base');
-    const inTcInc = document.getElementById('input-tc-inc');
-    if (inTcBase) {
-      inTcBase.addEventListener('change', () => {
-        playMatchState.baseMinutes = Math.max(0, parseInt(inTcBase.value, 10) || 0);
-        initClocks();
-      });
-    }
-    if (inTcInc) {
-      inTcInc.addEventListener('change', () => {
-        playMatchState.incrementSec = Math.max(0, parseInt(inTcInc.value, 10) || 0);
-        initClocks();
+    const btnApplyCustomTc = document.getElementById('btn-apply-custom-tc');
+    if (btnApplyCustomTc) {
+      btnApplyCustomTc.addEventListener('click', () => {
+        const inMins = document.getElementById('custom-mins-input');
+        const inInc = document.getElementById('custom-inc-input');
+        const mins = Math.max(1, Math.min(120, parseInt(inMins ? inMins.value : 5, 10) || 5));
+        const inc = Math.max(0, Math.min(60, parseInt(inInc ? inInc.value : 0, 10) || 0));
+        document.querySelectorAll('.tc-preset-btn').forEach(b => {
+          b.className = (b.id === 'tc-custom-btn')
+            ? 'tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm'
+            : 'tc-preset-btn p-1 text-xs font-bold rounded border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+        });
+        initClocks(mins * 60000, inc * 1000, `${mins}+${inc} Custom`);
+        const customRow = document.getElementById('custom-tc-row');
+        if (customRow) customRow.classList.add('hidden');
+        showToast(`Custom time control: ${mins} min + ${inc}s`);
       });
     }
 
@@ -6791,6 +6893,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     const btnClearEditor = document.getElementById('btn-editor-clear-all');
     if (btnClearEditor) btnClearEditor.addEventListener('click', clearEditorBoard);
 
+    const btnEditorResetEmpty = document.getElementById('btn-editor-reset-empty');
+    if (btnEditorResetEmpty) btnEditorResetEmpty.addEventListener('click', clearStartingCustomPosition);
+
     const btnFreezeBorders = document.getElementById('btn-editor-freeze-borders');
     if (btnFreezeBorders) btnFreezeBorders.addEventListener('click', freezeBorders);
 
@@ -6980,6 +7085,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const j = config.j || 2;
       const isX = turn === 'X';
       const is2Player = j <= 2;
+      const opp = turn === 'X' ? 'O' : 'X';
       const active = PLAYERS.slice(0, j);
       const otherPlayers = active.filter(p => p !== turn);
 
@@ -7000,15 +7106,29 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         };
       }
 
+      // 1. Direct Instant Win check for the played move
+      if (isWinningMove(board, playedIdx, turn, rows, cols, k)) {
+        return {
+          bestMove: playedIdx,
+          bestScore: 1000000,
+          playedScore: 1000000,
+          loss: 0,
+          accuracy: 100,
+          classification: classifyMoveQuality(0),
+          isMissedWin: false,
+          isAllowedOpponentWin: false
+        };
+      }
+
       // Check direct 1-move wins
       const directWins = allEmpty.filter(m => isWinningMove(board, m, turn, rows, cols, k));
       const hasDirectWin = directWins.length > 0;
 
       // Check opponent immediate threats
       const oppWins = [];
-      otherPlayers.forEach(opp => {
+      otherPlayers.forEach(o => {
         allEmpty.forEach(m => {
-          if (isWinningMove(board, m, opp, rows, cols, k)) oppWins.push({ opp, move: m });
+          if (isWinningMove(board, m, o, rows, cols, k)) oppWins.push({ opp: o, move: m });
         });
       });
       const hasOpponentThreat = oppWins.length > 0;
@@ -7020,9 +7140,13 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       let isMissedWin = false;
       let isAllowedOpponentWin = false;
 
+      // Adaptive search depth: needs at least 3 plies to detect unstoppable double-threat forks
+      const searchDepth = (rows * cols <= 36)
+        ? (speed === 'deep' ? 4 : (speed === 'medium' ? 3 : 2))
+        : (speed === 'deep' ? 3 : (speed === 'medium' ? 2 : 1));
+
       if (is2Player) {
         if (rows * cols <= 9) {
-          // Exact Minimax for 3x3 boards
           const exact = exactMinimax(board, turn, rows, cols, k);
           bestMove = exact.bestMove !== null ? exact.bestMove : playedIdx;
           bestScore = exact.score;
@@ -7031,50 +7155,41 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
           playedScore = target ? target.score : bestScore;
           loss = Math.max(0, isX ? (bestScore - playedScore) : (playedScore - bestScore));
         } else {
-          // Tactical evaluation + candidate pruning
           const targetMoves = (Math.max(rows, cols) <= 10) ? allEmpty : getCandidateMoves(board, rows, cols);
-          const moveEvals = [];
+          const scoredCandidates = [];
 
           for (const m of targetMoves) {
-            const tactics = evaluateMoveTactics(board, m, turn, rows, cols, k);
             board[m] = turn;
-            let oppCanWin = false;
-            for (const opp of otherPlayers) {
-              for (const oppM of allEmpty) {
-                if (oppM !== m && isWinningMove(board, oppM, opp, rows, cols, k)) {
-                  oppCanWin = true;
-                  break;
-                }
-              }
-              if (oppCanWin) break;
-            }
-
-            let score = 0;
-            if (tactics.isWin) {
-              score = isX ? 100 : -100;
-            } else if (oppCanWin) {
-              score = isX ? -100 : 100;
+            const winCheck = checkWinner(board, rows, cols, k);
+            let scoreVal = 0;
+            if (winCheck && winCheck.winner === turn) {
+              scoreVal = 1000000;
             } else {
-              const net = evaluateBoardState(board, rows, cols, k, 2);
-              const turnPos = Math.round(Math.max(-500, Math.min(500, net)) / 35);
-              score = turnPos;
+              const searchTimeoutMs = speed === 'deep' ? 400 : (speed === 'medium' ? 250 : 150);
+              scoreVal = -alphaBetaSearch(board, opp, searchDepth, -Infinity, Infinity, rows, cols, k, Date.now(), searchTimeoutMs, { nodes: 0 });
             }
             board[m] = null;
-
-            moveEvals.push({
-              move: m,
-              rawScore: tactics.isWin ? 1000000 : (oppCanWin ? -1000000 : tactics.score),
-              score
-            });
+            scoredCandidates.push({ move: m, score: scoreVal });
           }
 
-          moveEvals.sort((a, b) => b.rawScore - a.rawScore);
-          bestMove = moveEvals[0] ? moveEvals[0].move : playedIdx;
-          bestScore = moveEvals[0] ? moveEvals[0].score : 0;
+          scoredCandidates.sort((a, b) => b.score - a.score);
+          bestMove = scoredCandidates[0].move;
+          bestScore = scoredCandidates[0].score;
 
-          const playedItem = moveEvals.find(m => m.move === playedIdx);
-          playedScore = playedItem ? playedItem.score : (isX ? -50 : 50);
-          loss = Math.max(0, isX ? (bestScore - playedScore) : (playedScore - bestScore));
+          const playedCand = scoredCandidates.find(c => c.move === playedIdx);
+          playedScore = playedCand ? playedCand.score : -1000000;
+
+          if (bestScore >= 1000000 && playedScore < 1000000) {
+            loss = 100;
+            isMissedWin = true;
+          } else if (playedScore <= -1000000 && bestScore > -1000000) {
+            loss = 100;
+            isAllowedOpponentWin = true;
+          } else if (playedScore <= -1000000) {
+            loss = Math.max(0, Math.min(60, Math.round((bestScore - playedScore) / 450)));
+          } else {
+            loss = Math.max(0, Math.min(100, Math.round((bestScore - playedScore) / 450)));
+          }
         }
 
         if (hasDirectWin && !isWinningMove(board, playedIdx, turn, rows, cols, k)) {
@@ -7595,6 +7710,39 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const pMatch = text.match(/\[Players\s+"(\d+)"\]/i);
       if (pMatch) j = parseInt(pMatch[1], 10);
 
+      // Extract FEN tag if present (supports obstacles #)
+      const fenMatch = text.match(/\[FEN\s+"([^"]+)"\]/i);
+      let initialBoard = null;
+      let initialTurn = 'X';
+      if (fenMatch) {
+        const fenStr = fenMatch[1].trim();
+        const parts = fenStr.split(' ');
+        const rowsStr = parts[0].split('/');
+        const fenRows = rowsStr.length;
+        let fenCols = 0;
+        const parsedGrid = [];
+        for (const row of rowsStr) {
+          let cCount = 0;
+          const tokens = row.match(/\d+|[a-zA-Z#]/g) || [];
+          for (const token of tokens) {
+            if (/^\d+$/.test(token)) {
+              const num = parseInt(token, 10);
+              cCount += num;
+              for (let i = 0; i < num; i++) parsedGrid.push(null);
+            } else {
+              cCount++;
+              if (token === '#') parsedGrid.push('#');
+              else parsedGrid.push(token.toUpperCase());
+            }
+          }
+          if (cCount > fenCols) fenCols = cCount;
+        }
+        rows = rows || fenRows;
+        cols = cols || fenCols;
+        initialBoard = parsedGrid;
+        if (parts[1]) initialTurn = parts[1].toUpperCase();
+      }
+
       // Clean PGN comments and metadata
       let cleaned = text.replace(/\[.*?\]/g, ' ');
       cleaned = cleaned.replace(/\{.*?\}/g, ' ');
@@ -7605,7 +7753,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const rawTokens = cleaned.match(/[a-zA-Z]+\d+/g) || [];
       const moves = rawTokens.map(t => t.toLowerCase());
 
-      return { rows, cols, k, j, moves };
+      return { rows, cols, k, j, moves, initialBoard, initialTurn };
     }
 
     function loadImportedGame(parsed, autoAnalyze = false, speed = 'medium') {
@@ -7621,12 +7769,18 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
       updateBoardConfiguration(rows, cols, k, j);
 
-      // Build history
+      // Build history (supports initial custom board / obstacles # from FEN)
       const activePlayers = PLAYERS.slice(0, j);
+      const startingBoard = parsed.initialBoard || Array(rows * cols).fill(null);
+      const startingTurn = parsed.initialTurn || activePlayers[0];
+      if (parsed.initialBoard) {
+        state.startingCustomBoard = [...parsed.initialBoard];
+        state.startingCustomTurn = startingTurn;
+      }
       const newHistory = [
         {
-          board: Array(rows * cols).fill(null),
-          turn: activePlayers[0],
+          board: startingBoard,
+          turn: startingTurn,
           lastMove: null,
           annotation: null,
           evalBefore: 0

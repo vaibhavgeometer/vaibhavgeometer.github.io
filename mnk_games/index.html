@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>(m,n,k)-Games & StockTic AI — Vaibhav Geometer</title>
-  <meta name="description" content="Generalized (m,n,k)-games, StockTic analysis board, SOTA AI, tournaments, Lichess clocks, and game theory research.">
+  <title>m,n,k-game & genralizations — Vaibhav Geometer</title>
+  <meta name="description" content="m,n,k-game & genralizations: interactive game-theoretic engine, SOTA AI, tournaments, Lichess clocks, solved status atlas, and research compendium.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +45,7 @@
       <div class="nav-controls">
         <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">Analysis Board</a>
         <a href="mnk_games_theory_and_ai.html" class="nav-link">Theory & AI</a>
+        <a href="solved_status_of_mnk_games.html" class="nav-link">Solved Atlas</a>
         <a href="../academic/" class="nav-link">Academic Portals</a>
         <a href="../" class="nav-link">Home</a>
       </div>
@@ -54,8 +55,8 @@
   <main class="main-content">
     <div class="container">
       <section class="hero-simple">
-        <h1 class="hero-title">(m,n,k)-Games, StockTic & SOTA AI</h1>
-        <p class="hero-desc">Interactive game theory engine, tournament system, and research platform.</p>
+        <h1 class="hero-title">m,n,k-game & genralizations</h1>
+        <p class="hero-desc">Interactive game theory engine, SOTA AI analysis board, tournament platform, and verified research atlas.</p>
       </section>
 
       <div class="mnk-grid">
@@ -64,15 +65,15 @@
           <div>
             <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(98, 153, 36, 0.15); border-color: rgba(98, 153, 36, 0.35); color: #7ec62f;">Interactive Engine</div>
             <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
-              StockTic (m,n,k) Analysis Board
+              m,n,k-game & genralizations Analysis Board
             </h2>
             <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-              Full Lichess-inspired analysis board supporting arbitrary dimensions from 1&times;1 to 32&times;32, win length k=1..8, multi-player (m,n,k,j) games, tournament system (Round Robin & Knockout), offline multiplayer with Lichess clocks, board editor with frozen barrier squares (#), and 8 calibrated AI difficulty levels (600 to 3000 Elo).
+              Full Lichess-inspired analysis board supporting arbitrary dimensions from 1&times;1 to 32&times;32, win length k=1..8, multi-player (m,n,k,j) games, tournament system (Round Robin & Knockout), offline multiplayer with real Lichess clocks, board editor with active frozen barrier squares (#), and calibrated SOTA AI difficulty levels (600 to 3000 Elo).
             </p>
           </div>
           <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
             <a href="lichess_tic_tac_toe_analysis_board.html" class="btn-primary" style="justify-content: center; text-decoration: none; background: #629924; border-color: #629924;">
-              <span>♟️ Launch StockTic Board</span>
+              <span>♟️ Launch Analysis Board</span>
               <span>→</span>
             </a>
             <div style="display: flex; gap: 0.5rem;">
@@ -83,6 +84,28 @@
                 🏆 Tournaments
               </a>
             </div>
+          </div>
+        </div>
+
+        <!-- Solved Status Atlas (New) -->
+        <div class="mnk-card">
+          <div>
+            <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(230, 159, 0, 0.15); border-color: rgba(230, 159, 0, 0.35); color: #f3b12b;">Verified Game Theory</div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+              Solved Status of (m,n,k)-Games
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+              Comprehensive, fact-checked atlas of game-theoretic values from $k=1$ to $k \ge 8$. Includes complete solutions for Gomoku ($k=5$), pairings for $k=6,7$, Hales-Jewett draws for $k \ge 8$, an interactive cell inspector with 1-click launch, and direct Excel dataset download.
+            </p>
+          </div>
+          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="solved_status_of_mnk_games.html" class="btn-primary" style="justify-content: center; text-decoration: none; background: #e69f00; border-color: #e69f00; color: #161512;">
+              <span>📊 Explore Solved Atlas</span>
+              <span>→</span>
+            </a>
+            <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-secondary" style="justify-content: center; text-decoration: none; font-size: 0.85rem;">
+              <span>📥 Download Excel Dataset (.xlsx)</span>
+            </a>
           </div>
         </div>
 
@@ -113,8 +136,9 @@
       <p>© 2026 Vaibhav Geometer · (m,n,k)-Games Ecosystem</p>
       <div class="footer-links">
         <a href="../">Home</a>
-        <a href="lichess_tic_tac_toe_analysis_board.html">Analysis Board</a>
+        <a href="lichess_tic_tac_toe_analysis_board.html">m,n,k-game & genralizations</a>
         <a href="mnk_games_theory_and_ai.html">Theory & AI</a>
+        <a href="solved_status_of_mnk_games.html">Solved Atlas</a>
         <a href="../academic/">Academic Portals</a>
       </div>
     </div>
