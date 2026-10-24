@@ -525,15 +525,13 @@
               </div>
             </div>
 
-            <!-- Speed & Depth Selector -->
+            <!-- Depth Indicator & Re-Analyze -->
             <div class="flex flex-wrap items-center justify-between gap-2 text-xs select-none">
               <div class="flex items-center space-x-1.5">
                 <span class="text-[11px] font-semibold text-gray-400">Analysis Depth:</span>
-                <div class="inline-flex rounded bg-[#1a1815] p-0.5 border border-[#363431]" id="analysis-depth-selector">
-                  <button type="button" id="analysis-speed-fast" data-speed="fast" class="analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Fast: instantaneous tactical heuristic analysis">⚡ Fast</button>
-                  <button type="button" id="analysis-speed-medium" data-speed="medium" class="analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition bg-[#629924] text-white shadow-sm" title="Medium: 2-ply search with tactical verification (Recommended)">⚖️ Medium</button>
-                  <button type="button" id="analysis-speed-deep" data-speed="deep" class="analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white" title="Deep: deep 3-4 ply alpha-beta search with iterative deepening">🧠 Deep</button>
-                </div>
+                <span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded bg-[#1a1815] border border-[#363431] text-[11px] font-bold text-[#7ec62f]" title="Ultra-Deep minimax search with tactical verification and horizon-free quiescence">
+                  <span>🧠</span><span>Deep</span>
+                </span>
               </div>
               <button type="button" id="btn-rerun-analysis" class="px-3 py-1 bg-[#629924] hover:bg-[#72b02a] text-white text-xs font-bold rounded transition flex items-center space-x-1 shadow-sm">
                 <span>↺</span><span>Re-Analyze</span>
@@ -1345,23 +1343,12 @@
         </div>
       </div>
 
-      <!-- Analysis Speed in Modal -->
+      <!-- Analysis Depth in Modal -->
       <div class="flex items-center justify-between text-xs bg-[#1a1815] p-2 rounded border border-[#363431]">
         <span class="text-gray-400 font-medium">Analysis Depth:</span>
-        <div class="flex items-center space-x-2">
-          <label class="inline-flex items-center space-x-1 cursor-pointer">
-            <input type="radio" name="modal-analysis-speed" value="fast" class="text-[#629924] focus:ring-0">
-            <span class="text-[11px] text-gray-300">Fast</span>
-          </label>
-          <label class="inline-flex items-center space-x-1 cursor-pointer">
-            <input type="radio" name="modal-analysis-speed" value="medium" checked class="text-[#629924] focus:ring-0">
-            <span class="text-[11px] text-gray-300 font-bold text-[#7ec62f]">Medium</span>
-          </label>
-          <label class="inline-flex items-center space-x-1 cursor-pointer">
-            <input type="radio" name="modal-analysis-speed" value="deep" class="text-[#629924] focus:ring-0">
-            <span class="text-[11px] text-gray-300">Deep</span>
-          </label>
-        </div>
+        <span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded bg-[#262421] border border-[#363431] text-[11px] font-bold text-[#7ec62f]">
+          <span>🧠</span><span>Deep</span>
+        </span>
       </div>
 
       <!-- Modal Actions -->
@@ -2318,10 +2305,12 @@
       if (stats) {
         stats.nodes++;
         if ((stats.nodes & 255) === 0 && (Date.now() - startTime > timeLimit)) {
-          return 0;
+          const net = evaluateBoardState(board, rows, cols, k);
+          return turn === 'X' ? net : -net;
         }
       } else if (Date.now() - startTime > timeLimit) {
-        return 0;
+        const net = evaluateBoardState(board, rows, cols, k);
+        return turn === 'X' ? net : -net;
       }
 
       const opp = turn === 'X' ? 'O' : 'X';
@@ -2332,7 +2321,20 @@
         return -1000000 - depth;
       }
 
+      const candidates = getCandidateMoves(board, rows, cols);
+      if (candidates.length === 0) return 0;
+
+      // 1. Direct Instant Win check
+      for (const m of candidates) {
+        if (isWinningMove(board, m, turn, rows, cols, k)) return 1000000 + depth;
+      }
+
+      // 2. Horizon-free quiescence at leaf depth
       if (depth === 0) {
+        // If opponent has an unblocked instant win, evaluate as critical loss
+        for (const m of candidates) {
+          if (isWinningMove(board, m, opp, rows, cols, k)) return -1000000 - depth;
+        }
         const net = evaluateBoardState(board, rows, cols, k);
         return turn === 'X' ? net : -net;
       }
@@ -2343,15 +2345,7 @@
         return entry.score;
       }
 
-      const candidates = getCandidateMoves(board, rows, cols);
-      if (candidates.length === 0) return 0;
-
-      // 1. Direct Win
-      for (const m of candidates) {
-        if (isWinningMove(board, m, turn, rows, cols, k)) return 1000000 + depth;
-      }
-
-      // 2. Direct Block
+      // 3. Direct Block across opponents
       const oppWins = candidates.filter(m => isWinningMove(board, m, opp, rows, cols, k));
       let searchMoves = candidates;
       if (oppWins.length > 0) {
@@ -2373,8 +2367,10 @@
           }
         }
 
-        const maxBranch = rows * cols <= 25 ? 14 : (rows * cols <= 64 ? 10 : 8);
-        searchMoves = searchMoves.slice(0, maxBranch);
+        const maxBranch = rows * cols <= 25 ? 16 : (rows * cols <= 64 ? 12 : 10);
+        const primary = searchMoves.slice(0, maxBranch);
+        const highTactics = searchMoves.slice(maxBranch).filter(m => evaluateMoveTactics(board, m, turn, rows, cols, k).score >= 25000);
+        searchMoves = primary.concat(highTactics);
       }
 
       let bestVal = -Infinity;
@@ -2396,6 +2392,7 @@
       ttMap.set(key, { score: bestVal, depth, bestMove: currentBestMove });
       return bestVal;
     }
+
 
     /**
      * Extract Principal Variation (PV) sequence from Transposition Table
@@ -2957,7 +2954,7 @@
       enginePaused: false,
       currentAnalysis: null,
       gameAnalysisResult: null,
-      analysisSpeed: 'medium', // 'fast', 'medium', 'deep'
+      analysisSpeed: 'deep', // Unified ultra-deep analysis mode
       isGameAnalyzing: false,
       cancelGameAnalysis: false,
       analysisSubtab: 'position' // 'position' or 'report'
@@ -7212,10 +7209,12 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       let isMissedWin = false;
       let isAllowedOpponentWin = false;
 
-      // Adaptive search depth: needs at least 3 plies to detect unstoppable double-threat forks
-      const searchDepth = (rows * cols <= 36)
-        ? (speed === 'deep' ? 4 : (speed === 'medium' ? 3 : 2))
-        : (speed === 'deep' ? 3 : (speed === 'medium' ? 2 : 1));
+      // Ultra-Deep Engine Search Depth (exceeds previous "deep"):
+      // Board <= 9 (e.g. 3x3): exact tablebase retrograde minimax
+      // Board <= 25 (e.g. 4x4, 5x5): 6 plies
+      // Board <= 64 (e.g. 6x6, 7x7, 8x8): 5 plies
+      // Large boards (> 64 cells, e.g. 10x10, 15x15 Gomoku): 4 plies (+ leaf quiescence extending beyond)
+      const searchDepth = (rows * cols <= 25) ? 6 : (rows * cols <= 64 ? 5 : 4);
 
       if (is2Player) {
         if (rows * cols <= 9) {
@@ -7227,40 +7226,105 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
           playedScore = target ? target.score : bestScore;
           loss = Math.max(0, isX ? (bestScore - playedScore) : (playedScore - bestScore));
         } else {
-          const targetMoves = (Math.max(rows, cols) <= 10) ? allEmpty : getCandidateMoves(board, rows, cols);
-          const scoredCandidates = [];
-
-          for (const m of targetMoves) {
-            board[m] = turn;
-            const winCheck = checkWinner(board, rows, cols, k);
-            let scoreVal = 0;
-            if (winCheck && winCheck.winner === turn) {
-              scoreVal = 1000000;
-            } else {
-              const searchTimeoutMs = speed === 'deep' ? 400 : (speed === 'medium' ? 250 : 150);
-              scoreVal = -alphaBetaSearch(board, opp, searchDepth, -Infinity, Infinity, rows, cols, k, Date.now(), searchTimeoutMs, { nodes: 0 });
-            }
-            board[m] = null;
-            scoredCandidates.push({ move: m, score: scoreVal });
+          let candidateMoves = (rows * cols <= 36) ? allEmpty : getCandidateMoves(board, rows, cols);
+          if (playedIdx !== null && playedIdx !== undefined && !candidateMoves.includes(playedIdx)) {
+            candidateMoves.push(playedIdx);
           }
 
-          scoredCandidates.sort((a, b) => b.score - a.score);
-          bestMove = scoredCandidates[0].move;
-          bestScore = scoredCandidates[0].score;
+          // Tactical pre-scoring and ordering
+          const scoredList = [];
+          for (const m of candidateMoves) {
+            const tactics = evaluateMoveTactics(board, m, turn, rows, cols, k);
+            scoredList.push({
+              move: m,
+              tacticalScore: tactics.score,
+              desc: tactics.desc,
+              isWin: tactics.isWin,
+              isBlock: tactics.isBlock
+            });
+          }
+          scoredList.sort((a, b) => b.tacticalScore - a.tacticalScore);
 
-          const playedCand = scoredCandidates.find(c => c.move === playedIdx);
-          playedScore = playedCand ? playedCand.score : -1000000;
+          const topCount = rows * cols <= 36 ? 16 : 12;
+          const searchCands = scoredList.slice(0, topCount);
+          if (!searchCands.some(c => c.move === playedIdx)) {
+            const pItem = scoredList.find(c => c.move === playedIdx);
+            if (pItem) searchCands.push(pItem);
+          }
 
-          if (bestScore >= 1000000 && playedScore < 1000000) {
+          let bestScoreVal = -Infinity;
+          let bestMoveVal = searchCands[0].move;
+          let playedScoreVal = -Infinity;
+          let alpha = -Infinity;
+          const beta = Infinity;
+          const startTime = Date.now();
+          const timeLimit = 600;
+
+          for (const item of searchCands) {
+            const m = item.move;
+            board[m] = turn;
+            let scoreVal = 0;
+            if (isWinningMove(board, m, turn, rows, cols, k)) {
+              scoreVal = 1000000;
+            } else {
+              scoreVal = -alphaBetaSearch(board, opp, searchDepth, -beta, -alpha, rows, cols, k, startTime, timeLimit, { nodes: 0 });
+            }
+            board[m] = null;
+
+            item.searchScore = scoreVal;
+            if (scoreVal > bestScoreVal) {
+              bestScoreVal = scoreVal;
+              bestMoveVal = m;
+            }
+            if (m === playedIdx) {
+              playedScoreVal = scoreVal;
+            }
+            if (scoreVal > alpha) {
+              alpha = scoreVal;
+            }
+          }
+
+          bestMove = bestMoveVal;
+          bestScore = bestScoreVal;
+          playedScore = (playedScoreVal !== -Infinity) ? playedScoreVal : bestScoreVal;
+
+          if (bestScore >= 900000 && playedScore < 900000) {
             loss = 100;
             isMissedWin = true;
-          } else if (playedScore <= -1000000 && bestScore > -1000000) {
+          } else if (playedScore <= -900000 && bestScore > -900000) {
             loss = 100;
             isAllowedOpponentWin = true;
-          } else if (playedScore <= -1000000) {
-            loss = Math.max(0, Math.min(60, Math.round((bestScore - playedScore) / 450)));
+          } else if (hasDirectWin && !isWinningMove(board, playedIdx, turn, rows, cols, k)) {
+            loss = 100;
+            isMissedWin = true;
+          } else if (hasOpponentThreat && !oppWins.some(w => w.move === playedIdx)) {
+            loss = 100;
+            isAllowedOpponentWin = true;
           } else {
-            loss = Math.max(0, Math.min(100, Math.round((bestScore - playedScore) / 450)));
+            const scoreDiff = Math.max(0, bestScore - playedScore);
+            if (scoreDiff >= 300000) {
+              loss = Math.min(95, 75 + Math.round((scoreDiff - 300000) / 10000));
+            } else if (scoreDiff >= 150000) {
+              loss = Math.min(74, 55 + Math.round((scoreDiff - 150000) / 6000));
+            } else if (scoreDiff >= 30000) {
+              loss = Math.min(54, 32 + Math.round((scoreDiff - 30000) / 4500));
+            } else if (scoreDiff >= 8000) {
+              loss = Math.min(31, 18 + Math.round((scoreDiff - 8000) / 1200));
+            } else if (scoreDiff >= 1500) {
+              loss = Math.min(17, 10 + Math.round((scoreDiff - 1500) / 600));
+            } else if (scoreDiff > 0) {
+              if (scoreDiff > 300) {
+                loss = Math.min(25, 15 + Math.round((scoreDiff - 300) / 20));
+              } else if (scoreDiff > 120) {
+                loss = Math.min(14, 6 + Math.round((scoreDiff - 120) / 20));
+              } else if (scoreDiff > 40) {
+                loss = Math.min(5, 2 + Math.round((scoreDiff - 40) / 25));
+              } else {
+                loss = 0;
+              }
+            } else {
+              loss = 0;
+            }
           }
         }
 
@@ -7277,8 +7341,13 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         const distBefore = evaluateMultiPlayerDistribution(board, rows, cols, k, j);
         const probBefore = distBefore.probs[turn] || (100 / j);
 
+        let targetCandidates = (rows * cols <= 36) ? allEmpty : getCandidateMoves(board, rows, cols);
+        if (playedIdx !== null && playedIdx !== undefined && !targetCandidates.includes(playedIdx)) {
+          targetCandidates.push(playedIdx);
+        }
+
         const scoredCandidates = [];
-        for (const m of allEmpty) {
+        for (const m of targetCandidates) {
           board[m] = turn;
           const winCheck = checkWinner(board, rows, cols, k);
           let candProb = 0;
@@ -7326,21 +7395,13 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     }
 
     function updateSpeedButtonsUI(speed) {
-      const speeds = ['fast', 'medium', 'deep'];
-      speeds.forEach(s => {
-        const btn = document.getElementById(`analysis-speed-${s}`);
-        if (!btn) return;
-        if (s === speed) {
-          btn.className = 'analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition bg-[#629924] text-white shadow-sm';
-        } else {
-          btn.className = 'analysis-speed-btn px-2.5 py-0.5 text-[11px] font-bold rounded transition text-gray-400 hover:text-white';
-        }
-      });
+      // Retained for compatibility; unified deep mode active
     }
 
-    async function runGameAnalysis(speed = state.analysisSpeed || 'medium') {
+    async function runGameAnalysis(speed = 'deep') {
       if (state.isGameAnalyzing) return;
-      state.analysisSpeed = speed;
+      state.analysisSpeed = 'deep';
+
       state.cancelGameAnalysis = false;
       state.isGameAnalyzing = true;
 
@@ -7381,9 +7442,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
         const pct = Math.round((i / totalPlies) * 100);
         if (progressBar) progressBar.style.width = `${pct}%`;
-        if (progressText) progressText.innerHTML = `<span>Analyzing ply ${i} of ${totalPlies} (${pct}%)... [${speed.toUpperCase()}]</span>`;
+        if (progressText) progressText.innerHTML = `<span>Analyzing ply ${i} of ${totalPlies} (${pct}%)... [DEEP]</span>`;
 
-        await new Promise(r => setTimeout(r, speed === 'deep' ? 25 : 12));
+        await new Promise(r => setTimeout(r, 20));
 
         const prevBoard = [...state.history[i - 1].board];
         const turn = state.history[i - 1].turn;
@@ -7460,7 +7521,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
       renderGameAnalysisReport();
       renderMoveHistory();
-      showToast(`Computer analysis complete! (${speed.toUpperCase()} depth)`);
+      showToast('Computer analysis complete! (Deep depth)');
     }
 
     function renderGameAnalysisReport() {
@@ -7828,7 +7889,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       return { rows, cols, k, j, moves, initialBoard, initialTurn };
     }
 
-    function loadImportedGame(parsed, autoAnalyze = false, speed = 'medium') {
+    function loadImportedGame(parsed, autoAnalyze = false, speed = 'deep') {
       if (!parsed || !parsed.moves || parsed.moves.length === 0) {
         showToast('No valid moves found in pasted text!');
         return;
@@ -7933,23 +7994,13 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
       // Finished Banner & Start Buttons
       const btnReq = document.getElementById('btn-request-game-analysis');
-      if (btnReq) btnReq.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      if (btnReq) btnReq.addEventListener('click', () => runGameAnalysis('deep'));
       const btnStartInit = document.getElementById('btn-start-initial-analysis');
-      if (btnStartInit) btnStartInit.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      if (btnStartInit) btnStartInit.addEventListener('click', () => runGameAnalysis('deep'));
       const btnRerun = document.getElementById('btn-rerun-analysis');
-      if (btnRerun) btnRerun.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      if (btnRerun) btnRerun.addEventListener('click', () => runGameAnalysis('deep'));
       const btnCancel = document.getElementById('btn-cancel-game-analysis');
       if (btnCancel) btnCancel.addEventListener('click', () => { state.cancelGameAnalysis = true; });
-
-      // Speed selectors
-      ['fast', 'medium', 'deep'].forEach(s => {
-        const btn = document.getElementById(`analysis-speed-${s}`);
-        if (btn) btn.addEventListener('click', () => {
-          state.analysisSpeed = s;
-          updateSpeedButtonsUI(s);
-          if (state.gameAnalysisResult) runGameAnalysis(s);
-        });
-      });
 
       // Import Modal Triggers
       const btnOpenPaste = document.getElementById('btn-open-paste-modal');
@@ -7963,7 +8014,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       if (btnEmptyPaste) btnEmptyPaste.addEventListener('click', openImportGameModal);
       if (btnHistPaste) btnHistPaste.addEventListener('click', openImportGameModal);
       if (btnRecordPaste) btnRecordPaste.addEventListener('click', openImportGameModal);
-      if (btnHistReport) btnHistReport.addEventListener('click', () => runGameAnalysis(state.analysisSpeed || 'medium'));
+      if (btnHistReport) btnHistReport.addEventListener('click', () => runGameAnalysis('deep'));
       if (btnCopyRep) btnCopyRep.addEventListener('click', copyAnalysisReport);
 
       const closeX = document.getElementById('close-import-modal-x');
@@ -8006,11 +8057,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const btnApplyOnly = document.getElementById('btn-apply-import-only');
 
       function getSelectedModalSpeed() {
-        const radios = document.getElementsByName('modal-analysis-speed');
-        for (const r of radios) {
-          if (r.checked) return r.value;
-        }
-        return 'medium';
+        return 'deep';
       }
 
       function handleModalApply(autoAnalyze) {
