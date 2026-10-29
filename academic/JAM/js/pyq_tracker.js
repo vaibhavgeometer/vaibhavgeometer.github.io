@@ -112,6 +112,48 @@
     'hardest': { label: 'Hardest', class: 'diff-hardest', order: 5, icon: '🟣' }
   };
 
+  // --- Date & Time Formatters for Solved Status ---
+  function formatSolvedDateTime(isoString) {
+    if (!isoString) return '';
+    try {
+      const d = new Date(isoString);
+      if (isNaN(d.getTime())) return '';
+      const datePart = d.toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+      const timePart = d.toLocaleTimeString('en-IN', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+      return `${datePart}, ${timePart}`;
+    } catch (e) {
+      return isoString;
+    }
+  }
+
+  function formatSolvedTooltip(isoString) {
+    if (!isoString) return 'Marked as solved';
+    try {
+      const d = new Date(isoString);
+      if (isNaN(d.getTime())) return 'Marked as solved';
+      return 'Exact solved time: ' + d.toLocaleString('en-IN', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+    } catch (e) {
+      return 'Exact solved time: ' + isoString;
+    }
+  }
+
   // --- Storage Helpers ---
   function loadUserData() {
     try {
@@ -120,32 +162,37 @@
         const parsed = JSON.parse(raw);
         state.userData = {
           questions: parsed.questions || {},
-          oosMarkedUnnecessary: !!parsed.oosMarkedUnnecessary
+          oosMarkedUnnecessary: !!parsed.oosMarkedUnnecessary,
+          lastUpdated: parsed.lastUpdated || null
         };
       } else {
-        state.userData = { questions: {}, oosMarkedUnnecessary: false };
+        state.userData = { questions: {}, oosMarkedUnnecessary: false, lastUpdated: null };
       }
     } catch (e) {
       console.warn('Could not load user tracker data from localStorage:', e);
-      state.userData = { questions: {}, oosMarkedUnnecessary: false };
+      state.userData = { questions: {}, oosMarkedUnnecessary: false, lastUpdated: null };
     }
   }
 
   function saveUserData() {
     try {
+      state.userData.lastUpdated = new Date().toISOString();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.userData));
+      if (window.JAM_GDRIVE_SYNC && typeof window.JAM_GDRIVE_SYNC.triggerAutoSync === 'function') {
+        window.JAM_GDRIVE_SYNC.triggerAutoSync();
+      }
     } catch (e) {
       console.error('Could not save user tracker data to localStorage:', e);
     }
   }
 
   function getQuestionState(id) {
-    return state.userData.questions[id] || { solved: false, difficulty: null, unnecessary: false };
+    return state.userData.questions[id] || { solved: false, solvedAt: null, difficulty: null, unnecessary: false };
   }
 
   function updateQuestionState(id, partial) {
     if (!state.userData.questions[id]) {
-      state.userData.questions[id] = { solved: false, difficulty: null, unnecessary: false };
+      state.userData.questions[id] = { solved: false, solvedAt: null, difficulty: null, unnecessary: false };
     }
     Object.assign(state.userData.questions[id], partial);
     saveUserData();
@@ -468,6 +515,15 @@
     // 7. Sorting
     if (state.selectedSort === 'year_asc') {
       pool.sort((a, b) => (a.year - b.year) || (a.q_num - b.q_num));
+    } else if (state.selectedSort === 'recently_solved') {
+      pool.sort((a, b) => {
+        const sa = getQuestionState(a.id);
+        const sb = getQuestionState(b.id);
+        const timeA = (sa.solved && sa.solvedAt) ? new Date(sa.solvedAt).getTime() : 0;
+        const timeB = (sb.solved && sb.solvedAt) ? new Date(sb.solvedAt).getTime() : 0;
+        if (timeA !== timeB) return timeB - timeA;
+        return (b.year - a.year) || (a.q_num - b.q_num);
+      });
     } else if (state.selectedSort === 'diff_desc') {
       pool.sort((a, b) => {
         const da = DIFFICULTY_CONFIG[getQuestionState(a.id).difficulty]?.order || 0;
@@ -517,6 +573,7 @@
         <!-- Tags -->
         <div class="q-card-tags">
           <span class="q-topic-tag" title="${q.sub_topic}">📂 ${q.sub_topic}</span>
+          ${isSolved ? `<span class="q-solved-date-tag" title="${formatSolvedTooltip(userState.solvedAt)}">🕒 Solved${userState.solvedAt ? ': ' + formatSolvedDateTime(userState.solvedAt) : ''}</span>` : ''}
           ${q.isOOS ? '<span class="q-oos-tag">⚠️ Out of Syllabus</span>' : ''}
           ${isUnnecessary ? '<span class="q-oos-tag" style="background:rgba(245,158,11,0.2);color:#f59e0b;border-color:rgba(245,158,11,0.4);">🚫 Unnecessary</span>' : ''}
         </div>
@@ -545,6 +602,13 @@
               <option value="hardest" ${currentDiff === 'hardest' ? 'selected' : ''}>🟣 Hardest</option>
             </select>
           </div>
+
+          ${isSolved ? `
+            <div class="q-solved-meta-row" title="${formatSolvedTooltip(userState.solvedAt)}">
+              <span class="q-solved-meta-icon">✓</span>
+              <span class="q-solved-meta-text">Solved: <strong>${userState.solvedAt ? formatSolvedDateTime(userState.solvedAt) : 'Yes'}</strong></span>
+            </div>
+          ` : ''}
 
           <div class="q-extra-row">
             <div>
@@ -713,6 +777,12 @@
                   ${isRevealed ? '🙈 Hide Key' : '🔑 Show Key'}
                 </button>
                 <span class="q-answer-display ${isRevealed ? 'revealed' : ''}">: ${q.answer_key}</span>
+                ${isSolved ? `
+                  <span class="q-modal-solved-badge" title="${formatSolvedTooltip(userState.solvedAt)}">
+                    <span style="color:#10b981;font-weight:700;">✓ Solved:</span>
+                    <strong>${userState.solvedAt ? formatSolvedDateTime(userState.solvedAt) : 'Yes'}</strong>
+                  </span>
+                ` : ''}
               </div>
               <div class="q-modal-nav-btns">
                 <button class="page-btn" onclick="window.JAM_TRACKER.modalNavigate(-1)">← Previous</button>
@@ -785,7 +855,11 @@
     toggleSolved: function(id) {
       const curr = getQuestionState(id);
       const nextSolved = !curr.solved;
-      updateQuestionState(id, { solved: nextSolved });
+      const now = new Date().toISOString();
+      updateQuestionState(id, {
+        solved: nextSolved,
+        solvedAt: nextSolved ? now : null
+      });
       applyFiltersAndRender();
       showToast(nextSolved ? `Question ${id.replace('JAM_', '')} marked as Solved!` : `Question ${id.replace('JAM_', '')} marked Unsolved`);
     },
@@ -827,7 +901,7 @@
       state.masterQuestions.forEach(q => {
         if (q.isOOS) {
           if (!state.userData.questions[q.id]) {
-            state.userData.questions[q.id] = { solved: false, difficulty: null, unnecessary: false };
+            state.userData.questions[q.id] = { solved: false, solvedAt: null, difficulty: null, unnecessary: false };
           }
           state.userData.questions[q.id].unnecessary = nextVal;
         }
@@ -852,11 +926,13 @@
         return;
       }
 
+      const now = new Date().toISOString();
       list.forEach(q => {
         if (!state.userData.questions[q.id]) {
-          state.userData.questions[q.id] = { solved: false, difficulty: null, unnecessary: false };
+          state.userData.questions[q.id] = { solved: false, solvedAt: null, difficulty: null, unnecessary: false };
         }
         state.userData.questions[q.id].solved = isSolved;
+        state.userData.questions[q.id].solvedAt = isSolved ? (state.userData.questions[q.id].solvedAt || now) : null;
       });
 
       saveUserData();
@@ -877,7 +953,15 @@
 
     // Export progress as JSON file
     exportProgress: function() {
-      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state.userData, null, 2));
+      const exportPayload = {
+        app: 'IIT_JAM_Mathematics_MA_PYQ_Tracker',
+        version: '1.1',
+        exportedAt: new Date().toISOString(),
+        lastUpdated: state.userData.lastUpdated || new Date().toISOString(),
+        oosMarkedUnnecessary: !!state.userData.oosMarkedUnnecessary,
+        questions: state.userData.questions || {}
+      };
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(exportPayload, null, 2));
       const downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute('href', dataStr);
       downloadAnchor.setAttribute('download', 'IIT_JAM_MA_My_PYQ_Progress.json');
@@ -902,7 +986,8 @@
             if (parsed && typeof parsed.questions === 'object') {
               state.userData = {
                 questions: parsed.questions,
-                oosMarkedUnnecessary: !!parsed.oosMarkedUnnecessary
+                oosMarkedUnnecessary: !!parsed.oosMarkedUnnecessary,
+                lastUpdated: parsed.lastUpdated || new Date().toISOString()
               };
               saveUserData();
               applyFiltersAndRender();
@@ -1058,7 +1143,30 @@
         const panel = document.getElementById('tab-panel-pyq-tracker');
         if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
-    }
+    },
+
+    // Data exchange & helper hooks for Google Drive sync
+    getUserData: function() {
+      return state.userData;
+    },
+
+    loadUserDataFromBackup: function(backupData) {
+      if (!backupData || typeof backupData.questions !== 'object') {
+        throw new Error('Invalid backup data structure');
+      }
+      state.userData = {
+        questions: backupData.questions,
+        oosMarkedUnnecessary: !!backupData.oosMarkedUnnecessary,
+        lastUpdated: backupData.lastUpdated || new Date().toISOString()
+      };
+      saveUserData();
+      applyFiltersAndRender();
+      showToast('Progress successfully restored from backup!');
+    },
+
+    formatSolvedDateTime: formatSolvedDateTime,
+    formatSolvedTooltip: formatSolvedTooltip,
+    showToast: showToast
   };
 
   // Auto-init on DOMContentLoaded
