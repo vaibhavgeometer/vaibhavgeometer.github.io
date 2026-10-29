@@ -861,27 +861,43 @@
         solvedAt: nextSolved ? now : null
       });
       applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        const q = state.masterQuestions.find(x => x.id === id);
+        const meta = q ? ` (${q.year} Q${q.q_num} • ${q.sub_topic})` : '';
+        window.JAM_LOGGER.logAction(nextSolved ? 'SOLVED' : 'UNSOLVED', `Question ${id.replace('JAM_', '')}${meta} marked as ${nextSolved ? 'Solved' : 'Unsolved'}`);
+      }
       showToast(nextSolved ? `Question ${id.replace('JAM_', '')} marked as Solved!` : `Question ${id.replace('JAM_', '')} marked Unsolved`);
     },
 
     setDifficulty: function(id, diff) {
       updateQuestionState(id, { difficulty: diff || null });
       applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        const label = DIFFICULTY_CONFIG[diff]?.label || diff || 'Unrated';
+        window.JAM_LOGGER.logAction('DIFFICULTY', `Question ${id.replace('JAM_', '')} tagged as ${label}`);
+      }
       if (diff) {
         showToast(`Tagged as ${DIFFICULTY_CONFIG[diff]?.label || diff}`);
       }
     },
 
     toggleAnswerKey: function(id) {
+      const nextShow = !state.revealedKeys.has(id);
       if (state.revealedKeys.has(id)) {
         state.revealedKeys.delete(id);
       } else {
         state.revealedKeys.add(id);
       }
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('ANSWER_KEY', `${nextShow ? 'Revealed' : 'Hid'} answer key for Question ${id.replace('JAM_', '')}`);
+      }
       renderGrid();
     },
 
     openModal: function(id) {
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('MODAL_OPEN', `Expanded high-res screenshot modal for Question ${id.replace('JAM_', '')}`);
+      }
       openQuestionModal(id);
     },
 
@@ -909,6 +925,9 @@
 
       saveUserData();
       applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('BULK_OOS', nextVal ? 'Marked all 87 Out-of-Syllabus questions as Unnecessary' : 'Restored Out-of-Syllabus questions to regular pool');
+      }
       showToast(nextVal ? 'All 87 Out of Syllabus questions marked as Unnecessary!' : 'Out of Syllabus questions restored to regular pool');
     },
 
@@ -937,6 +956,9 @@
 
       saveUserData();
       applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('BULK_MARK', `Bulk marked ${count} filtered questions as ${actionWord}`);
+      }
       showToast(`Marked ${count} questions as ${actionWord}!`);
     },
 
@@ -948,6 +970,9 @@
       state.userData = { questions: {}, oosMarkedUnnecessary: false };
       saveUserData();
       applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('RESET', 'Reset all user tracker progress and difficulty tags to 0%');
+      }
       showToast('All progress has been reset to 0%.');
     },
 
@@ -955,7 +980,7 @@
     exportProgress: function() {
       const exportPayload = {
         app: 'IIT_JAM_Mathematics_MA_PYQ_Tracker',
-        version: '1.1',
+        version: '1.2',
         exportedAt: new Date().toISOString(),
         lastUpdated: state.userData.lastUpdated || new Date().toISOString(),
         oosMarkedUnnecessary: !!state.userData.oosMarkedUnnecessary,
@@ -968,6 +993,9 @@
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('EXPORT', 'Exported local progress JSON backup');
+      }
       showToast('Progress exported successfully!');
     },
 
@@ -991,6 +1019,9 @@
               };
               saveUserData();
               applyFiltersAndRender();
+              if (window.JAM_LOGGER) {
+                window.JAM_LOGGER.logAction('IMPORT', `Imported progress JSON backup (${Object.keys(parsed.questions).length} questions)`);
+              }
               showToast('Progress successfully imported!');
             } else {
               alert('Invalid progress JSON structure.');
@@ -1015,6 +1046,10 @@
         else clearBtn.classList.remove('visible');
       }
 
+      if (window.JAM_LOGGER && state.searchQuery.trim().length >= 2) {
+        window.JAM_LOGGER.logAction('SEARCH', `Search query: "${state.searchQuery.trim()}"`);
+      }
+
       applyFiltersAndRender();
     },
 
@@ -1024,6 +1059,10 @@
 
       const heroInput = document.getElementById('hero-quick-search-input');
       if (heroInput) heroInput.value = query;
+
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('SEARCH_CHIP', `Selected search chip: "${query}"`);
+      }
 
       this.onSearchInput(query);
     },
@@ -1035,12 +1074,19 @@
       const heroInput = document.getElementById('hero-quick-search-input');
       if (heroInput) heroInput.value = '';
 
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('SEARCH_CLEAR', 'Cleared search input');
+      }
+
       this.onSearchInput('');
     },
 
     onYearChange: function(val) {
       state.selectedYear = val;
       state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_YEAR', `Year filter changed to: ${val}`);
+      }
       applyFiltersAndRender();
     },
 
@@ -1048,6 +1094,9 @@
       state.selectedTopic = val;
       state.selectedSubtopic = 'ALL';
       state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_TOPIC', `Topic filter changed to: "${val}"`);
+      }
       updateSubtopicDropdown();
       applyFiltersAndRender();
     },
@@ -1055,24 +1104,36 @@
     onSubtopicChange: function(val) {
       state.selectedSubtopic = val;
       state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_SUBTOPIC', `Subtopic filter changed to: "${val}"`);
+      }
       applyFiltersAndRender();
     },
 
     onStatusChange: function(val) {
       state.selectedStatus = val;
       state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_STATUS', `Status filter changed to: ${val}`);
+      }
       applyFiltersAndRender();
     },
 
     onDifficultyChange: function(val) {
       state.selectedDifficulty = val;
       state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_DIFFICULTY', `Difficulty filter changed to: ${val}`);
+      }
       applyFiltersAndRender();
     },
 
     onSortChange: function(val) {
       state.selectedSort = val;
       state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('SORT_CHANGE', `Sort order changed to: ${val}`);
+      }
       applyFiltersAndRender();
     },
 
@@ -1085,6 +1146,10 @@
       state.selectedDifficulty = 'ALL';
       state.selectedSort = 'default';
       state.currentPage = 1;
+
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_RESET', 'Cleared all filters and reset to default view');
+      }
 
       const searchInput = document.getElementById('tracker-search-input');
       if (searchInput) searchInput.value = '';
