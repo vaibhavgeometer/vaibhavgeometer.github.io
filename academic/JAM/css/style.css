@@ -1565,3 +1565,138 @@ a.hero-pill:hover {
 
 
 
+
+/* --- Quick Topic & Difficulty Launcher Bar --- */
+.quick-drill-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.quick-drill-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 520px;
+}
+
+.quick-drill-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.quick-drill-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.quick-drill-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.quick-drill-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-drill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quick-drill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quick-drill-btn.drill-easy {
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+.quick-drill-btn.drill-easy:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.quick-drill-btn.drill-medium {
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #f59e0b;
+}
+.quick-drill-btn.drill-medium:hover {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.quick-drill-btn.drill-hard {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+.quick-drill-btn.drill-hard:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.quick-drill-btn.drill-custom {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+.quick-drill-btn.drill-custom:hover {
+  filter: brightness(1.1);
+}
+
+/* Custom Generator Difficulty Controls */
+.custom-diff-presets {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.preset-chip-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-chip-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+  border-color: var(--accent);
+}
+
+.diff-pill-select-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.diff-pill-item input[type="checkbox"]:checked + span {
+  font-weight: 700;
+}

@@ -87,11 +87,28 @@
     let positiveMarksEarned = 0;
     let negativeMarksLost = 0;
 
+    // Difficulty breakdown statistics
+    const diffStats = {
+      very_easy: { label: 'Very Easy', icon: '🟢', class: 'diff-very-easy', color: '#10b981', total: 0, attempted: 0, correct: 0, incorrect: 0, marks: 0, maxMarks: 0 },
+      easy:      { label: 'Easy',      icon: '🔵', class: 'diff-easy',      color: '#06b6d4', total: 0, attempted: 0, correct: 0, incorrect: 0, marks: 0, maxMarks: 0 },
+      medium:    { label: 'Medium',    icon: '🟡', class: 'diff-medium',    color: '#f59e0b', total: 0, attempted: 0, correct: 0, incorrect: 0, marks: 0, maxMarks: 0 },
+      hard:      { label: 'Hard',      icon: '🟠', class: 'diff-hard',      color: '#ef4444', total: 0, attempted: 0, correct: 0, incorrect: 0, marks: 0, maxMarks: 0 },
+      hardest:   { label: 'Hardest',   icon: '🟣', class: 'diff-hardest',   color: '#a855f7', total: 0, attempted: 0, correct: 0, incorrect: 0, marks: 0, maxMarks: 0 }
+    };
+
     const evaluatedQuestions = test.questions.map((q, idx) => {
       const userResp = state.responses[idx];
       const key = q.answer_key || '';
       let status = 'unattempted';
       let earned = 0;
+
+      // Question difficulty
+      const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+        marks: q.marks,
+        type: q.type,
+        qNum: q.q_num,
+        year: q.year
+      }) : { id: 'medium', key: 'medium', label: 'Medium', icon: '🟡', class: 'diff-medium' };
 
       const hasAttempted = userResp !== null && userResp !== undefined && 
         (Array.isArray(userResp) ? userResp.length > 0 : String(userResp).trim().length > 0);
@@ -145,12 +162,29 @@
 
       totalMarksEarned += earned;
 
+      // Tally difficulty stats
+      const dKey = qDiff.key || qDiff.id || 'medium';
+      if (diffStats[dKey]) {
+        diffStats[dKey].total++;
+        diffStats[dKey].maxMarks += (q.marks || 1);
+        diffStats[dKey].marks += earned;
+        if (hasAttempted) {
+          diffStats[dKey].attempted++;
+          if (status === 'correct' || status === 'mta') {
+            diffStats[dKey].correct++;
+          } else {
+            diffStats[dKey].incorrect++;
+          }
+        }
+      }
+
       return {
         ...q,
         index: idx,
         userResponse: userResp,
         status: status,
-        marksEarned: earned
+        marksEarned: earned,
+        difficultyObj: qDiff
       };
     });
 
@@ -217,6 +251,43 @@
           </div>
         </div>
 
+        <!-- Difficulty Performance Breakdown Section -->
+        <div class="results-diff-section">
+          <div class="results-diff-header">
+            <div>
+              <h3 class="results-diff-title">🎯 Performance by Difficulty Tier</h3>
+              <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Diagnostic breakdown of your scores, accuracy, and question attempts across exam complexity levels.</p>
+            </div>
+            <div class="solution-filter-tabs" style="margin-top:0;">
+              <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted); align-self:center;">Quick Drill:</span>
+              <button class="sol-filter-btn" onclick="window.filterSolutionReview('diff_hard_tier', this)">Challenging Qs (${(diffStats.hard.total + diffStats.hardest.total)})</button>
+            </div>
+          </div>
+          <div class="results-diff-grid">
+            ${Object.entries(diffStats).map(([k, ds]) => {
+              if (ds.total === 0) return '';
+              const acc = ds.attempted > 0 ? Math.round((ds.correct / ds.attempted) * 100) : 0;
+              const netMarks = parseFloat(ds.marks.toFixed(2));
+              return `
+                <div class="diff-stat-card">
+                  <div class="diff-stat-top">
+                    <span class="diff-stat-name" style="color:${ds.color};">${ds.icon} ${ds.label}</span>
+                    <span class="q-diff-badge ${ds.class} size-sm">${ds.correct}/${ds.total} Solved</span>
+                  </div>
+                  <div class="diff-stat-score">${netMarks > 0 ? '+' : ''}${netMarks} <span style="font-size:0.85rem; font-weight:600; color:var(--text-muted);">/ ${ds.maxMarks} Marks</span></div>
+                  <div class="diff-stat-meta">
+                    <span>Accuracy: <strong>${acc}%</strong></span>
+                    <span>Attempted: <strong>${ds.attempted}/${ds.total}</strong></span>
+                  </div>
+                  <div class="diff-stat-bar">
+                    <div class="diff-stat-fill" style="width:${acc}%; background:${ds.color};"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
         <!-- Action Buttons -->
         <div class="results-actions-bar">
           <button class="btn-action btn-save-next" onclick="window.location.reload()">
@@ -236,6 +307,9 @@
               <button class="sol-filter-btn" onclick="window.filterSolutionReview('correct', this)">Correct (${correctCount})</button>
               <button class="sol-filter-btn" onclick="window.filterSolutionReview('incorrect', this)">Incorrect (${incorrectCount})</button>
               <button class="sol-filter-btn" onclick="window.filterSolutionReview('unattempted', this)">Unattempted (${unattemptedCount})</button>
+              <button class="sol-filter-btn" onclick="window.filterSolutionReview('diff_easy', this)">🟢/🔵 Easy (${(diffStats.very_easy.total + diffStats.easy.total)})</button>
+              <button class="sol-filter-btn" onclick="window.filterSolutionReview('diff_medium', this)">🟡 Medium (${diffStats.medium.total})</button>
+              <button class="sol-filter-btn" onclick="window.filterSolutionReview('diff_hard_tier', this)">🟠/🟣 Hard (${(diffStats.hard.total + diffStats.hardest.total)})</button>
             </div>
           </div>
 
@@ -267,12 +341,17 @@
                 keyDisplay = `<strong>${q.answer_key}</strong>`;
               }
 
+              const diffBadgeHtml = (q.difficultyObj && window.JAM_DIFFICULTY)
+                ? window.JAM_DIFFICULTY.getBadgeHtml(q.difficultyObj, { size: 'sm' })
+                : '';
+
               return `
-                <div class="review-q-card" data-status="${q.status}">
+                <div class="review-q-card" data-status="${q.status}" data-difficulty="${q.difficultyObj ? q.difficultyObj.id : 'medium'}">
                   <div class="review-q-header">
                     <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                       <span class="review-q-num">Question ${i + 1}</span>
                       <span class="q-type-badge q-type-${q.type.toLowerCase()}">${q.type}</span>
+                      ${diffBadgeHtml}
                       <span style="font-size:0.85rem; color:var(--text-muted);">${q.year || 'JAM'} • Q.${q.q_num}</span>
                     </div>
                     <span class="review-status-pill ${statusPillClass}">${statusPillText}</span>
@@ -316,17 +395,29 @@
     }
   };
 
-  window.filterSolutionReview = function(statusFilter, btn) {
+  window.filterSolutionReview = function(filterVal, btn) {
     document.querySelectorAll('.sol-filter-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
 
     const cards = document.querySelectorAll('#solution-cards-container .review-q-card');
     cards.forEach(card => {
-      if (statusFilter === 'ALL' || card.getAttribute('data-status') === statusFilter) {
-        card.style.display = 'block';
+      const cardStatus = card.getAttribute('data-status');
+      const cardDiff = card.getAttribute('data-difficulty');
+
+      let matches = false;
+      if (filterVal === 'ALL') {
+        matches = true;
+      } else if (filterVal === 'diff_easy') {
+        matches = (cardDiff === 'very_easy' || cardDiff === 'easy');
+      } else if (filterVal === 'diff_medium') {
+        matches = (cardDiff === 'medium');
+      } else if (filterVal === 'diff_hard_tier') {
+        matches = (cardDiff === 'hard' || cardDiff === 'hardest');
       } else {
-        card.style.display = 'none';
+        matches = (cardStatus === filterVal);
       }
+
+      card.style.display = matches ? 'block' : 'none';
     });
   };
 

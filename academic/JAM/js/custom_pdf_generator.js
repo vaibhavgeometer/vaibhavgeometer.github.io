@@ -146,7 +146,10 @@
       }
     });
 
-    // Apply era and question type filters
+    // Apply era, question type, and difficulty filters
+    const diffFilter = options.difficulties || options.difficultyFilter || ['ALL'];
+    const hasDiffFilter = Array.isArray(diffFilter) ? (!diffFilter.includes('ALL') && diffFilter.length > 0) : (diffFilter !== 'ALL' && diffFilter !== '');
+
     return matched.filter(q => {
       // Type match
       const qType = (q.type || 'MCQ').toUpperCase();
@@ -163,6 +166,23 @@
         if (yr < 2015) return false;
       } else if (eraFilter === 'classic' || eraFilter === '2005-2014' || eraFilter === 'classic-2005-2014') {
         if (yr >= 2015 || yr < 2005) return false;
+      }
+
+      // Difficulty match
+      if (hasDiffFilter) {
+        const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+          marks: q.marks,
+          type: q.type,
+          qNum: q.q_num,
+          year: yr
+        }) : { id: 'medium', key: 'medium' };
+
+        const dKey = qDiff.key || qDiff.id || 'medium';
+        if (Array.isArray(diffFilter)) {
+          if (!diffFilter.includes(dKey)) return false;
+        } else if (diffFilter !== dKey) {
+          return false;
+        }
       }
 
       return true;
@@ -241,7 +261,8 @@
     const pool = collectMatchingQuestions({
       topicIds: topicIds,
       types: config.types || ['MCQ', 'MSQ', 'NAT'],
-      eraFilter: config.eraFilter || 'ALL'
+      eraFilter: config.eraFilter || 'ALL',
+      difficulties: config.difficulties || config.difficultyFilter || ['ALL']
     });
 
     if (pool.length === 0) {
@@ -633,6 +654,39 @@
       doc.setTextColor(typeTextCol[0], typeTextCol[1], typeTextCol[2]);
       doc.text(qType, rightBadgeX + (typeBadgeWidth / 2), cardTopY + 14, { align: 'center' });
 
+      // Difficulty Badge
+      const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+        marks: qMarks,
+        type: qType,
+        qNum: origQNum,
+        year: q.year
+      }) : { label: 'Medium', shortLabel: 'Medium', id: 'medium' };
+
+      const diffBadgeWidth = 38;
+      rightBadgeX -= (diffBadgeWidth + 4);
+      let diffBg = [254, 243, 199];
+      let diffStroke = [252, 211, 77];
+      let diffTextCol = [180, 83, 9];
+
+      if (qDiff.id === 'very_easy') {
+        diffBg = [236, 253, 245]; diffStroke = [167, 243, 208]; diffTextCol = [6, 95, 70];
+      } else if (qDiff.id === 'easy') {
+        diffBg = [236, 254, 255]; diffStroke = [165, 243, 252]; diffTextCol = [14, 116, 144];
+      } else if (qDiff.id === 'hard') {
+        diffBg = [255, 241, 242]; diffStroke = [254, 205, 211]; diffTextCol = [190, 18, 60];
+      } else if (qDiff.id === 'hardest') {
+        diffBg = [250, 245, 255]; diffStroke = [233, 213, 255]; diffTextCol = [126, 34, 206];
+      }
+
+      doc.setFillColor(diffBg[0], diffBg[1], diffBg[2]);
+      doc.setDrawColor(diffStroke[0], diffStroke[1], diffStroke[2]);
+      doc.setLineWidth(0.6);
+      doc.roundedRect(rightBadgeX, cardTopY + 3.5, diffBadgeWidth, 15, 3, 3, 'FD');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.5);
+      doc.setTextColor(diffTextCol[0], diffTextCol[1], diffTextCol[2]);
+      doc.text(qDiff.shortLabel || qDiff.label, rightBadgeX + (diffBadgeWidth / 2), cardTopY + 14, { align: 'center' });
+
       // 4. Draw Screenshot Image Centered inside Card Body
       const imgX = marginX + ((contentWidth - imgDrawWidth) / 2);
       const imgY = cardTopY + cardHeaderHeight + 6;
@@ -695,10 +749,11 @@
 
     const keyRowHeight = 16.5;
     const keySubCols = [
-      singleChunkWidth * 0.18, // Q.No
-      singleChunkWidth * 0.22, // Type
-      singleChunkWidth * 0.20, // Marks
-      singleChunkWidth * 0.40  // Official Key
+      singleChunkWidth * 0.16, // Q.No
+      singleChunkWidth * 0.18, // Type
+      singleChunkWidth * 0.16, // Marks
+      singleChunkWidth * 0.20, // Diff
+      singleChunkWidth * 0.30  // Official Key
     ];
 
     let maxKeyTableBottomY = curY;
@@ -716,7 +771,7 @@
       doc.setFontSize(7);
       doc.setTextColor(255, 255, 255);
 
-      const headerLabels = ['Q. No.', 'Type', 'Marks', 'Official Key'];
+      const headerLabels = ['Q. No.', 'Type', 'Marks', 'Diff', 'Official Key'];
       let subX = chunkX;
       headerLabels.forEach((hl, hi) => {
         const textCenter = subX + (keySubCols[hi] / 2);
@@ -761,12 +816,25 @@
         doc.text(qMarks, cellX + (keySubCols[2] / 2), chunkY + 11, { align: 'center' });
         cellX += keySubCols[2];
 
+        // Diff
+        const qDiffObj = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(qInChunk.id, {
+          marks: qInChunk.marks,
+          type: qInChunk.type,
+          qNum: qInChunk.q_num,
+          year: qInChunk.year
+        }) : { shortLabel: 'Med' };
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(6.8);
+        doc.setTextColor(71, 85, 105);
+        doc.text(qDiffObj.shortLabel || qDiffObj.label || 'Med', cellX + (keySubCols[3] / 2), chunkY + 11, { align: 'center' });
+        cellX += keySubCols[3];
+
         // Official Key (Bold)
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(7.5);
         doc.setTextColor(15, 23, 42);
-        const keyCleanTrunc = rawKey.length > 18 ? rawKey.substring(0, 16) + '..' : rawKey;
-        doc.text(keyCleanTrunc, cellX + (keySubCols[3] / 2), chunkY + 11, { align: 'center' });
+        const keyCleanTrunc = rawKey.length > 15 ? rawKey.substring(0, 13) + '..' : rawKey;
+        doc.text(keyCleanTrunc, cellX + (keySubCols[4] / 2), chunkY + 11, { align: 'center' });
 
         chunkY += keyRowHeight;
       });

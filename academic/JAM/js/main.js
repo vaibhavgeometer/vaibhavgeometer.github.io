@@ -179,11 +179,16 @@
 
       const eraBadgeLabel = t.era_label || (isComprehensive ? '2005–2026 Archive' : t.era);
 
+      const customDiffBtn = !isZeroQuestions
+        ? `<button type="button" class="btn-test secondary" onclick="window.launchTopicCustomGenerator('${t.topic_id || t.id}')" title="Configure test or PDF for this topic filtered by difficulty">🎯 By Difficulty</button>`
+        : '';
+
       let actionButtons = '';
       if (!isZeroQuestions) {
         actionButtons = `
           <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Take Timed CBT Exam">⚡ Start Test</a>
           <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
+          ${customDiffBtn}
           ${mockPdfBtn}
           ${cheatBtn}
         `;
@@ -364,6 +369,13 @@
     if (document.getElementById('custom-type-msq')?.checked) types.push('MSQ');
     if (document.getElementById('custom-type-nat')?.checked) types.push('NAT');
 
+    // Difficulty selection
+    const diffCheckboxes = document.querySelectorAll('input[name="custom-difficulty"]:checked');
+    let difficulties = Array.from(diffCheckboxes).map(cb => cb.value);
+    if (difficulties.length === 0 || difficulties.includes('ALL')) {
+      difficulties = ['ALL'];
+    }
+
     const titleInput = document.getElementById('custom-test-title');
     const title = titleInput && titleInput.value.trim() ? titleInput.value.trim() : 'IIT JAM Mathematics Custom Practice Test';
 
@@ -372,8 +384,61 @@
       questionCount: qCount,
       eraFilter: era,
       types: types,
+      difficulties: difficulties,
       title: title
     };
+  };
+
+  window.handleDifficultyFilterChange = function(clickedCb) {
+    const allCb = document.querySelector('input[name="custom-difficulty"][value="ALL"]');
+    const specificCbs = document.querySelectorAll('input[name="custom-difficulty"]:not([value="ALL"])');
+
+    if (clickedCb && clickedCb.value === 'ALL') {
+      if (clickedCb.checked) {
+        specificCbs.forEach(cb => { cb.checked = false; });
+      } else {
+        clickedCb.checked = true;
+      }
+    } else {
+      const anySpecificChecked = Array.from(specificCbs).some(cb => cb.checked);
+      if (anySpecificChecked) {
+        if (allCb) allCb.checked = false;
+      } else {
+        if (allCb) allCb.checked = true;
+      }
+    }
+
+    window.updateCustomGeneratorSummary();
+  };
+
+  window.applyCustomDifficultyPreset = function(presetKey) {
+    const allCb = document.querySelector('input[name="custom-difficulty"][value="ALL"]');
+    const specificCbs = document.querySelectorAll('input[name="custom-difficulty"]:not([value="ALL"])');
+
+    specificCbs.forEach(cb => { cb.checked = false; });
+    if (allCb) allCb.checked = false;
+
+    if (presetKey === 'all') {
+      if (allCb) allCb.checked = true;
+    } else if (presetKey === 'easy') {
+      const vEasy = document.querySelector('input[name="custom-difficulty"][value="very_easy"]');
+      const easy = document.querySelector('input[name="custom-difficulty"][value="easy"]');
+      if (vEasy) vEasy.checked = true;
+      if (easy) easy.checked = true;
+    } else if (presetKey === 'medium') {
+      const med = document.querySelector('input[name="custom-difficulty"][value="medium"]');
+      if (med) med.checked = true;
+    } else if (presetKey === 'hard') {
+      const hard = document.querySelector('input[name="custom-difficulty"][value="hard"]');
+      if (hard) hard.checked = true;
+    } else if (presetKey === 'challenging') {
+      const hard = document.querySelector('input[name="custom-difficulty"][value="hard"]');
+      const hardest = document.querySelector('input[name="custom-difficulty"][value="hardest"]');
+      if (hard) hard.checked = true;
+      if (hardest) hardest.checked = true;
+    }
+
+    window.updateCustomGeneratorSummary();
   };
 
   window.updateCustomGeneratorSummary = function() {
@@ -415,6 +480,23 @@
     if (structLabel) {
       const typesStr = config.types.join(' • ') || 'None';
       structLabel.textContent = typesStr;
+    }
+
+    const diffLabelEl = document.getElementById('summary-diff-label');
+    if (diffLabelEl) {
+      if (config.difficulties.includes('ALL')) {
+        diffLabelEl.textContent = 'All Difficulties';
+      } else {
+        const labels = config.difficulties.map(d => {
+          if (d === 'very_easy') return '🟢 V.Easy';
+          if (d === 'easy') return '🔵 Easy';
+          if (d === 'medium') return '🟡 Medium';
+          if (d === 'hard') return '🟠 Hard';
+          if (d === 'hardest') return '🟣 Hardest';
+          return d;
+        });
+        diffLabelEl.textContent = labels.join(', ');
+      }
     }
 
     // Toggle button disabled state
@@ -507,16 +589,30 @@
     const totalMarks = sampled.reduce((sum, q) => sum + (q.marks || 1), 0);
     const durationMins = Math.max(15, Math.round(actualCount * 3.0));
 
+    // Enrich with question difficulty
+    const enrichedSampled = sampled.map(q => {
+      const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+        marks: q.marks,
+        type: q.type,
+        qNum: q.q_num,
+        year: q.year
+      }) : null;
+      return {
+        ...q,
+        difficulty: qDiff ? qDiff.id : 'medium'
+      };
+    });
+
     const customTestData = {
       id: "custom",
       name: config.title,
       category: "Custom Topic Practice Test",
       era: config.eraFilter || "cbt",
-      total_questions: sampled.length,
+      total_questions: enrichedSampled.length,
       total_marks: totalMarks,
       duration_minutes: durationMins,
       pattern: "MCQ • MSQ • NAT",
-      questions: sampled
+      questions: enrichedSampled
     };
 
     try {
@@ -554,6 +650,14 @@
         const qNum = idx + 1;
         const qType = (q.type || 'MCQ').toUpperCase();
         const typeBadgeClass = qType === 'MCQ' ? 'tag-cbt' : (qType === 'MSQ' ? 'tag-recent' : 'tag-archive');
+        const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+          marks: q.marks,
+          type: q.type,
+          qNum: q.q_num,
+          year: q.year
+        }) : { label: 'Medium', class: 'diff-medium', icon: '🟡' };
+        const diffBadgeHtml = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' }) : '';
+
         return `
           <div style="border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 12px; background: var(--bg-card);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
@@ -563,6 +667,7 @@
               </div>
               <div style="display: flex; gap: 6px; align-items: center;">
                 <span class="era-tag ${typeBadgeClass}">${qType}</span>
+                ${diffBadgeHtml}
                 <span class="era-tag" style="background: var(--accent-dim); color: var(--accent);">+${q.marks || 1} M</span>
                 <span style="font-size: 11px; font-weight: 600; color: var(--green); margin-left: 6px;">Key: ${q.answer_key || 'N/A'}</span>
               </div>
@@ -582,6 +687,29 @@
   window.closeCustomQuestionsPreview = function() {
     const modal = document.getElementById('custom-preview-modal');
     if (modal) modal.classList.add('hidden');
+  };
+
+  window.launchTopicCustomGenerator = function(topicId) {
+    window.switchTab('custom-generator');
+    const cleanId = String(topicId).replace(/^\d{4}-\d{4}_/, '').trim();
+    document.querySelectorAll('input[name="custom-topic"]').forEach(cb => {
+      cb.checked = (cb.value === cleanId || cb.value === topicId);
+    });
+    window.updateCustomGeneratorSummary();
+    const configCard = document.querySelector('.custom-config-card');
+    if (configCard) {
+      configCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  window.quickLaunchTopicDifficultyDrill = function(diffPreset) {
+    window.switchTab('custom-generator');
+    window.customGeneratorSelectAll(true);
+    window.applyCustomDifficultyPreset(diffPreset);
+    const summaryCard = document.querySelector('.custom-summary-card');
+    if (summaryCard) {
+      summaryCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   // --- Init ---

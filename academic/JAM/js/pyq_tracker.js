@@ -1261,4 +1261,17 @@
     window.JAM_TRACKER.init();
   });
 
+  // Listen for difficulty updates from CBT simulator or other modules
+  window.addEventListener('jam-difficulty-updated', (e) => {
+    loadUserData();
+    updateProgressUI();
+    if (e.detail && e.detail.qId) {
+      const card = document.getElementById(`card-${e.detail.qId}`);
+      if (card) {
+        const select = card.querySelector('.q-diff-select');
+        if (select) select.value = e.detail.difficulty || '';
+      }
+    }
+  });
+
 })();

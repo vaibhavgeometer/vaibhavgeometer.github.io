@@ -79,6 +79,21 @@
               </button>
               <span class="q-type-badge q-type-mcq" id="q-type-badge">MCQ</span>
               <span class="q-marks-pill" id="q-marks-pill">Marks: +1 | Neg: -0.33</span>
+              <div class="q-diff-selector-wrap" id="q-diff-selector-wrap">
+                <button type="button" class="q-diff-badge-btn diff-medium" id="q-diff-btn" onclick="window.toggleDifficultyMenu(event)" title="Question Difficulty Level (Click to change)">
+                  <span class="q-diff-btn-icon" id="q-diff-btn-icon">🟡</span>
+                  <span class="q-diff-btn-text" id="q-diff-btn-text">Medium</span>
+                  <span class="q-diff-btn-caret">▾</span>
+                </button>
+                <div class="q-diff-dropdown hidden" id="q-diff-dropdown">
+                  <div class="q-diff-dropdown-header">Tag Difficulty Level:</div>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-very-easy" onclick="window.selectCurrentQuestionDifficulty('very_easy')">🟢 Very Easy</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-easy" onclick="window.selectCurrentQuestionDifficulty('easy')">🔵 Easy</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-medium" onclick="window.selectCurrentQuestionDifficulty('medium')">🟡 Medium</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-hard" onclick="window.selectCurrentQuestionDifficulty('hard')">🟠 Hard</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-hardest" onclick="window.selectCurrentQuestionDifficulty('hardest')">🟣 Hardest</button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -270,6 +285,8 @@
   </div>
 
   <!-- JavaScript Modules -->
+  <script src="../js/pyq_difficulty.js"></script>
+  <script src="../js/cloud_sync.js"></script>
   <script src="js/questions_data.js"></script>
   <script src="js/calculator.js"></script>
   <script src="js/results.js"></script>

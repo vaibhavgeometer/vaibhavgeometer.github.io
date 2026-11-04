@@ -386,6 +386,30 @@
 
       <!-- Panel 3: Subtopic Mock Tests (3 Eras × 9 Topics = 27 Tests + 2005-2026 Archive) -->
       <div id="tab-panel-topic-tests" class="tab-content-panel hidden">
+                <!-- Quick Topic & Difficulty Launcher Bar -->
+        <div class="quick-drill-banner">
+          <div class="quick-drill-left">
+            <span class="quick-drill-icon">🎯</span>
+            <div>
+              <div class="quick-drill-title">Take Mock Tests &amp; PDFs by Difficulty &amp; Topic</div>
+              <div class="quick-drill-desc">Practice tests filtered to specific complexity tiers, or compile tailored practice PDFs.</div>
+            </div>
+          </div>
+          <div class="quick-drill-actions">
+            <button class="quick-drill-btn drill-easy" onclick="window.quickLaunchTopicDifficultyDrill('easy')" title="Launch 20 Easy/Warmup Questions">
+              🟢 Easy Drill
+            </button>
+            <button class="quick-drill-btn drill-medium" onclick="window.quickLaunchTopicDifficultyDrill('medium')" title="Launch 25 Standard Exam-Level Questions">
+              🟡 Medium Drill
+            </button>
+            <button class="quick-drill-btn drill-hard" onclick="window.quickLaunchTopicDifficultyDrill('challenging')" title="Launch 25 Hard &amp; Hardest Advanced Questions">
+              🟠 Advanced Drill
+            </button>
+            <button class="quick-drill-btn drill-custom" onclick="window.switchTab('custom-generator')" title="Open Custom Generator to pick specific topics &amp; difficulties">
+              🛠️ Custom Generator &rarr;
+            </button>
+          </div>
+        </div>
         <div class="topic-filters-wrapper">
           <div class="filter-group">
             <span class="filter-group-label">Era:</span>
@@ -645,6 +669,46 @@
                     </label>
                   </div>
                 </div>
+                <!-- Question Difficulty Filter -->
+                <div class="config-item" style="grid-column: 1 / -1; margin-top: 8px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                    <label class="config-label" style="margin-bottom: 0;">Question Difficulty Level:</label>
+                    <div class="custom-diff-presets">
+                      <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Presets:</span>
+                      <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('all')">All Levels</button>
+                      <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('easy')">🟢 Easy Drill</button>
+                      <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('medium')">🟡 Medium Drill</button>
+                      <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('hard')">🟠 Hard Drill</button>
+                      <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('challenging')">⚡ Hard &amp; Hardest</button>
+                    </div>
+                  </div>
+                  <div class="checkbox-pill-group diff-pill-select-group">
+                    <label class="checkbox-pill diff-pill-item">
+                      <input type="checkbox" name="custom-difficulty" value="ALL" checked onchange="window.handleDifficultyFilterChange(this)">
+                      <span>🌐 All Levels</span>
+                    </label>
+                    <label class="checkbox-pill diff-pill-item">
+                      <input type="checkbox" name="custom-difficulty" value="very_easy" onchange="window.handleDifficultyFilterChange(this)">
+                      <span>🟢 Very Easy</span>
+                    </label>
+                    <label class="checkbox-pill diff-pill-item">
+                      <input type="checkbox" name="custom-difficulty" value="easy" onchange="window.handleDifficultyFilterChange(this)">
+                      <span>🔵 Easy</span>
+                    </label>
+                    <label class="checkbox-pill diff-pill-item">
+                      <input type="checkbox" name="custom-difficulty" value="medium" onchange="window.handleDifficultyFilterChange(this)">
+                      <span>🟡 Medium</span>
+                    </label>
+                    <label class="checkbox-pill diff-pill-item">
+                      <input type="checkbox" name="custom-difficulty" value="hard" onchange="window.handleDifficultyFilterChange(this)">
+                      <span>🟠 Hard</span>
+                    </label>
+                    <label class="checkbox-pill diff-pill-item">
+                      <input type="checkbox" name="custom-difficulty" value="hardest" onchange="window.handleDifficultyFilterChange(this)">
+                      <span>🟣 Hardest</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -681,6 +745,10 @@
               <div class="summary-metric-box">
                 <span class="metric-label">SECTION STRUCTURE</span>
                 <span class="metric-val" id="summary-structure-label" style="font-size: 11px; color: #64748b;">MCQ • MSQ • NAT</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">DIFFICULTY FILTER</span>
+                <span class="metric-val" id="summary-diff-label" style="font-size: 11px; color: #f59e0b;">All Difficulties</span>
               </div>
             </div>
 
@@ -930,6 +998,7 @@
   <script src="js/jspdf.plugin.autotable.min.js"></script>
   <script src="mock-test/js/questions_data.js"></script>
   <script src="js/pyq_master_data.js"></script>
+  <script src="js/pyq_difficulty.js"></script>
   <script src="js/cloud_sync.js"></script>
   <script src="js/stats.js"></script>
   <script src="js/pyq_tracker.js"></script>

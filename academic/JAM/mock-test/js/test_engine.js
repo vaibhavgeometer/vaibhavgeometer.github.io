@@ -191,6 +191,31 @@
       qMarksEl.innerText = `Marks: +${q.marks} | Neg: ${negText}`;
     }
 
+    // Render Question Difficulty Badge & Dropdown State
+    const diffBtn = document.getElementById('q-diff-btn');
+    const diffIcon = document.getElementById('q-diff-btn-icon');
+    const diffText = document.getElementById('q-diff-btn-text');
+    if (diffBtn && diffIcon && diffText) {
+      const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+        marks: q.marks,
+        type: q.type,
+        qNum: q.q_num,
+        year: q.year
+      }) : { label: 'Medium', icon: '🟡', class: 'diff-medium', isUserTagged: false };
+
+      diffBtn.className = `q-diff-badge-btn ${qDiff.class}`;
+      diffIcon.textContent = qDiff.icon;
+      const userStar = qDiff.isUserTagged ? ' ★' : '';
+      diffText.textContent = `${qDiff.label}${userStar}`;
+      diffBtn.title = `${qDiff.label} Difficulty${qDiff.isUserTagged ? ' (Tagged by You)' : ' (Exam Benchmark)'} — Click to Change`;
+
+      // Highlight active choice in dropdown
+      document.querySelectorAll('#q-diff-dropdown .q-diff-dropdown-item').forEach(item => {
+        const itemDiff = item.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+        item.classList.toggle('active', itemDiff === qDiff.key);
+      });
+    }
+
     // Render Question statement: Screenshot-First Display
     if (qBodyEl) {
       const imgPath = q.image ? (q.image.startsWith('../') ? q.image : `../${q.image}`) : '';
@@ -682,11 +707,23 @@
         userAnsBadge = `<span class="qpaper-ans-badge">Selected: <strong>${respStr}</strong></span>`;
       }
 
+      let diffBadgeHtml = '';
+      if (window.getJAMQuestionDifficulty && window.JAM_DIFFICULTY) {
+        const qDiff = window.getJAMQuestionDifficulty(q.id, {
+          marks: q.marks,
+          type: q.type,
+          qNum: q.q_num,
+          year: q.year
+        });
+        diffBadgeHtml = window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' });
+      }
+
       card.innerHTML = `
         <div class="qpaper-item-header">
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
             <strong style="font-size:1.05rem;">Question ${idx + 1}</strong>
             <span class="q-type-badge q-type-${q.type.toLowerCase()}">${q.type}</span>
+            ${diffBadgeHtml}
             <span style="font-size: 0.85rem; color: var(--text-muted);">(${q.year || 'JAM'} Q.${q.q_num})</span>
             <span class="q-marks-pill">+${q.marks} Mark${q.marks > 1 ? 's' : ''}</span>
           </div>
@@ -813,6 +850,75 @@
       } else if (q.type === 'MSQ') {
         toggleMsqOption(chosenOpt);
       }
+    }
+  });
+
+  // --- Difficulty Menu Interactions ---
+  window.toggleDifficultyMenu = function(e) {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    const wrap = document.getElementById('q-diff-selector-wrap');
+    const dropdown = document.getElementById('q-diff-dropdown');
+    if (!wrap || !dropdown) return;
+    const isHidden = dropdown.classList.contains('hidden');
+    if (isHidden) {
+      dropdown.classList.remove('hidden');
+      wrap.classList.add('open');
+    } else {
+      window.closeDifficultyMenu();
+    }
+  };
+
+  window.closeDifficultyMenu = function() {
+    const wrap = document.getElementById('q-diff-selector-wrap');
+    const dropdown = document.getElementById('q-diff-dropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+    if (wrap) wrap.classList.remove('open');
+  };
+
+  window.selectCurrentQuestionDifficulty = function(diffKey) {
+    if (!state.test || !state.test.questions) return;
+    const q = state.test.questions[state.currentIndex];
+    if (!q) return;
+
+    if (window.setJAMQuestionDifficulty) {
+      window.setJAMQuestionDifficulty(q.id, diffKey, {
+        marks: q.marks,
+        type: q.type,
+        qNum: q.q_num,
+        year: q.year
+      });
+    }
+
+    window.closeDifficultyMenu();
+    renderQuestion();
+
+    // Show brief toast
+    const label = diffKey.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
+    showDifficultyToast(`Question ${state.currentIndex + 1} tagged as ${label} ✓`);
+  };
+
+  function showDifficultyToast(msg) {
+    const existing = document.querySelector('.diff-toast-notification');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = 'diff-toast-notification';
+    toast.innerHTML = `<span>🏷️</span> <span>${msg}</span>`;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }, 2000);
+  }
+
+  // Dismiss dropdown on click outside
+  document.addEventListener('click', function(e) {
+    const wrap = document.getElementById('q-diff-selector-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      window.closeDifficultyMenu();
     }
   });
 
