@@ -153,6 +153,11 @@
               <button class="tracker-action-btn" id="btn-mark-oos-unnecessary" onclick="window.JAM_TRACKER.markAllOOSAsUnnecessary()" title="Toggle whether out of syllabus questions are marked unnecessary">
                 <span>🚫</span> <span>Mark Out of Syllabus as Unnecessary (87 Qs)</span>
               </button>
+                            <button class="tracker-action-btn stats-action-btn" id="btn-tracker-stats" onclick="window.JAM_STATS.openModal()" title="View Day-by-Day solving stats, streaks, velocity and analytics">
+                <span style="font-size:1.05rem;">📊</span>
+                <span>Study Stats</span>
+                <span class="stats-today-badge" id="stats-today-pill">Today: +0</span>
+              </button>
               <button class="tracker-action-btn cloud-sync-action-btn" id="btn-cloud-sync" onclick="window.JAM_CLOUD_SYNC.openModal()" title="Instant 6-Digit Cloud Sync across devices — zero login required">
                 <span style="font-size:1.05rem;">☁️</span>
                 <span id="btn-cloud-sync-text">Cloud Sync</span>
@@ -184,6 +189,30 @@
                 <div class="progress-bar-outer">
                   <div class="progress-bar-fill" id="tracker-overall-bar" style="width: 0%;"></div>
                 </div>
+              </div>
+            </div>
+
+            <!-- Interactive Stats Quick-Grid -->
+            <div class="stats-quick-grid" id="stats-quick-grid" onclick="window.JAM_STATS.openModal()" title="Click to view detailed Day-by-Day Study Analytics & Forecasting">
+              <div class="stats-quick-card today">
+                <div class="stats-quick-label">📅 Solved Today</div>
+                <div class="stats-quick-val" id="stat-quick-today">+0 Qs</div>
+                <div class="stats-quick-sub" id="stat-quick-today-sub">Start today's session!</div>
+              </div>
+              <div class="stats-quick-card streak">
+                <div class="stats-quick-label">🔥 Active Streak</div>
+                <div class="stats-quick-val" id="stat-quick-streak">0 Days</div>
+                <div class="stats-quick-sub" id="stat-quick-streak-sub">Best: 0 Days 🏆</div>
+              </div>
+              <div class="stats-quick-card week">
+                <div class="stats-quick-label">📆 This Week</div>
+                <div class="stats-quick-val" id="stat-quick-week">+0 Qs</div>
+                <div class="stats-quick-sub" id="stat-quick-week-sub">Pace: 0 Qs/day</div>
+              </div>
+              <div class="stats-quick-card pace">
+                <div class="stats-quick-label">⏳ Exam Completion Target</div>
+                <div class="stats-quick-val" id="stat-quick-forecast">—</div>
+                <div class="stats-quick-sub" id="stat-quick-remaining">798 Core questions left</div>
               </div>
             </div>
 
@@ -890,6 +919,8 @@
   <!-- Modal for High-Resolution Question Screenshot -->
   <div id="tracker-question-modal" class="hidden"></div>
 
+  <!-- Modal for Study Analytics & Stats -->
+  <div id="stats-analytics-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.JAM_STATS.closeModal()"></div>
   <!-- Modal for 6-Digit Cloud Sync -->
   <div id="cloud-sync-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.JAM_CLOUD_SYNC.closeModal()"></div>
 
@@ -900,6 +931,7 @@
   <script src="mock-test/js/questions_data.js"></script>
   <script src="js/pyq_master_data.js"></script>
   <script src="js/cloud_sync.js"></script>
+  <script src="js/stats.js"></script>
   <script src="js/pyq_tracker.js"></script>
   <script src="js/custom_pdf_generator.js"></script>
   <script src="js/main.js"></script>

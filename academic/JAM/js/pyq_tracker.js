@@ -97,6 +97,7 @@
     selectedDifficulty: 'ALL', // ALL | very_easy | easy | medium | hard | hardest | unrated
     selectedSort: 'default', // default (year desc, q_num asc) | year_asc | diff_desc | diff_asc
     revealedKeys: new Set(),
+    customIdFilter: null,
     userData: {
       questions: {},
       oosMarkedUnnecessary: false
@@ -370,6 +371,11 @@
       `;
     }
 
+    // Refresh Study Stats in real time
+    if (window.JAM_STATS && typeof window.JAM_STATS.refreshStats === 'function') {
+      window.JAM_STATS.refreshStats();
+    }
+
     // Topic Mini-Bars
     const topicContainer = document.getElementById('topic-progress-mini-grid');
     if (topicContainer) {
@@ -435,6 +441,11 @@
     let fallbackNotice = null;
 
     let pool = state.masterQuestions.filter(q => {
+      // 0. Custom Question ID Filter (e.g. from Study Stats date click)
+      if (state.customIdFilter && !state.customIdFilter.has(q.id)) {
+        return false;
+      }
+
       // 1. Year Filter
       if (state.selectedYear !== 'ALL') {
         if (state.selectedYear === 'cbt') {
@@ -1211,6 +1222,17 @@
     },
 
     // Data exchange & helper hooks for Cloud sync
+    filterByQuestionIds: function(idList, label) {
+      state.customIdFilter = new Set(idList);
+      state.currentPage = 1;
+      applyFiltersAndRender();
+      if (label) showToast(label);
+    },
+    clearCustomIdFilter: function() {
+      state.customIdFilter = null;
+      state.currentPage = 1;
+      applyFiltersAndRender();
+    },
     getUserData: function() {
       return state.userData;
     },
