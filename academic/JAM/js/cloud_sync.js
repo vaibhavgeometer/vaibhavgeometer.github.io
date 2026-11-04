@@ -21,8 +21,8 @@
   const STORAGE_AUTO_SYNC = 'jam_cloud_sync_auto_enabled';
   const STORAGE_LOCAL_SIM_DB = 'jam_cloud_sync_sim_db';
 
-  // Default API Endpoint (points to Cloudflare Worker)
-  const DEFAULT_API_URL = window.JAM_CLOUD_SYNC_API_URL || 'https://jam-cloud-sync.vaibhavgeometer.workers.dev/api/sync';
+  // Default API Endpoint (points to Vaibhav's live Cloudflare Worker)
+  const DEFAULT_API_URL = window.JAM_CLOUD_SYNC_API_URL || 'https://jam-cloud-sync.vaibhav27182.workers.dev/api/sync';
 
   // Cross-tab broadcast channel
   let broadcast = null;
@@ -32,10 +32,17 @@
     }
   } catch (e) {}
 
+  // Resolve API URL (purge old non-existent placeholder if present in localStorage)
+  let initialApiUrl = localStorage.getItem(STORAGE_API_URL);
+  if (!initialApiUrl || initialApiUrl.includes('vaibhavgeometer.workers.dev')) {
+    initialApiUrl = DEFAULT_API_URL;
+    localStorage.removeItem(STORAGE_API_URL);
+  }
+
   // Engine State
   const state = {
     syncCode: localStorage.getItem(STORAGE_SYNC_CODE) || null,
-    apiUrl: localStorage.getItem(STORAGE_API_URL) || DEFAULT_API_URL,
+    apiUrl: initialApiUrl,
     lastSyncTime: localStorage.getItem(STORAGE_LAST_SYNC) || null,
     autoSyncEnabled: localStorage.getItem(STORAGE_AUTO_SYNC) !== 'false',
     syncStatus: 'idle', // 'idle' | 'syncing' | 'synced' | 'error' | 'unlinked'
