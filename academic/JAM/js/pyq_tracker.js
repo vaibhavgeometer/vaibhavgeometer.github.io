@@ -436,6 +436,28 @@
     return { type: 'text', raw: clean, searchTerms };
   }
 
+  function getEffectiveQuestionDifficulty(q) {
+    const u = getQuestionState(q.id);
+    if (u && u.difficulty && DIFFICULTY_CONFIG[u.difficulty]) {
+      return u.difficulty;
+    }
+    if (window.getJAMQuestionDifficulty) {
+      const d = window.getJAMQuestionDifficulty(q.id, {
+        marks: q.marks,
+        type: q.type,
+        qNum: q.q_num,
+        year: q.year
+      });
+      if (d && (d.key || d.id)) return d.key || d.id;
+    }
+    return 'medium';
+  }
+
+  function getEffectiveDifficultyOrder(q) {
+    const diffKey = getEffectiveQuestionDifficulty(q);
+    return DIFFICULTY_CONFIG[diffKey]?.order || 3;
+  }
+
   function filterQuestions() {
     const parsedSearch = parseSearchQuery(state.searchQuery);
     let fallbackNotice = null;
@@ -478,7 +500,8 @@
         if (state.selectedDifficulty === 'unrated') {
           if (u.difficulty) return false;
         } else {
-          if (u.difficulty !== state.selectedDifficulty) return false;
+          const effectiveDiff = getEffectiveQuestionDifficulty(q);
+          if (effectiveDiff !== state.selectedDifficulty) return false;
         }
       }
 
@@ -537,14 +560,14 @@
       });
     } else if (state.selectedSort === 'diff_desc') {
       pool.sort((a, b) => {
-        const da = DIFFICULTY_CONFIG[getQuestionState(a.id).difficulty]?.order || 0;
-        const db = DIFFICULTY_CONFIG[getQuestionState(b.id).difficulty]?.order || 0;
+        const da = getEffectiveDifficultyOrder(a);
+        const db = getEffectiveDifficultyOrder(b);
         return (db - da) || (b.year - a.year) || (a.q_num - b.q_num);
       });
     } else if (state.selectedSort === 'diff_asc') {
       pool.sort((a, b) => {
-        const da = DIFFICULTY_CONFIG[getQuestionState(a.id).difficulty]?.order || 99;
-        const db = DIFFICULTY_CONFIG[getQuestionState(b.id).difficulty]?.order || 99;
+        const da = getEffectiveDifficultyOrder(a);
+        const db = getEffectiveDifficultyOrder(b);
         return (da - db) || (b.year - a.year) || (a.q_num - b.q_num);
       });
     } else {
@@ -890,6 +913,16 @@
       if (diff) {
         showToast(`Tagged as ${DIFFICULTY_CONFIG[diff]?.label || diff}`);
       }
+      try {
+        const event = new CustomEvent('jam-difficulty-updated', {
+          detail: {
+            qId: id,
+            difficulty: diff || null,
+            level: diff ? DIFFICULTY_CONFIG[diff] : null
+          }
+        });
+        window.dispatchEvent(event);
+      } catch (e) {}
     },
 
     toggleAnswerKey: function(id) {
@@ -1253,7 +1286,8 @@
 
     formatSolvedDateTime: formatSolvedDateTime,
     formatSolvedTooltip: formatSolvedTooltip,
-    showToast: showToast
+    showToast: showToast,
+    getState: () => state
   };
 
   // Auto-init on DOMContentLoaded

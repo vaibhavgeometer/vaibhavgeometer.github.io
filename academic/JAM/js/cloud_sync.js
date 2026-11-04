@@ -510,7 +510,11 @@
         updateUI();
       }
     } catch (err) {
-      alert('Could not pull from cloud: ' + err.message);
+      const isNetworkErr = !err.message || err.message.includes('Failed to fetch') || err.message.includes('NetworkError');
+      const msg = isNetworkErr
+        ? 'Could not connect to Cloudflare Worker. Please check your internet connection or try clicking "Sync to Cloud Now" first.'
+        : `Could not pull from cloud: ${err.message}`;
+      alert(msg);
       state.syncStatus = 'error';
       updateUI();
     }

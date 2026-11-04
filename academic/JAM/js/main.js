@@ -31,6 +31,10 @@
   // --- Tab Navigation (Year Tests vs Topic Tests vs Resources) ---
   window.switchMainTab = function(tabId, btn) {
     document.querySelectorAll('.main-tab-btn').forEach(b => b.classList.remove('active'));
+    if (!btn) {
+      btn = document.getElementById(`tab-btn-${tabId}`) ||
+            document.querySelector(`.main-tab-btn[onclick*="'${tabId}'"]`);
+    }
     if (btn) btn.classList.add('active');
 
     document.querySelectorAll('.tab-content-panel').forEach(panel => {
@@ -42,6 +46,7 @@
       activePanel.classList.remove('hidden');
     }
   };
+  window.switchTab = window.switchMainTab;
 
   // --- Render 22-Year Mock Tests ---
   window.renderYearMockTests = function() {
@@ -712,6 +717,16 @@
     }
   };
 
+  // --- Hash Navigation Support ---
+  function handleUrlHash() {
+    const hash = (window.location.hash || '').replace('#', '').trim();
+    if (!hash) return;
+    const validTabs = ['year-tests', 'pyq-tracker', 'topic-tests', 'custom-generator', 'resources'];
+    if (validTabs.includes(hash)) {
+      window.switchMainTab(hash);
+    }
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
     window.initTheme();
@@ -719,6 +734,9 @@
     window.renderTopicMockTests();
     window.initCustomGenerator();
     window.updateOnlineStatus();
+    handleUrlHash();
   });
+
+  window.addEventListener('hashchange', handleUrlHash);
 
 })();

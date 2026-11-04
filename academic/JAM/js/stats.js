@@ -390,6 +390,12 @@
     if (qRemainingSub) {
       qRemainingSub.textContent = `${data.remainingCore} Core questions left`;
     }
+
+    // If analytics modal is currently open, refresh its contents in real-time
+    const modal = document.getElementById('stats-analytics-modal');
+    if (modal && !modal.classList.contains('hidden')) {
+      renderModalContent();
+    }
   }
 
   // ==========================================================================
@@ -789,8 +795,13 @@
       return;
     }
 
-    // Scroll to tracker questions list
-    const qListEl = document.getElementById('tracker-questions-list');
+    // Switch to tracker tab first if currently on another tab
+    if (window.switchMainTab) {
+      window.switchMainTab('pyq-tracker');
+    }
+
+    // Scroll to tracker questions container
+    const qListEl = document.getElementById('tracker-questions-container') || document.getElementById('tab-panel-pyq-tracker');
     if (qListEl) {
       qListEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
