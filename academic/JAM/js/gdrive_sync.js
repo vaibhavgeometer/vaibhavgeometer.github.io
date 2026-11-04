@@ -499,13 +499,21 @@
   // Subsystem 3: Google Drive REST API & Multi-File Cloud Sync
   // ==========================================================================
 
+  let refreshTimer = null;
+  let isSilentRefreshAttempt = false;
+  let pendingSyncAfterRefresh = false;
+
+  function isAccountLinked() {
+    return !!(state.folderId || localStorage.getItem(STORAGE_FOLDER_ID));
+  }
+
   function isLinked() {
-    return !!(state.accessToken && state.folderId);
+    return isAccountLinked();
   }
 
   function isTokenExpired() {
     if (!state.accessToken || !state.tokenExpiry) return true;
-    return Date.now() >= (state.tokenExpiry - 60000);
+    return Date.now() >= (state.tokenExpiry - 120000); // 2 min buffer before expiry
   }
 
   function getClientId() {
@@ -775,15 +783,18 @@
 
   // --- Master Multi-File Synchronizer ---
   async function performSync(isManual = false) {
-    if (!isLinked()) return;
+    if (!isAccountLinked()) return;
 
     if (isTokenExpired()) {
-      state.syncStatus = 'expired';
-      state.statusMessage = 'Google Drive session expired. Click to re-link.';
-      updateUI();
+      pendingSyncAfterRefresh = true;
       if (isManual) {
-        showToast('Google Drive session expired. Re-authorizing...');
-        authorize();
+        showToast('Renewing Google Drive session...');
+        authorize(false);
+      } else {
+        state.syncStatus = 'syncing';
+        state.statusMessage = 'Auto-renewing Drive session...';
+        updateHeaderButtonUI();
+        attemptSilentTokenRefresh();
       }
       return;
     }
@@ -864,9 +875,12 @@
           );
           localStorage.setItem(STORAGE_ANALYTICS_FILE_ID, state.analyticsFileId);
         } else if (updateErr.message === 'UNAUTHORIZED_TOKEN_EXPIRED') {
-          state.syncStatus = 'expired';
-          state.statusMessage = 'Session expired. Click to re-link.';
-          updateUI();
+          console.warn('[Google Drive Sync] 401 unauthorized - attempting silent token renewal...');
+          state.syncStatus = 'syncing';
+          state.statusMessage = 'Auto-renewing session...';
+          updateHeaderButtonUI();
+          pendingSyncAfterRefresh = true;
+          attemptSilentTokenRefresh();
           return;
         } else {
           throw updateErr;
@@ -910,6 +924,33 @@
     }, 350);
   }
 
+  // --- Background Auto-Renewal Engine ---
+  function scheduleTokenAutoRefresh(expiresInSeconds) {
+    if (refreshTimer) {
+      clearTimeout(refreshTimer);
+      refreshTimer = null;
+    }
+    // Auto-refresh ~5 minutes before actual expiry (minimum 30s)
+    const delayMs = Math.max((expiresInSeconds - 300) * 1000, 30000);
+    console.log(`[Google Drive Sync] Scheduled background session renewal in ${Math.round(delayMs / 60000)}m`);
+    refreshTimer = setTimeout(() => {
+      attemptSilentTokenRefresh();
+    }, delayMs);
+  }
+
+  function attemptSilentTokenRefresh() {
+    if (!isAccountLinked()) return;
+    const client = initTokenClient();
+    if (!client) return;
+
+    isSilentRefreshAttempt = true;
+    console.log('[Google Drive Sync] Auto-renewing Google Drive session silently in background...');
+    client.requestAccessToken({
+      prompt: 'none',
+      login_hint: state.userInfo?.email || undefined
+    });
+  }
+
   // --- Google OAuth2 Authorization ---
   function initTokenClient() {
     const clientId = getClientId();
@@ -926,7 +967,15 @@
         scope: 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
         callback: async (resp) => {
           if (resp.error) {
-            console.error('Google Auth Error:', resp);
+            console.warn('[Google Drive Sync] OAuth response error:', resp);
+            if (isSilentRefreshAttempt) {
+              isSilentRefreshAttempt = false;
+              state.syncStatus = 'expired';
+              state.statusMessage = 'Session expired. Click to re-link.';
+              updateUI();
+              return;
+            }
+            isSilentRefreshAttempt = false;
             state.syncStatus = 'error';
             state.statusMessage = 'Authentication failed: ' + (resp.error_description || resp.error);
             updateUI();
@@ -934,6 +983,7 @@
             return;
           }
 
+          isSilentRefreshAttempt = false;
           await handleAuthSuccess(resp);
         }
       });
@@ -951,6 +1001,23 @@
 
     localStorage.setItem(STORAGE_ACCESS_TOKEN, state.accessToken);
     localStorage.setItem(STORAGE_TOKEN_EXPIRY, String(state.tokenExpiry));
+
+    // Schedule next background renewal ~5m before expiration
+    scheduleTokenAutoRefresh(expiresIn);
+
+    // If folder & files already exist, this is a smooth background renewal!
+    const isAlreadySetup = !!(state.folderId && state.fileId);
+    if (isAlreadySetup) {
+      state.syncStatus = 'synced';
+      state.statusMessage = `Linked to "${FOLDER_NAME}" (${formatRelativeSyncTime(state.lastSyncTime)})`;
+      updateUI();
+
+      if (pendingSyncAfterRefresh) {
+        pendingSyncAfterRefresh = false;
+        performSync(false);
+      }
+      return;
+    }
 
     state.syncStatus = 'syncing';
     state.statusMessage = 'Connecting to Google Drive...';
@@ -1018,7 +1085,7 @@
     }
   }
 
-  function authorize() {
+  function authorize(forceConsent = false) {
     const clientId = getClientId();
     if (!clientId) {
       openModal();
@@ -1039,7 +1106,13 @@
 
     const client = initTokenClient();
     if (client) {
-      client.requestAccessToken({ prompt: isTokenExpired() ? 'consent' : '' });
+      isSilentRefreshAttempt = false;
+      // Do NOT pass prompt: 'consent' unless explicitly forced.
+      // Passing prompt: '' skips the consent screen and re-uses existing permission!
+      client.requestAccessToken({
+        prompt: forceConsent ? 'consent' : '',
+        login_hint: state.userInfo?.email || undefined
+      });
     }
   }
 
@@ -1050,6 +1123,13 @@
       '• New progress will no longer auto-sync to your Google Drive.'
     );
     if (!confirmDisconnect) return;
+
+    if (refreshTimer) {
+      clearTimeout(refreshTimer);
+      refreshTimer = null;
+    }
+    isSilentRefreshAttempt = false;
+    pendingSyncAfterRefresh = false;
 
     if (state.accessToken && window.google?.accounts?.oauth2?.revoke) {
       try {
@@ -1326,9 +1406,15 @@
 
               <!-- Action Controls for Linked Account -->
               <div class="gdrive-action-buttons-grid">
-                <button class="btn-gdrive-action primary" onclick="window.JAM_GDRIVE_SYNC.syncNow()">
-                  <span>🔄</span> <span>Sync All to Drive Now</span>
-                </button>
+                ${expired ? `
+                  <button class="btn-gdrive-action primary" onclick="window.JAM_GDRIVE_SYNC.authorize()" style="background:var(--accent); color:#fff; font-weight:700;">
+                    <span>⚡</span> <span>Reconnect Session (1-Click)</span>
+                  </button>
+                ` : `
+                  <button class="btn-gdrive-action primary" onclick="window.JAM_GDRIVE_SYNC.syncNow()">
+                    <span>🔄</span> <span>Sync All to Drive Now</span>
+                  </button>
+                `}
                 <button class="btn-gdrive-action secondary" onclick="window.JAM_GDRIVE_SYNC.openFolderInDrive()">
                   <span>📂</span> <span>Open "JAM Progress"</span>
                 </button>
@@ -1500,7 +1586,27 @@
         }, 200);
       }
 
+      // Auto-refresh token if already linked
+      if (isAccountLinked()) {
+        if (isTokenExpired()) {
+          // Attempt silent renewal on load so user session stays uninterrupted
+          setTimeout(() => {
+            attemptSilentTokenRefresh();
+          }, 600);
+        } else {
+          const remainingSec = Math.round((state.tokenExpiry - Date.now()) / 1000);
+          scheduleTokenAutoRefresh(remainingSec);
+        }
+      }
+
       updateUI();
+
+      // Silent renew when tab becomes active again if expired
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && isAccountLinked() && isTokenExpired()) {
+          attemptSilentTokenRefresh();
+        }
+      });
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
