@@ -812,14 +812,6 @@
               The worker code is located inside the repository at <code>academic/JAM/cloudflare-worker/worker.js</code>. You can deploy it to Cloudflare in under 2 minutes with 0 credit cards required!
             </p>
           </div>
-
-          <!-- Option to switch to Google Drive if preferred -->
-          <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--border); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Looking for direct Google Drive file backups instead?</span>
-            <button class="btn-mini-link" onclick="window.JAM_CLOUD_SYNC.closeModal(); if(window.JAM_GDRIVE_SYNC) window.JAM_GDRIVE_SYNC.openModal();">
-              📂 Open Google Drive Settings ↗
-            </button>
-          </div>
         </div>
       `;
     }

@@ -181,9 +181,6 @@
       if (window.JAM_CLOUD_SYNC && typeof window.JAM_CLOUD_SYNC.triggerAutoSync === 'function') {
         window.JAM_CLOUD_SYNC.triggerAutoSync();
       }
-      if (window.JAM_GDRIVE_SYNC && typeof window.JAM_GDRIVE_SYNC.triggerAutoSync === 'function' && window.JAM_GDRIVE_SYNC.isLinked()) {
-        window.JAM_GDRIVE_SYNC.triggerAutoSync();
-      }
     } catch (e) {
       console.error('Could not save user tracker data to localStorage:', e);
     }
@@ -1213,7 +1210,7 @@
       }, 50);
     },
 
-    // Data exchange & helper hooks for Google Drive sync
+    // Data exchange & helper hooks for Cloud sync
     getUserData: function() {
       return state.userData;
     },
