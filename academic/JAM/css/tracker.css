@@ -1100,6 +1100,61 @@
   font-size: 0.82rem;
 }
 
+/* Google Cloud Account Sync Button in Tracker Actions Bar */
+.gcloud-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.gcloud-action-btn:hover {
+  border-color: #4285f4;
+  background: rgba(66, 133, 244, 0.08);
+}
+
+.gcloud-action-btn.logged-in {
+  border-color: rgba(66, 133, 244, 0.5);
+  background: rgba(66, 133, 244, 0.08);
+}
+
+.gcloud-action-btn.logged-in:hover {
+  border-color: #4285f4;
+  background: rgba(66, 133, 244, 0.16);
+}
+
+.google-logo-svg {
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.gcloud-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  display: inline-block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gcloud-status-indicator.synced {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+}
+
+.gcloud-status-indicator.syncing {
+  background: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
+  animation: gdrivePulse 0.9s infinite alternate;
+}
+
+.gcloud-status-indicator.error {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+}
+
 /* Google Drive Sync Button in Tracker Actions Bar */
 .gdrive-action-btn {
   display: inline-flex;

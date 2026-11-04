@@ -181,6 +181,9 @@
       if (window.JAM_GDRIVE_SYNC && typeof window.JAM_GDRIVE_SYNC.triggerAutoSync === 'function') {
         window.JAM_GDRIVE_SYNC.triggerAutoSync();
       }
+      if (window.JAM_CLOUD_SYNC && typeof window.JAM_CLOUD_SYNC.triggerAutoSync === 'function') {
+        window.JAM_CLOUD_SYNC.triggerAutoSync();
+      }
     } catch (e) {
       console.error('Could not save user tracker data to localStorage:', e);
     }
