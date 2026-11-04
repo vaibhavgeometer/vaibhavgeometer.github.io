@@ -29,9 +29,8 @@
   const STORAGE_AUTO_SYNC_ENABLED = 'jam_gdrive_auto_sync_enabled';
   const STORAGE_ACTIVITY_LOGS = 'jam_tracker_activity_logs';
 
-  // Optional Default Client ID (leave empty so users configure their own client ID or via window.JAM_GDRIVE_DEFAULT_CLIENT_ID)
-  // Users enter their own Google OAuth Client ID directly in the UI modal, stored strictly in their browser's localStorage.
-  const DEFAULT_CLIENT_ID = window.JAM_GDRIVE_DEFAULT_CLIENT_ID || '';
+  // Pre-configured Master Client ID for all users (1-click link without any setup)
+  const DEFAULT_CLIENT_ID = window.JAM_GDRIVE_DEFAULT_CLIENT_ID || '823740249987-qilnpkefplqmvm1kl2okoebvhbfnh113.apps.googleusercontent.com';
 
   // Internal State
   const state = {
@@ -1232,13 +1231,13 @@
 
   function setCustomClientId(newClientId) {
     const val = (newClientId || '').trim();
-    state.clientId = val;
+    state.clientId = val || DEFAULT_CLIENT_ID;
     if (val) {
       localStorage.setItem(STORAGE_CLIENT_ID, val);
-      showToast('Google Client ID saved locally in your browser!');
+      showToast('Custom Google Client ID saved locally in your browser!');
     } else {
       localStorage.removeItem(STORAGE_CLIENT_ID);
-      showToast('Custom Client ID cleared.');
+      showToast('Reset to default pre-configured Client ID.');
     }
     state.tokenClient = null;
     updateUI();
@@ -1473,48 +1472,24 @@
             `}
           </div>
 
-          <!-- Google Cloud Client ID Configuration (Collapsible / Configurable) -->
+          <!-- Google Cloud Client ID Configuration (Collapsible / Pre-configured) -->
           <div class="gdrive-config-accordion">
-            <details class="gdrive-details" ${!clientId ? 'open' : ''}>
+            <details class="gdrive-details">
               <summary class="gdrive-summary">
-                <span>⚙️ Google OAuth Client ID Settings</span>
-                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">${clientId ? '(Configured in your browser ✓)' : '(Required for setup)'}</span>
+                <span>⚙️ Advanced: Custom OAuth Client ID</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">${localStorage.getItem(STORAGE_CLIENT_ID) ? '(Custom override active)' : '(Pre-configured & Ready ✓)'}</span>
               </summary>
               <div class="gdrive-details-content">
                 <p class="gdrive-config-hint">
-                  Your Client ID is stored strictly in your browser's local storage and is never committed to GitHub or shared.
+                  This website is already pre-configured with Vaibhav's verified Client ID for instant 1-click Google Drive linking. Regular users do not need to configure anything — just click "Link Google Drive Account" above! This section is only for developers who wish to override and use their own Google Cloud project credentials:
                 </p>
                 <div class="gdrive-input-group">
-                  <label for="gdrive-client-id-input" class="gdrive-input-label">OAuth 2.0 Web Client ID:</label>
+                  <label for="gdrive-client-id-input" class="gdrive-input-label">Custom OAuth 2.0 Web Client ID:</label>
                   <div style="display: flex; gap: 8px;">
-                    <input type="text" id="gdrive-client-id-input" class="gdrive-input-field" placeholder="e.g. 123456789-abcdef.apps.googleusercontent.com" value="${clientId}">
+                    <input type="text" id="gdrive-client-id-input" class="gdrive-input-field" placeholder="Default: ${DEFAULT_CLIENT_ID}" value="${localStorage.getItem(STORAGE_CLIENT_ID) || ''}">
                     <button class="btn-test secondary" onclick="window.JAM_GDRIVE_SYNC.saveInputClientId()">Save</button>
+                    ${localStorage.getItem(STORAGE_CLIENT_ID) ? '<button class="btn-test secondary" onclick="window.JAM_GDRIVE_SYNC.setCustomClientId(\'\')">Reset to Default</button>' : ''}
                   </div>
-                </div>
-
-                <div class="gdrive-instructions-card">
-                  <div class="gdrive-instructions-title">📋 2-Minute Google Client ID Setup Guide:</div>
-                  <ol class="gdrive-instructions-list">
-                    <li>Go to the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:700;">Google Cloud Console Credentials Page</a>.</li>
-                    <li>Create or select any project, then click <strong>Library</strong> and enable <strong>Google Drive API</strong>.</li>
-                    <li>Under <strong>Credentials</strong>, click <strong>Create Credentials</strong> → <strong>OAuth client ID</strong>.</li>
-                    <li>Select Application type: <strong>Web application</strong>.</li>
-                    <li>Under <strong>Authorized JavaScript origins</strong>, click <em>+ ADD URI</em> and paste: <code>${currentOrigin}</code></li>
-                    <li>Click <strong>Create</strong>, copy the Client ID string, paste it in the box above, and click <strong>Save & Link</strong>!</li>
-                  </ol>
-                </div>
-
-                <div class="gdrive-instructions-card" style="margin-top: 12px; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.05);">
-                  <div class="gdrive-instructions-title" style="color: #f59e0b;">⚠️ Fixing "Error 403: access_denied / App not verified":</div>
-                  <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0 0 8px 0; line-height: 1.4;">
-                    When your Google Cloud app is in <em>Testing</em> mode, Google requires you to add your email address to the authorized test list:
-                  </p>
-                  <ol class="gdrive-instructions-list">
-                    <li>Go to <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:700;">OAuth consent screen</a> in Google Cloud Console.</li>
-                    <li>Scroll down to the <strong>Test users</strong> section and click <strong>+ ADD USERS</strong>.</li>
-                    <li>Enter your email address (e.g. <code>your-email@gmail.com</code>) and click <strong>SAVE</strong>.</li>
-                    <li><em>(To allow all public users)</em>: Under <strong>Publishing status</strong> at the top of that page, click <strong>PUBLISH APP</strong> so any user can link without needing to be added as a tester.</li>
-                  </ol>
                 </div>
               </div>
             </details>
