@@ -1,0 +1,13 @@
+name = "jam-cloud-sync"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace Binding
+# Create a KV namespace on Cloudflare with:
+#   npx wrangler kv:namespace create JAM_SYNC_KV
+# Then paste the returned id below:
+[[kv_namespaces]]
+binding = "JAM_SYNC_KV"
+id = "YOUR_KV_NAMESPACE_ID"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"
+

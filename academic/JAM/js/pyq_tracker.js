@@ -178,7 +178,10 @@
     try {
       state.userData.lastUpdated = new Date().toISOString();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.userData));
-      if (window.JAM_GDRIVE_SYNC && typeof window.JAM_GDRIVE_SYNC.triggerAutoSync === 'function') {
+      if (window.JAM_CLOUD_SYNC && typeof window.JAM_CLOUD_SYNC.triggerAutoSync === 'function') {
+        window.JAM_CLOUD_SYNC.triggerAutoSync();
+      }
+      if (window.JAM_GDRIVE_SYNC && typeof window.JAM_GDRIVE_SYNC.triggerAutoSync === 'function' && window.JAM_GDRIVE_SYNC.isLinked()) {
         window.JAM_GDRIVE_SYNC.triggerAutoSync();
       }
     } catch (e) {
