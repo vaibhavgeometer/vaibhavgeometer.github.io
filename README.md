@@ -354,7 +354,8 @@ vaibhavgeometer.github.io/
 │   ├── solved_status_of_mnk_games.html        # Solved Status Matrix Atlas (k=1 to k≥8) & dataset
 │   └── mnk_games_theory_and_ai.html           # Comprehensive Game Theory & AI Research Guide
 │
-├── portfolio.css                              # 🌐 Glassmorphism design system & portal stylesheet
+├── css/                                       # 🌐 Glassmorphism design system & portal stylesheet
+│   └── portfolio.css
 ├── 404.html                                   # Dynamic client-side router & 404 handler
 ├── index.html                                 # Personal portfolio landing page & platform showcase
 ├── scratch/                                   # 📝 Development notes & demands
@@ -445,7 +446,7 @@ This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_test
 - **Offline Multiplayer with Precision Chess Clocks (Demand 2)**: Genuine cheat-free competitive match play (Human vs Human, Human vs AI, AI vs AI) with evaluation bars and hint arrows concealed. Precision chess-style clocks with initial base time and increment ($1+0$ Bullet, $3+2$ Blitz, $5+3$ Rapid, $10+5$ Classical, Custom) and automatic flagging at 00:00. Level 8 AI plays instantly in known opening book / tablebase positions, smoothly budgets time in unclear tactical positions, never flags, refrains from thinking on opponent's turn by default, with an optional Ponder toggle (ON/OFF).
 - **Generalized Multi-Player $(m,n,k,j)$ Games (Demand 3)**: Extends $(m,n,k)$-games to arbitrary $j=2, 3, 4, 5$ players with circular turn rotation (Player 1 $X$, Player 2 $O$, Player 3 $\blacktriangle$ Emerald, Player 4 $\blacksquare$ Sky Blue, Player 5 $\blacklozenge$ Purple), custom SVG geometries, and multi-opponent threat detection for AI levels 1 to 8.
 - **Board Editor & Frozen Obstacle Squares (Demand 4)**: Interactive position editor to place frozen squares (`#` / ❄️) where moves cannot be placed and streaks are blocked, place custom piece layouts, assign starting turns, and load directly into Analysis or Play modes.
-- **Clean Architecture (Demand 5 & 6)**: Reorganized repository into clear domains (`academic/`, `mnk_games/`), keeping root configuration (`portfolio.css`, `.gitignore`, `README.md`, `LICENSE`, `scratch/`) and zero-regression entry points to guarantee 100% backward compatibility for all URLs and bookmarks.
+- **Clean Architecture (Demand 5 & 6)**: Reorganized repository into clear domains (`academic/`, `mnk_games/`), keeping root configuration (`css/`, `.gitignore`, `README.md`, `LICENSE`, `scratch/`) and zero-regression entry points to guarantee 100% backward compatibility for all URLs and bookmarks.
 - **Complete & Partial Endgame Tablebases Catalog (Demand 7)**: Documented complete retrograde tablebases ($1\times 1$, $2\times 2$, $3\times 3, k=2$, $3\times 3, k=3$, $4\times 4, k=4$ Patashnik draw, $3\times 4, k=3$), partial tablebases & opening books ($5\times 5, k=4$ theoretical draw, $6\times 6, k=4$, $7\times 7, k=5$ Small Gomoku, $15\times 15, k=5$ Gomoku, $19\times 19, k=5$ Pente), and open classifications ($k \ge 6$) in `mnk_games_theory_and_ai.html`.
 
 ### October 2026 — mnk games Engine, Eval Bar & Analysis Board Major Update

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found — Vaibhav Geometer</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
-  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="css/portfolio.css">
 
   <script>
     // Automatic routing for lowercase or legacy URLs on GitHub Pages
@@ -15,8 +15,8 @@
       var search = window.location.search || '';
       var hash = window.location.hash || '';
 
-      if (lower === '/css/portfolio.css' || lower === '/website/css/portfolio.css') {
-        window.location.replace('/portfolio.css' + search + hash);
+      if (lower === '/portfolio.css' || lower === '/website/portfolio.css' || lower === '/website/css/portfolio.css') {
+        window.location.replace('/css/portfolio.css' + search + hash);
         return;
       }
 
