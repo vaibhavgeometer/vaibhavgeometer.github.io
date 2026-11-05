@@ -633,6 +633,19 @@
 
       <!-- PANEL 2: PLAY & CLOCKS (Demand 2) -->
       <div id="panel-play" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
+        <!-- Game Over Banner in Play Area -->
+        <div id="play-game-finished-card" class="hidden bg-[#1e1c18] border border-[#629924] rounded-lg p-3 text-center space-y-2 shadow-lg">
+          <div class="text-sm font-bold text-white" id="play-game-finished-title">🏆 Game Finished</div>
+          <div class="text-xs text-gray-300" id="play-game-finished-desc">Match complete</div>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <button type="button" onclick="resetBoard();" class="px-3 py-1.5 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-xs font-bold transition flex items-center space-x-1 shadow">
+              <span>🔄 Rematch</span>
+            </button>
+            <button type="button" onclick="switchMainMode('analysis');" class="px-3 py-1.5 bg-[#363431] hover:bg-[#474440] text-gray-200 rounded text-xs font-bold transition flex items-center space-x-1 border border-[#4a4742]">
+              <span>🔍 Analysis Board »</span>
+            </button>
+          </div>
+        </div>
         <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
           <div class="flex items-center space-x-2">
             <span class="text-sm">⚔️</span>
@@ -4098,21 +4111,57 @@
         if (p) p.classList.add('hidden');
       });
 
+      const evalBarWrapper = document.getElementById('eval-bar-wrapper');
+      const evalDiscWrapper = document.getElementById('eval-disc-wrapper');
+      const toggleArrowsBtn = document.getElementById('toggle-arrows-btn');
+      const toggleBadgesBtn = document.getElementById('toggle-badges-btn');
+      const modeAnalysisBtn = document.getElementById('mode-analysis-btn');
+      const modePlayBtn = document.getElementById('mode-play-btn');
+      const btnAnalysisReportTrigger = document.getElementById('btn-analysis-report-trigger');
+      const btnImportGameTrigger = document.getElementById('btn-import-game-trigger');
+
       if (mode === 'analysis') {
         if (tabAnalysisBtn) tabAnalysisBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelAnalysis) panelAnalysis.classList.remove('hidden');
+        if (toggleArrowsBtn) toggleArrowsBtn.classList.remove('hidden');
+        if (toggleBadgesBtn) toggleBadgesBtn.classList.remove('hidden');
+        if (modeAnalysisBtn) modeAnalysisBtn.classList.remove('hidden');
+        if (modePlayBtn) modePlayBtn.classList.remove('hidden');
+        if (btnAnalysisReportTrigger) btnAnalysisReportTrigger.classList.remove('hidden');
+        if (btnImportGameTrigger) btnImportGameTrigger.classList.remove('hidden');
         stopClock();
       } else if (mode === 'play') {
         if (tabPlayBtn) tabPlayBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelPlay) panelPlay.classList.remove('hidden');
+        if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
+        if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
+        if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
+        if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
+        if (modeAnalysisBtn) modeAnalysisBtn.classList.add('hidden');
+        if (modePlayBtn) modePlayBtn.classList.add('hidden');
+        if (btnAnalysisReportTrigger) btnAnalysisReportTrigger.classList.add('hidden');
+        if (btnImportGameTrigger) btnImportGameTrigger.classList.add('hidden');
+        state.playShowEval = false;
+        stopCurrentAnalysis();
       } else if (mode === 'tournament') {
         if (tabTournBtn) tabTournBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelTourn) panelTourn.classList.remove('hidden');
+        if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
+        if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
+        if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
+        if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
+        state.playShowEval = false;
+        stopCurrentAnalysis();
         updateTournamentUI();
       } else if (mode === 'editor') {
         if (tabEditorBtn) tabEditorBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelEditor) panelEditor.classList.remove('hidden');
+        if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
+        if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
+        if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
+        if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
         stopClock();
+        stopCurrentAnalysis();
       }
 
       render();
@@ -4866,18 +4915,18 @@
       const current = state.history[state.currentPly];
       const analysis = analyzePosition(current.board, current.turn);
       const winStatus = checkWinner(current.board);
-      const isPlayMode = state.mode === 'play';
-      const showEval = !isPlayMode || state.playShowEval;
+      const isPlayMode = state.mode === 'play' || state.mode === 'tournament';
+      const showEval = state.mode === 'analysis';
 
-      // 0. Toggle Eval Bar vs Multi-Player Eval Disc visibility (Demand 1)
+      // 0. Toggle Eval Bar vs Multi-Player Eval Disc visibility (hidden in Play mode)
       const isMulti = config.j && config.j > 2;
       const evalBarWrapper = document.getElementById('eval-bar-wrapper');
       const evalDiscWrapper = document.getElementById('eval-disc-wrapper');
       if (evalBarWrapper) {
-        evalBarWrapper.classList.toggle('hidden', (isPlayMode && !state.playShowEval) || isMulti);
+        evalBarWrapper.classList.toggle('hidden', isPlayMode || isMulti);
       }
       if (evalDiscWrapper) {
-        evalDiscWrapper.classList.toggle('hidden', (isPlayMode && !state.playShowEval) || !isMulti);
+        evalDiscWrapper.classList.toggle('hidden', isPlayMode || !isMulti);
       }
 
       // 1. Update Board Variant Badges
@@ -5149,7 +5198,7 @@
       if (!container) return;
       container.innerHTML = '';
 
-      const showArrows = (state.mode === 'analysis' || state.playShowEval) && state.showArrows;
+      const showArrows = state.mode === 'analysis' && state.showArrows;
       if (!showArrows) return;
 
       const current = state.history[state.currentPly];
@@ -5914,6 +5963,8 @@
     }
 
     function resetBoard() {
+      const playCard = document.getElementById('play-game-finished-card');
+      if (playCard) playCard.classList.add('hidden');
       stopCurrentAnalysis();
       state.currentAnalysis = null;
       if (engineTimeoutId) {
@@ -7065,8 +7116,20 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
     function showGameFinishedBanner(terminal) {
       const banner = document.getElementById('game-finished-analysis-banner');
-      if (!banner) return;
-      banner.classList.remove('hidden');
+      if (banner && state.mode === 'analysis') banner.classList.remove('hidden');
+
+      const playCard = document.getElementById('play-game-finished-card');
+      if (playCard) {
+        playCard.classList.remove('hidden');
+        const titleEl = document.getElementById('play-game-finished-title');
+        const descEl = document.getElementById('play-game-finished-desc');
+        if (titleEl) {
+          titleEl.textContent = terminal && terminal.winner ? `🏆 Player ${terminal.winner} Won!` : '🤝 Game Drawn';
+        }
+        if (descEl) {
+          descEl.textContent = terminal && terminal.winner ? `Completed streak of ${config.k}!` : 'Board is completely full';
+        }
+      }
     }
 
     function parseCoord(coordStr, rows = config.rows, cols = config.cols) {
@@ -8116,12 +8179,19 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         resetBoard();
       }
 
-      if (window.location.hash === '#play') {
-        switchMainMode('play');
-      } else if (window.location.hash === '#tournament') {
+      const wantsAnalysis = window.location.hash === '#analysis';
+      const wantsTournament = window.location.hash === '#tournament';
+      const wantsEditor = window.location.hash === '#editor';
+      const wantsPlay = window.location.hash === '#play' || urlParams.get('mode') === 'play' || urlParams.get('play') !== null || (paramM && !wantsAnalysis);
+
+      if (wantsTournament) {
         switchMainMode('tournament');
-      } else if (window.location.hash === '#editor') {
+      } else if (wantsEditor) {
         switchMainMode('editor');
+      } else if (wantsPlay) {
+        switchMainMode('play');
+      } else {
+        switchMainMode('analysis');
       }
     };
 
