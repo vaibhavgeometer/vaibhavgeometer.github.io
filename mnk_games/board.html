@@ -715,13 +715,13 @@
             <span id="play-player-count-badge" class="text-[10px] mono-font text-[#7ec62f] bg-[#1e1c18] px-1.5 py-0.5 rounded border border-[#363431]">2 Players</span>
           </div>
           <div class="grid grid-cols-3 gap-1.5" id="match-type-selector">
-            <button type="button" id="preset-human-vs-ai" data-type="human_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm" title="Player 1 is Human, Opponents are AI">
+            <button type="button" id="preset-human-vs-ai" data-preset="hva" data-type="human_vs_ai" class="match-preset-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm" title="Player 1 is Human, Opponents are AI">
               👤 vs 🤖 Human/AI
             </button>
-            <button type="button" id="preset-pass-play" data-type="human_vs_human" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" title="All active players are Human (Pass & Play)">
+            <button type="button" id="preset-pass-play" data-preset="hvh" data-type="human_vs_human" class="match-preset-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" title="All active players are Human (Pass & Play)">
               👤 vs 👤 Pass & Play
             </button>
-            <button type="button" id="preset-ai-vs-ai" data-type="ai_vs_ai" class="match-type-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" title="All active players are AI">
+            <button type="button" id="preset-ai-vs-ai" data-preset="ava" data-type="ai_vs_ai" class="match-preset-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]" title="All active players are AI">
               🤖 vs 🤖 AI vs AI
             </button>
           </div>
@@ -3122,6 +3122,77 @@
       return p;
     }
 
+    function setMatchPreset(preset, shouldResetBoard = true) {
+      const activeCount = config.j || 2;
+      const normalized = (preset || 'hva').toLowerCase();
+
+      if (normalized === 'hvh' || normalized === 'pass' || normalized === 'friend' || normalized === 'human_vs_human') {
+        playMatchState.preset = 'hvh';
+        for (let i = 0; i < activeCount; i++) {
+          const piece = PLAYERS[i];
+          const p = getPlayerConfig(piece);
+          p.type = 'human';
+          p.name = `Player ${i + 1} (${piece})`;
+        }
+        stopAiGame();
+        renderPlayRoster();
+        updatePlayerBoxes();
+        renderMultiplayerBar();
+        updatePresetButtonsUI('hvh');
+        if (shouldResetBoard) resetBoard();
+        showToast('👥 Pass & Play active: All players are Human');
+      } else if (normalized === 'ava' || normalized === 'ai_vs_ai') {
+        playMatchState.preset = 'ava';
+        for (let i = 0; i < activeCount; i++) {
+          const piece = PLAYERS[i];
+          const p = getPlayerConfig(piece);
+          p.type = 'ai';
+          p.name = `AI ${i + 1} (${piece})`;
+        }
+        renderPlayRoster();
+        updatePlayerBoxes();
+        renderMultiplayerBar();
+        updatePresetButtonsUI('ava');
+        if (shouldResetBoard) resetBoard();
+        startAiGame();
+      } else {
+        playMatchState.preset = 'hva';
+        for (let i = 0; i < activeCount; i++) {
+          const piece = PLAYERS[i];
+          const p = getPlayerConfig(piece);
+          if (state.playerPiece === 'O') {
+            p.type = (i === 1) ? 'human' : 'ai';
+            p.name = (i === 1) ? 'Player (O)' : 'mnk AI (X)';
+          } else {
+            p.type = (i === 0) ? 'human' : 'ai';
+            p.name = (i === 0) ? 'Player (X)' : `mnk AI (${piece})`;
+          }
+          if (p.type === 'ai') p.level = state.engineLevel || 8;
+        }
+        stopAiGame();
+        renderPlayRoster();
+        updatePlayerBoxes();
+        renderMultiplayerBar();
+        updatePresetButtonsUI('hva');
+        if (shouldResetBoard) resetBoard();
+        showToast('👤 vs 🤖 Human vs AI active');
+      }
+      render();
+    }
+
+    function updatePresetButtonsUI(activePreset) {
+      const btnHva = document.getElementById('preset-human-vs-ai');
+      const btnHvh = document.getElementById('preset-pass-play');
+      const btnAva = document.getElementById('preset-ai-vs-ai');
+
+      const activeClass = 'match-preset-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
+      const inactiveClass = 'match-preset-btn p-1.5 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+
+      if (btnHva) btnHva.className = activePreset === 'hva' ? activeClass : inactiveClass;
+      if (btnHvh) btnHvh.className = activePreset === 'hvh' ? activeClass : inactiveClass;
+      if (btnAva) btnAva.className = activePreset === 'ava' ? activeClass : inactiveClass;
+    }
+
     function getAiLevelForTurn(turn) {
       if (state.mode === 'tournament') {
         const match = tournamentState.matches[tournamentState.currentMatchIdx];
@@ -4314,6 +4385,7 @@
      */
     function isMatchInProgress() {
       if (state.mode === 'play') {
+        if (state.currentPly === 0) return false;
         const current = state.history[state.currentPly];
         if (!current) return false;
         const terminal = checkWinner(current.board);
@@ -4322,6 +4394,7 @@
       }
       if (state.mode === 'tournament') {
         if (!tournamentState.active) return false;
+        if (state.currentPly === 0) return false;
         const current = state.history[state.currentPly];
         if (!current) return false;
         const terminal = checkWinner(current.board);
@@ -5565,7 +5638,16 @@
           matchLabel.textContent = 'Match Resigned';
           if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-red-400';
         } else {
-          matchLabel.textContent = 'Match in Progress';
+          const currentTurn = current ? current.turn : 'X';
+          const pTurn = getPlayerConfig(currentTurn);
+          if (playMatchState.preset === 'hvh') {
+            matchLabel.textContent = `Pass & Play · ${pTurn?.name || currentTurn}'s Turn`;
+          } else if (playMatchState.preset === 'ava') {
+            matchLabel.textContent = `AI vs AI · Thinking...`;
+          } else {
+            const isAi = isTurnControlledByAi(currentTurn);
+            matchLabel.textContent = isAi ? `AI Thinking...` : `vs AI · Your Turn (${currentTurn})`;
+          }
           if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-[#629924] animate-pulse';
         }
       }
@@ -7131,45 +7213,8 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     // Quick Match Presets (Demand 1 & Demand 4)
     document.querySelectorAll('.match-preset-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const preset = btn.dataset.preset;
-        playMatchState.preset = preset;
-        const activeCount = config.j || 2;
-
-        document.querySelectorAll('.match-preset-btn').forEach(b => {
-          if (b === btn) {
-            b.className = 'match-preset-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm';
-          } else {
-            b.className = 'match-preset-btn flex-1 py-1.5 px-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
-          }
-        });
-
-        if (preset === 'hva') {
-          // Player 1 = Human, others = AI
-          for (let i = 0; i < activeCount; i++) {
-            const piece = PLAYERS[i];
-            const p = getPlayerConfig(piece);
-            p.type = (i === 0) ? 'human' : 'ai';
-          }
-          stopAiGame();
-          renderPlayRoster();
-          updatePlayerBoxes();
-          resetBoard();
-          showToast('Match preset: Player 1 (Human) vs AI');
-        } else if (preset === 'hvh') {
-          // All active players = Human
-          for (let i = 0; i < activeCount; i++) {
-            const piece = PLAYERS[i];
-            const p = getPlayerConfig(piece);
-            p.type = 'human';
-          }
-          stopAiGame();
-          renderPlayRoster();
-          updatePlayerBoxes();
-          resetBoard();
-          showToast('Match preset: Pass & Play (All Humans)');
-        } else if (preset === 'ava') {
-          startAiGame();
-        }
+        const preset = btn.dataset.preset || 'hva';
+        setMatchPreset(preset, true);
       });
     });
 
@@ -8801,6 +8846,18 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         }
         renderPlayRoster();
         updatePlayerBoxes();
+      }
+
+      // Handle preset param (e.g. ?preset=hvh or ?preset=hva or ?preset=ava)
+      const paramPreset = (urlParams.get('preset') || urlParams.get('match') || '').toLowerCase();
+      if (paramPreset === 'hvh' || paramPreset === 'pass' || paramPreset === 'friend' || paramPreset === 'human_vs_human') {
+        setMatchPreset('hvh', false);
+      } else if (paramPreset === 'ava' || paramPreset === 'ai_vs_ai') {
+        setMatchPreset('ava', false);
+      } else if (paramPreset === 'hva' || paramPreset === 'ai' || paramPreset === 'computer' || paramPreset === 'human_vs_ai') {
+        setMatchPreset('hva', false);
+      } else {
+        updatePresetButtonsUI(playMatchState.preset || 'hva');
       }
 
       const wantsAnalysis = window.location.hash === '#analysis';

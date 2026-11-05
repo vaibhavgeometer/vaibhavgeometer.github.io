@@ -1245,7 +1245,7 @@
                 <td>
                   <div style="display: flex; gap: 0.35rem;">
                     <a href="board.html?m=3&n=3&k=3&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=3&n=3&k=3#play" class="btn-table-pass">Pass &amp; Play</a>
+                    <a href="board.html?m=3&n=3&k=3&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
                   </div>
                 </td>
               </tr>
@@ -1258,7 +1258,7 @@
                 <td>
                   <div style="display: flex; gap: 0.35rem;">
                     <a href="board.html?m=5&n=5&k=4&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=5&n=5&k=4#play" class="btn-table-pass">Pass &amp; Play</a>
+                    <a href="board.html?m=5&n=5&k=4&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
                   </div>
                 </td>
               </tr>
@@ -1271,7 +1271,7 @@
                 <td>
                   <div style="display: flex; gap: 0.35rem;">
                     <a href="board.html?m=7&n=6&k=4&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=7&n=6&k=4#play" class="btn-table-pass">Pass &amp; Play</a>
+                    <a href="board.html?m=7&n=6&k=4&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
                   </div>
                 </td>
               </tr>
@@ -1284,7 +1284,7 @@
                 <td>
                   <div style="display: flex; gap: 0.35rem;">
                     <a href="board.html?m=10&n=10&k=5&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=10&n=10&k=5#play" class="btn-table-pass">Pass &amp; Play</a>
+                    <a href="board.html?m=10&n=10&k=5&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
                   </div>
                 </td>
               </tr>
@@ -1297,7 +1297,7 @@
                 <td>
                   <div style="display: flex; gap: 0.35rem;">
                     <a href="board.html?m=15&n=15&k=5&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=15&n=15&k=5#play" class="btn-table-pass">Pass &amp; Play</a>
+                    <a href="board.html?m=15&n=15&k=5&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
                   </div>
                 </td>
               </tr>
@@ -1308,7 +1308,7 @@
                 <td>3</td>
                 <td><span style="color: #3692e7; font-weight: 600;">3-Player Turn</span></td>
                 <td>
-                  <a href="board.html?m=6&n=6&k=4&j=3#play" class="btn-table-pass">Pass &amp; Play (3P)</a>
+                  <a href="board.html?m=6&n=6&k=4&j=3&preset=hvh#play" class="btn-table-pass">Pass &amp; Play (3P)</a>
                 </td>
               </tr>
               <tr>
@@ -1318,7 +1318,7 @@
                 <td>4</td>
                 <td><span style="color: #e69f00; font-weight: 600;">4-Player Turn</span></td>
                 <td>
-                  <a href="board.html?m=8&n=8&k=5&j=4#play" class="btn-table-pass">Pass &amp; Play (4P)</a>
+                  <a href="board.html?m=8&n=8&k=5&j=4&preset=hvh#play" class="btn-table-pass">Pass &amp; Play (4P)</a>
                 </td>
               </tr>
               <tr>
@@ -1612,7 +1612,8 @@
           <div class="form-group">
             <label class="form-label">Mode</label>
             <select id="select-custom-mode" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-              <option value="play" selected>⚔️ Play Match</option>
+              <option value="play-ai" selected>🤖 vs Computer (AI)</option>
+              <option value="play-pass">👥 Pass &amp; Play (Local)</option>
               <option value="analysis">🔍 Analysis Board</option>
               <option value="editor">✏️ Board Editor</option>
             </select>
@@ -1775,7 +1776,7 @@
       const level = document.getElementById('slider-ai-level').value;
       const variantParams = document.getElementById('select-ai-variant').value;
       const side = selectedSide === 'random' ? (Math.random() < 0.5 ? 'first' : 'second') : selectedSide;
-      window.location.href = `board.html?${variantParams}&level=${level}&side=${side}#play`;
+      window.location.href = `board.html?${variantParams}&preset=hva&level=${level}&side=${side}#play`;
     }
 
     function updateCustomMaxK() {
@@ -1799,9 +1800,22 @@
       const k = document.getElementById('slider-custom-k').value;
       const j = document.getElementById('slider-custom-j').value;
       const clock = document.getElementById('select-custom-clock')?.value;
-      const mode = document.getElementById('select-custom-mode')?.value || 'play';
+      const mode = document.getElementById('select-custom-mode')?.value || 'play-ai';
       const clockParam = clock ? `&tc=${encodeURIComponent(clock)}` : '';
-      window.location.href = `board.html?m=${m}&n=${n}&k=${k}&j=${j}${clockParam}#${mode}`;
+
+      let hash = 'play';
+      let presetParam = '&preset=hva';
+      if (mode === 'play-pass') {
+        hash = 'play';
+        presetParam = '&preset=hvh';
+      } else if (mode === 'analysis') {
+        hash = 'analysis';
+        presetParam = '';
+      } else if (mode === 'editor') {
+        hash = 'editor';
+        presetParam = '';
+      }
+      window.location.href = `board.html?m=${m}&n=${n}&k=${k}&j=${j}${presetParam}${clockParam}#${hash}`;
     }
 
     function launchFriendGame() {
@@ -1809,7 +1823,7 @@
       const j = document.getElementById('select-friend-players')?.value || 2;
       const clock = document.getElementById('select-friend-clock')?.value;
       const clockParam = clock ? `&tc=${encodeURIComponent(clock)}` : '';
-      window.location.href = `board.html?${variantParams}&j=${j}${clockParam}#play`;
+      window.location.href = `board.html?${variantParams}&j=${j}&preset=hvh${clockParam}#play`;
     }
 
     function filterSearchResults(query) {
