@@ -146,9 +146,30 @@
       }
     });
 
-    // Apply era, question type, and difficulty filters
+    // Solved status filter ('ALL', 'unsolved', 'solved')
+    const solvedFilter = options.solvedStatus || options.statusFilter || 'ALL';
+
+    // Difficulty filter & source mode
     const diffFilter = options.difficulties || options.difficultyFilter || ['ALL'];
-    const hasDiffFilter = Array.isArray(diffFilter) ? (!diffFilter.includes('ALL') && diffFilter.length > 0) : (diffFilter !== 'ALL' && diffFilter !== '');
+    const diffSource = options.difficultySource || 'combined'; // 'combined', 'user_tagged', 'suggested'
+    const hasDiffFilter = Array.isArray(diffFilter) 
+      ? (!diffFilter.includes('ALL') && diffFilter.length > 0) 
+      : (diffFilter !== 'ALL' && diffFilter !== '');
+
+    // Get tracker user questions state
+    let userQuestions = {};
+    if (window.JAM_TRACKER && typeof window.JAM_TRACKER.getUserData === 'function') {
+      const uData = window.JAM_TRACKER.getUserData();
+      userQuestions = uData && uData.questions ? uData.questions : {};
+    } else {
+      try {
+        const raw = localStorage.getItem('jam_pyq_user_tracker_v1');
+        if (raw) {
+          const uData = JSON.parse(raw);
+          userQuestions = uData && uData.questions ? uData.questions : {};
+        }
+      } catch (e) {}
+    }
 
     return matched.filter(q => {
       // Type match
@@ -156,7 +177,7 @@
       if (!selectedTypes.includes(qType)) return false;
 
       // Era match
-      const yrMatch = (q.year || '').match(/\d{4}/);
+      const yrMatch = (q.year || '').toString().match(/\d{4}/);
       const yr = yrMatch ? parseInt(yrMatch[0]) : (q.year ? parseInt(q.year) : 2020);
       if (eraFilter === '2022-2026' || eraFilter === 'cbt-2022-2026' || eraFilter === 'cbt_2022_2026' || eraFilter === 'recent_cbt') {
         if (yr < 2022 || yr > 2026) return false;
@@ -168,19 +189,40 @@
         if (yr >= 2015 || yr < 2005) return false;
       }
 
+      // Solved status match
+      const qNumVal = q.q_num || q.question_number || 1;
+      const normId = q.id && String(q.id).startsWith('JAM_') ? String(q.id) : `JAM_${yr}_Q${qNumVal}`;
+      const userState = userQuestions[normId] || {};
+      const isSolved = !!userState.solved;
+
+      if (solvedFilter === 'unsolved' && isSolved) return false;
+      if (solvedFilter === 'solved' && !isSolved) return false;
+
       // Difficulty match
       if (hasDiffFilter) {
-        const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+        const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(normId, {
           marks: q.marks,
           type: q.type,
-          qNum: q.q_num,
+          qNum: qNumVal,
           year: yr
-        }) : { id: 'medium', key: 'medium' };
+        }) : { id: 'medium', key: 'medium', isUserTagged: false, suggestedDifficulty: 'medium' };
 
-        const dKey = qDiff.key || qDiff.id || 'medium';
+        let evalKey = null;
+        if (diffSource === 'user_tagged') {
+          // Only match if user personally tagged this question
+          if (!qDiff.isUserTagged) return false;
+          evalKey = qDiff.userDifficulty || qDiff.key || qDiff.id;
+        } else if (diffSource === 'suggested') {
+          // Match purely by pre-suggested exam benchmark
+          evalKey = qDiff.suggestedDifficulty || qDiff.suggestedLevel?.id || 'medium';
+        } else {
+          // 'combined' (default): User tag if set, otherwise suggested
+          evalKey = qDiff.key || qDiff.id || 'medium';
+        }
+
         if (Array.isArray(diffFilter)) {
-          if (!diffFilter.includes(dKey)) return false;
-        } else if (diffFilter !== dKey) {
+          if (!diffFilter.includes(evalKey)) return false;
+        } else if (diffFilter !== evalKey) {
           return false;
         }
       }
@@ -262,7 +304,9 @@
       topicIds: topicIds,
       types: config.types || ['MCQ', 'MSQ', 'NAT'],
       eraFilter: config.eraFilter || 'ALL',
-      difficulties: config.difficulties || config.difficultyFilter || ['ALL']
+      difficulties: config.difficulties || config.difficultyFilter || ['ALL'],
+      difficultySource: config.difficultySource || 'combined',
+      solvedStatus: config.solvedStatus || 'ALL'
     });
 
     if (pool.length === 0) {
@@ -380,10 +424,29 @@
     doc.text(wrappedTitle, pageWidth / 2, curY + 38, { align: 'center' });
 
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(9);
+    doc.setFontSize(8.5);
     doc.setTextColor(71, 85, 105);
     const subtopicsText = `Topics: ${selectedTopicNames.length > 70 ? selectedTopicNames.substring(0, 67) + '...' : selectedTopicNames} • ${questions.length} Selected PYQs`;
-    doc.text(subtopicsText, pageWidth / 2, curY + 58, { align: 'center' });
+    doc.text(subtopicsText, pageWidth / 2, curY + 56, { align: 'center' });
+
+    // Filter status & difficulty source note
+    let filterMetaParts = [];
+    if (config.solvedStatus === 'unsolved') filterMetaParts.push('Status: Unsolved Only');
+    else if (config.solvedStatus === 'solved') filterMetaParts.push('Status: Solved Only');
+    else filterMetaParts.push('Status: All Questions');
+
+    const diffSourceTitle = config.difficultySource === 'user_tagged' ? 'User Tagged Only'
+      : (config.difficultySource === 'suggested' ? 'Pre-Suggested Only' : 'Combined');
+    if (config.difficulties && !config.difficulties.includes('ALL')) {
+      filterMetaParts.push(`Difficulty: ${config.difficulties.join(', ')} (${diffSourceTitle})`);
+    } else {
+      filterMetaParts.push(`Difficulty: All Levels (${diffSourceTitle})`);
+    }
+
+    doc.setFont('helvetica', 'italic');
+    doc.setFontSize(7.5);
+    doc.setTextColor(100, 116, 139);
+    doc.text(filterMetaParts.join('  •  '), pageWidth / 2, curY + 67, { align: 'center' });
 
     curY += 86;
 

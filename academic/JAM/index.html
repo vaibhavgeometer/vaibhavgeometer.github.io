@@ -673,10 +673,35 @@
                     </label>
                   </div>
                 </div>
+
+                <!-- Question Solved Status Filter -->
+                <div class="config-item">
+                  <label class="config-label">Question Solved Status:</label>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill" title="Include all questions regardless of solving history">
+                      <input type="radio" name="custom-solved-status" value="ALL" checked onchange="window.updateCustomGeneratorSummary()">
+                      <span>🌐 All Questions</span>
+                    </label>
+                    <label class="radio-pill" title="Include only unattempted / unsolved questions for fresh practice">
+                      <input type="radio" name="custom-solved-status" value="unsolved" onchange="window.updateCustomGeneratorSummary()">
+                      <span>⭕ Unsolved Only</span>
+                    </label>
+                    <label class="radio-pill" title="Include only questions you already solved for revision & re-testing">
+                      <input type="radio" name="custom-solved-status" value="solved" onchange="window.updateCustomGeneratorSummary()">
+                      <span>✓ Solved Only</span>
+                    </label>
+                  </div>
+                </div>
+
                 <!-- Question Difficulty Filter -->
                 <div class="config-item" style="grid-column: 1 / -1; margin-top: 8px;">
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
-                    <label class="config-label" style="margin-bottom: 0;">Question Difficulty Level:</label>
+                    <div>
+                      <label class="config-label" style="margin-bottom: 2px;">Question Difficulty Level:</label>
+                      <div style="font-size: 0.75rem; color: var(--text-muted);">
+                        Filter questions by difficulty (Choose whether to evaluate by your custom tags or exam pre-suggestions)
+                      </div>
+                    </div>
                     <div class="custom-diff-presets">
                       <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Presets:</span>
                       <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('all')">All Levels</button>
@@ -686,6 +711,27 @@
                       <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('challenging')">⚡ Hard &amp; Hardest</button>
                     </div>
                   </div>
+
+                  <!-- Difficulty Source Selector (User Tagged vs Pre-Suggested) -->
+                  <div class="diff-source-selector-bar" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 8px 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-sm); flex-wrap: wrap;">
+                    <span style="font-size: 0.76rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Difficulty Source:</span>
+                    <div class="radio-pill-group" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                      <label class="radio-pill mini" title="Uses your custom tag (★ My Tag) if you rated it; otherwise falls back to the pre-suggested exam benchmark">
+                        <input type="radio" name="custom-diff-source" value="combined" checked onchange="window.onDiffSourceChange(this.value)">
+                        <span>🔄 Combined (My Tag or Suggested)</span>
+                      </label>
+                      <label class="radio-pill mini" title="Only matches questions where you personally tagged that difficulty (skips unrated questions)">
+                        <input type="radio" name="custom-diff-source" value="user_tagged" onchange="window.onDiffSourceChange(this.value)">
+                        <span>★ User Tagged Only</span>
+                      </label>
+                      <label class="radio-pill mini" title="Matches by official IIT JAM pre-suggested exam pattern ratings only, ignoring personal tags">
+                        <input type="radio" name="custom-diff-source" value="suggested" onchange="window.onDiffSourceChange(this.value)">
+                        <span>🏛️ Pre-Suggested Only</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Difficulty Level Checkbox Pills -->
                   <div class="checkbox-pill-group diff-pill-select-group">
                     <label class="checkbox-pill diff-pill-item">
                       <input type="checkbox" name="custom-difficulty" value="ALL" checked onchange="window.handleDifficultyFilterChange(this)">
@@ -711,6 +757,11 @@
                       <input type="checkbox" name="custom-difficulty" value="hardest" onchange="window.handleDifficultyFilterChange(this)">
                       <span>🟣 Hardest</span>
                     </label>
+                  </div>
+
+                  <!-- Dynamic Helper Note -->
+                  <div id="custom-diff-help-note" style="margin-top: 8px; font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">
+                    ℹ️ <strong>Combined Mode:</strong> Matches questions using your personal rating (★ My Tag) when tagged; defaults to IIT JAM pre-suggested benchmark for unrated questions.
                   </div>
                 </div>
               </div>
@@ -751,8 +802,12 @@
                 <span class="metric-val" id="summary-structure-label" style="font-size: 11px; color: #64748b;">MCQ • MSQ • NAT</span>
               </div>
               <div class="summary-metric-box">
+                <span class="metric-label">SOLVED STATUS</span>
+                <span class="metric-val" id="summary-solved-label" style="font-size: 11px; color: #10b981;">All Questions</span>
+              </div>
+              <div class="summary-metric-box">
                 <span class="metric-label">DIFFICULTY FILTER</span>
-                <span class="metric-val" id="summary-diff-label" style="font-size: 11px; color: #f59e0b;">All Difficulties</span>
+                <span class="metric-val" id="summary-diff-label" style="font-size: 11px; color: #f59e0b;">All Difficulties (Combined)</span>
               </div>
             </div>
 

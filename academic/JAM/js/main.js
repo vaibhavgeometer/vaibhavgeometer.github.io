@@ -374,12 +374,20 @@
     if (document.getElementById('custom-type-msq')?.checked) types.push('MSQ');
     if (document.getElementById('custom-type-nat')?.checked) types.push('NAT');
 
+    // Solved status selection
+    const solvedRadio = document.querySelector('input[name="custom-solved-status"]:checked');
+    const solvedStatus = solvedRadio ? solvedRadio.value : 'ALL';
+
     // Difficulty selection
     const diffCheckboxes = document.querySelectorAll('input[name="custom-difficulty"]:checked');
     let difficulties = Array.from(diffCheckboxes).map(cb => cb.value);
     if (difficulties.length === 0 || difficulties.includes('ALL')) {
       difficulties = ['ALL'];
     }
+
+    // Difficulty source mode selection (combined vs user_tagged vs suggested)
+    const diffSourceRadio = document.querySelector('input[name="custom-diff-source"]:checked');
+    const diffSource = diffSourceRadio ? diffSourceRadio.value : 'combined';
 
     const titleInput = document.getElementById('custom-test-title');
     const title = titleInput && titleInput.value.trim() ? titleInput.value.trim() : 'IIT JAM Mathematics Custom Practice Test';
@@ -389,9 +397,25 @@
       questionCount: qCount,
       eraFilter: era,
       types: types,
+      solvedStatus: solvedStatus,
       difficulties: difficulties,
+      difficultySource: diffSource,
       title: title
     };
+  };
+
+  window.onDiffSourceChange = function(val) {
+    const noteEl = document.getElementById('custom-diff-help-note');
+    if (noteEl) {
+      if (val === 'user_tagged') {
+        noteEl.innerHTML = '★ <strong>User Tagged Only:</strong> Only questions you personally rated (★ My Tag) will be included in the pool. Questions without your rating are excluded.';
+      } else if (val === 'suggested') {
+        noteEl.innerHTML = '🏛️ <strong>Pre-Suggested Only:</strong> Questions are evaluated purely using the official IIT JAM pre-suggested exam benchmarks (ignoring personal tags).';
+      } else {
+        noteEl.innerHTML = '🔄 <strong>Combined Mode (Default):</strong> Matches questions using your personal rating (★ My Tag) when tagged; otherwise falls back to the pre-suggested exam benchmark.';
+      }
+    }
+    window.updateCustomGeneratorSummary();
   };
 
   window.handleDifficultyFilterChange = function(clickedCb) {
@@ -457,6 +481,40 @@
     const requestedCount = config.questionCount;
     const actualCount = Math.min(requestedCount, pool.length);
 
+    // Get tracker user data for pool counts
+    let userQuestions = {};
+    if (window.JAM_TRACKER && typeof window.JAM_TRACKER.getUserData === 'function') {
+      const uData = window.JAM_TRACKER.getUserData();
+      userQuestions = uData && uData.questions ? uData.questions : {};
+    } else {
+      try {
+        const raw = localStorage.getItem('jam_pyq_user_tracker_v1');
+        if (raw) userQuestions = JSON.parse(raw).questions || {};
+      } catch (e) {}
+    }
+
+    let userTaggedCount = 0;
+    let preSuggestedCount = 0;
+    let solvedCount = 0;
+    let unsolvedCount = 0;
+
+    pool.forEach(q => {
+      const yrMatch = (q.year || '').toString().match(/\d{4}/);
+      const yr = yrMatch ? parseInt(yrMatch[0]) : 2020;
+      const num = q.q_num || q.question_number || 1;
+      const normId = q.id && String(q.id).startsWith('JAM_') ? String(q.id) : `JAM_${yr}_Q${num}`;
+      const uState = userQuestions[normId] || {};
+      if (uState.solved) solvedCount++; else unsolvedCount++;
+
+      const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(normId, {
+        marks: q.marks,
+        type: q.type,
+        qNum: num,
+        year: yr
+      }) : null;
+      if (qDiff && qDiff.isUserTagged) userTaggedCount++; else preSuggestedCount++;
+    });
+
     // Estimate marks
     let estMarks = 0;
     if (pool.length > 0) {
@@ -470,7 +528,10 @@
     if (topicsCountEl) topicsCountEl.textContent = `${config.topicIds.length} / 9`;
 
     const poolCountEl = document.getElementById('summary-pool-count');
-    if (poolCountEl) poolCountEl.textContent = `${pool.length} Qs`;
+    if (poolCountEl) {
+      poolCountEl.textContent = `${pool.length} Qs`;
+      poolCountEl.title = `Available pool: ${pool.length} questions (${solvedCount} Solved, ${unsolvedCount} Unsolved • ${userTaggedCount} User-Tagged, ${preSuggestedCount} Pre-Suggested)`;
+    }
 
     const qCountEl = document.getElementById('summary-questions-count');
     if (qCountEl) qCountEl.textContent = `${actualCount} Qs`;
@@ -487,21 +548,39 @@
       structLabel.textContent = typesStr;
     }
 
+    // Solved status metric
+    const solvedLabelEl = document.getElementById('summary-solved-label');
+    if (solvedLabelEl) {
+      if (config.solvedStatus === 'unsolved') {
+        solvedLabelEl.textContent = '⭕ Unsolved Only';
+        solvedLabelEl.style.color = '#38bdf8';
+      } else if (config.solvedStatus === 'solved') {
+        solvedLabelEl.textContent = '✓ Solved Only';
+        solvedLabelEl.style.color = 'var(--green)';
+      } else {
+        solvedLabelEl.textContent = 'All Questions';
+        solvedLabelEl.style.color = '#94a3b8';
+      }
+    }
+
+    // Difficulty filter metric
     const diffLabelEl = document.getElementById('summary-diff-label');
     if (diffLabelEl) {
-      if (config.difficulties.includes('ALL')) {
-        diffLabelEl.textContent = 'All Difficulties';
-      } else {
-        const labels = config.difficulties.map(d => {
-          if (d === 'very_easy') return '🟢 V.Easy';
-          if (d === 'easy') return '🔵 Easy';
-          if (d === 'medium') return '🟡 Medium';
-          if (d === 'hard') return '🟠 Hard';
-          if (d === 'hardest') return '🟣 Hardest';
-          return d;
-        });
-        diffLabelEl.textContent = labels.join(', ');
+      const diffMap = {
+        'very_easy': '🟢 V.Easy',
+        'easy': '🔵 Easy',
+        'medium': '🟡 Medium',
+        'hard': '🟠 Hard',
+        'hardest': '🟣 Hardest'
+      };
+      let diffNames = 'All Levels';
+      if (config.difficulties.length > 0 && !config.difficulties.includes('ALL')) {
+        diffNames = config.difficulties.map(d => diffMap[d] || d).join(', ');
       }
+
+      const sourceTag = config.difficultySource === 'user_tagged' ? ' (★ User Tagged)' 
+        : (config.difficultySource === 'suggested' ? ' (🏛️ Pre-Suggested)' : ' (Combined)');
+      diffLabelEl.textContent = `${diffNames}${sourceTag}`;
     }
 
     // Toggle button disabled state
@@ -613,6 +692,8 @@
       name: config.title,
       category: "Custom Topic Practice Test",
       era: config.eraFilter || "cbt",
+      solved_status: config.solvedStatus || "ALL",
+      difficulty_source: config.difficultySource || "combined",
       total_questions: enrichedSampled.length,
       total_marks: totalMarks,
       duration_minutes: durationMins,
@@ -649,19 +730,47 @@
     const countEl = document.getElementById('preview-total-count');
     if (countEl) countEl.textContent = `${sampled.length}`;
 
+    // Get tracker user data for solved status
+    let userQuestions = {};
+    if (window.JAM_TRACKER && typeof window.JAM_TRACKER.getUserData === 'function') {
+      const uData = window.JAM_TRACKER.getUserData();
+      userQuestions = uData && uData.questions ? uData.questions : {};
+    } else {
+      try {
+        const raw = localStorage.getItem('jam_pyq_user_tracker_v1');
+        if (raw) userQuestions = JSON.parse(raw).questions || {};
+      } catch (e) {}
+    }
+
     const body = document.getElementById('custom-preview-body');
     if (body) {
       body.innerHTML = sampled.map((q, idx) => {
         const qNum = idx + 1;
         const qType = (q.type || 'MCQ').toUpperCase();
         const typeBadgeClass = qType === 'MCQ' ? 'tag-cbt' : (qType === 'MSQ' ? 'tag-recent' : 'tag-archive');
-        const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+        
+        const yrMatch = (q.year || '').toString().match(/\d{4}/);
+        const yr = yrMatch ? parseInt(yrMatch[0]) : 2020;
+        const qNumVal = q.q_num || q.question_number || qNum;
+        const normId = q.id && String(q.id).startsWith('JAM_') ? String(q.id) : `JAM_${yr}_Q${qNumVal}`;
+        const uState = userQuestions[normId] || {};
+        const isSolved = !!uState.solved;
+
+        const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(normId, {
           marks: q.marks,
           type: q.type,
-          qNum: q.q_num,
-          year: q.year
-        }) : { label: 'Medium', class: 'diff-medium', icon: '🟡' };
-        const diffBadgeHtml = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' }) : '';
+          qNum: qNumVal,
+          year: yr
+        }) : { label: 'Medium', class: 'diff-medium', icon: '🟡', isUserTagged: false };
+
+        // Explicitly clear difficulty badge showing whether it's User Tagged or Pre-Suggested
+        const diffBadgeHtml = qDiff.isUserTagged
+          ? `<span class="q-diff-badge ${qDiff.class} size-sm is-user-tagged" style="background:${qDiff.bg}; color:${qDiff.color}; border:1px solid ${qDiff.border};" title="Your Custom Rating: ${qDiff.label}"><span>${qDiff.icon}</span> <span>${qDiff.label}</span> <span class="diff-tag-pill user">★ My Tag</span></span>`
+          : `<span class="q-diff-badge ${qDiff.class} size-sm is-suggested" style="background:${qDiff.bg}; color:${qDiff.color}; border:1px dashed ${qDiff.border};" title="Official Pre-Suggested Exam Benchmark: ${qDiff.label}"><span>${qDiff.icon}</span> <span>${qDiff.label}</span> <span class="diff-tag-pill unrated">(Pre-Suggested)</span></span>`;
+
+        const solvedBadge = isSolved
+          ? `<span class="preview-status-pill solved">✓ Solved</span>`
+          : `<span class="preview-status-pill unsolved">⭕ Unsolved</span>`;
 
         return `
           <div style="border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin-bottom: 12px; background: var(--bg-card);">
@@ -670,8 +779,9 @@
                 <strong style="background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 12px;">Q${qNum}</strong>
                 <span style="color: var(--text-secondary); font-size: 12px;">${q.year} • Q${q.q_num || qNum} (${q.id})</span>
               </div>
-              <div style="display: flex; gap: 6px; align-items: center;">
+              <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
                 <span class="era-tag ${typeBadgeClass}">${qType}</span>
+                ${solvedBadge}
                 ${diffBadgeHtml}
                 <span class="era-tag" style="background: var(--accent-dim); color: var(--accent);">+${q.marks || 1} M</span>
                 <span style="font-size: 11px; font-weight: 600; color: var(--green); margin-left: 6px;">Key: ${q.answer_key || 'N/A'}</span>

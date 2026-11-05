@@ -1348,6 +1348,41 @@ a.hero-pill:hover {
   accent-color: var(--accent);
 }
 
+.radio-pill.mini, .checkbox-pill.mini {
+  padding: 5px 10px;
+  font-size: 0.76rem;
+  border-radius: var(--radius-sm);
+  gap: 5px;
+}
+
+.diff-source-selector-bar {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.preview-status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.preview-status-pill.solved {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.preview-status-pill.unsolved {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
 /* Live Summary Metrics */
 .custom-summary-metrics {
   display: grid;
