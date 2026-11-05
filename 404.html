@@ -14,6 +14,7 @@
       var lower = path.toLowerCase();
       var search = window.location.search || '';
       var hash = window.location.hash || '';
+      var sub;
 
       if (lower === '/portfolio.css' || lower === '/website/portfolio.css' || lower === '/website/css/portfolio.css') {
         window.location.replace('/css/portfolio.css' + search + hash);
@@ -21,13 +22,13 @@
       }
 
       if (lower === '/website' || lower === '/website/' || lower.indexOf('/website/') === 0) {
-        var sub = path.replace(/^\/website\/?/i, '');
+        sub = path.replace(/^\/website\/?/i, '');
         window.location.replace('/' + sub + search + hash);
         return;
       }
 
       if (lower === '/jam' || lower === '/jam/' || lower.indexOf('/jam/') === 0) {
-        var sub = path.replace(/^\/jam\/?/i, '');
+        sub = path.replace(/^\/jam\/?/i, '');
         window.location.replace('/academic/JAM/' + sub + search + hash);
         return;
       }
@@ -52,13 +53,24 @@
         return;
       }
 
+      if (lower.indexOf('/solved status of mnk games.xlsx') !== -1 || lower.indexOf('/solved%20status%20of%20mnk%20games.xlsx') !== -1) {
+        window.location.replace('/mnk-games/solved_status_of_mnk_games.xlsx');
+        return;
+      }
+
+      if (lower.indexOf('/mnk_games') === 0) {
+        sub = path.replace(/^\/mnk_games\/?/i, '');
+        window.location.replace('/mnk-games/' + sub + search + hash);
+        return;
+      }
+
       if (lower === '/board.html' || lower === '/lichess_tic_tac_toe_analysis_board.html' || lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/tic-tac-toe/' || lower === '/analysis' || lower === '/analysis/' || lower === '/ttt' || lower === '/ttt/' || lower === '/gomoku' || lower === '/gomoku/' || lower === '/mnk' || lower === '/mnk/' || lower === '/play' || lower === '/play/' || lower === '/board' || lower === '/board/' || lower === '/stocktic' || lower === '/stocktic/') {
-        window.location.replace('/mnk_games/board.html' + search + hash);
+        window.location.replace('/mnk-games/board.html' + search + hash);
         return;
       }
 
       if (lower === '/mnk_games_theory_and_ai.html' || lower === '/theory' || lower === '/theory/' || lower === '/article' || lower === '/article/' || lower === '/mnk-theory' || lower === '/mnk-theory/' || lower === '/game-theory' || lower === '/game-theory/') {
-        window.location.replace('/mnk_games/mnk_games_theory_and_ai.html' + search + hash);
+        window.location.replace('/mnk-games/mnk_games_theory_and_ai.html' + search + hash);
         return;
       }
     })();
@@ -79,9 +91,30 @@
       font-weight: 900;
       background: var(--accent-gradient);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1;
       margin-bottom: 1rem;
+    }
+    .error-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .error-desc {
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .error-actions a {
+      text-decoration: none;
     }
   </style>
 </head>
@@ -90,25 +123,25 @@
 
   <div class="error-wrap">
     <div class="error-code">404</div>
-    <h1 style="font-size:2rem; font-weight:800; margin-bottom:1rem;">Page Not Found</h1>
-    <p style="color:var(--text-secondary); max-width:480px; margin-bottom:2rem; font-size:1.05rem;">
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-desc">
       The page you requested does not exist. You may be looking for one of our featured projects or the home page.
     </p>
 
-    <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
-      <a href="academic/JAM/" class="btn-primary" style="text-decoration:none;">
+    <div class="error-actions">
+      <a href="academic/JAM/" class="btn-primary">
         <span>🚀</span> <span>IIT JAM Mathematics Portal</span>
       </a>
-      <a href="mnk_games/board.html" class="btn-secondary" style="text-decoration:none;">
-        <span>♟️</span> <span>m,n,k-game &amp; genralizations</span>
+      <a href="mnk-games/board.html" class="btn-secondary">
+        <span>♟️</span> <span>m,n,k-game &amp; generalizations</span>
       </a>
-      <a href="mnk_games/solved_status_of_mnk_games.html" class="btn-secondary" style="text-decoration:none;">
+      <a href="mnk-games/solved_status_of_mnk_games.html" class="btn-secondary">
         <span>📊</span> <span>Solved Status Atlas</span>
       </a>
-      <a href="mnk_games/mnk_games_theory_and_ai.html" class="btn-secondary" style="text-decoration:none;">
+      <a href="mnk-games/mnk_games_theory_and_ai.html" class="btn-secondary">
         <span>📖</span> <span>(m,n,k) Game Theory &amp; AI</span>
       </a>
-      <a href="index.html" class="btn-secondary" style="text-decoration:none;">
+      <a href="index.html" class="btn-secondary">
         <span>🏠</span> <span>Vaibhav Geometer Home</span>
       </a>
     </div>

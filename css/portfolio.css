@@ -349,6 +349,16 @@ body {
   transform: translateY(-2px);
 }
 
+.btn-atlas {
+  border-color: #e69f00 !important;
+  color: #f3b12b !important;
+}
+
+.btn-atlas:hover {
+  border-color: #f59e0b !important;
+  color: #fbbf24 !important;
+}
+
 .jam-quick-links {
   display: flex;
   align-items: center;

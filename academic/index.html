@@ -43,6 +43,60 @@
       justify-content: space-between;
       align-items: center;
     }
+    .badge-mb {
+      margin-bottom: 0.75rem;
+    }
+    .badge-archive {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+    }
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .card-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card-actions-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .card-actions-row a {
+      flex: 1;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .card-actions a.btn-primary {
+      justify-content: center;
+      text-decoration: none;
+    }
+    .paper-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .paper-link {
+      font-size: 0.85rem;
+    }
+    .card-footer-action {
+      margin-top: 1rem;
+    }
+    .card-footer-action a {
+      width: 100%;
+      justify-content: center;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -56,7 +110,7 @@
       </a>
       <div class="nav-controls">
         <a href="JAM/" class="nav-link">IIT JAM Portal</a>
-        <a href="../mnk_games/" class="nav-link">(m,n,k) Games</a>
+        <a href="../mnk-games/" class="nav-link">(m,n,k) Games</a>
         <a href="../" class="nav-link">Home</a>
       </div>
     </div>
@@ -73,24 +127,24 @@
         <!-- IIT JAM -->
         <div class="academic-card">
           <div>
-            <div class="jam-badge" style="margin-bottom: 0.75rem;">Major Portal</div>
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+            <div class="jam-badge badge-mb">Major Portal</div>
+            <h2 class="card-title">
               IIT JAM Mathematics (MA) Portal
             </h2>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            <p class="card-desc">
               Comprehensive 22-year study ecosystem (2005–2026), 885 official PYQs, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and full authentic CBT exam simulator.
             </p>
           </div>
-          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="JAM/" class="btn-primary" style="justify-content: center; text-decoration: none;">
+          <div class="card-actions">
+            <a href="JAM/" class="btn-primary">
               <span>🚀 Open IIT JAM Ecosystem</span>
               <span>→</span>
             </a>
-            <div style="display: flex; gap: 0.5rem;">
-              <a href="JAM/mock-test/test.html?topic=2026&mode=official" class="btn-secondary" style="flex: 1; justify-content: center; text-decoration: none; font-size: 0.85rem;">
+            <div class="card-actions-row">
+              <a href="JAM/mock-test/test.html?topic=2026&mode=official" class="btn-secondary">
                 ⚡ CBT Simulator
               </a>
-              <a href="JAM/countdown/" class="btn-secondary" style="flex: 1; justify-content: center; text-decoration: none; font-size: 0.85rem;">
+              <a href="JAM/countdown/" class="btn-secondary">
                 ⏳ 2027 Countdown
               </a>
             </div>
@@ -100,30 +154,30 @@
         <!-- CUET-PG -->
         <div class="academic-card">
           <div>
-            <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">Archive</div>
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+            <div class="jam-badge badge-mb badge-archive">Archive</div>
+            <h2 class="card-title">
               CUET-PG Mathematics Archive
             </h2>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            <p class="card-desc">
               Official master question papers for the Central Universities Entrance Test Postgraduate (CUET-PG) Mathematics.
             </p>
             <ul class="paper-list">
               <li>
-                <span style="font-weight: 600; color: var(--text-primary);">CUET-PG 2026 Paper</span>
-                <a href="CUET-PG/2026.pdf" target="_blank" class="text-link" style="font-size: 0.85rem;">📥 Download PDF</a>
+                <span class="paper-name">CUET-PG 2026 Paper</span>
+                <a href="CUET-PG/2026.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
               </li>
               <li>
-                <span style="font-weight: 600; color: var(--text-primary);">CUET-PG 2025 Paper</span>
-                <a href="CUET-PG/2025.pdf" target="_blank" class="text-link" style="font-size: 0.85rem;">📥 Download PDF</a>
+                <span class="paper-name">CUET-PG 2025 Paper</span>
+                <a href="CUET-PG/2025.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
               </li>
               <li>
-                <span style="font-weight: 600; color: var(--text-primary);">CUET-PG 2024 Paper</span>
-                <a href="CUET-PG/2024.pdf" target="_blank" class="text-link" style="font-size: 0.85rem;">📥 Download PDF</a>
+                <span class="paper-name">CUET-PG 2024 Paper</span>
+                <a href="CUET-PG/2024.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
               </li>
             </ul>
           </div>
-          <div style="margin-top: 1rem;">
-            <a href="CUET-PG/2026.pdf" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
+          <div class="card-footer-action">
+            <a href="CUET-PG/2026.pdf" target="_blank" class="btn-secondary">
               <span>📄 View Latest 2026 Paper (PDF)</span>
             </a>
           </div>
@@ -138,7 +192,7 @@
       <div class="footer-links">
         <a href="../">Home</a>
         <a href="JAM/">IIT JAM</a>
-        <a href="../mnk_games/">MNK Games</a>
+        <a href="../mnk-games/">MNK Games</a>
       </div>
     </div>
   </footer>
