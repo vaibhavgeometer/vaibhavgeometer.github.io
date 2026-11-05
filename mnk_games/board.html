@@ -4144,21 +4144,31 @@
 
     /**
      * Check if a match is actively in progress (prevents cheating using analysis/editor)
+     * In Play mode, the match is in progress right from move zero until completed or resigned.
      */
     function isMatchInProgress() {
-      if (state.mode !== 'play' && state.mode !== 'tournament') return false;
-      const current = state.history[state.currentPly];
-      if (!current) return false;
-      const terminal = checkWinner(current.board);
-      if (terminal || clockState.flaggedPlayer || state.gameOver) return false;
-      const movesPlayed = state.history.length > 1;
-      const hasPieces = current.board.some(c => c !== null && c !== '#');
-      return movesPlayed || hasPieces || !!clockState.intervalId;
+      if (state.mode === 'play') {
+        const current = state.history[state.currentPly];
+        if (!current) return false;
+        const terminal = checkWinner(current.board);
+        if (terminal || clockState.flaggedPlayer || state.gameOver) return false;
+        return true;
+      }
+      if (state.mode === 'tournament') {
+        if (!tournamentState.active) return false;
+        const current = state.history[state.currentPly];
+        if (!current) return false;
+        const terminal = checkWinner(current.board);
+        if (terminal || clockState.flaggedPlayer || state.gameOver) return false;
+        return true;
+      }
+      return false;
     }
 
     function updateModeTabsLockState() {
       const inProgress = isMatchInProgress();
       const tabAnalysis = document.getElementById('tab-analysis-btn');
+      const tabTourn = document.getElementById('tab-tournament-btn');
       const tabEditor = document.getElementById('tab-editor-btn');
 
       if (tabAnalysis) {
@@ -4172,6 +4182,20 @@
           tabAnalysis.title = 'Analysis Board';
           const textSpan = tabAnalysis.querySelector('.truncate');
           if (textSpan) textSpan.textContent = 'Analysis Board';
+        }
+      }
+
+      if (tabTourn) {
+        if (inProgress) {
+          tabTourn.classList.add('opacity-40', 'cursor-not-allowed');
+          tabTourn.title = '🔒 Tournament is locked during an active match. Resign or complete the game first.';
+          const textSpan = tabTourn.querySelector('.truncate');
+          if (textSpan) textSpan.textContent = '🔒 Tournament';
+        } else {
+          tabTourn.classList.remove('opacity-40', 'cursor-not-allowed');
+          tabTourn.title = 'Tournament';
+          const textSpan = tabTourn.querySelector('.truncate');
+          if (textSpan) textSpan.textContent = 'Tournament';
         }
       }
 
@@ -4191,8 +4215,9 @@
     }
 
     function switchMainMode(mode) {
-      if ((mode === 'analysis' || mode === 'editor') && isMatchInProgress()) {
-        showToast('🔒 Analysis board is locked during an active match! Resign or complete the game first to analyze.');
+      if (mode !== state.mode && isMatchInProgress()) {
+        const targetName = mode === 'analysis' ? 'Analysis board' : (mode === 'tournament' ? 'Tournament' : 'Board editor');
+        showToast(`🔒 ${targetName} is locked during an active match! Resign or complete the game first.`);
         return;
       }
       state.mode = mode;
@@ -6695,7 +6720,15 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       });
     }
     if (tabPlayBtn) tabPlayBtn.addEventListener('click', () => switchMainMode('play'));
-    if (tabTournBtn) tabTournBtn.addEventListener('click', () => switchMainMode('tournament'));
+    if (tabTournBtn) {
+      tabTournBtn.addEventListener('click', () => {
+        if (isMatchInProgress()) {
+          showToast('🔒 Tournament is locked during an active match! Resign or complete the game first.');
+          return;
+        }
+        switchMainMode('tournament');
+      });
+    }
     if (tabEditorBtn) {
       tabEditorBtn.addEventListener('click', () => {
         if (isMatchInProgress()) {
@@ -8403,8 +8436,8 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     };
 
     window.addEventListener('hashchange', () => {
-      if (isMatchInProgress() && (window.location.hash === '#analysis' || window.location.hash === '#editor')) {
-        showToast('🔒 Analysis board is locked during an active match! Resign or complete the game first to analyze.');
+      if (isMatchInProgress() && window.location.hash !== '#play') {
+        showToast('🔒 Match in progress! Resign or complete the game before leaving Play mode.');
         history.replaceState(null, '', '#play');
         return;
       }
