@@ -1146,6 +1146,21 @@ a.hero-pill:hover {
   background: var(--accent-dim);
 }
 
+.custom-topic-item[data-cat="oos"]:has(input:checked) {
+  border-color: rgba(245, 158, 11, 0.6);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.custom-topic-item[data-cat="oos"] input[type="checkbox"] {
+  accent-color: #f59e0b;
+}
+
+.custom-topic-item[data-cat="oos"] .custom-topic-count {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
 .custom-topic-item input[type="checkbox"] {
   width: 18px;
   height: 18px;

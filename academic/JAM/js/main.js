@@ -312,14 +312,18 @@
       return;
     }
 
+    if (window.JAM_CUSTOM_GENERATOR && typeof window.JAM_CUSTOM_GENERATOR.ensureOOSMockTestData === 'function') {
+      window.JAM_CUSTOM_GENERATOR.ensureOOSMockTestData();
+    }
+
     const allData = window.MOCK_TESTS_DATA;
-    // Populate topic counts for 1.1 through 3.4
-    const topicIds = ['1.1', '1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '3.4'];
+    // Populate topic counts for 1.1 through 3.4 and oos
+    const topicIds = ['1.1', '1.2', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '3.4', 'oos'];
     topicIds.forEach(id => {
       const countEl = document.getElementById(`count-${id}`);
       if (countEl) {
         const topicTest = allData[id];
-        const qCount = topicTest && topicTest.questions ? topicTest.questions.length : 0;
+        const qCount = topicTest && topicTest.questions ? topicTest.questions.length : (id === 'oos' ? 87 : 0);
         countEl.textContent = `${qCount} Qs`;
       }
     });
@@ -524,8 +528,9 @@
     const estMins = Math.max(15, Math.round(actualCount * 3.0));
 
     // Update UI elements
+    const totalTopicsAvailable = document.querySelectorAll('input[name="custom-topic"]').length || 10;
     const topicsCountEl = document.getElementById('summary-topics-count');
-    if (topicsCountEl) topicsCountEl.textContent = `${config.topicIds.length} / 9`;
+    if (topicsCountEl) topicsCountEl.textContent = `${config.topicIds.length} / ${totalTopicsAvailable}`;
 
     const poolCountEl = document.getElementById('summary-pool-count');
     if (poolCountEl) {

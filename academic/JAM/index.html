@@ -476,6 +476,7 @@
                 <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('real')">Real Analysis</button>
                 <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('calc')">Calculus & ODE</button>
                 <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('alg')">Linear Algebra & Groups</button>
+                <button type="button" class="preset-btn" onclick="window.customGeneratorSelectCategory('oos')" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">⚠️ Out of Syllabus</button>
               </div>
             </div>
 
@@ -589,6 +590,25 @@
                     <span class="custom-topic-sub">Cyclic groups, abelian groups, permutation groups, Lagrange's</span>
                   </div>
                   <span class="custom-topic-count" id="count-3.4">...</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Subject 4: Out of Syllabus Topics -->
+            <div class="custom-subject-group" style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed rgba(245, 158, 11, 0.25);">
+              <div class="custom-subject-title" style="color: #f59e0b;">
+                <span class="subject-dot" style="background: #f59e0b;"></span>
+                <span>4. Out of Syllabus Topics (Classical Era & Past Syllabi)</span>
+              </div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item" data-topic-id="oos" data-cat="oos">
+                  <input type="checkbox" name="custom-topic" value="oos" onchange="window.updateCustomGeneratorSummary()">
+                  <span class="custom-topic-icon">⚠️</span>
+                  <div class="custom-topic-info">
+                    <span class="custom-topic-name">4.1 Classical Out of Syllabus Topics</span>
+                    <span class="custom-topic-sub">Vector calculus, differential equations (PDEs), topology & discontinued topics (2005–2021)</span>
+                  </div>
+                  <span class="custom-topic-count" id="count-oos">87 Qs</span>
                 </label>
               </div>
             </div>
@@ -779,11 +799,11 @@
             <div class="custom-summary-metrics">
               <div class="summary-metric-box">
                 <span class="metric-label">TOPICS SELECTED</span>
-                <span class="metric-val" id="summary-topics-count" style="color: #3b82f6;">9 / 9</span>
+                <span class="metric-val" id="summary-topics-count" style="color: #3b82f6;">9 / 10</span>
               </div>
               <div class="summary-metric-box">
                 <span class="metric-label">AVAILABLE POOL</span>
-                <span class="metric-val" id="summary-pool-count" style="color: #0f766e;">885 Qs</span>
+                <span class="metric-val" id="summary-pool-count" style="color: #0f766e;">798 Qs</span>
               </div>
               <div class="summary-metric-box">
                 <span class="metric-label">PAPER QUESTIONS</span>

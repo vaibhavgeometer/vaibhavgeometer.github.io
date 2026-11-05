@@ -80,10 +80,65 @@
       subjectKey: "linear_algebra",
       icon: "🔄",
       subTopicName: "Groups"
+    },
+    {
+      id: "oos",
+      name: "Out of Syllabus (Classical Topics)",
+      subject: "Out of Syllabus",
+      subjectKey: "oos",
+      icon: "⚠️",
+      subTopicName: "Out of Syllabus"
     }
   ];
 
   window.TOPICS_METADATA = TOPICS_DATA;
+
+  // Build and memoize Out of Syllabus topic entry in window.MOCK_TESTS_DATA if not present
+  function ensureOOSMockTestData() {
+    if (!window.MOCK_TESTS_DATA) return null;
+    if (window.MOCK_TESTS_DATA['oos'] && Array.isArray(window.MOCK_TESTS_DATA['oos'].questions) && window.MOCK_TESTS_DATA['oos'].questions.length >= 87) {
+      return window.MOCK_TESTS_DATA['oos'];
+    }
+
+    const oosQuestions = [];
+    const catMap = {};
+    if (window.JAM_CATEGORIZED_DATA && Array.isArray(window.JAM_CATEGORIZED_DATA)) {
+      window.JAM_CATEGORIZED_DATA.forEach(q => {
+        if (q.topic === 'Out of Syllabus') {
+          catMap[`JAM_${q.year}_Q${q.question_number}`] = q;
+        }
+      });
+    }
+
+    // Scan all yearly papers in MOCK_TESTS_DATA
+    for (let y = 2005; y <= 2026; y++) {
+      const paper = window.MOCK_TESTS_DATA[String(y)];
+      if (paper && Array.isArray(paper.questions)) {
+        paper.questions.forEach(q => {
+          const qNum = q.q_num || q.question_number;
+          const qId = q.id || `JAM_${y}_Q${qNum}`;
+          if (catMap[qId]) {
+            oosQuestions.push({
+              ...q,
+              id: qId,
+              year: q.year || `JAM ${y}`,
+              q_num: qNum,
+              topic: 'Out of Syllabus',
+              sub_topic: 'Out of Syllabus'
+            });
+          }
+        });
+      }
+    }
+
+    window.MOCK_TESTS_DATA['oos'] = {
+      id: 'oos',
+      name: 'Out of Syllabus (Classical Topics)',
+      subject: 'Out of Syllabus',
+      questions: oosQuestions
+    };
+    return window.MOCK_TESTS_DATA['oos'];
+  }
 
   // Helper to extract clean answer key string
   function cleanAnswerKey(k) {
@@ -120,6 +175,8 @@
   // Filter and gather questions from MOCK_TESTS_DATA based on topic selections & options
   function collectMatchingQuestions(options) {
     if (!window.MOCK_TESTS_DATA) return [];
+
+    ensureOOSMockTestData();
 
     const selectedTopicIds = options.topicIds || [];
     const selectedTypes = options.types || ['MCQ', 'MSQ', 'NAT'];
@@ -985,7 +1042,8 @@
     topics: TOPICS_DATA,
     collectMatchingQuestions: collectMatchingQuestions,
     sampleQuestions: sampleQuestions,
-    generateCustomPdf: generateCustomPdf
+    generateCustomPdf: generateCustomPdf,
+    ensureOOSMockTestData: ensureOOSMockTestData
   };
 
 })();
