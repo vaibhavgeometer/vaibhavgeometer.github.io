@@ -174,10 +174,6 @@
         ? `<span class="best-score">★ Best: ${bestScore}/${t.total_marks}</span>`
         : '';
 
-      const cheatBtn = t.cheat_sheet 
-        ? `<a href="${t.cheat_sheet}" target="_blank" rel="noopener noreferrer" class="btn-test cheat" title="Open Formula Cheat Sheet">📑 Sheet</a>`
-        : '';
-
       const mockPdfBtn = t.mock_pdf
         ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
         : '';
@@ -195,12 +191,10 @@
           <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
           ${customDiffBtn}
           ${mockPdfBtn}
-          ${cheatBtn}
         `;
       } else {
         actionButtons = `
           <span class="btn-test disabled" title="This topic was not part of the JAM syllabus during this era">0 Qs (Added in 2022)</span>
-          ${cheatBtn}
         `;
       }
 
@@ -294,16 +288,12 @@
     });
   };
 
-  // --- Cheat Sheets Modal ---
+  // --- Legacy Modal compatibility ---
   window.openCheatSheetsModal = function() {
-    const modal = document.getElementById('cheatsheets-modal');
-    if (modal) modal.classList.remove('hidden');
+    window.location.href = 'analytics/';
   };
 
-  window.closeCheatSheetsModal = function() {
-    const modal = document.getElementById('cheatsheets-modal');
-    if (modal) modal.classList.add('hidden');
-  };
+  window.closeCheatSheetsModal = function() {};
 
   // --- Custom Test & Offline PDF Generator Logic ---
   window.initCustomGenerator = function() {

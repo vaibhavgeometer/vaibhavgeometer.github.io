@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IIT JAM Mathematics (MA): 22-Year Project Statistics & Analytics Report (2005–2026)</title>
+  <meta name="description" content="Comprehensive data analytics, subject weightage breakdown, question type evolution, and empirical difficulty analysis across all 885 official IIT JAM Mathematics (MA) questions (2005–2026)." />
+  <meta name="keywords" content="IIT JAM Mathematics Statistics, IIT JAM MA Topic Weightage, IIT JAM Analysis 2005-2026, IIT JAM Question Distribution, JAM Mathematics Analytics" />
+  <meta name="author" content="Vaibhav Geometer" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-surface: #131b2e;
+      --bg-surface-elevated: #1a233b;
+      --card-bg: rgba(20, 27, 45, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.35);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --accent-dim: rgba(56, 189, 248, 0.1);
+      --purple: #818cf8;
+      --green: #34d399;
+      --amber: #f59e0b;
+      --rose: #fb7185;
+      --text: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --muted: #94a3b8;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg) 65%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.65;
+      overflow-x: hidden;
+      font-size: 15px;
+    }
+
+    /* Sticky Navbar */
+    .top-nav {
+      width: 100%;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.2px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-brand:hover {
+      color: var(--accent);
+    }
+
+    .nav-brand span.logo-icon {
+      font-size: 1.3rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent);
+    }
+
+    .nav-btn.primary {
+      background: var(--accent-dim);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--accent);
+    }
+
+    .nav-btn.primary:hover {
+      background: var(--accent);
+      color: #0b0f19;
+    }
+
+    /* Container */
+    .article-container {
+      max-width: 1000px;
+      width: 100%;
+      padding: 40px 20px 80px;
+    }
+
+    /* Article Hero Header */
+    .article-header {
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    .article-badge-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .article-pill.emerald {
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--green);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .article-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .article-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 840px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Action Toolbar */
+    .article-actions-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--card-border);
+      background: var(--bg-surface);
+      color: var(--text);
+    }
+
+    .action-btn:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .action-btn.accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0b0f19;
+      font-weight: 700;
+    }
+
+    .action-btn.accent:hover {
+      background: #7dd3fc;
+      border-color: #7dd3fc;
+      color: #0b0f19;
+    }
+
+    /* KPI Highlights Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 30px 0 40px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .kpi-num {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .kpi-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .kpi-sub {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    /* Table of Contents Box */
+    .toc-card {
+      background: rgba(19, 27, 46, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin-bottom: 45px;
+    }
+
+    .toc-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px 16px;
+    }
+
+    .toc-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.86rem;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      transition: color 0.15s ease;
+    }
+
+    .toc-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .toc-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Article Body Typography */
+    .article-section {
+      margin-bottom: 55px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .section-heading .heading-num {
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    .section-p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    .section-p strong {
+      color: #fff;
+    }
+
+    /* Key Insights Alert Block */
+    .insight-box {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .insight-box.amber {
+      background: rgba(245, 158, 11, 0.08);
+      border-left-color: var(--amber);
+    }
+
+    .insight-box.green {
+      background: rgba(52, 211, 153, 0.08);
+      border-left-color: var(--green);
+    }
+
+    .insight-title {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* Modern Styled Tables */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      margin: 22px 0 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    table.analytics-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    table.analytics-table th {
+      background: #101626;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    table.analytics-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+    }
+
+    table.analytics-table tr:hover td {
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    table.analytics-table tr.highlight-row td {
+      background: rgba(56, 189, 248, 0.05);
+      font-weight: 700;
+      color: #fff;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    table.analytics-table tr.total-row td {
+      background: #0f1624;
+      font-weight: 800;
+      color: var(--accent);
+      border-top: 1px solid var(--card-border);
+      font-size: 0.88rem;
+    }
+
+    td.num-cell, th.num-cell {
+      text-align: center;
+      font-family: var(--font-mono);
+    }
+
+    /* Badges in tables */
+    .era-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .era-badge.cbt-recent {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .era-badge.cbt-est {
+      background: rgba(129, 140, 248, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(129, 140, 248, 0.3);
+    }
+
+    .era-badge.classic {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .type-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .type-badge.mcq { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .type-badge.msq { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+    .type-badge.nat { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+
+    /* Visual Distribution Bars */
+    .dist-bar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+
+    .dist-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .dist-stacked-bar {
+      height: 18px;
+      width: 100%;
+      border-radius: 9999px;
+      overflow: hidden;
+      display: flex;
+      background: #0f1624;
+      margin-bottom: 12px;
+    }
+
+    .dist-segment {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .dist-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .dist-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    /* Cards Grid */
+    .cards-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .cards-3col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .info-card-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .info-card-p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .info-card-p strong {
+      color: #fff;
+    }
+
+    /* Print Styling */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .top-nav, .article-actions-bar, .toc-card, footer {
+        display: none !important;
+      }
+      .article-container {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .article-title {
+        color: #000 !important;
+      }
+      .article-subtitle, .section-p {
+        color: #333 !important;
+      }
+      .section-heading {
+        color: #000 !important;
+        border-bottom-color: #ccc !important;
+      }
+      .table-wrapper {
+        border-color: #ccc !important;
+        box-shadow: none !important;
+      }
+      table.analytics-table th {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+      }
+      table.analytics-table td {
+        color: #000 !important;
+        border-bottom-color: #eee !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 1.7rem;
+      }
+      .article-subtitle {
+        font-size: 0.95rem;
+      }
+      .nav-links .nav-btn:not(.primary) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header Navigation -->
+  <header class="top-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand" title="Back to IIT JAM Mathematics Portal">
+        <span class="logo-icon">📐</span>
+        <span>IIT JAM Mathematics (MA)</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-btn" title="Back to Portal Home">🏠 Portal Home</a>
+        <a href="../index.html#pyq-tracker" class="nav-btn" title="Open PYQ Tracker & Search">🎯 Tracker</a>
+        <a href="../index.html#custom-generator" class="nav-btn" title="Open Custom Mock Test & PDF Generator">🛠️ Custom Generator</a>
+        <a href="../countdown/" class="nav-btn" title="Live 2027 Countdown">⏳ 2027 Countdown</a>
+        <button type="button" class="nav-btn primary" onclick="window.print()" title="Print or save as PDF">🖨️ Print / Save PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Article Container -->
+  <main class="article-container">
+
+    <!-- Hero Header -->
+    <header class="article-header">
+      <div class="article-badge-row">
+        <span class="article-pill">Official Examination Archive</span>
+        <span class="article-pill emerald">22 Years (2005–2026)</span>
+        <span class="article-pill">Comprehensive Empirical Analytics</span>
+      </div>
+
+      <h1 class="article-title">IIT JAM Mathematics (MA): 22-Year Project Statistics &amp; Analytics Report (2005–2026)</h1>
+      <p class="article-subtitle">
+        A definitive empirical study of all <strong>885 official examination questions</strong>, <strong>2,000 marks</strong>, 
+        subject domain weightages, testing era evolutions, question type mechanics, cognitive difficulty distributions, and simulator ecosystem metrics.
+      </p>
+
+      <div class="article-meta">
+        <span>✍️ <strong>By Vaibhav Geometer</strong></span>
+        <span>•</span>
+        <span>📅 <strong>Updated for JAM 2026 / 2027</strong></span>
+        <span>•</span>
+        <span>📖 <strong>15 Min In-Depth Read</strong></span>
+        <span>•</span>
+        <span>🏛️ <strong>100% Digitized Archive</strong></span>
+      </div>
+
+      <div class="article-actions-bar">
+        <a href="#toc" class="action-btn">📑 Table of Contents</a>
+        <a href="../index.html#custom-generator" class="action-btn accent">🛠️ Launch Custom Test Generator</a>
+        <a href="../index.html#pyq-tracker" class="action-btn">🎯 Search 885 Questions</a>
+        <button type="button" class="action-btn" onclick="window.print()">🖨️ Print Report</button>
+      </div>
+    </header>
+
+    <!-- Key Metrics Highlight Grid -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-num">885</div>
+        <div class="kpi-label">Official Questions</div>
+        <div class="kpi-sub">100% Verified Keys</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">22</div>
+        <div class="kpi-label">Exam Years</div>
+        <div class="kpi-sub">2005 through 2026</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">2,000</div>
+        <div class="kpi-label">Total Exam Marks</div>
+        <div class="kpi-sub">Full Historical Weight</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">58</div>
+        <div class="kpi-label">CBT Mock Tests</div>
+        <div class="kpi-sub">22 Yearly + 36 Topic</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">798</div>
+        <div class="kpi-label">In-Syllabus PYQs</div>
+        <div class="kpi-sub">90.2% Active Syllabus</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">87</div>
+        <div class="kpi-label">Classical / OOS</div>
+        <div class="kpi-sub">Vector, PDEs &amp; Legacy</div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card" id="toc">
+      <div class="toc-title">📑 Table of Contents &amp; Report Navigation</div>
+      <div class="toc-grid">
+        <div class="toc-item"><a href="#sec-1"><span class="toc-num">01.</span> Executive Summary &amp; Repository Overview</a></div>
+        <div class="toc-item"><a href="#sec-2"><span class="toc-num">02.</span> Examination Eras &amp; Pattern Evolution</a></div>
+        <div class="toc-item"><a href="#sec-3"><span class="toc-num">03.</span> Subject Domain &amp; Subtopic Weightage</a></div>
+        <div class="toc-item"><a href="#sec-4"><span class="toc-num">04.</span> Question Type &amp; Marking Scheme Dynamics</a></div>
+        <div class="toc-item"><a href="#sec-5"><span class="toc-num">05.</span> Empirical Difficulty Hierarchy Breakdown</a></div>
+        <div class="toc-item"><a href="#sec-6"><span class="toc-num">06.</span> Out of Syllabus Classical Topics (87 Qs)</a></div>
+        <div class="toc-item"><a href="#sec-7"><span class="toc-num">07.</span> Annual Examination Matrix (2005–2026)</a></div>
+        <div class="toc-item"><a href="#sec-8"><span class="toc-num">08.</span> CBT Simulator Ecosystem &amp; Asset Inventory</a></div>
+        <div class="toc-item"><a href="#sec-9"><span class="toc-num">09.</span> Strategic Preparation Takeaways for Aspirants</a></div>
+      </div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <article class="article-section" id="sec-1">
+      <h2 class="section-heading"><span class="heading-num">01</span> Executive Summary &amp; Repository Overview</h2>
+      <p class="section-p">
+        The <strong>IIT JAM Mathematics (MA) CBT Platform &amp; Examination Archive</strong> is an open-access, zero-login academic initiative designed to digitize, preserve, and benchmark all <strong>885 official questions</strong> administered across the entire <strong>22-year history</strong> of the Joint Admission Test for Masters (2005–2026).
+      </p>
+      <p class="section-p">
+        Unlike static PDF repositories or fragmented forum transcripts, every single question in this dataset has been digitized as an individual high-resolution cropped screenshot card, annotated with domain taxonomy, subtopic tags, exact marks, negative marking penalties, and authoritative official answer keys (including multi-option answers and continuous numerical tolerance intervals for NAT questions).
+      </p>
+
+      <div class="cards-3col">
+        <div class="info-card">
+          <div class="info-card-title">🎯 Authentic CBT Simulator</div>
+          <div class="info-card-p">
+            58 interactive mock tests powered by an authentic client-side engine replicating the TCS iON exam interface with real-time countdown, color-coded palette, virtual calculator, and section filters.
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-title">🛠️ Custom Generator &amp; PDF</div>
+          <div class="info-card-p">
+            Pure in-browser custom drill generator allowing aspirants to sample 1 to 100 questions filtered by topic, solved status, and difficulty, with instant compilation into publication-grade LaTeX PDFs.
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-title">🔄 Cross-Device Cloud Sync</div>
+          <div class="info-card-p">
+            Zero-login peer progress tracking. Solved statuses, personal difficulty ratings, bookmarks, and notes sync seamlessly across mobile and desktop devices via a lightweight 6-character room code.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SECTION 2 -->
+    <article class="article-section" id="sec-2">
+      <h2 class="section-heading"><span class="heading-num">02</span> Examination Eras &amp; Pattern Evolution (2005–2026)</h2>
+      <p class="section-p">
+        Over the past 22 years, the examination has evolved through three distinct pedagogical and technological paradigms:
+      </p>
+
+      <div class="dist-bar-card">
+        <div class="dist-bar-header">
+          <span>Historical Questions Share by Testing Era (Total: 885 Questions)</span>
+          <span style="color: var(--accent);">2005 – 2026</span>
+        </div>
+        <div class="dist-stacked-bar">
+          <div class="dist-segment" style="width: 33.9%; background: #38bdf8;" title="Recent CBT Era (2022-2026): 300 Qs (33.9%)"></div>
+          <div class="dist-segment" style="width: 47.5%; background: #818cf8;" title="Established CBT Era (2015-2021): 420 Qs (47.5%)"></div>
+          <div class="dist-segment" style="width: 18.6%; background: #f59e0b;" title="Classic Paper Era (2005-2014): 165 Qs (18.6%)"></div>
+        </div>
+        <div class="dist-legend">
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #38bdf8;"></span> Recent CBT Era: 300 Qs (33.9%)</div>
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #818cf8;"></span> Established CBT Era: 420 Qs (47.5%)</div>
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #f59e0b;"></span> Classic Paper Era: 165 Qs (18.6%)</div>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="analytics-table">
+          <thead>
+            <tr>
+              <th>Testing Era</th>
+              <th>Years</th>
+              <th class="num-cell">Papers</th>
+              <th class="num-cell">Questions</th>
+              <th class="num-cell">Total Marks</th>
+              <th class="num-cell">MCQ</th>
+              <th class="num-cell">MSQ</th>
+              <th class="num-cell">NAT</th>
+              <th>Testing Pattern &amp; Structure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="era-badge cbt-recent">Recent CBT Era</span></td>
+              <td>2022–2026</td>
+              <td class="num-cell">5</td>
+              <td class="num-cell">300</td>
+              <td class="num-cell">500</td>
+              <td class="num-cell">150</td>
+              <td class="num-cell">50</td>
+              <td class="num-cell">100</td>
+              <td>Current official pattern: Sec A (30 MCQ), Sec B (10 MSQ), Sec C (20 NAT)</td>
+            </tr>
+            <tr>
+              <td><span class="era-badge cbt-est">Established CBT Era</span></td>
+              <td>2015–2021</td>
+              <td class="num-cell">7</td>
+              <td class="num-cell">420</td>
+              <td class="num-cell">700</td>
+              <td class="num-cell">210</td>
+              <td class="num-cell">70</td>
+              <td class="num-cell">140</td>
+              <td>Computer-based testing standardized with MSQ and NAT formats</td>
+            </tr>
+            <tr>
+              <td><span class="era-badge classic">Classic Paper Era</span></td>
+              <td>2005–2014</td>
+              <td class="num-cell">10</td>
+              <td class="num-cell">165</td>
+              <td class="num-cell">800</td>
+              <td class="num-cell">165</td>
+              <td class="num-cell">0</td>
+              <td class="num-cell">0</td>
+              <td>Pen-and-paper era: high-weightage objective problems (6M, 2M, 1M)</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="total-row">
+              <td>Total / Summary</td>
+              <td>22 Years</td>
+              <td class="num-cell">22</td>
+              <td class="num-cell">885</td>
+              <td class="num-cell">2,000</td>
+              <td class="num-cell">525</td>
+              <td class="num-cell">120</td>
+              <td class="num-cell">240</td>
+              <td>100% Fully Verified Historical Dataset</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-title">💡 The 2015 CBT Structural Watershed</div>
+        The introduction of the Computer-Based Test (CBT) in 2015 permanently transformed the examination architecture. Prior to 2015, candidates answered high-value 6-mark objective questions. Since 2015, every exam consistently features exactly <strong>60 questions for 100 marks</strong>: Section A (30 MCQs = 50 Marks), Section B (10 MSQs = 20 Marks), and Section C (20 NATs = 30 Marks).
+      </div>
+    </article>
+
+    <!-- SECTION 3 -->
+    <article class="article-section" id="sec-3">
+      <h2 class="section-heading"><span class="heading-num">03</span> Subject Domain &amp; Subtopic Weightage Analysis</h2>
+      <p class="section-p">
+        Every question across the 22-year dataset is categorized into <strong>3 Core In-Syllabus Subject Domains</strong> (spanning 9 official subtopics) plus a dedicated <strong>Classical / Out of Syllabus</strong> category.
+      </p>
+
+      <div class="table-wrapper">
+        <table class="analytics-table">
+          <thead>
+            <tr>
+              <th>Subtopic Code &amp; Name</th>
+              <th>Core Subject Domain</th>
+              <th class="num-cell">Questions</th>
+              <th class="num-cell">Marks</th>
+              <th class="num-cell">MCQ</th>
+              <th class="num-cell">MSQ</th>
+              <th class="num-cell">NAT</th>
+              <th class="num-cell">% of Questions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1.1</strong> Sequences &amp; Series of Real Numbers</td>
+              <td>Real Analysis</td>
+              <td class="num-cell">131</td>
+              <td class="num-cell">292</td>
+              <td class="num-cell">85</td>
+              <td class="num-cell">15</td>
+              <td class="num-cell">31</td>
+              <td class="num-cell">14.8%</td>
+            </tr>
+            <tr>
+              <td><strong>1.2</strong> Functions of One Real Variable</td>
+              <td>Real Analysis</td>
+              <td class="num-cell">155</td>
+              <td class="num-cell">329</td>
+              <td class="num-cell">85</td>
+              <td class="num-cell">27</td>
+              <td class="num-cell">43</td>
+              <td class="num-cell">17.5%</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Subtotal: 1. Real Analysis</strong></td>
+              <td><strong>Domain 1 (2 Subtopics)</strong></td>
+              <td class="num-cell"><strong>286</strong></td>
+              <td class="num-cell"><strong>621</strong></td>
+              <td class="num-cell"><strong>170</strong></td>
+              <td class="num-cell"><strong>42</strong></td>
+              <td class="num-cell"><strong>74</strong></td>
+              <td class="num-cell"><strong>32.3%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>2.1</strong> Functions of Several Variables</td>
+              <td>Multivariable &amp; ODE</td>
+              <td class="num-cell">78</td>
+              <td class="num-cell">152</td>
+              <td class="num-cell">44</td>
+              <td class="num-cell">13</td>
+              <td class="num-cell">21</td>
+              <td class="num-cell">8.8%</td>
+            </tr>
+            <tr>
+              <td><strong>2.2</strong> Integral Calculus</td>
+              <td>Multivariable &amp; ODE</td>
+              <td class="num-cell">66</td>
+              <td class="num-cell">136</td>
+              <td class="num-cell">35</td>
+              <td class="num-cell">3</td>
+              <td class="num-cell">28</td>
+              <td class="num-cell">7.5%</td>
+            </tr>
+            <tr>
+              <td><strong>2.3</strong> Ordinary Differential Equations (ODE)</td>
+              <td>Multivariable &amp; ODE</td>
+              <td class="num-cell">113</td>
+              <td class="num-cell">255</td>
+              <td class="num-cell">70</td>
+              <td class="num-cell">12</td>
+              <td class="num-cell">31</td>
+              <td class="num-cell">12.8%</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Subtotal: 2. Multivariable Calculus &amp; ODE</strong></td>
+              <td><strong>Domain 2 (3 Subtopics)</strong></td>
+              <td class="num-cell"><strong>257</strong></td>
+              <td class="num-cell"><strong>543</strong></td>
+              <td class="num-cell"><strong>149</strong></td>
+              <td class="num-cell"><strong>28</strong></td>
+              <td class="num-cell"><strong>80</strong></td>
+              <td class="num-cell"><strong>29.0%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>3.1</strong> Basic Algebra (P&amp;C, Binomial)</td>
+              <td>Linear Algebra &amp; Groups</td>
+              <td class="num-cell">3</td>
+              <td class="num-cell">6</td>
+              <td class="num-cell">0</td>
+              <td class="num-cell">1</td>
+              <td class="num-cell">2</td>
+              <td class="num-cell">0.3%</td>
+            </tr>
+            <tr>
+              <td><strong>3.2</strong> Matrices &amp; Systems of Linear Eq.</td>
+              <td>Linear Algebra &amp; Groups</td>
+              <td class="num-cell">75</td>
+              <td class="num-cell">155</td>
+              <td class="num-cell">43</td>
+              <td class="num-cell">9</td>
+              <td class="num-cell">23</td>
+              <td class="num-cell">8.5%</td>
+            </tr>
+            <tr>
+              <td><strong>3.3</strong> Finite Dimensional Vector Spaces</td>
+              <td>Linear Algebra &amp; Groups</td>
+              <td class="num-cell">76</td>
+              <td class="num-cell">184</td>
+              <td class="num-cell">44</td>
+              <td class="num-cell">12</td>
+              <td class="num-cell">20</td>
+              <td class="num-cell">8.6%</td>
+            </tr>
+            <tr>
+              <td><strong>3.4</strong> Group Theory</td>
+              <td>Linear Algebra &amp; Groups</td>
+              <td class="num-cell">101</td>
+              <td class="num-cell">214</td>
+              <td class="num-cell">56</td>
+              <td class="num-cell">16</td>
+              <td class="num-cell">29</td>
+              <td class="num-cell">11.4%</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Subtotal: 3. Linear Algebra and Algebra</strong></td>
+              <td><strong>Domain 3 (4 Subtopics)</strong></td>
+              <td class="num-cell"><strong>255</strong></td>
+              <td class="num-cell"><strong>559</strong></td>
+              <td class="num-cell"><strong>143</strong></td>
+              <td class="num-cell"><strong>38</strong></td>
+              <td class="num-cell"><strong>74</strong></td>
+              <td class="num-cell"><strong>28.8%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>4.1</strong> Classical Out of Syllabus Topics</td>
+              <td>Out of Syllabus (2005–2021)</td>
+              <td class="num-cell">87</td>
+              <td class="num-cell">277</td>
+              <td class="num-cell">63</td>
+              <td class="num-cell">12</td>
+              <td class="num-cell">12</td>
+              <td class="num-cell">9.8%</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="total-row">
+              <td>Grand Total (All Questions)</td>
+              <td>Master Historical Corpus</td>
+              <td class="num-cell">885</td>
+              <td class="num-cell">2,000</td>
+              <td class="num-cell">525</td>
+              <td class="num-cell">120</td>
+              <td class="num-cell">240</td>
+              <td class="num-cell">100.0%</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="insight-box green">
+        <div class="insight-title">📊 Key Subject Domain Takeaways</div>
+        <ul style="padding-left: 18px; margin-top: 4px;">
+          <li><strong>Real Analysis is King:</strong> With <strong>286 questions (32.3%)</strong> and <strong>621 marks</strong>, Real Analysis is the single most tested subject. Functions of One Real Variable (155 Qs) alone comprises nearly one in every five questions ever set in IIT JAM Mathematics.</li>
+          <li><strong>Equally Balanced Co-Pillars:</strong> Multivariable Calculus &amp; ODE (29.0%) and Linear Algebra &amp; Groups (28.8%) command almost identical weightage, showing that serious aspirants cannot afford to skip any domain.</li>
+          <li><strong>Scoring High-Yield Gems:</strong> Ordinary Differential Equations (113 Qs) and Group Theory (101 Qs) are characterized by predictable theorem application, making them the highest return-on-time topics for competitive rank acquisition.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- SECTION 4 -->
+    <article class="article-section" id="sec-4">
+      <h2 class="section-heading"><span class="heading-num">04</span> Question Type &amp; Marking Scheme Dynamics</h2>
+      <p class="section-p">
+        In the CBT era, the question paper is segregated into three distinct formats with radically different risk-reward profiles:
+      </p>
+
+      <div class="cards-3col">
+        <div class="info-card">
+          <div class="info-card-title"><span class="type-badge mcq">MCQ</span> Multiple Choice Questions</div>
+          <div class="info-card-p">
+            <strong>Total: 525 Questions (59.3%)</strong><br>
+            • Sec A carries 30 Qs (10 at 1M + 20 at 2M = 50 Marks).<br>
+            • Negative Marking: $-1/3$ for 1-mark and $-2/3$ for 2-mark questions.<br>
+            • Highest risk of score erosion: requires elimination of distractors.
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title"><span class="type-badge msq">MSQ</span> Multiple Select Questions</div>
+          <div class="info-card-p">
+            <strong>Total: 120 Questions (13.6%)</strong><br>
+            • Sec B carries 10 Qs at 2 Marks each (20 Marks).<br>
+            • Zero Negative Marking: No penalty for incorrect attempts.<br>
+            • Strict All-or-Nothing Rule: Full credit awarded only if all correct choices are ticked; no partial credit.
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title"><span class="type-badge nat">NAT</span> Numerical Answer Type</div>
+          <div class="info-card-p">
+            <strong>Total: 240 Questions (27.1%)</strong><br>
+            • Sec C carries 20 Qs (10 at 1M + 10 at 2M = 30 Marks).<br>
+            • Zero Negative Marking: Solved via mouse on a virtual keypad.<br>
+            • Official Tolerance Bounds: Official keys include continuous numerical tolerance intervals (e.g. <code>1.41 to 1.43</code>).
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-title">🎯 Tactical Scoring Insight: The 50-Mark Zero-Penalty Buffer</div>
+        Sections B (MSQ) and C (NAT) together comprise <strong>30 questions worth exactly 50% of the entire paper (50 marks) with strictly ZERO negative marking</strong>. Candidates who cultivate computational precision in NATs and rigorous theorem checking in MSQs can aggressively attempt all 50 marks without any penalty risk, establishing a tremendous competitive edge.
+      </div>
+    </article>
+
+    <!-- SECTION 5 -->
+    <article class="article-section" id="sec-5">
+      <h2 class="section-heading"><span class="heading-num">05</span> Empirical Difficulty Hierarchy &amp; Cognitive Distribution</h2>
+      <p class="section-p">
+        To power the platform's adaptive filtering, all 885 questions have been classified across a 5-tier empirical difficulty scale based on problem complexity, theorem chaining, and historical exam placement:
+      </p>
+
+      <div class="dist-bar-card">
+        <div class="dist-bar-header">
+          <span>Cognitive Difficulty Distribution (885 Questions)</span>
+          <span style="color: var(--accent);">5-Tier Analytical Scale</span>
+        </div>
+        <div class="dist-stacked-bar">
+          <div class="dist-segment" style="width: 6.8%; background: #22c55e;" title="Very Easy: 60 Qs (6.8%)"></div>
+          <div class="dist-segment" style="width: 14.7%; background: #3b82f6;" title="Easy: 130 Qs (14.7%)"></div>
+          <div class="dist-segment" style="width: 24.3%; background: #f59e0b;" title="Medium: 215 Qs (24.3%)"></div>
+          <div class="dist-segment" style="width: 34.4%; background: #f97316;" title="Hard: 304 Qs (34.4%)"></div>
+          <div class="dist-segment" style="width: 19.9%; background: #a855f7;" title="Hardest: 176 Qs (19.9%)"></div>
+        </div>
+        <div class="dist-legend">
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #22c55e;"></span> 🟢 Very Easy: 60 (6.8%)</div>
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #3b82f6;"></span> 🔵 Easy: 130 (14.7%)</div>
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #f59e0b;"></span> 🟡 Medium: 215 (24.3%)</div>
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #f97316;"></span> 🟠 Hard: 304 (34.4%)</div>
+          <div class="dist-legend-item"><span class="legend-dot" style="background: #a855f7;"></span> 🟣 Hardest: 176 (19.9%)</div>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="analytics-table">
+          <thead>
+            <tr>
+              <th>Difficulty Tier</th>
+              <th class="num-cell">Question Count</th>
+              <th class="num-cell">% of Dataset</th>
+              <th>Cognitive Characteristics &amp; Typical Problem Profiles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: #22c55e;">🟢 Very Easy</strong></td>
+              <td class="num-cell">60 Qs</td>
+              <td class="num-cell">6.8%</td>
+              <td>Direct definition recall, elementary matrix trace/determinant calculations, standard single-variable derivative formulas.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #3b82f6;">🔵 Easy</strong></td>
+              <td class="num-cell">130 Qs</td>
+              <td class="num-cell">14.7%</td>
+              <td>Standard integrating factors in first-order ODEs, routine ratio/root test for series, basic group orders and cyclic generators.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #f59e0b;">🟡 Medium</strong></td>
+              <td class="num-cell">215 Qs</td>
+              <td class="num-cell">24.3%</td>
+              <td>Exam core benchmark: change of variables in double integrals, Cayley-Hamilton applications, multi-step limits via Taylor expansion.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #f97316;">🟠 Hard</strong></td>
+              <td class="num-cell">304 Qs</td>
+              <td class="num-cell">34.4%</td>
+              <td>Subtle uniform continuity arguments, non-trivial group automorphisms, systems of ODEs with defective matrices, multi-statement MSQ analysis.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #a855f7;">🟣 Hardest</strong></td>
+              <td class="num-cell">176 Qs</td>
+              <td class="num-cell">19.9%</td>
+              <td>Classic era 6-mark deep proofs, counterexample construction, advanced point-set boundary interactions, and intricate NAT precision problems.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- SECTION 6 -->
+    <article class="article-section" id="sec-6">
+      <h2 class="section-heading"><span class="heading-num">06</span> Classical Out of Syllabus Topics (87 Questions)</h2>
+      <p class="section-p">
+        Between 2005 and 2021, the official syllabus underwent several periodic revisions by the organizing IITs. In total, <strong>87 questions (9.8% of the repository)</strong> pertain to topics that were formally removed from the contemporary syllabus:
+      </p>
+
+      <div class="cards-2col">
+        <div class="info-card">
+          <div class="info-card-title">⚠️ Breakdown of Discontinued Topics</div>
+          <div class="info-card-p">
+            • <strong>Vector Calculus:</strong> Green’s theorem, Stokes’ theorem, Gauss Divergence theorem, line and surface integrals, conservative vector fields.<br>
+            • <strong>Partial Differential Equations (PDEs):</strong> First-order quasilinear PDEs (Lagrange's method), second-order wave &amp; heat equations.<br>
+            • <strong>Point-Set Topology:</strong> Open/closed sets in $\mathbb{R}^n$, compactness, connectedness outside standard metric analysis.<br>
+            • <strong>Linear Programming (LPP):</strong> Simplex method, graphical optimization, duality.
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">📚 Era Distribution of OOS Questions</div>
+          <div class="info-card-p">
+            • <strong>Classic Era (2005–2014):</strong> 37 Questions (high weightage in early exams).<br>
+            • <strong>Established CBT Era (2015–2021):</strong> 50 Questions (predominantly Vector Calculus and elementary PDEs before removal).<br>
+            • <strong>Recent CBT Era (2022–2026):</strong> 0 Questions (the current syllabus has remained strictly stable without these topics).
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-box amber">
+        <div class="insight-title">⚠️ Pedagogical Recommendation on Out of Syllabus PYQs</div>
+        In the main portal's PYQ Tracker, these 87 questions can be excluded with a single click (<em>"Mark Out of Syllabus as Unnecessary"</em>) so candidates can focus 100% on the active 798 in-syllabus questions. However, for students preparing concurrently for <strong>TIFR GS</strong>, <strong>NBHM</strong>, or <strong>CSIR-NET</strong>, these 87 questions provide invaluable higher-level practice and can be selected anytime in the Custom Mock Test Generator!
+      </div>
+    </article>
+
+    <!-- SECTION 7 -->
+    <article class="article-section" id="sec-7">
+      <h2 class="section-heading"><span class="heading-num">07</span> Annual Examination Matrix (2005–2026)</h2>
+      <p class="section-p">
+        The complete 22-year historical ledger of all examination papers digitized in the platform:
+      </p>
+
+      <div class="table-wrapper">
+        <table class="analytics-table">
+          <thead>
+            <tr>
+              <th class="num-cell">Year</th>
+              <th>Testing Era</th>
+              <th class="num-cell">Questions</th>
+              <th class="num-cell">Marks</th>
+              <th class="num-cell">MCQ</th>
+              <th class="num-cell">MSQ</th>
+              <th class="num-cell">NAT</th>
+              <th>Paper Structure &amp; Specifications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="num-cell">2026</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2025</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2024</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2023</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2022</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2021</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2020</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2019</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2018</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2017</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2016</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2015</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>First year of CBT format (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
+            <tr><td class="num-cell">2014</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">35</td><td class="num-cell">60</td><td class="num-cell">35</td><td class="num-cell">0</td><td class="num-cell">0</td><td>Transitional 35 objective questions (10 at 1M, 25 at 2M)</td></tr>
+            <tr><td class="num-cell">2013</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">10</td><td class="num-cell">20</td><td class="num-cell">10</td><td class="num-cell">0</td><td class="num-cell">0</td><td>10 objective questions (2 marks each)</td></tr>
+            <tr><td class="num-cell">2012</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2011</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2010</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2009</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2008</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2007</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2006</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
+            <tr><td class="num-cell">2005</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>Inaugural IIT JAM Mathematics examination (15 at 6M)</td></tr>
+          </tbody>
+          <tfoot>
+            <tr class="total-row">
+              <td class="num-cell">Total</td>
+              <td>22 Years</td>
+              <td class="num-cell">885</td>
+              <td class="num-cell">2,000</td>
+              <td class="num-cell">525</td>
+              <td class="num-cell">120</td>
+              <td class="num-cell">240</td>
+              <td>Complete 22-Year Historical Archive</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </article>
+
+    <!-- SECTION 8 -->
+    <article class="article-section" id="sec-8">
+      <h2 class="section-heading"><span class="heading-num">08</span> CBT Simulator Ecosystem &amp; Asset Inventory</h2>
+      <p class="section-p">
+        Beyond raw question storage, the platform hosts a full-scale testing and document generation infrastructure:
+      </p>
+
+      <div class="cards-2col">
+        <div class="info-card">
+          <div class="info-card-title">🖥️ 58 Computer-Based Mock Tests</div>
+          <div class="info-card-p">
+            • <strong>22 Full-Length Year Mock Tests (2005–2026):</strong> Authentic 180-minute official CBT simulations.<br>
+            • <strong>27 Era Subtopic Tests (3 Eras × 9 Subtopics):</strong> Targeted drills across Recent CBT, Established CBT, and Classic eras.<br>
+            • <strong>9 All-Time Topic Mastery Tests:</strong> Comprehensive 22-year question banks for each syllabus subtopic.<br>
+            • <strong>Instant Custom Mock Engine:</strong> On-demand test generator with user-specified question counts and filters.
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">📦 Digital Assets &amp; Document Inventory</div>
+          <div class="info-card-p">
+            • <strong>885 PNG Question Cards:</strong> Precision-cropped original problem cards matching official print layout.<br>
+            • <strong>56 Pre-compiled LaTeX Mock PDFs:</strong> Ready-to-print papers formatted in standard LaTeX styling with master keys.<br>
+            • <strong>Master Historical Archive:</strong> Single consolidated 35.2 MB original PDF collection spanning 2005–2026.<br>
+            • <strong>Real-Time Countdown Engine:</strong> Dedicated countdown timer and study shortcuts for JAM 2027.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SECTION 9 -->
+    <article class="article-section" id="sec-9">
+      <h2 class="section-heading"><span class="heading-num">09</span> Strategic Preparation Takeaways for Aspirants</h2>
+      <p class="section-p">
+        Based on quantitative analysis of 885 official questions over 22 years, here are five empirical principles for maximizing your IIT JAM Mathematics score:
+      </p>
+
+      <div class="insight-box green">
+        <div class="insight-title">1. Anchor Your Preparation in Real Analysis</div>
+        Real Analysis constitutes <strong>32.3% of all questions (621 marks)</strong>. A candidate who scores above 85% in Sequences, Series, and Single Variable Calculus is statistically virtually guaranteed a top-200 All India Rank.
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-title">2. Capitalize on the 50-Mark Zero-Negative Penalty Buffer</div>
+        MSQ (Section B) and NAT (Section C) questions carry zero negative penalty. Never leave an MSQ or NAT blank! In NATs, always calculate to at least 2 decimal places to comfortably land within official tolerance intervals.
+      </div>
+
+      <div class="insight-box amber">
+        <div class="insight-title">3. Treat ODE and Group Theory as Guaranteed Points</div>
+        Ordinary Differential Equations (113 Qs) and Groups (101 Qs) have the most recurring canonical problem structures (exact ODEs, Wronskians, Cauchy-Euler, cyclic group generators, permutation parities, Sylow applications). These are the fastest marks on the paper.
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-title">4. Adopt Tiered Difficulty Drills</div>
+        Use the platform's difficulty filter to progress methodically:
+        <code>Easy/Medium (345 Qs)</code> $\to$ build fundamental computational speed $\to$ then tackle <code>Hard/Hardest (480 Qs)</code> to refine edge-case reasoning and multi-statement MSQ analysis.
+      </div>
+
+      <div class="insight-box green">
+        <div class="insight-title">5. Simulate Under Strict Exam Conditions</div>
+        Knowledge without time management results in unattempted questions. Practice with the online CBT simulator's 180-minute countdown timer and virtual calculator to build psychological stamina before test day.
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="../index.html#custom-generator" class="action-btn accent" style="font-size: 1rem; padding: 12px 28px;">
+          🛠️ Launch Custom Mock Test &amp; PDF Generator →
+        </a>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="width: 100%; border-top: 1px solid var(--card-border); background: #070a12; padding: 35px 20px; text-align: center; color: var(--muted); font-size: 0.82rem; line-height: 1.6;">
+    <p style="margin-bottom: 8px;">
+      <strong>IIT JAM Mathematics (MA) CBT Platform &amp; Examination Archive</strong> • Curated by <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">Vaibhav Geometer</a>
+    </p>
+    <p>
+      An open-source academic repository hosting 22 years of verified examination papers (2005–2026).
+    </p>
+    <p style="margin-top: 10px;">
+      <a href="../index.html" style="color: var(--text-secondary); text-decoration: none;">Portal Home</a> • 
+      <a href="../index.html#pyq-tracker" style="color: var(--text-secondary); text-decoration: none;">PYQ Tracker</a> • 
+      <a href="../index.html#custom-generator" style="color: var(--text-secondary); text-decoration: none;">Custom Generator</a> • 
+      <a href="../countdown/" style="color: var(--text-secondary); text-decoration: none;">2027 Countdown</a> • 
+      <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" style="color: var(--accent); text-decoration: none;">↑ Back to Top</a>
+    </p>
+  </footer>
+
+</body>
+</html>
+
