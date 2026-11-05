@@ -4287,7 +4287,6 @@
      */
     function isMatchInProgress() {
       if (state.mode === 'play') {
-        if (state.history.length <= 1) return false;
         const current = state.history[state.currentPly];
         if (!current) return false;
         const terminal = checkWinner(current.board);
@@ -4296,7 +4295,6 @@
       }
       if (state.mode === 'tournament') {
         if (!tournamentState.active) return false;
-        if (state.history.length <= 1) return false;
         const current = state.history[state.currentPly];
         if (!current) return false;
         const terminal = checkWinner(current.board);
