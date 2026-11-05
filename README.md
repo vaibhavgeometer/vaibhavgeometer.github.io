@@ -358,7 +358,7 @@ vaibhavgeometer.github.io/
 │   └── portfolio.css
 ├── 404.html                                   # Dynamic client-side router & 404 handler
 ├── index.html                                 # Personal portfolio landing page & platform showcase
-├── scratch/                                   # 📝 Development notes & demands
+├── scratch/                                   # 📝 Development utilities & verification scripts
 ├── .gitignore                                 # Git ignore specifications
 ├── LICENSE                                    # MIT License
 └── README.md                                  # Master repository documentation
