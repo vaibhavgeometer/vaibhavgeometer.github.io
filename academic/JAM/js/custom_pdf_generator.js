@@ -655,6 +655,7 @@
       doc.text(qType, rightBadgeX + (typeBadgeWidth / 2), cardTopY + 14, { align: 'center' });
 
       // Difficulty Badge
+      const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
       const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
         marks: qMarks,
         type: qType,
@@ -662,30 +663,32 @@
         year: q.year
       }) : { label: 'Medium', shortLabel: 'Medium', id: 'medium' };
 
-      const diffBadgeWidth = 38;
-      rightBadgeX -= (diffBadgeWidth + 4);
-      let diffBg = [254, 243, 199];
-      let diffStroke = [252, 211, 77];
-      let diffTextCol = [180, 83, 9];
+      if (qDiff.isUserTagged || !isHiddenSug) {
+        const diffBadgeWidth = 38;
+        rightBadgeX -= (diffBadgeWidth + 4);
+        let diffBg = [254, 243, 199];
+        let diffStroke = [252, 211, 77];
+        let diffTextCol = [180, 83, 9];
 
-      if (qDiff.id === 'very_easy') {
-        diffBg = [236, 253, 245]; diffStroke = [167, 243, 208]; diffTextCol = [6, 95, 70];
-      } else if (qDiff.id === 'easy') {
-        diffBg = [236, 254, 255]; diffStroke = [165, 243, 252]; diffTextCol = [14, 116, 144];
-      } else if (qDiff.id === 'hard') {
-        diffBg = [255, 241, 242]; diffStroke = [254, 205, 211]; diffTextCol = [190, 18, 60];
-      } else if (qDiff.id === 'hardest') {
-        diffBg = [250, 245, 255]; diffStroke = [233, 213, 255]; diffTextCol = [126, 34, 206];
+        if (qDiff.id === 'very_easy') {
+          diffBg = [236, 253, 245]; diffStroke = [167, 243, 208]; diffTextCol = [6, 95, 70];
+        } else if (qDiff.id === 'easy') {
+          diffBg = [236, 254, 255]; diffStroke = [165, 243, 252]; diffTextCol = [14, 116, 144];
+        } else if (qDiff.id === 'hard') {
+          diffBg = [255, 241, 242]; diffStroke = [254, 205, 211]; diffTextCol = [190, 18, 60];
+        } else if (qDiff.id === 'hardest') {
+          diffBg = [250, 245, 255]; diffStroke = [233, 213, 255]; diffTextCol = [126, 34, 206];
+        }
+
+        doc.setFillColor(diffBg[0], diffBg[1], diffBg[2]);
+        doc.setDrawColor(diffStroke[0], diffStroke[1], diffStroke[2]);
+        doc.setLineWidth(0.6);
+        doc.roundedRect(rightBadgeX, cardTopY + 3.5, diffBadgeWidth, 15, 3, 3, 'FD');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(6.5);
+        doc.setTextColor(diffTextCol[0], diffTextCol[1], diffTextCol[2]);
+        doc.text(qDiff.shortLabel || qDiff.label, rightBadgeX + (diffBadgeWidth / 2), cardTopY + 14, { align: 'center' });
       }
-
-      doc.setFillColor(diffBg[0], diffBg[1], diffBg[2]);
-      doc.setDrawColor(diffStroke[0], diffStroke[1], diffStroke[2]);
-      doc.setLineWidth(0.6);
-      doc.roundedRect(rightBadgeX, cardTopY + 3.5, diffBadgeWidth, 15, 3, 3, 'FD');
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(6.5);
-      doc.setTextColor(diffTextCol[0], diffTextCol[1], diffTextCol[2]);
-      doc.text(qDiff.shortLabel || qDiff.label, rightBadgeX + (diffBadgeWidth / 2), cardTopY + 14, { align: 'center' });
 
       // 4. Draw Screenshot Image Centered inside Card Body
       const imgX = marginX + ((contentWidth - imgDrawWidth) / 2);
@@ -817,6 +820,7 @@
         cellX += keySubCols[2];
 
         // Diff
+        const isHiddenSugInChunk = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
         const qDiffObj = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(qInChunk.id, {
           marks: qInChunk.marks,
           type: qInChunk.type,
@@ -826,7 +830,8 @@
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(6.8);
         doc.setTextColor(71, 85, 105);
-        doc.text(qDiffObj.shortLabel || qDiffObj.label || 'Med', cellX + (keySubCols[3] / 2), chunkY + 11, { align: 'center' });
+        const diffText = (qDiffObj.isUserTagged || !isHiddenSugInChunk) ? (qDiffObj.shortLabel || qDiffObj.label || 'Med') : '—';
+        doc.text(diffText, cellX + (keySubCols[3] / 2), chunkY + 11, { align: 'center' });
         cellX += keySubCols[3];
 
         // Official Key (Bold)

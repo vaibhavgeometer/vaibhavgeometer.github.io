@@ -153,7 +153,11 @@
               <button class="tracker-action-btn" id="btn-mark-oos-unnecessary" onclick="window.JAM_TRACKER.markAllOOSAsUnnecessary()" title="Toggle whether out of syllabus questions are marked unnecessary">
                 <span>🚫</span> <span>Mark Out of Syllabus as Unnecessary (87 Qs)</span>
               </button>
-                            <button class="tracker-action-btn stats-action-btn" id="btn-tracker-stats" onclick="window.JAM_STATS.openModal()" title="View Day-by-Day solving stats, streaks, velocity and analytics">
+              <button class="tracker-action-btn" id="btn-toggle-suggested-diff" onclick="window.JAM_DIFFICULTY.toggleHideSuggested()" title="Toggle visibility of suggested difficulty tags across the website">
+                <span id="btn-toggle-suggested-diff-icon">🙈</span>
+                <span id="btn-toggle-suggested-diff-text">Hide Suggested Difficulty</span>
+              </button>
+              <button class="tracker-action-btn stats-action-btn" id="btn-tracker-stats" onclick="window.JAM_STATS.openModal()" title="View Day-by-Day solving stats, streaks, velocity and analytics">
                 <span style="font-size:1.05rem;">📊</span>
                 <span>Study Stats</span>
                 <span class="stats-today-badge" id="stats-today-pill">Today: +0</span>

@@ -287,6 +287,48 @@
   background: rgba(245, 158, 11, 0.1);
 }
 
+.tracker-action-btn.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: var(--accent);
+}
+
+.btn-diff-toggle-mini {
+  margin-left: auto;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-diff-toggle-mini:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  border-color: var(--accent);
+}
+
+.btn-diff-toggle-mini.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: var(--accent);
+}
+
+/* Hide Suggested Difficulty Global Rules */
+html.hide-suggested-difficulty .q-diff-badge.is-suggested,
+body.hide-suggested-difficulty .q-diff-badge.is-suggested,
+html.hide-suggested-difficulty .is-suggested:not(.q-diff-badge-btn),
+body.hide-suggested-difficulty .is-suggested:not(.q-diff-badge-btn) {
+  display: none !important;
+}
+
 /* ==========================================================================
    Search Box & Smart Chips
    ========================================================================== */

@@ -359,6 +359,7 @@
 
     // Difficulty Distribution
     const diffContainer = document.getElementById('difficulty-dist-pills');
+    const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
     if (diffContainer) {
       diffContainer.innerHTML = `
         <span class="difficulty-dist-label">Tagged Difficulty:</span>
@@ -368,6 +369,9 @@
         <span class="diff-pill diff-hard">🟠 Hard: ${stats.diffCounts.hard}</span>
         <span class="diff-pill diff-hardest">🟣 Hardest: ${stats.diffCounts.hardest}</span>
         <span class="diff-pill diff-unrated">⚪ Unrated: ${stats.diffCounts.unrated}</span>
+        <button type="button" class="btn-diff-toggle-mini ${isHiddenSug ? 'active' : ''}" id="btn-diff-toggle-mini" onclick="window.JAM_DIFFICULTY.toggleHideSuggested()" title="Toggle visibility of suggested difficulty tags">
+          ${isHiddenSug ? '👁️ Show Suggested' : '🙈 Hide Suggested'}
+        </button>
       `;
     }
 
@@ -596,7 +600,9 @@
     const diffBadgeHtml = (qDiff && window.JAM_DIFFICULTY)
       ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' })
       : '';
+    const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
     const suggestedLabel = qDiff?.suggestedLevel?.label || 'Medium';
+    const unratedOptionLabel = isHiddenSug ? '🏷️ Unrated' : `🏷️ Unrated (Suggested: ${suggestedLabel})`;
 
     const qType = (q.type || 'MCQ').toUpperCase();
     const typeClass = qType.toLowerCase();
@@ -640,7 +646,7 @@
 
             <!-- Difficulty Tag Selector -->
             <select class="q-diff-select ${currentDiff ? 'is-user-tagged' : 'is-unrated'}" onchange="window.JAM_TRACKER.setDifficulty('${q.id}', this.value)" title="Tag question difficulty">
-              <option value="" ${!currentDiff ? 'selected' : ''}>🏷️ Unrated (Suggested: ${suggestedLabel})</option>
+              <option value="" ${!currentDiff ? 'selected' : ''}>${unratedOptionLabel}</option>
               <option value="very_easy" ${currentDiff === 'very_easy' ? 'selected' : ''}>🟢 Very Easy ${currentDiff === 'very_easy' ? '★ My Tag' : ''}</option>
               <option value="easy" ${currentDiff === 'easy' ? 'selected' : ''}>🔵 Easy ${currentDiff === 'easy' ? '★ My Tag' : ''}</option>
               <option value="medium" ${currentDiff === 'medium' ? 'selected' : ''}>🟡 Medium ${currentDiff === 'medium' ? '★ My Tag' : ''}</option>
@@ -805,7 +811,9 @@
     const diffBadgeHtml = (qDiff && window.JAM_DIFFICULTY)
       ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' })
       : '';
+    const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
     const suggestedLabel = qDiff?.suggestedLevel?.label || 'Medium';
+    const unratedOptionLabel = isHiddenSug ? '🏷️ Unrated' : `🏷️ Unrated (Suggested: ${suggestedLabel})`;
 
     if (modal) {
       modal.innerHTML = `
@@ -828,7 +836,7 @@
                   ${isSolved ? '✓ Solved' : '○ Mark Solved'}
                 </button>
                 <select class="q-diff-select ${userState.difficulty ? 'is-user-tagged' : 'is-unrated'}" onchange="window.JAM_TRACKER.setDifficulty('${q.id}', this.value); window.JAM_TRACKER.openModal('${q.id}');">
-                  <option value="" ${!userState.difficulty ? 'selected' : ''}>🏷️ Unrated (Suggested: ${suggestedLabel})</option>
+                  <option value="" ${!userState.difficulty ? 'selected' : ''}>${unratedOptionLabel}</option>
                   <option value="very_easy" ${userState.difficulty === 'very_easy' ? 'selected' : ''}>🟢 Very Easy ${userState.difficulty === 'very_easy' ? '★ My Tag' : ''}</option>
                   <option value="easy" ${userState.difficulty === 'easy' ? 'selected' : ''}>🔵 Easy ${userState.difficulty === 'easy' ? '★ My Tag' : ''}</option>
                   <option value="medium" ${userState.difficulty === 'medium' ? 'selected' : ''}>🟡 Medium ${userState.difficulty === 'medium' ? '★ My Tag' : ''}</option>

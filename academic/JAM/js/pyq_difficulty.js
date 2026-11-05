@@ -249,6 +249,134 @@
     }
   }
 
+  const HIDE_SUGGESTED_KEY = 'jam_hide_suggested_difficulty';
+
+  /**
+   * Check if suggested difficulty is hidden across the website
+   */
+  function isHideSuggested() {
+    try {
+      return localStorage.getItem(HIDE_SUGGESTED_KEY) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /**
+   * Set visibility of suggested difficulty
+   */
+  function setHideSuggested(shouldHide) {
+    try {
+      localStorage.setItem(HIDE_SUGGESTED_KEY, shouldHide ? 'true' : 'false');
+    } catch (e) {}
+
+    // Apply or remove classes
+    if (document.documentElement) {
+      document.documentElement.classList.toggle('hide-suggested-difficulty', shouldHide);
+    }
+    if (document.body) {
+      document.body.classList.toggle('hide-suggested-difficulty', shouldHide);
+    }
+
+    // Update buttons in DOM
+    updateToggleButtonsUI(shouldHide);
+
+    // Notify any active components
+    try {
+      window.dispatchEvent(new CustomEvent('jam-difficulty-visibility-changed', {
+        detail: { hideSuggested: shouldHide }
+      }));
+    } catch (e) {}
+
+    // If tracker is loaded, re-render question list & modal dropdowns
+    if (window.JAM_TRACKER && typeof window.JAM_TRACKER.render === 'function') {
+      window.JAM_TRACKER.render();
+    }
+
+    // If mock test is active, update current question difficulty UI
+    if (window.updateCurrentQuestionDifficultyUI) {
+      window.updateCurrentQuestionDifficultyUI();
+    }
+  }
+
+  /**
+   * Toggle visibility of suggested difficulty across the website
+   */
+  function toggleHideSuggested() {
+    const next = !isHideSuggested();
+    setHideSuggested(next);
+
+    const msg = next
+      ? '🙈 Suggested difficulty is now hidden across the website.'
+      : '👁️ Suggested difficulty is now visible across the website.';
+
+    if (window.JAM_TRACKER && typeof window.JAM_TRACKER.showToast === 'function') {
+      window.JAM_TRACKER.showToast(msg);
+    } else if (window.showToast) {
+      window.showToast(msg);
+    }
+
+    return next;
+  }
+
+  /**
+   * Sync toggle button states across the UI
+   */
+  function updateToggleButtonsUI(shouldHide) {
+    const isHidden = shouldHide !== undefined ? shouldHide : isHideSuggested();
+
+    // 1. Main Tracker Actions Bar Button
+    const mainBtn = document.getElementById('btn-toggle-suggested-diff');
+    const mainIcon = document.getElementById('btn-toggle-suggested-diff-icon');
+    const mainText = document.getElementById('btn-toggle-suggested-diff-text');
+    if (mainBtn) {
+      if (isHidden) {
+        mainBtn.classList.add('active');
+        if (mainIcon) mainIcon.textContent = '👁️';
+        if (mainText) mainText.textContent = 'Show Suggested Difficulty';
+        mainBtn.title = 'Suggested difficulty is currently hidden. Click to show suggested exam difficulty badges.';
+      } else {
+        mainBtn.classList.remove('active');
+        if (mainIcon) mainIcon.textContent = '🙈';
+        if (mainText) mainText.textContent = 'Hide Suggested Difficulty';
+        mainBtn.title = 'Click to hide all suggested difficulty benchmarks across the whole website.';
+      }
+    }
+
+    // 2. Mini Toggle Button in Tagged Difficulty row
+    const miniBtn = document.getElementById('btn-diff-toggle-mini');
+    if (miniBtn) {
+      if (isHidden) {
+        miniBtn.classList.add('active');
+        miniBtn.innerHTML = '👁️ Show Suggested';
+        miniBtn.title = 'Suggested difficulty is hidden. Click to show.';
+      } else {
+        miniBtn.classList.remove('active');
+        miniBtn.innerHTML = '🙈 Hide Suggested';
+        miniBtn.title = 'Hide suggested difficulty badges.';
+      }
+    }
+
+    // 3. Mock Test Toggle Button
+    const mockBtn = document.getElementById('btn-mock-toggle-diff');
+    if (mockBtn) {
+      if (isHidden) {
+        mockBtn.classList.add('active');
+        mockBtn.innerHTML = '👁️ Show Suggested';
+      } else {
+        mockBtn.classList.remove('active');
+        mockBtn.innerHTML = '🙈 Hide Suggested';
+      }
+    }
+  }
+
+  // Pre-apply class to prevent flash of content
+  if (isHideSuggested()) {
+    if (document.documentElement) {
+      document.documentElement.classList.add('hide-suggested-difficulty');
+    }
+  }
+
   /**
    * Generate standard HTML badge string
    */
@@ -257,18 +385,23 @@
     const isInteractive = !!options.interactive;
     const size = options.size || 'md'; // sm, md, lg
     const sug = diffObj.suggestedLevel || diffObj;
+    const isHidden = isHideSuggested();
 
     if (diffObj.isUserTagged) {
+      const sugNote = isHidden ? '' : ` (Suggested: ${sug.label})`;
       return `
         <span class="q-diff-badge ${diffObj.class} size-${size} is-user-tagged ${isInteractive ? 'interactive' : ''}"
               style="background:${diffObj.bg}; color:${diffObj.color}; border:1px solid ${diffObj.border};"
               data-diff="${diffObj.id}"
-              title="Your Custom Tag: ${diffObj.label} (Suggested: ${sug.label})">
+              title="Your Custom Tag: ${diffObj.label}${sugNote}">
           <span class="diff-icon">${diffObj.icon}</span>
           <span class="diff-text">${diffObj.label} <span class="diff-tag-pill user">★ My Tag</span></span>
         </span>
       `;
     } else {
+      if (isHidden) {
+        return '';
+      }
       return `
         <span class="q-diff-badge ${sug.class} size-${size} is-suggested ${isInteractive ? 'interactive' : ''}"
               style="background:${sug.bg}; color:${sug.color}; border:1px dashed ${sug.border};"
@@ -281,13 +414,33 @@
     }
   }
 
+  // Initialize state on DOM ready
+  function initDifficultyUI() {
+    if (isHideSuggested()) {
+      if (document.body) {
+        document.body.classList.add('hide-suggested-difficulty');
+      }
+    }
+    updateToggleButtonsUI();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDifficultyUI);
+  } else {
+    initDifficultyUI();
+  }
+
   // Export to global window scope
   window.JAM_DIFFICULTY = {
     LEVELS: DIFFICULTY_LEVELS,
     inferBaselineDifficulty,
     getDifficulty: getQuestionDifficulty,
     setDifficulty: setQuestionDifficulty,
-    getBadgeHtml: getDifficultyBadgeHtml
+    getBadgeHtml: getDifficultyBadgeHtml,
+    isHideSuggested,
+    setHideSuggested,
+    toggleHideSuggested,
+    updateToggleButtonsUI
   };
 
   window.getJAMQuestionDifficulty = getQuestionDifficulty;
