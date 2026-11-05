@@ -1,147 +1,1802 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>m,n,k-game & genralizations — Vaibhav Geometer</title>
-  <meta name="description" content="m,n,k-game & genralizations: interactive game-theoretic engine, SOTA AI, tournaments, Lichess clocks, solved status atlas, and research compendium.">
+  <title>lichess.org • (m,n,k)-games &amp; generalizations</title>
+  <meta name="description" content="Free online (m,n,k)-games platform: interactive game theory engine, StockTic SOTA AI, tournaments, Lichess clocks, solved status atlas, and research compendium.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    .mnk-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    /* ==========================================================================
+       Lichess.org Authentic Minimal Theme for (m,n,k)-Games
+       ========================================================================== */
+    :root {
+      --bg-page: #161512;
+      --bg-header: #161512;
+      --bg-panel: #262421;
+      --bg-card: #262421;
+      --bg-card-hover: #302e2b;
+      --bg-button: #262421;
+      --bg-button-hover: #363431;
+      --bg-tab-hover: #211f1c;
+
+      --border: #363431;
+      --border-subtle: #2b2824;
+      --border-hover: #48443f;
+
+      --text-bright: #ffffff;
+      --text-main: #bababa;
+      --text-muted: #73706c;
+      --text-dim: #54514d;
+
+      --accent-orange: #d97724;
+      --accent-gold: #e69f00;
+      --accent-green: #629924;
+      --accent-blue: #3692e7;
+
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
     }
-    .mnk-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.2s ease;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
-    .mnk-card:hover {
-      border-color: #629924;
-      transform: translateY(-2px);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      color: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    /* --------------------------------------------------------------------------
+       Top Navigation Bar (Authentic Lichess Style)
+       -------------------------------------------------------------------------- */
+    .site-nav {
+      background-color: var(--bg-header);
+      border-bottom: 1px solid var(--border-subtle);
+      height: 44px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 0.25rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-right: 1.25rem;
+      padding: 0.2rem 0;
+      text-decoration: none;
+    }
+
+    .brand-logo svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: #bababa;
+      stroke-width: 2.2;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      transition: stroke 0.15s ease;
+    }
+
+    .brand-logo:hover svg {
+      stroke: var(--text-bright);
+    }
+
+    .brand-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-bright);
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+
+    .brand-title .brand-tld {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #2a2825;
+      color: var(--accent-gold);
+      border: 1px solid var(--border);
+      padding: 1px 5px;
+      border-radius: var(--radius-sm);
+      margin-left: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .nav-link:hover, .nav-item:hover .nav-link {
+      color: var(--text-bright);
+      background-color: var(--bg-card-hover);
+    }
+
+    .nav-link.donate-link {
+      color: var(--accent-gold);
+      gap: 0.35rem;
+    }
+
+    .nav-link.donate-link:hover {
+      color: #ffbf36;
+    }
+
+    /* Dropdown Menus */
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 230px;
+      background-color: #1e1c18;
+      border: 1px solid var(--border);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      padding: 0.35rem 0;
+      display: none;
+      z-index: 120;
+    }
+
+    .nav-item:hover .nav-dropdown {
+      display: block;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+      text-transform: none;
+      letter-spacing: normal;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+
+    .dropdown-link:hover {
+      background-color: var(--bg-button-hover);
+      color: var(--text-bright);
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background-color: var(--border);
+      margin: 0.35rem 0;
+    }
+
+    /* Nav Right Controls */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .nav-icon-btn:hover {
+      color: var(--text-bright);
+      background-color: var(--bg-card-hover);
+    }
+
+    .nav-icon-btn svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .user-pill:hover {
+      background-color: var(--bg-card-hover);
+      color: var(--text-bright);
+    }
+
+    .user-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #363431;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text-bright);
+    }
+
+    /* --------------------------------------------------------------------------
+       Main Page Layout (Lichess 3-Column Grid)
+       -------------------------------------------------------------------------- */
+    .main-wrapper {
+      flex: 1;
+      max-width: 1360px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 280px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1100px) {
+      .portal-grid {
+        grid-template-columns: 1fr 280px;
+      }
+      .col-left {
+        order: 3;
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-left {
+        grid-column: span 1;
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       Left Column (Tournaments, Streamer Banner & Community Feed)
+       -------------------------------------------------------------------------- */
+    .col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      transition: border-color 0.15s ease;
+    }
+
+    .highlight-banner:hover {
+      border-color: var(--border-hover);
+    }
+
+    .highlight-banner .stream-icon {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+    }
+
+    .highlight-banner .stream-title {
+      font-weight: 600;
+      color: var(--text-bright);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .highlight-banner .stream-arrow {
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Tournament Card Box */
+    .side-box {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .tourn-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.12s ease;
+      text-decoration: none;
+    }
+
+    .tourn-item:last-child {
+      border-bottom: none;
+    }
+
+    .tourn-item:hover {
+      background-color: var(--bg-card-hover);
+    }
+
+    .tourn-icon-box {
+      font-size: 1.25rem;
+      width: 28px;
+      display: flex;
+      justify-content: center;
+      color: #df6438;
+    }
+
+    .tourn-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tourn-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+
+    .tourn-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Activity Feed Box */
+    .activity-feed {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feed-item {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--text-muted);
+      transition: background 0.12s ease;
+    }
+
+    .feed-item:last-child {
+      border-bottom: none;
+    }
+
+    .feed-item:hover {
+      background-color: var(--bg-card-hover);
+    }
+
+    .feed-author {
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+
+    .feed-author:hover {
+      color: var(--accent-gold);
+    }
+
+    .feed-meta {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* --------------------------------------------------------------------------
+       Center Column (Tabs, 3x4 Quick Pairing Grid, Watermark, Lobby, Solved)
+       -------------------------------------------------------------------------- */
+    .col-center {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tabs Bar */
+    .tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0;
+    }
+
+    .tab-btn {
+      padding: 0.65rem 1.15rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: relative;
+      transition: color 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-bright);
+    }
+
+    .tab-btn.active {
+      color: var(--text-bright);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-orange);
+      border-radius: 2px 2px 0 0;
+    }
+
+    /* Quick Pairing Container */
+    .quick-wrap {
+      position: relative;
+    }
+
+    /* Authentic Lichess Watermark Horse Outline */
+    .grid-watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.11;
+      stroke: #bababa;
+      fill: none;
+    }
+
+    /* 3x4 Pairing Grid */
+    .pairing-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 520px) {
+      .pairing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+    }
+
+    .pairing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.35rem 0.75rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.12s ease, border-color 0.12s ease;
+      min-height: 94px;
+    }
+
+    .pairing-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+    }
+
+    .card-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.15;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.12s ease;
+    }
+
+    .pairing-card:hover .card-title {
+      color: var(--text-bright);
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      transition: color 0.12s ease;
+    }
+
+    .pairing-card:hover .card-subtitle {
+      color: var(--text-main);
+    }
+
+    /* Lobby View Tab */
+    .lobby-table-wrap {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      display: none;
+    }
+
+    .lobby-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .lobby-table th {
+      background: #1e1c18;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .lobby-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .lobby-table tr:hover td {
+      background-color: var(--bg-card-hover);
+    }
+
+    .btn-table-play {
+      background: #363431;
+      color: var(--text-bright);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.75rem;
+      transition: background 0.15s ease;
+      display: inline-block;
+    }
+
+    .btn-table-play:hover {
+      background: var(--accent-green);
+    }
+
+    /* Solved Atlas / Correspondence View Tab */
+    .solved-quick-wrap {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: none;
+    }
+
+    .solved-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .solved-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .solved-table td, .solved-table th {
+      padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .solved-table th {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .badge-win {
+      color: #7ec62f;
+      font-weight: 600;
+    }
+
+    .badge-draw {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    /* --------------------------------------------------------------------------
+       Right Column (Lichess Primary Action Buttons & Live Stats)
+       -------------------------------------------------------------------------- */
+    .col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .btn-action {
+      background: var(--bg-button);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0 1.15rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      width: 100%;
+    }
+
+    .btn-action:hover {
+      background: var(--bg-button-hover);
+      border-color: var(--border-hover);
+      color: var(--text-bright);
+    }
+
+    .btn-action svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--text-muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-action:hover svg {
+      stroke: var(--text-bright);
+    }
+
+    .action-subtext {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* Engine & Game Stats */
+    .stats-footer {
+      margin-top: 1.5rem;
+      text-align: right;
+      padding-right: 0.5rem;
+    }
+
+    .stat-line {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .stat-line .stat-num {
+      color: var(--text-bright);
+      font-weight: 700;
+    }
+
+    /* --------------------------------------------------------------------------
+       Lichess Footer
+       -------------------------------------------------------------------------- */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      background: #141311;
+      padding: 2.5rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      transition: color 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-bright);
+    }
+
+    .footer-copy {
+      max-width: 1360px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* --------------------------------------------------------------------------
+       Modal Windows (Authentic Lichess Dialogs)
+       -------------------------------------------------------------------------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(3px);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-box {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      width: 100%;
+      max-width: 460px;
+      overflow: hidden;
+      animation: modalFadeIn 0.15s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+
+    .modal-close {
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--text-bright);
+    }
+
+    .modal-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #1e1c18;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent-orange);
+      cursor: pointer;
+    }
+
+    .side-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+
+    .btn-side {
+      background: #1e1c18;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .btn-side.selected, .btn-side:hover {
+      border-color: var(--accent-orange);
+      background: var(--bg-card-hover);
+      color: var(--text-bright);
+    }
+
+    .btn-modal-submit {
+      background: var(--accent-green);
+      color: #ffffff;
+      padding: 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+      transition: background 0.15s ease;
+      box-shadow: 0 4px 12px rgba(98, 153, 36, 0.3);
+    }
+
+    .btn-modal-submit:hover {
+      background: #73b32a;
     }
   </style>
 </head>
 <body>
-  <div class="bg-mesh" aria-hidden="true"></div>
 
+  <!-- Top Navigation Bar -->
   <header class="site-nav">
-    <div class="container nav-inner">
-      <a href="../" class="brand-wrap" title="Vaibhav Geometer">
-        <div class="brand-icon-box">📐</div>
-        <span class="brand-text">Vaibhav Geometer</span>
-      </a>
-      <div class="nav-controls">
-        <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">Analysis Board</a>
-        <a href="mnk_games_theory_and_ai.html" class="nav-link">Theory & AI</a>
-        <a href="solved_status_of_mnk_games.html" class="nav-link">Solved Atlas</a>
-        <a href="../academic/" class="nav-link">Academic Portals</a>
-        <a href="../" class="nav-link">Home</a>
+    <div class="nav-container">
+      <div class="nav-left">
+        <!-- Logo -->
+        <a href="../" class="brand-logo" title="Vaibhav Geometer • (m,n,k)-Games">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/>
+          </svg>
+          <span class="brand-title">lichess<span class="brand-tld">.org</span></span>
+          <span class="brand-badge">mnk</span>
+        </a>
+
+        <!-- Menu items with Dropdowns -->
+        <ul class="nav-menu">
+          <!-- PLAY -->
+          <li class="nav-item">
+            <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">Play</a>
+            <div class="nav-dropdown">
+              <a href="#" class="dropdown-link" onclick="openModal('modal-custom'); return false;">
+                <span>⚙️</span>
+                <span>Create a game</span>
+              </a>
+              <a href="#" class="dropdown-link" onclick="openModal('modal-computer'); return false;">
+                <span>🤖</span>
+                <span>Play against computer</span>
+              </a>
+              <a href="lichess_tic_tac_toe_analysis_board.html#play" class="dropdown-link">
+                <span>👥</span>
+                <span>Challenge a friend (Pass &amp; Play)</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link">
+                <span>🏆</span>
+                <span>Tournament Arena</span>
+              </a>
+              <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="dropdown-link">
+                <span>✏️</span>
+                <span>Board Editor &amp; Barriers (#)</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- PUZZLES / THEORY -->
+          <li class="nav-item">
+            <a href="mnk_games_theory_and_ai.html" class="nav-link">Theory</a>
+            <div class="nav-dropdown">
+              <a href="mnk_games_theory_and_ai.html" class="dropdown-link">
+                <span>📖</span>
+                <span>Mathematics &amp; SOTA AI Paper</span>
+              </a>
+              <a href="mnk_games_theory_and_ai.html#strategy-stealing" class="dropdown-link">
+                <span>⚡</span>
+                <span>Nash's Strategy-Stealing</span>
+              </a>
+              <a href="mnk_games_theory_and_ai.html#ramsey" class="dropdown-link">
+                <span>🛡️</span>
+                <span>Ramsey &amp; Hales-Jewett Proofs</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- LEARN -->
+          <li class="nav-item">
+            <a href="solved_status_of_mnk_games.html" class="nav-link">Learn</a>
+            <div class="nav-dropdown">
+              <a href="solved_status_of_mnk_games.html" class="dropdown-link">
+                <span>📊</span>
+                <span>Solved Status Atlas (k=1..8+)</span>
+              </a>
+              <a href="mnk_games_theory_and_ai.html#rules" class="dropdown-link">
+                <span>📜</span>
+                <span>Rules of (m,n,k,j)-Games</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- WATCH -->
+          <li class="nav-item">
+            <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="nav-link">Watch</a>
+            <div class="nav-dropdown">
+              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link">
+                <span>🏆</span>
+                <span>Arena Knockout Tournaments</span>
+              </a>
+              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link">
+                <span>⚔️</span>
+                <span>AI vs AI Engine Battles</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- COMMUNITY -->
+          <li class="nav-item">
+            <a href="../" class="nav-link">Community</a>
+            <div class="nav-dropdown">
+              <a href="../" class="dropdown-link">
+                <span>📐</span>
+                <span>Vaibhav Geometer Portfolio</span>
+              </a>
+              <a href="../academic/" class="dropdown-link">
+                <span>🎓</span>
+                <span>Academic &amp; Research Portals</span>
+              </a>
+              <a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener" class="dropdown-link">
+                <span>🐙</span>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- TOOLS -->
+          <li class="nav-item">
+            <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">Tools</a>
+            <div class="nav-dropdown">
+              <a href="lichess_tic_tac_toe_analysis_board.html" class="dropdown-link">
+                <span>♟️</span>
+                <span>Analysis Board</span>
+              </a>
+              <a href="solved_status_of_mnk_games.html" class="dropdown-link">
+                <span>📊</span>
+                <span>Solved Status Atlas Matrix</span>
+              </a>
+              <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link">
+                <span>📥</span>
+                <span>Download Dataset (.xlsx)</span>
+              </a>
+              <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="dropdown-link">
+                <span>✏️</span>
+                <span>Board Editor</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- DONATE / ACADEMIC -->
+          <li class="nav-item">
+            <a href="../academic/" class="nav-link donate-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Donate</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Nav Right Controls -->
+      <div class="nav-right">
+        <button class="nav-icon-btn" title="Search variants &amp; guides" onclick="openModal('modal-search')">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="nav-icon-btn" title="Quick Match" onclick="openModal('modal-custom')">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </button>
+        <button class="nav-icon-btn" title="Settings / Info" onclick="alert('StockTic Engine & (m,n,k)-Games System\nVersion: 2026.1\nDimensions: 1x1 to 32x32\nThreat-Space Search AI: Level 1 to 8 (600-3000 Elo)')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <a href="../" class="user-pill" title="Vaibhav Geometer Profile">
+          <div class="user-avatar">VG</div>
+          <span>vaibhavgeometer</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <main class="main-content">
-    <div class="container">
-      <section class="hero-simple">
-        <h1 class="hero-title">m,n,k-game & genralizations</h1>
-        <p class="hero-desc">Interactive game theory engine, SOTA AI analysis board, tournament platform, and verified research atlas.</p>
-      </section>
+  <!-- Main Content Layout -->
+  <main class="main-wrapper">
+    <div class="portal-grid">
 
-      <div class="mnk-grid">
-        <!-- StockTic Board -->
-        <div class="mnk-card">
-          <div>
-            <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(98, 153, 36, 0.15); border-color: rgba(98, 153, 36, 0.35); color: #7ec62f;">Interactive Engine</div>
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
-              m,n,k-game & genralizations Analysis Board
-            </h2>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-              Full Lichess-inspired analysis board supporting arbitrary dimensions from 1&times;1 to 32&times;32, win length k=1..8, multi-player (m,n,k,j) games, tournament system (Round Robin & Knockout), offline multiplayer with real Lichess clocks, board editor with active frozen barrier squares (#), and calibrated SOTA AI difficulty levels (600 to 3000 Elo).
-            </p>
+      <!-- LEFT COLUMN: Tournaments & Research Community Feed -->
+      <aside class="col-left">
+        <!-- StockTic Engine Highlight -->
+        <a href="lichess_tic_tac_toe_analysis_board.html" class="highlight-banner" title="StockTic SOTA AI & Threat-Space Search">
+          <div style="display: flex; align-items: center; gap: 0.65rem; min-width: 0;">
+            <span class="stream-icon">♟️</span>
+            <div>
+              <div class="stream-title">StockTic SOTA AI Engine</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Iterative Deepening &amp; Eval Bar</div>
+            </div>
           </div>
-          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="lichess_tic_tac_toe_analysis_board.html" class="btn-primary" style="justify-content: center; text-decoration: none; background: #629924; border-color: #629924;">
-              <span>♟️ Launch Analysis Board</span>
-              <span>→</span>
+          <span class="stream-arrow">Engine »</span>
+        </a>
+
+        <!-- Tournaments Box -->
+        <div class="side-box">
+          <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="tourn-item">
+            <div class="tourn-icon-box">🔥</div>
+            <div class="tourn-details">
+              <div class="tourn-name">Knockout Arena Championship</div>
+              <div class="tourn-meta">8 Players &amp; AIs • Playing now</div>
+            </div>
+          </a>
+          <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="tourn-item">
+            <div class="tourn-icon-box">🔥</div>
+            <div class="tourn-details">
+              <div class="tourn-name">Round Robin Grand Prix</div>
+              <div class="tourn-meta">All-play-all bracket • Active</div>
+            </div>
+          </a>
+          <a href="lichess_tic_tac_toe_analysis_board.html?j=3" class="tourn-item">
+            <div class="tourn-icon-box">🎲</div>
+            <div class="tourn-details">
+              <div class="tourn-name">Generalized (m,n,k,j) League</div>
+              <div class="tourn-meta">3–4 Circular turns • In 2 hours</div>
+            </div>
+          </a>
+          <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="tourn-item">
+            <div class="tourn-icon-box">🔥</div>
+            <div class="tourn-details">
+              <div class="tourn-name">Mini-Gomoku (5,5,4) Trophy</div>
+              <div class="tourn-meta">Tactical Blitz • Playing now</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Activity Feed (Community & Research) -->
+        <div class="side-box activity-feed">
+          <div class="feed-item">
+            <a href="solved_status_of_mnk_games.html" class="feed-author">Solved Status Atlas</a>
+            <span>fact-checked solutions from k=1 to k≥8 complete</span>
+            <div class="feed-meta">Verified Game Theory • 16 hours ago</div>
+          </div>
+          <div class="feed-item">
+            <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="feed-author">Excel Dataset (.xlsx)</a>
+            <span>full matrix dataset available for direct research download</span>
+            <div class="feed-meta">Open Science Data • 2 days ago</div>
+          </div>
+          <div class="feed-item">
+            <a href="mnk_games_theory_and_ai.html" class="feed-author">The Mathematics &amp; SOTA AI</a>
+            <span>treatise on Nash's strategy-stealing &amp; Ramsey theory</span>
+            <div class="feed-meta">Research Guide • 3 days ago</div>
+          </div>
+          <div class="feed-item">
+            <a href="mnk_games_theory_and_ai.html#hales" class="feed-author">Hales-Jewett Theorem</a>
+            <span>pairing strategy proves second-player draw for k≥8</span>
+            <div class="feed-meta">Mathematical Proof • 3 days ago</div>
+          </div>
+          <div class="feed-item">
+            <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="feed-author">Board Editor &amp; Barriers</a>
+            <span>active frozen obstacle squares (#) configured</span>
+            <div class="feed-meta">Analysis Engine • 5 days ago</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CENTER COLUMN: Tabs & Iconic Quick Pairing Grid -->
+      <section class="col-center">
+        <!-- Tabs Navigation -->
+        <nav class="tabs-bar">
+          <button class="tab-btn active" id="tab-quick-btn" onclick="switchTab('quick')">Quick pairing</button>
+          <button class="tab-btn" id="tab-lobby-btn" onclick="switchTab('lobby')">Lobby</button>
+          <button class="tab-btn" id="tab-corr-btn" onclick="switchTab('corr')">Correspondence</button>
+        </nav>
+
+        <!-- 1. Quick Pairing Tab Panel -->
+        <div id="panel-quick" class="quick-wrap">
+          <!-- Authentic Lichess Watermark Horse Outline -->
+          <svg class="grid-watermark" viewBox="0 0 200 200">
+            <path stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M142,32 C146,24 153,24 157,32 C159,38 162,56 168,76 C173,92 165,110 148,114 C132,118 120,110 110,98 C102,88 95,116 88,145 C84,162 76,178 60,178 C48,178 44,166 46,148 C50,114 62,64 96,44 C116,32 136,36 142,32 Z"/>
+          </svg>
+
+          <!-- 3x4 Pairing Grid (12 Popular Presets) -->
+          <div class="pairing-grid">
+            <!-- Row 1 -->
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=3&n=3&k=3" class="pairing-card">
+              <div class="card-title">3×3 (k=3)</div>
+              <div class="card-subtitle">Tic-Tac-Toe</div>
             </a>
-            <div style="display: flex; gap: 0.5rem;">
-              <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="btn-secondary" style="flex: 1; justify-content: center; text-decoration: none; font-size: 0.85rem;">
-                🎯 (5,5,4) Board
-              </a>
-              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="btn-secondary" style="flex: 1; justify-content: center; text-decoration: none; font-size: 0.85rem;">
-                🏆 Tournaments
-              </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=4&n=4&k=4" class="pairing-card">
+              <div class="card-title">4×4 (k=4)</div>
+              <div class="card-subtitle">4-in-a-Row</div>
+            </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="pairing-card">
+              <div class="card-title">5×5 (k=4)</div>
+              <div class="card-subtitle">Mini-Gomoku</div>
+            </a>
+
+            <!-- Row 2 -->
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=7&n=6&k=4" class="pairing-card">
+              <div class="card-title">7×6 (k=4)</div>
+              <div class="card-subtitle">Connect Four</div>
+            </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=8&n=8&k=5" class="pairing-card">
+              <div class="card-title">8×8 (k=5)</div>
+              <div class="card-subtitle">Freestyle 8×8</div>
+            </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=10&n=10&k=5" class="pairing-card">
+              <div class="card-title">10×10 (k=5)</div>
+              <div class="card-subtitle">Freestyle 10×10</div>
+            </a>
+
+            <!-- Row 3 -->
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=15&n=15&k=5" class="pairing-card">
+              <div class="card-title">15×15 (k=5)</div>
+              <div class="card-subtitle">Standard Gomoku</div>
+            </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=19&n=19&k=5" class="pairing-card">
+              <div class="card-title">19×19 (k=5)</div>
+              <div class="card-subtitle">Renju / Go Board</div>
+            </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html?m=32&n=32&k=6" class="pairing-card">
+              <div class="card-title">32×32 (k=6)</div>
+              <div class="card-subtitle">Max Board</div>
+            </a>
+
+            <!-- Row 4 -->
+            <a href="lichess_tic_tac_toe_analysis_board.html#play" class="pairing-card">
+              <div class="card-title">1 + 0</div>
+              <div class="card-subtitle">Bullet Clocks</div>
+            </a>
+            <a href="lichess_tic_tac_toe_analysis_board.html#play" class="pairing-card">
+              <div class="card-title">3 + 2</div>
+              <div class="card-subtitle">Blitz Clocks</div>
+            </a>
+            <div class="pairing-card" onclick="openModal('modal-custom')">
+              <div class="card-title" style="color: var(--accent-orange);">Custom</div>
+              <div class="card-subtitle">Custom (m,n,k,j)</div>
             </div>
           </div>
         </div>
 
-        <!-- Solved Status Atlas (New) -->
-        <div class="mnk-card">
-          <div>
-            <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(230, 159, 0, 0.15); border-color: rgba(230, 159, 0, 0.35); color: #f3b12b;">Verified Game Theory</div>
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
-              Solved Status of (m,n,k)-Games
-            </h2>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-              Comprehensive, fact-checked atlas of game-theoretic values from $k=1$ to $k \ge 8$. Includes complete solutions for Gomoku ($k=5$), pairings for $k=6,7$, Hales-Jewett draws for $k \ge 8$, an interactive cell inspector with 1-click launch, and direct Excel dataset download.
-            </p>
-          </div>
-          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="solved_status_of_mnk_games.html" class="btn-primary" style="justify-content: center; text-decoration: none; background: #e69f00; border-color: #e69f00; color: #161512;">
-              <span>📊 Explore Solved Atlas</span>
-              <span>→</span>
-            </a>
-            <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-secondary" style="justify-content: center; text-decoration: none; font-size: 0.85rem;">
-              <span>📥 Download Excel Dataset (.xlsx)</span>
-            </a>
-          </div>
+        <!-- 2. Lobby Tab Panel -->
+        <div id="panel-lobby" class="lobby-table-wrap">
+          <table class="lobby-table">
+            <thead>
+              <tr>
+                <th>Variant</th>
+                <th>Board Size</th>
+                <th>Win Streak</th>
+                <th>Mode / Engine</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tic-Tac-Toe Classic</strong></td>
+                <td>3 × 3</td>
+                <td>k = 3</td>
+                <td>StockTic AI (Elo 3000)</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=3&n=3&k=3" class="btn-table-play">Play</a></td>
+              </tr>
+              <tr>
+                <td><strong>Mini-Gomoku Tactician</strong></td>
+                <td>5 × 5</td>
+                <td>k = 4</td>
+                <td>Threat-Space Search</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="btn-table-play">Play</a></td>
+              </tr>
+              <tr>
+                <td><strong>Connect-Style Grid</strong></td>
+                <td>7 × 6</td>
+                <td>k = 4</td>
+                <td>Iterative Deepening</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=7&n=6&k=4" class="btn-table-play">Play</a></td>
+              </tr>
+              <tr>
+                <td><strong>Standard Gomoku</strong></td>
+                <td>15 × 15</td>
+                <td>k = 5</td>
+                <td>Proved First-Player Win</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=15&n=15&k=5" class="btn-table-play">Play</a></td>
+              </tr>
+              <tr>
+                <td><strong>Knockout Tournament</strong></td>
+                <td>5 × 5</td>
+                <td>k = 4</td>
+                <td>8-Player Engine Bracket</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="btn-table-play">Tournament</a></td>
+              </tr>
+              <tr>
+                <td><strong>Round Robin League</strong></td>
+                <td>3 × 3</td>
+                <td>k = 3</td>
+                <td>All-Play-All Series</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="btn-table-play">League</a></td>
+              </tr>
+              <tr>
+                <td><strong>Circular Multi-Player</strong></td>
+                <td>6 × 6</td>
+                <td>k = 4</td>
+                <td>3 Players (X, O, ▲)</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html?j=3" class="btn-table-play">Play</a></td>
+              </tr>
+              <tr>
+                <td><strong>Obstacle Barrier Board</strong></td>
+                <td>8 × 8</td>
+                <td>k = 5</td>
+                <td>Frozen Blocks (#)</td>
+                <td><a href="lichess_tic_tac_toe_analysis_board.html#editor" class="btn-table-play">Editor</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <!-- Research Guide -->
-        <div class="mnk-card">
-          <div>
-            <div class="jam-badge" style="margin-bottom: 0.75rem; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8;">Research Guide</div>
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">
-              The Mathematics & SOTA AI of (m,n,k)-Games
-            </h2>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-              In-depth mathematical treatise exploring Nash's strategy-stealing theorem, Ramsey theory, Hales-Jewett pairing strategies, complete & partial endgame tablebases, opening books, static evaluation kernels, win-probability eval bar, and tournament algorithms.
-            </p>
+        <!-- 3. Solved Status Atlas (Correspondence Tab Panel) -->
+        <div id="panel-corr" class="solved-quick-wrap">
+          <div class="solved-header">
+            <div>
+              <h3 style="font-size: 1.1rem; color: var(--text-bright); font-weight: 700;">Game-Theoretic Solved Status</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Atlas of exact values from k=1 to k≥8</p>
+            </div>
+            <a href="solved_status_of_mnk_games.html" class="btn-table-play" style="background: var(--accent-orange);">Open Full Atlas »</a>
           </div>
-          <div style="margin-top: 1.5rem;">
-            <a href="mnk_games_theory_and_ai.html" class="btn-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
-              <span>📖 Read Research Article</span>
-              <span>→</span>
-            </a>
+
+          <table class="solved-table">
+            <thead>
+              <tr>
+                <th>Win Streak (k)</th>
+                <th>Game-Theoretic Value</th>
+                <th>Mathematical Citation / Proof</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>k = 1</strong></td>
+                <td><span class="badge-win">First-Player Win</span></td>
+                <td>Trivial 1-move win for any m,n ≥ 1</td>
+              </tr>
+              <tr>
+                <td><strong>k = 2</strong></td>
+                <td><span class="badge-win">First-Player Win</span></td>
+                <td>Win in at most 4 plies for any m,n ≥ 2</td>
+              </tr>
+              <tr>
+                <td><strong>k = 3</strong></td>
+                <td><span class="badge-draw">3×3 Draw</span> / <span class="badge-win">m≥3, n≥4 Win</span></td>
+                <td>Tic-Tac-Toe is Draw; wider boards First-Player Win</td>
+              </tr>
+              <tr>
+                <td><strong>k = 4</strong></td>
+                <td><span class="badge-draw">4×4 Draw</span> / <span class="badge-win">5×5 Win</span></td>
+                <td>Mini-Gomoku solved; complete tablebases verify</td>
+              </tr>
+              <tr>
+                <td><strong>k = 5</strong></td>
+                <td><span class="badge-draw">5×5 Draw</span> / <span class="badge-win">15×15 Win</span></td>
+                <td>Gomoku solved (Victor Allis 1993, TSS AI)</td>
+              </tr>
+              <tr>
+                <td><strong>k ≥ 8</strong></td>
+                <td><span class="badge-draw">Draw (Any Dimensions)</span></td>
+                <td>Hales-Jewett Pairing Strategy proves 2nd-player draw</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="solved_status_of_mnk_games.html" class="btn-table-play" style="padding: 0.5rem 1rem; font-size: 0.85rem;">📊 Explore Interactive Atlas</a>
+            <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-table-play" style="padding: 0.5rem 1rem; font-size: 0.85rem; background: #262421; border: 1px solid var(--border);">📥 Download Excel Dataset (.xlsx)</a>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Lichess Action Buttons & Engine Status -->
+      <aside class="col-right">
+        <!-- 1. Create lobby game -->
+        <button class="btn-action" onclick="openModal('modal-custom')">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <div style="text-align: left;">
+            <div>Create lobby game</div>
+          </div>
+        </button>
+
+        <!-- 2. Challenge a friend -->
+        <button class="btn-action" onclick="openModal('modal-friend')">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <div style="text-align: left;">
+            <div>Challenge a friend</div>
+          </div>
+        </button>
+
+        <!-- 3. Play against computer -->
+        <button class="btn-action" onclick="openModal('modal-computer')">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          <div style="text-align: left;">
+            <div>Play against computer</div>
+          </div>
+        </button>
+
+        <!-- 4. Analysis Board Direct Link -->
+        <a href="lichess_tic_tac_toe_analysis_board.html" class="btn-action">
+          <svg viewBox="0 0 24 24"><path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/></svg>
+          <div style="text-align: left;">
+            <div>Analysis board</div>
+          </div>
+        </a>
+
+        <!-- Player & Game Activity Statistics -->
+        <div class="stats-footer">
+          <div class="stat-line"><span class="stat-num">50,987</span> players</div>
+          <div class="stat-line"><span class="stat-num">24,956</span> games in play</div>
+          <div class="action-subtext" style="margin-top: 0.5rem;">StockTic 600–3000 Elo • 1×1 to 32×32</div>
+        </div>
+      </aside>
+
     </div>
   </main>
 
+  <!-- Lichess Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Vaibhav Geometer · (m,n,k)-Games Ecosystem</p>
-      <div class="footer-links">
-        <a href="../">Home</a>
-        <a href="lichess_tic_tac_toe_analysis_board.html">m,n,k-game & genralizations</a>
-        <a href="mnk_games_theory_and_ai.html">Theory & AI</a>
-        <a href="solved_status_of_mnk_games.html">Solved Atlas</a>
-        <a href="../academic/">Academic Portals</a>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Play</h4>
+        <ul class="footer-links">
+          <li><a href="lichess_tic_tac_toe_analysis_board.html">Analysis Board</a></li>
+          <li><a href="#" onclick="openModal('modal-computer'); return false;">Play against Computer</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html#play">Pass &amp; Play Clocks</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html#tournament">Tournament System</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html#editor">Board Editor (#)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Theory &amp; Research</h4>
+        <ul class="footer-links">
+          <li><a href="mnk_games_theory_and_ai.html">The Mathematics &amp; SOTA AI</a></li>
+          <li><a href="solved_status_of_mnk_games.html">Solved Status Atlas Matrix</a></li>
+          <li><a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx">Download Dataset (.xlsx)</a></li>
+          <li><a href="mnk_games_theory_and_ai.html#strategy-stealing">Nash's Strategy-Stealing</a></li>
+          <li><a href="mnk_games_theory_and_ai.html#ramsey">Ramsey &amp; Hales-Jewett</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Engine Features</h4>
+        <ul class="footer-links">
+          <li><a href="lichess_tic_tac_toe_analysis_board.html">Threat-Space Search (TSS)</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html">Real Lichess Chess Clocks</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html">Live Evaluation Bar [-100, +100]</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html">PGN Move Notation &amp; History</a></li>
+          <li><a href="lichess_tic_tac_toe_analysis_board.html">Arbitrary Dimensions (1×1 to 32×32)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul class="footer-links">
+          <li><a href="../">Vaibhav Geometer Portfolio</a></li>
+          <li><a href="../academic/">Academic Portals</a></li>
+          <li><a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="../academic/">Contribute &amp; Donate</a></li>
+        </ul>
       </div>
     </div>
+
+    <div class="footer-copy">
+      <div>© 2026 Vaibhav Geometer · (m,n,k)-games &amp; generalizations ecosystem</div>
+      <div>Crafted with the minimal simplicity and architecture of lichess.org</div>
+    </div>
   </footer>
+
+  <!-- =========================================================================
+       MODAL 1: Play against computer
+       ========================================================================= -->
+  <div id="modal-computer" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-computer')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Play with the machine</h3>
+        <button class="modal-close" onclick="closeModal('modal-computer')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">
+            <span>AI Engine Level</span>
+            <span id="label-ai-level" style="color: var(--accent-orange); font-weight: 700;">Level 8 (Elo 3000)</span>
+          </label>
+          <input type="range" min="1" max="8" value="8" class="form-slider" id="slider-ai-level" oninput="updateAiLevelLabel(this.value)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Game Variant / Dimensions</label>
+          <select id="select-ai-variant" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+            <option value="m=3&n=3&k=3">(3,3,3) Tic-Tac-Toe</option>
+            <option value="m=4&n=4&k=4">(4,4,4) 4-in-a-Row</option>
+            <option value="m=5&n=5&k=4" selected>(5,5,4) Mini-Gomoku</option>
+            <option value="m=7&n=6&k=4">(7,6,4) Connect Four Grid</option>
+            <option value="m=10&n=10&k=5">(10,10,5) Freestyle Gomoku</option>
+            <option value="m=15&n=15&k=5">(15,15,5) Standard Gomoku</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Choose Your Side</label>
+          <div class="side-choice-grid">
+            <button type="button" class="btn-side selected" onclick="selectSideChoice(this, 'first')">⚪ Play First (X)</button>
+            <button type="button" class="btn-side" onclick="selectSideChoice(this, 'random')">☯️ Random</button>
+            <button type="button" class="btn-side" onclick="selectSideChoice(this, 'second')">⚫ Play Second (O)</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-modal-submit" onclick="launchComputerGame()">Start Match against AI</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: Create a game / Custom variant
+       ========================================================================= -->
+  <div id="modal-custom" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-custom')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Create a game</h3>
+        <button class="modal-close" onclick="closeModal('modal-custom')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="form-group">
+            <label class="form-label">
+              <span>Rows (m)</span>
+              <span id="label-custom-m" style="color: var(--accent-orange); font-weight: 700;">5</span>
+            </label>
+            <input type="range" min="1" max="32" value="5" class="form-slider" id="slider-custom-m" oninput="document.getElementById('label-custom-m').textContent = this.value">
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              <span>Cols (n)</span>
+              <span id="label-custom-n" style="color: var(--accent-orange); font-weight: 700;">5</span>
+            </label>
+            <input type="range" min="1" max="32" value="5" class="form-slider" id="slider-custom-n" oninput="document.getElementById('label-custom-n').textContent = this.value">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="form-group">
+            <label class="form-label">
+              <span>Win Streak (k)</span>
+              <span id="label-custom-k" style="color: var(--accent-orange); font-weight: 700;">4</span>
+            </label>
+            <input type="range" min="1" max="8" value="4" class="form-slider" id="slider-custom-k" oninput="document.getElementById('label-custom-k').textContent = this.value">
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              <span>Players (j)</span>
+              <span id="label-custom-j" style="color: var(--accent-orange); font-weight: 700;">2</span>
+            </label>
+            <input type="range" min="2" max="4" value="2" class="form-slider" id="slider-custom-j" oninput="document.getElementById('label-custom-j').textContent = this.value">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Time Control Preset</label>
+          <select id="select-custom-clock" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+            <option value="">No Clocks (Unlimited)</option>
+            <option value="1+0">1 + 0 (Bullet)</option>
+            <option value="3+0">3 + 0 (Blitz)</option>
+            <option value="3+2" selected>3 + 2 (Blitz with Increment)</option>
+            <option value="5+3">5 + 3 (Rapid)</option>
+            <option value="10+0">10 + 0 (Rapid)</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-modal-submit" onclick="launchCustomGame()">Create Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: Challenge a friend (Pass & Play)
+       ========================================================================= -->
+  <div id="modal-friend" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-friend')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Challenge a friend</h3>
+        <button class="modal-close" onclick="closeModal('modal-friend')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+          Launch local multiplayer with real Lichess clocks, interactive threat-space evaluation bar, board editor barrier obstacles (#), and move notation.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">Preset Configuration</label>
+          <select id="select-friend-variant" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+            <option value="m=3&n=3&k=3">3×3 (k=3) Classic Tic-Tac-Toe</option>
+            <option value="m=5&n=5&k=4" selected>5×5 (k=4) Mini-Gomoku</option>
+            <option value="m=7&n=6&k=4">7×6 (k=4) Connect Four Grid</option>
+            <option value="m=15&n=15&k=5">15×15 (k=5) Gomoku</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-modal-submit" onclick="launchFriendGame()">Launch Pass &amp; Play</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: Quick Search
+       ========================================================================= -->
+  <div id="modal-search" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-search')">
+    <div class="modal-box" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3>Search (m,n,k)-Games</h3>
+        <button class="modal-close" onclick="closeModal('modal-search')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="search-input" placeholder="Search variants, theorems, analysis board..." oninput="filterSearchResults(this.value)" style="width: 100%; background: #1e1c18; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; color: var(--text-bright); font-size: 0.95rem; outline: none;">
+        
+        <div id="search-results-list" style="display: flex; flex-direction: column; gap: 0.35rem; max-height: 240px; overflow-y: auto;">
+          <a href="lichess_tic_tac_toe_analysis_board.html" class="dropdown-link" style="border-radius: 4px;">♟️ StockTic Analysis Board (1x1 to 32x32)</a>
+          <a href="solved_status_of_mnk_games.html" class="dropdown-link" style="border-radius: 4px;">📊 Solved Status Atlas (k=1 to k≥8)</a>
+          <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link" style="border-radius: 4px;">📥 Download Solved Atlas Excel (.xlsx)</a>
+          <a href="mnk_games_theory_and_ai.html" class="dropdown-link" style="border-radius: 4px;">📖 The Mathematics &amp; SOTA AI of (m,n,k)-Games</a>
+          <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link" style="border-radius: 4px;">🏆 Tournament Arena (Knockout &amp; Round Robin)</a>
+          <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="dropdown-link" style="border-radius: 4px;">✏️ Board Editor &amp; Obstacle Barrier Blocks (#)</a>
+          <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="dropdown-link" style="border-radius: 4px;">🎯 (5,5,4) Mini-Gomoku Board</a>
+          <a href="../academic/" class="dropdown-link" style="border-radius: 4px;">🎓 Vaibhav Geometer Academic Portals</a>
+          <a href="../" class="dropdown-link" style="border-radius: 4px;">📐 Vaibhav Geometer Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inline Script for Tab Switching & Dialogs -->
+  <script>
+    // Tab Switching
+    function switchTab(tabId) {
+      document.getElementById('tab-quick-btn').classList.remove('active');
+      document.getElementById('tab-lobby-btn').classList.remove('active');
+      document.getElementById('tab-corr-btn').classList.remove('active');
+
+      document.getElementById('panel-quick').style.display = 'none';
+      document.getElementById('panel-lobby').style.display = 'none';
+      document.getElementById('panel-corr').style.display = 'none';
+
+      if (tabId === 'quick') {
+        document.getElementById('tab-quick-btn').classList.add('active');
+        document.getElementById('panel-quick').style.display = 'block';
+      } else if (tabId === 'lobby') {
+        document.getElementById('tab-lobby-btn').classList.add('active');
+        document.getElementById('panel-lobby').style.display = 'block';
+      } else if (tabId === 'corr') {
+        document.getElementById('tab-corr-btn').classList.add('active');
+        document.getElementById('panel-corr').style.display = 'block';
+      }
+    }
+
+    // Modal Control
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'flex';
+        if (modalId === 'modal-search') {
+          setTimeout(() => document.getElementById('search-input')?.focus(), 50);
+        }
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.style.display = 'none';
+    }
+
+    function closeModalOnBackdrop(event, modalId) {
+      if (event.target === event.currentTarget) {
+        closeModal(modalId);
+      }
+    }
+
+    // AI Level Label update
+    const eloRatings = {
+      1: 'Level 1 (Elo 600 - Random)',
+      2: 'Level 2 (Elo 900 - Novice)',
+      3: 'Level 3 (Elo 1200 - Casual)',
+      4: 'Level 4 (Elo 1500 - Intermediate)',
+      5: 'Level 5 (Elo 1800 - Club Player)',
+      6: 'Level 6 (Elo 2100 - Expert)',
+      7: 'Level 7 (Elo 2500 - Master)',
+      8: 'Level 8 (Elo 3000 - SOTA Threat-Space)'
+    };
+
+    function updateAiLevelLabel(val) {
+      document.getElementById('label-ai-level').textContent = eloRatings[val] || `Level ${val}`;
+    }
+
+    let selectedSide = 'first';
+    function selectSideChoice(btn, side) {
+      document.querySelectorAll('.side-choice-grid .btn-side').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedSide = side;
+    }
+
+    function launchComputerGame() {
+      const level = document.getElementById('slider-ai-level').value;
+      const variantParams = document.getElementById('select-ai-variant').value;
+      window.location.href = `lichess_tic_tac_toe_analysis_board.html#play&level=${level}&${variantParams}`;
+    }
+
+    function launchCustomGame() {
+      const m = document.getElementById('slider-custom-m').value;
+      const n = document.getElementById('slider-custom-n').value;
+      const k = document.getElementById('slider-custom-k').value;
+      const j = document.getElementById('slider-custom-j').value;
+      window.location.href = `lichess_tic_tac_toe_analysis_board.html?m=${m}&n=${n}&k=${k}&j=${j}`;
+    }
+
+    function launchFriendGame() {
+      const variantParams = document.getElementById('select-friend-variant').value;
+      window.location.href = `lichess_tic_tac_toe_analysis_board.html#play&${variantParams}`;
+    }
+
+    function filterSearchResults(query) {
+      const q = query.toLowerCase().trim();
+      const items = document.querySelectorAll('#search-results-list a');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = (!q || text.includes(q)) ? 'flex' : 'none';
+      });
+    }
+
+    // ESC key closes modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-backdrop').forEach(m => m.style.display = 'none');
+      }
+    });
+  </script>
 </body>
 </html>
