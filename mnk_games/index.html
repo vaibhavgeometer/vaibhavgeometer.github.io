@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lichess.org • (m,n,k)-games &amp; generalizations</title>
-  <meta name="description" content="Free online (m,n,k)-games platform: interactive game theory engine, StockTic SOTA AI, tournaments, Lichess clocks, solved status atlas, and research compendium.">
+  <title>mnk games &bull; Free Online (m,n,k)-Games</title>
+  <meta name="description" content="Free online (m,n,k)-games platform: interactive game theory engine, SOTA AI, tournaments, clocks, solved status atlas, and research compendium.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       Lichess.org Authentic Minimal Theme for (m,n,k)-Games
+       mnk games Authentic Minimal Theme
        ========================================================================== */
     :root {
       --bg-page: #161512;
@@ -76,7 +76,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Top Navigation Bar (Authentic Lichess Style)
+       Top Navigation Bar (mnk games Style)
        -------------------------------------------------------------------------- */
     .site-nav {
       background-color: var(--bg-header);
@@ -302,7 +302,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Main Page Layout (Lichess 3-Column Grid)
+       Main Page Layout (mnk games 3-Column Grid)
        -------------------------------------------------------------------------- */
     .main-wrapper {
       flex: 1;
@@ -535,7 +535,7 @@
       position: relative;
     }
 
-    /* Authentic Lichess Watermark Horse Outline */
+    /* mnk games Geometric Grid Watermark */
     .grid-watermark {
       position: absolute;
       top: 50%;
@@ -712,7 +712,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Right Column (Lichess Primary Action Buttons & Live Stats)
+       Right Column (mnk games Primary Action Buttons & Live Stats)
        -------------------------------------------------------------------------- */
     .col-right {
       display: flex;
@@ -785,7 +785,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Lichess Footer
+       mnk games Footer
        -------------------------------------------------------------------------- */
     .site-footer {
       border-top: 1px solid var(--border-subtle);
@@ -843,7 +843,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Modal Windows (Authentic Lichess Dialogs)
+       Modal Windows (mnk games Dialogs)
        -------------------------------------------------------------------------- */
     .modal-backdrop {
       position: fixed;
@@ -989,19 +989,22 @@
     <div class="nav-container">
       <div class="nav-left">
         <!-- Logo -->
-        <a href="../" class="brand-logo" title="Vaibhav Geometer • (m,n,k)-Games">
-          <svg viewBox="0 0 24 24">
-            <path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/>
+        <a href="./" class="brand-logo" title="mnk games">
+          <svg viewBox="0 0 24 24" style="stroke: #e69f00; stroke-width: 2.2;">
+            <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
           </svg>
-          <span class="brand-title">lichess<span class="brand-tld">.org</span></span>
-          <span class="brand-badge">mnk</span>
+          <span class="brand-title">mnk <span style="color: var(--accent-orange); font-weight: 800;">games</span></span>
         </a>
 
         <!-- Menu items with Dropdowns -->
         <ul class="nav-menu">
           <!-- PLAY -->
           <li class="nav-item">
-            <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">Play</a>
+            <a href="board.html" class="nav-link">Play</a>
             <div class="nav-dropdown">
               <a href="#" class="dropdown-link" onclick="openModal('modal-custom'); return false;">
                 <span>⚙️</span>
@@ -1011,16 +1014,16 @@
                 <span>🤖</span>
                 <span>Play against computer</span>
               </a>
-              <a href="lichess_tic_tac_toe_analysis_board.html#play" class="dropdown-link">
+              <a href="board.html#play" class="dropdown-link">
                 <span>👥</span>
                 <span>Challenge a friend (Pass &amp; Play)</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link">
+              <a href="board.html#tournament" class="dropdown-link">
                 <span>🏆</span>
                 <span>Tournament Arena</span>
               </a>
-              <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="dropdown-link">
+              <a href="board.html#editor" class="dropdown-link">
                 <span>✏️</span>
                 <span>Board Editor &amp; Barriers (#)</span>
               </a>
@@ -1063,13 +1066,13 @@
 
           <!-- WATCH -->
           <li class="nav-item">
-            <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="nav-link">Watch</a>
+            <a href="board.html#tournament" class="nav-link">Watch</a>
             <div class="nav-dropdown">
-              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link">
+              <a href="board.html#tournament" class="dropdown-link">
                 <span>🏆</span>
                 <span>Arena Knockout Tournaments</span>
               </a>
-              <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link">
+              <a href="board.html#tournament" class="dropdown-link">
                 <span>⚔️</span>
                 <span>AI vs AI Engine Battles</span>
               </a>
@@ -1097,9 +1100,9 @@
 
           <!-- TOOLS -->
           <li class="nav-item">
-            <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">Tools</a>
+            <a href="board.html" class="nav-link">Tools</a>
             <div class="nav-dropdown">
-              <a href="lichess_tic_tac_toe_analysis_board.html" class="dropdown-link">
+              <a href="board.html" class="dropdown-link">
                 <span>♟️</span>
                 <span>Analysis Board</span>
               </a>
@@ -1111,7 +1114,7 @@
                 <span>📥</span>
                 <span>Download Dataset (.xlsx)</span>
               </a>
-              <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="dropdown-link">
+              <a href="board.html#editor" class="dropdown-link">
                 <span>✏️</span>
                 <span>Board Editor</span>
               </a>
@@ -1136,7 +1139,7 @@
         <button class="nav-icon-btn" title="Quick Match" onclick="openModal('modal-custom')">
           <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         </button>
-        <button class="nav-icon-btn" title="Settings / Info" onclick="alert('StockTic Engine & (m,n,k)-Games System\nVersion: 2026.1\nDimensions: 1x1 to 32x32\nThreat-Space Search AI: Level 1 to 8 (600-3000 Elo)')">
+        <button class="nav-icon-btn" title="Settings / Info" onclick="alert('mnk games Engine & System\nVersion: 2026.1\nDimensions: 1x1 to 32x32\nThreat-Space Search AI: Level 1 to 8 (600-3000 Elo)')">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
         </button>
         <a href="../" class="user-pill" title="Vaibhav Geometer Profile">
@@ -1153,12 +1156,12 @@
 
       <!-- LEFT COLUMN: Tournaments & Research Community Feed -->
       <aside class="col-left">
-        <!-- StockTic Engine Highlight -->
-        <a href="lichess_tic_tac_toe_analysis_board.html#analysis" class="highlight-banner" title="StockTic SOTA AI & Threat-Space Search">
+        <!-- mnk AI Engine Highlight -->
+        <a href="board.html#analysis" class="highlight-banner" title="mnk AI SOTA Engine">
           <div style="display: flex; align-items: center; gap: 0.65rem; min-width: 0;">
             <span class="stream-icon">♟️</span>
             <div>
-              <div class="stream-title">StockTic SOTA AI Engine</div>
+              <div class="stream-title">mnk AI Engine</div>
               <div style="font-size: 0.72rem; color: var(--text-muted);">Iterative Deepening &amp; Eval Bar</div>
             </div>
           </div>
@@ -1167,28 +1170,28 @@
 
         <!-- Tournaments Box -->
         <div class="side-box">
-          <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="tourn-item">
+          <a href="board.html#tournament" class="tourn-item">
             <div class="tourn-icon-box">🔥</div>
             <div class="tourn-details">
               <div class="tourn-name">Knockout Arena Championship</div>
               <div class="tourn-meta">8 Players &amp; AIs • Playing now</div>
             </div>
           </a>
-          <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="tourn-item">
+          <a href="board.html#tournament" class="tourn-item">
             <div class="tourn-icon-box">🔥</div>
             <div class="tourn-details">
               <div class="tourn-name">Round Robin Grand Prix</div>
               <div class="tourn-meta">All-play-all bracket • Active</div>
             </div>
           </a>
-          <a href="lichess_tic_tac_toe_analysis_board.html?j=3#play" class="tourn-item">
+          <a href="board.html?j=3#play" class="tourn-item">
             <div class="tourn-icon-box">🎲</div>
             <div class="tourn-details">
               <div class="tourn-name">Generalized (m,n,k,j) League</div>
               <div class="tourn-meta">3–4 Circular turns • In 2 hours</div>
             </div>
           </a>
-          <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4#play" class="tourn-item">
+          <a href="board.html?m=5&n=5&k=4#play" class="tourn-item">
             <div class="tourn-icon-box">🔥</div>
             <div class="tourn-details">
               <div class="tourn-name">Mini-Gomoku (5,5,4) Trophy</div>
@@ -1220,7 +1223,7 @@
             <div class="feed-meta">Mathematical Proof • 3 days ago</div>
           </div>
           <div class="feed-item">
-            <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="feed-author">Board Editor &amp; Barriers</a>
+            <a href="board.html#editor" class="feed-author">Board Editor &amp; Barriers</a>
             <span>active frozen obstacle squares (#) configured</span>
             <div class="feed-meta">Analysis Engine • 5 days ago</div>
           </div>
@@ -1238,61 +1241,70 @@
 
         <!-- 1. Quick Pairing Tab Panel -->
         <div id="panel-quick" class="quick-wrap">
-          <!-- Authentic Lichess Watermark Horse Outline -->
+          <!-- mnk games Geometric Grid Watermark -->
           <svg class="grid-watermark" viewBox="0 0 200 200">
-            <path stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M142,32 C146,24 153,24 157,32 C159,38 162,56 168,76 C173,92 165,110 148,114 C132,118 120,110 110,98 C102,88 95,116 88,145 C84,162 76,178 60,178 C48,178 44,166 46,148 C50,114 62,64 96,44 C116,32 136,36 142,32 Z"/>
+            <rect x="25" y="25" width="150" height="150" rx="14" stroke-width="4" stroke="currentColor" fill="none" opacity="0.6"/>
+            <line x1="75" y1="25" x2="75" y2="175" stroke-width="4" stroke="currentColor" opacity="0.6"/>
+            <line x1="125" y1="25" x2="125" y2="175" stroke-width="4" stroke="currentColor" opacity="0.6"/>
+            <line x1="25" y1="75" x2="175" y2="75" stroke-width="4" stroke="currentColor" opacity="0.6"/>
+            <line x1="25" y1="125" x2="175" y2="125" stroke-width="4" stroke="currentColor" opacity="0.6"/>
+            <circle cx="100" cy="100" r="14" stroke-width="4.5" stroke="currentColor" fill="none" opacity="0.7"/>
+            <line x1="40" y1="40" x2="60" y2="60" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
+            <line x1="60" y1="40" x2="40" y2="60" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
+            <line x1="140" y1="140" x2="160" y2="160" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
+            <line x1="160" y1="140" x2="140" y2="160" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
           </svg>
 
           <!-- 3x4 Pairing Grid (12 Popular Presets) -->
           <div class="pairing-grid">
             <!-- Row 1 -->
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=3&n=3&k=3#play" class="pairing-card">
+            <a href="board.html?m=3&n=3&k=3#play" class="pairing-card">
               <div class="card-title">3×3 (k=3)</div>
               <div class="card-subtitle">Tic-Tac-Toe</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=4&n=4&k=4#play" class="pairing-card">
+            <a href="board.html?m=4&n=4&k=4#play" class="pairing-card">
               <div class="card-title">4×4 (k=4)</div>
               <div class="card-subtitle">4-in-a-Row</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4#play" class="pairing-card">
+            <a href="board.html?m=5&n=5&k=4#play" class="pairing-card">
               <div class="card-title">5×5 (k=4)</div>
               <div class="card-subtitle">Mini-Gomoku</div>
             </a>
 
             <!-- Row 2 -->
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=7&n=6&k=4#play" class="pairing-card">
+            <a href="board.html?m=7&n=6&k=4#play" class="pairing-card">
               <div class="card-title">7×6 (k=4)</div>
               <div class="card-subtitle">Connect Four</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=8&n=8&k=5#play" class="pairing-card">
+            <a href="board.html?m=8&n=8&k=5#play" class="pairing-card">
               <div class="card-title">8×8 (k=5)</div>
               <div class="card-subtitle">Freestyle 8×8</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=10&n=10&k=5#play" class="pairing-card">
+            <a href="board.html?m=10&n=10&k=5#play" class="pairing-card">
               <div class="card-title">10×10 (k=5)</div>
               <div class="card-subtitle">Freestyle 10×10</div>
             </a>
 
             <!-- Row 3 -->
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=15&n=15&k=5#play" class="pairing-card">
+            <a href="board.html?m=15&n=15&k=5#play" class="pairing-card">
               <div class="card-title">15×15 (k=5)</div>
               <div class="card-subtitle">Standard Gomoku</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=19&n=19&k=5#play" class="pairing-card">
+            <a href="board.html?m=19&n=19&k=5#play" class="pairing-card">
               <div class="card-title">19×19 (k=5)</div>
               <div class="card-subtitle">Renju / Go Board</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html?m=32&n=32&k=6#play" class="pairing-card">
+            <a href="board.html?m=32&n=32&k=6#play" class="pairing-card">
               <div class="card-title">32×32 (k=6)</div>
               <div class="card-subtitle">Max Board</div>
             </a>
 
             <!-- Row 4 -->
-            <a href="lichess_tic_tac_toe_analysis_board.html#play" class="pairing-card">
+            <a href="board.html#play" class="pairing-card">
               <div class="card-title">1 + 0</div>
               <div class="card-subtitle">Bullet Clocks</div>
             </a>
-            <a href="lichess_tic_tac_toe_analysis_board.html#play" class="pairing-card">
+            <a href="board.html#play" class="pairing-card">
               <div class="card-title">3 + 2</div>
               <div class="card-subtitle">Blitz Clocks</div>
             </a>
@@ -1320,57 +1332,57 @@
                 <td><strong>Tic-Tac-Toe Classic</strong></td>
                 <td>3 × 3</td>
                 <td>k = 3</td>
-                <td>StockTic AI (Elo 3000)</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=3&n=3&k=3#play" class="btn-table-play">Play</a></td>
+                <td>mnk AI Level 8 (Elo 3000)</td>
+                <td><a href="board.html?m=3&n=3&k=3#play" class="btn-table-play">Play</a></td>
               </tr>
               <tr>
                 <td><strong>Mini-Gomoku Tactician</strong></td>
                 <td>5 × 5</td>
                 <td>k = 4</td>
                 <td>Threat-Space Search</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4#play" class="btn-table-play">Play</a></td>
+                <td><a href="board.html?m=5&n=5&k=4#play" class="btn-table-play">Play</a></td>
               </tr>
               <tr>
                 <td><strong>Connect-Style Grid</strong></td>
                 <td>7 × 6</td>
                 <td>k = 4</td>
                 <td>Iterative Deepening</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=7&n=6&k=4#play" class="btn-table-play">Play</a></td>
+                <td><a href="board.html?m=7&n=6&k=4#play" class="btn-table-play">Play</a></td>
               </tr>
               <tr>
                 <td><strong>Standard Gomoku</strong></td>
                 <td>15 × 15</td>
                 <td>k = 5</td>
                 <td>Proved First-Player Win</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html?m=15&n=15&k=5#play" class="btn-table-play">Play</a></td>
+                <td><a href="board.html?m=15&n=15&k=5#play" class="btn-table-play">Play</a></td>
               </tr>
               <tr>
                 <td><strong>Knockout Tournament</strong></td>
                 <td>5 × 5</td>
                 <td>k = 4</td>
                 <td>8-Player Engine Bracket</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="btn-table-play">Tournament</a></td>
+                <td><a href="board.html#tournament" class="btn-table-play">Tournament</a></td>
               </tr>
               <tr>
                 <td><strong>Round Robin League</strong></td>
                 <td>3 × 3</td>
                 <td>k = 3</td>
                 <td>All-Play-All Series</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="btn-table-play">League</a></td>
+                <td><a href="board.html#tournament" class="btn-table-play">League</a></td>
               </tr>
               <tr>
                 <td><strong>Circular Multi-Player</strong></td>
                 <td>6 × 6</td>
                 <td>k = 4</td>
                 <td>3 Players (X, O, ▲)</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html?j=3#play" class="btn-table-play">Play</a></td>
+                <td><a href="board.html?j=3#play" class="btn-table-play">Play</a></td>
               </tr>
               <tr>
                 <td><strong>Obstacle Barrier Board</strong></td>
                 <td>8 × 8</td>
                 <td>k = 5</td>
                 <td>Frozen Blocks (#)</td>
-                <td><a href="lichess_tic_tac_toe_analysis_board.html#editor" class="btn-table-play">Editor</a></td>
+                <td><a href="board.html#editor" class="btn-table-play">Editor</a></td>
               </tr>
             </tbody>
           </table>
@@ -1435,7 +1447,7 @@
         </div>
       </section>
 
-      <!-- RIGHT COLUMN: Lichess Action Buttons & Engine Status -->
+      <!-- RIGHT COLUMN: mnk games Action Buttons & Engine Status -->
       <aside class="col-right">
         <!-- 1. Create lobby game -->
         <button class="btn-action" onclick="openModal('modal-custom')">
@@ -1462,7 +1474,7 @@
         </button>
 
         <!-- 4. Analysis Board Direct Link -->
-        <a href="lichess_tic_tac_toe_analysis_board.html#analysis" class="btn-action">
+        <a href="board.html#analysis" class="btn-action">
           <svg viewBox="0 0 24 24"><path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/></svg>
           <div style="text-align: left;">
             <div>Analysis board</div>
@@ -1473,24 +1485,24 @@
         <div class="stats-footer">
           <div class="stat-line"><span class="stat-num">50,987</span> players</div>
           <div class="stat-line"><span class="stat-num">24,956</span> games in play</div>
-          <div class="action-subtext" style="margin-top: 0.5rem;">StockTic 600–3000 Elo • 1×1 to 32×32</div>
+          <div class="action-subtext" style="margin-top: 0.5rem;">mnk AI 600–3000 Elo • 1×1 to 32×32</div>
         </div>
       </aside>
 
     </div>
   </main>
 
-  <!-- Lichess Footer -->
+  <!-- mnk games Footer -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-col">
         <h4>Play</h4>
         <ul class="footer-links">
-          <li><a href="lichess_tic_tac_toe_analysis_board.html">Analysis Board</a></li>
+          <li><a href="board.html">Analysis Board</a></li>
           <li><a href="#" onclick="openModal('modal-computer'); return false;">Play against Computer</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html#play">Pass &amp; Play Clocks</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html#tournament">Tournament System</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html#editor">Board Editor (#)</a></li>
+          <li><a href="board.html#play">Pass &amp; Play Clocks</a></li>
+          <li><a href="board.html#tournament">Tournament System</a></li>
+          <li><a href="board.html#editor">Board Editor (#)</a></li>
         </ul>
       </div>
 
@@ -1508,11 +1520,11 @@
       <div class="footer-col">
         <h4>Engine Features</h4>
         <ul class="footer-links">
-          <li><a href="lichess_tic_tac_toe_analysis_board.html">Threat-Space Search (TSS)</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html">Real Lichess Chess Clocks</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html">Live Evaluation Bar [-100, +100]</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html">PGN Move Notation &amp; History</a></li>
-          <li><a href="lichess_tic_tac_toe_analysis_board.html">Arbitrary Dimensions (1×1 to 32×32)</a></li>
+          <li><a href="board.html">Threat-Space Search (TSS)</a></li>
+          <li><a href="board.html">Precision Chess Clocks</a></li>
+          <li><a href="board.html">Live Evaluation Bar [-100, +100]</a></li>
+          <li><a href="board.html">PGN Move Notation &amp; History</a></li>
+          <li><a href="board.html">Arbitrary Dimensions (1×1 to 32×32)</a></li>
         </ul>
       </div>
 
@@ -1529,7 +1541,7 @@
 
     <div class="footer-copy">
       <div>© 2026 Vaibhav Geometer · (m,n,k)-games &amp; generalizations ecosystem</div>
-      <div>Crafted with the minimal simplicity and architecture of lichess.org</div>
+      <div>Minimalist, high-performance platform for (m,n,k)-games and generalizations</div>
     </div>
   </footer>
 
@@ -1649,7 +1661,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-          Launch local multiplayer with real Lichess clocks, interactive threat-space evaluation bar, board editor barrier obstacles (#), and move notation.
+          Launch local multiplayer with precision chess clocks, interactive threat-space evaluation bar, board editor barrier obstacles (#), and move notation.
         </p>
 
         <div class="form-group">
@@ -1680,13 +1692,13 @@
         <input type="text" id="search-input" placeholder="Search variants, theorems, analysis board..." oninput="filterSearchResults(this.value)" style="width: 100%; background: #1e1c18; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; color: var(--text-bright); font-size: 0.95rem; outline: none;">
         
         <div id="search-results-list" style="display: flex; flex-direction: column; gap: 0.35rem; max-height: 240px; overflow-y: auto;">
-          <a href="lichess_tic_tac_toe_analysis_board.html" class="dropdown-link" style="border-radius: 4px;">♟️ StockTic Analysis Board (1x1 to 32x32)</a>
+          <a href="board.html" class="dropdown-link" style="border-radius: 4px;">♟️ mnk games Analysis Board (1x1 to 32x32)</a>
           <a href="solved_status_of_mnk_games.html" class="dropdown-link" style="border-radius: 4px;">📊 Solved Status Atlas (k=1 to k≥8)</a>
           <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link" style="border-radius: 4px;">📥 Download Solved Atlas Excel (.xlsx)</a>
           <a href="mnk_games_theory_and_ai.html" class="dropdown-link" style="border-radius: 4px;">📖 The Mathematics &amp; SOTA AI of (m,n,k)-Games</a>
-          <a href="lichess_tic_tac_toe_analysis_board.html#tournament" class="dropdown-link" style="border-radius: 4px;">🏆 Tournament Arena (Knockout &amp; Round Robin)</a>
-          <a href="lichess_tic_tac_toe_analysis_board.html#editor" class="dropdown-link" style="border-radius: 4px;">✏️ Board Editor &amp; Obstacle Barrier Blocks (#)</a>
-          <a href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px;">🎯 (5,5,4) Mini-Gomoku Board</a>
+          <a href="board.html#tournament" class="dropdown-link" style="border-radius: 4px;">🏆 Tournament Arena (Knockout &amp; Round Robin)</a>
+          <a href="board.html#editor" class="dropdown-link" style="border-radius: 4px;">✏️ Board Editor &amp; Obstacle Barrier Blocks (#)</a>
+          <a href="board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px;">🎯 (5,5,4) Mini-Gomoku Board</a>
           <a href="../academic/" class="dropdown-link" style="border-radius: 4px;">🎓 Vaibhav Geometer Academic Portals</a>
           <a href="../" class="dropdown-link" style="border-radius: 4px;">📐 Vaibhav Geometer Home</a>
         </div>
@@ -1766,7 +1778,7 @@
     function launchComputerGame() {
       const level = document.getElementById('slider-ai-level').value;
       const variantParams = document.getElementById('select-ai-variant').value;
-      window.location.href = `lichess_tic_tac_toe_analysis_board.html?${variantParams}&level=${level}#play`;
+      window.location.href = `board.html?${variantParams}&level=${level}#play`;
     }
 
     function launchCustomGame() {
@@ -1774,12 +1786,12 @@
       const n = document.getElementById('slider-custom-n').value;
       const k = document.getElementById('slider-custom-k').value;
       const j = document.getElementById('slider-custom-j').value;
-      window.location.href = `lichess_tic_tac_toe_analysis_board.html?m=${m}&n=${n}&k=${k}&j=${j}#play`;
+      window.location.href = `board.html?m=${m}&n=${n}&k=${k}&j=${j}#play`;
     }
 
     function launchFriendGame() {
       const variantParams = document.getElementById('select-friend-variant').value;
-      window.location.href = `lichess_tic_tac_toe_analysis_board.html?${variantParams}#play`;
+      window.location.href = `board.html?${variantParams}#play`;
     }
 
     function filterSearchResults(query) {

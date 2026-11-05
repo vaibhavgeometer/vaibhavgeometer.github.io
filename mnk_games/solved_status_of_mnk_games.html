@@ -159,7 +159,7 @@
         <span class="brand-text">Vaibhav Geometer</span>
       </a>
       <div class="nav-controls">
-        <a href="lichess_tic_tac_toe_analysis_board.html" class="nav-link">m,n,k-game & genralizations</a>
+        <a href="board.html" class="nav-link">mnk games</a>
         <a href="mnk_games_theory_and_ai.html" class="nav-link">Theory & AI</a>
         <a href="solved_status_of_mnk_games.html" class="nav-link active" style="color: #7ec62f;">Solved Atlas</a>
         <a href="../academic/" class="nav-link">Academic Portals</a>
@@ -215,7 +215,7 @@
           <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-primary" style="text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem; background: #629924; border-color: #629924;">
             <span>📥 Download Excel Dataset (.xlsx)</span>
           </a>
-          <a href="lichess_tic_tac_toe_analysis_board.html" class="btn-secondary" style="text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem;">
+          <a href="board.html" class="btn-secondary" style="text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem;">
             <span>♟️ Analysis Board</span>
           </a>
         </div>
@@ -260,7 +260,7 @@
           </p>
         </div>
         <div style="display: flex; gap: 0.75rem; flex-shrink: 0;">
-          <a id="insp-play-link" href="lichess_tic_tac_toe_analysis_board.html?m=5&n=5&k=4" class="btn-primary" style="text-decoration: none; background: #629924; border-color: #629924;">
+          <a id="insp-play-link" href="board.html?m=5&n=5&k=4" class="btn-primary" style="text-decoration: none; background: #629924; border-color: #629924;">
             <span>♟️ Launch on Analysis Board</span>
             <span>→</span>
           </a>
@@ -328,7 +328,7 @@
       <p>© 2026 Vaibhav Geometer · (m,n,k)-Games Ecosystem</p>
       <div class="footer-links">
         <a href="../">Home</a>
-        <a href="lichess_tic_tac_toe_analysis_board.html">m,n,k-game & genralizations</a>
+        <a href="board.html">mnk games</a>
         <a href="mnk_games_theory_and_ai.html">Theory & AI</a>
         <a href="solved_status_of_mnk_games.html">Solved Atlas</a>
         <a href="../academic/">Academic Portals</a>
@@ -553,7 +553,7 @@
       let kParam = parseInt(k, 10);
       if (isNaN(kParam)) kParam = 8;
 
-      playLink.href = `lichess_tic_tac_toe_analysis_board.html?m=${mParam}&n=${nParam}&k=${kParam}`;
+      playLink.href = `board.html?m=${mParam}&n=${nParam}&k=${kParam}`;
     }
 
     // Attach Tab Event Listeners

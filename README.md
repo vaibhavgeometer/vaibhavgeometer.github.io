@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Main Portfolio](https://img.shields.io/badge/Portfolio-vaibhavgeometer.github.io-blue?logo=github)](https://vaibhavgeometer.github.io/)
 [![JAM Live Portal](https://img.shields.io/badge/JAM%20Portal-vaibhavgeometer.github.io%2FJAM-success?logo=github)](https://vaibhavgeometer.github.io/JAM/)
-[![StockTic Engine](https://img.shields.io/badge/StockTic-SOTA%20(m%2Cn%2Ck)%20Analysis%20Board-629924)](https://vaibhavgeometer.github.io/lichess_tic_tac_toe_analysis_board.html)
+[![mnk games Engine](https://img.shields.io/badge/mnk games-SOTA%20(m%2Cn%2Ck)%20Analysis%20Board-629924)](https://vaibhavgeometer.github.io/board.html)
 [![Theory & AI Article](https://img.shields.io/badge/Theory%20Article-(m%2Cn%2Ck)%20Theory%20%26%20AI-0284c7)](https://vaibhavgeometer.github.io/mnk_games_theory_and_ai.html)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-vaibhavgeometer%2Fvaibhavgeometer.github.io-181717?logo=github)](https://github.com/vaibhavgeometer/vaibhavgeometer.github.io)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
@@ -14,7 +14,7 @@
 
 > **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring:
 > 1. **[IIT JAM Mathematics (MA) 22-Year Study Portal & CBT Simulator](https://vaibhavgeometer.github.io/JAM/)**: 885 official PYQs (2005–2026), 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator.
-> 2. **[m,n,k-game & genralizations](https://vaibhavgeometer.github.io/mnk_games/lichess_tic_tac_toe_analysis_board.html)**: Advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$), featuring standardized $[-100, +100]$ win probability eval bar, horizon-free static board evaluation, full-board square evaluations, 8 calibrated engine difficulty levels (600–3000 Elo), active obstacle barriers (`#`), Lichess clocks, Solved Status Atlas, and Threat-Space Search (VCF/VCT).
+> 2. **[m,n,k-game & genralizations](https://vaibhavgeometer.github.io/mnk_games/board.html)**: Advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$), featuring standardized $[-100, +100]$ win probability eval bar, horizon-free static board evaluation, full-board square evaluations, 8 calibrated engine difficulty levels (600–3000 Elo), active obstacle barriers (`#`), precision chess clocks, Solved Status Atlas, and Threat-Space Search (VCF/VCT).
 > 3. **[(m,n,k) Games Theory & AI Research Guide](https://vaibhavgeometer.github.io/mnk_games/mnk_games_theory_and_ai.html)**: Mathematical and algorithmic deep dive exploring Ramsey theory, Nash strategy-stealing, solved games catalog, static evaluation kernels, and proof-number search.
 
 ---
@@ -24,7 +24,7 @@
 | Resource | Description | Direct Link |
 | :--- | :--- | :--- |
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
-| ♟️ **m,n,k-game & genralizations** | Analysis board for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$) with SOTA AI (Levels 1–8), solved tablebases, Lichess clocks & MultiPV analysis | [Launch Analysis Board](https://vaibhavgeometer.github.io/mnk_games/lichess_tic_tac_toe_analysis_board.html) |
+| ♟️ **m,n,k-game & genralizations** | Analysis board for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$) with SOTA AI (Levels 1–8), solved tablebases, precision chess clocks & MultiPV analysis | [Launch Analysis Board](https://vaibhavgeometer.github.io/mnk_games/board.html) |
 | 📊 **Solved Status Atlas** | Verified matrix atlas of $(m,n,k)$ game solutions ($k=1$ to $k \ge 8$) with proofs & downloadable Excel dataset | [Explore Solved Atlas](https://vaibhavgeometer.github.io/mnk_games/solved_status_of_mnk_games.html) |
 | 📖 **(m,n,k) Games Theory & AI** | Deep-dive research into Ramsey theory, Nash strategy-stealing, solved games catalog & AI algorithms | [Read Theory Article](https://vaibhavgeometer.github.io/mnk_games/mnk_games_theory_and_ai.html) |
 | 💻 **CBT Simulator** | Real exam interface with palette, timer & scientific calculator | [Launch Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
@@ -123,7 +123,7 @@
   - Continuous vertical gauge with red 50–50 center line and board orientation flipping support.
 - **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**:
   - Solves $(m,n,k)$ horizon oscillations by evaluating center Chebyshev proximity and unblocked line segmentation on the static board, eliminating erratic score swings on theoretical draws like $(5,5,4)$.
-- **Progressive AI Thinking & Iterative Deepening (Lichess Analysis Board Architecture)**:
+- **Progressive AI Thinking & Iterative Deepening (Analysis Board Architecture)**:
   - In unsolved positions, the AI thinks progressively deeper ($d=1, 2, 3, \dots, 24$), refining move evaluations, re-ranking candidate lines, and discovering tactical Principal Variations as time elapses.
   - **AI Thinking Time Selector**: Quick pill selector offering `1s` (blitz), `5s` (standard analysis), `10s` (deep tactical search), `30s` (grandmaster ponder), and `∞` (unlimited until mathematically solved or stopped).
   - **Live Engine Telemetry & PV**: Real-time depth indicator (`depth 7/24` or `depth Solved`), evaluated nodes counter, computation speed in kN/s, live elapsed timer, animated progress bar, `Stop`/`Run` calculation toggle, and full algebraic Principal Variation sequence (`PV: c4 d4 b2 c2 b3`).
@@ -132,7 +132,7 @@
   - Complete evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (Best in green, Neutral in gray, Blunder in red).
   - MultiPV candidate moves list ranking top moves with real-time tactical annotations ("Instant Win", "Open 2 Build", "Positional Control", "Allows Opponent Win").
 - **8 Calibrated Engine Difficulty Tiers (600–3000 Elo)**:
-  - From Level 1 (Casual/Beginner) to Level 8 (StockTic Max) featuring Threat-Space Search (VCF/VCT), distance-2 neighborhood pruning, and retrograde tablebases.
+  - From Level 1 (Casual/Beginner) to Level 8 (mnk games Max) featuring Threat-Space Search (VCF/VCT), distance-2 neighborhood pruning, and retrograde tablebases.
 - **Match Play Mode (`vs Engine`) & Evaluation Privacy Toggle**:
   - Play as X or O against any AI level with match evaluation toggle (turn evaluations OFF for realistic competitive tournament play, or ON for interactive learning).
 - **FEN String & Game Notation Tools**:
@@ -258,9 +258,9 @@ vaibhavgeometer.github.io/
 │   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024, 2025, 2026 PDFs)
 │   └── scripts/                               # Data pipeline & PDF generation compilers
 │
-├── mnk_games/                                 # ♟️ (m,n,k)-Games & StockTic Engine (Demand 5)
+├── mnk_games/                                 # ♟️ (m,n,k)-Games & mnk games Engine (Demand 5)
 │   ├── index.html                             # MNK Games overview & engine launcher
-│   ├── lichess_tic_tac_toe_analysis_board.html# StockTic SOTA (m,n,k,j) Analysis Board
+│   ├── board.html# mnk games SOTA (m,n,k,j) Analysis Board
 │   └── mnk_games_theory_and_ai.html           # Comprehensive Game Theory & AI Research Guide
 │
 ├── portfolio.css                              # 🌐 Glassmorphism design system & portal stylesheet
@@ -273,7 +273,7 @@ vaibhavgeometer.github.io/
 └── README.md                                  # Master repository documentation
 ```
 
-> **Note on Zero Regressions (Demand 6):** For complete backward compatibility with existing bookmarks, search indexing, and GitHub Pages paths, root entry points (`index.html`, `lichess_tic_tac_toe_analysis_board.html`, `mnk_games_theory_and_ai.html`, `JAM/`, `CUET-PG/`, `mock-test/`, `countdown/`, `404.html`) remain accessible and functional without disrupting any academic content or examination simulators.
+> **Note on Zero Regressions (Demand 6):** For complete backward compatibility with existing bookmarks, search indexing, and GitHub Pages paths, root entry points (`index.html`, `board.html`, `mnk_games_theory_and_ai.html`, `JAM/`, `CUET-PG/`, `mock-test/`, `countdown/`, `404.html`) remain accessible and functional without disrupting any academic content or examination simulators.
 
 ---
 
@@ -337,14 +337,14 @@ This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_test
 
 ### Late October 2026 — Tournament System, Offline Clocks, Multi-Player (m,n,k,j) & Board Editor Major Update (Demands 1–7)
 - **Tournament System for $(m,n,k)$-Games (Demand 1)**: Integrated competition suite supporting custom player rosters with mix of Humans and AI levels, instant presets (including "2 Humans, 5 AIs: Level 2, Level 2, Level 8, Level 7, Level 6", "8 AI Championship", "4 Humans Cup"), Round Robin ($1\times$ to $10\times$ cycles) with Berger polygon cyclic pairing and balanced color alternation, Single-elimination Knockout brackets, live standings with Sonneborn-Berger tiebreakers, and 1-click clipboard / JSON export.
-- **Offline Multiplayer with Lichess Clocks (Demand 2)**: Genuine cheat-free competitive match play (Human vs Human, Human vs AI, AI vs AI) with evaluation bars and hint arrows concealed. Precision chess-style clocks with initial base time and increment ($1+0$ Bullet, $3+2$ Blitz, $5+3$ Rapid, $10+5$ Classical, Custom) and automatic flagging at 00:00. Level 8 AI plays instantly in known opening book / tablebase positions, smoothly budgets time in unclear tactical positions, never flags, refrains from thinking on opponent's turn by default, with an optional Ponder toggle (ON/OFF).
+- **Offline Multiplayer with Precision Chess Clocks (Demand 2)**: Genuine cheat-free competitive match play (Human vs Human, Human vs AI, AI vs AI) with evaluation bars and hint arrows concealed. Precision chess-style clocks with initial base time and increment ($1+0$ Bullet, $3+2$ Blitz, $5+3$ Rapid, $10+5$ Classical, Custom) and automatic flagging at 00:00. Level 8 AI plays instantly in known opening book / tablebase positions, smoothly budgets time in unclear tactical positions, never flags, refrains from thinking on opponent's turn by default, with an optional Ponder toggle (ON/OFF).
 - **Generalized Multi-Player $(m,n,k,j)$ Games (Demand 3)**: Extends $(m,n,k)$-games to arbitrary $j=2, 3, 4, 5$ players with circular turn rotation (Player 1 $X$, Player 2 $O$, Player 3 $\blacktriangle$ Emerald, Player 4 $\blacksquare$ Sky Blue, Player 5 $\blacklozenge$ Purple), custom SVG geometries, and multi-opponent threat detection for AI levels 1 to 8.
 - **Board Editor & Frozen Obstacle Squares (Demand 4)**: Interactive position editor to place frozen squares (`#` / ❄️) where moves cannot be placed and streaks are blocked, place custom piece layouts, assign starting turns, and load directly into Analysis or Play modes.
 - **Clean Architecture (Demand 5 & 6)**: Reorganized repository into clear domains (`academic/`, `mnk_games/`), keeping root configuration (`portfolio.css`, `.gitignore`, `README.md`, `LICENSE`, `scratch/`) and zero-regression entry points to guarantee 100% backward compatibility for all URLs and bookmarks.
 - **Complete & Partial Endgame Tablebases Catalog (Demand 7)**: Documented complete retrograde tablebases ($1\times 1$, $2\times 2$, $3\times 3, k=2$, $3\times 3, k=3$, $4\times 4, k=4$ Patashnik draw, $3\times 4, k=3$), partial tablebases & opening books ($5\times 5, k=4$ theoretical draw, $6\times 6, k=4$, $7\times 7, k=5$ Small Gomoku, $15\times 15, k=5$ Gomoku, $19\times 19, k=5$ Pente), and open classifications ($k \ge 6$) in `mnk_games_theory_and_ai.html`.
 
-### October 2026 — StockTic Engine, Eval Bar & Analysis Board Major Update
-- **Progressive AI Thinking & Iterative Deepening (Lichess Style)**: Implemented an asynchronous iterative deepening search engine ($d=1..24$) with cooperative micro-yielding, PV move ordering, live telemetry (depth, nodes, kN/s, timer, progress bar, `Stop`/`Run` toggle), and real-time Principal Variation line display.
+### October 2026 — mnk games Engine, Eval Bar & Analysis Board Major Update
+- **Progressive AI Thinking & Iterative Deepening (SOTA Engine Style)**: Implemented an asynchronous iterative deepening search engine ($d=1..24$) with cooperative micro-yielding, PV move ordering, live telemetry (depth, nodes, kN/s, timer, progress bar, `Stop`/`Run` toggle), and real-time Principal Variation line display.
 - **Configurable AI Thinking Time**: Added interactive pill buttons allowing users to select engine thinking budgets: `1s`, `5s`, `10s`, `30s`, and `∞` (unlimited until mathematically solved or stopped).
 - **Win Probability Evaluation Bar (`[-100, +100]` Scale)**: Standardized the evaluation scale to intuitive win probability percentages ($+100$ = 100% win for First Player $X$, $0$ = 50–50 balanced / theoretical draw, $-100$ = 100% win for Second Player $O$). Features continuous height-matched fill, high-contrast borders, red 50–50 midpoint indicator line, and board flip orientation support.
 - **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**: Developed and implemented a static positional kernel evaluating Chebyshev center proximity and unblocked line counts. Completely eliminates leaf-node horizon oscillations, keeping opening moves on theoretical draw boards like $(5,5,4)$ rock-solid at $0$.
