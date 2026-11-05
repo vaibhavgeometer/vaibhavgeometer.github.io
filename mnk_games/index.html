@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mnk games &bull; Free Online (m,n,k)-Games</title>
-  <meta name="description" content="Free online (m,n,k)-games platform: interactive game theory engine, SOTA AI, tournaments, clocks, solved status atlas, and research compendium.">
+  <title>mnk games &bull; Offline (m,n,k,j)-Games &amp; Engine Platform</title>
+  <meta name="description" content="Offline (m,n,k,j)-games platform: interactive threat-space search AI, precision chess clocks, local pass & play, tournament arena, and game-theoretic solved atlas.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       mnk games Authentic Minimal Theme
+       mnk games Authentic Minimal Theme (Offline Lichess Aesthetic)
        ========================================================================== */
     :root {
       --bg-page: #161512;
@@ -76,7 +76,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Top Navigation Bar (mnk games Style)
+       Top Navigation Bar
        -------------------------------------------------------------------------- */
     .site-nav {
       background-color: var(--bg-header);
@@ -135,13 +135,7 @@
       color: var(--text-bright);
       display: flex;
       align-items: baseline;
-      gap: 2px;
-    }
-
-    .brand-title .brand-tld {
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.95rem;
+      gap: 3px;
     }
 
     .brand-badge {
@@ -153,7 +147,7 @@
       border: 1px solid var(--border);
       padding: 1px 5px;
       border-radius: var(--radius-sm);
-      margin-left: 4px;
+      margin-left: 6px;
       letter-spacing: 0.05em;
     }
 
@@ -175,7 +169,7 @@
       height: 100%;
       display: flex;
       align-items: center;
-      padding: 0 0.75rem;
+      padding: 0 0.85rem;
       font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -248,6 +242,7 @@
       border-radius: var(--radius-sm);
       color: var(--text-main);
       transition: color 0.15s ease, background-color 0.15s ease;
+      text-decoration: none;
     }
 
     .nav-icon-btn:hover {
@@ -261,39 +256,12 @@
       stroke: currentColor;
       fill: none;
       stroke-width: 2;
-    }
-
-    .user-pill {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-main);
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .user-pill:hover {
-      background-color: var(--bg-card-hover);
-      color: var(--text-bright);
-    }
-
-    .user-avatar {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #363431;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--text-bright);
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     /* --------------------------------------------------------------------------
-       Main Page Layout (mnk games 3-Column Grid)
+       Main Page Layout (3-Column Grid)
        -------------------------------------------------------------------------- */
     .main-wrapper {
       flex: 1;
@@ -337,7 +305,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Left Column (Tournaments, Streamer Banner & Community Feed)
+       Left Column (Engine Banner, Tournaments, Theory Resources)
        -------------------------------------------------------------------------- */
     .col-left {
       display: flex;
@@ -382,7 +350,7 @@
       font-weight: 700;
     }
 
-    /* Tournament Card Box */
+    /* Side Card Box */
     .side-box {
       background: var(--bg-panel);
       border: 1px solid var(--border);
@@ -437,7 +405,7 @@
       margin-top: 2px;
     }
 
-    /* Activity Feed Box */
+    /* Theory & Atlas List Box */
     .activity-feed {
       display: flex;
       flex-direction: column;
@@ -476,7 +444,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Center Column (Tabs, 3x4 Quick Pairing Grid, Watermark, Lobby, Solved)
+       Center Column (Tabs, 3x4 Quick Start Grid, All Variants, Solved Atlas)
        -------------------------------------------------------------------------- */
     .col-center {
       display: flex;
@@ -521,7 +489,7 @@
       border-radius: 2px 2px 0 0;
     }
 
-    /* Quick Pairing Container */
+    /* Quick Start Container */
     .quick-wrap {
       position: relative;
     }
@@ -604,8 +572,8 @@
       color: var(--text-main);
     }
 
-    /* Lobby View Tab */
-    .lobby-table-wrap {
+    /* Variants Table Tab */
+    .variants-table-wrap {
       background: var(--bg-panel);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
@@ -613,14 +581,14 @@
       display: none;
     }
 
-    .lobby-table {
+    .variants-table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
       font-size: 0.85rem;
     }
 
-    .lobby-table th {
+    .variants-table th {
       background: #1e1c18;
       padding: 0.75rem 1rem;
       font-weight: 600;
@@ -631,32 +599,55 @@
       letter-spacing: 0.05em;
     }
 
-    .lobby-table td {
+    .variants-table td {
       padding: 0.75rem 1rem;
       border-bottom: 1px solid var(--border-subtle);
       color: var(--text-main);
     }
 
-    .lobby-table tr:hover td {
+    .variants-table tr:hover td {
       background-color: var(--bg-card-hover);
     }
 
     .btn-table-play {
       background: #363431;
       color: var(--text-bright);
-      padding: 0.3rem 0.75rem;
+      padding: 0.3rem 0.65rem;
       border-radius: var(--radius-sm);
       font-weight: 600;
       font-size: 0.75rem;
       transition: background 0.15s ease;
       display: inline-block;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-table-play:hover {
       background: var(--accent-green);
+      color: #ffffff;
     }
 
-    /* Solved Atlas / Correspondence View Tab */
+    .btn-table-pass {
+      background: #2b2824;
+      color: var(--text-main);
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      transition: all 0.15s ease;
+      display: inline-block;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-table-pass:hover {
+      background: #363431;
+      color: var(--text-bright);
+      border-color: var(--border-hover);
+    }
+
+    /* Solved Atlas Tab */
     .solved-quick-wrap {
       background: var(--bg-panel);
       border: 1px solid var(--border);
@@ -703,7 +694,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Right Column (mnk games Primary Action Buttons & Live Stats)
+       Right Column (Primary Action Buttons & Specs)
        -------------------------------------------------------------------------- */
     .col-right {
       display: flex;
@@ -756,27 +747,15 @@
       margin-top: 1px;
     }
 
-    /* Engine & Game Stats */
+    /* Engine Specs */
     .stats-footer {
       margin-top: 1.5rem;
       text-align: right;
       padding-right: 0.5rem;
     }
 
-    .stat-line {
-      font-size: 0.88rem;
-      color: var(--text-main);
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .stat-line .stat-num {
-      color: var(--text-bright);
-      font-weight: 700;
-    }
-
     /* --------------------------------------------------------------------------
-       mnk games Footer
+       Footer
        -------------------------------------------------------------------------- */
     .site-footer {
       border-top: 1px solid var(--border-subtle);
@@ -834,7 +813,7 @@
     }
 
     /* --------------------------------------------------------------------------
-       Modal Windows (mnk games Dialogs)
+       Modal Windows
        -------------------------------------------------------------------------- */
     .modal-backdrop {
       position: fixed;
@@ -989,30 +968,42 @@
             <line x1="3" y1="15" x2="21" y2="15"></line>
           </svg>
           <span class="brand-title">mnk <span style="color: var(--accent-orange); font-weight: 800;">games</span></span>
+          <span class="brand-badge">Offline</span>
         </a>
 
-        <!-- Menu items with Dropdowns -->
+        <!-- Clean Chess-Style Navigation -->
         <ul class="nav-menu">
           <!-- PLAY -->
           <li class="nav-item">
-            <a href="board.html" class="nav-link">Play</a>
+            <a href="board.html#play" class="nav-link">Play</a>
             <div class="nav-dropdown">
-              <a href="#" class="dropdown-link" onclick="openModal('modal-custom'); return false;">
-                <span>⚙️</span>
-                <span>Create a game</span>
-              </a>
               <a href="#" class="dropdown-link" onclick="openModal('modal-computer'); return false;">
                 <span>🤖</span>
                 <span>Play against computer</span>
               </a>
-              <a href="board.html#play" class="dropdown-link">
+              <a href="#" class="dropdown-link" onclick="openModal('modal-friend'); return false;">
                 <span>👥</span>
-                <span>Challenge a friend (Pass &amp; Play)</span>
+                <span>Pass &amp; Play (Local Match)</span>
+              </a>
+              <a href="#" class="dropdown-link" onclick="openModal('modal-custom'); return false;">
+                <span>⚙️</span>
+                <span>Custom (m,n,k,j) Game</span>
               </a>
               <div class="dropdown-divider"></div>
               <a href="board.html#tournament" class="dropdown-link">
                 <span>🏆</span>
                 <span>Tournament Arena</span>
+              </a>
+            </div>
+          </li>
+
+          <!-- ANALYSIS -->
+          <li class="nav-item">
+            <a href="board.html#analysis" class="nav-link">Analysis</a>
+            <div class="nav-dropdown">
+              <a href="board.html#analysis" class="dropdown-link">
+                <span>♟️</span>
+                <span>Threat-Space Analysis Board</span>
               </a>
               <a href="board.html#editor" class="dropdown-link">
                 <span>✏️</span>
@@ -1021,10 +1012,14 @@
             </div>
           </li>
 
-          <!-- PUZZLES / THEORY -->
+          <!-- THEORY & ATLAS -->
           <li class="nav-item">
-            <a href="mnk_games_theory_and_ai.html" class="nav-link">Theory</a>
+            <a href="solved_status_of_mnk_games.html" class="nav-link">Theory &amp; Atlas</a>
             <div class="nav-dropdown">
+              <a href="solved_status_of_mnk_games.html" class="dropdown-link">
+                <span>📊</span>
+                <span>Solved Status Atlas (k=1..8+)</span>
+              </a>
               <a href="mnk_games_theory_and_ai.html" class="dropdown-link">
                 <span>📖</span>
                 <span>Mathematics &amp; SOTA AI Paper</span>
@@ -1037,77 +1032,10 @@
                 <span>🛡️</span>
                 <span>Ramsey &amp; Hales-Jewett Proofs</span>
               </a>
-            </div>
-          </li>
-
-          <!-- LEARN -->
-          <li class="nav-item">
-            <a href="solved_status_of_mnk_games.html" class="nav-link">Learn</a>
-            <div class="nav-dropdown">
-              <a href="solved_status_of_mnk_games.html" class="dropdown-link">
-                <span>📊</span>
-                <span>Solved Status Atlas (k=1..8+)</span>
-              </a>
-              <a href="mnk_games_theory_and_ai.html#rules" class="dropdown-link">
-                <span>📜</span>
-                <span>Rules of (m,n,k,j)-Games</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- WATCH -->
-          <li class="nav-item">
-            <a href="board.html#tournament" class="nav-link">Watch</a>
-            <div class="nav-dropdown">
-              <a href="board.html#tournament" class="dropdown-link">
-                <span>🏆</span>
-                <span>Arena Knockout Tournaments</span>
-              </a>
-              <a href="board.html#tournament" class="dropdown-link">
-                <span>⚔️</span>
-                <span>AI vs AI Engine Battles</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- COMMUNITY -->
-          <li class="nav-item">
-            <a href="../" class="nav-link">Community</a>
-            <div class="nav-dropdown">
-              <a href="../" class="dropdown-link">
-                <span>📐</span>
-                <span>Vaibhav Geometer Portfolio</span>
-              </a>
-              <a href="../academic/" class="dropdown-link">
-                <span>🎓</span>
-                <span>Academic &amp; Research Portals</span>
-              </a>
-              <a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener" class="dropdown-link">
-                <span>🐙</span>
-                <span>GitHub Repository</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- TOOLS -->
-          <li class="nav-item">
-            <a href="board.html" class="nav-link">Tools</a>
-            <div class="nav-dropdown">
-              <a href="board.html" class="dropdown-link">
-                <span>♟️</span>
-                <span>Analysis Board</span>
-              </a>
-              <a href="solved_status_of_mnk_games.html" class="dropdown-link">
-                <span>📊</span>
-                <span>Solved Status Atlas Matrix</span>
-              </a>
+              <div class="dropdown-divider"></div>
               <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link">
                 <span>📥</span>
                 <span>Download Dataset (.xlsx)</span>
-              </a>
-              <a href="board.html#editor" class="dropdown-link">
-                <span>✏️</span>
-                <span>Board Editor</span>
               </a>
             </div>
           </li>
@@ -1116,18 +1044,14 @@
 
       <!-- Nav Right Controls -->
       <div class="nav-right">
-        <button class="nav-icon-btn" title="Search variants &amp; guides" onclick="openModal('modal-search')">
+        <button class="nav-icon-btn" title="Search variants &amp; research" onclick="openModal('modal-search')">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
-        <button class="nav-icon-btn" title="Quick Match" onclick="openModal('modal-custom')">
-          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        </button>
-        <button class="nav-icon-btn" title="Settings / Info" onclick="alert('mnk games Engine & System\nVersion: 2026.1\nDimensions: 1x1 to 32x32\nThreat-Space Search AI: Level 1 to 8 (600-3000 Elo)')">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        </button>
-        <a href="../" class="user-pill" title="Vaibhav Geometer Profile">
-          <div class="user-avatar">VG</div>
-          <span>vaibhavgeometer</span>
+        <a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener" class="nav-icon-btn" title="GitHub Repository">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="../" class="nav-icon-btn" title="Portfolio Home">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
         </a>
       </div>
     </div>
@@ -1137,15 +1061,15 @@
   <main class="main-wrapper">
     <div class="portal-grid">
 
-      <!-- LEFT COLUMN: Tournaments & Research Community Feed -->
+      <!-- LEFT COLUMN: Engine Highlight, Tournaments & Research Atlas -->
       <aside class="col-left">
         <!-- mnk AI Engine Highlight -->
-        <a href="board.html#analysis" class="highlight-banner" title="mnk AI SOTA Engine">
+        <a href="board.html#analysis" class="highlight-banner" title="Threat-Space Search Analysis Engine">
           <div style="display: flex; align-items: center; gap: 0.65rem; min-width: 0;">
             <span class="stream-icon">♟️</span>
             <div>
-              <div class="stream-title">mnk AI Engine</div>
-              <div style="font-size: 0.72rem; color: var(--text-muted);">Iterative Deepening &amp; Eval Bar</div>
+              <div class="stream-title">Threat-Space AI Engine</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Iterative Deepening &amp; Live Eval Bar</div>
             </div>
           </div>
           <span class="stream-arrow">Engine »</span>
@@ -1171,7 +1095,7 @@
             <div class="tourn-icon-box">🎲</div>
             <div class="tourn-details">
               <div class="tourn-name">Generalized (m,n,k,j) League</div>
-              <div class="tourn-meta">3–4 Circular turns • Multi-player</div>
+              <div class="tourn-meta">3–4 Circular turns • Local Multi-Player</div>
             </div>
           </a>
           <a href="board.html?m=5&n=5&k=4#play" class="tourn-item">
@@ -1183,7 +1107,7 @@
           </a>
         </div>
 
-        <!-- Activity Feed (Community & Research) -->
+        <!-- Theory & Atlas Compendium Box -->
         <div class="side-box activity-feed">
           <div class="feed-item">
             <a href="solved_status_of_mnk_games.html" class="feed-author">Solved Status Atlas</a>
@@ -1213,16 +1137,16 @@
         </div>
       </aside>
 
-      <!-- CENTER COLUMN: Tabs & Iconic Quick Pairing Grid -->
+      <!-- CENTER COLUMN: Tabs & Iconic Quick Start Grid -->
       <section class="col-center">
         <!-- Tabs Navigation -->
         <nav class="tabs-bar">
-          <button class="tab-btn active" id="tab-quick-btn" onclick="switchTab('quick')">Quick pairing</button>
-          <button class="tab-btn" id="tab-lobby-btn" onclick="switchTab('lobby')">Lobby</button>
-          <button class="tab-btn" id="tab-corr-btn" onclick="switchTab('corr')">Correspondence</button>
+          <button class="tab-btn active" id="tab-quick-btn" onclick="switchTab('quick')">Quick Start</button>
+          <button class="tab-btn" id="tab-variants-btn" onclick="switchTab('variants')">All Variants</button>
+          <button class="tab-btn" id="tab-solved-btn" onclick="switchTab('solved')">Solved Atlas</button>
         </nav>
 
-        <!-- 1. Quick Pairing Tab Panel -->
+        <!-- 1. Quick Start Tab Panel -->
         <div id="panel-quick" class="quick-wrap">
           <!-- mnk games Geometric Grid Watermark -->
           <svg class="grid-watermark" viewBox="0 0 200 200">
@@ -1283,11 +1207,11 @@
             </a>
 
             <!-- Row 4 -->
-            <a href="board.html#play" class="pairing-card">
+            <a href="board.html?tc=1%2B0#play" class="pairing-card">
               <div class="card-title">1 + 0</div>
               <div class="card-subtitle">Bullet Clocks</div>
             </a>
-            <a href="board.html#play" class="pairing-card">
+            <a href="board.html?tc=3%2B2#play" class="pairing-card">
               <div class="card-title">3 + 2</div>
               <div class="card-subtitle">Blitz Clocks</div>
             </a>
@@ -1298,16 +1222,17 @@
           </div>
         </div>
 
-        <!-- 2. Lobby Tab Panel -->
-        <div id="panel-lobby" class="lobby-table-wrap">
-          <table class="lobby-table">
+        <!-- 2. Variants Tab Panel -->
+        <div id="panel-variants" class="variants-table-wrap">
+          <table class="variants-table">
             <thead>
               <tr>
                 <th>Variant</th>
-                <th>Board Size</th>
-                <th>Win Streak</th>
-                <th>Mode / Engine</th>
-                <th>Action</th>
+                <th>Grid (m×n)</th>
+                <th>Win (k)</th>
+                <th>Players (j)</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -1315,68 +1240,127 @@
                 <td><strong>Tic-Tac-Toe Classic</strong></td>
                 <td>3 × 3</td>
                 <td>k = 3</td>
-                <td>mnk AI Level 8 (Elo 3000)</td>
-                <td><a href="board.html?m=3&n=3&k=3#play" class="btn-table-play">Play</a></td>
+                <td>2</td>
+                <td><span class="badge-draw">Draw</span></td>
+                <td>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <a href="board.html?m=3&n=3&k=3&level=8#play" class="btn-table-play">vs AI</a>
+                    <a href="board.html?m=3&n=3&k=3#play" class="btn-table-pass">Pass &amp; Play</a>
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td><strong>Mini-Gomoku Tactician</strong></td>
                 <td>5 × 5</td>
                 <td>k = 4</td>
-                <td>Threat-Space Search</td>
-                <td><a href="board.html?m=5&n=5&k=4#play" class="btn-table-play">Play</a></td>
+                <td>2</td>
+                <td><span class="badge-draw">Draw</span></td>
+                <td>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <a href="board.html?m=5&n=5&k=4&level=8#play" class="btn-table-play">vs AI</a>
+                    <a href="board.html?m=5&n=5&k=4#play" class="btn-table-pass">Pass &amp; Play</a>
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td><strong>Connect-Style Grid</strong></td>
                 <td>7 × 6</td>
                 <td>k = 4</td>
-                <td>Iterative Deepening</td>
-                <td><a href="board.html?m=7&n=6&k=4#play" class="btn-table-play">Play</a></td>
+                <td>2</td>
+                <td><span class="badge-win">First-Player Win</span></td>
+                <td>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <a href="board.html?m=7&n=6&k=4&level=8#play" class="btn-table-play">vs AI</a>
+                    <a href="board.html?m=7&n=6&k=4#play" class="btn-table-pass">Pass &amp; Play</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Freestyle Gomoku 10×10</strong></td>
+                <td>10 × 10</td>
+                <td>k = 5</td>
+                <td>2</td>
+                <td><span class="badge-win">First-Player Win</span></td>
+                <td>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <a href="board.html?m=10&n=10&k=5&level=8#play" class="btn-table-play">vs AI</a>
+                    <a href="board.html?m=10&n=10&k=5#play" class="btn-table-pass">Pass &amp; Play</a>
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td><strong>Standard Gomoku</strong></td>
                 <td>15 × 15</td>
                 <td>k = 5</td>
-                <td>Proved First-Player Win</td>
-                <td><a href="board.html?m=15&n=15&k=5#play" class="btn-table-play">Play</a></td>
-              </tr>
-              <tr>
-                <td><strong>Knockout Tournament</strong></td>
-                <td>5 × 5</td>
-                <td>k = 4</td>
-                <td>8-Player Engine Bracket</td>
-                <td><a href="board.html#tournament" class="btn-table-play">Tournament</a></td>
-              </tr>
-              <tr>
-                <td><strong>Round Robin League</strong></td>
-                <td>3 × 3</td>
-                <td>k = 3</td>
-                <td>All-Play-All Series</td>
-                <td><a href="board.html#tournament" class="btn-table-play">League</a></td>
+                <td>2</td>
+                <td><span class="badge-win">First-Player Win</span></td>
+                <td>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <a href="board.html?m=15&n=15&k=5&level=8#play" class="btn-table-play">vs AI</a>
+                    <a href="board.html?m=15&n=15&k=5#play" class="btn-table-pass">Pass &amp; Play</a>
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td><strong>Circular Multi-Player</strong></td>
                 <td>6 × 6</td>
                 <td>k = 4</td>
-                <td>3 Players (X, O, ▲)</td>
-                <td><a href="board.html?j=3#play" class="btn-table-play">Play</a></td>
+                <td>3</td>
+                <td><span style="color: #3692e7; font-weight: 600;">3-Player Turn</span></td>
+                <td>
+                  <a href="board.html?m=6&n=6&k=4&j=3#play" class="btn-table-pass">Pass &amp; Play (3P)</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Generalized 4-Player</strong></td>
+                <td>8 × 8</td>
+                <td>k = 5</td>
+                <td>4</td>
+                <td><span style="color: #e69f00; font-weight: 600;">4-Player Turn</span></td>
+                <td>
+                  <a href="board.html?m=8&n=8&k=5&j=4#play" class="btn-table-pass">Pass &amp; Play (4P)</a>
+                </td>
               </tr>
               <tr>
                 <td><strong>Obstacle Barrier Board</strong></td>
                 <td>8 × 8</td>
                 <td>k = 5</td>
-                <td>Frozen Blocks (#)</td>
-                <td><a href="board.html#editor" class="btn-table-play">Editor</a></td>
+                <td>2</td>
+                <td><span style="color: #bababa; font-weight: 600;">Obstacles (#)</span></td>
+                <td>
+                  <a href="board.html#editor" class="btn-table-pass">Board Editor</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Knockout Tournament</strong></td>
+                <td>5 × 5</td>
+                <td>k = 4</td>
+                <td>8</td>
+                <td><span style="color: #df6438; font-weight: 600;">Bracket</span></td>
+                <td>
+                  <a href="board.html#tournament" class="btn-table-play">Tournament</a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Round Robin League</strong></td>
+                <td>3 × 3</td>
+                <td>k = 3</td>
+                <td>4</td>
+                <td><span style="color: #7ec62f; font-weight: 600;">All-Play-All</span></td>
+                <td>
+                  <a href="board.html#tournament" class="btn-table-play">League</a>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- 3. Solved Status Atlas (Correspondence Tab Panel) -->
-        <div id="panel-corr" class="solved-quick-wrap">
+        <!-- 3. Solved Status Atlas Tab Panel -->
+        <div id="panel-solved" class="solved-quick-wrap">
           <div class="solved-header">
             <div>
               <h3 style="font-size: 1.1rem; color: var(--text-bright); font-weight: 700;">Game-Theoretic Solved Status</h3>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">Atlas of exact values from k=1 to k≥8</p>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">Exact values and proof citations from k=1 to k≥8</p>
             </div>
             <a href="solved_status_of_mnk_games.html" class="btn-table-play" style="background: var(--accent-orange);">Open Full Atlas »</a>
           </div>
@@ -1430,29 +1414,29 @@
         </div>
       </section>
 
-      <!-- RIGHT COLUMN: mnk games Action Buttons & Engine Status -->
+      <!-- RIGHT COLUMN: Primary Action Buttons & Engine Status -->
       <aside class="col-right">
-        <!-- 1. Create lobby game -->
+        <!-- 1. Custom (m,n,k,j) Game -->
         <button class="btn-action" onclick="openModal('modal-custom')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <div style="text-align: left;">
+            <div>Custom (m,n,k,j) Game</div>
+          </div>
+        </button>
+
+        <!-- 2. Pass & Play (Local) -->
+        <button class="btn-action" onclick="openModal('modal-friend')">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           <div style="text-align: left;">
-            <div>Create lobby game</div>
+            <div>Pass &amp; Play (Local)</div>
           </div>
         </button>
 
-        <!-- 2. Challenge a friend -->
-        <button class="btn-action" onclick="openModal('modal-friend')">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          <div style="text-align: left;">
-            <div>Challenge a friend</div>
-          </div>
-        </button>
-
-        <!-- 3. Play against computer -->
+        <!-- 3. Play against Computer -->
         <button class="btn-action" onclick="openModal('modal-computer')">
           <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
           <div style="text-align: left;">
-            <div>Play against computer</div>
+            <div>Play against Computer</div>
           </div>
         </button>
 
@@ -1466,7 +1450,7 @@
 
         <!-- Engine Specs / Variant Info -->
         <div class="stats-footer">
-          <div class="action-subtext">mnk AI 600–3000 Elo • 1×1 to 32×32</div>
+          <div class="action-subtext">Threat-Space AI 600–3000 Elo • Local 1–4 Players • 1×1 to 32×32</div>
         </div>
       </aside>
 
@@ -1479,16 +1463,16 @@
       <div class="footer-col">
         <h4>Play</h4>
         <ul class="footer-links">
-          <li><a href="board.html">Analysis Board</a></li>
+          <li><a href="board.html#analysis">Analysis Board</a></li>
           <li><a href="#" onclick="openModal('modal-computer'); return false;">Play against Computer</a></li>
-          <li><a href="board.html#play">Pass &amp; Play Clocks</a></li>
-          <li><a href="board.html#tournament">Tournament System</a></li>
+          <li><a href="#" onclick="openModal('modal-friend'); return false;">Pass &amp; Play (Local)</a></li>
+          <li><a href="board.html#tournament">Tournament Arena</a></li>
           <li><a href="board.html#editor">Board Editor (#)</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Theory &amp; Research</h4>
+        <h4>Theory &amp; Atlas</h4>
         <ul class="footer-links">
           <li><a href="mnk_games_theory_and_ai.html">The Mathematics &amp; SOTA AI</a></li>
           <li><a href="solved_status_of_mnk_games.html">Solved Status Atlas Matrix</a></li>
@@ -1501,10 +1485,10 @@
       <div class="footer-col">
         <h4>Engine Features</h4>
         <ul class="footer-links">
-          <li><a href="board.html">Threat-Space Search (TSS)</a></li>
-          <li><a href="board.html">Precision Chess Clocks</a></li>
-          <li><a href="board.html">Live Evaluation Bar [-100, +100]</a></li>
-          <li><a href="board.html">PGN Move Notation &amp; History</a></li>
+          <li><a href="board.html#analysis">Threat-Space Search (TSS)</a></li>
+          <li><a href="board.html#play">Precision Chess Clocks</a></li>
+          <li><a href="board.html#analysis">Live Evaluation Bar [-100, +100]</a></li>
+          <li><a href="board.html#play">Multi-Player (j &ge; 3) Rotation</a></li>
           <li><a href="board.html">Arbitrary Dimensions (1×1 to 32×32)</a></li>
         </ul>
       </div>
@@ -1515,14 +1499,13 @@
           <li><a href="../">Vaibhav Geometer Portfolio</a></li>
           <li><a href="../academic/">Academic Portals</a></li>
           <li><a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener">GitHub Repository</a></li>
-          <li><a href="../academic/">Contribute &amp; Research</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-copy">
-      <div>© 2026 Vaibhav Geometer · (m,n,k)-games &amp; generalizations ecosystem</div>
-      <div>Minimalist, high-performance platform for (m,n,k)-games and generalizations</div>
+      <div>&copy; 2026 Vaibhav Geometer &middot; Standalone offline (m,n,k,j)-games platform</div>
+      <div>Minimalist, high-performance offline engine and tournament arena for (m,n,k)-games</div>
     </div>
   </footer>
 
@@ -1532,7 +1515,7 @@
   <div id="modal-computer" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-computer')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>Play with the machine</h3>
+        <h3>Play against Computer</h3>
         <button class="modal-close" onclick="closeModal('modal-computer')">&times;</button>
       </div>
       <div class="modal-body">
@@ -1576,7 +1559,7 @@
   <div id="modal-custom" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-custom')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>Create a game</h3>
+        <h3>Create Custom (m,n,k,j) Game</h3>
         <button class="modal-close" onclick="closeModal('modal-custom')">&times;</button>
       </div>
       <div class="modal-body">
@@ -1614,16 +1597,26 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label">Time Control Preset</label>
-          <select id="select-custom-clock" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-            <option value="">No Clocks (Unlimited)</option>
-            <option value="1+0">1 + 0 (Bullet)</option>
-            <option value="3+0">3 + 0 (Blitz)</option>
-            <option value="3+2" selected>3 + 2 (Blitz with Increment)</option>
-            <option value="5+3">5 + 3 (Rapid)</option>
-            <option value="10+0">10 + 0 (Rapid)</option>
-          </select>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="form-group">
+            <label class="form-label">Time Control</label>
+            <select id="select-custom-clock" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+              <option value="">Unlimited</option>
+              <option value="1+0">1 + 0 (Bullet)</option>
+              <option value="3+0">3 + 0 (Blitz)</option>
+              <option value="3+2" selected>3 + 2 (Blitz with Inc)</option>
+              <option value="5+3">5 + 3 (Rapid)</option>
+              <option value="10+0">10 + 0 (Rapid)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mode</label>
+            <select id="select-custom-mode" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+              <option value="play" selected>⚔️ Play Match</option>
+              <option value="analysis">🔍 Analysis Board</option>
+              <option value="editor">✏️ Board Editor</option>
+            </select>
+          </div>
         </div>
 
         <button type="button" class="btn-modal-submit" onclick="launchCustomGame()">Create Game</button>
@@ -1632,17 +1625,17 @@
   </div>
 
   <!-- =========================================================================
-       MODAL 3: Challenge a friend (Pass & Play)
+       MODAL 3: Pass & Play (Local Multiplayer)
        ========================================================================= -->
   <div id="modal-friend" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-friend')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>Challenge a friend</h3>
+        <h3>Pass &amp; Play (Local Match)</h3>
         <button class="modal-close" onclick="closeModal('modal-friend')">&times;</button>
       </div>
       <div class="modal-body">
         <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-          Launch local multiplayer with precision chess clocks, interactive threat-space evaluation bar, board editor barrier obstacles (#), and move notation.
+          Play locally on the same device with 2 to 4 players, precision chess clocks, obstacle barriers (#), and move notation.
         </p>
 
         <div class="form-group">
@@ -1651,11 +1644,33 @@
             <option value="m=3&n=3&k=3">3×3 (k=3) Classic Tic-Tac-Toe</option>
             <option value="m=5&n=5&k=4" selected>5×5 (k=4) Mini-Gomoku</option>
             <option value="m=7&n=6&k=4">7×6 (k=4) Connect Four Grid</option>
+            <option value="m=10&n=10&k=5">10×10 (k=5) Freestyle Gomoku</option>
             <option value="m=15&n=15&k=5">15×15 (k=5) Gomoku</option>
           </select>
         </div>
 
-        <button type="button" class="btn-modal-submit" onclick="launchFriendGame()">Launch Pass &amp; Play</button>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="form-group">
+            <label class="form-label">Players (j)</label>
+            <select id="select-friend-players" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+              <option value="2" selected>2 Players (X vs O)</option>
+              <option value="3">3 Players (X vs O vs ▲)</option>
+              <option value="4">4 Players (X vs O vs ▲ vs ◆)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time Control</label>
+            <select id="select-friend-clock" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+              <option value="">Unlimited</option>
+              <option value="1+0">1 + 0 (Bullet)</option>
+              <option value="3+2" selected>3 + 2 (Blitz)</option>
+              <option value="5+3">5 + 3 (Rapid)</option>
+              <option value="10+0">10 + 0 (Rapid)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" class="btn-modal-submit" onclick="launchFriendGame()">Start Local Pass &amp; Play</button>
       </div>
     </div>
   </div>
@@ -1666,14 +1681,14 @@
   <div id="modal-search" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-search')">
     <div class="modal-box" style="max-width: 520px;">
       <div class="modal-header">
-        <h3>Search (m,n,k)-Games</h3>
+        <h3>Search (m,n,k,j)-Games</h3>
         <button class="modal-close" onclick="closeModal('modal-search')">&times;</button>
       </div>
       <div class="modal-body">
         <input type="text" id="search-input" placeholder="Search variants, theorems, analysis board..." oninput="filterSearchResults(this.value)" style="width: 100%; background: #1e1c18; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; color: var(--text-bright); font-size: 0.95rem; outline: none;">
         
         <div id="search-results-list" style="display: flex; flex-direction: column; gap: 0.35rem; max-height: 240px; overflow-y: auto;">
-          <a href="board.html" class="dropdown-link" style="border-radius: 4px;">♟️ mnk games Analysis Board (1x1 to 32x32)</a>
+          <a href="board.html#analysis" class="dropdown-link" style="border-radius: 4px;">♟️ Threat-Space Analysis Board (1x1 to 32x32)</a>
           <a href="solved_status_of_mnk_games.html" class="dropdown-link" style="border-radius: 4px;">📊 Solved Status Atlas (k=1 to k≥8)</a>
           <a href="Solved Status of mnk games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link" style="border-radius: 4px;">📥 Download Solved Atlas Excel (.xlsx)</a>
           <a href="mnk_games_theory_and_ai.html" class="dropdown-link" style="border-radius: 4px;">📖 The Mathematics &amp; SOTA AI of (m,n,k)-Games</a>
@@ -1692,22 +1707,22 @@
     // Tab Switching
     function switchTab(tabId) {
       document.getElementById('tab-quick-btn').classList.remove('active');
-      document.getElementById('tab-lobby-btn').classList.remove('active');
-      document.getElementById('tab-corr-btn').classList.remove('active');
+      document.getElementById('tab-variants-btn').classList.remove('active');
+      document.getElementById('tab-solved-btn').classList.remove('active');
 
       document.getElementById('panel-quick').style.display = 'none';
-      document.getElementById('panel-lobby').style.display = 'none';
-      document.getElementById('panel-corr').style.display = 'none';
+      document.getElementById('panel-variants').style.display = 'none';
+      document.getElementById('panel-solved').style.display = 'none';
 
       if (tabId === 'quick') {
         document.getElementById('tab-quick-btn').classList.add('active');
         document.getElementById('panel-quick').style.display = 'block';
-      } else if (tabId === 'lobby') {
-        document.getElementById('tab-lobby-btn').classList.add('active');
-        document.getElementById('panel-lobby').style.display = 'block';
-      } else if (tabId === 'corr') {
-        document.getElementById('tab-corr-btn').classList.add('active');
-        document.getElementById('panel-corr').style.display = 'block';
+      } else if (tabId === 'variants') {
+        document.getElementById('tab-variants-btn').classList.add('active');
+        document.getElementById('panel-variants').style.display = 'block';
+      } else if (tabId === 'solved') {
+        document.getElementById('tab-solved-btn').classList.add('active');
+        document.getElementById('panel-solved').style.display = 'block';
       }
     }
 
@@ -1784,13 +1799,17 @@
       const k = document.getElementById('slider-custom-k').value;
       const j = document.getElementById('slider-custom-j').value;
       const clock = document.getElementById('select-custom-clock')?.value;
+      const mode = document.getElementById('select-custom-mode')?.value || 'play';
       const clockParam = clock ? `&tc=${encodeURIComponent(clock)}` : '';
-      window.location.href = `board.html?m=${m}&n=${n}&k=${k}&j=${j}${clockParam}#play`;
+      window.location.href = `board.html?m=${m}&n=${n}&k=${k}&j=${j}${clockParam}#${mode}`;
     }
 
     function launchFriendGame() {
       const variantParams = document.getElementById('select-friend-variant').value;
-      window.location.href = `board.html?${variantParams}#play`;
+      const j = document.getElementById('select-friend-players')?.value || 2;
+      const clock = document.getElementById('select-friend-clock')?.value;
+      const clockParam = clock ? `&tc=${encodeURIComponent(clock)}` : '';
+      window.location.href = `board.html?${variantParams}&j=${j}${clockParam}#play`;
     }
 
     function filterSearchResults(query) {
