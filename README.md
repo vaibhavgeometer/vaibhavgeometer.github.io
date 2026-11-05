@@ -13,11 +13,12 @@
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
-[![Mock PDFs](https://img.shields.io/badge/Mock%20Test%20PDFs-56%20Publication%20PDFs-indigo.svg)](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json)
-[![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](JAM/assets/iit_jam_pyqs_categorized.json)
+[![Mock PDFs](https://img.shields.io/badge/Mock%20Test%20PDFs-56%20Publication%20PDFs-indigo.svg)](academic/JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json)
+[![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](academic/JAM/assets/iit_jam_pyqs_categorized.json)
+[![CUET-PG Archive](https://img.shields.io/badge/CUET--PG-2024--2026%20Papers-teal.svg)](academic/CUET-PG/)
 
 > **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring two flagship domains:
-> 1. **[IIT JAM Mathematics (MA) 22-Year Study Portal, PYQ Tracker & CBT Simulator](https://vaibhavgeometer.github.io/JAM/)**: 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator.
+> 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator, alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
 > 2. **[mnk games — Free Online (m,n,k)-Games Platform & SOTA AI Engine](https://vaibhavgeometer.github.io/mnk-games/)**: Lichess-inspired dark-mode platform, advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$, $j=2..5$ players), calibrated $[-100, +100]$ win probability eval bar, horizon-free Chebyshev static board evaluation, transposition table with exact/lower/upper bound flags, open $(k-1)$ decisive threat heuristic, 8 calibrated engine difficulty tiers (600–3000 Elo), tournament arena (Round Robin & Knockouts), precision chess clocks with time forfeit detection, board editor with active frozen obstacle barriers (`#`), post-match full game computer analysis report, and verified Solved Status Atlas.
 
 ---
@@ -26,16 +27,18 @@
 
 | Resource | Description | Direct Link |
 | :--- | :--- | :--- |
+| 🎓 **Academic Portals Hub** | Unified portal hub for IIT JAM Mathematics & CUET-PG archives | [vaibhavgeometer.github.io/academic](https://vaibhavgeometer.github.io/academic/) |
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, study tracker, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
 | 🎯 **JAM PYQ Tracker & Search** | Universal question bank for all 885 PYQs with 5-tier difficulty tags & study status | [Open PYQ Tracker](https://vaibhavgeometer.github.io/JAM/#tracker) |
 | 📈 **JAM Study Analytics & Streaks** | Daily question velocity, active study streaks, topic mastery & exam completion forecast | [View Study Analytics](https://vaibhavgeometer.github.io/JAM/#stats) |
 | 💻 **CBT Simulator** | Real exam interface with question palette, countdown timer & scientific calculator | [Launch CBT Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
 | ⏳ **JAM 2027 Countdown** | Live ticking countdown timer to 14 February 2027 | [Open Countdown](https://vaibhavgeometer.github.io/JAM/countdown/) |
 | 🛠️ **Difficulty-Aware Test Generator** | Generate custom tests & PDFs filtered by topic, question type, era, and difficulty | [Open Custom Generator](https://vaibhavgeometer.github.io/JAM/#custom-generator) |
-| 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & master answer keys | [View Manifest](JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |
+| 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & master answer keys | [View Manifest](academic/JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Cheat Sheets](#-14-high-yield-formula-cheat-sheets) |
-| 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](JAM/assets/MA2005-2026_Original_PYQs.pdf) |
-| ♟️ **mnk games Platform Hub** | Lichess-style dark web platform with quick pairings, open lobby, and game creation | [vaibhavgeometer.github.io/mnk_games](https://vaibhavgeometer.github.io/mnk-games/) |
+| 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
+| 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
+| ♟️ **mnk games Platform Hub** | Lichess-style dark web platform with quick pairings, open lobby, and game creation | [vaibhavgeometer.github.io/mnk-games](https://vaibhavgeometer.github.io/mnk-games/) |
 | 🔍 **mnk SOTA Analysis Board** | Advanced $(m,n,k,j)$ board ($1\times 1$ to $32\times 32$), eval bar, MultiPV & full game reports | [Launch Analysis Board](https://vaibhavgeometer.github.io/mnk-games/board.html) |
 | ⚔️ **Offline Match Play & Clocks** | Competitive play vs AI (Levels 1–8) or human with precision clocks ($1+0$, $3+2$, $5+3$, $10+5$) | [Launch Play Mode](https://vaibhavgeometer.github.io/mnk-games/board.html#play) |
 | 🏆 **Tournament Arena** | Round Robin (Berger pairings) & Knockout brackets with mixed human/AI rosters | [Launch Tournament Arena](https://vaibhavgeometer.github.io/mnk-games/board.html#tournament) |
@@ -136,6 +139,9 @@
 #### 11. 14 High-Yield Formula Cheat Sheets
 - High-yield, concise vector PDF revision cheat sheets covering Sequences, Series, Single & Multivariable Calculus, Integral Calculus, ODE, Linear Algebra, and Group Theory.
 
+#### 12. CUET-PG Mathematics Examination Archive (2024–2026)
+- **Central Universities Entrance Test (CUET-PG)**: Full official master question papers for 2024, 2025, and 2026 available directly for download and reference in `academic/CUET-PG/`.
+
 ---
 
 ### ♟️ Domain 2: mnk games & SOTA Game Theory Ecosystem
@@ -233,28 +239,28 @@ Total Test Suites (58)
 
 | Year | Era | Questions | Marks | Duration | Question Format | Mock PDF | Official Answer Key |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **2026** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2026_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2026_Key.pdf) |
-| **2025** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2025_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2025_Key.pdf) |
-| **2024** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2024_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2024_Key.pdf) |
-| **2023** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2023_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2023_Key.pdf) |
-| **2022** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2022_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2022_Key.pdf) |
-| **2021** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2021_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2021_Key.pdf) |
-| **2020** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2020_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2020_Key.pdf) |
-| **2019** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2019_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2019_Key.pdf) |
-| **2018** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2018_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2018_Key.pdf) |
-| **2017** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2017_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2017_Key.pdf) |
-| **2016** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2016_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2016_Key.pdf) |
-| **2015** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2015_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2015_Key.pdf) |
-| **2014** | Classic | 35 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2014_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2014_Key.pdf) |
-| **2013** | Classic | 10 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2013_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2012** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2012_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2011** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2011_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2010** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2010_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2009** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2009_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2008** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2008_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2007** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2007_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2006** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2006_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
-| **2005** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](JAM/assets/Mock%20Tests_PDF/IIT_JAM_2005_Mock_Test.pdf) | [Key](JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2026** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2026_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2026_Key.pdf) |
+| **2025** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2025_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2025_Key.pdf) |
+| **2024** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2024_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2024_Key.pdf) |
+| **2023** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2023_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2023_Key.pdf) |
+| **2022** | Modern CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2022_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2022_Key.pdf) |
+| **2021** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2021_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2021_Key.pdf) |
+| **2020** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2020_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2020_Key.pdf) |
+| **2019** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2019_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2019_Key.pdf) |
+| **2018** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2018_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2018_Key.pdf) |
+| **2017** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2017_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2017_Key.pdf) |
+| **2016** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2016_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2016_Key.pdf) |
+| **2015** | Early CBT | 60 | 100 | 180 min | MCQ (30) + MSQ (10) + NAT (20) | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2015_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2015_Key.pdf) |
+| **2014** | Classic | 35 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2014_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2014_Key.pdf) |
+| **2013** | Classic | 10 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2013_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2012** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2012_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2011** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2011_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2010** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2010_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2009** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2009_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2008** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2008_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2007** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2007_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2006** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2006_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
+| **2005** | Classic | 15 | 100 | 180 min | Objective MCQ Paper | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/IIT_JAM_2005_Mock_Test.pdf) | [Key](academic/JAM/assets/PYQs_Answer%20Keys/MA2005-2013_Key.pdf) |
 
 ---
 
@@ -262,15 +268,15 @@ Total Test Suites (58)
 
 | Code | Topic / Module Name | Questions | Total Marks | Duration | Subject Area | Mock PDF | Formula Cheat Sheet |
 | :---: | :--- | :---: | :---: | :---: | :--- | :---: | :---: |
-| **1.1** | `Sequences and Series of Real Numbers` | **131** | 292 | 393 min | Real Analysis | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
-| **1.2** | `Functions of One Real Variable` | **155** | 329 | 465 min | Real Analysis | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
-| **2.1** | `Functions of Two or Three Real Variables` | **78** | 152 | 234 min | Multivariable Calculus & ODE | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
-| **2.2** | `Integral Calculus` | **66** | 136 | 198 min | Multivariable Calculus & ODE | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
-| **2.3** | `Differential Equations` | **113** | 255 | 339 min | Multivariable Calculus & ODE | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.3_Differential_Equations.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
-| **3.1** | `Basic Algebra` | **3** | 6 | 15 min | Linear Algebra & Algebra | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.1_Basic_Algebra.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
-| **3.2** | `Matrices and Systems of Linear Equations` | **75** | 155 | 225 min | Linear Algebra & Algebra | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
-| **3.3** | `Finite Dimensional Vector Spaces` | **76** | 184 | 228 min | Linear Algebra & Algebra | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
-| **3.4** | `Groups` | **101** | 214 | 303 min | Linear Algebra & Algebra | [Mock PDF](JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.4_Groups.pdf) | [Cheat Sheet](JAM/assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
+| **1.1** | `Sequences and Series of Real Numbers` | **131** | 292 | 393 min | Real Analysis | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
+| **1.2** | `Functions of One Real Variable` | **155** | 329 | 465 min | Real Analysis | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
+| **2.1** | `Functions of Two or Three Real Variables` | **78** | 152 | 234 min | Multivariable Calculus & ODE | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
+| **2.2** | `Integral Calculus` | **66** | 136 | 198 min | Multivariable Calculus & ODE | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
+| **2.3** | `Differential Equations` | **113** | 255 | 339 min | Multivariable Calculus & ODE | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_2.3_Differential_Equations.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
+| **3.1** | `Basic Algebra` | **3** | 6 | 15 min | Linear Algebra & Algebra | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.1_Basic_Algebra.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
+| **3.2** | `Matrices and Systems of Linear Equations` | **75** | 155 | 225 min | Linear Algebra & Algebra | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
+| **3.3** | `Finite Dimensional Vector Spaces` | **76** | 184 | 228 min | Linear Algebra & Algebra | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
+| **3.4** | `Groups` | **101** | 214 | 303 min | Linear Algebra & Algebra | [Mock PDF](academic/JAM/assets/Mock%20Tests_PDF/Archive_2005-2026_Topic_3.4_Groups.pdf) | [Cheat Sheet](academic/JAM/assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
 | | **Total In-Syllabus Questions** | **798** | **1,723** | — | **All 3 Core Syllabus Sections** | | |
 | — | *Out-of-Syllabus (Isolated for Modern Exam Prep)* | *87* | — | — | *Vector Calculus, Topology, Rings, LPP, etc.* | — | — |
 | **TOTAL** | **22-Year Historical Archive (2005–2026)** | **885** | — | — | **22 Question Papers** | | |
@@ -283,20 +289,20 @@ All cheat sheets are formatted in vector PDF and accessible directly from the po
 
 | Section | Topic | Pages | Document Link |
 | :--- | :--- | :---: | :--- |
-| **Real Analysis** | Sequences of Real Numbers | 1 | [Sequence_of_Real_Numbers_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
-| **Real Analysis** | Series of Real Numbers | 1 | [Series_of_Real_Numbers_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Series_of_Real_Numbers_Cheat_Sheet.pdf) |
-| **Real Analysis** | Series Convergence Tests & Power Series | 2 | [Series_Convergence_Tests_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Series_Convergence_Tests_Cheat_Sheet.pdf) |
-| **Real Analysis** | Continuity & Differentiability | 2 | [Continuity_and_Differentiability_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
-| **Real Analysis** | Riemann Integration & Definite Integrals | 2 | [Riemann_Integration_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Riemann_Integration_Cheat_Sheet.pdf) |
-| **Real Analysis** | Max/Min, L'Hospital & Power Series Operations | 2 | [Multivariable_and_Power_Series_Supplemental.pdf](JAM/assets/cheat-sheets/Multivariable_and_Power_Series_Supplemental.pdf) |
-| **Calculus & ODE** | Functions of Several Variables | 1 | [Functions_of_Several_Variables_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
-| **Calculus & ODE** | Integral Calculus (Double & Triple Integrals) | 2 | [Integral_Calculus_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
-| **Calculus & ODE** | Ordinary Differential Equations (ODE) | 1 | [Differential_Equations_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
-| **Algebra & Linear Algebra** | Basic Algebra (P&C, Binomial Theorem) | 1 | [Basic_Algebra_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
-| **Algebra & Linear Algebra** | Linear Algebra Master Sheet (Matrices & Eigenvalues) | 3 | [Linear_Algebra_Master_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
-| **Algebra & Linear Algebra** | Finite Dimensional Vector Spaces | 1 | [Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
-| **Algebra & Linear Algebra** | Group Theory Quick Reference | 1 | [Group_Theory_Summary.pdf](JAM/assets/cheat-sheets/Group_Theory_Summary.pdf) |
-| **Algebra & Linear Algebra** | Group Theory Master Sheet (Gallian Review) | 2 | [Group_Theory_Master_Cheat_Sheet.pdf](JAM/assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
+| **Real Analysis** | Sequences of Real Numbers | 1 | [Sequence_of_Real_Numbers_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Sequence_of_Real_Numbers_Cheat_Sheet.pdf) |
+| **Real Analysis** | Series of Real Numbers | 1 | [Series_of_Real_Numbers_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Series_of_Real_Numbers_Cheat_Sheet.pdf) |
+| **Real Analysis** | Series Convergence Tests & Power Series | 2 | [Series_Convergence_Tests_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Series_Convergence_Tests_Cheat_Sheet.pdf) |
+| **Real Analysis** | Continuity & Differentiability | 2 | [Continuity_and_Differentiability_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Continuity_and_Differentiability_Cheat_Sheet.pdf) |
+| **Real Analysis** | Riemann Integration & Definite Integrals | 2 | [Riemann_Integration_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Riemann_Integration_Cheat_Sheet.pdf) |
+| **Real Analysis** | Max/Min, L'Hospital & Power Series Operations | 2 | [Multivariable_and_Power_Series_Supplemental.pdf](academic/JAM/assets/cheat-sheets/Multivariable_and_Power_Series_Supplemental.pdf) |
+| **Calculus & ODE** | Functions of Several Variables | 1 | [Functions_of_Several_Variables_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Functions_of_Several_Variables_Cheat_Sheet.pdf) |
+| **Calculus & ODE** | Integral Calculus (Double & Triple Integrals) | 2 | [Integral_Calculus_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Integral_Calculus_Cheat_Sheet.pdf) |
+| **Calculus & ODE** | Ordinary Differential Equations (ODE) | 1 | [Differential_Equations_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Differential_Equations_Cheat_Sheet.pdf) |
+| **Algebra & Linear Algebra** | Basic Algebra (P&C, Binomial Theorem) | 1 | [Basic_Algebra_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Basic_Algebra_Cheat_Sheet.pdf) |
+| **Algebra & Linear Algebra** | Linear Algebra Master Sheet (Matrices & Eigenvalues) | 3 | [Linear_Algebra_Master_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Linear_Algebra_Master_Cheat_Sheet.pdf) |
+| **Algebra & Linear Algebra** | Finite Dimensional Vector Spaces | 1 | [Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Linear_Algebra_Vector_Spaces_Cheat_Sheet.pdf) |
+| **Algebra & Linear Algebra** | Group Theory Quick Reference | 1 | [Group_Theory_Summary.pdf](academic/JAM/assets/cheat-sheets/Group_Theory_Summary.pdf) |
+| **Algebra & Linear Algebra** | Group Theory Master Sheet (Gallian Review) | 2 | [Group_Theory_Master_Cheat_Sheet.pdf](academic/JAM/assets/cheat-sheets/Group_Theory_Master_Cheat_Sheet.pdf) |
 
 ---
 
@@ -352,6 +358,7 @@ vaibhavgeometer.github.io/
 │   ├── index.html                             # Lichess-style web platform hub, quick pairings & lobby
 │   ├── board.html                             # SOTA Analysis Board, Tournament Arena, Match Play & Editor
 │   ├── solved_status_of_mnk_games.html        # Solved Status Matrix Atlas (k=1 to k≥8) & dataset
+│   ├── solved_status_of_mnk_games.xlsx        # Excel format complete dataset & classification matrix
 │   └── mnk_games_theory_and_ai.html           # Comprehensive Game Theory & AI Research Guide
 │
 ├── css/                                       # 🌐 Glassmorphism design system & portal stylesheet
@@ -408,11 +415,15 @@ Simply double-click or open `index.html` directly in Chrome, Edge, Firefox, Brav
 ## 🔄 Data Pipeline & Compilation Scripts
 
 ### 1. Re-generating Master Dataset (`questions_data.js`)
-If you modify question metadata in `assets/iit_jam_pyqs_categorized.json` or answer keys:
+If you modify question metadata in `academic/JAM/assets/iit_jam_pyqs_categorized.json` or answer keys:
 ```bash
+# Navigate to the academic directory
+cd academic
+
+# Compile master questions dataset
 python scripts/generate_all_22_years_data.py
 ```
-This compiles all `22` Year Tests, `27` Era Subtopic Tests, and `9` Full-Archive Tests, mapping them to the respective Mock Test PDFs and Answer Keys.
+This compiles all `22` Year Tests, `27` Era Subtopic Tests, and `9` Full-Archive Tests, mapping them to the respective Mock Test PDFs and Answer Keys in `academic/JAM/mock-test/js/questions_data.js`.
 
 ### 2. Re-generating All 56 Mock Test PDFs
 To batch compile all 56 publication-quality LaTeX-formatted mock test PDFs:
@@ -420,14 +431,23 @@ To batch compile all 56 publication-quality LaTeX-formatted mock test PDFs:
 # Ensure dependencies are installed
 pip install typst PyMuPDF
 
+# Navigate to the academic directory
+cd academic
+
 # Run batch PDF generator
 python scripts/generate_all_mock_test_pdfs.py
 ```
-This compiles all 56 PDFs into `assets/Mock Tests_PDF/` and generates `mock_tests_manifest.json`.
+This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generates `mock_tests_manifest.json`.
 
 ---
 
 ## 🚀 Recent Updates
+
+### November 2026 — Architecture Refactoring, Kebab-Case Routing & Asset Standardization
+- **Standardized Kebab-Case URL Routing (`mnk-games/`)**: Standardized repository directory and routing naming conventions from snake_case (`mnk_games/`) to modern web-standard kebab-case (`mnk-games/`). Updated all cross-navigation links, breadcrumbs, canonical meta tags, and internal references across the portal while preserving seamless backward-compatible automatic redirects in `404.html`.
+- **CSS Modularization (`css/portfolio.css`)**: Centralized design system stylesheet from root `portfolio.css` into `css/portfolio.css`, updating all relative link imports and 404 router aliases.
+- **Asset Filename Standardization**: Normalized data assets including `solved_status_of_mnk_games.xlsx` to eliminate URL-encoded space issues across cross-platform environments.
+- **Documentation & Relative Link Audit**: Updated all relative documentation links in `README.md` to reflect the modular domain hierarchy (`academic/JAM/assets/` and `mnk-games/`), ensuring 100% valid links when browsing directly on GitHub.
 
 ### November 2026 — Universal PYQ Tracker, 5-Tier Difficulty Engine, Study Analytics & mnk games Platform Launch
 - **IIT JAM 5-Tier Difficulty Engine (`pyq_difficulty.js`)**: Developed and deployed a standardized 5-level difficulty taxonomy (🟢 Very Easy, 🔵 Easy, 🟡 Medium, 🟠 Hard, 🟣 Hardest) across all 885 official PYQs. Includes an automated exam-structure inference fallback engine (distinguishing 1M/2M MCQs, MSQs, and NATs) with user override persistence in `localStorage`.
