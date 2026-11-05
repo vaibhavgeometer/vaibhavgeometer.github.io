@@ -1606,8 +1606,11 @@
     }
 
     /**
-     * SOTA Engine Transposition Cache
+     * SOTA Engine Transposition Cache & Bounds Flags
      */
+    const FLAG_EXACT = 0;
+    const FLAG_LOWERBOUND = 1;
+    const FLAG_UPPERBOUND = 2;
     const ttMap = new Map();
 
     /**
@@ -2118,7 +2121,40 @@
           }
         }
 
-        // 2. Lines of length k
+        // 2. Open lines of length k + 1 check for open (k - 1) threats (both ends empty)
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            for (const [dr, dc] of directions) {
+              const endR = r + dr * k;
+              const endC = c + dc * k;
+              if (endR < 0 || endR >= rows || endC < 0 || endC >= cols) continue;
+
+              const startPiece = board[r * cols + c];
+              const endPiece = board[endR * cols + endC];
+              // If both ends are empty:
+              if (startPiece === null && endPiece === null) {
+                let numX = 0;
+                let numO = 0;
+                let blocked = false;
+                for (let step = 1; step < k; step++) {
+                  const p = board[(r + dr * step) * cols + (c + dc * step)];
+                  if (p === '#') { blocked = true; break; }
+                  if (p === 'X') numX++;
+                  else if (p === 'O') numO++;
+                }
+                if (!blocked && numX > 0 && numO === 0) {
+                  if (numX === k - 1) scoreX += 50000; // Open (k-1) is a decisive forced threat!
+                  else if (numX === k - 2 && k >= 4) scoreX += 2500;
+                } else if (!blocked && numO > 0 && numX === 0) {
+                  if (numO === k - 1) scoreO += 50000;
+                  else if (numO === k - 2 && k >= 4) scoreO += 2500;
+                }
+              }
+            }
+          }
+        }
+
+        // 3. Lines of length k
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
             for (const [dr, dc] of directions) {
@@ -2377,16 +2413,19 @@
         if (isWinningMove(board, m, turn, rows, cols, k)) return 1000000 + depth;
       }
 
-      // 2. Leaf depth evaluation
-      if (depth === 0) {
-        const net = evaluateBoardState(board, rows, cols, k);
-        return turn === 'X' ? net : -net;
-      }
-
+      // 2. Transposition Table lookup with cutoff flags
       const key = board.map(c => c || '.').join('') + ' ' + turn;
       const entry = ttMap.get(key);
       if (entry && entry.depth >= depth) {
-        return entry.score;
+        if (entry.flag === FLAG_EXACT || entry.flag === undefined) return entry.score;
+        if (entry.flag === FLAG_LOWERBOUND && entry.score >= beta) return entry.score;
+        if (entry.flag === FLAG_UPPERBOUND && entry.score <= alpha) return entry.score;
+      }
+
+      // 3. Leaf depth evaluation
+      if (depth === 0) {
+        const net = evaluateBoardState(board, rows, cols, k);
+        return turn === 'X' ? net : -net;
       }
 
       // 3. Direct Block across opponents
@@ -2419,6 +2458,7 @@
 
       let bestVal = -Infinity;
       let currentBestMove = searchMoves[0];
+      const alphaOrig = alpha;
 
       for (const move of searchMoves) {
         board[move] = turn;
@@ -2433,7 +2473,11 @@
         if (alpha >= beta) break;
       }
 
-      ttMap.set(key, { score: bestVal, depth, bestMove: currentBestMove });
+      let flag = FLAG_EXACT;
+      if (bestVal <= alphaOrig) flag = FLAG_UPPERBOUND;
+      else if (bestVal >= beta) flag = FLAG_LOWERBOUND;
+
+      ttMap.set(key, { score: bestVal, depth, bestMove: currentBestMove, flag });
       return bestVal;
     }
 
@@ -2598,7 +2642,7 @@
       // Store root position in ttMap for PV extraction and candidate move ordering
       const rootKey = board.map(c => c || '.').join('') + ' ' + turn;
       if (best) {
-        ttMap.set(rootKey, { score: best.rawScore, depth, bestMove: best.move });
+        ttMap.set(rootKey, { score: best.rawScore, depth, bestMove: best.move, flag: FLAG_EXACT });
       }
 
       // Populate Principal Variation for top candidate moves
@@ -2876,6 +2920,12 @@
         if (board[i] === null) legalMoves.push(i);
       }
 
+      if (legalMoves.length === 0) {
+        const res = { score: 0, bestMove: null, pv: [], allMoves: [], terminal: true, winner: 'Draw', line: null };
+        ttMap.set(key, res);
+        return res;
+      }
+
       const isX = turn === 'X';
       const nextTurn = isX ? 'O' : 'X';
       let bestScore = isX ? -Infinity : Infinity;
@@ -3145,13 +3195,14 @@
       const elapsed = now - (clockState.lastTickTime || now);
       clockState.lastTickTime = now;
 
-      const current = state.history[state.currentPly];
-      if (!current || checkWinner(current.board)) {
+      // Deduct time based on live match state rather than navigated historical ply
+      const liveState = state.history[state.history.length - 1];
+      if (!liveState || checkWinner(liveState.board)) {
         stopClock();
         return;
       }
 
-      const activeTurn = current.turn;
+      const activeTurn = liveState.turn;
       if (clockState.times[activeTurn] !== undefined) {
         clockState.times[activeTurn] -= elapsed;
         if (clockState.times[activeTurn] <= 0) {
@@ -3167,9 +3218,32 @@
       clockState.flaggedPlayer = player;
       playSound('blunder');
       const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== player);
+      const winnerPiece = otherPlayers[0] || 'X';
       const winnerName = otherPlayers.join(' / ');
       showToast(`Time Out! ${player} flagged. ${winnerName} won on time!`);
-      showGameFinishedBanner({ winner: otherPlayers[0] || 'X', flagged: true, flaggedPlayer: player });
+
+      if (state.mode === 'tournament') {
+        const match = tournamentState.matches[tournamentState.currentMatchIdx];
+        if (match && match.status !== 'finished') {
+          match.winner = winnerPiece === 'X' ? match.playerX.id : match.playerO.id;
+          match.resultStr = winnerPiece === 'X' ? '1 - 0 (Time)' : '0 - 1 (Time)';
+          match.status = 'finished';
+          match.completed = true;
+          match.plies = state.history.length - 1;
+          match.moves = state.history.slice(1).map((h, i) => ({
+            ply: i,
+            turn: h.board[h.lastMove],
+            move: h.lastMove,
+            coord: getCoord(h.lastMove, config.rows, config.cols)
+          }));
+          calculateStandings();
+          checkAndAdvanceKnockout();
+          updateTournamentUI();
+          showToast(`Match #${match.id} finished on time: ${match.resultStr}`);
+        }
+      }
+
+      showGameFinishedBanner({ winner: winnerPiece, flagged: true, flaggedPlayer: player });
       render();
     }
 
@@ -3343,12 +3417,12 @@
 
       const lvl = getAiLevelForTurn(current.turn);
       if (engineTimeoutId) clearTimeout(engineTimeoutId);
-      // Yield 16ms so UI updates to 'Engine thinking...' then run SOTA search with its allocated time budget
+      const delay = playMatchState.aiGameRunning ? (playMatchState.aiDelayMs || 450) : 16;
       engineTimeoutId = setTimeout(() => {
         makeEngineMoveForLevel(lvl);
         state.isEngineThinking = false;
         render();
-      }, 16);
+      }, delay);
     }
 
     function startAiGame() {
@@ -3749,24 +3823,89 @@
     }
 
     function generateKnockoutSchedule(players) {
+      tournamentState.currentRound = 1;
+      tournamentState.byes = {};
       const matches = [];
       let matchId = 1;
-      const half = Math.floor(players.length / 2);
-      for (let i = 0; i < half; i++) {
-        matches.push({
-          id: matchId++,
-          cycle: 1,
-          round: 1,
-          playerX: players[i * 2],
-          playerO: players[i * 2 + 1],
-          winner: null,
-          resultStr: '*',
-          moves: [],
-          plies: 0,
-          status: 'scheduled'
-        });
+      const byes = [];
+      for (let i = 0; i < players.length; i += 2) {
+        if (i + 1 < players.length) {
+          matches.push({
+            id: matchId++,
+            cycle: 1,
+            round: 1,
+            playerX: players[i],
+            playerO: players[i + 1],
+            winner: null,
+            resultStr: '*',
+            moves: [],
+            plies: 0,
+            status: 'scheduled'
+          });
+        } else {
+          byes.push(players[i]);
+        }
       }
+      tournamentState.byes[1] = byes;
       return matches;
+    }
+
+    function checkAndAdvanceKnockout() {
+      if (tournamentState.format !== 'knockout' || !tournamentState.active) return;
+      const curRound = tournamentState.currentRound || 1;
+      const currentRoundMatches = tournamentState.matches.filter(m => m.round === curRound);
+      const allFinished = currentRoundMatches.every(m => m.status === 'finished');
+      if (!allFinished) return;
+
+      // Collect winners from the current round
+      const winners = [];
+      for (const m of currentRoundMatches) {
+        if (m.winner && m.winner !== 'Draw') {
+          const wPlayer = (m.winner === m.playerX.id) ? m.playerX : m.playerO;
+          winners.push(wPlayer);
+        } else {
+          winners.push(m.playerX);
+        }
+      }
+
+      if (tournamentState.byes && tournamentState.byes[curRound]) {
+        winners.push(...tournamentState.byes[curRound]);
+      }
+
+      if (winners.length > 1) {
+        tournamentState.currentRound = curRound + 1;
+        const nextRound = tournamentState.currentRound;
+        let matchId = tournamentState.matches.length + 1;
+        const newMatches = [];
+        const nextByes = [];
+
+        for (let i = 0; i < winners.length; i += 2) {
+          if (i + 1 < winners.length) {
+            newMatches.push({
+              id: matchId++,
+              cycle: 1,
+              round: nextRound,
+              playerX: winners[i],
+              playerO: winners[i + 1],
+              winner: null,
+              resultStr: '*',
+              moves: [],
+              plies: 0,
+              status: 'scheduled'
+            });
+          } else {
+            nextByes.push(winners[i]);
+          }
+        }
+
+        if (!tournamentState.byes) tournamentState.byes = {};
+        tournamentState.byes[nextRound] = nextByes;
+
+        tournamentState.matches.push(...newMatches);
+        showToast(`Knockout Round ${nextRound} generated! (${newMatches.length} match${newMatches.length > 1 ? 'es' : ''})`);
+      } else if (winners.length === 1) {
+        showToast(`🏆 Tournament Complete! Champion: ${winners[0].name}`);
+      }
     }
 
     function calculateStandings() {
@@ -4148,6 +4287,7 @@
      */
     function isMatchInProgress() {
       if (state.mode === 'play') {
+        if (state.history.length <= 1) return false;
         const current = state.history[state.currentPly];
         if (!current) return false;
         const terminal = checkWinner(current.board);
@@ -4156,6 +4296,7 @@
       }
       if (state.mode === 'tournament') {
         if (!tournamentState.active) return false;
+        if (state.history.length <= 1) return false;
         const current = state.history[state.currentPly];
         if (!current) return false;
         const terminal = checkWinner(current.board);
@@ -4973,6 +5114,7 @@
               coord: getCoord(h.lastMove, config.rows, config.cols)
             }));
             calculateStandings();
+            checkAndAdvanceKnockout();
             updateTournamentUI();
             showToast(`Match #${match.id} finished: ${match.resultStr}`);
           }
@@ -6169,6 +6311,9 @@
       }
       state.isEngineThinking = false;
 
+      if (state.startingCustomBoard && state.startingCustomBoard.length !== config.rows * config.cols) {
+        state.startingCustomBoard = null;
+      }
       const initialBoard = state.startingCustomBoard
         ? [...state.startingCustomBoard]
         : Array(config.rows * config.cols).fill(null);
@@ -6465,6 +6610,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         if (config.j) localStorage.setItem('mnk_j', config.j.toString());
       } catch (e) {}
 
+      if (state.startingCustomBoard && state.startingCustomBoard.length !== rows * cols) {
+        state.startingCustomBoard = null;
+      }
       ttMap.clear();
       renderPlayRoster();
       renderEditorTurnSelector();
@@ -8203,6 +8351,20 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
       // Build history (supports initial custom board / obstacles # from FEN)
       const activePlayers = PLAYERS.slice(0, j);
+
+      if (parsed.initialBoard && parsed.moves && parsed.moves.length > 0) {
+        const hasOverlap = parsed.moves.some(m => {
+          const idx = parseCoord(m, rows, cols);
+          return idx !== null && parsed.initialBoard[idx] !== null && parsed.initialBoard[idx] !== '#';
+        });
+        if (hasOverlap) {
+          // The FEN was an export of the end position, not a handicap/custom start!
+          // Reset played squares to null while preserving obstacles '#'
+          parsed.initialBoard = parsed.initialBoard.map(c => (c === '#' ? '#' : null));
+          parsed.initialTurn = activePlayers[0];
+        }
+      }
+
       const startingBoard = parsed.initialBoard || Array(rows * cols).fill(null);
       const startingTurn = parsed.initialTurn || activePlayers[0];
       if (parsed.initialBoard) {
@@ -8419,6 +8581,52 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         resetBoard();
       }
 
+      // Handle time control param (e.g. ?tc=3+2 or ?tc=unlimited)
+      const paramTc = urlParams.get('tc') || urlParams.get('clock');
+      if (paramTc) {
+        const tcLower = paramTc.toLowerCase();
+        if (tcLower === 'unlimited' || tcLower === 'none' || tcLower === '0') {
+          initClocks(0, 0, 'Unlimited');
+        } else {
+          const match = tcLower.match(/(\d+)(?:\+(\d+))?/);
+          if (match) {
+            const mins = parseInt(match[1], 10);
+            const inc = parseInt(match[2] || '0', 10);
+            initClocks(mins * 60000, inc * 1000, `${mins}+${inc}`);
+          }
+        }
+      }
+
+      // Handle side selection param (e.g. ?side=First / ?side=Second / ?side=Random)
+      const paramSide = (urlParams.get('side') || '').toLowerCase();
+      if (paramSide) {
+        let sideChoice = paramSide;
+        if (sideChoice === 'random') {
+          sideChoice = Math.random() < 0.5 ? 'x' : 'o';
+        }
+        const playAsXBtn = document.getElementById('play-as-x-btn');
+        const playAsOBtn = document.getElementById('play-as-o-btn');
+        if (sideChoice === 'second' || sideChoice === 'o' || sideChoice === 'black') {
+          state.playerPiece = 'O';
+          if (playAsOBtn) playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
+          if (playAsXBtn) playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
+          const pX = getPlayerConfig('X');
+          const pO = getPlayerConfig('O');
+          if (pX) { pX.type = 'ai'; pX.level = state.engineLevel; }
+          if (pO) { pO.type = 'human'; }
+        } else {
+          state.playerPiece = 'X';
+          if (playAsXBtn) playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
+          if (playAsOBtn) playAsOBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1';
+          const pX = getPlayerConfig('X');
+          const pO = getPlayerConfig('O');
+          if (pX) { pX.type = 'human'; }
+          if (pO) { pO.type = 'ai'; pO.level = state.engineLevel; }
+        }
+        renderPlayRoster();
+        updatePlayerBoxes();
+      }
+
       const wantsAnalysis = window.location.hash === '#analysis';
       const wantsTournament = window.location.hash === '#tournament';
       const wantsEditor = window.location.hash === '#editor';
@@ -8430,6 +8638,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         switchMainMode('editor');
       } else if (wantsPlay) {
         switchMainMode('play');
+        triggerAiIfTurn();
       } else {
         switchMainMode('analysis');
       }
