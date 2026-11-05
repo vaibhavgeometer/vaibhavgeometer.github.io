@@ -383,13 +383,13 @@
     </div>
 
     <!-- RIGHT SECTION: Mode Switcher, Engine, Play & Clocks, Tournament, Editor, History -->
-    <div class="w-full lg:w-[480px] flex flex-col space-y-3">
+    <div class="w-full lg:w-[460px] xl:w-[480px] flex-shrink-0 flex flex-col space-y-3">
 
       <!-- 4 Main Mode Switcher Navigation Tabs -->
       <div class="grid grid-cols-4 gap-1 p-1 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow-md">
         <button id="tab-analysis-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow">
           <span>🔍</span>
-          <span class="truncate">Analysis Board</span>
+          <span class="truncate">Analysis</span>
         </button>
         <button id="tab-play-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
           <span>⚔️</span>
@@ -821,8 +821,6 @@
           </div>
         </div>
 
-      </div>
-
       </div> <!-- /#play-settings-drawer -->
       </div> <!-- /#panel-play -->
 
@@ -1021,27 +1019,34 @@
         <!-- Tool Palette -->
         <div>
           <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wide mb-1.5">Select Placement Tool</label>
-          <div class="grid grid-cols-4 sm:grid-cols-7 gap-1" id="editor-palette">
-            <button type="button" data-tool="#" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400" title="Frozen Obstacle Square: Moves cannot be placed here and streaks are blocked">
-              ❄️ #
+          <div class="grid grid-cols-7 gap-1" id="editor-palette">
+            <button type="button" data-tool="#" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400" title="Frozen Obstacle Square: Moves cannot be placed here and streaks are blocked">
+              <span class="text-sm">❄️</span>
+              <span class="font-mono text-[11px] leading-none">#</span>
             </button>
-            <button type="button" data-tool="X" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-white border-[#363431] hover:bg-[#363431]" title="Place X piece">
-              ✕ X
+            <button type="button" data-tool="X" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-white border-[#363431] hover:bg-[#363431]" title="Place X piece">
+              <span class="text-sm">✕</span>
+              <span class="font-mono text-[11px] leading-none">X</span>
             </button>
-            <button type="button" data-tool="O" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-amber-400 border-[#363431] hover:bg-[#363431]" title="Place O piece">
-              ◯ O
+            <button type="button" data-tool="O" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-amber-400 border-[#363431] hover:bg-[#363431]" title="Place O piece">
+              <span class="text-sm">◯</span>
+              <span class="font-mono text-[11px] leading-none">O</span>
             </button>
-            <button type="button" data-tool="▲" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-emerald-400 border-[#363431] hover:bg-[#363431]" title="Place Player 3 (▲)">
-              ▲ P3
+            <button type="button" data-tool="▲" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-emerald-400 border-[#363431] hover:bg-[#363431]" title="Place Player 3 (▲)">
+              <span class="text-sm">▲</span>
+              <span class="font-mono text-[11px] leading-none">P3</span>
             </button>
-            <button type="button" data-tool="■" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-sky-400 border-[#363431] hover:bg-[#363431]" title="Place Player 4 (■)">
-              ■ P4
+            <button type="button" data-tool="■" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-sky-400 border-[#363431] hover:bg-[#363431]" title="Place Player 4 (■)">
+              <span class="text-sm">■</span>
+              <span class="font-mono text-[11px] leading-none">P4</span>
             </button>
-            <button type="button" data-tool="◆" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-purple-400 border-[#363431] hover:bg-[#363431]" title="Place Player 5 (◆)">
-              ◆ P5
+            <button type="button" data-tool="◆" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-purple-400 border-[#363431] hover:bg-[#363431]" title="Place Player 5 (◆)">
+              <span class="text-sm">◆</span>
+              <span class="font-mono text-[11px] leading-none">P5</span>
             </button>
-            <button type="button" data-tool="erase" class="editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-400 border-[#363431] hover:bg-[#363431]" title="Eraser: Clear cell">
-              🧹 Erase
+            <button type="button" data-tool="erase" class="editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-gray-400 border-[#363431] hover:bg-[#363431]" title="Eraser: Clear cell">
+              <span class="text-sm">🧹</span>
+              <span class="font-mono text-[10px] leading-none">Erase</span>
             </button>
           </div>
           <div class="text-[11px] text-gray-400 mt-1.5 italic">
@@ -1055,7 +1060,7 @@
             <span class="text-xs text-gray-300 font-semibold uppercase tracking-wide">Starting Turn:</span>
             <span id="editor-current-turn-badge" class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-[#7ec62f]">Player 1 (X) to move</span>
           </div>
-          <div id="editor-turn-container" class="flex flex-wrap items-center gap-1.5">
+          <div id="editor-turn-container" class="grid grid-cols-2 gap-1.5">
             <!-- Dynamically populated buttons for all active players 1..J -->
           </div>
         </div>
@@ -1090,7 +1095,7 @@
       </div>
 
       <!-- Move History (PGN Notation & Navigation) -->
-      <div class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg flex flex-col">
+      <div id="move-history-card" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg flex flex-col">
         <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Move History</span>
@@ -1279,6 +1284,7 @@
             <span>7</span>
             <span>8</span>
           </div>
+        </div>
         <!-- Player Count (J) for Generalized (m,n,k,j) -->
         <div class="bg-[#1e1c18] p-2.5 rounded-lg border border-[#363431]">
           <div class="flex items-center justify-between text-xs mb-1.5">
@@ -3596,9 +3602,13 @@
       container.innerHTML = activePlayers.map(p => {
         const isSelected = p === editorState.turn;
         const cls = isSelected
-          ? 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition'
-          : 'px-3 py-1 text-xs rounded font-bold bg-[#1e1c18] text-gray-300 hover:text-white border border-[#363431] transition';
-        return `<button type="button" class="editor-turn-btn ${cls}" data-turn="${p}">${p} to move</button>`;
+          ? 'bg-[#629924] text-white border-[#629924] shadow'
+          : 'bg-[#1e1c18] text-gray-300 hover:text-white hover:bg-[#363431] border-[#363431]';
+        const symbol = p === 'X' ? '✕' : (p === 'O' ? '◯' : p);
+        return `<button type="button" class="editor-turn-btn py-1.5 px-3 rounded text-xs font-bold border transition flex items-center justify-center space-x-1.5 ${cls}" data-turn="${p}">
+          <span class="font-black text-sm">${symbol}</span>
+          <span>${PLAYER_NAMES[p] || p} (${p})</span>
+        </button>`;
       }).join('');
 
       container.querySelectorAll('.editor-turn-btn').forEach(btn => {
@@ -4389,10 +4399,16 @@
       const btnImportGameTrigger = document.getElementById('btn-import-game-trigger');
       const fenExportWrapper = document.getElementById('fen-export-wrapper');
       const historyNavControls = document.getElementById('history-nav-controls');
+      const moveHistoryCard = document.getElementById('move-history-card');
+      const clockXContainer = document.getElementById('clock-x-container');
+      const clockOContainer = document.getElementById('clock-o-container');
 
       if (mode === 'analysis') {
         if (tabAnalysisBtn) tabAnalysisBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelAnalysis) panelAnalysis.classList.remove('hidden');
+        if (moveHistoryCard) moveHistoryCard.classList.remove('hidden');
+        if (clockXContainer) clockXContainer.classList.remove('hidden');
+        if (clockOContainer) clockOContainer.classList.remove('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.remove('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.remove('hidden');
         if (modeAnalysisBtn) modeAnalysisBtn.classList.remove('hidden');
@@ -4405,6 +4421,9 @@
       } else if (mode === 'play') {
         if (tabPlayBtn) tabPlayBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelPlay) panelPlay.classList.remove('hidden');
+        if (moveHistoryCard) moveHistoryCard.classList.remove('hidden');
+        if (clockXContainer) clockXContainer.classList.remove('hidden');
+        if (clockOContainer) clockOContainer.classList.remove('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
         if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
@@ -4420,6 +4439,9 @@
       } else if (mode === 'tournament') {
         if (tabTournBtn) tabTournBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelTourn) panelTourn.classList.remove('hidden');
+        if (moveHistoryCard) moveHistoryCard.classList.add('hidden');
+        if (clockXContainer) clockXContainer.classList.remove('hidden');
+        if (clockOContainer) clockOContainer.classList.remove('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
         if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
@@ -4430,6 +4452,10 @@
       } else if (mode === 'editor') {
         if (tabEditorBtn) tabEditorBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelEditor) panelEditor.classList.remove('hidden');
+        if (moveHistoryCard) moveHistoryCard.classList.add('hidden');
+        if (fenExportWrapper) fenExportWrapper.classList.remove('hidden');
+        if (clockXContainer) clockXContainer.classList.add('hidden');
+        if (clockOContainer) clockOContainer.classList.add('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
         if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
@@ -5191,7 +5217,7 @@
       const current = state.history[state.currentPly];
       const analysis = analyzePosition(current.board, current.turn);
       const winStatus = checkWinner(current.board);
-      const isPlayMode = state.mode === 'play' || state.mode === 'tournament';
+      const isPlayMode = state.mode === 'play' || state.mode === 'tournament' || state.mode === 'editor';
       const showEval = state.mode === 'analysis';
 
       // 0. Toggle Eval Bar vs Multi-Player Eval Disc visibility (hidden in Play mode)
@@ -7358,9 +7384,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         editorState.selectedTool = btn.dataset.tool;
         document.querySelectorAll('.editor-tool-btn').forEach(b => {
           if (b.dataset.tool === editorState.activeTool) {
-            b.className = 'editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400';
+            b.className = 'editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#162033] text-sky-300 border-sky-400 shadow-sm ring-1 ring-sky-400';
           } else {
-            b.className = 'editor-tool-btn p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]';
+            b.className = 'editor-tool-btn py-2 px-1 rounded text-xs font-bold border transition flex flex-col items-center justify-center space-y-0.5 bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431] hover:text-white';
           }
         });
       });
