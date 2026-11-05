@@ -317,21 +317,43 @@
     const thisWeekActiveDays = weeklyMap[currentWeekKey]?.activeDates.size || (todaySolved > 0 ? 1 : 0);
     const thisWeekDailyPace = thisWeekActiveDays > 0 ? (thisWeekSolved / thisWeekActiveDays).toFixed(1) : '0.0';
 
-    // 8. Forecast / Remaining Calculations
+    // 8. Forecast / Remaining Calculations & IIT JAM 2027 Exam Benchmark
     const coreTotal = 798;
     const inSyllabusSolved = solvedList.filter(x => !x.isOOS).length;
     const remainingCore = Math.max(0, coreTotal - inSyllabusSolved);
 
-    // Recent 7-day velocity (only from actual dated days)
+    // Target Exam: IIT JAM 2027 (14 February 2027, 09:30 AM IST)
+    const jamExamDate = new Date("2027-02-14T09:30:00+05:30");
+    const msToExam = jamExamDate.getTime() - now.getTime();
+    const daysToExam = Math.max(1, Math.ceil(msToExam / 86400000));
+    const requiredExamPace = remainingCore > 0 ? (remainingCore / daysToExam).toFixed(1) : '0.0';
+
+    // Velocity calculation:
+    // Determine active solving days in the last 7 days so we don't dilute a new learner's pace
+    // by dividing by 7 if they only started solving 1-2 days ago.
     let recent7DaysSolved = 0;
+    let recent7ActiveDays = 0;
     for (let i = 0; i < 7; i++) {
       const pastD = new Date(now.getTime() - (i * 86400000));
       const pk = getLocalDateKey(pastD);
-      if (dailyMap[pk]) recent7DaysSolved += dailyMap[pk].newSolved;
+      if (dailyMap[pk] && dailyMap[pk].newSolved > 0) {
+        recent7DaysSolved += dailyMap[pk].newSolved;
+        recent7ActiveDays++;
+      }
     }
-    const recentDailyPace = Math.max(0.5, recent7DaysSolved > 0 ? (recent7DaysSolved / 7) : 5);
+
+    // Effective daily pace based on active solving days (fallback to 5 if no activity yet)
+    let recentDailyPace = 5;
+    if (recent7ActiveDays > 0) {
+      recentDailyPace = recent7DaysSolved / recent7ActiveDays;
+    } else if (parseFloat(thisWeekDailyPace) > 0) {
+      recentDailyPace = parseFloat(thisWeekDailyPace);
+    }
+    recentDailyPace = Math.max(0.5, recentDailyPace);
+
     const daysToFinish = Math.ceil(remainingCore / recentDailyPace);
     const estimatedFinishDate = new Date(now.getTime() + (daysToFinish * 86400000));
+    const finishesBeforeExam = estimatedFinishDate.getTime() <= jamExamDate.getTime();
 
     state.cachedAnalytics = {
       totalSolved: solvedList.length,
@@ -339,6 +361,10 @@
       undatedCount: undatedList.length,
       undatedGroup: undatedGroup,
       remainingCore: remainingCore,
+      daysToExam: daysToExam,
+      requiredExamPace: requiredExamPace,
+      finishesBeforeExam: finishesBeforeExam,
+      jamExamTimestamp: jamExamDate.getTime(),
       todayKey: todayKey,
       todaySolved: todaySolved,
       yesterdaySolved: yesterdaySolved,
@@ -423,18 +449,32 @@
     if (qWeekVal) qWeekVal.textContent = `+${data.thisWeekSolved} Qs`;
     if (qWeekSub) qWeekSub.textContent = `Pace: ${data.thisWeekDailyPace} Qs/day`;
 
-    // 5. Quick card: Forecast
+    // 5. Quick card: Forecast (PYQ Finish Forecast)
     const qForecastVal = document.getElementById('stat-quick-forecast');
     const qRemainingSub = document.getElementById('stat-quick-remaining');
     if (qForecastVal) {
       if (data.remainingCore === 0) {
-        qForecastVal.textContent = '🎉 100% Core PYQs Solved!';
+        qForecastVal.textContent = '🎉 100% Core Solved!';
+        qForecastVal.style.color = 'var(--green)';
       } else {
         qForecastVal.textContent = `~${data.estimatedFinishDate}`;
+        if (!data.finishesBeforeExam) {
+          qForecastVal.style.color = '#f59e0b'; // amber notice if pacing after exam
+        } else {
+          qForecastVal.style.color = '';
+        }
       }
     }
     if (qRemainingSub) {
-      qRemainingSub.textContent = `${data.remainingCore} Core questions left`;
+      if (data.remainingCore === 0) {
+        qRemainingSub.textContent = 'All 798 core questions completed';
+      } else if (!data.finishesBeforeExam) {
+        qRemainingSub.textContent = `Need ~${data.requiredExamPace} Qs/d for JAM '27 (${data.remainingCore} left)`;
+        qRemainingSub.title = `Projected to finish ~${data.estimatedFinishDate} at current active pace (${data.recentDailyPace} Qs/day). IIT JAM 2027 is on 14 Feb 2027 (${data.daysToExam} days left) — target ~${data.requiredExamPace} Qs/day to finish before the exam.`;
+      } else {
+        qRemainingSub.textContent = `🎯 On track for JAM '27 • ${data.remainingCore} left`;
+        qRemainingSub.title = `At current active pace (${data.recentDailyPace} Qs/day), you will finish before the IIT JAM 2027 examination!`;
+      }
     }
 
     // If analytics modal is currently open, refresh its contents in real-time
@@ -783,14 +823,25 @@
         month: 'long',
         year: 'numeric'
       });
+      const finishesBeforeJam = targetDate.getTime() <= (data.jamExamTimestamp || new Date("2027-02-14T09:30:00+05:30").getTime());
+      const reqPaceInt = Math.ceil(parseFloat(data.requiredExamPace) || 7);
 
       return `
         <div class="stats-tab-content">
           <div class="target-sim-hero">
             <h4 style="color:var(--text-main); margin-bottom:6px;">🎯 IIT JAM Syllabus Completion Simulator</h4>
-            <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:18px;">
+            <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:14px;">
               Calculate exactly when you will complete all <strong>798 Core In-Syllabus PYQs</strong> based on your target daily solving pace.
             </p>
+
+            <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 10px 16px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.88rem;">
+              <div>
+                ⏳ <strong>IIT JAM 2027 Exam:</strong> 14 Feb 2027 (${data.daysToExam} days remaining)
+              </div>
+              <div>
+                <span style="color:var(--text-secondary);">Target Exam Pace:</span> <strong style="color:var(--accent);">~${data.requiredExamPace} Qs/day</strong>
+              </div>
+            </div>
 
             <div class="target-sim-slider-row">
               <label for="target-pace-slider">Target Solving Pace:</label>
@@ -813,13 +864,17 @@
                 </div>
                 <div>
                   <span class="target-res-label">Estimated Completion Date</span>
-                  <div class="target-res-val text-green">${targetDateStr}</div>
+                  <div class="target-res-val ${finishesBeforeJam ? 'text-green' : 'text-amber'}">${targetDateStr}</div>
+                  <div style="font-size:0.75rem; margin-top:3px; color:${finishesBeforeJam ? 'var(--green)' : '#f59e0b'};">
+                    ${finishesBeforeJam ? '✓ Finishes before IIT JAM 2027' : '⚠️ Exceeds 14 Feb 2027 exam day'}
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Pre-set Buttons -->
             <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; justify-content:center;">
+              <button class="btn-preset-pace" onclick="window.JAM_STATS.onSliderChange(${reqPaceInt})" style="border-color:var(--accent); color:var(--accent); font-weight:700;">🎯 Exam Pace (${reqPaceInt} Qs/day)</button>
               <button class="btn-preset-pace" onclick="window.JAM_STATS.onSliderChange(5)">5 Qs/day (~${Math.ceil(data.remainingCore / 5)} days)</button>
               <button class="btn-preset-pace" onclick="window.JAM_STATS.onSliderChange(10)">10 Qs/day (~${Math.ceil(data.remainingCore / 10)} days)</button>
               <button class="btn-preset-pace" onclick="window.JAM_STATS.onSliderChange(15)">15 Qs/day (~${Math.ceil(data.remainingCore / 15)} days)</button>
