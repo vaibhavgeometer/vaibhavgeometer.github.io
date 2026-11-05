@@ -500,11 +500,24 @@
 
         <!-- Candidate Moves (MultiPV) Table -->
         <div id="candidate-moves-panel" class="bg-[#262421] border border-[#363431] rounded-lg overflow-hidden shadow-lg">
-          <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex items-center justify-between">
-            <span id="candidate-panel-title" class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
-            <span id="candidate-panel-subtitle" class="text-[11px] text-[#73706c] mono-font">Ranked by SOTA Score</span>
+          <div class="bg-[#1e1c18] px-3 py-2 border-b border-[#363431] flex flex-wrap items-center justify-between gap-1.5">
+            <div class="flex items-center space-x-1.5">
+              <span id="candidate-panel-title" class="text-xs font-bold uppercase tracking-wider text-gray-300">Candidate Moves (MultiPV)</span>
+            </div>
+            <!-- Lines Selector Control for Analysis Mode -->
+            <div id="candidate-lines-control" class="flex items-center space-x-1.5 select-none" title="Set number of top engine candidate lines (MultiPV) to display">
+              <span class="text-[11px] text-gray-400 font-medium">Lines:</span>
+              <div class="inline-flex items-center rounded bg-[#161412] border border-[#363431] p-0.5 shadow-inner">
+                <button id="btn-lines-decrement" type="button" class="w-5 h-5 flex items-center justify-center text-xs font-bold text-gray-400 hover:text-white hover:bg-[#363431] rounded transition active:scale-95" title="Decrease lines (−1)">−</button>
+                <input id="input-engine-lines" type="number" min="1" max="25" value="5" class="w-8 h-5 text-center text-xs font-bold bg-transparent text-white focus:outline-none focus:bg-[#262421] focus:ring-1 focus:ring-[#629924] rounded mono-font [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" title="Set number of lines from 1 to max">
+                <button id="btn-lines-increment" type="button" class="w-5 h-5 flex items-center justify-center text-xs font-bold text-gray-400 hover:text-white hover:bg-[#363431] rounded transition active:scale-95" title="Increase lines (+1)">+</button>
+              </div>
+              <button id="btn-lines-max" type="button" class="px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-[#7ec62f] hover:text-[#9be642] transition active:scale-95 shadow-sm" title="Show all possible candidate moves">Max</button>
+              <span id="candidate-lines-max-label" class="text-[10px] text-[#73706c] mono-font" title="Max lines possible on current board">/ 25</span>
+            </div>
+            <span id="candidate-panel-subtitle" class="hidden text-[11px] text-[#73706c] mono-font">Ranked by SOTA Score</span>
           </div>
-          <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-52 overflow-y-auto">
+          <div id="candidate-moves-list" class="divide-y divide-[#363431] max-h-72 sm:max-h-80 overflow-y-auto">
             <!-- Dynamically populated candidate rows -->
           </div>
         </div>
@@ -2559,7 +2572,9 @@
         }
       }
 
-      const deepLimit = rows * cols <= 25 ? 16 : (rows * cols <= 64 ? 12 : 8);
+      const reqLines = Math.max(5, state.engineLines || 5);
+      const baseLimit = rows * cols <= 25 ? 16 : (rows * cols <= 64 ? 12 : 8);
+      const deepLimit = Math.max(baseLimit, Math.min(reqLines, evaluations.length));
       const searchCandidates = evaluations.slice(0, deepLimit);
       const searchCandidateSet = new Set(searchCandidates.map(c => c.move));
       const scoredMoves = [];
@@ -2652,7 +2667,8 @@
       }
 
       // Populate Principal Variation for top candidate moves
-      for (let i = 0; i < Math.min(6, scoredMoves.length); i++) {
+      const pvLinesToExtract = Math.min(Math.max(6, state.engineLines || 5), scoredMoves.length);
+      for (let i = 0; i < pvLinesToExtract; i++) {
         const cand = scoredMoves[i];
         board[cand.move] = turn;
         const subPv = extractPvFromTT(board, opp, Math.min(6, depth));
@@ -3052,6 +3068,7 @@
       hoveredSquare: null,
       isEngineThinking: false,
       engineThinkingTime: (localStorage.getItem('mnk_thinking_time') || localStorage.getItem('stocktic_thinking_time')) || '5', // '1', '5', '10', '30', 'unlimited'
+      engineLines: parseInt(localStorage.getItem('mnk_engine_lines') || localStorage.getItem('stocktic_engine_lines') || '5', 10) || 5, // 1 to max possible candidate lines
       isAnalyzing: false,
       enginePaused: false,
       currentAnalysis: null,
@@ -4756,6 +4773,73 @@
     }
 
     /**
+     * User MultiPV / Top Engine Lines Selector Controller
+     * Allows setting candidate lines from 1 to max possible (all board squares / legal moves)
+     */
+    function getMaxPossibleLines() {
+      return Math.max(1, config.rows * config.cols);
+    }
+
+    function setEngineLines(val, updateInput = true) {
+      const maxPossible = getMaxPossibleLines();
+      let lines = parseInt(val, 10);
+      if (isNaN(lines)) lines = 5;
+      lines = Math.max(1, Math.min(maxPossible, lines));
+      state.engineLines = lines;
+
+      try {
+        localStorage.setItem('mnk_engine_lines', lines.toString());
+      } catch (e) {}
+
+      updateEngineLinesUI(updateInput);
+
+      // Immediately re-render candidate moves with the updated line count
+      const current = state.history[state.currentPly];
+      const winStatus = checkWinner(current.board);
+      const analysis = state.currentAnalysis || analyzePosition(current.board, current.turn);
+
+      // Extract PV from TT for any candidate moves if missing
+      if (analysis && analysis.allMoves) {
+        const opp = current.turn === 'X' ? 'O' : 'X';
+        const pvCount = Math.min(lines, analysis.allMoves.length);
+        for (let i = 0; i < pvCount; i++) {
+          const cand = analysis.allMoves[i];
+          if (!cand.pv || cand.pv.length <= 1) {
+            current.board[cand.move] = current.turn;
+            const subPv = extractPvFromTT(current.board, opp, 6);
+            current.board[cand.move] = null;
+            if (subPv.length > 0) {
+              cand.pv = [cand.move, ...subPv];
+            }
+          }
+        }
+      }
+
+      renderCandidateMoves(analysis, winStatus);
+      updateArrows();
+
+      if (updateInput) {
+        showToast(`Candidate lines set to ${lines} (max: ${maxPossible})`);
+      }
+    }
+
+    function updateEngineLinesUI(updateInput = true) {
+      const maxPossible = getMaxPossibleLines();
+      const currentLines = Math.max(1, Math.min(maxPossible, state.engineLines || 5));
+      const input = document.getElementById('input-engine-lines');
+      const maxLabel = document.getElementById('candidate-lines-max-label');
+      if (input) {
+        input.max = maxPossible;
+        if (updateInput && document.activeElement !== input) {
+          input.value = currentLines;
+        }
+      }
+      if (maxLabel) {
+        maxLabel.textContent = `/ ${maxPossible}`;
+      }
+    }
+
+    /**
      * Toggle Engine Run / Stop Button
      */
     function toggleEngineCalculation() {
@@ -5585,8 +5669,9 @@
         ? state.hoveredSquare
         : null;
 
-      // Cap at maximum 5 arrows on 5x5 board (center + 4 orthogonal cross neighbors), or 4 arrows on other boards
-      const maxArrows = (config.rows === 5 && config.cols === 5) ? 5 : 4;
+      // Cap at maximum 5 arrows on 5x5 board (center + 4 orthogonal cross neighbors), or 4 arrows on other boards, capped by user engine lines
+      const defaultMaxArrows = (config.rows === 5 && config.cols === 5) ? 5 : 4;
+      const maxArrows = Math.max(1, Math.min(state.engineLines || 5, defaultMaxArrows));
       for (const cand of candidates) {
         if (targetList.length >= maxArrows) break;
         if (current.board[cand.move] !== null) continue;
@@ -6046,6 +6131,9 @@
       const container = document.getElementById('candidate-moves-list');
       const panelTitle = document.getElementById('candidate-panel-title');
       const panelSubtitle = document.getElementById('candidate-panel-subtitle');
+      const linesControl = document.getElementById('candidate-lines-control');
+      const linesInput = document.getElementById('input-engine-lines');
+      const linesMaxLabel = document.getElementById('candidate-lines-max-label');
       container.innerHTML = '';
 
       const isPlayMode = state.mode === 'play';
@@ -6055,6 +6143,8 @@
 
       // Play mode with Eval OFF: show dedicated Match Card
       if (!showEval) {
+        if (linesControl) linesControl.classList.add('hidden');
+        if (panelSubtitle) panelSubtitle.classList.remove('hidden');
         if (panelTitle) panelTitle.textContent = 'Match Status';
         if (panelSubtitle) panelSubtitle.textContent = 'Live Practice';
 
@@ -6160,9 +6250,22 @@
 
       // Eval is ON (MultiPV list)
       if (panelTitle) panelTitle.textContent = 'Candidate Moves (MultiPV)';
-      if (panelSubtitle) panelSubtitle.textContent = 'Ranked by SOTA Score';
+      if (panelSubtitle) panelSubtitle.classList.add('hidden');
+      if (linesControl) linesControl.classList.remove('hidden');
 
-      if (winStatus || !analysis.allMoves || analysis.allMoves.length === 0) {
+      const maxPossible = getMaxPossibleLines();
+      const linesSetting = Math.max(1, Math.min(maxPossible, state.engineLines || 5));
+      if (linesInput) {
+        linesInput.max = maxPossible;
+        if (document.activeElement !== linesInput) {
+          linesInput.value = linesSetting;
+        }
+      }
+      if (linesMaxLabel) {
+        linesMaxLabel.textContent = `/ ${maxPossible}`;
+      }
+
+      if (winStatus || !analysis || !analysis.allMoves || analysis.allMoves.length === 0) {
         container.innerHTML = `
           <div class="px-3 py-4 text-center text-xs text-gray-400 italic">
             ${winStatus ? `Game finished (${winStatus.winner === 'Draw' ? 'Draw' : winStatus.winner + ' Won'})` : 'No legal moves'}
@@ -6171,8 +6274,8 @@
         return;
       }
 
-      // Display top 8 candidate moves
-      const topMoves = analysis.allMoves.slice(0, 8);
+      // Display top candidate moves according to user setting
+      const topMoves = analysis.allMoves.slice(0, linesSetting);
 
       topMoves.forEach((cand, idx) => {
         const row = document.createElement('div');
@@ -6641,6 +6744,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       renderPlayRoster();
       renderEditorTurnSelector();
       renderMultiplayerBar();
+      updateEngineLinesUI();
       resetBoard();
       showToast(`Board updated: ${rows}×${cols} with k=${k} to win! (${config.j || 2} players)`);
     }
@@ -6977,6 +7081,48 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     const btnEngineToggle = document.getElementById('btn-engine-toggle');
     if (btnEngineToggle) {
       btnEngineToggle.addEventListener('click', toggleEngineCalculation);
+    }
+
+    // Candidate Engine Lines (MultiPV) Selector Controls
+    const btnLinesDec = document.getElementById('btn-lines-decrement');
+    if (btnLinesDec) {
+      btnLinesDec.addEventListener('click', () => {
+        setEngineLines((state.engineLines || 5) - 1, true);
+      });
+    }
+
+    const btnLinesInc = document.getElementById('btn-lines-increment');
+    if (btnLinesInc) {
+      btnLinesInc.addEventListener('click', () => {
+        setEngineLines((state.engineLines || 5) + 1, true);
+      });
+    }
+
+    const btnLinesMax = document.getElementById('btn-lines-max');
+    if (btnLinesMax) {
+      btnLinesMax.addEventListener('click', () => {
+        setEngineLines(getMaxPossibleLines(), true);
+      });
+    }
+
+    const inputLines = document.getElementById('input-engine-lines');
+    if (inputLines) {
+      inputLines.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (!isNaN(val) && val >= 1) {
+          setEngineLines(val, false);
+        }
+      });
+      inputLines.addEventListener('change', (e) => {
+        setEngineLines(e.target.value, true);
+      });
+      inputLines.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          setEngineLines(e.target.value, true);
+          inputLines.blur();
+        }
+      });
     }
 
     // ==========================================
@@ -7449,12 +7595,18 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       if (savedThinkingTime) {
         state.engineThinkingTime = savedThinkingTime;
       }
+      const savedLines = (localStorage.getItem('mnk_engine_lines') || localStorage.getItem('stocktic_engine_lines'));
+      if (savedLines) {
+        const parsedLines = parseInt(savedLines, 10);
+        if (parsedLines >= 1) state.engineLines = parsedLines;
+      }
     } catch (e) {}
 
     // Initialize UI settings
     updateLevelUI();
     updateEvalToggleUI();
     updateThinkingTimeUI();
+    updateEngineLinesUI();
 
     // Default tournament roster preset (Demand 1 line 4)
     tournamentState.roster = [
