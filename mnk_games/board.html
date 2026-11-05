@@ -670,7 +670,7 @@
         <div id="active-match-info-card" class="bg-[#1e1c18] border border-[#363431] rounded-lg p-2.5 space-y-2">
           <div class="flex items-center justify-between text-xs">
             <div class="flex items-center space-x-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#629924] animate-pulse"></span>
+              <span id="active-match-dot" class="w-2 h-2 rounded-full bg-[#629924] animate-pulse"></span>
               <span class="font-bold text-white uppercase tracking-wider text-[11px]" id="active-match-mode-label">Match in Progress</span>
             </div>
             <span id="active-match-variant-tag" class="text-[10px] mono-font text-[#7ec62f] bg-[#262421] px-1.5 py-0.5 rounded border border-[#363431]"></span>
@@ -678,7 +678,7 @@
 
           <!-- Quick In-Game Match Actions -->
           <div class="grid grid-cols-4 gap-1 pt-1">
-            <button type="button" onclick="document.getElementById('btn-resign-match')?.click();" class="py-1 px-1.5 bg-[#363431] hover:bg-[#c33a38]/80 text-gray-300 hover:text-white rounded text-[11px] font-semibold transition text-center" title="Resign current game">
+            <button type="button" id="btn-quick-resign" onclick="document.getElementById('btn-resign-match')?.click();" class="py-1 px-1.5 bg-[#363431] hover:bg-[#c33a38]/80 text-gray-300 hover:text-white rounded text-[11px] font-semibold transition text-center" title="Resign current game">
               🏳️ Resign
             </button>
             <button type="button" onclick="resetBoard();" class="py-1 px-1.5 bg-[#363431] hover:bg-[#474440] text-gray-300 hover:text-white rounded text-[11px] font-semibold transition text-center" title="Start a new game">
@@ -2990,6 +2990,8 @@
       showBadges: true,
       mode: 'analysis', // 'analysis', 'play', 'tournament', or 'editor'
       playerPiece: 'X', // 'X' or 'O'
+      gameOver: false,
+      winner: null,
       engineLevel: 8,   // 1 to 8
       playShowEval: false, // in play mode: false (realistic match) or true (hints on)
       hoveredSquare: null,
@@ -3168,6 +3170,7 @@
       const otherPlayers = PLAYERS.slice(0, config.j || 2).filter(p => p !== player);
       const winnerName = otherPlayers.join(' / ');
       showToast(`Time Out! ${player} flagged. ${winnerName} won on time!`);
+      showGameFinishedBanner({ winner: otherPlayers[0] || 'X', flagged: true, flaggedPlayer: player });
       render();
     }
 
@@ -4808,7 +4811,7 @@
 
       const current = state.history[state.currentPly];
       const winCheck = checkWinner(current.board);
-      if (winCheck || clockState.flaggedPlayer) return; // Game over
+      if (winCheck || clockState.flaggedPlayer || state.gameOver) return; // Game over
 
       if (current.board[index] !== null) return; // Cell occupied or frozen (#)
 
@@ -5205,6 +5208,64 @@
         startAsyncAnalysis(current.board, current.turn, state.currentPly);
       } else {
         stopCurrentAnalysis();
+      }
+
+      // 10. Update In-Game Match Header & Finished State
+      const matchLabel = document.getElementById('active-match-mode-label');
+      const matchTag = document.getElementById('active-match-variant-tag');
+      const matchDot = document.getElementById('active-match-dot');
+      if (matchTag) {
+        matchTag.textContent = `${config.rows}×${config.cols} (k=${config.k})`;
+      }
+      const isTerminal = !!(winStatus || clockState.flaggedPlayer || state.gameOver);
+      if (matchLabel) {
+        if (clockState.flaggedPlayer) {
+          matchLabel.textContent = `Time Out · ${clockState.flaggedPlayer} Flagged`;
+          if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-red-500';
+        } else if (winStatus) {
+          if (winStatus.winner === 'Draw') {
+            matchLabel.textContent = 'Game Drawn';
+            if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-amber-400';
+          } else {
+            const wName = (state.mode === 'play' ? getPlayerConfig(winStatus.winner)?.name : null) || PLAYER_NAMES[winStatus.winner] || winStatus.winner;
+            matchLabel.textContent = `${wName} Won`;
+            if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-[#629924]';
+          }
+        } else if (state.gameOver) {
+          matchLabel.textContent = 'Match Resigned';
+          if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-red-400';
+        } else {
+          matchLabel.textContent = 'Match in Progress';
+          if (matchDot) matchDot.className = 'w-2 h-2 rounded-full bg-[#629924] animate-pulse';
+        }
+      }
+
+      const btnResignEl = document.getElementById('btn-resign-match');
+      if (btnResignEl) {
+        btnResignEl.disabled = isTerminal;
+        btnResignEl.classList.toggle('opacity-50', isTerminal);
+        btnResignEl.classList.toggle('cursor-not-allowed', isTerminal);
+      }
+      const btnQuickResignEl = document.getElementById('btn-quick-resign');
+      if (btnQuickResignEl) {
+        btnQuickResignEl.disabled = isTerminal;
+        btnQuickResignEl.classList.toggle('opacity-50', isTerminal);
+        btnQuickResignEl.classList.toggle('cursor-not-allowed', isTerminal);
+      }
+
+      // Sync play finished banner card in play mode
+      if (state.mode === 'play') {
+        if (winStatus) {
+          showGameFinishedBanner(winStatus);
+        } else if (clockState.flaggedPlayer) {
+          const others = PLAYERS.slice(0, config.j || 2).filter(p => p !== clockState.flaggedPlayer);
+          showGameFinishedBanner({ winner: others[0] || 'X', flagged: true, flaggedPlayer: clockState.flaggedPlayer });
+        } else if (state.gameOver) {
+          showGameFinishedBanner({ winner: state.winner, resigned: true, resigningPlayer: state.winner === 'X' ? 'O' : 'X' });
+        } else {
+          const playCard = document.getElementById('play-game-finished-card');
+          if (playCard) playCard.classList.add('hidden');
+        }
       }
     }
 
@@ -6020,7 +6081,13 @@
 
     function resetBoard() {
       const playCard = document.getElementById('play-game-finished-card');
-      if (playCard) playCard.classList.add('hidden');
+      if (playCard) {
+        playCard.classList.add('hidden');
+        playCard.className = 'hidden bg-[#1e1c18] border border-[#629924] rounded-lg p-3 text-center space-y-2 shadow-lg';
+      }
+      state.gameOver = false;
+      state.winner = null;
+      clockState.flaggedPlayer = null;
       stopCurrentAnalysis();
       state.currentAnalysis = null;
       if (engineTimeoutId) {
@@ -6796,12 +6863,14 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       btnResign.addEventListener('click', () => {
         if (state.gameOver) return;
         const current = state.history[state.currentPly];
+        if (checkWinner(current.board) || clockState.flaggedPlayer) return;
         const resigningTurn = current.turn;
         const winner = resigningTurn === 'X' ? 'O' : 'X';
         state.gameOver = true;
         state.winner = winner;
         stopClock();
         showToast(`Player ${resigningTurn} resigned. Player ${winner} wins!`);
+        showGameFinishedBanner({ winner, resigned: true, resigningPlayer: resigningTurn });
         render();
       });
     }
@@ -7179,11 +7248,35 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         playCard.classList.remove('hidden');
         const titleEl = document.getElementById('play-game-finished-title');
         const descEl = document.getElementById('play-game-finished-desc');
-        if (titleEl) {
-          titleEl.textContent = terminal && terminal.winner ? `🏆 Player ${terminal.winner} Won!` : '🤝 Game Drawn';
-        }
-        if (descEl) {
-          descEl.textContent = terminal && terminal.winner ? `Completed streak of ${config.k}!` : 'Board is completely full';
+        const isDraw = !terminal || terminal.winner === 'Draw';
+
+        if (isDraw) {
+          if (titleEl) {
+            titleEl.textContent = '🤝 Game Drawn';
+          }
+          if (descEl) {
+            descEl.textContent = 'Board is completely full';
+          }
+          playCard.className = 'bg-[#1e1c18] border border-amber-500/60 rounded-lg p-3 text-center space-y-2 shadow-lg';
+        } else {
+          let winnerName = PLAYER_NAMES[terminal.winner] || `Player ${terminal.winner}`;
+          if (state.mode === 'play') {
+            const p = getPlayerConfig(terminal.winner);
+            if (p && p.name) winnerName = p.name;
+          }
+          if (titleEl) {
+            titleEl.textContent = terminal.flagged ? `🏆 ${winnerName} Won on Time!` : `🏆 ${winnerName} Won!`;
+          }
+          if (descEl) {
+            if (terminal.resigned) {
+              descEl.textContent = `Player ${terminal.resigningPlayer} resigned`;
+            } else if (terminal.flagged) {
+              descEl.textContent = `Player ${terminal.flaggedPlayer} ran out of time!`;
+            } else {
+              descEl.textContent = `Completed streak of ${config.k}!`;
+            }
+          }
+          playCard.className = 'bg-[#1e1c18] border border-[#629924] rounded-lg p-3 text-center space-y-2 shadow-lg';
         }
       }
     }
