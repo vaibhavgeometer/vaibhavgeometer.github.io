@@ -431,6 +431,10 @@ a.hero-pill:hover {
   transform: translateY(-1px);
 }
 
+.year-card .topic-actions .btn-mock-pdf {
+  flex: 1 1 100%;
+}
+
 .btn-test.cheat {
   background: var(--green-dim);
   color: var(--green);

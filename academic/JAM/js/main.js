@@ -77,12 +77,8 @@
         ? `<span class="best-score">★ Best: ${bestScore}/${t.total_marks}</span>`
         : '';
 
-      const pdfLink = t.paper_pdf
-        ? `<a href="${t.paper_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="View 22-Year Original PYQ Archive PDF">🏛️ Archive</a>`
-        : '';
-
       const mockPdfLink = t.mock_pdf
-        ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
+        ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary btn-mock-pdf" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
         : '';
 
       return `
@@ -115,7 +111,6 @@
             <a href="mock-test/test.html?topic=${t.id}&mode=official" class="btn-test primary" title="Start Timed Examination">⚡ Start Test</a>
             <a href="mock-test/test.html?topic=${t.id}&mode=practice" class="btn-test secondary" title="Practice without Timer">📖 Practice</a>
             ${mockPdfLink}
-            ${pdfLink}
           </div>
         </div>
       `;
