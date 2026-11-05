@@ -3170,6 +3170,88 @@ mjx-container[jax="SVG"][display="true"] {
   border-color: var(--border-color) !important;
 }
 
+.q-diff-badge-btn.is-suggested {
+  border-style: dashed !important;
+}
+
+.q-diff-badge-btn.is-user-tagged {
+  border-style: solid !important;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25);
+}
+
+.diff-badge-prefix {
+  font-size: 0.74rem;
+  opacity: 0.82;
+  font-weight: 500;
+}
+
+.diff-badge-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  margin-left: 4px;
+  letter-spacing: 0.2px;
+}
+
+.diff-badge-pill.user {
+  background: rgba(16, 185, 129, 0.25);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.diff-badge-pill.unrated {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.diff-tag-pill {
+  font-size: 0.68em;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 999px;
+  margin-left: 4px;
+}
+
+.diff-tag-pill.user {
+  background: rgba(16, 185, 129, 0.25);
+  color: #10b981;
+}
+
+.diff-tag-pill.unrated {
+  background: rgba(148, 163, 184, 0.2);
+  color: inherit;
+  opacity: 0.85;
+}
+
+.q-diff-status-box {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.74rem;
+  border: 1px solid var(--border-color);
+}
+
+.q-diff-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.q-diff-status-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.q-diff-status-val {
+  font-weight: 700;
+}
+
 /* Difficulty Badge component */
 .q-diff-badge {
   display: inline-flex;

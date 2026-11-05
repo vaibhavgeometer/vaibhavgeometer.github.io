@@ -161,20 +161,7 @@
     fallbackParams = fallbackParams || {};
     const normId = normalizeQuestionId(qId, fallbackParams.year, fallbackParams.qNum || fallbackParams.q_num);
     
-    // 1. Check User Tag
-    const userMap = getUserTrackerData();
-    const userRecord = userMap[normId];
-    if (userRecord && userRecord.difficulty && DIFFICULTY_LEVELS[userRecord.difficulty]) {
-      const level = DIFFICULTY_LEVELS[userRecord.difficulty];
-      return {
-        ...level,
-        key: level.id,
-        isUserTagged: true,
-        normId: normId
-      };
-    }
-
-    // 2. Fallback Inference
+    // Baseline Exam Suggestion
     const inferredKey = inferBaselineDifficulty(
       normId,
       fallbackParams.marks,
@@ -182,12 +169,25 @@
       fallbackParams.qNum || fallbackParams.q_num,
       fallbackParams.year
     );
-    const level = DIFFICULTY_LEVELS[inferredKey] || DIFFICULTY_LEVELS.medium;
+    const suggestedLevel = DIFFICULTY_LEVELS[inferredKey] || DIFFICULTY_LEVELS.medium;
+
+    // Check User Tag
+    const userMap = getUserTrackerData();
+    const userRecord = userMap[normId];
+    const isUserTagged = !!(userRecord && userRecord.difficulty && DIFFICULTY_LEVELS[userRecord.difficulty]);
+    const userLevel = isUserTagged ? DIFFICULTY_LEVELS[userRecord.difficulty] : null;
+
+    const activeLevel = userLevel || suggestedLevel;
 
     return {
-      ...level,
-      key: level.id,
-      isUserTagged: false,
+      ...activeLevel,
+      id: activeLevel.id,
+      key: activeLevel.id,
+      isUserTagged: isUserTagged,
+      userLevel: userLevel,
+      userDifficulty: userRecord?.difficulty || null,
+      suggestedLevel: suggestedLevel,
+      suggestedDifficulty: inferredKey,
       normId: normId
     };
   }
@@ -256,19 +256,29 @@
     options = options || {};
     const isInteractive = !!options.interactive;
     const size = options.size || 'md'; // sm, md, lg
-    const showUserIndicator = options.showUserIndicator !== false;
+    const sug = diffObj.suggestedLevel || diffObj;
 
-    const userStar = (diffObj.isUserTagged && showUserIndicator) ? ' <span style="font-size:0.7em; opacity:0.85;" title="Tagged by You">★</span>' : '';
-
-    return `
-      <span class="q-diff-badge ${diffObj.class} size-${size} ${isInteractive ? 'interactive' : ''}"
-            style="background:${diffObj.bg}; color:${diffObj.color}; border:1px solid ${diffObj.border};"
-            data-diff="${diffObj.id}"
-            title="${diffObj.label} Difficulty${diffObj.isUserTagged ? ' (Tagged by You)' : ' (Exam Benchmark)'}">
-        <span class="diff-icon">${diffObj.icon}</span>
-        <span class="diff-text">${diffObj.label}${userStar}</span>
-      </span>
-    `;
+    if (diffObj.isUserTagged) {
+      return `
+        <span class="q-diff-badge ${diffObj.class} size-${size} is-user-tagged ${isInteractive ? 'interactive' : ''}"
+              style="background:${diffObj.bg}; color:${diffObj.color}; border:1px solid ${diffObj.border};"
+              data-diff="${diffObj.id}"
+              title="Your Custom Tag: ${diffObj.label} (Suggested: ${sug.label})">
+          <span class="diff-icon">${diffObj.icon}</span>
+          <span class="diff-text">${diffObj.label} <span class="diff-tag-pill user">★ My Tag</span></span>
+        </span>
+      `;
+    } else {
+      return `
+        <span class="q-diff-badge ${sug.class} size-${size} is-suggested ${isInteractive ? 'interactive' : ''}"
+              style="background:${sug.bg}; color:${sug.color}; border:1px dashed ${sug.border};"
+              data-diff="${sug.id}"
+              title="Suggested by Exam Benchmark: ${sug.label} • You have not rated this question yet (Unrated)">
+          <span class="diff-icon">${sug.icon}</span>
+          <span class="diff-text">Suggested: ${sug.label} <span class="diff-tag-pill unrated">(Unrated)</span></span>
+        </span>
+      `;
+    }
   }
 
   // Export to global window scope

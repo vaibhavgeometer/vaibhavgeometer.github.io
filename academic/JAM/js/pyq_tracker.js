@@ -587,6 +587,17 @@
     const currentDiff = userState.difficulty || '';
     const isRevealed = state.revealedKeys.has(q.id);
 
+    const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+      marks: q.marks,
+      type: q.type,
+      qNum: q.q_num,
+      year: q.year
+    }) : null;
+    const diffBadgeHtml = (qDiff && window.JAM_DIFFICULTY)
+      ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' })
+      : '';
+    const suggestedLabel = qDiff?.suggestedLevel?.label || 'Medium';
+
     const qType = (q.type || 'MCQ').toUpperCase();
     const typeClass = qType.toLowerCase();
 
@@ -607,6 +618,7 @@
         <!-- Tags -->
         <div class="q-card-tags">
           <span class="q-topic-tag" title="${q.sub_topic}">📂 ${q.sub_topic}</span>
+          ${diffBadgeHtml}
           ${isSolved ? `<span class="q-solved-date-tag" title="${formatSolvedTooltip(userState.solvedAt)}">🕒 Solved${userState.solvedAt ? ': ' + formatSolvedDateTime(userState.solvedAt) : ''}</span>` : ''}
           ${q.isOOS ? '<span class="q-oos-tag">⚠️ Out of Syllabus</span>' : ''}
           ${isUnnecessary ? '<span class="q-oos-tag" style="background:rgba(245,158,11,0.2);color:#f59e0b;border-color:rgba(245,158,11,0.4);">🚫 Unnecessary</span>' : ''}
@@ -627,13 +639,13 @@
             </button>
 
             <!-- Difficulty Tag Selector -->
-            <select class="q-diff-select" onchange="window.JAM_TRACKER.setDifficulty('${q.id}', this.value)" title="Tag question difficulty">
-              <option value="" ${!currentDiff ? 'selected' : ''}>🏷️ Difficulty</option>
-              <option value="very_easy" ${currentDiff === 'very_easy' ? 'selected' : ''}>🟢 Very Easy</option>
-              <option value="easy" ${currentDiff === 'easy' ? 'selected' : ''}>🔵 Easy</option>
-              <option value="medium" ${currentDiff === 'medium' ? 'selected' : ''}>🟡 Medium</option>
-              <option value="hard" ${currentDiff === 'hard' ? 'selected' : ''}>🟠 Hard</option>
-              <option value="hardest" ${currentDiff === 'hardest' ? 'selected' : ''}>🟣 Hardest</option>
+            <select class="q-diff-select ${currentDiff ? 'is-user-tagged' : 'is-unrated'}" onchange="window.JAM_TRACKER.setDifficulty('${q.id}', this.value)" title="Tag question difficulty">
+              <option value="" ${!currentDiff ? 'selected' : ''}>🏷️ Unrated (Suggested: ${suggestedLabel})</option>
+              <option value="very_easy" ${currentDiff === 'very_easy' ? 'selected' : ''}>🟢 Very Easy ${currentDiff === 'very_easy' ? '★ My Tag' : ''}</option>
+              <option value="easy" ${currentDiff === 'easy' ? 'selected' : ''}>🔵 Easy ${currentDiff === 'easy' ? '★ My Tag' : ''}</option>
+              <option value="medium" ${currentDiff === 'medium' ? 'selected' : ''}>🟡 Medium ${currentDiff === 'medium' ? '★ My Tag' : ''}</option>
+              <option value="hard" ${currentDiff === 'hard' ? 'selected' : ''}>🟠 Hard ${currentDiff === 'hard' ? '★ My Tag' : ''}</option>
+              <option value="hardest" ${currentDiff === 'hardest' ? 'selected' : ''}>🟣 Hardest ${currentDiff === 'hardest' ? '★ My Tag' : ''}</option>
             </select>
           </div>
 
@@ -784,6 +796,17 @@
     const isSolved = !!userState.solved;
     const isRevealed = state.revealedKeys.has(q.id);
 
+    const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
+      marks: q.marks,
+      type: q.type,
+      qNum: q.q_num,
+      year: q.year
+    }) : null;
+    const diffBadgeHtml = (qDiff && window.JAM_DIFFICULTY)
+      ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' })
+      : '';
+    const suggestedLabel = qDiff?.suggestedLevel?.label || 'Medium';
+
     if (modal) {
       modal.innerHTML = `
         <div class="q-modal-overlay" onclick="window.JAM_TRACKER.closeModal(event)">
@@ -792,6 +815,7 @@
               <div class="q-modal-title">
                 <span class="q-id-pill">${q.id.replace('JAM_', '')}</span>
                 <span>IIT JAM ${q.year} • Question ${q.q_num}</span>
+                ${diffBadgeHtml}
               </div>
               <button class="q-modal-close-btn" onclick="window.JAM_TRACKER.closeModal()" title="Close (Esc)">✕</button>
             </div>
@@ -803,13 +827,13 @@
                 <button class="btn-toggle-solved ${isSolved ? 'active' : ''}" onclick="window.JAM_TRACKER.toggleSolved('${q.id}'); window.JAM_TRACKER.openModal('${q.id}');">
                   ${isSolved ? '✓ Solved' : '○ Mark Solved'}
                 </button>
-                <select class="q-diff-select" onchange="window.JAM_TRACKER.setDifficulty('${q.id}', this.value); window.JAM_TRACKER.openModal('${q.id}');">
-                  <option value="" ${!userState.difficulty ? 'selected' : ''}>🏷️ Difficulty</option>
-                  <option value="very_easy" ${userState.difficulty === 'very_easy' ? 'selected' : ''}>🟢 Very Easy</option>
-                  <option value="easy" ${userState.difficulty === 'easy' ? 'selected' : ''}>🔵 Easy</option>
-                  <option value="medium" ${userState.difficulty === 'medium' ? 'selected' : ''}>🟡 Medium</option>
-                  <option value="hard" ${userState.difficulty === 'hard' ? 'selected' : ''}>🟠 Hard</option>
-                  <option value="hardest" ${userState.difficulty === 'hardest' ? 'selected' : ''}>🟣 Hardest</option>
+                <select class="q-diff-select ${userState.difficulty ? 'is-user-tagged' : 'is-unrated'}" onchange="window.JAM_TRACKER.setDifficulty('${q.id}', this.value); window.JAM_TRACKER.openModal('${q.id}');">
+                  <option value="" ${!userState.difficulty ? 'selected' : ''}>🏷️ Unrated (Suggested: ${suggestedLabel})</option>
+                  <option value="very_easy" ${userState.difficulty === 'very_easy' ? 'selected' : ''}>🟢 Very Easy ${userState.difficulty === 'very_easy' ? '★ My Tag' : ''}</option>
+                  <option value="easy" ${userState.difficulty === 'easy' ? 'selected' : ''}>🔵 Easy ${userState.difficulty === 'easy' ? '★ My Tag' : ''}</option>
+                  <option value="medium" ${userState.difficulty === 'medium' ? 'selected' : ''}>🟡 Medium ${userState.difficulty === 'medium' ? '★ My Tag' : ''}</option>
+                  <option value="hard" ${userState.difficulty === 'hard' ? 'selected' : ''}>🟠 Hard ${userState.difficulty === 'hard' ? '★ My Tag' : ''}</option>
+                  <option value="hardest" ${userState.difficulty === 'hardest' ? 'selected' : ''}>🟣 Hardest ${userState.difficulty === 'hardest' ? '★ My Tag' : ''}</option>
                 </select>
                 <button class="btn-reveal-key" onclick="window.JAM_TRACKER.toggleAnswerKey('${q.id}'); window.JAM_TRACKER.openModal('${q.id}');">
                   ${isRevealed ? '🙈 Hide Key' : '🔑 Show Key'}

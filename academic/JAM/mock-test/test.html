@@ -86,12 +86,23 @@
                   <span class="q-diff-btn-caret">▾</span>
                 </button>
                 <div class="q-diff-dropdown hidden" id="q-diff-dropdown">
-                  <div class="q-diff-dropdown-header">Tag Difficulty Level:</div>
-                  <button type="button" class="q-diff-dropdown-item diff-opt-very-easy" onclick="window.selectCurrentQuestionDifficulty('very_easy')">🟢 Very Easy</button>
-                  <button type="button" class="q-diff-dropdown-item diff-opt-easy" onclick="window.selectCurrentQuestionDifficulty('easy')">🔵 Easy</button>
-                  <button type="button" class="q-diff-dropdown-item diff-opt-medium" onclick="window.selectCurrentQuestionDifficulty('medium')">🟡 Medium</button>
-                  <button type="button" class="q-diff-dropdown-item diff-opt-hard" onclick="window.selectCurrentQuestionDifficulty('hard')">🟠 Hard</button>
-                  <button type="button" class="q-diff-dropdown-item diff-opt-hardest" onclick="window.selectCurrentQuestionDifficulty('hardest')">🟣 Hardest</button>
+                  <div class="q-diff-status-box">
+                    <div class="q-diff-status-row">
+                      <span class="q-diff-status-label">Suggested:</span>
+                      <span class="q-diff-status-val" id="q-diff-info-suggested">🟠 Hard (Exam)</span>
+                    </div>
+                    <div class="q-diff-status-row">
+                      <span class="q-diff-status-label">Your Tag:</span>
+                      <span class="q-diff-status-val" id="q-diff-info-user">⚪ Unrated</span>
+                    </div>
+                  </div>
+                  <div class="q-diff-dropdown-header">Tag Your Difficulty:</div>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-unrated" data-diff-val="" onclick="window.selectCurrentQuestionDifficulty('')">⚪ Unrated (Clear Tag)</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-very-easy" data-diff-val="very_easy" onclick="window.selectCurrentQuestionDifficulty('very_easy')">🟢 Very Easy</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-easy" data-diff-val="easy" onclick="window.selectCurrentQuestionDifficulty('easy')">🔵 Easy</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-medium" data-diff-val="medium" onclick="window.selectCurrentQuestionDifficulty('medium')">🟡 Medium</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-hard" data-diff-val="hard" onclick="window.selectCurrentQuestionDifficulty('hard')">🟠 Hard</button>
+                  <button type="button" class="q-diff-dropdown-item diff-opt-hardest" data-diff-val="hardest" onclick="window.selectCurrentQuestionDifficulty('hardest')">🟣 Hardest</button>
                 </div>
               </div>
             </div>

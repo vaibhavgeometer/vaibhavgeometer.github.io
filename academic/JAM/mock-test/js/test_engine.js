@@ -201,18 +201,43 @@
         type: q.type,
         qNum: q.q_num,
         year: q.year
-      }) : { label: 'Medium', icon: '🟡', class: 'diff-medium', isUserTagged: false };
+      }) : { label: 'Medium', icon: '🟡', class: 'diff-medium', isUserTagged: false, suggestedLevel: { label: 'Medium', icon: '🟡' } };
 
-      diffBtn.className = `q-diff-badge-btn ${qDiff.class}`;
-      diffIcon.textContent = qDiff.icon;
-      const userStar = qDiff.isUserTagged ? ' ★' : '';
-      diffText.textContent = `${qDiff.label}${userStar}`;
-      diffBtn.title = `${qDiff.label} Difficulty${qDiff.isUserTagged ? ' (Tagged by You)' : ' (Exam Benchmark)'} — Click to Change`;
+      const sug = qDiff.suggestedLevel || qDiff;
+
+      if (qDiff.isUserTagged) {
+        diffBtn.className = `q-diff-badge-btn ${qDiff.class} is-user-tagged`;
+        diffIcon.textContent = qDiff.icon;
+        diffText.innerHTML = `<strong>${qDiff.label}</strong> <span class="diff-badge-pill user">★ My Tag</span>`;
+        diffBtn.title = `Your Custom Tag: ${qDiff.label} (Suggested by Exam: ${sug.label}) — Click to change or unrate`;
+      } else {
+        diffBtn.className = `q-diff-badge-btn ${sug.class} is-suggested`;
+        diffIcon.textContent = sug.icon;
+        diffText.innerHTML = `<span class="diff-badge-prefix">Suggested:</span> <strong>${sug.label}</strong> <span class="diff-badge-pill unrated">(Unrated)</span>`;
+        diffBtn.title = `Suggested Difficulty: ${sug.label} (Exam Benchmark) • You have not rated this question yet (Unrated) — Click to tag`;
+      }
+
+      // Update dropdown info box
+      const sugInfoEl = document.getElementById('q-diff-info-suggested');
+      const userInfoEl = document.getElementById('q-diff-info-user');
+      if (sugInfoEl) {
+        sugInfoEl.innerHTML = `${sug.icon} ${sug.label} <small style="opacity:0.75;">(Exam)</small>`;
+      }
+      if (userInfoEl) {
+        if (qDiff.isUserTagged) {
+          userInfoEl.innerHTML = `<span style="font-weight:700;">${qDiff.icon} ${qDiff.label} ★</span>`;
+        } else {
+          userInfoEl.innerHTML = `<span style="opacity:0.75;">⚪ Unrated</span>`;
+        }
+      }
 
       // Highlight active choice in dropdown
       document.querySelectorAll('#q-diff-dropdown .q-diff-dropdown-item').forEach(item => {
-        const itemDiff = item.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
-        item.classList.toggle('active', itemDiff === qDiff.key);
+        const itemDiff = item.getAttribute('data-diff-val') !== null 
+          ? item.getAttribute('data-diff-val') 
+          : item.getAttribute('onclick')?.match(/'([^']*)'/)?.[1];
+        const isCurrentActive = qDiff.isUserTagged ? (itemDiff === qDiff.key) : (itemDiff === '');
+        item.classList.toggle('active', isCurrentActive);
       });
     }
 
@@ -896,8 +921,12 @@
     renderQuestion();
 
     // Show brief toast
-    const label = diffKey.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
-    showDifficultyToast(`Question ${state.currentIndex + 1} tagged as ${label} ✓`);
+    if (!diffKey) {
+      showDifficultyToast(`Question ${state.currentIndex + 1} reset to Unrated (Exam Benchmark applied)`);
+    } else {
+      const label = diffKey.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
+      showDifficultyToast(`Question ${state.currentIndex + 1} tagged as ${label} ★`);
+    }
   };
 
   function showDifficultyToast(msg) {
