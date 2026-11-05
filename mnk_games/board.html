@@ -645,7 +645,7 @@
             <button type="button" onclick="resetBoard();" class="px-3 py-1.5 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-xs font-bold transition flex items-center space-x-1 shadow">
               <span>🔄 Rematch</span>
             </button>
-            <button type="button" onclick="switchMainMode('analysis');" class="px-3 py-1.5 bg-[#363431] hover:bg-[#474440] text-gray-200 rounded text-xs font-bold transition flex items-center space-x-1 border border-[#4a4742]">
+            <button type="button" onclick="reviewGameInAnalysis();" class="px-3 py-1.5 bg-[#363431] hover:bg-[#474440] text-gray-200 rounded text-xs font-bold transition flex items-center space-x-1 border border-[#4a4742]">
               <span>🔍 Analysis Board »</span>
             </button>
           </div>
@@ -806,18 +806,17 @@
             </div>
           </div>
 
-          <!-- Fair Play / No Cheat Option -->
+          <!-- Fair Play / No Cheat Option (Lichess Rules) -->
           <div class="flex items-center justify-between">
             <div>
               <div class="text-xs text-gray-300 font-semibold flex items-center space-x-1.5">
-                <span>Fair Play (Hide Eval & Hints):</span>
-                <span id="eval-toggle-state-badge" class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#1e1c18] border border-gray-600 text-gray-300">OFF</span>
+                <span>Fair Play Integrity:</span>
+                <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#629924]/20 border border-[#629924]/50 text-[#7ec62f]">Lichess Rules</span>
               </div>
-              <div class="text-[11px] text-gray-400">No cheating hints for competitive offline match</div>
+              <div class="text-[11px] text-gray-400">Analysis board, eval bar & hints are strictly locked during active matches. Available upon game completion.</div>
             </div>
-            <div class="flex items-center space-x-1 bg-[#1e1c18] p-0.5 rounded border border-[#363431]">
-              <button type="button" id="eval-toggle-off-btn" class="px-2.5 py-1 text-xs rounded font-bold bg-[#629924] text-white transition">Off</button>
-              <button type="button" id="eval-toggle-on-btn" class="px-2.5 py-1 text-xs rounded font-bold text-gray-400 hover:text-white transition">On</button>
+            <div class="text-xs font-bold text-[#7ec62f] flex items-center space-x-1">
+              <span>🔒 Locked in Match</span>
             </div>
           </div>
         </div>
@@ -4143,7 +4142,59 @@
       }
     }
 
+    /**
+     * Check if a match is actively in progress (prevents cheating using analysis/editor)
+     */
+    function isMatchInProgress() {
+      if (state.mode !== 'play' && state.mode !== 'tournament') return false;
+      const current = state.history[state.currentPly];
+      if (!current) return false;
+      const terminal = checkWinner(current.board);
+      if (terminal || clockState.flaggedPlayer || state.gameOver) return false;
+      const movesPlayed = state.history.length > 1;
+      const hasPieces = current.board.some(c => c !== null && c !== '#');
+      return movesPlayed || hasPieces || !!clockState.intervalId;
+    }
+
+    function updateModeTabsLockState() {
+      const inProgress = isMatchInProgress();
+      const tabAnalysis = document.getElementById('tab-analysis-btn');
+      const tabEditor = document.getElementById('tab-editor-btn');
+
+      if (tabAnalysis) {
+        if (inProgress) {
+          tabAnalysis.classList.add('opacity-40', 'cursor-not-allowed');
+          tabAnalysis.title = '🔒 Analysis Board is locked during an active match (Lichess rule). Resign or complete the game to analyze.';
+          const textSpan = tabAnalysis.querySelector('.truncate');
+          if (textSpan) textSpan.textContent = '🔒 Analysis';
+        } else {
+          tabAnalysis.classList.remove('opacity-40', 'cursor-not-allowed');
+          tabAnalysis.title = 'Analysis Board';
+          const textSpan = tabAnalysis.querySelector('.truncate');
+          if (textSpan) textSpan.textContent = 'Analysis Board';
+        }
+      }
+
+      if (tabEditor) {
+        if (inProgress) {
+          tabEditor.classList.add('opacity-40', 'cursor-not-allowed');
+          tabEditor.title = '🔒 Board Editor is locked during an active match.';
+          const textSpan = tabEditor.querySelector('.truncate');
+          if (textSpan) textSpan.textContent = '🔒 Editor';
+        } else {
+          tabEditor.classList.remove('opacity-40', 'cursor-not-allowed');
+          tabEditor.title = 'Editor';
+          const textSpan = tabEditor.querySelector('.truncate');
+          if (textSpan) textSpan.textContent = 'Editor';
+        }
+      }
+    }
+
     function switchMainMode(mode) {
+      if ((mode === 'analysis' || mode === 'editor') && isMatchInProgress()) {
+        showToast('🔒 Analysis board is locked during an active match! Resign or complete the game first to analyze.');
+        return;
+      }
       state.mode = mode;
 
       const tabAnalysisBtn = document.getElementById('tab-analysis-btn');
@@ -4320,6 +4371,7 @@
      * Start Asynchronous Progressive Thinking (Iterative Deepening Negamax)
      */
     async function startAsyncAnalysis(board, turn, targetPly) {
+      if (state.mode !== 'analysis') return;
       const rows = config.rows;
       const cols = config.cols;
       const k = config.k;
@@ -5210,6 +5262,9 @@
         stopCurrentAnalysis();
       }
 
+      // Update Navigation Tabs Locked State (Lichess Fair Play)
+      updateModeTabsLockState();
+
       // 10. Update In-Game Match Header & Finished State
       const matchLabel = document.getElementById('active-match-mode-label');
       const matchTag = document.getElementById('active-match-variant-tag');
@@ -5899,23 +5954,16 @@
                 <span>📋</span>
                 <span>Copy Record</span>
               </button>
-              <button id="card-peek-eval-btn" class="px-2 py-0.5 text-[11px] rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white transition flex items-center space-x-1">
-                <span>👁️</span>
-                <span>Peek Eval / Hint</span>
-              </button>
+              <span class="text-[10px] text-gray-500 italic flex items-center space-x-1">
+                <span>🔒</span>
+                <span>Analysis unlocked post-match</span>
+              </span>
             </div>
           </div>
         `;
 
         const copyOngoingBtn = document.getElementById('card-copy-ongoing-btn');
         if (copyOngoingBtn) copyOngoingBtn.addEventListener('click', copyGameRecord);
-
-        const peekBtn = document.getElementById('card-peek-eval-btn');
-        if (peekBtn) {
-          peekBtn.addEventListener('click', () => {
-            setPlayShowEval(true);
-          });
-        }
         return;
       }
 
@@ -6365,11 +6413,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     }
 
     function reviewGameInAnalysis() {
-      state.mode = 'analysis';
-      modeAnalysisBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#629924] text-white';
-      modePlayBtn.className = 'text-[11px] px-2 py-0.5 rounded font-semibold bg-[#363431] text-gray-300 hover:text-white';
-      playPanel.classList.add('hidden');
-      render();
+      switchMainMode('analysis');
       showToast('Switched to Analysis Mode: explore evaluations and blunder annotations');
     }
 
@@ -6590,8 +6634,6 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         const num = parseInt(e.key, 10);
         if (num >= 1 && num <= 8) {
           setEngineLevel(num);
-        } else if (e.key.toLowerCase() === 'e') {
-          setPlayShowEval(!state.playShowEval);
         }
       }
     });
@@ -6643,10 +6685,26 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     const tabTournBtn = document.getElementById('tab-tournament-btn');
     const tabEditorBtn = document.getElementById('tab-editor-btn');
 
-    if (tabAnalysisBtn) tabAnalysisBtn.addEventListener('click', () => switchMainMode('analysis'));
+    if (tabAnalysisBtn) {
+      tabAnalysisBtn.addEventListener('click', () => {
+        if (isMatchInProgress()) {
+          showToast('🔒 Analysis board is locked during an active match! Resign or complete the game first to analyze.');
+          return;
+        }
+        switchMainMode('analysis');
+      });
+    }
     if (tabPlayBtn) tabPlayBtn.addEventListener('click', () => switchMainMode('play'));
     if (tabTournBtn) tabTournBtn.addEventListener('click', () => switchMainMode('tournament'));
-    if (tabEditorBtn) tabEditorBtn.addEventListener('click', () => switchMainMode('editor'));
+    if (tabEditorBtn) {
+      tabEditorBtn.addEventListener('click', () => {
+        if (isMatchInProgress()) {
+          showToast('🔒 Board editor is locked during an active match! Resign or complete the game first.');
+          return;
+        }
+        switchMainMode('editor');
+      });
+    }
 
     // Switch between Analysis and Play vs Engine (History header buttons)
     const modeAnalysisBtn = document.getElementById('mode-analysis-btn');
@@ -8345,6 +8403,11 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     };
 
     window.addEventListener('hashchange', () => {
+      if (isMatchInProgress() && (window.location.hash === '#analysis' || window.location.hash === '#editor')) {
+        showToast('🔒 Analysis board is locked during an active match! Resign or complete the game first to analyze.');
+        history.replaceState(null, '', '#play');
+        return;
+      }
       if (window.location.hash === '#play') {
         switchMainMode('play');
       } else if (window.location.hash === '#tournament') {
