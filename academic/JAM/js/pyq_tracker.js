@@ -681,7 +681,11 @@
     }
 
     if (countEl) {
-      countEl.innerHTML = `Showing <strong>${totalCount}</strong> of <strong>${state.masterQuestions.length}</strong> official PYQs`;
+      if (state.customIdFilter) {
+        countEl.innerHTML = `Showing <strong>${totalCount}</strong> questions filtered by activity <button class="btn-clear-date-filter" onclick="window.JAM_TRACKER.clearCustomIdFilter()" title="Clear activity filter and show all">✕ Show All</button>`;
+      } else {
+        countEl.innerHTML = `Showing <strong>${totalCount}</strong> of <strong>${state.masterQuestions.length}</strong> official PYQs`;
+      }
     }
 
     if (totalCount === 0) {
@@ -1189,6 +1193,7 @@
       state.selectedStatus = 'ALL';
       state.selectedDifficulty = 'ALL';
       state.selectedSort = 'default';
+      state.customIdFilter = null;
       state.currentPage = 1;
 
       if (window.JAM_LOGGER) {

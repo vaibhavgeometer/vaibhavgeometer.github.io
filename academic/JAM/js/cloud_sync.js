@@ -186,14 +186,24 @@
         const isSolved = !!(lQ.solved || cQ.solved);
         let solvedAt = null;
         if (lQ.solved && cQ.solved) {
-          // Keep earliest timestamp
-          try {
-            solvedAt = (new Date(lQ.solvedAt) < new Date(cQ.solvedAt)) ? lQ.solvedAt : cQ.solvedAt;
-          } catch (e) {
-            solvedAt = lQ.solvedAt || cQ.solvedAt;
+          // Keep earliest valid timestamp; if only one has timestamp, keep it!
+          if (lQ.solvedAt && cQ.solvedAt) {
+            try {
+              const dL = new Date(lQ.solvedAt).getTime();
+              const dC = new Date(cQ.solvedAt).getTime();
+              if (!isNaN(dL) && !isNaN(dC)) {
+                solvedAt = dL < dC ? lQ.solvedAt : cQ.solvedAt;
+              } else {
+                solvedAt = !isNaN(dL) ? lQ.solvedAt : (!isNaN(dC) ? cQ.solvedAt : null);
+              }
+            } catch (e) {
+              solvedAt = lQ.solvedAt || cQ.solvedAt || null;
+            }
+          } else {
+            solvedAt = lQ.solvedAt || cQ.solvedAt || null;
           }
         } else {
-          solvedAt = lQ.solved ? lQ.solvedAt : cQ.solvedAt;
+          solvedAt = (lQ.solved ? lQ.solvedAt : cQ.solvedAt) || null;
         }
 
         mergedQuestions[qId] = {

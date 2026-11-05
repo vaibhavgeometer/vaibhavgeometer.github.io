@@ -60,6 +60,27 @@
     }
   }
 
+  function parseDateKey(dateKey) {
+    try {
+      const parts = dateKey.split('-');
+      return new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    } catch (e) {
+      return new Date();
+    }
+  }
+
+  function getTopTopicsString(topics) {
+    if (!topics) return '—';
+    return Object.entries(topics)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 2)
+      .map(([t, count]) => {
+        const short = t === 'Multivariable Calculus and Differential Equations' ? 'Calculus & ODE'
+          : (t === 'Linear Algebra and Algebra' ? 'Linear Algebra' : t);
+        return `${short} (${count})`;
+      }).join(', ');
+  }
+
   // ==========================================================================
   // Core Analytics Calculation Engine
   // ==========================================================================
@@ -116,18 +137,18 @@
       }
     });
 
-    // 1. Group by Day
+    // 1. Group by Day (Strict date tracking: only items with valid timestamps are grouped into calendar days)
     const dailyMap = {};
+    const undatedList = [];
+
     solvedList.forEach(item => {
-      const dateKey = item.solvedAt ? getLocalDateKey(item.solvedAt) : todayKey;
+      if (!item.solvedAt) {
+        undatedList.push(item);
+        return;
+      }
+      const dateKey = getLocalDateKey(item.solvedAt);
       if (!dailyMap[dateKey]) {
-        let dayDate;
-        try {
-          const parts = dateKey.split('-');
-          dayDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-        } catch (e) {
-          dayDate = now;
-        }
+        const dayDate = parseDateKey(dateKey);
         dailyMap[dateKey] = {
           dateKey: dateKey,
           displayDate: formatDisplayDate(dateKey),
@@ -143,9 +164,30 @@
       dailyMap[dateKey].questions.push(item.id);
     });
 
-    // Sort days chronologically for cumulative sum
+    // Group undated solved questions (marked solved without date/time tag)
+    let undatedGroup = null;
+    if (undatedList.length > 0) {
+      const undatedTopics = {};
+      const undatedQuestions = [];
+      undatedList.forEach(item => {
+        undatedTopics[item.topic] = (undatedTopics[item.topic] || 0) + 1;
+        undatedQuestions.push(item.id);
+      });
+      undatedGroup = {
+        dateKey: 'undated',
+        displayDate: 'Earlier / Undated',
+        dayName: '—',
+        newSolved: undatedList.length,
+        topics: undatedTopics,
+        questions: undatedQuestions,
+        cumulativeTotal: undatedList.length,
+        isUndated: true
+      };
+    }
+
+    // Sort days chronologically for cumulative sum (starting from earlier/undated total)
     const sortedDaysAsc = Object.values(dailyMap).sort((a, b) => a.dateKey.localeCompare(b.dateKey));
-    let runningTotal = 0;
+    let runningTotal = undatedList.length;
     sortedDaysAsc.forEach(d => {
       runningTotal += d.newSolved;
       d.cumulativeTotal = runningTotal;
@@ -154,7 +196,7 @@
     // Sort days descending for display
     const dailyListDesc = Object.values(dailyMap).sort((a, b) => b.dateKey.localeCompare(a.dateKey));
 
-    // 2. Streaks calculation
+    // 2. Streaks calculation (only active calendar dates with real solving timestamps)
     const activeDateKeys = Object.keys(dailyMap).sort();
     let currentStreak = 0;
     let longestStreak = 0;
@@ -183,8 +225,8 @@
         if (i === 0) {
           tempStreak = 1;
         } else {
-          const prev = new Date(activeDateKeys[i - 1]);
-          const curr = new Date(activeDateKeys[i]);
+          const prev = parseDateKey(activeDateKeys[i - 1]);
+          const curr = parseDateKey(activeDateKeys[i]);
           const diffDays = Math.round((curr - prev) / (1000 * 60 * 60 * 24));
           if (diffDays === 1) {
             tempStreak++;
@@ -199,7 +241,7 @@
     }
     if (currentStreak > longestStreak) longestStreak = currentStreak;
 
-    // 3. Most productive day
+    // 3. Most productive day (only from actual dated calendar days)
     let mostProductiveDay = { date: '—', count: 0 };
     Object.values(dailyMap).forEach(d => {
       if (d.newSolved > mostProductiveDay.count) {
@@ -207,10 +249,11 @@
       }
     });
 
-    // 4. Weekly Velocity
+    // 4. Weekly Velocity (only items with valid timestamps)
     const weeklyMap = {};
     solvedList.forEach(item => {
-      const d = item.solvedAt || now;
+      if (!item.solvedAt) return; // Do not count undated in current week pace
+      const d = item.solvedAt;
       const wKey = getISOWeekKey(d);
       const dayKey = getLocalDateKey(d);
       if (!weeklyMap[wKey]) {
@@ -230,10 +273,11 @@
 
     const weeklyListDesc = Object.values(weeklyMap).sort((a, b) => b.weekKey.localeCompare(a.weekKey));
 
-    // 5. Monthly Velocity
+    // 5. Monthly Velocity (only items with valid timestamps)
     const monthlyMap = {};
     solvedList.forEach(item => {
-      const d = item.solvedAt || now;
+      if (!item.solvedAt) return; // Do not count undated in current month pace
+      const d = item.solvedAt;
       const mKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
       const dayKey = getLocalDateKey(d);
       if (!monthlyMap[mKey]) {
@@ -253,7 +297,7 @@
 
     const monthlyListDesc = Object.values(monthlyMap).sort((a, b) => b.monthKey.localeCompare(a.monthKey));
 
-    // 6. Subject Topic Mastery
+    // 6. Subject Topic Mastery (all solved items counted, dated & undated)
     const topicStats = {
       'Real Analysis': { total: 286, solved: 0 },
       'Multivariable Calculus and Differential Equations': { total: 257, solved: 0 },
@@ -278,7 +322,7 @@
     const inSyllabusSolved = solvedList.filter(x => !x.isOOS).length;
     const remainingCore = Math.max(0, coreTotal - inSyllabusSolved);
 
-    // Recent 7-day velocity
+    // Recent 7-day velocity (only from actual dated days)
     let recent7DaysSolved = 0;
     for (let i = 0; i < 7; i++) {
       const pastD = new Date(now.getTime() - (i * 86400000));
@@ -292,6 +336,8 @@
     state.cachedAnalytics = {
       totalSolved: solvedList.length,
       inSyllabusSolved: inSyllabusSolved,
+      undatedCount: undatedList.length,
+      undatedGroup: undatedGroup,
       remainingCore: remainingCore,
       todayKey: todayKey,
       todaySolved: todaySolved,
@@ -465,7 +511,7 @@
 
         <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border);">
           <div style="font-size: 0.78rem; color: var(--text-muted);">
-            ⭐ Most Productive Day: <strong style="color:var(--text-main);">${data.mostProductiveDay.date} (+${data.mostProductiveDay.count} questions)</strong>
+            ⭐ Most Productive Day: <strong style="color:var(--text-main);">${data.mostProductiveDay.count > 0 ? `${data.mostProductiveDay.date} (+${data.mostProductiveDay.count} questions)` : '—'}</strong>
           </div>
           <button type="button" class="btn-test secondary" onclick="window.JAM_STATS.closeModal()">Close</button>
         </div>
@@ -479,6 +525,8 @@
     // ------------------------------------------------------------------------
     if (state.activeTab === 'daily') {
       const maxDaily = Math.max(...data.daily.map(d => d.newSolved), 1);
+      const hasAnyHistory = data.daily.length > 0 || (data.undatedGroup && data.undatedGroup.newSolved > 0);
+
       return `
         <div class="stats-tab-content">
           <div class="stats-today-spotlight">
@@ -502,7 +550,7 @@
             📅 Day-by-Day Solving History
           </h4>
 
-          ${data.daily.length === 0 ? `
+          ${!hasAnyHistory ? `
             <div class="stats-empty-state">
               <span style="font-size: 2rem;">📝</span>
               <p>No questions marked as solved yet. Once you solve questions, your daily activity and study streak will appear here!</p>
@@ -525,14 +573,7 @@
                     const isToday = d.dateKey === data.todayKey;
                     const isYest = d.dateKey === getLocalDateKey(new Date(Date.now() - 86400000));
                     const barWidth = Math.min(100, Math.round((d.newSolved / maxDaily) * 100));
-                    const topTopicsStr = Object.entries(d.topics)
-                      .sort((a, b) => b[1] - a[1])
-                      .slice(0, 2)
-                      .map(([t, count]) => {
-                        const short = t === 'Multivariable Calculus and Differential Equations' ? 'Calculus & ODE'
-                          : (t === 'Linear Algebra and Algebra' ? 'Linear Algebra' : t);
-                        return `${short} (${count})`;
-                      }).join(', ');
+                    const topTopicsStr = getTopTopicsString(d.topics);
 
                     return `
                       <tr class="${isToday ? 'row-today' : ''}">
@@ -558,6 +599,30 @@
                       </tr>
                     `;
                   }).join('')}
+
+                  ${data.undatedGroup ? `
+                    <tr class="row-undated">
+                      <td>
+                        <strong>${data.undatedGroup.displayDate}</strong>
+                        <span class="undated-tag" title="Questions marked solved before timestamps or without date tag">PRIOR</span>
+                      </td>
+                      <td style="color:var(--text-muted);">${data.undatedGroup.dayName}</td>
+                      <td style="text-align:center;">
+                        <span class="daily-solved-badge undated">+${data.undatedGroup.newSolved}</span>
+                      </td>
+                      <td style="width: 140px;">
+                        <div class="daily-progress-bar-bg" title="${data.undatedGroup.newSolved} undated solved questions">
+                          <div class="daily-progress-bar-fill" style="width: 100%; opacity: 0.45; background: var(--text-muted);"></div>
+                        </div>
+                      </td>
+                      <td style="font-size:0.8rem; color:var(--text-secondary);">${getTopTopicsString(data.undatedGroup.topics)}</td>
+                      <td style="text-align:right;">
+                        <button class="btn-table-action" onclick="window.JAM_STATS.filterByDate('undated')" title="Filter tracker to earlier questions solved without date tag">
+                          View Qs ↗
+                        </button>
+                      </td>
+                    </tr>
+                  ` : ''}
                 </tbody>
               </table>
             </div>
@@ -643,6 +708,15 @@
               </table>
             </div>
           `}
+
+          ${data.undatedCount > 0 ? `
+            <div class="undated-stats-notice">
+              <span style="font-size:1.1rem; line-height:1;">ℹ️</span>
+              <div>
+                <strong>${data.undatedCount} question${data.undatedCount === 1 ? '' : 's'}</strong> were marked solved prior to date-time tracking. They are omitted from daily & weekly pace to keep velocity accurate, but remain 100% accounted for in <strong>Core Solved (${data.inSyllabusSolved} / 798)</strong> and <strong>Subject Mastery</strong>.
+              </div>
+            </div>
+          ` : ''}
         </div>
       `;
     }
@@ -785,13 +859,25 @@
     renderModalContent();
   }
 
-  // Filter tracker by specific date
+  // Filter tracker by specific date or undated group
   function filterByDate(dateKey) {
     closeModal();
     const data = calculateAnalytics();
-    const dayItem = data.daily.find(d => d.dateKey === dateKey);
-    if (!dayItem || dayItem.questions.length === 0) {
-      if (window.JAM_TRACKER) window.JAM_TRACKER.showToast('No questions solved on this date.');
+    let dayItem = null;
+    let label = '';
+
+    if (dateKey === 'undated') {
+      dayItem = data.undatedGroup;
+      label = `Earlier / Undated Solved Questions (+${dayItem?.newSolved || 0})`;
+    } else {
+      dayItem = data.daily.find(d => d.dateKey === dateKey);
+      label = dayItem ? `Questions Solved on ${dayItem.displayDate} (+${dayItem.newSolved})` : '';
+    }
+
+    if (!dayItem || !dayItem.questions || dayItem.questions.length === 0) {
+      if (window.JAM_TRACKER && typeof window.JAM_TRACKER.showToast === 'function') {
+        window.JAM_TRACKER.showToast('No questions found.');
+      }
       return;
     }
 
@@ -807,7 +893,7 @@
     }
 
     if (window.JAM_TRACKER && typeof window.JAM_TRACKER.filterByQuestionIds === 'function') {
-      window.JAM_TRACKER.filterByQuestionIds(dayItem.questions, `Questions Solved on ${dayItem.displayDate} (+${dayItem.newSolved})`);
+      window.JAM_TRACKER.filterByQuestionIds(dayItem.questions, label);
     } else {
       // Fallback: search box
       const searchInput = document.getElementById('tracker-search-input');
@@ -815,8 +901,8 @@
         searchInput.value = '';
         window.JAM_TRACKER.onStatusChange('solved');
       }
-      if (window.JAM_TRACKER.showToast) {
-        window.JAM_TRACKER.showToast(`Displaying questions solved on ${dayItem.displayDate}`);
+      if (window.JAM_TRACKER && typeof window.JAM_TRACKER.showToast === 'function') {
+        window.JAM_TRACKER.showToast(label);
       }
     }
   }
