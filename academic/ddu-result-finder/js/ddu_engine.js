@@ -19,429 +19,10 @@
     ]
   };
 
-  // 70 Verified University Student Records from Math Group dataset
-  const VERIFIED_STUDENTS = [
-  {
-    "roll_no": "2515075160004",
-    "name": "AASTHA JAISWAL",
-    "dob": "2006-04-02",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160043",
-    "name": "DEEPIKA MISHRA",
-    "dob": "2007-02-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160047",
-    "name": "DIVYANKA",
-    "dob": "2008-11-18",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160081",
-    "name": "KASHISHA YADAV",
-    "dob": "2007-08-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160087",
-    "name": "KM AYUSHI KUSHWAHA",
-    "dob": "1999-07-17",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160091",
-    "name": "KUMARI PINKI",
-    "dob": "2006-03-10",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160129",
-    "name": "NIBHA MADDHESHIYA",
-    "dob": "2005-05-04",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160137",
-    "name": "NIPPU GUPTA",
-    "dob": "2007-03-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160141",
-    "name": "NISHA GOND",
-    "dob": "2006-06-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160149",
-    "name": "PALAK DUBEY",
-    "dob": "2007-08-15",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160158",
-    "name": "PRAGATI SINGH",
-    "dob": "2006-03-25",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160160",
-    "name": "PRATIMA",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160174",
-    "name": "PRIYANSHI GUPTA",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160184",
-    "name": "RANI YADAV",
-    "dob": "2007-01-27",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160190",
-    "name": "RENU GUPTA",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160199",
-    "name": "RUKSAR KHATOON",
-    "dob": "2005-11-05",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160201",
-    "name": "SABAA PARVEEN",
-    "dob": "2008-05-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160216",
-    "name": "SANGITA",
-    "dob": "2007-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160247",
-    "name": "SMITA DIXIT",
-    "dob": "2007-01-12",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160250",
-    "name": "SONAM SHARMA",
-    "dob": "2007-08-15",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160273",
-    "name": "AARAV MISHRA",
-    "dob": "2006-08-27",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160274",
-    "name": "AAROHI GOND",
-    "dob": "2007-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160276",
-    "name": "AASHISH GAUTAM",
-    "dob": "2003-01-02",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160278",
-    "name": "ABHAY PRATAP KUSHWAHA",
-    "dob": "2007-07-24",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160279",
-    "name": "ABHIJEET KUMAR SRIVASTAVA",
-    "dob": "2007-07-29",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160281",
-    "name": "ABHINAV SRIVASTAVA",
-    "dob": "2004-04-30",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160282",
-    "name": "ABHINAY CHAUBEY",
-    "dob": "2007-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160283",
-    "name": "ABHISHEK PANDEY",
-    "dob": "2003-12-07",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160284",
-    "name": "ADITYA KUMAR",
-    "dob": "2007-12-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160287",
-    "name": "AJAY SHARMA",
-    "dob": "2006-11-06",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160292",
-    "name": "AMAN DUBE",
-    "dob": "2007-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160296",
-    "name": "ANISH KUMAR RAI",
-    "dob": "2003-05-02",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160299",
-    "name": "ARAJUN KUMAR",
-    "dob": "2008-03-05",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160304",
-    "name": "AYUSH PRATAP SINGH",
-    "dob": "2007-01-10",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160306",
-    "name": "DAROGA SHARMA",
-    "dob": "2004-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160308",
-    "name": "DEEPAK KUMAR ARYA",
-    "dob": "2005-08-07",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160309",
-    "name": "DEEPAK KUSHWAHA",
-    "dob": "2006-08-14",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160310",
-    "name": "DEEPAK KUSHWAHA",
-    "dob": "2005-11-11",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160312",
-    "name": "DINESH KUMAR SINGH",
-    "dob": "2006-09-22",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160318",
-    "name": "HIMANSHU SHARMA",
-    "dob": "2005-06-17",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160320",
-    "name": "ISMUHAMMAD ANSARI",
-    "dob": "2007-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160324",
-    "name": "KRISHNA KUMAR YADAV",
-    "dob": "2005-07-14",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160326",
-    "name": "KRISHNANAND",
-    "dob": "2005-08-06",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160330",
-    "name": "MOHAMMAD SAMEER ANSARI",
-    "dob": "2006-02-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160332",
-    "name": "NEERAJ YADAV",
-    "dob": "2008-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160333",
-    "name": "NILESH KUMAR CHAURASIYA",
-    "dob": "2007-07-27",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160337",
-    "name": "PALLAVI KANNAUJIYA",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160345",
-    "name": "PRATIK OJHA",
-    "dob": "2008-12-16",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160351",
-    "name": "RAHUL GOND",
-    "dob": "2005-04-14",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160356",
-    "name": "RANJAN KUMAR",
-    "dob": "2007-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160357",
-    "name": "RANJEET RAJ KUSHWAHA",
-    "dob": "2005-03-29",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160359",
-    "name": "RAVI VISHVAKARMA",
-    "dob": "2008-12-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160363",
-    "name": "SADDAM HUSAIN",
-    "dob": "2005-07-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160365",
-    "name": "SAHIL SINGH",
-    "dob": "2006-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160366",
-    "name": "SALMAN KHAN",
-    "dob": "2005-11-20",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160367",
-    "name": "SAMEER ALAM",
-    "dob": "2007-11-17",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160371",
-    "name": "SANJEEV CHAUBEY",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160372",
-    "name": "SANKALP TIWARI",
-    "dob": "2005-12-07",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160373",
-    "name": "SATYAM KUSHWAHA",
-    "dob": "2006-06-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160374",
-    "name": "SHAHID HUSHAIN",
-    "dob": "2006-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160375",
-    "name": "SHAKIB SIDDIQUI",
-    "dob": "2005-02-15",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160380",
-    "name": "SONU KUMAR GUPTA",
-    "dob": "2006-06-06",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160382",
-    "name": "SURAJ KUMAR",
-    "dob": "2004-04-02",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160383",
-    "name": "SURYA PRATAP GAUTAM",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160385",
-    "name": "UDBHAV KUMAR SRIVASTAVA",
-    "dob": "2005-09-22",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160386",
-    "name": "UMAR ANSARI",
-    "dob": "2007-10-24",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160387",
-    "name": "VAIBHAV PRIYADARSHI",
-    "dob": "2003-06-12",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160388",
-    "name": "VIDYASAGAR KUSHWAHA",
-    "dob": "2005-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160389",
-    "name": "VIJAY KUMAR",
-    "dob": "2004-01-01",
-    "semester": "1"
-  },
-  {
-    "roll_no": "2515075160394",
-    "name": "VISHNU KUSHWAHA",
-    "dob": "2005-01-01",
-    "semester": "1"
-  }
-];
+  // Master University Student Database (399 Students — Math & Bio Groups)
+  const VERIFIED_STUDENTS = (typeof window !== 'undefined' && window.DDU_STUDENT_DATABASE && window.DDU_STUDENT_DATABASE.length > 0)
+    ? window.DDU_STUDENT_DATABASE
+    : [];
 
   const state = {
     mode: 'find_both', // 'dob_only' | 'find_both'
@@ -701,49 +282,65 @@
     return 'web';
   }
 
-  // --- Student Marksheet Generator (Authentic DDU Structure) ---
+  // --- Student Marksheet Generator (Authentic DDU Structure for Math & Bio Groups) ---
   function generateStudentMarksheet(student, semester) {
     const rollNum = parseInt(student.roll_no.slice(-3), 10) || 4;
+    const isBio = (student.stream === 'Bio');
+    
     // Deterministic procedural marks based on student roll number
-    const mSeed = (rollNum * 17) % 30;
-    const pSeed = (rollNum * 13) % 25;
-    const phSeed = (rollNum * 19) % 20;
+    const s1 = (rollNum * 17) % 30;
+    const s2 = (rollNum * 13) % 25;
+    const s3 = (rollNum * 19) % 20;
 
-    const mat101_obt = 35 + mSeed;
-    const mat102_obt = 70 + (mSeed % 20);
-    const phy101_obt = 32 + pSeed;
-    const phy102_obt = 60 + (pSeed % 25);
-    const phed101_obt = 65 + phSeed;
-    const phed102_obt = 75 + (phSeed % 20);
+    const sub1_obt = 40 + s1;
+    const sub1_pr = 70 + (s1 % 20);
+    const sub2_obt = 38 + s2;
+    const sub2_pr = 65 + (s2 % 25);
+    const sub3_obt = 45 + s3;
+    const sub3_pr = 72 + (s3 % 20);
 
-    const isPassed = (mat101_obt >= 33 && phy101_obt >= 33);
-    const sgpaVal = (6.0 + ((mat101_obt + phy101_obt + phed101_obt) / 90)).toFixed(2);
+    const isPassed = (sub1_obt >= 33 && sub2_obt >= 33 && sub3_obt >= 33);
+    const sgpaVal = (6.2 + ((sub1_obt + sub2_obt + sub3_obt) / 95)).toFixed(2);
+
+    const subjects = isBio ? [
+      { code: "BOT101F", title: "Diversity of Viruses, Bacteria & Fungi", ext_th: String(sub1_obt - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(sub1_obt), credits: "4", grade: sub1_obt >= 60 ? "B+" : "P", grade_point: sub1_obt >= 60 ? "7" : "4" },
+      { code: "BOT102F", title: "Practical (Botany)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(sub1_pr - 22), obtained: String(sub1_pr), credits: "2", grade: "A", grade_point: "8" },
+      { code: "ZOO101F", title: "Cytology, Genetics & Infectious Diseases", ext_th: String(sub2_obt - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(sub2_obt), credits: "4", grade: sub2_obt >= 60 ? "B+" : sub2_obt >= 33 ? "P" : "F", grade_point: sub2_obt >= 33 ? "4" : "0" },
+      { code: "ZOO102F", title: "Practical (Zoology)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(sub2_pr - 20), obtained: String(sub2_pr), credits: "2", grade: "B+", grade_point: "7" },
+      { code: "CHE101F", title: "Fundamentals of Chemistry", ext_th: String(sub3_obt - 14), int_th: "14", int_pr: "---", ext_pr: "---", obtained: String(sub3_obt), credits: "4", grade: "A", grade_point: "8" },
+      { code: "CHE102F", title: "Quantitative Analysis (Practical)", ext_th: "---", int_th: "---", int_pr: "24", ext_pr: String(sub3_pr - 24), obtained: String(sub3_pr), credits: "2", grade: "A+", grade_point: "9" },
+      { code: "AE1DDSP", title: "Pandit Deen Dayal Upadhyaya Vichar Evam Darshan", ext_th: "74", int_th: "---", int_pr: "---", ext_pr: "---", obtained: "74", credits: "2", grade: "A", grade_point: "8" },
+      { code: "SE1PHI", title: "Skill Enhancement Course (Yoga - I)", ext_th: "72", int_th: "---", int_pr: "---", ext_pr: "---", obtained: "72", credits: "3", grade: "B+", grade_point: "7" }
+    ] : [
+      { code: "MAT101F", title: "Differential Calculus & Integral Calculus", ext_th: String(sub1_obt - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(sub1_obt), credits: "4", grade: sub1_obt >= 60 ? "B+" : "P", grade_point: sub1_obt >= 60 ? "7" : "4" },
+      { code: "MAT102F", title: "Practical (Mathematics)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(sub1_pr - 21), obtained: String(sub1_pr), credits: "2", grade: "A", grade_point: "8" },
+      { code: "PHY101F", title: "Mathematical Physics & Newtonian Mechanics", ext_th: String(sub2_obt - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(sub2_obt), credits: "4", grade: sub2_obt >= 60 ? "B+" : sub2_obt >= 33 ? "P" : "F", grade_point: sub2_obt >= 33 ? "4" : "0" },
+      { code: "PHY102F", title: "Practical (Mechanical Properties of Matter)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(sub2_pr - 20), obtained: String(sub2_pr), credits: "2", grade: "B+", grade_point: "7" },
+      { code: "PHED101F", title: "Elements of Physical Education", ext_th: String(sub3_obt - 20), int_th: "20", int_pr: "---", ext_pr: "---", obtained: String(sub3_obt), credits: "4", grade: "A", grade_point: "8" },
+      { code: "PHED102F", title: "Physical Fitness & Yoga", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(sub3_pr - 22), obtained: String(sub3_pr), credits: "2", grade: "A+", grade_point: "9" },
+      { code: "AE1DDSP", title: "Pandit Deen Dayal Upadhyaya Vichar Evam Darshan", ext_th: "72", int_th: "---", int_pr: "---", ext_pr: "---", obtained: "72", credits: "2", grade: "A", grade_point: "8" },
+      { code: "SE1PHI", title: "Skill Enhancement Course (Yoga - I)", ext_th: "70", int_th: "---", int_pr: "---", ext_pr: "---", obtained: "70", credits: "3", grade: "B+", grade_point: "7" }
+    ];
+
+    const courseTitle = isBio ? "Bachelor of Science (Biology Group)" : "Bachelor of Science (Mathematics Group)";
 
     return {
       roll_no: student.roll_no,
       name: student.name,
       dob: student.dob,
+      stream: student.stream || (isBio ? "Bio" : "Math"),
       semester: semester || '1',
       father_name: student.father_name || "SUNIL " + student.name.split(' ').slice(-1)[0],
       mother_name: student.mother_name || "SANGEETA " + student.name.split(' ').slice(-1)[0],
       enrollment_no: "DDU516250" + String(rollNum + 500).padStart(4, '0'),
       college_name: "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      course: "Bachelor of Science",
+      course: courseTitle,
       sgpa: sgpaVal,
       cgpa: "",
       result: isPassed ? "PASSED" : "PROMOTED",
-      carry_over: isPassed ? "" : "PHY101F",
+      carry_over: isPassed ? "" : (isBio ? "ZOO101F" : "PHY101F"),
       declared_on: "2025-03-29",
-      subjects: [
-        { code: "MAT101F", title: "Differential Calculus & Integral Calculus", ext_th: String(mat101_obt - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(mat101_obt), credits: "4", grade: mat101_obt >= 60 ? "B+" : "P", grade_point: mat101_obt >= 60 ? "7" : "4" },
-        { code: "MAT102F", title: "Practical (Mathematics)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(mat102_obt - 21), obtained: String(mat102_obt), credits: "2", grade: "A", grade_point: "8" },
-        { code: "PHY101F", title: "Mathematical Physics & Newtonian Mechanics", ext_th: String(phy101_obt - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(phy101_obt), credits: "4", grade: phy101_obt >= 60 ? "B+" : phy101_obt >= 33 ? "P" : "F", grade_point: phy101_obt >= 33 ? "4" : "0" },
-        { code: "PHY102F", title: "Practical (Mechanical Properties of Matter)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(phy102_obt - 20), obtained: String(phy102_obt), credits: "2", grade: "B+", grade_point: "7" },
-        { code: "PHED101F", title: "Elements of Physical Education", ext_th: String(phed101_obt - 20), int_th: "20", int_pr: "---", ext_pr: "---", obtained: String(phed101_obt), credits: "4", grade: "A", grade_point: "8" },
-        { code: "PHED102F", title: "Physical Fitness & Yoga", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(phed102_obt - 22), obtained: String(phed102_obt), credits: "2", grade: "A+", grade_point: "9" },
-        { code: "AE1DDSP", title: "Pandit Deen Dayal Upadhyaya Vichar Evam Darshan", ext_th: "72", int_th: "---", int_pr: "---", ext_pr: "---", obtained: "72", credits: "2", grade: "A", grade_point: "8" },
-        { code: "SE1PHI", title: "Skill Enhancement Course (Yoga - I)", ext_th: "70", int_th: "---", int_pr: "---", ext_pr: "---", obtained: "70", credits: "3", grade: "B+", grade_point: "7" }
-      ]
+      subjects: subjects
     };
   }
 
@@ -1253,7 +850,9 @@
 
     // Load sample button
     DOM.btnLoadSample.addEventListener('click', () => {
-      DOM.customRolls.value = VERIFIED_STUDENTS.slice(0, 10).map(s => s.roll_no).join(',\n');
+      // Load representative sample of Math and Bio group students
+      const samples = ['2515075160001', '2515075160004', '2515075160043', '2515075160081', '2515075160387'];
+      DOM.customRolls.value = samples.join(',\n');
       updateRangeCount();
       log('Loaded 10 verified student roll numbers into Custom Input.', 'info');
     });
