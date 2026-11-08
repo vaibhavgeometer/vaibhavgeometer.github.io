@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDU Result Finder & DOB Locator — Vaibhav Geometer</title>
+  <meta name="description" content="Automated high-speed Date of Birth (DOB) finder and semester examination result saver for Deen Dayal Upadhyaya Gorakhpur University (DDUGU).">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Base Site Styles -->
+  <link rel="stylesheet" href="../../css/portfolio.css">
+  <!-- DDU App Specific Styles -->
+  <link rel="stylesheet" href="css/ddu.css">
+
+  <!-- SheetJS for client-side Excel (.xlsx) export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <header class="site-nav">
+    <div class="ddu-container nav-inner">
+      <a href="../../" class="brand-wrap" title="Vaibhav Geometer">
+        <div class="brand-icon-box">📐</div>
+        <span class="brand-text">Vaibhav Geometer</span>
+      </a>
+      <div class="nav-controls">
+        <a href="../" class="nav-link">Academic Portals</a>
+        <a href="../JAM/" class="nav-link">IIT JAM</a>
+        <a href="../../mnk-games/" class="nav-link">(m,n,k) Games</a>
+        <a href="../../" class="nav-link">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content" style="padding-bottom: 4rem;">
+    <div class="ddu-container">
+      
+      <!-- Header Banner -->
+      <header class="ddu-header">
+        <div class="ddu-badge">⚡ DDUGU University Automation</div>
+        <h1 class="ddu-title">DDU <span>Result Finder</span></h1>
+        <p class="ddu-desc">
+          Automated Date of Birth locator and examination result saver for Deen Dayal Upadhyaya Gorakhpur University. Discover DOBs for entire batches and download authentic marksheets effortlessly.
+        </p>
+      </header>
+
+      <!-- Connection / Engine Status Bar -->
+      <section class="engine-bar" aria-label="Engine Connectivity">
+        <div class="engine-status-wrap">
+          <div class="status-dot offline" id="engineStatusDot"></div>
+          <span id="engineStatusText">Checking engine status...</span>
+        </div>
+        <div class="engine-actions">
+          <button class="btn-pill" id="btnTestEngine" title="Test connectivity to bridge or university portal">
+            <span>🔄 Test Connection</span>
+          </button>
+          <button class="btn-pill" id="btnEngineSettings" title="Configure engine or local bridge">
+            <span>⚙️ Engine Setup</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- App Grid: Input & Controls on Left, Progress & Metrics on Right -->
+      <div class="ddu-grid">
+        
+        <!-- Left Column: Search Form & Configuration -->
+        <div class="ddu-card">
+          <div class="ddu-card-title">
+            <span>Search Setup</span>
+            <span class="form-hint">v1.2 Portal</span>
+          </div>
+
+          <!-- Target Mode Selection -->
+          <div class="form-group">
+            <label class="form-label">Search Action</label>
+            <div class="mode-selector">
+              <button type="button" class="mode-tab" id="modeDobOnly">
+                <span class="icon">🔍</span>
+                <span>Find DOB Only</span>
+              </button>
+              <button type="button" class="mode-tab active" id="modeFindBoth">
+                <span class="icon">🎓</span>
+                <span>DOB + Result</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Input Mode Tabs: Range vs Custom -->
+          <div class="form-group">
+            <div class="input-type-tabs">
+              <button type="button" class="input-tab active" id="tabRange">
+                <span>🔢 Sequential Range</span>
+              </button>
+              <button type="button" class="input-tab" id="tabCustom">
+                <span>📝 Custom Roll List</span>
+              </button>
+            </div>
+
+            <!-- Panel 1: Sequential Range -->
+            <div id="panelRange">
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="startRoll">Start Roll No</label>
+                  <input type="text" id="startRoll" class="form-control" placeholder="e.g. 2515075160001" value="2515075160001" autocomplete="off">
+                </div>
+                <div>
+                  <label class="form-label" for="endRoll">End Roll No</label>
+                  <input type="text" id="endRoll" class="form-control" placeholder="e.g. 2515075160010" value="2515075160005" autocomplete="off">
+                </div>
+              </div>
+              <div class="range-counter" id="rangeCount">
+                Generated: 5 Roll Numbers
+              </div>
+            </div>
+
+            <!-- Panel 2: Custom List -->
+            <div id="panelCustom" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <label class="form-label" for="customRolls" style="margin-bottom:0;">Enter Roll Numbers</label>
+                <button type="button" class="btn-pill" id="btnLoadSample" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">
+                  ⚡ Load Sample Rolls
+                </button>
+              </div>
+              <textarea id="customRolls" class="form-control" placeholder="Enter roll numbers separated by commas, spaces, or newlines&#10;e.g. 2515075160004, 2515075160043"></textarea>
+              <div class="range-counter" id="customCount">
+                Detected: 0 Roll Numbers
+              </div>
+            </div>
+          </div>
+
+          <!-- Examination Details -->
+          <div class="form-group">
+            <div class="form-row">
+              <div>
+                <label class="form-label" for="semesterSelect">Semester</label>
+                <select id="semesterSelect" class="form-select">
+                  <option value="1" selected>Semester 1</option>
+                  <option value="2">Semester 2</option>
+                  <option value="3">Semester 3</option>
+                  <option value="4">Semester 4</option>
+                  <option value="5">Semester 5</option>
+                  <option value="6">Semester 6</option>
+                  <option value="7">Semester 7</option>
+                  <option value="8">Semester 8</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label" for="monthFilter">
+                  <span>Month Filter</span>
+                  <span class="form-hint">Optional</span>
+                </label>
+                <select id="monthFilter" class="form-select">
+                  <option value="" selected>All 12 Months</option>
+                  <option value="1">1 - January</option>
+                  <option value="2">2 - February</option>
+                  <option value="3">3 - March</option>
+                  <option value="4">4 - April</option>
+                  <option value="5">5 - May</option>
+                  <option value="6">6 - June</option>
+                  <option value="7">7 - July</option>
+                  <option value="8">8 - August</option>
+                  <option value="9">9 - September</option>
+                  <option value="10">10 - October</option>
+                  <option value="11">11 - November</option>
+                  <option value="12">12 - December</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Accordion Toggle -->
+          <button type="button" class="accordion-toggle" id="btnToggleAdvanced">
+            <span>▼ Advanced Tuning (Priority Years & Workers)</span>
+          </button>
+
+          <div class="advanced-panel" id="advancedPanel">
+            <div class="form-group">
+              <label class="form-label" for="prioritySelect">Birth Year Priority Group</label>
+              <select id="prioritySelect" class="form-select">
+                <option value="group1" selected>Primary Group (2003–2008)</option>
+                <option value="group1_2">Primary + Secondary (1999–2010)</option>
+                <option value="all">All Groups (1996–2013)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="concurrencyInput">
+                <span>Concurrency Workers</span>
+                <span class="form-hint" id="concurrencyVal">25</span>
+              </label>
+              <input type="range" id="concurrencyInput" min="5" max="50" value="25" step="5" style="width: 100%;">
+            </div>
+          </div>
+
+          <!-- Execution Controls -->
+          <div class="btn-action-group">
+            <button type="button" class="btn-start" id="btnStart">
+              <span>🎓 Find DOB & Fetch Results</span>
+              <span>→</span>
+            </button>
+            <button type="button" class="btn-control" id="btnPause" disabled title="Pause current execution">
+              <span>⏸️</span>
+            </button>
+            <button type="button" class="btn-control" id="btnStop" disabled title="Stop execution">
+              <span>⏹️</span>
+            </button>
+            <button type="button" class="btn-control" id="btnReset" title="Reset table and queue">
+              <span>🔄</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Progress & Stat Metrics -->
+        <div class="progress-section">
+          
+          <!-- Stat Counters -->
+          <div class="metrics-row">
+            <div class="metric-card">
+              <div class="metric-value" id="statTotal">0</div>
+              <div class="metric-label">Total Rolls</div>
+            </div>
+            <div class="metric-card info">
+              <div class="metric-value" id="statProcessed">0</div>
+              <div class="metric-label">Processed</div>
+            </div>
+            <div class="metric-card success">
+              <div class="metric-value" id="statFoundDob">0</div>
+              <div class="metric-label">DOBs Found</div>
+            </div>
+            <div class="metric-card success">
+              <div class="metric-value" id="statSavedResults">0</div>
+              <div class="metric-label">Results Saved</div>
+            </div>
+            <div class="metric-card danger">
+              <div class="metric-value" id="statNotFound">0</div>
+              <div class="metric-label">Not Found</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value" id="statElapsed">00:00</div>
+              <div class="metric-label">Elapsed</div>
+            </div>
+          </div>
+
+          <!-- Progress Bars Card -->
+          <div class="progress-card">
+            <div class="progress-header">
+              <span class="progress-title">
+                <span>📊 Overall Queue Progress</span>
+              </span>
+              <span class="progress-percent" id="overallProgressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="overallProgressFill"></div>
+            </div>
+            <div class="progress-subtext">
+              <span id="overallProgressText">Ready to start</span>
+              <span id="activeRollStatus">Idle</span>
+            </div>
+
+            <!-- Active Roll Candidate Dates Progress -->
+            <div class="sub-progress-wrap">
+              <div class="progress-header" style="margin-bottom: 0.2rem;">
+                <span style="font-size: 0.78rem; color: var(--text-secondary);" id="subProgressText">
+                  Candidate Dates Scan: Idle
+                </span>
+              </div>
+              <div class="sub-progress-track">
+                <div class="sub-progress-fill" id="subProgressFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Activity Logs -->
+          <div class="ddu-card" style="padding: 1rem 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Activity Stream & Diagnostics</span>
+              <button type="button" class="btn-pill" id="btnClearLogs" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">Clear</button>
+            </div>
+            <div class="log-box" id="logBox">
+              <!-- Log entries appended dynamically -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Results Table Card -->
+      <section class="ddu-card results-card" aria-label="Discovered Results">
+        <div class="results-toolbar">
+          <div class="search-filter-wrap">
+            <input type="text" id="searchFilter" class="form-control" placeholder="Filter by roll number, student name, or date..." style="max-width: 320px;">
+            <select id="statusFilter" class="form-select" style="max-width: 180px;">
+              <option value="all" selected>All Results</option>
+              <option value="found">DOB Found</option>
+              <option value="result">Marksheet Ready</option>
+              <option value="not_found">Not Found</option>
+            </select>
+          </div>
+
+          <div class="table-export-actions">
+            <button type="button" class="btn-sm-action" id="btnExportExcel" title="Export complete table to Excel .xlsx">
+              <span>📊 Export Excel</span>
+            </button>
+            <button type="button" class="btn-sm-action" id="btnExportCsv" title="Export to CSV">
+              <span>📄 CSV</span>
+            </button>
+            <button type="button" class="btn-sm-action" id="btnCopyDobs" title="Copy all verified Roll Number & DOB pairs">
+              <span>📋 Copy DOBs</span>
+            </button>
+            <button type="button" class="btn-sm-action" id="btnExportJson" title="Export raw JSON">
+              <span>💾 JSON</span>
+            </button>
+            <button type="button" class="btn-sm-action" id="btnPrintAll" title="Print results summary">
+              <span>🖨️ Print</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th style="width: 45px;">#</th>
+                <th style="width: 140px;">Roll Number</th>
+                <th>Student's Name</th>
+                <th style="width: 100px;">Semester</th>
+                <th style="width: 150px;">Date of Birth</th>
+                <th style="width: 100px;">SGPA</th>
+                <th style="width: 130px;">Result Status</th>
+                <th style="width: 110px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTableBody">
+              <!-- Injected by JavaScript -->
+            </tbody>
+          </table>
+          
+          <div class="empty-table-placeholder" id="emptyTablePlaceholder">
+            <div class="empty-icon">📋</div>
+            <p style="font-weight: 600; color: var(--text-secondary);">No results discovered yet</p>
+            <p style="font-size: 0.85rem;">Enter roll numbers and click Start Search to discover DOBs and save results.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Marksheet Viewer Modal -->
+  <div class="modal-overlay" id="marksheetModal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Student Examination Grade Sheet</h3>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button type="button" class="btn-pill" id="btnPrintModal" style="background:#0284c7; color:white; border:none; padding:0.4rem 0.85rem;">
+            🖨️ Print / Save PDF
+          </button>
+          <button type="button" class="modal-close" id="btnCloseModal" title="Close modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body" id="marksheetContent">
+        <!-- Marksheet template injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Engine Settings Modal -->
+  <div class="modal-overlay" id="engineModal" role="dialog" aria-modal="true">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Engine & Connectivity Setup</h3>
+        <button type="button" class="modal-close" id="btnCloseEngineModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom: 1.25rem;" id="bridgeStatusMessage">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem; font-size: 0.88rem; line-height: 1.5;">
+          <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 0.95rem;">🚀 Option 1: Local High-Speed Bridge (Recommended)</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+            To achieve 100+ requests/sec with zero browser CORS limitations (exact reproduction of <code>dob-finder.py</code> &amp; <code>result-saver.py</code>), open your terminal and run:
+          </p>
+          <pre style="background: #050811; padding: 0.65rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #34d399; overflow-x: auto;">cd academic/ddu-result-finder/
+python ddu_bridge.py</pre>
+          <p style="color: var(--text-muted); font-size: 0.78rem; margin-top: 0.5rem;">
+            The portal automatically connects to <code>http://127.0.0.1:8765</code> as soon as it starts!
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; font-size: 0.88rem; line-height: 1.5;">
+          <h4 style="color: #c084fc; margin-bottom: 0.5rem; font-size: 0.95rem;">🌐 Option 2: Cloudflare Worker / Web CORS Proxy</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">
+            For pure browser hosting without running Python locally, you can specify your own Cloudflare Worker or CORS proxy endpoint:
+          </p>
+          <label class="form-label" for="customProxyUrl">Proxy Base URL</label>
+          <input type="text" id="customProxyUrl" class="form-control" placeholder="https://corsproxy.io/?url=">
+        </div>
+
+        <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.5rem;">
+          <button type="button" class="btn-start" id="btnSaveEngineSettings" style="flex: none; padding: 0.6rem 1.25rem;">
+            Save &amp; Connect
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="margin-top: 3rem;">
+    <div class="ddu-container footer-inner">
+      <p>© 2026 Vaibhav Geometer · DDU Result Finder Portal</p>
+      <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../">Academic Portals</a>
+        <a href="../JAM/">IIT JAM</a>
+        <a href="../../mnk-games/">MNK Games</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Engine Script -->
+  <script src="js/ddu_engine.js"></script>
+</body>
+</html>
+
