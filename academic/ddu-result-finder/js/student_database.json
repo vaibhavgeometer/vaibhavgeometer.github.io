@@ -25,7 +25,41 @@
     "name": "AASTHA JAISWAL",
     "dob": "2006-04-02",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "AASTHA JAISWAL SUNIL JAISWAL",
+    "mother_name": "SANGEETA JAISWAL",
+    "enrollment_no": "DDU5162500598",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.70",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160004.pdf"
+      },
+      "2": {
+        "sgpa": "6.31",
+        "cgpa": "6.01",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160004.pdf"
+      },
+      "3": {
+        "sgpa": "6.83",
+        "cgpa": "6.28",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160004.pdf"
+      },
+      "4": {
+        "sgpa": "7.70",
+        "cgpa": "6.64",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160004.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160005",
@@ -298,7 +332,41 @@
     "name": "DEEPIKA MISHRA",
     "dob": "2007-02-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SADANAND MISHRA",
+    "mother_name": "RITA DEVI",
+    "enrollment_no": "DDU5162500637",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.00",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160043.pdf"
+      },
+      "2": {
+        "sgpa": "5.70",
+        "cgpa": "5.35",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160043.pdf"
+      },
+      "3": {
+        "sgpa": "5.70",
+        "cgpa": "5.47",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160043.pdf"
+      },
+      "4": {
+        "sgpa": "5.91",
+        "cgpa": "5.58",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160043.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160044",
@@ -326,7 +394,41 @@
     "name": "DIVYANKA",
     "dob": "2008-11-18",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "MUKESH",
+    "mother_name": "SUGANDH",
+    "enrollment_no": "DDU5162500641",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.18",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160047.pdf"
+      },
+      "2": {
+        "sgpa": "7.57",
+        "cgpa": "7.38",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160047.pdf"
+      },
+      "3": {
+        "sgpa": "7.44",
+        "cgpa": "7.40",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160047.pdf"
+      },
+      "4": {
+        "sgpa": "7.70",
+        "cgpa": "7.47",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160047.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160048",
@@ -564,7 +666,41 @@
     "name": "KASHISHA YADAV",
     "dob": "2007-08-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "VINOD YADAV",
+    "mother_name": "SUNITA DEVI",
+    "enrollment_no": "DDU5162500675",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.00",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160081.pdf"
+      },
+      "2": {
+        "sgpa": "5.44",
+        "cgpa": "4.72",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160081.pdf"
+      },
+      "3": {
+        "sgpa": "5.48",
+        "cgpa": "4.97",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160081.pdf"
+      },
+      "4": {
+        "sgpa": "7.91",
+        "cgpa": "6.10",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160081.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160082",
@@ -606,7 +742,41 @@
     "name": "KM AYUSHI KUSHWAHA",
     "dob": "1999-07-17",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAMESH KUSHWAHA",
+    "mother_name": "TARA DEVI",
+    "enrollment_no": "DDU5162500681",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.26",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160087.pdf"
+      },
+      "2": {
+        "sgpa": "6.04",
+        "cgpa": "5.65",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160087.pdf"
+      },
+      "3": {
+        "sgpa": "5.83",
+        "cgpa": "5.71",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160087.pdf"
+      },
+      "4": {
+        "sgpa": "6.74",
+        "cgpa": "6.12",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160087.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160088",
@@ -634,7 +804,27 @@
     "name": "KUMARI PINKI",
     "dob": "2006-03-10",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "AYODHYA KUSHWHA",
+    "mother_name": "ASHA DEVI",
+    "enrollment_no": "DDU5162500685",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.00",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160091.pdf"
+      },
+      "2": {
+        "sgpa": "4.04",
+        "cgpa": "4.02",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160091.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160092",
@@ -900,7 +1090,41 @@
     "name": "NIBHA MADDHESHIYA",
     "dob": "2005-05-04",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "ASHOK MADDHESHIYA",
+    "mother_name": "SANGITA DEVI",
+    "enrollment_no": "DDU5162500723",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.78",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160129.pdf"
+      },
+      "2": {
+        "sgpa": "3.87",
+        "cgpa": "3.83",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160129.pdf"
+      },
+      "3": {
+        "sgpa": "4.78",
+        "cgpa": "4.14",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160129.pdf"
+      },
+      "4": {
+        "sgpa": "5.74",
+        "cgpa": "5.10",
+        "result": "PROMOTED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160129.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160130",
@@ -956,7 +1180,41 @@
     "name": "NIPPU GUPTA",
     "dob": "2007-03-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "YOGENDRA PRASAD",
+    "mother_name": "URMILA DEVI",
+    "enrollment_no": "DDU5162500731",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.44",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160137.pdf"
+      },
+      "2": {
+        "sgpa": "6.13",
+        "cgpa": "5.79",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160137.pdf"
+      },
+      "3": {
+        "sgpa": "5.09",
+        "cgpa": "5.55",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160137.pdf"
+      },
+      "4": {
+        "sgpa": "",
+        "cgpa": "",
+        "result": "INC",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160137.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160138",
@@ -984,7 +1242,41 @@
     "name": "NISHA GOND",
     "dob": "2006-06-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "GUDDU GOND",
+    "mother_name": "NIRMALA DEVI",
+    "enrollment_no": "DDU5162500735",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.52",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160141.pdf"
+      },
+      "2": {
+        "sgpa": "5.31",
+        "cgpa": "5.42",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160141.pdf"
+      },
+      "3": {
+        "sgpa": "5.83",
+        "cgpa": "5.38",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160141.pdf"
+      },
+      "4": {
+        "sgpa": "6.91",
+        "cgpa": "5.89",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160141.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160142",
@@ -1040,7 +1332,41 @@
     "name": "PALAK DUBEY",
     "dob": "2007-08-15",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "DINESH DUBEY",
+    "mother_name": "POONAM DUBEY",
+    "enrollment_no": "DDU5162500743",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.96",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160149.pdf"
+      },
+      "2": {
+        "sgpa": "5.61",
+        "cgpa": "5.79",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160149.pdf"
+      },
+      "3": {
+        "sgpa": "6.57",
+        "cgpa": "6.05",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160149.pdf"
+      },
+      "4": {
+        "sgpa": "6.91",
+        "cgpa": "6.26",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160149.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160150",
@@ -1103,7 +1429,41 @@
     "name": "PRAGATI SINGH",
     "dob": "2006-03-25",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "DHANANJAY SINGH",
+    "mother_name": "SANGEETA SINGH",
+    "enrollment_no": "DDU5162500752",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.96",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160158.pdf"
+      },
+      "2": {
+        "sgpa": "6.57",
+        "cgpa": "5.77",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160158.pdf"
+      },
+      "3": {
+        "sgpa": "7.09",
+        "cgpa": "6.21",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160158.pdf"
+      },
+      "4": {
+        "sgpa": "7.26",
+        "cgpa": "6.69",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160158.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160159",
@@ -1117,7 +1477,41 @@
     "name": "PRATIMA",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SANTOSH KUSHWAHA",
+    "mother_name": "UMA DEVI",
+    "enrollment_no": "DDU5162500754",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.70",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160160.pdf"
+      },
+      "2": {
+        "sgpa": "7.22",
+        "cgpa": "6.96",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160160.pdf"
+      },
+      "3": {
+        "sgpa": "7.09",
+        "cgpa": "7.00",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160160.pdf"
+      },
+      "4": {
+        "sgpa": "",
+        "cgpa": "",
+        "result": "INC",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160160.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160161",
@@ -1215,7 +1609,41 @@
     "name": "PRIYANSHI GUPTA",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAVINDRA GUPTA",
+    "mother_name": "SAROJ DEVI",
+    "enrollment_no": "DDU5162500768",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.00",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160174.pdf"
+      },
+      "2": {
+        "sgpa": "5.00",
+        "cgpa": "4.00",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160174.pdf"
+      },
+      "3": {
+        "sgpa": "5.31",
+        "cgpa": "4.44",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160174.pdf"
+      },
+      "4": {
+        "sgpa": "6.22",
+        "cgpa": "5.23",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160174.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160175",
@@ -1285,7 +1713,41 @@
     "name": "RANI YADAV",
     "dob": "2007-01-27",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "JAYPRAKASH YADAV",
+    "mother_name": "SHASHIKALA DEVI",
+    "enrollment_no": "DDU5162500778",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.74",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160184.pdf"
+      },
+      "2": {
+        "sgpa": "5.65",
+        "cgpa": "5.70",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160184.pdf"
+      },
+      "3": {
+        "sgpa": "6.26",
+        "cgpa": "5.88",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160184.pdf"
+      },
+      "4": {
+        "sgpa": "6.57",
+        "cgpa": "6.06",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160184.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160185",
@@ -1327,7 +1789,41 @@
     "name": "RENU GUPTA",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAJESH GUPTA",
+    "mother_name": "VIMALA DEVI",
+    "enrollment_no": "DDU5162500784",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.13",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160190.pdf"
+      },
+      "2": {
+        "sgpa": "5.91",
+        "cgpa": "5.52",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160190.pdf"
+      },
+      "3": {
+        "sgpa": "5.91",
+        "cgpa": "5.65",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160190.pdf"
+      },
+      "4": {
+        "sgpa": "6.48",
+        "cgpa": "5.86",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160190.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160191",
@@ -1390,7 +1886,41 @@
     "name": "RUKSAR KHATOON",
     "dob": "2005-11-05",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "AMAJAD ALI",
+    "mother_name": "TAIRUN NESHA",
+    "enrollment_no": "DDU5162500793",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.31",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160199.pdf"
+      },
+      "2": {
+        "sgpa": "5.96",
+        "cgpa": "6.14",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160199.pdf"
+      },
+      "3": {
+        "sgpa": "5.87",
+        "cgpa": "6.05",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160199.pdf"
+      },
+      "4": {
+        "sgpa": "7.22",
+        "cgpa": "6.34",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160199.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160200",
@@ -1404,7 +1934,41 @@
     "name": "SABAA PARVEEN",
     "dob": "2008-05-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "MASOOD AKHTAR",
+    "mother_name": "SHAHIDA BANO",
+    "enrollment_no": "DDU5162500795",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.87",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160201.pdf"
+      },
+      "2": {
+        "sgpa": "6.83",
+        "cgpa": "5.85",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160201.pdf"
+      },
+      "3": {
+        "sgpa": "6.78",
+        "cgpa": "6.16",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160201.pdf"
+      },
+      "4": {
+        "sgpa": "7.22",
+        "cgpa": "6.64",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160201.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160202",
@@ -1509,7 +2073,41 @@
     "name": "SANGITA",
     "dob": "2007-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "PARAS YADAV",
+    "mother_name": "LALMATI DEVI",
+    "enrollment_no": "DDU5162500810",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.65",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160216.pdf"
+      },
+      "2": {
+        "sgpa": "5.09",
+        "cgpa": "4.87",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160216.pdf"
+      },
+      "3": {
+        "sgpa": "4.83",
+        "cgpa": "4.86",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160216.pdf"
+      },
+      "4": {
+        "sgpa": "6.04",
+        "cgpa": "5.15",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160216.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160217",
@@ -1726,7 +2324,41 @@
     "name": "SMITA DIXIT",
     "dob": "2007-01-12",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "AJAY DIXIT",
+    "mother_name": "SARITA DEVI",
+    "enrollment_no": "DDU5162500841",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.61",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160247.pdf"
+      },
+      "2": {
+        "sgpa": "6.13",
+        "cgpa": "6.37",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160247.pdf"
+      },
+      "3": {
+        "sgpa": "6.31",
+        "cgpa": "6.35",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160247.pdf"
+      },
+      "4": {
+        "sgpa": "6.91",
+        "cgpa": "6.49",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160247.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160248",
@@ -1747,7 +2379,41 @@
     "name": "SONAM SHARMA",
     "dob": "2007-08-15",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAJENDRA SHARMA",
+    "mother_name": "JEERAMATI DEVI",
+    "enrollment_no": "DDU5162500844",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.74",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160250.pdf"
+      },
+      "2": {
+        "sgpa": "4.61",
+        "cgpa": "4.18",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160250.pdf"
+      },
+      "3": {
+        "sgpa": "4.74",
+        "cgpa": "4.36",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160250.pdf"
+      },
+      "4": {
+        "sgpa": "5.96",
+        "cgpa": "5.13",
+        "result": "PROMOTED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160250.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160251",
@@ -1908,14 +2574,61 @@
     "name": "AARAV MISHRA",
     "dob": "2006-08-27",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "MANISH MISHRA",
+    "mother_name": "NEETU MISHRA",
+    "enrollment_no": "University",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.31",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160273.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160274",
     "name": "AAROHI GOND",
     "dob": "2007-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "HIRALAL GOND",
+    "mother_name": "MEENA DEVI",
+    "enrollment_no": "DDU5162500868",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.13",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160274.pdf"
+      },
+      "2": {
+        "sgpa": "7.26",
+        "cgpa": "7.20",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160274.pdf"
+      },
+      "3": {
+        "sgpa": "7.74",
+        "cgpa": "7.38",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160274.pdf"
+      },
+      "4": {
+        "sgpa": "7.31",
+        "cgpa": "7.36",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160274.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160275",
@@ -1929,7 +2642,41 @@
     "name": "AASHISH GAUTAM",
     "dob": "2003-01-02",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "VRIJENDRA PRASAD",
+    "mother_name": "AASHA DEVI",
+    "enrollment_no": "DDU5162500870",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.31",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160276.pdf"
+      },
+      "2": {
+        "sgpa": "7.00",
+        "cgpa": "7.16",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160276.pdf"
+      },
+      "3": {
+        "sgpa": "6.65",
+        "cgpa": "6.99",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160276.pdf"
+      },
+      "4": {
+        "sgpa": "",
+        "cgpa": "",
+        "result": "INC",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160276.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160277",
@@ -1943,14 +2690,68 @@
     "name": "ABHAY PRATAP KUSHWAHA",
     "dob": "2007-07-24",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "DHANANJAY KUSHWAHA",
+    "mother_name": "URMILA KUSHWAHA",
+    "enrollment_no": "DDU5162500872",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.39",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160278.pdf"
+      },
+      "2": {
+        "sgpa": "6.26",
+        "cgpa": "6.33",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160278.pdf"
+      },
+      "3": {
+        "sgpa": "5.96",
+        "cgpa": "6.03",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160278.pdf"
+      },
+      "4": {
+        "sgpa": "5.44",
+        "cgpa": "6.01",
+        "result": "PROMOTED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160278.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160279",
     "name": "ABHIJEET KUMAR SRIVASTAVA",
     "dob": "2007-07-29",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "BIPIN KUMAR SRIVASTAVA",
+    "mother_name": "RINKU DEVI",
+    "enrollment_no": "DDU5162500873",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "2.13",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160279.pdf"
+      },
+      "2": {
+        "sgpa": "4.39",
+        "cgpa": "3.26",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160279.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160280",
@@ -1964,28 +2765,164 @@
     "name": "ABHINAV SRIVASTAVA",
     "dob": "2004-04-30",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "PRAMOD KUMAR SRIVASTAVA",
+    "mother_name": "KALPANA SRIVASTAVA",
+    "enrollment_no": "DDU5162500875",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.87",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160281.pdf"
+      },
+      "2": {
+        "sgpa": "7.48",
+        "cgpa": "7.18",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160281.pdf"
+      },
+      "3": {
+        "sgpa": "7.48",
+        "cgpa": "7.28",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160281.pdf"
+      },
+      "4": {
+        "sgpa": "7.44",
+        "cgpa": "7.32",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160281.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160282",
     "name": "ABHINAY CHAUBEY",
     "dob": "2007-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "BHANUPRATAP CHAUBEY",
+    "mother_name": "SEEMA DEVI",
+    "enrollment_no": "DDU5162500876",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.00",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160282.pdf"
+      },
+      "2": {
+        "sgpa": "6.65",
+        "cgpa": "6.33",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160282.pdf"
+      },
+      "3": {
+        "sgpa": "6.09",
+        "cgpa": "6.25",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160282.pdf"
+      },
+      "4": {
+        "sgpa": "6.70",
+        "cgpa": "6.36",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160282.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160283",
     "name": "ABHISHEK PANDEY",
     "dob": "2003-12-07",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAJIV LOCHAN PANDEY",
+    "mother_name": "RENU PANDEY",
+    "enrollment_no": "DDU5162500877",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.39",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160283.pdf"
+      },
+      "2": {
+        "sgpa": "6.61",
+        "cgpa": "6.00",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160283.pdf"
+      },
+      "3": {
+        "sgpa": "6.26",
+        "cgpa": "6.09",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160283.pdf"
+      },
+      "4": {
+        "sgpa": "6.35",
+        "cgpa": "6.15",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160283.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160284",
     "name": "ADITYA KUMAR",
     "dob": "2007-12-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SHYAM KUMAR",
+    "mother_name": "JYOTI DEVI",
+    "enrollment_no": "DDU5162500878",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.52",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160284.pdf"
+      },
+      "2": {
+        "sgpa": "6.39",
+        "cgpa": "6.46",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160284.pdf"
+      },
+      "3": {
+        "sgpa": "6.52",
+        "cgpa": "6.48",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160284.pdf"
+      },
+      "4": {
+        "sgpa": "6.39",
+        "cgpa": "6.46",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160284.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160285",
@@ -2006,7 +2943,41 @@
     "name": "AJAY SHARMA",
     "dob": "2006-11-06",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "DINESH SHARMA",
+    "mother_name": "USHA DEVI",
+    "enrollment_no": "DDU5162500881",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.39",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160287.pdf"
+      },
+      "2": {
+        "sgpa": "7.04",
+        "cgpa": "6.72",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160287.pdf"
+      },
+      "3": {
+        "sgpa": "7.22",
+        "cgpa": "6.88",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160287.pdf"
+      },
+      "4": {
+        "sgpa": "7.61",
+        "cgpa": "7.07",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160287.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160288",
@@ -2041,7 +3012,41 @@
     "name": "AMAN DUBE",
     "dob": "2007-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAVINDER DUBE",
+    "mother_name": "PUNAM DEVI",
+    "enrollment_no": "DDU5162500886",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.31",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160292.pdf"
+      },
+      "2": {
+        "sgpa": "6.04",
+        "cgpa": "5.68",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160292.pdf"
+      },
+      "3": {
+        "sgpa": "6.74",
+        "cgpa": "6.03",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160292.pdf"
+      },
+      "4": {
+        "sgpa": "6.83",
+        "cgpa": "6.49",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160292.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160293",
@@ -2069,7 +3074,41 @@
     "name": "ANISH KUMAR RAI",
     "dob": "2003-05-02",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "UMA RAI",
+    "mother_name": "SUBHAWATI DEIV",
+    "enrollment_no": "DDU5162500890",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.09",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160296.pdf"
+      },
+      "2": {
+        "sgpa": "5.26",
+        "cgpa": "5.18",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160296.pdf"
+      },
+      "3": {
+        "sgpa": "5.61",
+        "cgpa": "5.32",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160296.pdf"
+      },
+      "4": {
+        "sgpa": "7.09",
+        "cgpa": "5.76",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160296.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160297",
@@ -2090,7 +3129,41 @@
     "name": "ARAJUN KUMAR",
     "dob": "2008-03-05",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "LALBABU PRASAD",
+    "mother_name": "VIMLA DEVI",
+    "enrollment_no": "DDU5162500893",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.70",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160299.pdf"
+      },
+      "2": {
+        "sgpa": "4.74",
+        "cgpa": "4.22",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160299.pdf"
+      },
+      "3": {
+        "sgpa": "5.78",
+        "cgpa": "4.74",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160299.pdf"
+      },
+      "4": {
+        "sgpa": "5.96",
+        "cgpa": "5.31",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160299.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160300",
@@ -2125,7 +3198,41 @@
     "name": "AYUSH PRATAP SINGH",
     "dob": "2007-01-10",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "ANUP PRATAP SINGH",
+    "mother_name": "RENU SINGH",
+    "enrollment_no": "DDU5162500898",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.96",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160304.pdf"
+      },
+      "2": {
+        "sgpa": "4.48",
+        "cgpa": "4.72",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160304.pdf"
+      },
+      "3": {
+        "sgpa": "5.18",
+        "cgpa": "4.87",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160304.pdf"
+      },
+      "4": {
+        "sgpa": "6.65",
+        "cgpa": "5.79",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160304.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160305",
@@ -2139,7 +3246,41 @@
     "name": "DAROGA SHARMA",
     "dob": "2004-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SHAMBHU SHARAM",
+    "mother_name": "KISMATI DEVI",
+    "enrollment_no": "DDU5162500900",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.61",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160306.pdf"
+      },
+      "2": {
+        "sgpa": "4.70",
+        "cgpa": "4.66",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160306.pdf"
+      },
+      "3": {
+        "sgpa": "4.39",
+        "cgpa": "4.57",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160306.pdf"
+      },
+      "4": {
+        "sgpa": "5.78",
+        "cgpa": "5.03",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160306.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160307",
@@ -2153,21 +3294,123 @@
     "name": "DEEPAK KUMAR ARYA",
     "dob": "2005-08-07",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "BINDRA PRASAD",
+    "mother_name": "RINKI DEVI",
+    "enrollment_no": "DDU5162500902",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.83",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160308.pdf"
+      },
+      "2": {
+        "sgpa": "6.52",
+        "cgpa": "6.68",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160308.pdf"
+      },
+      "3": {
+        "sgpa": "7.00",
+        "cgpa": "6.78",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160308.pdf"
+      },
+      "4": {
+        "sgpa": "7.04",
+        "cgpa": "6.85",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160308.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160309",
     "name": "DEEPAK KUSHWAHA",
     "dob": "2006-08-14",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "LAL BIHARI KUSHWAHA",
+    "mother_name": "MEERA DEVI",
+    "enrollment_no": "DDU5162500903",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.91",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160309.pdf"
+      },
+      "2": {
+        "sgpa": "6.22",
+        "cgpa": "6.07",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160309.pdf"
+      },
+      "3": {
+        "sgpa": "6.39",
+        "cgpa": "6.17",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160309.pdf"
+      },
+      "4": {
+        "sgpa": "6.78",
+        "cgpa": "6.33",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160309.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160310",
     "name": "DEEPAK KUSHWAHA",
     "dob": "2005-11-11",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "NAGINA KUSHWAHA",
+    "mother_name": "PRAMILA DEVI",
+    "enrollment_no": "DDU5162500904",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.09",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160310.pdf"
+      },
+      "2": {
+        "sgpa": "6.04",
+        "cgpa": "6.07",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160310.pdf"
+      },
+      "3": {
+        "sgpa": "5.74",
+        "cgpa": "5.96",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160310.pdf"
+      },
+      "4": {
+        "sgpa": "6.35",
+        "cgpa": "6.06",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160310.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160311",
@@ -2181,7 +3424,20 @@
     "name": "DINESH KUMAR SINGH",
     "dob": "2006-09-22",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SURESH SINGH",
+    "mother_name": "SUCHITA DEVI",
+    "enrollment_no": "University",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.65",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160312.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160313",
@@ -2223,7 +3479,41 @@
     "name": "HIMANSHU SHARMA",
     "dob": "2005-06-17",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "BECHU SHARMA",
+    "mother_name": "SAVITRI DEVI",
+    "enrollment_no": "DDU5162500912",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.83",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160318.pdf"
+      },
+      "2": {
+        "sgpa": "6.26",
+        "cgpa": "6.05",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160318.pdf"
+      },
+      "3": {
+        "sgpa": "6.61",
+        "cgpa": "6.23",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160318.pdf"
+      },
+      "4": {
+        "sgpa": "6.87",
+        "cgpa": "6.39",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160318.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160319",
@@ -2237,7 +3527,41 @@
     "name": "ISMUHAMMAD ANSARI",
     "dob": "2007-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "MUSLIM ANSARI",
+    "mother_name": "JAISHUN NESHA",
+    "enrollment_no": "DDU5162500914",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.13",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160320.pdf"
+      },
+      "2": {
+        "sgpa": "7.13",
+        "cgpa": "7.13",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160320.pdf"
+      },
+      "3": {
+        "sgpa": "7.96",
+        "cgpa": "7.41",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160320.pdf"
+      },
+      "4": {
+        "sgpa": "7.61",
+        "cgpa": "7.46",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160320.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160321",
@@ -2265,7 +3589,41 @@
     "name": "KRISHNA KUMAR YADAV",
     "dob": "2005-07-14",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SITARAM YADAV",
+    "mother_name": "REENA DEVI",
+    "enrollment_no": "DDU5162500918",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.91",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160324.pdf"
+      },
+      "2": {
+        "sgpa": "6.96",
+        "cgpa": "5.94",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160324.pdf"
+      },
+      "3": {
+        "sgpa": "6.78",
+        "cgpa": "6.22",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160324.pdf"
+      },
+      "4": {
+        "sgpa": "6.74",
+        "cgpa": "6.35",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160324.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160325",
@@ -2279,7 +3637,41 @@
     "name": "KRISHNANAND",
     "dob": "2005-08-06",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "GULAB CHAUHAN",
+    "mother_name": "BINDA DEVI",
+    "enrollment_no": "DDU5162500920",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.00",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160326.pdf"
+      },
+      "2": {
+        "sgpa": "6.26",
+        "cgpa": "5.63",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160326.pdf"
+      },
+      "3": {
+        "sgpa": "6.35",
+        "cgpa": "5.87",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160326.pdf"
+      },
+      "4": {
+        "sgpa": "6.83",
+        "cgpa": "6.11",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160326.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160327",
@@ -2307,7 +3699,20 @@
     "name": "MOHAMMAD SAMEER ANSARI",
     "dob": "2006-02-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SHARIF ANSARI",
+    "mother_name": "NAZAMA KHATOON",
+    "enrollment_no": "University",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.31",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160330.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160331",
@@ -2321,14 +3726,82 @@
     "name": "NEERAJ YADAV",
     "dob": "2008-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "LALBAHADUR",
+    "mother_name": "SUNITA DEVI",
+    "enrollment_no": "DDU5162500926",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.52",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160332.pdf"
+      },
+      "2": {
+        "sgpa": "6.22",
+        "cgpa": "5.37",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160332.pdf"
+      },
+      "3": {
+        "sgpa": "6.83",
+        "cgpa": "5.86",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160332.pdf"
+      },
+      "4": {
+        "sgpa": "6.74",
+        "cgpa": "6.30",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160332.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160333",
     "name": "NILESH KUMAR CHAURASIYA",
     "dob": "2007-07-27",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "MAHESH CHAURASIYA",
+    "mother_name": "GAYATRI DEVI",
+    "enrollment_no": "DDU5162500927",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.39",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160333.pdf"
+      },
+      "2": {
+        "sgpa": "6.04",
+        "cgpa": "6.22",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160333.pdf"
+      },
+      "3": {
+        "sgpa": "6.52",
+        "cgpa": "6.32",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160333.pdf"
+      },
+      "4": {
+        "sgpa": "6.74",
+        "cgpa": "6.42",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160333.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160334",
@@ -2356,7 +3829,41 @@
     "name": "PALLAVI KANNAUJIYA",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "JAYNAND KANNAUJIYA",
+    "mother_name": "MANJU DEVI",
+    "enrollment_no": "DDU5162500931",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.83",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160337.pdf"
+      },
+      "2": {
+        "sgpa": "4.22",
+        "cgpa": "4.53",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160337.pdf"
+      },
+      "3": {
+        "sgpa": "4.57",
+        "cgpa": "4.54",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160337.pdf"
+      },
+      "4": {
+        "sgpa": "6.61",
+        "cgpa": "5.22",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160337.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160338",
@@ -2412,7 +3919,41 @@
     "name": "PRATIK OJHA",
     "dob": "2008-12-16",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "BABUNA OJHA",
+    "mother_name": "VIBHA DEVI",
+    "enrollment_no": "DDU5162500939",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.26",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160345.pdf"
+      },
+      "2": {
+        "sgpa": "7.22",
+        "cgpa": "7.24",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160345.pdf"
+      },
+      "3": {
+        "sgpa": "7.09",
+        "cgpa": "7.19",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160345.pdf"
+      },
+      "4": {
+        "sgpa": "7.65",
+        "cgpa": "7.31",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160345.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160346",
@@ -2454,7 +3995,20 @@
     "name": "RAHUL GOND",
     "dob": "2005-04-14",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAJKUMAR GOND",
+    "mother_name": "RITA DEVI",
+    "enrollment_no": "University",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "0.00",
+        "cgpa": "",
+        "result": "ABSENT",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160351.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160352",
@@ -2489,14 +4043,82 @@
     "name": "RANJAN KUMAR",
     "dob": "2007-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "KEDARNATH",
+    "mother_name": "LALTI DEVI",
+    "enrollment_no": "DDU5162500950",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.91",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160356.pdf"
+      },
+      "2": {
+        "sgpa": "6.78",
+        "cgpa": "6.85",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160356.pdf"
+      },
+      "3": {
+        "sgpa": "7.13",
+        "cgpa": "6.94",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160356.pdf"
+      },
+      "4": {
+        "sgpa": "6.78",
+        "cgpa": "6.90",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160356.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160357",
     "name": "RANJEET RAJ KUSHWAHA",
     "dob": "2005-03-29",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "UMESH KUSHWAHA",
+    "mother_name": "LALPATI DEVI",
+    "enrollment_no": "DDU5162500951",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.52",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160357.pdf"
+      },
+      "2": {
+        "sgpa": "6.52",
+        "cgpa": "6.52",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160357.pdf"
+      },
+      "3": {
+        "sgpa": "6.83",
+        "cgpa": "6.62",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160357.pdf"
+      },
+      "4": {
+        "sgpa": "6.78",
+        "cgpa": "6.66",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160357.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160358",
@@ -2510,7 +4132,41 @@
     "name": "RAVI VISHVAKARMA",
     "dob": "2008-12-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RADHESHYAM VISHVAKARMA",
+    "mother_name": "ANITA DEVI",
+    "enrollment_no": "DDU5162500953",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.39",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160359.pdf"
+      },
+      "2": {
+        "sgpa": "7.74",
+        "cgpa": "7.57",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160359.pdf"
+      },
+      "3": {
+        "sgpa": "8.26",
+        "cgpa": "7.80",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160359.pdf"
+      },
+      "4": {
+        "sgpa": "8.13",
+        "cgpa": "7.88",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160359.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160360",
@@ -2538,7 +4194,27 @@
     "name": "SADDAM HUSAIN",
     "dob": "2005-07-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "KHAN MUHAMMAD",
+    "mother_name": "NIGARA KHATOON",
+    "enrollment_no": "DDU5162500957",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "0.70",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160363.pdf"
+      },
+      "2": {
+        "sgpa": "3.78",
+        "cgpa": "2.24",
+        "result": "FAILED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160363.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160364",
@@ -2552,21 +4228,123 @@
     "name": "SAHIL SINGH",
     "dob": "2006-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "PRADUMAN SINGH",
+    "mother_name": "RAMBHA DEVI",
+    "enrollment_no": "DDU5162500959",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.48",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160365.pdf"
+      },
+      "2": {
+        "sgpa": "7.39",
+        "cgpa": "6.94",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160365.pdf"
+      },
+      "3": {
+        "sgpa": "7.39",
+        "cgpa": "7.09",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160365.pdf"
+      },
+      "4": {
+        "sgpa": "8.09",
+        "cgpa": "7.34",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160365.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160366",
     "name": "SALMAN KHAN",
     "dob": "2005-11-20",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "HASIM",
+    "mother_name": "RUKSHANA KHATUN",
+    "enrollment_no": "DDU5162500960",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.78",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160366.pdf"
+      },
+      "2": {
+        "sgpa": "5.31",
+        "cgpa": "4.55",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160366.pdf"
+      },
+      "3": {
+        "sgpa": "6.35",
+        "cgpa": "5.15",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160366.pdf"
+      },
+      "4": {
+        "sgpa": "6.87",
+        "cgpa": "6.27",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160366.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160367",
     "name": "SAMEER ALAM",
     "dob": "2007-11-17",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "HASIM ALI",
+    "mother_name": "SHABNAM KHATOON",
+    "enrollment_no": "DDU5162500961",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.70",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160367.pdf"
+      },
+      "2": {
+        "sgpa": "5.26",
+        "cgpa": "5.48",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160367.pdf"
+      },
+      "3": {
+        "sgpa": "5.91",
+        "cgpa": "5.62",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160367.pdf"
+      },
+      "4": {
+        "sgpa": "6.87",
+        "cgpa": "6.35",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160367.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160368",
@@ -2594,35 +4372,205 @@
     "name": "SANJEEV CHAUBEY",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "DAYASHANKAR CHAUBEY",
+    "mother_name": "MEERA DEVI",
+    "enrollment_no": "DDU5162500965",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.00",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160371.pdf"
+      },
+      "2": {
+        "sgpa": "6.35",
+        "cgpa": "5.68",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160371.pdf"
+      },
+      "3": {
+        "sgpa": "6.31",
+        "cgpa": "5.89",
+        "result": "PROMOTED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160371.pdf"
+      },
+      "4": {
+        "sgpa": "7.00",
+        "cgpa": "6.34",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160371.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160372",
     "name": "SANKALP TIWARI",
     "dob": "2005-12-07",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "SHASHI BHUSHAN TIWARI",
+    "mother_name": "ARCHANA TIWARI",
+    "enrollment_no": "DDU5162500966",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.78",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160372.pdf"
+      },
+      "2": {
+        "sgpa": "6.35",
+        "cgpa": "5.57",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160372.pdf"
+      },
+      "3": {
+        "sgpa": "6.22",
+        "cgpa": "5.78",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160372.pdf"
+      },
+      "4": {
+        "sgpa": "6.52",
+        "cgpa": "6.10",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160372.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160373",
     "name": "SATYAM KUSHWAHA",
     "dob": "2006-06-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "HARIKESH KUSHWAHA",
+    "mother_name": "DURGAWATI DEVI",
+    "enrollment_no": "DDU5162500967",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.09",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160373.pdf"
+      },
+      "2": {
+        "sgpa": "7.61",
+        "cgpa": "6.85",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160373.pdf"
+      },
+      "3": {
+        "sgpa": "7.39",
+        "cgpa": "7.03",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160373.pdf"
+      },
+      "4": {
+        "sgpa": "7.83",
+        "cgpa": "7.38",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160373.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160374",
     "name": "SHAHID HUSHAIN",
     "dob": "2006-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "GUL MUHAMMAD",
+    "mother_name": "SHAIRA KHATOON",
+    "enrollment_no": "DDU5162500968",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "3.61",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160374.pdf"
+      },
+      "2": {
+        "sgpa": "4.18",
+        "cgpa": "3.90",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160374.pdf"
+      },
+      "3": {
+        "sgpa": "6.13",
+        "cgpa": "4.64",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160374.pdf"
+      },
+      "4": {
+        "sgpa": "6.74",
+        "cgpa": "5.82",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160374.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160375",
     "name": "SHAKIB SIDDIQUI",
     "dob": "2005-02-15",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "NURUL HASAN SIDDIQUI",
+    "mother_name": "RABIYA KHATOON",
+    "enrollment_no": "DDU5162500969",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.57",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160375.pdf"
+      },
+      "2": {
+        "sgpa": "6.31",
+        "cgpa": "5.94",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160375.pdf"
+      },
+      "3": {
+        "sgpa": "6.70",
+        "cgpa": "6.19",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160375.pdf"
+      },
+      "4": {
+        "sgpa": "6.96",
+        "cgpa": "6.39",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160375.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160376",
@@ -2657,7 +4605,41 @@
     "name": "SONU KUMAR GUPTA",
     "dob": "2006-06-06",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAJU GUPTA",
+    "mother_name": "BACHCHI DEVI",
+    "enrollment_no": "DDU5162500974",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.70",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160380.pdf"
+      },
+      "2": {
+        "sgpa": "5.39",
+        "cgpa": "5.05",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160380.pdf"
+      },
+      "3": {
+        "sgpa": "6.78",
+        "cgpa": "5.45",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160380.pdf"
+      },
+      "4": {
+        "sgpa": "6.65",
+        "cgpa": "6.14",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160380.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160381",
@@ -2671,14 +4653,61 @@
     "name": "SURAJ KUMAR",
     "dob": "2004-04-02",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "PRAMANAND KUSHWAHA",
+    "mother_name": "DROPATI DEVI",
+    "enrollment_no": "DDU5162500976",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.83",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160382.pdf"
+      },
+      "2": {
+        "sgpa": "4.96",
+        "cgpa": "5.40",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160382.pdf"
+      },
+      "3": {
+        "sgpa": "6.39",
+        "cgpa": "5.73",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160382.pdf"
+      },
+      "4": {
+        "sgpa": "6.48",
+        "cgpa": "6.09",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160382.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160383",
     "name": "SURYA PRATAP GAUTAM",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "RAMKISHU",
+    "mother_name": "POONAM DEVI",
+    "enrollment_no": "University",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "0.00",
+        "cgpa": "",
+        "result": "ABSENT",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160383.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160384",
@@ -2692,35 +4721,205 @@
     "name": "UDBHAV KUMAR SRIVASTAVA",
     "dob": "2005-09-22",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "KAMLESH KUMAR SRIVASTAVA",
+    "mother_name": "ARCHANA DEVI",
+    "enrollment_no": "DDU5162500979",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "5.48",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160385.pdf"
+      },
+      "2": {
+        "sgpa": "4.48",
+        "cgpa": "4.98",
+        "result": "PROMOTED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160385.pdf"
+      },
+      "3": {
+        "sgpa": "6.44",
+        "cgpa": "5.47",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160385.pdf"
+      },
+      "4": {
+        "sgpa": "6.70",
+        "cgpa": "6.10",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160385.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160386",
     "name": "UMAR ANSARI",
     "dob": "2007-10-24",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "NIJAMUDIIN ANSARI",
+    "mother_name": "WAHIDA KHATOON",
+    "enrollment_no": "DDU5162500980",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.39",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160386.pdf"
+      },
+      "2": {
+        "sgpa": "5.87",
+        "cgpa": "5.13",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160386.pdf"
+      },
+      "3": {
+        "sgpa": "6.48",
+        "cgpa": "5.58",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160386.pdf"
+      },
+      "4": {
+        "sgpa": "6.35",
+        "cgpa": "5.77",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160386.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160387",
     "name": "VAIBHAV PRIYADARSHI",
     "dob": "2003-06-12",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "ABHAY KUMAR",
+    "mother_name": "SAVITA KUMARI",
+    "enrollment_no": "DDU5162500981",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "8.13",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160387.pdf"
+      },
+      "2": {
+        "sgpa": "7.44",
+        "cgpa": "7.79",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160387.pdf"
+      },
+      "3": {
+        "sgpa": "7.65",
+        "cgpa": "7.74",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160387.pdf"
+      },
+      "4": {
+        "sgpa": "7.44",
+        "cgpa": "7.67",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160387.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160388",
     "name": "VIDYASAGAR KUSHWAHA",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "AMRIT KUSHWAHA",
+    "mother_name": "BINDU DEVI",
+    "enrollment_no": "DDU5162500982",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "7.39",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160388.pdf"
+      },
+      "2": {
+        "sgpa": "7.70",
+        "cgpa": "7.55",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160388.pdf"
+      },
+      "3": {
+        "sgpa": "7.74",
+        "cgpa": "7.61",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160388.pdf"
+      },
+      "4": {
+        "sgpa": "7.74",
+        "cgpa": "7.64",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160388.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160389",
     "name": "VIJAY KUMAR",
     "dob": "2004-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "NAGINA YADAV",
+    "mother_name": "NEWALI DEVI",
+    "enrollment_no": "DDU5162500983",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "4.65",
+        "cgpa": "",
+        "result": "PROMOTED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160389.pdf"
+      },
+      "2": {
+        "sgpa": "5.70",
+        "cgpa": "5.18",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160389.pdf"
+      },
+      "3": {
+        "sgpa": "6.78",
+        "cgpa": "5.71",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160389.pdf"
+      },
+      "4": {
+        "sgpa": "6.57",
+        "cgpa": "6.04",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160389.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160390",
@@ -2755,7 +4954,41 @@
     "name": "VISHNU KUSHWAHA",
     "dob": "2005-01-01",
     "stream": "Math",
-    "semester": "1"
+    "semester": "1",
+    "father_name": "JAGDISH KUSHWAHA",
+    "mother_name": "SALAHANTI DEVI",
+    "enrollment_no": "DDU5162500988",
+    "college": "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
+    "semesters": {
+      "1": {
+        "sgpa": "6.09",
+        "cgpa": "",
+        "result": "PASSED",
+        "declared_on": "2025-03-29",
+        "pdf_path": "pdf/sem1/2515075160394.pdf"
+      },
+      "2": {
+        "sgpa": "5.61",
+        "cgpa": "5.85",
+        "result": "PASSED",
+        "declared_on": "2025-06-27",
+        "pdf_path": "pdf/sem2/2515075160394.pdf"
+      },
+      "3": {
+        "sgpa": "6.44",
+        "cgpa": "6.05",
+        "result": "PASSED",
+        "declared_on": "2026-02-27",
+        "pdf_path": "pdf/sem3/2515075160394.pdf"
+      },
+      "4": {
+        "sgpa": "7.18",
+        "cgpa": "6.33",
+        "result": "PASSED",
+        "declared_on": "2026-07-31",
+        "pdf_path": "pdf/sem4/2515075160394.pdf"
+      }
+    }
   },
   {
     "roll_no": "2515075160395",

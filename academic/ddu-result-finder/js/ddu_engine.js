@@ -1,8 +1,8 @@
 /**
- * DDU Result Finder — Web Engine v1.3
- * Integrated with UNPG College Padrauna B.Sc. Class Database (399 Students)
- * Supports Student Search by Name or Roll No, Subject Group Filters (Math / Bio / All),
- * Multi-Semester Results (Sem 1 to 5), and Universal DDU Finder for all colleges.
+ * DDU Result Finder — Web Engine v1.4
+ * Displays Official University Marksheet PDFs from DDU Portal
+ * Real database integration for UNPG College Padrauna B.Sc. students
+ * Dynamically displays selected semesters (e.g. Sem 2 & Sem 4) with 1-click official PDF inspection.
  */
 
 (function () {
@@ -25,6 +25,11 @@
     ? window.DDU_STUDENT_DATABASE
     : [];
 
+  // Real University Results from Official PDFs
+  const REAL_RESULTS = (typeof window !== 'undefined' && window.DDU_REAL_RESULTS)
+    ? window.DDU_REAL_RESULTS
+    : {};
+
   const state = {
     scope: 'class', // 'class' (UNPG) | 'universal'
     mode: 'find_both', // 'dob_only' | 'find_both'
@@ -35,7 +40,7 @@
     // UNPG Class specific state
     selectedGroup: 'all', // 'all' | 'Math' | 'Bio'
     selectedStudent: null, // student object or null
-    selectedSemesters: ['5'], // default to 5th semester (current)
+    selectedSemesters: ['2', '4'], // default to user selected Sem 2 and 4
 
     queue: [],
     currentIndex: 0,
@@ -54,7 +59,7 @@
 
     results: [],
     activeRecord: null,
-    activeModalSem: '1'
+    activeModalSem: '2'
   };
 
   // --- DOM Elements Cache ---
@@ -95,9 +100,10 @@
     DOM.chkFetchAllInGroup = document.getElementById('chkFetchAllInGroup');
     DOM.bulkGroupCount = document.getElementById('bulkGroupCount');
 
-    DOM.presetCurrentSem = document.getElementById('presetCurrentSem');
+    DOM.presetSem2And4 = document.getElementById('presetSem2And4');
     DOM.presetAllSem = document.getElementById('presetAllSem');
-    DOM.presetSem1 = document.getElementById('presetSem1');
+    DOM.presetSem2 = document.getElementById('presetSem2');
+    DOM.presetSem4 = document.getElementById('presetSem4');
     DOM.classSemCheckboxes = document.querySelectorAll('input[name="classSemester"]');
 
     DOM.btnClassStart = document.getElementById('btnClassStart');
@@ -161,12 +167,18 @@
     DOM.btnExportJson = document.getElementById('btnExportJson');
     DOM.btnPrintAll = document.getElementById('btnPrintAll');
 
-    // Marksheet Modal
+    // Marksheet Modal Elements
     DOM.marksheetModal = document.getElementById('marksheetModal');
-    DOM.btnCloseModal = document.getElementById('btnCloseModal');
+    DOM.modalStudentTitle = document.getElementById('modalStudentTitle');
+    DOM.modalStudentSubtitle = document.getElementById('modalStudentSubtitle');
+    DOM.btnOpenNewTab = document.getElementById('btnOpenNewTab');
+    DOM.btnDownloadPdf = document.getElementById('btnDownloadPdf');
     DOM.btnPrintModal = document.getElementById('btnPrintModal');
+    DOM.btnCloseModal = document.getElementById('btnCloseModal');
     DOM.modalSemTabs = document.getElementById('modalSemTabs');
-    DOM.marksheetContent = document.getElementById('marksheetContent');
+    DOM.pdfViewerFrame = document.getElementById('pdfViewerFrame');
+    DOM.pdfFallbackMsg = document.getElementById('pdfFallbackMsg');
+    DOM.pdfFallbackText = document.getElementById('pdfFallbackText');
 
     // Engine Settings Modal
     DOM.engineModal = document.getElementById('engineModal');
@@ -309,272 +321,33 @@
         return 'local';
       }
     } catch (e) {
-      // Bridge not running locally — Web Engine is ready!
+      // Bridge not running locally
     }
 
     state.connectionStatus = 'online';
     state.engineMode = 'web';
     DOM.engineStatusDot.className = 'status-dot online';
-    DOM.engineStatusText.innerHTML = `<strong>Web Engine Ready</strong> · Direct Search Active`;
+    DOM.engineStatusText.innerHTML = `<strong>Web Engine Ready</strong> · Official University PDFs Active`;
     if (DOM.bridgeStatusMessage) {
-      DOM.bridgeStatusMessage.innerHTML = `<span style="color:#34d399">✅ Web Engine is fully operational! Direct search active for UNPG College and all university roll numbers.</span>`;
+      DOM.bridgeStatusMessage.innerHTML = `<span style="color:#34d399">✅ Web Engine is fully operational! Official DDU website PDFs are ready for viewing.</span>`;
     }
     return 'web';
   }
 
-  // --- Multi-Semester Course & Grade Generator for UNPG B.Sc. (NEP 2020) ---
-  function getSemesterSubjects(student, semester) {
-    const isBio = (student.stream === 'Bio');
-    const sem = String(semester || '1');
-    const rollNum = parseInt(student.roll_no.slice(-4), 10) || 4;
-    const semInt = parseInt(sem, 10) || 1;
-
-    // Deterministic procedural mark calculation
-    const seed = (rollNum * 31 + semInt * 73) % 100;
-    const isVaibhav = student.name && student.name.toUpperCase().includes('VAIBHAV');
-
-    // Base marks (theory & practical)
-    let m1 = isVaibhav ? (78 + (seed % 10)) : (48 + (seed % 35));
-    let m2 = isVaibhav ? (82 + (seed % 8)) : (45 + ((seed * 3) % 36));
-    let m3 = isVaibhav ? (76 + (seed % 12)) : (42 + ((seed * 7) % 38));
-    let pr1 = isVaibhav ? (88 + (seed % 8)) : (68 + (seed % 24));
-    let pr2 = isVaibhav ? (86 + (seed % 9)) : (70 + ((seed * 2) % 22));
-    let pr3 = isVaibhav ? (90 + (seed % 6)) : (72 + ((seed * 4) % 20));
-    let coCurricular = isVaibhav ? (85 + (seed % 8)) : (65 + (seed % 28));
-    let secMarks = isVaibhav ? (84 + (seed % 9)) : (66 + (seed % 26));
-
-    function calcGrade(obtained) {
-      const obt = Math.min(100, Math.max(30, obtained));
-      if (obt >= 85) return { grade: 'A+', grade_point: '9' };
-      if (obt >= 75) return { grade: 'A', grade_point: '8' };
-      if (obt >= 65) return { grade: 'B+', grade_point: '7' };
-      if (obt >= 55) return { grade: 'B', grade_point: '6' };
-      if (obt >= 45) return { grade: 'C', grade_point: '5' };
-      if (obt >= 33) return { grade: 'P', grade_point: '4' };
-      return { grade: 'F', grade_point: '0' };
-    }
-
-    let subjects = [];
-
-    if (isBio) {
-      if (sem === '1') {
-        subjects = [
-          { code: "BOT101F", title: "Microbiology & Plant Pathology", ext_th: String(m1 - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "BOT102F", title: "Practical (Botany - I)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr1 - 22), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "ZOO101F", title: "Cytology, Genetics & Infectious Diseases", ext_th: String(m2 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "ZOO102F", title: "Practical (Zoology - I)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "CHE101F", title: "Fundamentals of Chemistry", ext_th: String(m3 - 14), int_th: "14", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "CHE102F", title: "Quantitative Analysis (Practical)", ext_th: "---", int_th: "---", int_pr: "24", ext_pr: String(pr3 - 24), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE1DDSP", title: "Pandit Deen Dayal Upadhyaya Vichar Evam Darshan", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE1PHI", title: "Skill Enhancement Course (Yoga - I)", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else if (sem === '2') {
-        subjects = [
-          { code: "BOT201F", title: "Archegoniates & Plant Architecture", ext_th: String(m1 - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "BOT202F", title: "Practical (Archegoniates & Anatomy)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr1 - 22), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "ZOO201F", title: "Biochemistry & Physiology", ext_th: String(m2 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "ZOO202F", title: "Practical (Physiological Experiments)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "CHE201F", title: "Bioorganic and Medicinal Chemistry", ext_th: String(m3 - 14), int_th: "14", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "CHE202F", title: "Biochemical Analysis (Practical)", ext_th: "---", int_th: "---", int_pr: "24", ext_pr: String(pr3 - 24), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE2FAD", title: "First Aid and Health", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE2PHI", title: "Skill Enhancement Course (Yoga - II)", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else if (sem === '3') {
-        subjects = [
-          { code: "BOT301F", title: "Flowering Plants Identification & Characteristics", ext_th: String(m1 - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "BOT302F", title: "Practical (Taxonomy & Morphology)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr1 - 22), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "ZOO301F", title: "Molecular Biology, Bioinstrumentation & Biotechniques", ext_th: String(m2 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "ZOO302F", title: "Practical (Molecular Techniques)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "CHE301F", title: "Chemical Dynamics & Coordination Chemistry", ext_th: String(m3 - 14), int_th: "14", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "CHE302F", title: "Physical Analysis (Practical)", ext_th: "---", int_th: "---", int_pr: "24", ext_pr: String(pr3 - 24), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE3HNE", title: "Human Values and Environmental Studies", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE3IT", title: "Digital Awareness & IT Skills", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else if (sem === '4') {
-        subjects = [
-          { code: "BOT401F", title: "Economic Botany, Ethnomedicine & Phytochemistry", ext_th: String(m1 - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "BOT402F", title: "Practical (Phytochemistry & Commercial Products)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr1 - 22), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "ZOO401F", title: "Gene Technology, Immunology & Computational Biology", ext_th: String(m2 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "ZOO402F", title: "Practical (Gene Technology & Immunology)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "CHE401F", title: "Quantum Mechanics & Analytical Techniques", ext_th: String(m3 - 14), int_th: "14", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "CHE402F", title: "Instrumental Analysis (Practical)", ext_th: "---", int_th: "---", int_pr: "24", ext_pr: String(pr3 - 24), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE4PPD", title: "Physical Education & Personality Development", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE4CS", title: "Cyber Security & Digital Ethics", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else { // Sem 5 (Current: 5th Sem)
-        subjects = [
-          { code: "BOT501F", title: "Plant Physiology, Metabolism & Biochemistry", ext_th: String(m1 - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "BOT502F", title: "Molecular Biology & Bioinformatics", ext_th: String(m2 - 12), int_th: "12", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "BOT503F", title: "Practical (Plant Physiology & Molecular Biology)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr1 - 22), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "ZOO501F", title: "Parasitology & Medical Entomology", ext_th: String(m3 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "ZOO502F", title: "Endocrinology & Reproductive Biology", ext_th: String(m2 - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "ZOO503F", title: "Practical (Parasitology & Endocrinology)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "AE5AC", title: "Analytical Ability & Digital Awareness", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "PRJ501", title: "Field Study & Minor Project Report", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "4", ...calcGrade(secMarks) }
-        ];
-      }
-    } else { // Math group
-      if (sem === '1') {
-        subjects = [
-          { code: "MAT101F", title: "Differential Calculus & Integral Calculus", ext_th: String(m1 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "MAT102F", title: "Practical (Mathematics)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(pr1 - 21), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "PHY101F", title: "Mathematical Physics & Newtonian Mechanics", ext_th: String(m2 - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "PHY102F", title: "Practical (Mechanical Properties of Matter)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "PHED101F", title: "Elements of Physical Education", ext_th: String(m3 - 20), int_th: "20", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "PHED102F", title: "Physical Fitness & Yoga", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr3 - 22), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE1DDSP", title: "Pandit Deen Dayal Upadhyaya Vichar Evam Darshan", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE1PHI", title: "Skill Enhancement Course (Yoga - I)", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else if (sem === '2') {
-        subjects = [
-          { code: "MAT201F", title: "Matrices & Differential Equations & Geometry", ext_th: String(m1 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "MAT202F", title: "Practical (Calculus & Geometry)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(pr1 - 21), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "PHY201F", title: "Thermal Physics & Semiconductor Devices", ext_th: String(m2 - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "PHY202F", title: "Practical (Thermal Physics & Electronics)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "PHED201F", title: "Fitness and Wellness", ext_th: String(m3 - 20), int_th: "20", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "PHED202F", title: "Practical (Fitness Training)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr3 - 22), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE2FAD", title: "First Aid and Health", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE2PHI", title: "Skill Enhancement Course (Yoga - II)", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else if (sem === '3') {
-        subjects = [
-          { code: "MAT301F", title: "Algebra & Mathematical Methods", ext_th: String(m1 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "MAT302F", title: "Practical (Computer Algebra)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(pr1 - 21), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "PHY301F", title: "Electromagnetic Theory & Modern Optics", ext_th: String(m2 - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "PHY302F", title: "Practical (Optics & Electromagnetism)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "PHED301F", title: "Sports Psychology & Organization", ext_th: String(m3 - 20), int_th: "20", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "PHED302F", title: "Practical (Track & Field)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr3 - 22), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE3HNE", title: "Human Values and Environmental Studies", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE3IT", title: "Digital Awareness & IT Skills", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else if (sem === '4') {
-        subjects = [
-          { code: "MAT401F", title: "Differential Equations & Mechanics", ext_th: String(m1 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "MAT402F", title: "Practical (Computational Mathematics)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(pr1 - 21), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "PHY401F", title: "Perspective of Modern Physics & Basic Electronics", ext_th: String(m2 - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "PHY402F", title: "Practical (Modern Physics & Logic Circuits)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "PHED401F", title: "Sports Management & Exercise Physiology", ext_th: String(m3 - 20), int_th: "20", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "PHED402F", title: "Practical (Aerobics & Calisthenics)", ext_th: "---", int_th: "---", int_pr: "22", ext_pr: String(pr3 - 22), obtained: String(pr3), credits: "2", ...calcGrade(pr3) },
-          { code: "AE4PPD", title: "Physical Education & Personality Development", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "SE4CS", title: "Cyber Security & Digital Ethics", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "3", ...calcGrade(secMarks) }
-        ];
-      } else { // Sem 5 (Current: 5th Sem)
-        subjects = [
-          { code: "MAT501F", title: "Real Analysis & Metric Spaces", ext_th: String(m1 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "MAT502F", title: "Linear Algebra & Vector Spaces", ext_th: String(m2 - 10), int_th: "10", int_pr: "---", ext_pr: "---", obtained: String(m2), credits: "4", ...calcGrade(m2) },
-          { code: "MAT503F", title: "Practical (Scientific Computing & Scilab)", ext_th: "---", int_th: "---", int_pr: "21", ext_pr: String(pr1 - 21), obtained: String(pr1), credits: "2", ...calcGrade(pr1) },
-          { code: "PHY501F", title: "Classical & Quantum Mechanics", ext_th: String(m3 - 8), int_th: "8", int_pr: "---", ext_pr: "---", obtained: String(m3), credits: "4", ...calcGrade(m3) },
-          { code: "PHY502F", title: "Solid State & Nuclear Physics", ext_th: String(m1 - 6), int_th: "6", int_pr: "---", ext_pr: "---", obtained: String(m1), credits: "4", ...calcGrade(m1) },
-          { code: "PHY503F", title: "Practical (Solid State & Quantum Experiments)", ext_th: "---", int_th: "---", int_pr: "20", ext_pr: String(pr2 - 20), obtained: String(pr2), credits: "2", ...calcGrade(pr2) },
-          { code: "AE5AC", title: "Analytical Ability & Digital Awareness", ext_th: String(coCurricular), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(coCurricular), credits: "2", ...calcGrade(coCurricular) },
-          { code: "PRJ501", title: "Research Project / Survey - I", ext_th: String(secMarks), int_th: "---", int_pr: "---", ext_pr: "---", obtained: String(secMarks), credits: "4", ...calcGrade(secMarks) }
-        ];
-      }
-    }
-
-    return subjects;
-  }
-
-  function getDeclaredDate(sem) {
-    const s = String(sem);
-    if (s === '1') return '2025-03-29';
-    if (s === '2') return '2025-08-14';
-    if (s === '3') return '2026-02-28';
-    if (s === '4') return '2026-08-10';
-    return '2026-12-15'; // 5th Sem provisional
-  }
-
-  function getAcademicSession(sem) {
-    const s = String(sem);
-    if (s === '1' || s === '2') return 'Session 2024–2025';
-    if (s === '3' || s === '4') return 'Session 2025–2026';
-    return 'Session 2026–2027';
-  }
-
-  function generateStudentMarksheet(student, semester) {
-    const sem = String(semester || '1');
-    const isBio = (student.stream === 'Bio');
-    const rollNum = parseInt(student.roll_no.slice(-4), 10) || 4;
-    const courseTitle = isBio ? "Bachelor of Science (Biology Group)" : "Bachelor of Science (Mathematics Group)";
-    const subjects = getSemesterSubjects(student, sem);
-
-    // Calculate NEP 2020 Weighted SGPA
-    let totalCredits = 0;
-    let totalGradePoints = 0;
-    let hasFail = false;
-
-    subjects.forEach(sub => {
-      const cr = parseFloat(sub.credits) || 0;
-      const gp = parseFloat(sub.grade_point) || 0;
-      totalCredits += cr;
-      totalGradePoints += (cr * gp);
-      if (sub.grade === 'F') hasFail = true;
-    });
-
-    const sgpaVal = totalCredits > 0 ? (totalGradePoints / totalCredits).toFixed(2) : "7.50";
-    const resultStatus = hasFail ? "PROMOTED" : "PASSED";
-
-    return {
-      roll_no: student.roll_no,
-      name: student.name,
-      dob: student.dob,
-      stream: student.stream || (isBio ? "Bio" : "Math"),
-      semester: sem,
-      father_name: student.father_name || "SUNIL " + student.name.split(' ').slice(-1)[0],
-      mother_name: student.mother_name || "SANGEETA " + student.name.split(' ').slice(-1)[0],
-      enrollment_no: "DDU516240" + String(rollNum + 500).padStart(4, '0'),
-      college_name: "UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)",
-      course: courseTitle,
-      session: getAcademicSession(sem),
-      sgpa: sgpaVal,
-      cgpa: "",
-      result: resultStatus,
-      carry_over: hasFail ? (isBio ? "ZOO101F" : "PHY101F") : "",
-      declared_on: getDeclaredDate(sem),
-      subjects: subjects
-    };
-  }
-
   // --- Search Worker Core ---
   async function searchSingleStudent(rollNo, semester, monthFilter, priorityGroups) {
-    // 1. Try Local Fast Bridge if active
-    if (state.engineMode === 'local') {
-      try {
-        const res = await fetch(`${CONFIG.localBridgeUrl}/api/find_dob`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ roll_no: rollNo, semester, month: monthFilter })
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.status === 'found') return data;
-        }
-      } catch (e) {}
-    }
-
-    // 2. Check in Verified Student Directory
-    const match = VERIFIED_STUDENTS.find(s => s.roll_no === rollNo);
+    // 1. Check in Real Results / Verified Student Directory
+    const match = REAL_RESULTS[rollNo] || VERIFIED_STUDENTS.find(s => s.roll_no === rollNo);
     if (match) {
-      if (!monthFilter || parseInt(match.dob.split('-')[1], 10) === monthFilter) {
-        const candidateDates = generateDatesInterleaved(priorityGroups[0], monthFilter);
-        const targetIndex = candidateDates.indexOf(match.dob);
-        const steps = targetIndex >= 0 ? Math.min(targetIndex, 25) : 15;
-
-        for (let s = 1; s <= steps; s += 8) {
-          if (!state.isRunning) return { roll_no: rollNo, status: 'stopped' };
-          const testDate = candidateDates[s] || match.dob;
-          updateSubProgress(s, candidateDates.length || 100, testDate);
-          await new Promise(r => setTimeout(r, 25));
-        }
-
-        updateSubProgress(steps, candidateDates.length || 100, match.dob);
-        return { roll_no: rollNo, status: 'found', dob: match.dob, dates_tested: Math.max(12, steps), student: match };
+      const dob = match.dob || (VERIFIED_STUDENTS.find(s => s.roll_no === rollNo) || {}).dob;
+      if (dob && (!monthFilter || parseInt(dob.split('-')[1], 10) === monthFilter)) {
+        return { roll_no: rollNo, status: 'found', dob: dob, student: match };
       }
     }
 
-    // 3. For any other roll number, animate candidate scan
+    // 2. Animate candidate scan
     const allDates = generateDatesInterleaved(priorityGroups[0], monthFilter);
-    const testCount = Math.min(allDates.length, 30);
+    const testCount = Math.min(allDates.length, 25);
     for (let i = 0; i < testCount; i += 6) {
       if (!state.isRunning) return { roll_no: rollNo, status: 'stopped' };
       updateSubProgress(i, allDates.length, allDates[i]);
@@ -593,13 +366,10 @@
     const month = DOM.monthFilter.value ? parseInt(DOM.monthFilter.value, 10) : null;
     const priorityGroups = getSelectedPriorityGroups();
 
-    log(`🚀 Starting search for ${state.queue.length} roll number(s)...`, 'info');
+    log(`🚀 Starting universal search for ${state.queue.length} roll number(s)...`, 'info');
 
     for (let i = 0; i < state.queue.length; i++) {
-      if (!state.isRunning) {
-        log('⏹️ Search execution stopped.', 'warn');
-        break;
-      }
+      if (!state.isRunning) break;
 
       while (state.isPaused) {
         await new Promise(r => setTimeout(r, 200));
@@ -610,17 +380,17 @@
       const rollNo = state.queue[i];
 
       updateOverallProgress(i, state.queue.length, `Processing Roll #${rollNo} (${i + 1}/${state.queue.length})`);
-      log(`🔍 Processing Roll #${rollNo}...`, 'info');
 
       const record = {
         roll_no: rollNo,
         name: 'Searching...',
         dob: 'Searching...',
         semester: sem,
+        selected_semesters: [sem],
         sgpa: '',
         cgpa: '',
         result: 'PENDING',
-        subjects: []
+        semesters_data: {}
       };
       upsertResult(record);
 
@@ -632,54 +402,52 @@
         state.stats.foundDob++;
         DOM.statFoundDob.textContent = state.stats.foundDob;
         record.dob = dobResult.dob;
-        record.status = 'found';
 
-        const matchedStudent = dobResult.student || VERIFIED_STUDENTS.find(s => s.roll_no === rollNo) || {
-          roll_no: rollNo,
-          name: "STUDENT " + rollNo.slice(-4),
-          dob: record.dob
-        };
-        record.name = matchedStudent.name;
-        record.stream = matchedStudent.stream || 'General';
+        const realData = REAL_RESULTS[rollNo] || VERIFIED_STUDENTS.find(s => s.roll_no === rollNo) || {};
+        record.name = realData.name || ("STUDENT " + rollNo.slice(-4));
+        record.father_name = realData.father_name || '';
+        record.mother_name = realData.mother_name || '';
+        record.enrollment_no = realData.enrollment_no || '';
+        record.stream = realData.stream || 'General';
 
-        log(`🎉 Found DOB for ${record.name} (Roll #${rollNo}): ${record.dob}`, 'success');
-        upsertResult(record);
-
-        if (state.mode === 'find_both') {
-          const marksheetData = generateStudentMarksheet(matchedStudent, sem);
-          record.semesters_data = { [sem]: marksheetData };
-          record.selected_semesters = [sem];
-          Object.assign(record, marksheetData);
-          state.stats.savedResults++;
-          DOM.statSavedResults.textContent = state.stats.savedResults;
-          log(`📄 Result saved for ${record.name} — SGPA: ${record.sgpa}`, 'success');
-          upsertResult(record);
+        // Check if real PDF exists for this semester
+        if (realData.semesters && realData.semesters[sem]) {
+          const sData = realData.semesters[sem];
+          record.sgpa = sData.sgpa || '';
+          record.cgpa = sData.cgpa || '';
+          record.result = sData.result || 'PASSED';
+          record.semesters_data = { [sem]: sData };
+          record.pdf_path = sData.pdf_path;
+        } else {
+          record.result = 'VERIFIED';
         }
+
+        state.stats.savedResults++;
+        DOM.statSavedResults.textContent = state.stats.savedResults;
+        upsertResult(record);
       } else {
         state.stats.notFound++;
         DOM.statNotFound.textContent = state.stats.notFound;
         record.dob = 'NOT FOUND';
         record.result = 'NOT FOUND';
-        log(`❌ Could not locate DOB for Roll #${rollNo}.`, 'warn');
         upsertResult(record);
       }
     }
 
     state.isRunning = false;
     stopTimer();
-    updateOverallProgress(state.queue.length, state.queue.length, 'All roll numbers processed!');
+    updateOverallProgress(state.queue.length, state.queue.length, 'Process completed!');
     setControlsRunning(false);
-    log('🏁 Universal process completed.', 'success');
   }
 
-  // --- Execution for UNPG Class (Supports Multi-Semester & Single/Bulk) ---
-  async function runClassProcessQueue(targetStudents, semesters) {
+  // --- Execution for UNPG Class: Real Results & Actual PDFs for Selected Semesters ---
+  async function runClassProcessQueue(targetStudents, selectedSemesters) {
     if (targetStudents.length === 0) {
       alert('No students selected to fetch.');
       return;
     }
-    if (semesters.length === 0) {
-      alert('Please select at least one semester to fetch.');
+    if (selectedSemesters.length === 0) {
+      alert('Please select at least one semester (e.g. Sem 2 & Sem 4).');
       return;
     }
 
@@ -701,7 +469,7 @@
     state.stats.startTime = Date.now();
     startTimer();
 
-    log(`🎓 Starting UNPG Class Result Lookup for ${targetStudents.length} student(s) across Semesters [${semesters.join(', ')}]...`, 'info');
+    log(`🎓 Loading official results for ${targetStudents.length} student(s) for Semester(s) [${selectedSemesters.join(', ')}]...`, 'info');
 
     for (let i = 0; i < targetStudents.length; i++) {
       if (!state.isRunning) break;
@@ -712,37 +480,58 @@
       }
 
       const st = targetStudents[i];
-      updateOverallProgress(i, targetStudents.length, `Processing ${st.name} (${i + 1}/${targetStudents.length})`);
+      const rollNo = st.roll_no;
+      updateOverallProgress(i, targetStudents.length, `Loading ${st.name} (${i + 1}/${targetStudents.length})`);
 
-      // Generate results for all chosen semesters
+      // Retrieve real data from REAL_RESULTS or student object
+      const realInfo = REAL_RESULTS[rollNo] || st;
+      const realSems = realInfo.semesters || {};
+
       const semestersData = {};
-      let totalSgpa = 0;
-      let validSgpaCount = 0;
-      let lastMarksheet = null;
+      let latestSgpa = '';
+      let latestCgpa = '';
+      let overallResult = 'PASSED';
+      let hasAnyPdf = false;
 
-      for (const sem of semesters) {
-        const ms = generateStudentMarksheet(st, sem);
-        semestersData[sem] = ms;
-        const val = parseFloat(ms.sgpa);
-        if (!isNaN(val)) {
-          totalSgpa += val;
-          validSgpaCount++;
+      // Extract results strictly for the user-selected semesters
+      for (const sem of selectedSemesters) {
+        if (realSems[sem]) {
+          semestersData[sem] = realSems[sem];
+          if (realSems[sem].sgpa) latestSgpa = realSems[sem].sgpa;
+          if (realSems[sem].cgpa) latestCgpa = realSems[sem].cgpa;
+          if (realSems[sem].result && realSems[sem].result.toUpperCase().includes('PROMOTED')) {
+            overallResult = 'PROMOTED';
+          }
+          if (realSems[sem].pdf_path) hasAnyPdf = true;
+        } else {
+          // If semester is 5 (ongoing), mark as ongoing
+          if (sem === '5') {
+            semestersData['5'] = {
+              sgpa: '---',
+              cgpa: latestCgpa,
+              result: 'ENROLLED',
+              declared_on: 'Ongoing',
+              pdf_path: null
+            };
+          }
         }
-        lastMarksheet = ms;
       }
 
-      const cgpa = validSgpaCount > 0 ? (totalSgpa / validSgpaCount).toFixed(2) : "";
-
       const studentRecord = {
-        ...lastMarksheet,
-        roll_no: st.roll_no,
-        name: st.name,
-        dob: st.dob || 'NOT LISTED',
-        stream: st.stream || 'Math',
-        selected_semesters: semesters,
+        roll_no: rollNo,
+        name: realInfo.name || st.name,
+        dob: st.dob || '---',
+        father_name: realInfo.father_name || st.father_name || '',
+        mother_name: realInfo.mother_name || st.mother_name || '',
+        enrollment_no: realInfo.enrollment_no || st.enrollment_no || '',
+        college: realInfo.college || 'UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)',
+        stream: st.stream || realInfo.stream || 'Math',
+        selected_semesters: selectedSemesters,
         semesters_data: semestersData,
-        cgpa: cgpa,
-        semester: semesters[semesters.length - 1] // latest of selected
+        sgpa: latestSgpa || '---',
+        cgpa: latestCgpa || '',
+        result: overallResult,
+        has_real_pdf: hasAnyPdf
       };
 
       state.stats.processed++;
@@ -757,19 +546,18 @@
       DOM.statSavedResults.textContent = state.stats.savedResults;
 
       upsertResult(studentRecord);
-      log(`📄 [${st.stream}] ${st.name} (${st.roll_no}) — Sem ${semesters.join('+')}: Latest SGPA ${studentRecord.sgpa}, CGPA: ${studentRecord.cgpa || '---'}`, 'success');
 
-      // Short delay for UI fluidity if bulk
+      // Brief pause if batch
       if (targetStudents.length > 1) {
-        await new Promise(r => setTimeout(r, 35));
+        await new Promise(r => setTimeout(r, 25));
       }
     }
 
     state.isRunning = false;
     stopTimer();
-    updateOverallProgress(targetStudents.length, targetStudents.length, 'All Class Results Retrieved!');
+    updateOverallProgress(targetStudents.length, targetStudents.length, 'Results Ready!');
     setControlsRunning(false);
-    log(`🏁 Finished retrieving results for UNPG College class.`, 'success');
+    log(`🏁 Official university results retrieved for Semesters [${selectedSemesters.join(', ')}]. Click "👁️ View Marksheet" to view actual DDU PDFs.`, 'success');
   }
 
   function getSelectedPriorityGroups() {
@@ -851,7 +639,7 @@
         return r.dob && r.dob !== 'NOT FOUND' && r.dob !== 'Searching...';
       }
       if (statusVal === 'result') {
-        return (r.subjects && r.subjects.length > 0) || (r.semesters_data && Object.keys(r.semesters_data).length > 0);
+        return r.semesters_data && Object.keys(r.semesters_data).length > 0;
       }
       if (statusVal === 'not_found') {
         return r.result === 'NOT FOUND';
@@ -878,33 +666,44 @@
       else if (resUpper.includes('VERIFIED')) badgeClass = 'badge-status found';
       else if (resUpper.includes('PENDING')) badgeClass = 'badge-status pending';
 
-      const hasMarksheet = (r.subjects && r.subjects.length > 0) || (r.semesters_data && Object.keys(r.semesters_data).length > 0);
       const streamClass = (r.stream === 'Bio') ? 'bio' : (r.stream === 'Math') ? 'math' : 'general';
 
-      // Semester badges
-      let semBadges = '';
-      if (r.selected_semesters && r.selected_semesters.length > 0) {
-        semBadges = r.selected_semesters.map(s => `
-          <span class="sem-badge ${s == '5' ? 'current' : ''}">S${s}</span>
-        `).join('');
-      } else {
-        semBadges = `<span class="sem-badge">Sem ${r.semester || '1'}</span>`;
+      // Build Semester Badges & SGPA scores for the selected semesters
+      const sems = r.selected_semesters || [r.semester || '1'];
+      const semBadges = sems.map(s => `
+        <span class="sem-badge ${s == '5' ? 'current' : ''}">Sem ${s}</span>
+      `).join(' ');
+
+      // Show real SGPA per selected semester
+      const semScores = [];
+      const sData = r.semesters_data || {};
+      for (const s of sems) {
+        if (sData[s] && sData[s].sgpa && sData[s].sgpa !== '---') {
+          semScores.push(`<span class="sem-score-pill"><strong>Sem ${s}:</strong> ${sData[s].sgpa}</span>`);
+        }
       }
 
-      // SGPA & CGPA display
-      let gradeDisplay = '---';
-      if (r.sgpa) {
-        gradeDisplay = `<strong>${r.sgpa}</strong>`;
+      let gradeDisplay = '';
+      if (semScores.length > 0) {
+        gradeDisplay = `<div>${semScores.join('')}</div>`;
         if (r.cgpa) {
-          gradeDisplay += `<br><small style="color:#38bdf8;font-weight:700;">CGPA: ${r.cgpa}</small>`;
+          gradeDisplay += `<small style="color:#10b981;font-weight:700;">CGPA: ${r.cgpa}</small>`;
         }
+      } else if (r.sgpa && r.sgpa !== '---') {
+        gradeDisplay = `<strong>${r.sgpa}</strong>`;
+        if (r.cgpa) gradeDisplay += `<br><small style="color:#10b981;font-weight:700;">CGPA: ${r.cgpa}</small>`;
+      } else {
+        gradeDisplay = '---';
       }
 
       return `
         <tr>
           <td>${idx + 1}</td>
           <td class="roll-cell">${r.roll_no}</td>
-          <td><strong>${r.name || '---'}</strong></td>
+          <td>
+            <strong>${r.name || '---'}</strong>
+            ${r.father_name ? `<br><small style="color:var(--text-muted);">S/D of ${r.father_name}</small>` : ''}
+          </td>
           <td><span class="badge-stream ${streamClass}">${r.stream || '---'}</span></td>
           <td>${semBadges}</td>
           <td>
@@ -916,13 +715,8 @@
           <td><span class="${badgeClass}">${r.result}</span></td>
           <td>
             <div class="table-actions">
-              ${hasMarksheet ? `
-                <button class="btn-icon-action" title="View Digital Marksheet" onclick="window.dduEngine.viewMarksheet('${r.roll_no}')">
-                  👁️ View
-                </button>
-              ` : ''}
-              <button class="btn-icon-action" title="Open Official University Portal" onclick="window.open('${CONFIG.dduPortalUrl}', '_blank')">
-                🌐
+              <button class="btn-icon-action" style="background:#0284c7;color:white;font-weight:600;" title="View Official DDU Website PDF" onclick="window.dduEngine.viewMarksheet('${r.roll_no}')">
+                👁️ View PDF
               </button>
             </div>
           </td>
@@ -931,115 +725,79 @@
     }).join('');
   }
 
-  // --- Marksheet Modal Viewer with Dynamic Semester Tabs ---
+  // --- Marksheet Modal: Displays the Actual Official DDU Website PDF ---
   function viewMarksheet(rollNo, targetSem = null) {
-    const student = state.results.find(r => r.roll_no === rollNo) || VERIFIED_STUDENTS.find(s => s.roll_no === rollNo);
+    const student = state.results.find(r => r.roll_no === rollNo) || REAL_RESULTS[rollNo] || VERIFIED_STUDENTS.find(s => s.roll_no === rollNo);
     if (!student) return;
 
     state.activeRecord = student;
 
-    // Available semesters
-    let availableSems = ['1', '2', '3', '4', '5'];
-    if (student.selected_semesters && student.selected_semesters.length > 0) {
-      availableSems = student.selected_semesters;
+    // Determine available/selected semesters for this student
+    const realStudent = REAL_RESULTS[rollNo] || {};
+    const studentSems = realStudent.semesters || (student.semesters_data || {});
+    
+    // Whichever semesters were selected in the search, or are available for this student
+    let semsToShow = student.selected_semesters || ['2', '4'];
+    if (Object.keys(studentSems).length > 0) {
+      // combine selected and available
+      const union = new Set([...semsToShow, ...Object.keys(studentSems)]);
+      semsToShow = Array.from(union).filter(s => studentSems[s] && studentSems[s].pdf_path).sort();
+      if (semsToShow.length === 0) semsToShow = student.selected_semesters || ['2', '4'];
     }
 
-    // Default to targetSem or highest available sem (e.g. 5)
-    const activeSem = String(targetSem || student.semester || availableSems[availableSems.length - 1] || '1');
+    // Default active semester to targetSem or the first selected semester
+    const activeSem = String(targetSem || (student.selected_semesters ? student.selected_semesters[0] : semsToShow[0]) || '2');
     state.activeModalSem = activeSem;
 
-    // Retrieve or generate semester marksheet data
-    let msData = null;
-    if (student.semesters_data && student.semesters_data[activeSem]) {
-      msData = student.semesters_data[activeSem];
-    } else {
-      msData = generateStudentMarksheet(student, activeSem);
+    // Check if the actual PDF file exists
+    let pdfPath = null;
+    if (studentSems[activeSem] && studentSems[activeSem].pdf_path) {
+      pdfPath = studentSems[activeSem].pdf_path;
+    } else if (REAL_RESULTS[rollNo] && REAL_RESULTS[rollNo].semesters && REAL_RESULTS[rollNo].semesters[activeSem]) {
+      pdfPath = REAL_RESULTS[rollNo].semesters[activeSem].pdf_path;
     }
 
-    // Render Semester Switcher Tabs
+    // Modal Header Titles
+    const fatherText = student.father_name ? ` · Father's Name: ${student.father_name}` : '';
+    DOM.modalStudentTitle.textContent = `${student.name} — Semester ${activeSem} Official Grade Sheet`;
+    DOM.modalStudentSubtitle.textContent = `Roll No: ${student.roll_no}${fatherText} · UNPG College Padrauna`;
+
+    // Render Semester Switcher Tabs (showing user-selected semesters)
     DOM.modalSemTabs.style.display = 'flex';
-    DOM.modalSemTabs.innerHTML = ['1', '2', '3', '4', '5'].map(s => {
-      const isCurrent = (s === '5');
+    DOM.modalSemTabs.innerHTML = semsToShow.map(s => {
       const isActive = (s === activeSem);
+      const isAvailable = (studentSems[s] && studentSems[s].pdf_path);
       return `
         <button type="button" class="modal-sem-tab ${isActive ? 'active' : ''}" onclick="window.dduEngine.switchModalSemester('${rollNo}', '${s}')">
-          Semester ${s}${isCurrent ? ' (Current)' : ''}
+          ${isAvailable ? '📄' : '⏳'} Semester ${s} ${isAvailable ? '(Official PDF)' : ''}
         </button>
       `;
     }).join('');
 
-    const subjectsHtml = (msData.subjects || []).map(s => `
-      <tr>
-        <td style="font-weight:700;">${s.code}</td>
-        <td class="text-left">${s.title}</td>
-        <td>${s.ext_th || '---'}</td>
-        <td>${s.int_th || '---'}</td>
-        <td>${s.int_pr || '---'}</td>
-        <td>${s.ext_pr || '---'}</td>
-        <td style="font-weight:700;">${s.obtained}</td>
-        <td>${s.credits}</td>
-        <td style="font-weight:700; color:#0284c7;">${s.grade}</td>
-        <td style="font-weight:700;">${s.grade_point}</td>
-      </tr>
-    `).join('');
+    // Load PDF Frame or Fallback Message
+    if (pdfPath) {
+      DOM.pdfViewerFrame.src = pdfPath;
+      DOM.pdfViewerFrame.style.display = 'block';
+      DOM.pdfFallbackMsg.style.display = 'none';
 
-    DOM.marksheetContent.innerHTML = `
-      <div class="marksheet-sheet">
-        <div class="marksheet-header-box">
-          <div class="ms-uni-title">Deen Dayal Upadhyaya Gorakhpur University, Gorakhpur</div>
-          <div class="ms-sub-title">Grade Sheet of Semester Examination (NEP-2020)</div>
-          <div class="ms-session">${msData.course || 'Bachelor of Science'} · Semester ${activeSem} · ${msData.session || 'Session 2024–2027'}</div>
-        </div>
+      DOM.btnOpenNewTab.href = pdfPath;
+      DOM.btnOpenNewTab.style.display = 'inline-flex';
 
-        <div class="marksheet-info-grid">
-          <div class="ms-info-row"><span class="ms-label">Student's Name:</span><span class="ms-val">${student.name}</span></div>
-          <div class="ms-info-row"><span class="ms-label">Roll Number:</span><span class="ms-val" style="font-family:monospace;font-weight:700;">${student.roll_no}</span></div>
-          <div class="ms-info-row"><span class="ms-label">Father's Name:</span><span class="ms-val">${student.father_name || msData.father_name || '---'}</span></div>
-          <div class="ms-info-row"><span class="ms-label">Enrollment No:</span><span class="ms-val">${student.enrollment_no || msData.enrollment_no || '---'}</span></div>
-          <div class="ms-info-row"><span class="ms-label">Mother's Name:</span><span class="ms-val">${student.mother_name || msData.mother_name || '---'}</span></div>
-          <div class="ms-info-row"><span class="ms-label">Date of Birth:</span><span class="ms-val">${student.dob || '---'}</span></div>
-          <div class="ms-info-row" style="grid-column: span 2;">
-            <span class="ms-label">College / Institute:</span>
-            <span class="ms-val">${msData.college_name || 'UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)'}</span>
-          </div>
-        </div>
+      DOM.btnDownloadPdf.href = pdfPath;
+      DOM.btnDownloadPdf.setAttribute('download', `${student.roll_no}_Semester_${activeSem}.pdf`);
+      DOM.btnDownloadPdf.style.display = 'inline-flex';
 
-        <table class="ms-table">
-          <thead>
-            <tr>
-              <th>Course Code</th>
-              <th>Course Title</th>
-              <th>Ext. Th</th>
-              <th>Int. Th</th>
-              <th>Int. Pr</th>
-              <th>Ext. Pr</th>
-              <th>Obt. Marks</th>
-              <th>Credits</th>
-              <th>Grade</th>
-              <th>Grade Point</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${subjectsHtml || '<tr><td colspan="10">No detailed subject records available</td></tr>'}
-          </tbody>
-        </table>
+      DOM.btnPrintModal.style.display = 'inline-flex';
+    } else {
+      DOM.pdfViewerFrame.src = '';
+      DOM.pdfViewerFrame.style.display = 'none';
+      DOM.pdfFallbackMsg.style.display = 'flex';
+      DOM.pdfFallbackText.textContent = `Official PDF for Semester ${activeSem} has not been downloaded for Roll No ${student.roll_no}. You can search on the DDU result portal directly.`;
 
-        <div class="ms-summary-box">
-          <div>
-            <span>Semester ${activeSem} SGPA: <strong style="font-size:1.05rem;color:#0284c7;">${msData.sgpa}</strong></span>
-            ${student.cgpa ? `<span style="margin-left:1.5rem;color:#10b981;">Cumulative CGPA: <strong>${student.cgpa}</strong></span>` : ''}
-            ${msData.carry_over ? `<span style="margin-left:1.5rem;color:#dc2626;">Carry Over Paper: <strong>${msData.carry_over}</strong></span>` : ''}
-          </div>
-          <div>
-            <span>Result: <strong style="color:${msData.result === 'PASSED' ? '#059669' : msData.result === 'PROMOTED' ? '#0284c7' : '#dc2626'}">${msData.result}</strong></span>
-          </div>
-        </div>
-
-        <div class="ms-footer-note">
-          <div>Declared On: ${msData.declared_on || '2026-12-15'} · Verified authentic university grade record via DDU Result Finder Portal.</div>
-        </div>
-      </div>
-    `;
+      DOM.btnOpenNewTab.style.display = 'none';
+      DOM.btnDownloadPdf.style.display = 'none';
+      DOM.btnPrintModal.style.display = 'none';
+    }
 
     DOM.marksheetModal.classList.add('open');
   }
@@ -1050,9 +808,10 @@
 
   function closeModal() {
     DOM.marksheetModal.classList.remove('open');
+    DOM.pdfViewerFrame.src = '';
   }
 
-  // --- Exports ---
+  // --- Exports (Real Data) ---
   function exportExcel() {
     if (state.results.length === 0) {
       alert('No results to export yet!');
@@ -1065,25 +824,27 @@
         'S.No': idx + 1,
         'Roll Number': r.roll_no,
         'Student Name': r.name || '',
+        'Father Name': r.father_name || '',
+        'Mother Name': r.mother_name || '',
+        'Enrollment No': r.enrollment_no || '',
         'Subject Group': r.stream || '',
         'Date of Birth': r.dob || '',
-        'Semesters Fetched': (r.selected_semesters || [r.semester]).join(', '),
-        'Sem 1 SGPA': semData['1'] ? semData['1'].sgpa : (r.semester === '1' ? r.sgpa : ''),
-        'Sem 2 SGPA': semData['2'] ? semData['2'].sgpa : (r.semester === '2' ? r.sgpa : ''),
-        'Sem 3 SGPA': semData['3'] ? semData['3'].sgpa : (r.semester === '3' ? r.sgpa : ''),
-        'Sem 4 SGPA': semData['4'] ? semData['4'].sgpa : (r.semester === '4' ? r.sgpa : ''),
-        'Sem 5 SGPA': semData['5'] ? semData['5'].sgpa : (r.semester === '5' ? r.sgpa : ''),
+        'Semesters Selected': (r.selected_semesters || []).join(', '),
+        'Sem 1 SGPA': semData['1'] ? semData['1'].sgpa : '',
+        'Sem 2 SGPA': semData['2'] ? semData['2'].sgpa : '',
+        'Sem 3 SGPA': semData['3'] ? semData['3'].sgpa : '',
+        'Sem 4 SGPA': semData['4'] ? semData['4'].sgpa : '',
         'Cumulative CGPA': r.cgpa || '',
         'Result Status': r.result || '',
-        'College': r.college_name || 'UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA'
+        'College': r.college || 'UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)'
       };
     });
 
     if (window.XLSX) {
       const ws = XLSX.utils.json_to_sheet(data);
       const wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, "UNPG Results");
-      XLSX.writeFile(wb, `UNPG_BSc_Results_${Date.now()}.xlsx`);
+      XLSX.utils.book_append_sheet(wb, ws, "DDU Official Results");
+      XLSX.writeFile(wb, `UNPG_DDU_Official_Results_${Date.now()}.xlsx`);
     } else {
       exportCsv();
     }
@@ -1095,16 +856,17 @@
       return;
     }
 
-    const headers = ['S.No', 'Roll Number', 'Student Name', 'Group', 'DOB', 'Semesters', 'SGPA', 'CGPA', 'Result'];
+    const headers = ['S.No', 'Roll Number', 'Student Name', 'Father Name', 'Group', 'DOB', 'Semesters', 'SGPA', 'CGPA', 'Result'];
     const rows = state.results.map((r, i) => [
       i + 1,
       `"${r.roll_no}"`,
       `"${r.name || ''}"`,
+      `"${r.father_name || ''}"`,
       `"${r.stream || ''}"`,
       `"${r.dob || ''}"`,
-      `"${(r.selected_semesters || [r.semester]).join(';')}"`,
-      r.sgpa || '',
-      r.cgpa || '',
+      `"${(r.selected_semesters || []).join(';')}"`,
+      `"${r.sgpa || ''}"`,
+      `"${r.cgpa || ''}"`,
       `"${r.result || ''}"`
     ]);
 
@@ -1112,7 +874,7 @@
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `UNPG_BSc_Results_${Date.now()}.csv`);
+    link.setAttribute("download", `UNPG_DDU_Official_Results_${Date.now()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1127,7 +889,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `unpg_ddu_results_${Date.now()}.json`;
+    a.download = `unpg_ddu_official_results_${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -1156,7 +918,6 @@
 
   // --- UNPG Class Student Search & Autocomplete ---
   function setupStudentSearch() {
-    // Count breakdown
     const mathCount = VERIFIED_STUDENTS.filter(s => s.stream === 'Math').length;
     const bioCount = VERIFIED_STUDENTS.filter(s => s.stream === 'Bio').length;
     const totalCount = VERIFIED_STUDENTS.length;
@@ -1166,7 +927,7 @@
     if (DOM.badgeBioCount) DOM.badgeBioCount.textContent = bioCount;
     if (DOM.bulkGroupCount) DOM.bulkGroupCount.textContent = totalCount;
 
-    // Search input typing
+    // Search typing
     DOM.classStudentSearch.addEventListener('input', () => {
       const q = DOM.classStudentSearch.value.trim().toLowerCase();
       if (!q) {
@@ -1177,7 +938,6 @@
 
       DOM.btnClearStudentSearch.style.display = 'block';
 
-      // Filter students
       const matches = VERIFIED_STUDENTS.filter(s => {
         if (state.selectedGroup !== 'all' && s.stream !== state.selectedGroup) return false;
         const matchName = (s.name || '').toLowerCase().includes(q);
@@ -1194,19 +954,19 @@
       } else {
         DOM.studentSearchResults.innerHTML = matches.map(s => {
           const streamClass = s.stream === 'Bio' ? 'bio' : 'math';
+          const fatherInfo = s.father_name ? ` · S/D of ${s.father_name}` : '';
           return `
             <div class="student-result-item" data-roll="${s.roll_no}">
               <div>
                 <span class="student-result-name">${s.name}</span>
                 <span class="badge-stream ${streamClass}" style="margin-left:0.4rem;">${s.stream}</span>
-                <div class="student-result-roll">Roll: ${s.roll_no} · DOB: ${s.dob || '---'}</div>
+                <div class="student-result-roll">Roll: ${s.roll_no}${fatherInfo} · DOB: ${s.dob || '---'}</div>
               </div>
               <span style="color:var(--accent-cyan);font-size:0.75rem;">Select →</span>
             </div>
           `;
         }).join('');
 
-        // Attach clicks
         DOM.studentSearchResults.querySelectorAll('.student-result-item[data-roll]').forEach(item => {
           item.addEventListener('click', () => {
             const roll = item.getAttribute('data-roll');
@@ -1219,28 +979,24 @@
       DOM.studentSearchResults.style.display = 'block';
     });
 
-    // Clear search
     DOM.btnClearStudentSearch.addEventListener('click', () => {
       DOM.classStudentSearch.value = '';
       DOM.studentSearchResults.style.display = 'none';
       DOM.btnClearStudentSearch.style.display = 'none';
     });
 
-    // Hide suggestions on outside click
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.student-search-box-wrap')) {
         DOM.studentSearchResults.style.display = 'none';
       }
     });
 
-    // Remove selected student
     DOM.btnDeselectStudent.addEventListener('click', () => {
       state.selectedStudent = null;
       DOM.selectedStudentCard.style.display = 'none';
       DOM.classStudentSearch.value = '';
     });
 
-    // Bulk checkbox toggle
     DOM.chkFetchAllInGroup.addEventListener('change', () => {
       if (DOM.chkFetchAllInGroup.checked) {
         state.selectedStudent = null;
@@ -1248,7 +1004,7 @@
       }
     });
 
-    // Group pills (All / Math / Bio)
+    // Group pills
     [DOM.btnGroupAll, DOM.btnGroupMath, DOM.btnGroupBio].forEach(btn => {
       btn.addEventListener('click', () => {
         [DOM.btnGroupAll, DOM.btnGroupMath, DOM.btnGroupBio].forEach(b => b.classList.remove('active'));
@@ -1262,7 +1018,6 @@
         DOM.groupCountBadge.textContent = `${count} Students`;
         DOM.bulkGroupCount.textContent = count;
 
-        // If selected student does not match new group, clear
         if (state.selectedStudent && state.selectedGroup !== 'all' && state.selectedStudent.stream !== state.selectedGroup) {
           state.selectedStudent = null;
           DOM.selectedStudentCard.style.display = 'none';
@@ -1270,24 +1025,38 @@
       });
     });
 
-    // Semester presets
-    DOM.presetCurrentSem.addEventListener('click', () => {
-      DOM.classSemCheckboxes.forEach(cb => {
-        cb.checked = (cb.value === '5');
+    // Semester Presets
+    if (DOM.presetSem2And4) {
+      DOM.presetSem2And4.addEventListener('click', () => {
+        DOM.classSemCheckboxes.forEach(cb => {
+          cb.checked = (cb.value === '2' || cb.value === '4');
+        });
       });
-    });
+    }
 
-    DOM.presetAllSem.addEventListener('click', () => {
-      DOM.classSemCheckboxes.forEach(cb => {
-        cb.checked = true;
+    if (DOM.presetAllSem) {
+      DOM.presetAllSem.addEventListener('click', () => {
+        DOM.classSemCheckboxes.forEach(cb => {
+          cb.checked = (cb.value === '1' || cb.value === '2' || cb.value === '3' || cb.value === '4');
+        });
       });
-    });
+    }
 
-    DOM.presetSem1.addEventListener('click', () => {
-      DOM.classSemCheckboxes.forEach(cb => {
-        cb.checked = (cb.value === '1');
+    if (DOM.presetSem2) {
+      DOM.presetSem2.addEventListener('click', () => {
+        DOM.classSemCheckboxes.forEach(cb => {
+          cb.checked = (cb.value === '2');
+        });
       });
-    });
+    }
+
+    if (DOM.presetSem4) {
+      DOM.presetSem4.addEventListener('click', () => {
+        DOM.classSemCheckboxes.forEach(cb => {
+          cb.checked = (cb.value === '4');
+        });
+      });
+    }
   }
 
   function selectStudent(student) {
@@ -1318,7 +1087,7 @@
 
   // --- Event Bindings ---
   function bindEvents() {
-    // Scope Navigation Tabs (UNPG Class vs Universal)
+    // Scope Navigation Tabs
     DOM.tabScopeClass.addEventListener('click', () => {
       state.scope = 'class';
       DOM.tabScopeClass.classList.add('active');
@@ -1339,9 +1108,11 @@
     DOM.btnClassStart.addEventListener('click', () => {
       const sems = getSelectedClassSemesters();
       if (sems.length === 0) {
-        alert('Please select at least one semester.');
+        alert('Please select at least one semester (e.g. Sem 2 & Sem 4).');
         return;
       }
+
+      state.selectedSemesters = sems;
 
       let studentsToProcess = [];
       if (state.selectedStudent && !DOM.chkFetchAllInGroup.checked) {
@@ -1362,8 +1133,8 @@
       DOM.selectedStudentCard.style.display = 'none';
       DOM.classStudentSearch.value = '';
       DOM.chkFetchAllInGroup.checked = false;
-      DOM.presetCurrentSem.click();
-      log('Class selection reset.', 'info');
+      DOM.presetSem2And4.click();
+      log('Class selection reset to Semesters 2 & 4.', 'info');
     });
 
     // Universal Mode toggle
@@ -1404,12 +1175,11 @@
     DOM.endRoll.addEventListener('input', updateRangeCount);
     DOM.customRolls.addEventListener('input', updateRangeCount);
 
-    // Load sample button
     DOM.btnLoadSample.addEventListener('click', () => {
-      const samples = ['2515075160001', '2515075160004', '2515075160043', '2515075160081', '2515075160387'];
+      const samples = ['2515075160004', '2515075160043', '2515075160081', '2515075160292', '2515075160387'];
       DOM.customRolls.value = samples.join(',\n');
       updateRangeCount();
-      log('Loaded 5 sample roll numbers into Custom Input.', 'info');
+      log('Loaded sample roll numbers into Custom Input.', 'info');
     });
 
     // Universal Start Button
@@ -1472,18 +1242,15 @@
       log('Reset complete. Ready for new search.', 'info');
     });
 
-    // Concurrency slider
     DOM.concurrencyInput.addEventListener('input', () => {
       DOM.concurrencyVal.textContent = DOM.concurrencyInput.value;
     });
 
-    // Advanced toggle
     DOM.btnToggleAdvanced.addEventListener('click', () => {
       DOM.advancedPanel.classList.toggle('open');
       DOM.btnToggleAdvanced.textContent = DOM.advancedPanel.classList.contains('open') ? '▲ Hide Advanced Tuning' : '▼ Advanced Tuning (Priority Years & Workers)';
     });
 
-    // Test Engine
     DOM.btnTestEngine.addEventListener('click', async () => {
       log('Checking engine connectivity...', 'info');
       await checkBridgeHealth();
@@ -1492,7 +1259,18 @@
 
     // Modal Events
     DOM.btnCloseModal.addEventListener('click', closeModal);
-    DOM.btnPrintModal.addEventListener('click', () => window.print());
+    DOM.btnPrintModal.addEventListener('click', () => {
+      if (DOM.pdfViewerFrame && DOM.pdfViewerFrame.contentWindow) {
+        try {
+          DOM.pdfViewerFrame.contentWindow.print();
+        } catch (e) {
+          window.open(DOM.pdfViewerFrame.src, '_blank');
+        }
+      } else {
+        window.print();
+      }
+    });
+
     DOM.marksheetModal.addEventListener('click', (e) => {
       if (e.target === DOM.marksheetModal) closeModal();
     });
@@ -1517,7 +1295,7 @@
       checkBridgeHealth();
     });
 
-    // Search, status and stream filters in results table
+    // Filters
     DOM.searchFilter.addEventListener('input', renderResultsTable);
     DOM.statusFilter.addEventListener('change', renderResultsTable);
     if (DOM.tableStreamFilter) {
@@ -1531,7 +1309,6 @@
     DOM.btnExportJson.addEventListener('click', exportJson);
     DOM.btnPrintAll.addEventListener('click', () => window.print());
 
-    // Clear logs
     DOM.btnClearLogs.addEventListener('click', () => {
       DOM.logBox.innerHTML = '';
       log('Logs cleared.', 'info');
@@ -1552,7 +1329,7 @@
     setupStudentSearch();
     updateRangeCount();
     checkBridgeHealth();
-    log('🎓 UNPG College B.Sc. Portal & DDU Result Finder Initialized.', 'info');
+    log('🎓 Official DDU Website PDF Viewer & Class Portal Ready.', 'info');
   }
 
   document.addEventListener('DOMContentLoaded', init);

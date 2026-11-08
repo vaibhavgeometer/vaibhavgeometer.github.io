@@ -171,15 +171,16 @@
 
             <!-- Semester Selection (Specific or more than one semester) -->
             <div class="form-group">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.3rem;">
                 <label class="form-label" style="margin-bottom:0;">
-                  <span>Semester(s) to Fetch</span>
+                  <span>Select Semester(s)</span>
                   <span class="form-hint">Multi-select enabled</span>
                 </label>
                 <div class="semester-presets">
-                  <button type="button" class="btn-xs-preset" id="presetCurrentSem">5th Sem</button>
-                  <button type="button" class="btn-xs-preset" id="presetAllSem">All (1–5)</button>
-                  <button type="button" class="btn-xs-preset" id="presetSem1">1st Sem</button>
+                  <button type="button" class="btn-xs-preset" id="presetSem2And4">Sem 2 &amp; 4</button>
+                  <button type="button" class="btn-xs-preset" id="presetAllSem">All (1–4)</button>
+                  <button type="button" class="btn-xs-preset" id="presetSem2">Sem 2</button>
+                  <button type="button" class="btn-xs-preset" id="presetSem4">Sem 4</button>
                 </div>
               </div>
 
@@ -188,15 +189,15 @@
                   <input type="checkbox" name="classSemester" value="1" class="sem-checkbox">
                   <div class="sem-card-body">
                     <div class="sem-num">Sem 1</div>
-                    <div class="sem-date">Jul–Dec 2024</div>
+                    <div class="sem-date">Dec 2024</div>
                   </div>
                 </label>
 
                 <label class="sem-check-card">
-                  <input type="checkbox" name="classSemester" value="2" class="sem-checkbox">
+                  <input type="checkbox" name="classSemester" value="2" class="sem-checkbox" checked>
                   <div class="sem-card-body">
                     <div class="sem-num">Sem 2</div>
-                    <div class="sem-date">Jan–Jun 2025</div>
+                    <div class="sem-date">May 2025</div>
                   </div>
                 </label>
 
@@ -204,24 +205,24 @@
                   <input type="checkbox" name="classSemester" value="3" class="sem-checkbox">
                   <div class="sem-card-body">
                     <div class="sem-num">Sem 3</div>
-                    <div class="sem-date">Jul–Dec 2025</div>
+                    <div class="sem-date">Dec 2025</div>
                   </div>
                 </label>
 
                 <label class="sem-check-card">
-                  <input type="checkbox" name="classSemester" value="4" class="sem-checkbox">
+                  <input type="checkbox" name="classSemester" value="4" class="sem-checkbox" checked>
                   <div class="sem-card-body">
                     <div class="sem-num">Sem 4</div>
-                    <div class="sem-date">Jan–Jun 2026</div>
+                    <div class="sem-date">May 2026</div>
                   </div>
                 </label>
 
                 <label class="sem-check-card current">
-                  <input type="checkbox" name="classSemester" value="5" class="sem-checkbox" checked>
+                  <input type="checkbox" name="classSemester" value="5" class="sem-checkbox">
                   <div class="sem-card-body">
-                    <div class="sem-badge-current">CURRENT</div>
+                    <div class="sem-badge-current">ONGOING</div>
                     <div class="sem-num">Sem 5</div>
-                    <div class="sem-date">Jul–Dec 2026</div>
+                    <div class="sem-date">Current</div>
                   </div>
                 </label>
               </div>
@@ -523,22 +524,46 @@
     </div>
   </main>
 
-  <!-- Marksheet Viewer Modal -->
+  <!-- Official University PDF Viewer Modal -->
   <div class="modal-overlay" id="marksheetModal" role="dialog" aria-modal="true">
-    <div class="modal-content">
+    <div class="modal-content modal-pdf-content">
       <div class="modal-header">
-        <h3 class="modal-title">Student Examination Grade Sheet</h3>
-        <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <button type="button" class="btn-pill" id="btnPrintModal" style="background:#0284c7; color:white; border:none; padding:0.4rem 0.85rem;">
-            🖨️ Print / Save PDF
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <div class="modal-header-icon">🎓</div>
+          <div>
+            <h3 class="modal-title" id="modalStudentTitle">Official DDU Examination Grade Sheet PDF</h3>
+            <div class="modal-student-subtitle" id="modalStudentSubtitle">Udit Narayan PG College, Padrauna (Kushi Nagar)</div>
+          </div>
+        </div>
+        <div class="modal-header-actions">
+          <a id="btnOpenNewTab" href="#" target="_blank" class="btn-pill" title="Open official PDF in new browser tab">
+            ↗️ Open in New Tab
+          </a>
+          <a id="btnDownloadPdf" href="#" download class="btn-pill" title="Download official university PDF">
+            📥 Download PDF
+          </a>
+          <button type="button" class="btn-pill" id="btnPrintModal" style="background:#0284c7; color:white; border:none; padding:0.4rem 0.85rem;" title="Print PDF">
+            🖨️ Print
           </button>
           <button type="button" class="modal-close" id="btnCloseModal" title="Close modal">&times;</button>
         </div>
       </div>
-      <!-- Semester switcher inside modal -->
+
+      <!-- Semester switcher inside modal (showing selected semesters) -->
       <div class="modal-sem-tabs" id="modalSemTabs" style="display: none;"></div>
-      <div class="modal-body" id="marksheetContent">
-        <!-- Marksheet template injected here -->
+
+      <div class="modal-body modal-pdf-body" id="marksheetContent">
+        <div class="pdf-viewer-container" id="pdfContainer">
+          <iframe id="pdfViewerFrame" src="" class="pdf-frame" title="DDU Official University Marksheet PDF"></iframe>
+          <div id="pdfFallbackMsg" class="pdf-fallback-msg" style="display: none;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📄</div>
+            <h4>Official University PDF Not Yet In Local Cache</h4>
+            <p id="pdfFallbackText">The official result for this semester can be viewed directly on the university portal.</p>
+            <a id="btnFallbackPortal" href="https://result.ddugu.ac.in/result2023/searchresult_new.aspx" target="_blank" class="btn-pill" style="background:#0284c7; color:white; border:none; margin-top:0.75rem;">
+              🌐 Open DDU University Result Portal
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -600,6 +625,7 @@ python ddu_bridge.py</pre>
 
   <!-- Student Database & Engine Scripts -->
   <script src="js/student_database.js"></script>
+  <script src="js/real_student_results.js"></script>
   <script src="js/ddu_engine.js"></script>
 </body>
 </html>
