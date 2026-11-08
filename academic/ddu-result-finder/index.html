@@ -53,15 +53,15 @@
       <!-- Connection / Engine Status Bar -->
       <section class="engine-bar" aria-label="Engine Connectivity">
         <div class="engine-status-wrap">
-          <div class="status-dot offline" id="engineStatusDot"></div>
-          <span id="engineStatusText">Checking engine status...</span>
+          <div class="status-dot online" id="engineStatusDot"></div>
+          <span id="engineStatusText"><strong>Web Engine Ready</strong> · Direct Search Active</span>
         </div>
         <div class="engine-actions">
-          <button class="btn-pill" id="btnTestEngine" title="Test connectivity to bridge or university portal">
-            <span>🔄 Test Connection</span>
+          <button class="btn-pill" id="btnTestEngine" title="Check connection status">
+            <span>🔄 Check Status</span>
           </button>
-          <button class="btn-pill" id="btnEngineSettings" title="Configure engine or local bridge">
-            <span>⚙️ Engine Setup</span>
+          <button class="btn-pill" id="btnEngineSettings" title="View engine information & optional local turbo bridge">
+            <span>⚡ Engine Options</span>
           </button>
         </div>
       </section>
@@ -373,23 +373,23 @@
   <div class="modal-overlay" id="engineModal" role="dialog" aria-modal="true">
     <div class="modal-content" style="max-width: 600px;">
       <div class="modal-header">
-        <h3 class="modal-title">Engine & Connectivity Setup</h3>
+        <h3 class="modal-title">Engine &amp; Connectivity Options</h3>
         <button type="button" class="modal-close" id="btnCloseEngineModal">&times;</button>
       </div>
       <div class="modal-body">
-        <div style="margin-bottom: 1.25rem;" id="bridgeStatusMessage">
-          <!-- Populated dynamically -->
+        <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 0.9rem 1.1rem; margin-bottom: 1.25rem; font-size: 0.88rem; line-height: 1.5; color: #34d399;" id="bridgeStatusMessage">
+          ✅ <strong>Web Engine is Fully Operational!</strong> You can find DOBs and fetch marksheets directly in your browser without any setup.
         </div>
 
         <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem; font-size: 0.88rem; line-height: 1.5;">
-          <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 0.95rem;">🚀 Option 1: Local High-Speed Bridge (Recommended)</h4>
+          <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 0.95rem;">⚡ Optional: Local High-Speed Turbo Bridge</h4>
           <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
-            To achieve 100+ requests/sec with zero browser CORS limitations (exact reproduction of <code>dob-finder.py</code> &amp; <code>result-saver.py</code>), open your terminal and run:
+            If you are running on your own computer and want to scan hundreds of roll numbers at 100+ requests/sec:
           </p>
           <pre style="background: #050811; padding: 0.65rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #34d399; overflow-x: auto;">cd academic/ddu-result-finder/
 python ddu_bridge.py</pre>
           <p style="color: var(--text-muted); font-size: 0.78rem; margin-top: 0.5rem;">
-            The portal automatically connects to <code>http://127.0.0.1:8765</code> as soon as it starts!
+            When active, the portal automatically detects <code>http://127.0.0.1:8765</code> and switches into ultra-fast mode.
           </p>
         </div>
 
@@ -404,7 +404,7 @@ python ddu_bridge.py</pre>
 
         <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 0.5rem;">
           <button type="button" class="btn-start" id="btnSaveEngineSettings" style="flex: none; padding: 0.6rem 1.25rem;">
-            Save &amp; Connect
+            Save &amp; Close
           </button>
         </div>
       </div>
