@@ -34,6 +34,13 @@ CORS_HEADERS = {
     "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
 }
 
+DEFAULT_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Referer": DDU_PORTAL_URL,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9"
+}
+
 # --- Date Generation & Priority Groups ---
 DEFAULT_PRIORITY_GROUPS = [
     [2003, 2004, 2005, 2006, 2007, 2008],
@@ -230,7 +237,7 @@ async def fetch_result_page(session: ClientSession, roll_no: str, semester: str,
     roll_str = str(roll_no).strip()
     try:
         # Step 1: Get base form tokens
-        async with session.get(DDU_PORTAL_URL, timeout=aiohttp.ClientTimeout(total=10)) as resp:
+        async with session.get(DDU_PORTAL_URL, headers=DEFAULT_HEADERS, timeout=aiohttp.ClientTimeout(total=10)) as resp:
             if resp.status != 200:
                 return {"status": "error", "error": f"Portal GET returned HTTP {resp.status}"}
             html = await resp.text()
@@ -239,7 +246,7 @@ async def fetch_result_page(session: ClientSession, roll_no: str, semester: str,
         if not form_data:
             return {"status": "error", "error": "Form tokens missing"}
 
-        # Step 2: Post roll + dob
+        # Step 2: Post roll + dob with automatic redirect
         form_data.update({
             "ddlsem": str(semester),
             "txtRollno": roll_str,
@@ -247,29 +254,16 @@ async def fetch_result_page(session: ClientSession, roll_no: str, semester: str,
             "btnSearch": "Search Result"
         })
 
-        async with session.post(DDU_PORTAL_URL, data=form_data, allow_redirects=False, timeout=aiohttp.ClientTimeout(total=10)) as post_resp:
-            if post_resp.status != 302:
-                return {"status": "error", "error": f"Portal POST expected 302 redirect, got {post_resp.status}"}
-            
-            loc = post_resp.headers.get("Location")
-            if not loc:
-                return {"status": "error", "error": "Missing redirect location header"}
-            
-            if loc.startswith("/"):
-                target_url = "https://result.ddugu.ac.in" + loc
-            else:
-                target_url = loc
+        async with session.post(DDU_PORTAL_URL, data=form_data, headers=DEFAULT_HEADERS, allow_redirects=True, timeout=aiohttp.ClientTimeout(total=15)) as post_resp:
+            if post_resp.status != 200:
+                return {"status": "error", "error": f"Portal returned HTTP {post_resp.status}"}
+            res_html = await post_resp.text()
 
-        # Step 3: Fetch result page
-        async with session.get(target_url, timeout=aiohttp.ClientTimeout(total=12)) as res_resp:
-            if res_resp.status != 200:
-                return {"status": "error", "error": f"Result page returned HTTP {res_resp.status}"}
-            res_html = await res_resp.text()
-
-        # Step 4: Parse structured data
+        # Step 3: Parse structured data
         parsed = parse_result_html(res_html)
         parsed["status"] = "success"
         parsed["html"] = res_html
+        parsed["url"] = str(post_resp.url)
         return parsed
 
     except Exception as e:
@@ -280,7 +274,7 @@ async def options_handler(request):
     return web.Response(headers=CORS_HEADERS)
 
 async def handle_status(request):
-    async with ClientSession(connector=TCPConnector(ssl=False)) as session:
+    async with ClientSession(connector=TCPConnector(ssl=False), headers=DEFAULT_HEADERS) as session:
         portal_online = False
         msg = "Unknown"
         try:
@@ -312,7 +306,7 @@ async def handle_find_dob(request):
     if not roll_no:
         return web.json_response({"error": "Missing roll_no"}, status=400, headers=CORS_HEADERS)
 
-    async with ClientSession(connector=TCPConnector(limit=60, ssl=False)) as session:
+    async with ClientSession(connector=TCPConnector(limit=60, ssl=False), headers=DEFAULT_HEADERS) as session:
         res = await find_dob_for_roll(session, roll_no, semester, month_filter=month_filter)
         return web.json_response(res, headers=CORS_HEADERS)
 
@@ -329,9 +323,24 @@ async def handle_get_result(request):
     if not roll_no or not dob:
         return web.json_response({"error": "Missing roll_no or dob"}, status=400, headers=CORS_HEADERS)
 
-    async with ClientSession(connector=TCPConnector(limit=10, ssl=False)) as session:
+    async with ClientSession(connector=TCPConnector(limit=10, ssl=False), headers=DEFAULT_HEADERS) as session:
         res = await fetch_result_page(session, roll_no, semester, dob)
         return web.json_response(res, headers=CORS_HEADERS)
+
+async def handle_view_result_html(request):
+    roll_no = request.query.get("roll_no")
+    semester = request.query.get("sem", "1")
+    dob = request.query.get("dob")
+
+    if not roll_no or not dob:
+        return web.Response(text="<h3>Missing roll_no or dob parameters</h3>", content_type="text/html", status=400, headers=CORS_HEADERS)
+
+    async with ClientSession(connector=TCPConnector(limit=5, ssl=False), headers=DEFAULT_HEADERS) as session:
+        res = await fetch_result_page(session, roll_no, semester, dob)
+        if res.get("status") == "success" and res.get("html"):
+            return web.Response(text=res["html"], content_type="text/html", headers=CORS_HEADERS)
+        else:
+            return web.Response(text=f"<h3>Error from DDU server: {res.get('error', 'Result not available')}</h3>", content_type="text/html", status=502, headers=CORS_HEADERS)
 
 def create_app() -> web.Application:
     app = web.Application()
@@ -339,6 +348,7 @@ def create_app() -> web.Application:
     app.router.add_get("/api/status", handle_status)
     app.router.add_post("/api/find_dob", handle_find_dob)
     app.router.add_post("/api/get_result", handle_get_result)
+    app.router.add_get("/api/view_result_html", handle_view_result_html)
     return app
 
 def main():

@@ -536,15 +536,18 @@
           </div>
         </div>
         <div class="modal-header-actions">
-          <a id="btnOpenNewTab" href="#" target="_blank" class="btn-pill" title="Open official PDF in new browser tab">
+          <button type="button" class="btn-pill" id="btnVerifyDduServer" style="background:#059669; color:white; border:none; padding:0.4rem 0.85rem;" title="Verify live on official DDU university result server">
+            🌐 Verify on DDU Server
+          </button>
+          <a id="btnOpenNewTab" href="#" target="_blank" class="btn-pill" title="Open official marksheet in new browser tab">
             ↗️ Open in New Tab
           </a>
-          <a id="btnDownloadPdf" href="#" download class="btn-pill" title="Download official university PDF">
-            📥 Download PDF
-          </a>
-          <button type="button" class="btn-pill" id="btnPrintModal" style="background:#0284c7; color:white; border:none; padding:0.4rem 0.85rem;" title="Print PDF">
-            🖨️ Print
+          <button type="button" class="btn-pill" id="btnPrintModal" style="background:#0284c7; color:white; border:none; padding:0.4rem 0.85rem;" title="Print or save as official A4 PDF">
+            🖨️ Print / Save PDF
           </button>
+          <a id="btnDownloadPdf" href="#" download class="btn-pill" title="Download official marksheet HTML document">
+            📥 Download
+          </a>
           <button type="button" class="modal-close" id="btnCloseModal" title="Close modal">&times;</button>
         </div>
       </div>
@@ -556,11 +559,11 @@
         <div class="pdf-viewer-container" id="pdfContainer">
           <iframe id="pdfViewerFrame" src="" class="pdf-frame" title="DDU Official University Marksheet PDF"></iframe>
           <div id="pdfFallbackMsg" class="pdf-fallback-msg" style="display: none;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📄</div>
-            <h4>Official University PDF Not Yet In Local Cache</h4>
-            <p id="pdfFallbackText">The official result for this semester can be viewed directly on the university portal.</p>
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎓</div>
+            <h4>Connecting to DDU Result Server...</h4>
+            <p id="pdfFallbackText">Fetching the official grade sheet directly from Deen Dayal Upadhyaya Gorakhpur University result portal.</p>
             <a id="btnFallbackPortal" href="https://result.ddugu.ac.in/result2023/searchresult_new.aspx" target="_blank" class="btn-pill" style="background:#0284c7; color:white; border:none; margin-top:0.75rem;">
-              🌐 Open DDU University Result Portal
+              🌐 Verify on DDU University Result Portal
             </a>
           </div>
         </div>

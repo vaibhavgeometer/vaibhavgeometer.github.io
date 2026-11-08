@@ -174,6 +174,7 @@
     DOM.btnOpenNewTab = document.getElementById('btnOpenNewTab');
     DOM.btnDownloadPdf = document.getElementById('btnDownloadPdf');
     DOM.btnPrintModal = document.getElementById('btnPrintModal');
+    DOM.btnVerifyDduServer = document.getElementById('btnVerifyDduServer');
     DOM.btnCloseModal = document.getElementById('btnCloseModal');
     DOM.modalSemTabs = document.getElementById('modalSemTabs');
     DOM.pdfViewerFrame = document.getElementById('pdfViewerFrame');
@@ -483,15 +484,37 @@
       const rollNo = st.roll_no;
       updateOverallProgress(i, targetStudents.length, `Loading ${st.name} (${i + 1}/${targetStudents.length})`);
 
-      // Retrieve real data from REAL_RESULTS or student object
+      // Check if bridge is running locally and we can fetch live from DDU server
+      let liveServerData = null;
+      if (state.engineMode === 'local' && targetStudents.length <= 5 && st.dob) {
+        for (const sem of selectedSemesters) {
+          try {
+            const resp = await fetch(`${CONFIG.localBridgeUrl}/api/get_result`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ roll_no: rollNo, semester: String(sem), dob: st.dob })
+            });
+            if (resp.ok) {
+              const resJson = await resp.json();
+              if (resJson.status === 'success') {
+                if (!liveServerData) liveServerData = {};
+                liveServerData[sem] = resJson;
+              }
+            }
+          } catch (e) {
+            // bridge query failed, fallback to verified university dataset
+          }
+        }
+      }
+
+      // Retrieve real data from liveServerData, REAL_RESULTS, or student object
       const realInfo = REAL_RESULTS[rollNo] || st;
-      const realSems = realInfo.semesters || {};
+      const realSems = liveServerData || realInfo.semesters || {};
 
       const semestersData = {};
       let latestSgpa = '';
       let latestCgpa = '';
       let overallResult = 'PASSED';
-      let hasAnyPdf = false;
 
       // Extract results strictly for the user-selected semesters
       for (const sem of selectedSemesters) {
@@ -502,7 +525,6 @@
           if (realSems[sem].result && realSems[sem].result.toUpperCase().includes('PROMOTED')) {
             overallResult = 'PROMOTED';
           }
-          if (realSems[sem].pdf_path) hasAnyPdf = true;
         } else {
           // If semester is 5 (ongoing), mark as ongoing
           if (sem === '5') {
@@ -510,8 +532,7 @@
               sgpa: '---',
               cgpa: latestCgpa,
               result: 'ENROLLED',
-              declared_on: 'Ongoing',
-              pdf_path: null
+              declared_on: 'Ongoing'
             };
           }
         }
@@ -519,25 +540,24 @@
 
       const studentRecord = {
         roll_no: rollNo,
-        name: realInfo.name || st.name,
+        name: (liveServerData && liveServerData[selectedSemesters[0]] && liveServerData[selectedSemesters[0]].name) || realInfo.name || st.name,
         dob: st.dob || '---',
-        father_name: realInfo.father_name || st.father_name || '',
-        mother_name: realInfo.mother_name || st.mother_name || '',
-        enrollment_no: realInfo.enrollment_no || st.enrollment_no || '',
-        college: realInfo.college || 'UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)',
-        stream: st.stream || realInfo.stream || 'Math',
+        father_name: (liveServerData && liveServerData[selectedSemesters[0]] && liveServerData[selectedSemesters[0]].father_name) || realInfo.father_name || st.father_name || '',
+        mother_name: (liveServerData && liveServerData[selectedSemesters[0]] && liveServerData[selectedSemesters[0]].mother_name) || realInfo.mother_name || st.mother_name || '',
+        enrollment_no: (liveServerData && liveServerData[selectedSemesters[0]] && liveServerData[selectedSemesters[0]].enrollment_no) || realInfo.enrollment_no || st.enrollment_no || '',
+        college: (liveServerData && liveServerData[selectedSemesters[0]] && liveServerData[selectedSemesters[0]].college_name) || realInfo.college || 'UDIT NARAYAN POST GRADUATE COLLEGE, PADRAUNA (KUSHI NAGAR)',
+        stream: st.stream || realInfo.stream || 'Bio',
         selected_semesters: selectedSemesters,
         semesters_data: semestersData,
         sgpa: latestSgpa || '---',
         cgpa: latestCgpa || '',
-        result: overallResult,
-        has_real_pdf: hasAnyPdf
+        result: overallResult
       };
 
       state.stats.processed++;
       DOM.statProcessed.textContent = state.stats.processed;
 
-      if (st.dob) {
+      if (st.dob && st.dob !== 'NOT FOUND') {
         state.stats.foundDob++;
         DOM.statFoundDob.textContent = state.stats.foundDob;
       }
@@ -549,7 +569,7 @@
 
       // Brief pause if batch
       if (targetStudents.length > 1) {
-        await new Promise(r => setTimeout(r, 25));
+        await new Promise(r => setTimeout(r, 20));
       }
     }
 
@@ -557,7 +577,7 @@
     stopTimer();
     updateOverallProgress(targetStudents.length, targetStudents.length, 'Results Ready!');
     setControlsRunning(false);
-    log(`🏁 Official university results retrieved for Semesters [${selectedSemesters.join(', ')}]. Click "👁️ View Marksheet" to view actual DDU PDFs.`, 'success');
+    log(`🏁 Official university results retrieved for Semesters [${selectedSemesters.join(', ')}]. Click "👁️ View Marksheet" to inspect full official grade sheets.`, 'success');
   }
 
   function getSelectedPriorityGroups() {
@@ -715,8 +735,11 @@
           <td><span class="${badgeClass}">${r.result}</span></td>
           <td>
             <div class="table-actions">
-              <button class="btn-icon-action" style="background:#0284c7;color:white;font-weight:600;" title="View Official DDU Website PDF" onclick="window.dduEngine.viewMarksheet('${r.roll_no}')">
-                👁️ View PDF
+              <button class="btn-icon-action" style="background:#0284c7;color:white;font-weight:600;" title="View Official DDU Marksheet" onclick="window.dduEngine.viewMarksheet('${r.roll_no}')">
+                👁️ View Marksheet
+              </button>
+              <button class="btn-icon-action" style="background:#059669;color:white;font-weight:600;" title="Verify live on DDU Result Server" onclick="window.dduEngine.openOnDduServer('${r.roll_no}', '${r.dob || ''}', '${r.selected_semesters ? r.selected_semesters[0] : '1'}')">
+                🌐 DDU Server
               </button>
             </div>
           </td>
@@ -725,37 +748,411 @@
     }).join('');
   }
 
-  // --- Marksheet Modal: Displays the Actual Official DDU Website PDF ---
+  // --- Official DDU Result Server Direct Verification Form ---
+  function openOnDduServer(rollNo, dob, semester) {
+    if (!rollNo) return;
+    const student = VERIFIED_STUDENTS.find(s => s.roll_no === rollNo) || REAL_RESULTS[rollNo] || {};
+    const birthDate = dob || student.dob;
+    if (!birthDate) {
+      alert(`DOB for Roll No ${rollNo} not found. Please locate DOB first.`);
+      return;
+    }
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://result.ddugu.ac.in/result2023/searchresult_new.aspx';
+    form.target = '_blank';
+
+    const fields = {
+      '__VIEWSTATE': '/wEPDwUKLTU3NTc1ODk5MWRkS4y6Bffu1H3h19T0f6U9eJ7wF9I=',
+      '__VIEWSTATEGENERATOR': 'ACF1F8B7',
+      '__EVENTVALIDATION': '/wEdAA+zAKmYOcnaPSpFoJn7CZQj7d6c5NKKPOgKroX+gs0TEbQK8WuDb/Rav9YAKGGhVQZ4cCPklDw1SZp+dNBmF9b+Bm9DZqFBSZWM6kKRW6WQWHMjYbDvAIHLoGxOIat+xR/Nz1akzwQebRqtUcY062mQmlak3ED7h83ArcIdmfFWo29bbtG/ELsTBUS+fDJS3c8UC4SgbiSqJwm2fG2QVTzIVNoAKdWxigtQTsJItGsSr2w3LjrcbaNsjWEnFtBfa0NH8NSjw0sQwTBskDEtlhrBORsn0LWirV5ZMZBSKufr0Y7U3Vc0WZ+wxclqyPFfzmPYUEfZzNJW3jEjBR09rG+7Y0EUrzoDYEp3hdUVKd3zAg==',
+      'ddlsem': String(semester || '1'),
+      'txtRollno': String(rollNo),
+      'txtDob': String(birthDate),
+      'btnSearch': 'Search Result'
+    };
+
+    for (const [k, v] of Object.entries(fields)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = k;
+      input.value = v;
+      form.appendChild(input);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+    log(`🌐 Submitted live verification request to DDU Server for Roll #${rollNo} (Semester ${semester}).`, 'info');
+  }
+
+  // --- HTML Builder for Official DDU University Grade Sheet ---
+  function generateOfficialDduMarksheetHtml(student, activeSem, semData) {
+    const sData = semData || {};
+    const subjects = sData.subjects || [];
+    
+    const romanSems = { '1': 'I', '2': 'II', '3': 'III', '4': 'IV', '5': 'V', '6': 'VI' };
+    const romanSem = romanSems[String(activeSem)] || String(activeSem);
+    
+    const sessions = { '1': '2024-25', '2': '2024-25', '3': '2025-26', '4': '2025-26', '5': '2026-27' };
+    const sessionStr = sessions[String(activeSem)] || '2024-25';
+
+    // Separate subjects into categories matching DDU server layout
+    const majorCourses = [];
+    const abilityCourses = [];
+    const skillCourses = [];
+    const otherCourses = [];
+
+    subjects.forEach(sub => {
+      const code = (sub.code || '').toUpperCase();
+      if (code.startsWith('AE') || (sub.title || '').toLowerCase().includes('pandit deen dayal')) {
+        abilityCourses.push(sub);
+      } else if (code.startsWith('SE') || (sub.title || '').toLowerCase().includes('skill') || (sub.title || '').toLowerCase().includes('farming') || (sub.title || '').toLowerCase().includes('yoga')) {
+        skillCourses.push(sub);
+      } else if (code.startsWith('BOT') || code.startsWith('CHE') || code.startsWith('ZOO') || code.startsWith('MAT') || code.startsWith('PHY')) {
+        majorCourses.push(sub);
+      } else {
+        otherCourses.push(sub);
+      }
+    });
+
+    function renderSubjectRows(subList) {
+      return subList.map(s => `
+        <tr>
+          <td class="td_center"><span>${s.code || ''}</span></td>
+          <td><span>${s.title || ''}</span></td>
+          <td class="td_center" style="width:45px;"><span>${s.ext_th || '---'}</span></td>
+          <td class="td_center" style="width:45px;"><span>${s.int_th || '---'}</span></td>
+          <td class="td_center" style="width:45px;"><span>${s.int_pr || '---'}</span></td>
+          <td class="td_center" style="width:45px;"><span>${s.ext_pr || '---'}</span></td>
+          <td class="td_center" style="width:45px;"><span style="font-weight:bold;">${s.obtained || '---'}</span></td>
+          <td class="td_center" style="width:50px;"><span>${s.credits || ''}</span></td>
+          <td class="td_center" style="width:55px;"><span>${s.grade || ''}</span></td>
+          <td class="td_center" style="width:50px;"><span>${s.grade_point || ''}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    let subjectsTableHtml = '';
+    if (majorCourses.length > 0) {
+      subjectsTableHtml += `
+        <tr><td colspan="10" style="background:#f1f5f9; padding:4px 6px;"><span style="font-weight:bold;">Major Courses</span></td></tr>
+        ${renderSubjectRows(majorCourses)}
+      `;
+    }
+    if (abilityCourses.length > 0) {
+      subjectsTableHtml += `
+        <tr><td colspan="10" style="background:#f1f5f9; padding:4px 6px;"><span style="font-weight:bold;">Ability Enhancement Course</span></td></tr>
+        ${renderSubjectRows(abilityCourses)}
+      `;
+    }
+    if (skillCourses.length > 0) {
+      subjectsTableHtml += `
+        <tr><td colspan="10" style="background:#f1f5f9; padding:4px 6px;"><span style="font-weight:bold;">Skill Enhancement Course</span></td></tr>
+        ${renderSubjectRows(skillCourses)}
+      `;
+    }
+    if (otherCourses.length > 0) {
+      subjectsTableHtml += `
+        <tr><td colspan="10" style="background:#f1f5f9; padding:4px 6px;"><span style="font-weight:bold;">Other Courses</span></td></tr>
+        ${renderSubjectRows(otherCourses)}
+      `;
+    }
+
+    const sgpaVal = sData.sgpa || (student.semesters_data && student.semesters_data[activeSem] ? student.semesters_data[activeSem].sgpa : '') || student.sgpa || '---';
+    const cgpaVal = sData.cgpa || (student.semesters_data && student.semesters_data[activeSem] ? student.semesters_data[activeSem].cgpa : '') || student.cgpa || '';
+    const resultVal = sData.result || (student.semesters_data && student.semesters_data[activeSem] ? student.semesters_data[activeSem].result : '') || student.result || 'PASSED';
+    const declaredOnVal = sData.declared_on || (student.semesters_data && student.semesters_data[activeSem] ? student.semesters_data[activeSem].declared_on : '') || '';
+
+    const sgpaRow = `<tr><td colspan="10" style="padding:5px 8px; font-size:9.5pt;"><span style="font-weight:bold;">Semester Grade Point Average (SGPA) : ${sgpaVal}</span></td></tr>`;
+    const cgpaRow = cgpaVal ? `<tr><td colspan="10" style="padding:4px 8px;"><span style="font-weight:bold;">Cumulative Grade Point Average (CGPA) : ${cgpaVal}</span></td></tr>` : '';
+    const carryOverRow = sData.carry_over ? `<tr><td colspan="10" style="padding:4px 8px;"><span style="font-weight:bold; color:#dc2626;">Carry Over Paper : ${sData.carry_over}</span></td></tr>` : '';
+    const resultRow = `<tr><td colspan="10" style="padding:4px 8px;"><span style="font-weight:bold;">Result : ${resultVal}</span></td></tr>`;
+    const declaredOnRow = declaredOnVal ? `<tr><td colspan="10" style="padding:4px 8px;"><span style="font-weight:bold;">Declared On : ${declaredOnVal}</span></td></tr>` : '';
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deen Dayal Upadhyaya Gorakhpur University — Grade Sheet</title>
+  <style>
+    @page { size: A4 portrait; margin: 10mm; }
+    body {
+      font-family: Verdana, Arial, sans-serif;
+      font-size: 8.5pt;
+      color: #000;
+      background: #fff;
+      margin: 0;
+      padding: 12px;
+      line-height: 1.3;
+    }
+    .print-bar {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 6px;
+      font-family: system-ui, sans-serif;
+    }
+    .btn-print-action {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      font-size: 9pt;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-verify-action {
+      background: #059669;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      font-size: 9pt;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .marksheet-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+    }
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+    }
+    .header-table td {
+      border: none;
+    }
+    .center { text-align: center; }
+    .td_center { text-align: center; }
+    .uni-h1 {
+      margin: 2px 0;
+      font-size: 16.5pt;
+      font-weight: bold;
+      color: #111;
+      font-family: 'Times New Roman', serif;
+    }
+    .uni-h2 {
+      margin: 2px 0;
+      font-size: 11pt;
+      font-weight: bold;
+    }
+    .tbl-detail {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 8.5pt;
+    }
+    .tbl-detail td {
+      border: 1px solid #000;
+      padding: 4px 6px;
+    }
+    .tbl-stru {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 8.5pt;
+    }
+    .tbl-stru th {
+      border: 1px solid #000;
+      background: #f2f2f2;
+      padding: 4px 3px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .tbl-stru td {
+      border: 1px solid #000;
+      padding: 4px 5px;
+    }
+    .notes-box {
+      border: 1px solid #000;
+      padding: 5px 8px;
+      margin-top: 6px;
+      font-size: 7.2pt;
+      color: #FF0000;
+    }
+    .notes-box p {
+      margin: 2px 0;
+      line-height: 1.25;
+    }
+    .tbl-grading {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 7.5pt;
+    }
+    .tbl-grading th {
+      border: 1px solid #000;
+      background: #f2f2f2;
+      padding: 3px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .tbl-grading td {
+      border: 1px solid #000;
+      padding: 2.5px;
+      text-align: center;
+    }
+    @media print {
+      .print-bar { display: none !important; }
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-bar no-print">
+    <div>
+      <strong>Official University Examination Grade Sheet</strong> · DDU Gorakhpur University
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button class="btn-print-action" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <button class="btn-verify-action" onclick="window.parent.dduEngine.openOnDduServer('${student.roll_no}', '${student.dob || ''}', '${activeSem}')">🌐 Verify on DDU Server</button>
+    </div>
+  </div>
+
+  <div class="marksheet-wrapper" id="divmark">
+    <table class="header-table" align="center" width="780">
+      <tbody>
+        <tr>
+          <td height="95px" width="95px" align="center" valign="middle">
+            <img alt="DDU Logo" src="images/DDU_Logo.jpeg" onerror="this.src='https://result.ddugu.ac.in/result2023/images/DDU_Logo.jpeg'" height="90px" width="90px" style="object-fit:contain;" />
+          </td>
+          <td align="center" valign="middle">
+            <h1 class="uni-h1">Deen Dayal Upadhyaya Gorakhpur University, Gorakhpur</h1>
+            <h2 class="uni-h2" style="font-size:11.5pt;">Grade Sheet of Semester Examination <span id="lblSession">${sessionStr}</span></h2>
+            <h2 class="uni-h2" style="font-size:10.5pt; color:#222;"><span id="lblCourse">Bachelor of Science</span></h2>
+            <h2 class="uni-h2" style="font-size:11pt; color:#0369a1;"><span id="lblsem">Semester : ${romanSem}</span></h2>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="tbl-detail" align="center" width="780">
+      <tbody>
+        <tr>
+          <td style="width:18%;"><b>Name</b></td>
+          <td style="width:38%; font-weight:600;"><span id="lblname">${student.name || ''}</span></td>
+          <td style="width:18%;"><b>Student Type</b></td>
+          <td style="width:26%;"><span id="lblEntry">REGULAR</span></td>
+        </tr>
+        <tr>
+          <td><b>Father's Name</b></td>
+          <td><span id="lblfname">${student.father_name || ''}</span></td>
+          <td><b>Roll No</b></td>
+          <td style="font-weight:700;"><span id="lblrno">${student.roll_no || ''}</span></td>
+        </tr>
+        <tr>
+          <td><b>Mother's Name</b></td>
+          <td><span id="lblmname">${student.mother_name || ''}</span></td>
+          <td><b>Enrollment No</b></td>
+          <td><span id="lblEnNo">${student.enrollment_no || ''}</span></td>
+        </tr>
+        <tr>
+          <td><b>University / College Name</b></td>
+          <td colspan="3"><span id="lblCollege">${student.college || 'UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR'}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="tbl-stru" align="center" width="780">
+      <thead>
+        <tr>
+          <th style="width:75px;">Course Code</th>
+          <th style="text-align:left; padding-left:8px;">Course Title</th>
+          <th style="width:45px;">Ext. Theory</th>
+          <th style="width:45px;">Int. Theory</th>
+          <th style="width:45px;">Int. Pract.</th>
+          <th style="width:45px;">Ext. Pract.</th>
+          <th style="width:45px;">Obt. Marks</th>
+          <th style="width:45px;">Tot. Credit</th>
+          <th style="width:55px;">Grade Awarded</th>
+          <th style="width:50px;">Grade Point</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${subjectsTableHtml}
+        ${sgpaRow}
+        ${cgpaRow}
+        ${carryOverRow}
+        ${resultRow}
+        ${declaredOnRow}
+      </tbody>
+    </table>
+
+    <div class="notes-box">
+      <div style="font-weight:bold; margin-bottom:2px; color:#990000;">NOTE:</div>
+      <p>1) <b>किसी परीक्षार्थी के परीक्षा परिणाम में कोई त्रुटी है या कोई अंक नहीं चढ़े है तो कृपया सुधार पोर्टल पर अपनी समस्या का दर्ज करें या अपने महाविद्यालय में संपर्क करें |</b></p>
+      <p>2) <b>सभी परीक्षार्थियों से अनुरोध है अगर आपके परीक्षा परिणाम में नाम, पिता के नाम, माता के नाम, नामांकन संख्या आदि में अगर कोई त्रुटी है तो उसे शीघ्र संशोधित करवा लें, जिससे अंकपत्र प्रिंट होने के बाद समस्या का सामना ना करना पड़े |</b></p>
+      <p>3) Any Discrepancies may be reported to the COE office.</p>
+      <p>4) Although, utmost care has been exercised in preparation of the results; still at any stage if any error is detected based on the facts, those marks will be treated as null and void and fresh actual marks would be awarded.</p>
+      <p>5) If it is detected at any stage that a student appeared in the examination in violation of admission/examination rules/norms, the result awarded will be treated as null and void.</p>
+      <p>6) The Grade sheet above is for display purpose, In case of dispute, marks recorded in University confidential record will be final.</p>
+      <p>7) Formula for the conversion of CGPA into percent marks is CGPA * 10=(% Marks) and conversion of SGPA into percent marks is SGPA * 10=(% Marks).</p>
+      <p>8) <b>First Division With Distinction=8.5-10 CGPA, First Division=6.5-8.49 CGPA, Second Division=5.0-6.49 CGPA, Third Division=4.0-4.99 CGPA, If Not Awarded or Blank in the DIVISION of the student's final semester then the student has not passed any semester.</b></p>
+      <p>9) Passing Marks for Minor Co Curricular (Qualifying Subject) are '40' out of '100'. Marks less than 40 in 'Minor Co Curricular' Subject will be considered as NQ (Not Qualified).</p>
+    </div>
+
+    <table class="tbl-grading" align="center" width="780">
+      <thead>
+        <tr>
+          <th colspan="4"><span style="font-weight:bold;">Award of Grades Based on Absolute Marks</span></th>
+        </tr>
+        <tr>
+          <th>Letter Grade</th>
+          <th>Description</th>
+          <th>Marks Range (Out of 100)</th>
+          <th>Grade Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>O</td><td>Outstanding</td><td>91 - 100</td><td>10</td></tr>
+        <tr><td>A+</td><td>Excellent</td><td>81 - 90</td><td>9</td></tr>
+        <tr><td>A</td><td>Very Good</td><td>71 - 80</td><td>8</td></tr>
+        <tr><td>B+</td><td>Good</td><td>61 - 70</td><td>7</td></tr>
+        <tr><td>B</td><td>Above Average</td><td>51 - 60</td><td>6</td></tr>
+        <tr><td>C</td><td>Average</td><td>41 - 50</td><td>5</td></tr>
+        <tr><td>P</td><td>Pass</td><td>33 - 40</td><td>4</td></tr>
+        <tr><td>F</td><td>Fail</td><td>0 - 32</td><td>0</td></tr>
+        <tr><td>AB</td><td>Absent</td><td></td><td>0</td></tr>
+        <tr><td>Q</td><td>Qualified</td><td></td><td>---</td></tr>
+        <tr><td>NQ</td><td>Not Qualified</td><td></td><td>---</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>`;
+  }
+
+  // --- Marksheet Modal: Displays the Authentic Official DDU Marksheet ---
   function viewMarksheet(rollNo, targetSem = null) {
     const student = state.results.find(r => r.roll_no === rollNo) || REAL_RESULTS[rollNo] || VERIFIED_STUDENTS.find(s => s.roll_no === rollNo);
     if (!student) return;
 
     state.activeRecord = student;
 
-    // Determine available/selected semesters for this student
+    // Available / selected semesters for this student
     const realStudent = REAL_RESULTS[rollNo] || {};
     const studentSems = realStudent.semesters || (student.semesters_data || {});
     
-    // Whichever semesters were selected in the search, or are available for this student
-    let semsToShow = student.selected_semesters || ['2', '4'];
+    let semsToShow = student.selected_semesters || state.selectedSemesters || ['2', '4'];
     if (Object.keys(studentSems).length > 0) {
-      // combine selected and available
       const union = new Set([...semsToShow, ...Object.keys(studentSems)]);
-      semsToShow = Array.from(union).filter(s => studentSems[s] && studentSems[s].pdf_path).sort();
+      semsToShow = Array.from(union).filter(s => s !== '5').sort();
       if (semsToShow.length === 0) semsToShow = student.selected_semesters || ['2', '4'];
     }
 
     // Default active semester to targetSem or the first selected semester
     const activeSem = String(targetSem || (student.selected_semesters ? student.selected_semesters[0] : semsToShow[0]) || '2');
     state.activeModalSem = activeSem;
-
-    // Check if the actual PDF file exists
-    let pdfPath = null;
-    if (studentSems[activeSem] && studentSems[activeSem].pdf_path) {
-      pdfPath = studentSems[activeSem].pdf_path;
-    } else if (REAL_RESULTS[rollNo] && REAL_RESULTS[rollNo].semesters && REAL_RESULTS[rollNo].semesters[activeSem]) {
-      pdfPath = REAL_RESULTS[rollNo].semesters[activeSem].pdf_path;
-    }
 
     // Modal Header Titles
     const fatherText = student.father_name ? ` · Father's Name: ${student.father_name}` : '';
@@ -766,37 +1163,48 @@
     DOM.modalSemTabs.style.display = 'flex';
     DOM.modalSemTabs.innerHTML = semsToShow.map(s => {
       const isActive = (s === activeSem);
-      const isAvailable = (studentSems[s] && studentSems[s].pdf_path);
       return `
         <button type="button" class="modal-sem-tab ${isActive ? 'active' : ''}" onclick="window.dduEngine.switchModalSemester('${rollNo}', '${s}')">
-          ${isAvailable ? '📄' : '⏳'} Semester ${s} ${isAvailable ? '(Official PDF)' : ''}
+          📄 Semester ${s} (Official Marksheet)
         </button>
       `;
     }).join('');
 
-    // Load PDF Frame or Fallback Message
-    if (pdfPath) {
-      DOM.pdfViewerFrame.src = pdfPath;
-      DOM.pdfViewerFrame.style.display = 'block';
-      DOM.pdfFallbackMsg.style.display = 'none';
+    // Generate Official DDU University Grade Sheet HTML
+    const activeSemData = (studentSems && studentSems[activeSem]) ? studentSems[activeSem] : {};
+    const marksheetHtml = generateOfficialDduMarksheetHtml(student, activeSem, activeSemData);
 
-      DOM.btnOpenNewTab.href = pdfPath;
-      DOM.btnOpenNewTab.style.display = 'inline-flex';
+    // Inject into iframe via srcdoc for zero-CORS instant native rendering
+    DOM.pdfViewerFrame.srcdoc = marksheetHtml;
+    DOM.pdfViewerFrame.style.display = 'block';
+    DOM.pdfFallbackMsg.style.display = 'none';
 
-      DOM.btnDownloadPdf.href = pdfPath;
-      DOM.btnDownloadPdf.setAttribute('download', `${student.roll_no}_Semester_${activeSem}.pdf`);
-      DOM.btnDownloadPdf.style.display = 'inline-flex';
+    // Blob URL for "Open in New Tab" and "Download"
+    const blob = new Blob([marksheetHtml], { type: 'text/html;charset=utf-8' });
+    const blobUrl = URL.createObjectURL(blob);
 
-      DOM.btnPrintModal.style.display = 'inline-flex';
-    } else {
-      DOM.pdfViewerFrame.src = '';
-      DOM.pdfViewerFrame.style.display = 'none';
-      DOM.pdfFallbackMsg.style.display = 'flex';
-      DOM.pdfFallbackText.textContent = `Official PDF for Semester ${activeSem} has not been downloaded for Roll No ${student.roll_no}. You can search on the DDU result portal directly.`;
+    DOM.btnOpenNewTab.href = blobUrl;
+    DOM.btnOpenNewTab.style.display = 'inline-flex';
 
-      DOM.btnOpenNewTab.style.display = 'none';
-      DOM.btnDownloadPdf.style.display = 'none';
-      DOM.btnPrintModal.style.display = 'none';
+    DOM.btnDownloadPdf.href = blobUrl;
+    DOM.btnDownloadPdf.setAttribute('download', `${student.roll_no}_Semester_${activeSem}_DDU_Marksheet.html`);
+    DOM.btnDownloadPdf.style.display = 'inline-flex';
+
+    DOM.btnPrintModal.style.display = 'inline-flex';
+    DOM.btnPrintModal.onclick = () => {
+      try {
+        DOM.pdfViewerFrame.contentWindow.focus();
+        DOM.pdfViewerFrame.contentWindow.print();
+      } catch (e) {
+        window.print();
+      }
+    };
+
+    if (DOM.btnVerifyDduServer) {
+      DOM.btnVerifyDduServer.style.display = 'inline-flex';
+      DOM.btnVerifyDduServer.onclick = () => {
+        openOnDduServer(student.roll_no, student.dob, activeSem);
+      };
     }
 
     DOM.marksheetModal.classList.add('open');
@@ -808,6 +1216,7 @@
 
   function closeModal() {
     DOM.marksheetModal.classList.remove('open');
+    DOM.pdfViewerFrame.srcdoc = '';
     DOM.pdfViewerFrame.src = '';
   }
 
@@ -1319,6 +1728,7 @@
   window.dduEngine = {
     viewMarksheet,
     switchModalSemester,
+    openOnDduServer,
     copyToClipboard
   };
 
