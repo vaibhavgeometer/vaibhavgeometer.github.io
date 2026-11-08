@@ -72,146 +72,312 @@
         <!-- Left Column: Search Form & Configuration -->
         <div class="ddu-card">
           <div class="ddu-card-title">
-            <span>Search Setup</span>
-            <span class="form-hint">v1.2 Portal</span>
+            <span>Search & Examination Setup</span>
+            <span class="form-hint">v1.3 Portal</span>
           </div>
 
-          <!-- Target Mode Selection -->
-          <div class="form-group">
-            <label class="form-label">Search Action</label>
-            <div class="mode-selector">
-              <button type="button" class="mode-tab" id="modeDobOnly">
-                <span class="icon">🔍</span>
-                <span>Find DOB Only</span>
-              </button>
-              <button type="button" class="mode-tab active" id="modeFindBoth">
-                <span class="icon">🎓</span>
-                <span>DOB + Result</span>
-              </button>
-            </div>
+          <!-- Scope Switcher: UNPG College (My Class) vs Universal DDU Finder -->
+          <div class="scope-nav-tabs">
+            <button type="button" class="scope-nav-tab active" id="tabScopeClass">
+              <span class="scope-tab-icon">🏫</span>
+              <span class="scope-tab-title">UNPG B.Sc. (My Class)</span>
+            </button>
+            <button type="button" class="scope-nav-tab" id="tabScopeUniversal">
+              <span class="scope-tab-icon">🌐</span>
+              <span class="scope-tab-title">Universal DDU Finder</span>
+            </button>
           </div>
 
-          <!-- Input Mode Tabs: Range vs Custom -->
-          <div class="form-group">
-            <div class="input-type-tabs">
-              <button type="button" class="input-tab active" id="tabRange">
-                <span>🔢 Sequential Range</span>
-              </button>
-              <button type="button" class="input-tab" id="tabCustom">
-                <span>📝 Custom Roll List</span>
-              </button>
-            </div>
-
-            <!-- Panel 1: Sequential Range -->
-            <div id="panelRange">
-              <div class="form-row">
-                <div>
-                  <label class="form-label" for="startRoll">Start Roll No</label>
-                  <input type="text" id="startRoll" class="form-control" placeholder="e.g. 2515075160001" value="2515075160001" autocomplete="off">
-                </div>
-                <div>
-                  <label class="form-label" for="endRoll">End Roll No</label>
-                  <input type="text" id="endRoll" class="form-control" placeholder="e.g. 2515075160010" value="2515075160005" autocomplete="off">
-                </div>
+          <!-- Panel A: UNPG College Padrauna (My Class) -->
+          <div id="panelScopeClass">
+            <!-- Class Info Banner -->
+            <div class="class-info-banner">
+              <div class="class-info-row">
+                <span class="label">College:</span>
+                <span class="val">Udit Narayan PG College, Padrauna</span>
               </div>
-              <div class="range-counter" id="rangeCount">
-                Generated: 5 Roll Numbers
+              <div class="class-info-row">
+                <span class="label">Class:</span>
+                <span class="val">B.Sc. · Batch 2024–2027</span>
+              </div>
+              <div class="class-info-row">
+                <span class="label">Current Status:</span>
+                <span class="status-pill">5th Semester (Enrolled)</span>
               </div>
             </div>
 
-            <!-- Panel 2: Custom List -->
-            <div id="panelCustom" style="display: none;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                <label class="form-label" for="customRolls" style="margin-bottom:0;">Enter Roll Numbers</label>
-                <button type="button" class="btn-pill" id="btnLoadSample" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">
-                  ⚡ Load Sample Rolls
+            <!-- Group Filter (Math only, Bio only, or All) -->
+            <div class="form-group">
+              <label class="form-label">
+                <span>Class Subject Group</span>
+                <span class="form-hint" id="groupCountBadge">399 Students</span>
+              </label>
+              <div class="group-filter-pills">
+                <button type="button" class="group-pill active" data-group="all" id="btnGroupAll">
+                  <span>👥 All (Math+Bio)</span>
+                  <span class="badge" id="badgeAllCount">399</span>
+                </button>
+                <button type="button" class="group-pill" data-group="Math" id="btnGroupMath">
+                  <span>📐 Math Only</span>
+                  <span class="badge" id="badgeMathCount">70</span>
+                </button>
+                <button type="button" class="group-pill" data-group="Bio" id="btnGroupBio">
+                  <span>🔬 Bio Only</span>
+                  <span class="badge" id="badgeBioCount">304</span>
                 </button>
               </div>
-              <textarea id="customRolls" class="form-control" placeholder="Enter roll numbers separated by commas, spaces, or newlines&#10;e.g. 2515075160004, 2515075160043"></textarea>
-              <div class="range-counter" id="customCount">
-                Detected: 0 Roll Numbers
-              </div>
             </div>
-          </div>
 
-          <!-- Examination Details -->
-          <div class="form-group">
-            <div class="form-row">
-              <div>
-                <label class="form-label" for="semesterSelect">Semester</label>
-                <select id="semesterSelect" class="form-select">
-                  <option value="1" selected>Semester 1</option>
-                  <option value="2">Semester 2</option>
-                  <option value="3">Semester 3</option>
-                  <option value="4">Semester 4</option>
-                  <option value="5">Semester 5</option>
-                  <option value="6">Semester 6</option>
-                  <option value="7">Semester 7</option>
-                  <option value="8">Semester 8</option>
-                </select>
-              </div>
-              <div>
-                <label class="form-label" for="monthFilter">
-                  <span>Month Filter</span>
-                  <span class="form-hint">Optional</span>
-                </label>
-                <select id="monthFilter" class="form-select">
-                  <option value="" selected>All 12 Months</option>
-                  <option value="1">1 - January</option>
-                  <option value="2">2 - February</option>
-                  <option value="3">3 - March</option>
-                  <option value="4">4 - April</option>
-                  <option value="5">5 - May</option>
-                  <option value="6">6 - June</option>
-                  <option value="7">7 - July</option>
-                  <option value="8">8 - August</option>
-                  <option value="9">9 - September</option>
-                  <option value="10">10 - October</option>
-                  <option value="11">11 - November</option>
-                  <option value="12">12 - December</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Advanced Accordion Toggle -->
-          <button type="button" class="accordion-toggle" id="btnToggleAdvanced">
-            <span>▼ Advanced Tuning (Priority Years & Workers)</span>
-          </button>
-
-          <div class="advanced-panel" id="advancedPanel">
+            <!-- Student Selection: By Roll No or Name -->
             <div class="form-group">
-              <label class="form-label" for="prioritySelect">Birth Year Priority Group</label>
-              <select id="prioritySelect" class="form-select">
-                <option value="group1" selected>Primary Group (2003–2008)</option>
-                <option value="group1_2">Primary + Secondary (1999–2010)</option>
-                <option value="all">All Groups (1996–2013)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="concurrencyInput">
-                <span>Concurrency Workers</span>
-                <span class="form-hint" id="concurrencyVal">25</span>
+              <label class="form-label">
+                <span>Student Lookup</span>
+                <span class="form-hint">By Name or Roll No</span>
               </label>
-              <input type="range" id="concurrencyInput" min="5" max="50" value="25" step="5" style="width: 100%;">
+              
+              <div class="student-search-box-wrap">
+                <div class="search-input-with-icon">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" id="classStudentSearch" class="form-control" placeholder="Search by name (e.g. Vaibhav, Deepika) or Roll No (e.g. 2515075160387)..." autocomplete="off">
+                  <button type="button" id="btnClearStudentSearch" class="btn-clear-search" style="display:none;" title="Clear search">&times;</button>
+                </div>
+                <div id="studentSearchResults" class="student-search-results" style="display: none;"></div>
+              </div>
+
+              <!-- Selected Student Card -->
+              <div id="selectedStudentCard" class="selected-student-card" style="display: none;">
+                <div class="card-avatar">🎓</div>
+                <div class="card-details">
+                  <div class="card-name-row">
+                    <strong id="cardStudentName">VAIBHAV PRIYADARSHI</strong>
+                    <span class="badge-stream math" id="cardStudentStream">Math</span>
+                  </div>
+                  <div class="card-meta-row">
+                    <span>Roll: <strong id="cardStudentRoll">2515075160387</strong></span>
+                    <span>DOB: <strong id="cardStudentDob">2003-06-12</strong></span>
+                  </div>
+                </div>
+                <button type="button" class="btn-remove-selected" id="btnDeselectStudent" title="Clear selected student">&times;</button>
+              </div>
+
+              <!-- Bulk Roster Checkbox -->
+              <div class="class-selection-mode-toggle">
+                <label class="switch-label">
+                  <input type="checkbox" id="chkFetchAllInGroup">
+                  <span>Fetch for ALL students in selected group (<span id="bulkGroupCount">399</span> students)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Semester Selection (Specific or more than one semester) -->
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <label class="form-label" style="margin-bottom:0;">
+                  <span>Semester(s) to Fetch</span>
+                  <span class="form-hint">Multi-select enabled</span>
+                </label>
+                <div class="semester-presets">
+                  <button type="button" class="btn-xs-preset" id="presetCurrentSem">5th Sem</button>
+                  <button type="button" class="btn-xs-preset" id="presetAllSem">All (1–5)</button>
+                  <button type="button" class="btn-xs-preset" id="presetSem1">1st Sem</button>
+                </div>
+              </div>
+
+              <div class="semester-checkboxes-grid">
+                <label class="sem-check-card">
+                  <input type="checkbox" name="classSemester" value="1" class="sem-checkbox">
+                  <div class="sem-card-body">
+                    <div class="sem-num">Sem 1</div>
+                    <div class="sem-date">Jul–Dec 2024</div>
+                  </div>
+                </label>
+
+                <label class="sem-check-card">
+                  <input type="checkbox" name="classSemester" value="2" class="sem-checkbox">
+                  <div class="sem-card-body">
+                    <div class="sem-num">Sem 2</div>
+                    <div class="sem-date">Jan–Jun 2025</div>
+                  </div>
+                </label>
+
+                <label class="sem-check-card">
+                  <input type="checkbox" name="classSemester" value="3" class="sem-checkbox">
+                  <div class="sem-card-body">
+                    <div class="sem-num">Sem 3</div>
+                    <div class="sem-date">Jul–Dec 2025</div>
+                  </div>
+                </label>
+
+                <label class="sem-check-card">
+                  <input type="checkbox" name="classSemester" value="4" class="sem-checkbox">
+                  <div class="sem-card-body">
+                    <div class="sem-num">Sem 4</div>
+                    <div class="sem-date">Jan–Jun 2026</div>
+                  </div>
+                </label>
+
+                <label class="sem-check-card current">
+                  <input type="checkbox" name="classSemester" value="5" class="sem-checkbox" checked>
+                  <div class="sem-card-body">
+                    <div class="sem-badge-current">CURRENT</div>
+                    <div class="sem-num">Sem 5</div>
+                    <div class="sem-date">Jul–Dec 2026</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Action Buttons for UNPG Class -->
+            <div class="btn-action-group">
+              <button type="button" class="btn-start" id="btnClassStart">
+                <span>🎓 Find & Display Class Results</span>
+                <span>→</span>
+              </button>
+              <button type="button" class="btn-control" id="btnClassReset" title="Reset class selection">
+                <span>🔄</span>
+              </button>
             </div>
           </div>
 
-          <!-- Execution Controls -->
-          <div class="btn-action-group">
-            <button type="button" class="btn-start" id="btnStart">
-              <span>🎓 Find DOB & Fetch Results</span>
-              <span>→</span>
+          <!-- Panel B: Universal DDU Finder (Other Colleges / Batches) -->
+          <div id="panelScopeUniversal" style="display: none;">
+            <!-- Target Mode Selection -->
+            <div class="form-group">
+              <label class="form-label">Search Action</label>
+              <div class="mode-selector">
+                <button type="button" class="mode-tab" id="modeDobOnly">
+                  <span class="icon">🔍</span>
+                  <span>Find DOB Only</span>
+                </button>
+                <button type="button" class="mode-tab active" id="modeFindBoth">
+                  <span class="icon">🎓</span>
+                  <span>DOB + Result</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Input Mode Tabs: Range vs Custom -->
+            <div class="form-group">
+              <div class="input-type-tabs">
+                <button type="button" class="input-tab active" id="tabRange">
+                  <span>🔢 Sequential Range</span>
+                </button>
+                <button type="button" class="input-tab" id="tabCustom">
+                  <span>📝 Custom Roll List</span>
+                </button>
+              </div>
+
+              <!-- Sequential Range -->
+              <div id="panelRange">
+                <div class="form-row">
+                  <div>
+                    <label class="form-label" for="startRoll">Start Roll No</label>
+                    <input type="text" id="startRoll" class="form-control" placeholder="e.g. 2515075160001" value="2515075160001" autocomplete="off">
+                  </div>
+                  <div>
+                    <label class="form-label" for="endRoll">End Roll No</label>
+                    <input type="text" id="endRoll" class="form-control" placeholder="e.g. 2515075160010" value="2515075160005" autocomplete="off">
+                  </div>
+                </div>
+                <div class="range-counter" id="rangeCount">
+                  Generated: 5 Roll Numbers
+                </div>
+              </div>
+
+              <!-- Custom List -->
+              <div id="panelCustom" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <label class="form-label" for="customRolls" style="margin-bottom:0;">Enter Roll Numbers</label>
+                  <button type="button" class="btn-pill" id="btnLoadSample" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">
+                    ⚡ Load Sample Rolls
+                  </button>
+                </div>
+                <textarea id="customRolls" class="form-control" placeholder="Enter roll numbers separated by commas, spaces, or newlines&#10;e.g. 2515075160004, 2515075160043"></textarea>
+                <div class="range-counter" id="customCount">
+                  Detected: 0 Roll Numbers
+                </div>
+              </div>
+            </div>
+
+            <!-- Examination Details -->
+            <div class="form-group">
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="semesterSelect">Semester</label>
+                  <select id="semesterSelect" class="form-select">
+                    <option value="1" selected>Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label" for="monthFilter">
+                    <span>Month Filter</span>
+                    <span class="form-hint">Optional</span>
+                  </label>
+                  <select id="monthFilter" class="form-select">
+                    <option value="" selected>All 12 Months</option>
+                    <option value="1">1 - January</option>
+                    <option value="2">2 - February</option>
+                    <option value="3">3 - March</option>
+                    <option value="4">4 - April</option>
+                    <option value="5">5 - May</option>
+                    <option value="6">6 - June</option>
+                    <option value="7">7 - July</option>
+                    <option value="8">8 - August</option>
+                    <option value="9">9 - September</option>
+                    <option value="10">10 - October</option>
+                    <option value="11">11 - November</option>
+                    <option value="12">12 - December</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Advanced Accordion Toggle -->
+            <button type="button" class="accordion-toggle" id="btnToggleAdvanced">
+              <span>▼ Advanced Tuning (Priority Years & Workers)</span>
             </button>
-            <button type="button" class="btn-control" id="btnPause" disabled title="Pause current execution">
-              <span>⏸️</span>
-            </button>
-            <button type="button" class="btn-control" id="btnStop" disabled title="Stop execution">
-              <span>⏹️</span>
-            </button>
-            <button type="button" class="btn-control" id="btnReset" title="Reset table and queue">
-              <span>🔄</span>
-            </button>
+
+            <div class="advanced-panel" id="advancedPanel">
+              <div class="form-group">
+                <label class="form-label" for="prioritySelect">Birth Year Priority Group</label>
+                <select id="prioritySelect" class="form-select">
+                  <option value="group1" selected>Primary Group (2003–2008)</option>
+                  <option value="group1_2">Primary + Secondary (1999–2010)</option>
+                  <option value="all">All Groups (1996–2013)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="concurrencyInput">
+                  <span>Concurrency Workers</span>
+                  <span class="form-hint" id="concurrencyVal">25</span>
+                </label>
+                <input type="range" id="concurrencyInput" min="5" max="50" value="25" step="5" style="width: 100%;">
+              </div>
+            </div>
+
+            <!-- Execution Controls -->
+            <div class="btn-action-group">
+              <button type="button" class="btn-start" id="btnStart">
+                <span>🎓 Find DOB & Fetch Results</span>
+                <span>→</span>
+              </button>
+              <button type="button" class="btn-control" id="btnPause" disabled title="Pause current execution">
+                <span>⏸️</span>
+              </button>
+              <button type="button" class="btn-control" id="btnStop" disabled title="Stop execution">
+                <span>⏹️</span>
+              </button>
+              <button type="button" class="btn-control" id="btnReset" title="Reset table and queue">
+                <span>🔄</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -293,12 +459,17 @@
       <section class="ddu-card results-card" aria-label="Discovered Results">
         <div class="results-toolbar">
           <div class="search-filter-wrap">
-            <input type="text" id="searchFilter" class="form-control" placeholder="Filter by roll number, student name, or date..." style="max-width: 320px;">
-            <select id="statusFilter" class="form-select" style="max-width: 180px;">
+            <input type="text" id="searchFilter" class="form-control" placeholder="Filter by roll number, student name, or date..." style="max-width: 300px;">
+            <select id="statusFilter" class="form-select" style="max-width: 155px;">
               <option value="all" selected>All Results</option>
               <option value="found">DOB Found</option>
               <option value="result">Marksheet Ready</option>
               <option value="not_found">Not Found</option>
+            </select>
+            <select id="tableStreamFilter" class="form-select" style="max-width: 135px;">
+              <option value="all" selected>All Groups</option>
+              <option value="Math">Math Only</option>
+              <option value="Bio">Bio Only</option>
             </select>
           </div>
 
@@ -326,13 +497,14 @@
             <thead>
               <tr>
                 <th style="width: 45px;">#</th>
-                <th style="width: 140px;">Roll Number</th>
+                <th style="width: 135px;">Roll Number</th>
                 <th>Student's Name</th>
-                <th style="width: 100px;">Semester</th>
-                <th style="width: 150px;">Date of Birth</th>
-                <th style="width: 100px;">SGPA</th>
-                <th style="width: 130px;">Result Status</th>
-                <th style="width: 110px;">Actions</th>
+                <th style="width: 85px;">Group</th>
+                <th style="width: 125px;">Semester(s)</th>
+                <th style="width: 130px;">Date of Birth</th>
+                <th style="width: 125px;">SGPA / CGPA</th>
+                <th style="width: 110px;">Result</th>
+                <th style="width: 105px;">Actions</th>
               </tr>
             </thead>
             <tbody id="resultsTableBody">
@@ -363,6 +535,8 @@
           <button type="button" class="modal-close" id="btnCloseModal" title="Close modal">&times;</button>
         </div>
       </div>
+      <!-- Semester switcher inside modal -->
+      <div class="modal-sem-tabs" id="modalSemTabs" style="display: none;"></div>
       <div class="modal-body" id="marksheetContent">
         <!-- Marksheet template injected here -->
       </div>

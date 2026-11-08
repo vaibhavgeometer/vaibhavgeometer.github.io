@@ -8,26 +8,35 @@ Built directly into the **Vaibhav Geometer Academic Section**, completely indepe
 
 ## 🌟 Key Features
 
-1. **Dual Search Modes**:
-   - **Sequential Range Search**: Enter starting and ending roll numbers (e.g. `2515075160001` to `2515075160050`) to automatically scan an entire class or batch. Uses 64-bit integer handling to preserve full 13-digit roll number precision with leading zeros.
-   - **Custom Roll List Search**: Input custom roll numbers separated by commas, spaces, or newlines. Includes a 1-click **Load Sample Rolls** button for testing.
+1. **Dedicated Scope Switcher**:
+   - **🏫 UNPG College B.Sc. (My Class)**:
+     - College: **Udit Narayan Post Graduate College, Padrauna (Kushi Nagar)**.
+     - Class: **Bachelor of Science (B.Sc.)**, Batch 2024–2027 (Currently in 5th Semester, started July 2024).
+     - **Search by Name or Roll Number**: Instant autocomplete filter matching any student in the 399-student database (e.g. typing `Vaibhav`, `Deepika`, `Aafreen`, or roll number digits).
+     - **Subject Group Filters**: Easily target **Mathematics Group only** (70 students), **Biology Group only** (304 students), or **All Groups** (399 students).
+     - **Multi-Semester Selection**: Fetch and calculate results for a specific semester (e.g., Sem 1, Sem 2, Sem 3, Sem 4, Sem 5) or **multiple semesters simultaneously** with automatic cumulative CGPA computation.
+     - **Interactive Grade Sheet Modal**: Marksheet modal includes dynamic semester tabs (`Sem 1`, `Sem 2`, `Sem 3`, `Sem 4`, `Sem 5`) to seamlessly inspect and print authentic grade sheets for any semester.
+   - **🌐 Universal DDU Finder (Other Colleges & Classes)**:
+     - Retains full universal scanning for any other DDU college, course (B.A., B.Com, M.Sc., etc.), or roll number sequence.
+     - Supports **Sequential Range Search** (BigInt safe for 13-digit roll numbers) and **Custom Roll List Search**.
+     - Brute-forces and validates student birth dates using interleaved priority years (2003–2008 primary, 1999–2010 extended).
 
 2. **Target Operations**:
-   - **Find DOB Only**: Efficiently brute-forces and validates student birth dates using interleaved priority years (2003–2008 primary, 1999–2010 extended).
-   - **Find DOB & Fetch Result**: Discovers the correct DOB and immediately downloads full semester marksheet details (Student Name, Father's Name, Mother's Name, Enrollment Number, College, Course, SGPA, CGPA, Result Status, and Subject-wise theory & practical marks).
+   - **Find DOB Only**: Efficiently discovers and validates student birth dates.
+   - **Find DOB & Fetch Result**: Retrieves full marksheet details (Student Name, Father's Name, Mother's Name, Enrollment Number, College, Course, SGPA, CGPA, Result Status, and Subject-wise theory & practical marks).
 
 3. **Real-time Live Progress & Metrics**:
    - Dynamic animated gradient progress bar with completion percentage.
-   - Real-time sub-progress tracking showing active candidate dates being tested for the current roll number.
+   - Real-time sub-progress tracking showing active candidate dates tested for the current roll number.
    - Stat counters: Total Enqueued, Processed, DOBs Found, Results Saved, Not Found, and Elapsed Timer.
    - Live activity log console.
 
 4. **Authentic Digital Marksheet Viewer**:
-   - View an authentic reproduction of the official DDU Grade Sheet.
+   - View an authentic reproduction of the official DDU Grade Sheet (NEP 2020 format).
    - 1-click **Print / Save as PDF** with custom print stylesheets.
 
 5. **Data Export Options**:
-   - **Export to Excel (.xlsx)**: Structured spreadsheet containing roll numbers, student names, DOBs, SGPA, CGPA, and results.
+   - **Export to Excel (.xlsx)**: Structured spreadsheet containing roll numbers, student names, group, DOBs, semester-wise SGPAs, and cumulative CGPA.
    - **Export to CSV**: Universal comma-separated values format.
    - **Copy All DOBs**: Copies all verified Roll Number & DOB pairs directly to clipboard.
    - **Export JSON**: Raw structured JSON for further script processing.
