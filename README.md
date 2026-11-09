@@ -16,12 +16,10 @@
 [![Mock PDFs](https://img.shields.io/badge/Mock%20Test%20PDFs-56%20Publication%20PDFs-indigo.svg)](academic/JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json)
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](academic/JAM/assets/iit_jam_pyqs_categorized.json)
 [![CUET-PG Archive](https://img.shields.io/badge/CUET--PG-2024--2026%20Papers-teal.svg)](academic/CUET-PG/)
-[![DDU Result Finder](https://img.shields.io/badge/DDU%20Result%20Finder-Automated%20DOB%20%26%20Results-emerald.svg)](academic/ddu-result-finder/)
 
-> **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring three flagship domains:
+> **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring two flagship domains:
 > 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator, alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
-> 2. **[DDU Result Finder — Automated DOB Locator & Result Saver](academic/ddu-result-finder/)**: High-speed examination automation suite for Deen Dayal Upadhyaya Gorakhpur University (DDUGU), supporting batch sequential roll range scanning, custom list discovery, interleaved priority date search, live dual progress tracking, authentic digital marksheet rendering, and Excel (`.xlsx`) / CSV / JSON export.
-> 3. **[mnk games — Free Online (m,n,k)-Games Platform & SOTA AI Engine](https://vaibhavgeometer.github.io/mnk-games/)**: Lichess-inspired dark-mode platform, advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$, $j=2..5$ players), calibrated $[-100, +100]$ win probability eval bar, horizon-free Chebyshev static board evaluation, transposition table with exact/lower/upper bound flags, open $(k-1)$ decisive threat heuristic, 8 calibrated engine difficulty tiers (600–3000 Elo), tournament arena (Round Robin & Knockouts), precision chess clocks with time forfeit detection, board editor with active frozen obstacle barriers (`#`), post-match full game computer analysis report, and verified Solved Status Atlas.
+> 2. **[mnk games — Free Online (m,n,k)-Games Platform & SOTA AI Engine](https://vaibhavgeometer.github.io/mnk-games/)**: Lichess-inspired dark-mode platform, advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$, $j=2..5$ players), calibrated $[-100, +100]$ win probability eval bar, horizon-free Chebyshev static board evaluation, transposition table with exact/lower/upper bound flags, open $(k-1)$ decisive threat heuristic, 8 calibrated engine difficulty tiers (600–3000 Elo), tournament arena (Round Robin & Knockouts), precision chess clocks with time forfeit detection, board editor with active frozen obstacle barriers (`#`), post-match full game computer analysis report, and verified Solved Status Atlas.
 
 ---
 
@@ -40,7 +38,6 @@
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Cheat Sheets](#-14-high-yield-formula-cheat-sheets) |
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
-| ⚡ **DDU Result Finder Portal** | Automated Date of Birth locator & result marksheet saver for DDU Gorakhpur University | [Open DDU Result Finder](https://vaibhavgeometer.github.io/academic/ddu-result-finder/) |
 | ♟️ **mnk games Platform Hub** | Lichess-style dark web platform with quick pairings, open lobby, and game creation | [vaibhavgeometer.github.io/mnk-games](https://vaibhavgeometer.github.io/mnk-games/) |
 | 🔍 **mnk SOTA Analysis Board** | Advanced $(m,n,k,j)$ board ($1\times 1$ to $32\times 32$), eval bar, MultiPV & full game reports | [Launch Analysis Board](https://vaibhavgeometer.github.io/mnk-games/board.html) |
 | ⚔️ **Offline Match Play & Clocks** | Competitive play vs AI (Levels 1–8) or human with precision clocks ($1+0$, $3+2$, $5+3$, $10+5$) | [Launch Play Mode](https://vaibhavgeometer.github.io/mnk-games/board.html#play) |
@@ -229,46 +226,6 @@
 
 ---
 
-### ⚡ Domain 3: DDU Result Finder & University Automation Suite
-
-#### 1. High-Speed Date of Birth (DOB) Locator (`dob-finder.py` implementation)
-- **Batch Sequential Roll Range Search**: Automatically iterates from a starting roll number to an ending roll number (e.g., `2515075160001` to `2515075160050`). Uses 64-bit `BigInt` precision in the browser, eliminating truncation or loss of precision for 13-digit university roll numbers.
-- **Custom Roll Number List**: Parse comma-separated, space-separated, or newline-separated roll numbers with automatic whitespace trimming and deduplication. Includes a **⚡ Load Sample Rolls** button for immediate verification.
-- **Interleaved Priority Year Generation**: Systematically tests candidate birth dates across three prioritized demographic age tiers:
-  - **Tier 1 (2003–2008)**: Primary focus for undergraduate/postgraduate student cohorts.
-  - **Tier 2 (1999–2002 & 2009–2010)**: Secondary extended bracket.
-  - **Tier 3 (1996–1998 & 2011–2013)**: Complete legacy bracket.
-- **Optional Birth Month Filter**: Users can filter candidates by birth month (1 to 12) if partially known, accelerating discovery speeds up to 12×.
-
-#### 2. Automated Result Fetcher & Marksheet Saver (`result-saver.py` implementation)
-- **Instant Result Scraping**: Once a student's DOB is located, automatically submits ASP.NET WebForm tokens, follows the redirect to `displayresult_new.aspx`, and parses complete examination records directly without requiring heavy headless browser dependencies.
-- **Parsed Student Metadata**: Extracts Student Name, Roll Number, Father's Name, Mother's Name, Enrollment Number, College / Institute Name, Course Name, Semester, SGPA, CGPA, Result Status (`PASSED`, `PROMOTED`, `FAILED`), Carry Over Papers, and Official Declaration Date.
-- **Detailed Subject Marks Breakdown**: Extracts Course Code, Course Title, External & Internal Theory Marks, Internal & External Practical Marks, Total Obtained Marks, Credits, Letter Grade, and Grade Points.
-
-#### 3. Real-Time Dual Progress Bars & Telemetry
-- **Overall Queue Progress**: Real-time animated gradient bar tracking `X / Y` completed roll numbers, percentage, elapsed timer, and active status.
-- **Active Roll Candidate Dates Bar**: Secondary progress bar visualizing candidate dates tested for the student currently in evaluation.
-- **Live Metric Cards**: Instant counters for Enqueued, Processed, DOBs Found, Results Saved, Not Found, and Elapsed Duration.
-- **Activity Stream Console**: Collapsible, timestamped diagnostic logs providing live visibility into network requests and discoveries.
-- **Playback Controls**: Interactive `Start`, `Pause`, `Stop`, and `Reset` buttons.
-
-#### 4. Authentic Marksheet Replica Viewer & Print Engine
-- **Authentic Grade Sheet Layout**: High-fidelity digital recreation of the official DDU Gorakhpur University semester marksheet.
-- **1-Click Print & PDF**: Custom `@media print` stylesheet optimized for standard letter and A4 paper output.
-
-#### 5. Multi-Format Data Export Suite
-- **Export to Excel (`.xlsx`)**: Formatted multi-column spreadsheet via SheetJS.
-- **Export to CSV**: Comma-separated values for database import or spreadsheet tools.
-- **Copy All DOBs**: 1-click clipboard copy of all discovered Roll Number and DOB pairs in tab-delimited format.
-- **Export JSON**: Complete structured data for downstream data science workflows.
-
-#### 6. Multi-Tier Architecture & Local Fast Bridge
-- **Local Fast Bridge Server (`ddu_bridge.py`)**: A lightweight `aiohttp` async bridge server running on `http://127.0.0.1:8765` capable of 100+ requests/sec with zero browser CORS limitations. The web portal automatically probes and binds to the bridge when launched.
-- **Cloudflare Worker Proxy (`cloudflare-worker/worker.js`)**: Serverless proxy script ready to deploy for purely browser-based hosting on GitHub Pages.
-- **Offline Simulation Mode**: Built-in realistic mock data generator allowing users to preview and test the full marksheet UI even when offline or when university servers are down.
-
----
-
 ## 📊 Complete Test Series Architecture (58 Tests Total)
 
 ```text
@@ -377,15 +334,6 @@ vaibhavgeometer.github.io/
 │
 ├── academic/                                  # 🎓 Academic & Examination Ecosystem
 │   ├── index.html                             # Academic hub & exam selector
-│   ├── ddu-result-finder/                     # ⚡ DDU Result Finder Web Portal & Local Bridge
-│   │   ├── index.html                         # Web portal UI with range & custom roll search
-│   │   ├── css/ddu.css                        # App stylesheet & authentic marksheet print layout
-│   │   ├── js/ddu_engine.js                   # Client-side search engine & queue controller
-│   │   ├── ddu_bridge.py                      # Local async bridge server (aiohttp, 100+ req/sec)
-│   │   ├── README.md                          # Portal documentation & quickstart guide
-│   │   └── cloudflare-worker/                 # Optional Cloudflare Worker proxy for CORS
-│   │       ├── worker.js
-│   │       └── wrangler.toml
 │   ├── JAM/                                   # Complete IIT JAM Mathematics Portal
 │   │   ├── index.html                         # Main JAM examination portal, test selector & tracker
 │   │   ├── countdown/                         # Live JAM 2027 countdown timer
@@ -462,14 +410,6 @@ npx serve .
 ### Option 3: Direct Browser File
 Simply double-click or open `index.html` directly in Chrome, Edge, Firefox, Brave, or Safari.
 
-### Option 4: DDU Local Fast Bridge Server
-To run the high-speed DOB discovery & result saver bridge locally with 100+ requests/sec:
-```bash
-cd academic/ddu-result-finder
-python ddu_bridge.py
-```
-The web portal automatically detects and binds to `http://127.0.0.1:8765`.
-
 ---
 
 ## 🔄 Data Pipeline & Compilation Scripts
@@ -502,15 +442,6 @@ This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generat
 ---
 
 ## 🚀 Recent Updates
-
-### November 2026 — DDU Result Finder Launch (Automated DOB Locator & Result Saver)
-- **Dedicated University Automation Subsection (`academic/ddu-result-finder/`)**: Launched a standalone, dedicated sub-website within the academic section for Deen Dayal Upadhyaya Gorakhpur University (DDUGU), kept completely isolated from JAM and CUET-PG portals.
-- **Sequential Range & Custom Roll Inputs**: Engineered two input modalities: sequential start-to-end roll range generation with 64-bit `BigInt` precision preserving 13-digit university formatting, and custom multi-line/comma-separated input with a 1-click sample dataset loader.
-- **Dual Execution Modes**: Flexible options to either "Find DOB Only" (lightweight verification) or "Find DOB & Fetch Result" (complete marksheet retrieval).
-- **Real-Time Dual Progress & Diagnostic Telemetry**: Deployed an overall queue progress bar alongside an active student candidate date scan bar, real-time metric cards (Enqueued, Processed, Found, Saved, Not Found, Elapsed Time), interactive playback controls (Start, Pause, Stop, Reset), and a timestamped live activity stream.
-- **Authentic Digital Marksheet Viewer**: Replicated official DDU Grade Sheets with full student details, SGPA, CGPA, pass/fail status, and course-by-course internal/external theory & practical marks. Includes formatted printing and PDF export via `@media print`.
-- **Complete Export Suite**: Seamless exports to Excel (`.xlsx` via SheetJS), CSV, raw JSON, and 1-click clipboard copy for discovered Roll No & DOB pairs.
-- **Local High-Speed Bridge (`ddu_bridge.py`) & Cloudflare Worker**: Built an asynchronous `aiohttp` bridge server enabling 100+ req/sec with zero browser CORS hurdles, complemented by a deployable Cloudflare Worker proxy for static hosting.
 
 ### November 2026 — Architecture Refactoring, Kebab-Case Routing & Asset Standardization
 - **Standardized Kebab-Case URL Routing (`mnk-games/`)**: Standardized repository directory and routing naming conventions from snake_case (`mnk_games/`) to modern web-standard kebab-case (`mnk-games/`). Updated all cross-navigation links, breadcrumbs, canonical meta tags, and internal references across the portal while preserving seamless backward-compatible automatic redirects in `404.html`.
