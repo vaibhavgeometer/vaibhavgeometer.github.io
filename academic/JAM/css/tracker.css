@@ -164,6 +164,21 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+}
+
+.topic-mini-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.topic-mini-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: var(--accent-dim);
 }
 
 .topic-mini-header {
@@ -194,7 +209,208 @@
   height: 100%;
   background: var(--accent);
   width: 0%;
-  transition: width 0.3s ease;
+  transition: width 0.35s ease;
+}
+
+/* Subtopic Progress Breakdown */
+.subtopic-progress-wrapper {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+
+.subtopic-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.subtopic-progress-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subtopic-progress-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subtopic-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.subtopic-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.subtopic-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.subtopic-tab {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+
+.subtopic-tab:hover {
+  border-color: var(--border-hover);
+  color: var(--text-main);
+}
+
+.subtopic-tab.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.subtopic-collapse-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+
+.subtopic-collapse-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-main);
+}
+
+.subtopic-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  transition: opacity 0.2s ease;
+}
+
+.subtopic-progress-grid.collapsed {
+  display: none !important;
+}
+
+.subtopic-mini-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+}
+
+.subtopic-mini-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.subtopic-mini-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: var(--accent-dim);
+}
+
+.subtopic-mini-card.parent-active {
+  border-color: rgba(129, 140, 248, 0.4);
+}
+
+.subtopic-mini-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.77rem;
+  margin-bottom: 5px;
+  gap: 6px;
+}
+
+.subtopic-mini-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+}
+
+.subtopic-mini-icon {
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+.subtopic-mini-title {
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subtopic-mini-stats {
+  font-size: 0.72rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.subtopic-count {
+  color: var(--text-secondary);
+}
+
+.subtopic-pct {
+  font-weight: 700;
+}
+
+.subtopic-mini-bar {
+  height: 5px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.subtopic-mini-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--radius-full);
+  transition: width 0.35s ease;
 }
 
 /* Difficulty Statistics Distribution */
@@ -2090,6 +2306,60 @@ body.hide-suggested-difficulty .is-suggested:not(.q-diff-badge-btn) {
   justify-content: space-between;
   font-size: 0.78rem;
   color: var(--text-secondary);
+}
+
+/* Mastery modal subtopics list */
+.mastery-subtopics-list {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.mastery-subtopic-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+}
+
+.mastery-subtopic-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.74rem;
+  margin-bottom: 4px;
+}
+
+.mastery-subtopic-title {
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mastery-subtopic-count {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+.mastery-subtopic-bar {
+  height: 4px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.mastery-subtopic-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
 }
 
 /* Target Simulator */

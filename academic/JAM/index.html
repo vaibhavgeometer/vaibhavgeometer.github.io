@@ -232,6 +232,33 @@
               <!-- Injected by pyq_tracker.js -->
             </div>
 
+            <!-- Subtopic Progress Breakdown -->
+            <div class="subtopic-progress-wrapper" id="subtopic-progress-wrapper">
+              <div class="subtopic-progress-header">
+                <div class="subtopic-progress-title-wrap">
+                  <span class="subtopic-progress-title">📚 Subtopic Progress</span>
+                  <span class="subtopic-badge" id="subtopic-total-badge">10 Subtopics</span>
+                </div>
+                <div class="subtopic-header-controls">
+                  <div class="subtopic-filter-tabs" id="subtopic-filter-tabs">
+                    <button type="button" class="subtopic-tab active" data-topic="ALL" onclick="window.JAM_TRACKER.filterSubtopicsView('ALL', this)">All (10)</button>
+                    <button type="button" class="subtopic-tab" data-topic="Real Analysis" onclick="window.JAM_TRACKER.filterSubtopicsView('Real Analysis', this)">Real Analysis (2)</button>
+                    <button type="button" class="subtopic-tab" data-topic="Multivariable Calculus and Differential Equations" onclick="window.JAM_TRACKER.filterSubtopicsView('Multivariable Calculus and Differential Equations', this)">Calculus &amp; ODE (3)</button>
+                    <button type="button" class="subtopic-tab" data-topic="Linear Algebra and Algebra" onclick="window.JAM_TRACKER.filterSubtopicsView('Linear Algebra and Algebra', this)">Linear Algebra &amp; Groups (4)</button>
+                    <button type="button" class="subtopic-tab" data-topic="Out of Syllabus" onclick="window.JAM_TRACKER.filterSubtopicsView('Out of Syllabus', this)">Out of Syllabus (1)</button>
+                  </div>
+                  <button type="button" class="subtopic-collapse-btn" id="btn-subtopic-collapse" onclick="window.JAM_TRACKER.toggleSubtopicsCollapse()" title="Toggle subtopics display">
+                    <span id="subtopic-collapse-icon">▲</span> <span id="subtopic-collapse-text">Hide</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Subtopic Progress Mini-Grid -->
+              <div class="subtopic-progress-grid" id="subtopic-progress-mini-grid">
+                <!-- Injected by pyq_tracker.js -->
+              </div>
+            </div>
+
             <!-- Difficulty Distribution -->
             <div class="difficulty-dist-row" id="difficulty-dist-pills">
               <!-- Injected by pyq_tracker.js -->

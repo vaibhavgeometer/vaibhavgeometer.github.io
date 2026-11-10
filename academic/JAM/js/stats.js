@@ -129,7 +129,7 @@
           year: qMeta.year || 0,
           q_num: qMeta.question_number || 0,
           topic: qMeta.topic || 'Other',
-          subtopic: qMeta.subtopic || 'General',
+          subtopic: qMeta.sub_topic || qMeta.subtopic || 'General',
           isOOS: qMeta.topic === 'Out of Syllabus',
           solvedAt: solvedDate,
           difficulty: uState.difficulty || null
@@ -310,6 +310,24 @@
       }
     });
 
+    const subtopicStats = {
+      'Sequences and Series of Real Numbers': { code: '1.1', name: 'Sequences & Series', topic: 'Real Analysis', total: 131, solved: 0 },
+      'Functions of One Real Variable': { code: '1.2', name: 'Functions of 1 Var', topic: 'Real Analysis', total: 155, solved: 0 },
+      'Functions of Two or Three Real Variables': { code: '2.1', name: 'Several Variables', topic: 'Multivariable Calculus and Differential Equations', total: 78, solved: 0 },
+      'Integral Calculus': { code: '2.2', name: 'Integral Calculus', topic: 'Multivariable Calculus and Differential Equations', total: 66, solved: 0 },
+      'Differential Equations': { code: '2.3', name: 'Differential Eqs', topic: 'Multivariable Calculus and Differential Equations', total: 113, solved: 0 },
+      'Basic algebra': { code: '3.1', name: 'Basic Algebra', topic: 'Linear Algebra and Algebra', total: 3, solved: 0 },
+      'Matrices': { code: '3.2', name: 'Matrices & Systems', topic: 'Linear Algebra and Algebra', total: 75, solved: 0 },
+      'Finite Dimensional Vector Spaces': { code: '3.3', name: 'Vector Spaces', topic: 'Linear Algebra and Algebra', total: 76, solved: 0 },
+      'Groups': { code: '3.4', name: 'Group Theory', topic: 'Linear Algebra and Algebra', total: 101, solved: 0 },
+      'Out of Syllabus': { code: '4.1', name: 'Classical Out of Syllabus', topic: 'Out of Syllabus', total: 87, solved: 0 }
+    };
+    solvedList.forEach(item => {
+      if (subtopicStats[item.subtopic]) {
+        subtopicStats[item.subtopic].solved++;
+      }
+    });
+
     // 7. Today & This Week Specific Counts
     const todaySolved = dailyMap[todayKey]?.newSolved || 0;
     const yesterdaySolved = dailyMap[yesterdayKey]?.newSolved || 0;
@@ -378,6 +396,7 @@
       weekly: weeklyListDesc,
       monthly: monthlyListDesc,
       topicStats: topicStats,
+      subtopicStats: subtopicStats,
       recentDailyPace: recentDailyPace.toFixed(1),
       daysToFinish: daysToFinish,
       estimatedFinishDate: estimatedFinishDate.toLocaleDateString('en-IN', {
@@ -801,6 +820,25 @@
                   <div class="mastery-card-footer">
                     <span>${pct}% completed</span>
                     <span style="color:var(--text-muted);">${remaining} questions left</span>
+                  </div>
+
+                  <div class="mastery-subtopics-list">
+                    ${Object.entries(data.subtopicStats || {})
+                      .filter(([stName, st]) => st.topic === topicName)
+                      .map(([stName, st]) => {
+                        const stPct = st.total > 0 ? Math.round((st.solved / st.total) * 100) : 0;
+                        return `
+                          <div class="mastery-subtopic-item">
+                            <div class="mastery-subtopic-info">
+                              <span class="mastery-subtopic-title" title="${stName}">${st.code} ${st.name}</span>
+                              <span class="mastery-subtopic-count">${st.solved}/${st.total} (${stPct}%)</span>
+                            </div>
+                            <div class="mastery-subtopic-bar">
+                              <div class="mastery-subtopic-fill" style="width: ${stPct}%;"></div>
+                            </div>
+                          </div>
+                        `;
+                      }).join('')}
                   </div>
                 </div>
               `;

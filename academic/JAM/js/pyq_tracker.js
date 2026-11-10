@@ -82,6 +82,117 @@
     ]
   };
 
+  // Subtopic configuration metadata
+  const SUBTOPIC_CONFIG = {
+    'Sequences and Series of Real Numbers': {
+      code: '1.1',
+      shortName: 'Sequences & Series',
+      fullName: 'Sequences and Series of Real Numbers',
+      topic: 'Real Analysis',
+      topicShort: 'Real Analysis',
+      icon: '🔢',
+      color: '#3b82f6',
+      order: 1
+    },
+    'Functions of One Real Variable': {
+      code: '1.2',
+      shortName: 'Functions of 1 Var',
+      fullName: 'Functions of One Real Variable',
+      topic: 'Real Analysis',
+      topicShort: 'Real Analysis',
+      icon: '📈',
+      color: '#3b82f6',
+      order: 2
+    },
+    'Functions of Two or Three Real Variables': {
+      code: '2.1',
+      shortName: 'Several Variables',
+      fullName: 'Functions of Several Real Variables',
+      topic: 'Multivariable Calculus and Differential Equations',
+      topicShort: 'Calculus & ODE',
+      icon: '🌐',
+      color: '#10b981',
+      order: 3
+    },
+    'Integral Calculus': {
+      code: '2.2',
+      shortName: 'Integral Calculus',
+      fullName: 'Integral Calculus',
+      topic: 'Multivariable Calculus and Differential Equations',
+      topicShort: 'Calculus & ODE',
+      icon: '∬',
+      color: '#10b981',
+      order: 4
+    },
+    'Differential Equations': {
+      code: '2.3',
+      shortName: 'Differential Eqs (ODE)',
+      fullName: 'Ordinary Differential Equations',
+      topic: 'Multivariable Calculus and Differential Equations',
+      topicShort: 'Calculus & ODE',
+      icon: '🧮',
+      color: '#10b981',
+      order: 5
+    },
+    'Basic algebra': {
+      code: '3.1',
+      shortName: 'Basic Algebra',
+      fullName: 'Basic Algebra (P&C, Binomial)',
+      topic: 'Linear Algebra and Algebra',
+      topicShort: 'Linear Algebra & Groups',
+      icon: '📐',
+      color: '#8b5cf6',
+      order: 6
+    },
+    'Matrices': {
+      code: '3.2',
+      shortName: 'Matrices & Systems',
+      fullName: 'Matrices and Systems of Linear Equations',
+      topic: 'Linear Algebra and Algebra',
+      topicShort: 'Linear Algebra & Groups',
+      icon: '🔲',
+      color: '#8b5cf6',
+      order: 7
+    },
+    'Finite Dimensional Vector Spaces': {
+      code: '3.3',
+      shortName: 'Vector Spaces',
+      fullName: 'Finite Dimensional Vector Spaces',
+      topic: 'Linear Algebra and Algebra',
+      topicShort: 'Linear Algebra & Groups',
+      icon: '🌌',
+      color: '#8b5cf6',
+      order: 8
+    },
+    'Groups': {
+      code: '3.4',
+      shortName: 'Group Theory',
+      fullName: 'Groups and Group Theory',
+      topic: 'Linear Algebra and Algebra',
+      topicShort: 'Linear Algebra & Groups',
+      icon: '🔄',
+      color: '#8b5cf6',
+      order: 9
+    },
+    'Out of Syllabus': {
+      code: '4.1',
+      shortName: 'Classical Out of Syllabus',
+      fullName: 'Classical Out of Syllabus Topics (2005–2021)',
+      topic: 'Out of Syllabus',
+      topicShort: 'Out of Syllabus',
+      icon: '⚠️',
+      color: '#f59e0b',
+      order: 10
+    }
+  };
+
+  const TOPIC_COLORS = {
+    'Real Analysis': '#3b82f6',
+    'Multivariable Calculus and Differential Equations': '#10b981',
+    'Linear Algebra and Algebra': '#8b5cf6',
+    'Out of Syllabus': '#f59e0b'
+  };
+
   // State object
   const state = {
     masterQuestions: [],
@@ -98,6 +209,8 @@
     selectedSort: 'default', // default (year desc, q_num asc) | year_asc | diff_desc | diff_asc
     revealedKeys: new Set(),
     customIdFilter: null,
+    subtopicFilterView: 'ALL',
+    subtopicsCollapsed: false,
     userData: {
       questions: {},
       oosMarkedUnnecessary: false
@@ -260,6 +373,13 @@
       topicStats[t] = { total: 0, solved: 0 };
     }
 
+    const subtopicStats = {};
+    for (const [topic, subList] of Object.entries(TOPIC_SUBTOPICS_MAP)) {
+      subList.forEach(st => {
+        subtopicStats[st] = { total: 0, solved: 0, unnecessary: 0 };
+      });
+    }
+
     state.masterQuestions.forEach(q => {
       const u = getQuestionState(q.id);
       const isSolved = !!u.solved;
@@ -283,6 +403,12 @@
         topicStats[q.topic].total++;
         if (isSolved) topicStats[q.topic].solved++;
       }
+
+      if (subtopicStats[q.sub_topic]) {
+        subtopicStats[q.sub_topic].total++;
+        if (isSolved) subtopicStats[q.sub_topic].solved++;
+        if (isUnnecessary) subtopicStats[q.sub_topic].unnecessary++;
+      }
     });
 
     const isOOSExcluded = state.userData.oosMarkedUnnecessary;
@@ -304,7 +430,8 @@
       exactPercentage,
       isOOSExcluded,
       diffCounts,
-      topicStats
+      topicStats,
+      subtopicStats
     };
   }
 
@@ -388,14 +515,75 @@
         const shortName = topicName === 'Multivariable Calculus and Differential Equations'
           ? 'Calculus & ODE'
           : (topicName === 'Linear Algebra and Algebra' ? 'Linear Algebra & Groups' : topicName);
+        const color = TOPIC_COLORS[topicName] || 'var(--accent)';
+        const isTopicActive = state.selectedTopic === topicName;
         return `
-          <div class="topic-mini-card">
+          <div class="topic-mini-card ${isTopicActive ? 'active' : ''}" 
+               onclick="window.JAM_TRACKER.clickTopicCard('${topicName.replace(/'/g, "\\'")}')" 
+               title="Click to filter questions by ${topicName}">
             <div class="topic-mini-header">
               <span class="topic-mini-title" title="${topicName}">${shortName}</span>
               <span>${ts.solved}/${ts.total} (${pct}%)</span>
             </div>
             <div class="topic-mini-bar">
-              <div class="topic-mini-fill" style="width: ${pct}%"></div>
+              <div class="topic-mini-fill" style="width: ${pct}%; background: ${color};"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Subtopic Mini-Bars
+    const subtopicContainer = document.getElementById('subtopic-progress-mini-grid');
+    if (subtopicContainer) {
+      const activeFilter = state.subtopicFilterView || 'ALL';
+      const entries = Object.entries(SUBTOPIC_CONFIG)
+        .sort((a, b) => a[1].order - b[1].order)
+        .filter(([stKey, meta]) => {
+          if (activeFilter === 'ALL') return true;
+          return meta.topic === activeFilter;
+        });
+
+      // Update badge
+      const badge = document.getElementById('subtopic-total-badge');
+      if (badge) {
+        badge.textContent = `${entries.length} Subtopic${entries.length === 1 ? '' : 's'}`;
+      }
+
+      // Update filter tabs
+      const tabs = document.querySelectorAll('.subtopic-tab');
+      tabs.forEach(t => {
+        const dt = t.getAttribute('data-topic');
+        if (dt === activeFilter) {
+          t.classList.add('active');
+        } else {
+          t.classList.remove('active');
+        }
+      });
+
+      subtopicContainer.innerHTML = entries.map(([stKey, meta]) => {
+        const st = stats.subtopicStats[stKey] || { solved: 0, total: 0 };
+        const pct = st.total > 0 ? Math.round((st.solved / st.total) * 100) : 0;
+        const isSelected = state.selectedSubtopic === stKey;
+        const isParentActive = state.selectedTopic === meta.topic && state.selectedSubtopic === 'ALL';
+        const isOOSExcluded = stats.isOOSExcluded && stKey === 'Out of Syllabus';
+
+        return `
+          <div class="subtopic-mini-card ${isSelected ? 'active' : ''} ${isParentActive ? 'parent-active' : ''}" 
+               onclick="window.JAM_TRACKER.clickSubtopicCard('${stKey.replace(/'/g, "\\'")}')" 
+               title="Click to filter questions by ${meta.fullName} (${st.solved}/${st.total} solved)">
+            <div class="subtopic-mini-header">
+              <div class="subtopic-mini-left">
+                <span class="subtopic-mini-icon">${meta.icon}</span>
+                <span class="subtopic-mini-title">${meta.code} ${meta.shortName}</span>
+              </div>
+              <div class="subtopic-mini-stats">
+                <span class="subtopic-count">${st.solved}/${st.total}</span>
+                <span class="subtopic-pct" style="color: ${meta.color};">${isOOSExcluded ? '🚫 0%' : `${pct}%`}</span>
+              </div>
+            </div>
+            <div class="subtopic-mini-bar">
+              <div class="subtopic-mini-fill" style="width: ${isOOSExcluded ? 0 : pct}%; background: ${meta.color};"></div>
             </div>
           </div>
         `;
@@ -1227,6 +1415,7 @@
       state.selectedSort = 'default';
       state.customIdFilter = null;
       state.currentPage = 1;
+      state.subtopicFilterView = 'ALL';
 
       if (window.JAM_LOGGER) {
         window.JAM_LOGGER.logAction('FILTER_RESET', 'Cleared all filters and reset to default view');
@@ -1255,6 +1444,76 @@
 
       updateSubtopicDropdown();
       applyFiltersAndRender();
+    },
+
+    // Interactive card clicks for Topics & Subtopics
+    clickTopicCard: function(topicName) {
+      if (state.selectedTopic === topicName) {
+        state.selectedTopic = 'ALL';
+      } else {
+        state.selectedTopic = topicName;
+      }
+      state.selectedSubtopic = 'ALL';
+      state.currentPage = 1;
+
+      const topSelect = document.getElementById('filter-topic-select');
+      if (topSelect) topSelect.value = state.selectedTopic;
+
+      updateSubtopicDropdown();
+      applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('CLICK_TOPIC_CARD', `Clicked topic card: "${state.selectedTopic}"`);
+      }
+    },
+
+    clickSubtopicCard: function(subtopicName) {
+      const meta = SUBTOPIC_CONFIG[subtopicName];
+      if (state.selectedSubtopic === subtopicName) {
+        state.selectedSubtopic = 'ALL';
+      } else {
+        if (meta && meta.topic) {
+          state.selectedTopic = meta.topic;
+          const topSelect = document.getElementById('filter-topic-select');
+          if (topSelect) topSelect.value = meta.topic;
+          updateSubtopicDropdown();
+        }
+        state.selectedSubtopic = subtopicName;
+      }
+      state.currentPage = 1;
+
+      const subSelect = document.getElementById('filter-subtopic-select');
+      if (subSelect) subSelect.value = state.selectedSubtopic;
+
+      applyFiltersAndRender();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('CLICK_SUBTOPIC_CARD', `Clicked subtopic card: "${state.selectedSubtopic}"`);
+      }
+    },
+
+    filterSubtopicsView: function(topicVal, btnEl) {
+      state.subtopicFilterView = topicVal;
+      updateProgressUI();
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_SUBTOPICS_VIEW', `Filtered subtopics display to: "${topicVal}"`);
+      }
+    },
+
+    toggleSubtopicsCollapse: function() {
+      state.subtopicsCollapsed = !state.subtopicsCollapsed;
+      const grid = document.getElementById('subtopic-progress-mini-grid');
+      const icon = document.getElementById('subtopic-collapse-icon');
+      const text = document.getElementById('subtopic-collapse-text');
+      if (grid) {
+        if (state.subtopicsCollapsed) {
+          grid.classList.add('collapsed');
+          if (icon) icon.textContent = '▼';
+          if (text) text.textContent = 'Show (10)';
+        } else {
+          grid.classList.remove('collapsed');
+          if (icon) icon.textContent = '▲';
+          if (text) text.textContent = 'Hide';
+        }
+      }
     },
 
     // Navigation and Pagination
