@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNPG BSc Math 2024-2028 Results — Examination Portal</title>
+  <meta name="description" content="Official examination results, student profiles, semester grade sheets, subject analytics, and merit rankings for UNPG Padrauna BSc Mathematics (2024–2028).">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/portfolio.css">
+  <link rel="stylesheet" href="css/results.css">
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-nav">
+    <div class="container nav-inner" style="max-width:1180px;">
+      <a href="../../" class="brand-wrap" title="Vaibhav Geometer">
+        <div class="brand-icon-box">📐</div>
+        <span class="brand-text">Vaibhav Geometer</span>
+      </a>
+      <div class="nav-controls">
+        <a href="../" class="nav-link">Academic Hub</a>
+        <a href="../JAM/" class="nav-link">IIT JAM</a>
+        <a href="../../mnk-games/" class="nav-link">(m,n,k) Games</a>
+        <a href="../../" class="nav-link">Home</a>
+        <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Portal Content -->
+  <main class="main-content">
+    <div class="results-container">
+      
+      <!-- Hero -->
+      <section class="unpg-hero">
+        <div class="unpg-badge">🏛️ UNPG Padrauna · DDU Gorakhpur University</div>
+        <h1 class="unpg-title">UNPG BSc Math 2024–2028 Results</h1>
+        <p class="unpg-subtitle">
+          Comprehensive student grade sheets, 4-semester combined scorecards, merit rankings, and in-depth subject analytics for Bachelor of Science (Mathematics Group).
+        </p>
+      </section>
+
+      <!-- Key Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric-pill-card">
+          <div class="metric-icon">👥</div>
+          <div class="metric-data">
+            <span class="metric-val">70</span>
+            <span class="metric-label">Total Students</span>
+          </div>
+        </div>
+
+        <div class="metric-pill-card">
+          <div class="metric-icon emerald">🎓</div>
+          <div class="metric-data">
+            <span class="metric-val">62</span>
+            <span class="metric-label">Completed 4 Sems</span>
+          </div>
+        </div>
+
+        <div class="metric-pill-card">
+          <div class="metric-icon gold">👑</div>
+          <div class="metric-data">
+            <span class="metric-val">7.88</span>
+            <span class="metric-label">Highest CGPA (Ravi)</span>
+          </div>
+        </div>
+
+        <div class="metric-pill-card">
+          <div class="metric-icon purple">📊</div>
+          <div class="metric-data">
+            <span class="metric-val">8.26</span>
+            <span class="metric-label">Peak SGPA (Sem 3)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="portal-tabs" role="tablist">
+        <button class="portal-tab-btn active" data-tab="search" role="tab">
+          <span>🔍 Find Student Result</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="toppers" role="tab">
+          <span>🏆 Toppers &amp; Rankings</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="semesters" role="tab">
+          <span>📅 Semester Overviews</span>
+          <span class="tab-badge">4 Sems</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="subjects" role="tab">
+          <span>📚 Subject Profiles</span>
+          <span class="tab-badge">42 Courses</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="downloads" role="tab">
+          <span>📁 Master PDFs</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Search & Find Results -->
+      <section id="tab-search" class="tab-panel active">
+        <div class="search-box-wrap">
+          <div class="search-form">
+            <div class="search-input-group">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" class="search-input" placeholder="Enter last 3 digits of roll no (e.g. 387), full roll number, or student name..." autocomplete="off">
+              <button id="search-clear-btn" class="search-clear-btn" title="Clear search">✕</button>
+            </div>
+            <button id="search-btn" class="search-btn">
+              <span>Search</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="search-chips">
+            <span style="color:var(--text-muted);font-weight:600;">Quick searches:</span>
+            <button class="search-chip" data-query="387">Suffix #387</button>
+            <button class="search-chip" data-query="004">Suffix #004</button>
+            <button class="search-chip" data-query="043">Suffix #043</button>
+            <button class="search-chip" data-query="359">Suffix #359</button>
+            <button class="search-chip" data-query="388">Suffix #388</button>
+            <button class="search-chip" data-query="Vaibhav">Vaibhav</button>
+            <button class="search-chip" data-query="Aastha">Aastha</button>
+            <button class="search-chip" data-query="Divyanka">Divyanka</button>
+            <button class="search-chip" data-query="Ravi">Ravi</button>
+          </div>
+        </div>
+
+        <div class="results-header-bar">
+          <div id="search-results-count" class="results-count">Loading students...</div>
+          <div>
+            <select id="status-filter" class="filter-select">
+              <option value="all">All Students (70)</option>
+              <option value="completed">Completed 4 Semesters (62)</option>
+              <option value="discontinued">Discontinued / Left (8)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Student Cards Grid -->
+        <div id="students-grid" class="students-grid"></div>
+
+        <!-- Empty State -->
+        <div id="search-empty" class="empty-results" style="display:none;">
+          <div class="empty-icon">🔎</div>
+          <h3 style="color:var(--text-primary);font-size:1.25rem;margin-bottom:0.5rem;">No matching student found</h3>
+          <p>Please double-check the 3-digit suffix, full roll number, or spelling of the name.</p>
+        </div>
+      </section>
+
+      <!-- Tab 2: Toppers & Rankings -->
+      <section id="tab-toppers" class="tab-panel">
+        <div class="topper-subtabs">
+          <button class="subtab-btn active" data-subtab="overall">👑 Overall CGPA Toppers</button>
+          <button class="subtab-btn" data-subtab="sem-1">Semester 1 SGPA</button>
+          <button class="subtab-btn" data-subtab="sem-2">Semester 2 SGPA</button>
+          <button class="subtab-btn" data-subtab="sem-3">Semester 3 SGPA</button>
+          <button class="subtab-btn" data-subtab="sem-4">Semester 4 SGPA</button>
+          <button class="subtab-btn" data-subtab="subjects">📚 Subject-wise Toppers</button>
+        </div>
+
+        <div id="toppers-view-container"></div>
+      </section>
+
+      <!-- Tab 3: Semester Overviews -->
+      <section id="tab-semesters" class="tab-panel">
+        <div class="semester-selector-grid">
+          <div class="sem-select-card active" data-sem="1">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester I</span>
+              <span class="sem-pill completed">70 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2024–25</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>5.25</strong> · Top: <strong style="color:#f59e0b;">8.13</strong></div>
+          </div>
+
+          <div class="sem-select-card" data-sem="2">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester II</span>
+              <span class="sem-pill completed">65 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2024–25</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>5.99</strong> · Top: <strong style="color:#f59e0b;">7.74</strong></div>
+          </div>
+
+          <div class="sem-select-card" data-sem="3">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester III</span>
+              <span class="sem-pill completed">62 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2025–26</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>6.40</strong> · Top: <strong style="color:#f59e0b;">8.26</strong></div>
+          </div>
+
+          <div class="sem-select-card" data-sem="4">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester IV</span>
+              <span class="sem-pill completed">62 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2025–26</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>6.86</strong> · Top: <strong style="color:#f59e0b;">8.13</strong></div>
+          </div>
+        </div>
+
+        <div id="semester-detail-container"></div>
+      </section>
+
+      <!-- Tab 4: Subject Profiles -->
+      <section id="tab-subjects" class="tab-panel">
+        <div class="subject-filter-bar">
+          <select id="subject-sem-filter" class="filter-select">
+            <option value="all">All Semesters (1 to 4)</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+          </select>
+
+          <select id="subject-group-filter" class="filter-select">
+            <option value="all">All Disciplines</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Physical Education">Physical Education</option>
+            <option value="General">Ability Enhancement (AEC)</option>
+            <option value="Computer Science">Skill Enhancement (SEC)</option>
+            <option value="Botany">Botany</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Zoology">Zoology</option>
+            <option value="Environmental Science">Environmental Science</option>
+          </select>
+        </div>
+
+        <div id="subject-cards-grid" class="subject-cards-grid"></div>
+      </section>
+
+      <!-- Tab 5: Master Downloads -->
+      <section id="tab-downloads" class="tab-panel">
+        <div style="margin-bottom:2rem;text-align:center;">
+          <h2 style="font-family:var(--font-heading);font-size:1.75rem;color:var(--text-primary);margin-bottom:0.5rem;">
+            Official Semester Master PDFs
+          </h2>
+          <p style="color:var(--text-secondary);max-width:640px;margin:0 auto;">
+            Original compilation PDFs downloaded directly from the Deen Dayal Upadhyaya Gorakhpur University result portal.
+          </p>
+        </div>
+
+        <div class="downloads-grid">
+          <!-- Sem 1 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester I</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2024–25 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>70 Students</strong></span>
+                <span>• File Size: <strong>~7.29 MB</strong></span>
+                <span>• Declared: <strong>29-03-2025</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_1.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+
+          <!-- Sem 2 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester II</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2024–25 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>65 Students</strong></span>
+                <span>• File Size: <strong>~6.79 MB</strong></span>
+                <span>• Declared: <strong>27-06-2025</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_2.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+
+          <!-- Sem 3 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester III</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2025–26 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>62 Students</strong></span>
+                <span>• File Size: <strong>~6.42 MB</strong></span>
+                <span>• Declared: <strong>27-02-2026</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_3.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+
+          <!-- Sem 4 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester IV</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2025–26 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>62 Students</strong></span>
+                <span>• File Size: <strong>~6.57 MB</strong></span>
+                <span>• Declared: <strong>31-07-2026</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_4.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Profile Modal Backdrop -->
+  <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true">
+    <div id="modal-content" class="modal-window"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner" style="max-width:1180px;">
+      <p>© 2026 Vaibhav Geometer · UNPG BSc Math 2024–2028 Results Portal</p>
+      <div class="footer-links">
+        <a href="../">Academic Hub</a>
+        <a href="../JAM/">IIT JAM</a>
+        <a href="../../mnk-games/">MNK Games</a>
+        <a href="../../">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Theme Script -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('jam_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    })();
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = theme === 'dark' ? '☀' : '🌙';
+    }
+
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('jam_theme', next);
+      updateThemeIcon(next);
+    };
+  </script>
+
+  <!-- Data & App Logic Scripts -->
+  <script src="js/results_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academic Portals — IIT JAM & CUET-PG — Vaibhav Geometer</title>
-  <meta name="description" content="Official academic portal for IIT JAM Mathematics (MA) 22-Year Archive (2005-2026) and CUET-PG Mathematics.">
+  <title>Academic Portals &amp; Results — Vaibhav Geometer</title>
+  <meta name="description" content="Academic & Examination Hub: UNPG BSc Math 2024-2028 Results Portal, IIT JAM Mathematics (MA) 22-Year Archive (2005-2026), and CUET-PG Mathematics.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,9 +109,11 @@
         <span class="brand-text">Vaibhav Geometer</span>
       </a>
       <div class="nav-controls">
-        <a href="JAM/" class="nav-link">IIT JAM Portal</a>
+        <a href="unpg-results/" class="nav-link">UNPG Results</a>
+        <a href="JAM/" class="nav-link">IIT JAM</a>
         <a href="../mnk-games/" class="nav-link">(m,n,k) Games</a>
         <a href="../" class="nav-link">Home</a>
+        <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
       </div>
     </div>
   </header>
@@ -120,69 +122,145 @@
     <div class="container">
       <section class="hero-simple">
         <h1 class="hero-title">Academic &amp; Examination Portals</h1>
-        <p class="hero-desc">Dedicated portals for IIT JAM Mathematics (MA) and CUET-PG Mathematics.</p>
+        <p class="hero-desc">Dedicated portals for university degree examination records, academic analytics, and postgraduate competitive exam preparation.</p>
       </section>
 
-      <div class="academic-grid">
-        <!-- IIT JAM -->
-        <div class="academic-card">
+      <!-- Section A: University Degree Examination (Separated) -->
+      <section style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <span style="font-size: 1.25rem;">🏛️</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-primary); font-weight: 700;">
+            University Degree Examinations &amp; Records
+          </h2>
+        </div>
+
+        <div class="academic-card" style="border-color: rgba(56, 189, 248, 0.35); background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, var(--bg-card) 100%);">
           <div>
-            <div class="jam-badge badge-mb">Major Portal</div>
-            <h2 class="card-title">
-              IIT JAM Mathematics (MA) Portal
-            </h2>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div class="jam-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3);">
+                UNPG Padrauna · Batch 2024–2028
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">DDU Gorakhpur University</span>
+            </div>
+
+            <h3 class="card-title" style="font-size: 1.65rem;">
+              UNPG BSc Math 2024–2028 Results
+            </h3>
             <p class="card-desc">
-              Comprehensive 22-year study ecosystem (2005–2026), 885 official PYQs, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and full authentic CBT exam simulator.
+              Official scorecards, student profiles, semester grade sheets, and analytical merit rankings for Bachelor of Science (Mathematics Group) NEP 2020 4-Year Undergraduate Program across Semesters I, II, III, and IV.
             </p>
+
+            <ul class="paper-list" style="margin: 1.25rem 0;">
+              <li>
+                <span class="paper-name">🔍 Instant Student Result Finder</span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Search by name, full roll, or 3-digit suffix</span>
+              </li>
+              <li>
+                <span class="paper-name">👑 Merit Leaderboards &amp; Subject Toppers</span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Overall CGPA, semester SGPAs &amp; 42 course toppers</span>
+              </li>
+              <li>
+                <span class="paper-name">📄 Individual Combined Student PDFs</span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Single consolidated PDF for all 4 semesters per student</span>
+              </li>
+              <li>
+                <span class="paper-name">📁 4 Semester Master PDFs</span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Official university compilation sheets</span>
+              </li>
+            </ul>
           </div>
+
           <div class="card-actions">
-            <a href="JAM/" class="btn-primary">
-              <span>🚀 Open IIT JAM Ecosystem</span>
+            <a href="unpg-results/" class="btn-primary">
+              <span>🎓 Open UNPG Results Portal</span>
               <span>→</span>
             </a>
             <div class="card-actions-row">
-              <a href="JAM/mock-test/test.html?topic=2026&mode=official" class="btn-secondary">
-                ⚡ CBT Simulator
+              <a href="unpg-results/#search" class="btn-secondary">
+                🔍 Search Student
               </a>
-              <a href="JAM/countdown/" class="btn-secondary">
-                ⏳ 2027 Countdown
+              <a href="unpg-results/#toppers" class="btn-secondary">
+                🏆 View Toppers
+              </a>
+              <a href="unpg-results/#downloads" class="btn-secondary">
+                📥 Master PDFs
               </a>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- CUET-PG -->
-        <div class="academic-card">
-          <div>
-            <div class="jam-badge badge-mb badge-archive">Archive</div>
-            <h2 class="card-title">
-              CUET-PG Mathematics Archive
-            </h2>
-            <p class="card-desc">
-              Official master question papers for the Central Universities Entrance Test Postgraduate (CUET-PG) Mathematics.
-            </p>
-            <ul class="paper-list">
-              <li>
-                <span class="paper-name">CUET-PG 2026 Paper</span>
-                <a href="CUET-PG/2026.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
-              </li>
-              <li>
-                <span class="paper-name">CUET-PG 2025 Paper</span>
-                <a href="CUET-PG/2025.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
-              </li>
-              <li>
-                <span class="paper-name">CUET-PG 2024 Paper</span>
-                <a href="CUET-PG/2024.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
-              </li>
-            </ul>
+      <!-- Section B: Postgraduate National Entrance Portals (JAM & CUET-PG) -->
+      <section style="margin-top: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <span style="font-size: 1.25rem;">🎯</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-primary); font-weight: 700;">
+            Postgraduate National Entrance Portals (JAM &amp; CUET-PG)
+          </h2>
+        </div>
+
+        <div class="academic-grid" style="margin-top: 0;">
+          <!-- IIT JAM -->
+          <div class="academic-card">
+            <div>
+              <div class="jam-badge badge-mb">Major Portal</div>
+              <h3 class="card-title">
+                IIT JAM Mathematics (MA) Portal
+              </h3>
+              <p class="card-desc">
+                Comprehensive 22-year study ecosystem (2005–2026), 885 official PYQs, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and full authentic CBT exam simulator.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a href="JAM/" class="btn-primary">
+                <span>🚀 Open IIT JAM Ecosystem</span>
+                <span>→</span>
+              </a>
+              <div class="card-actions-row">
+                <a href="JAM/mock-test/test.html?topic=2026&mode=official" class="btn-secondary">
+                  ⚡ CBT Simulator
+                </a>
+                <a href="JAM/countdown/" class="btn-secondary">
+                  ⏳ 2027 Countdown
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="card-footer-action">
-            <a href="CUET-PG/2026.pdf" target="_blank" class="btn-secondary">
-              <span>📄 View Latest 2026 Paper (PDF)</span>
-            </a>
+
+          <!-- CUET-PG -->
+          <div class="academic-card">
+            <div>
+              <div class="jam-badge badge-mb badge-archive">Archive</div>
+              <h3 class="card-title">
+                CUET-PG Mathematics Archive
+              </h3>
+              <p class="card-desc">
+                Official master question papers for the Central Universities Entrance Test Postgraduate (CUET-PG) Mathematics.
+              </p>
+              <ul class="paper-list">
+                <li>
+                  <span class="paper-name">CUET-PG 2026 Paper</span>
+                  <a href="CUET-PG/2026.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
+                </li>
+                <li>
+                  <span class="paper-name">CUET-PG 2025 Paper</span>
+                  <a href="CUET-PG/2025.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
+                </li>
+                <li>
+                  <span class="paper-name">CUET-PG 2024 Paper</span>
+                  <a href="CUET-PG/2024.pdf" target="_blank" class="text-link paper-link">📥 Download PDF</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer-action">
+              <a href="CUET-PG/2026.pdf" target="_blank" class="btn-secondary">
+                <span>📄 View Latest 2026 Paper (PDF)</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
     </div>
   </main>
 
@@ -191,10 +269,32 @@
       <p>© 2026 Vaibhav Geometer · Academic Portals</p>
       <div class="footer-links">
         <a href="../">Home</a>
+        <a href="unpg-results/">UNPG Results</a>
         <a href="JAM/">IIT JAM</a>
         <a href="../mnk-games/">MNK Games</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const saved = localStorage.getItem('jam_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    })();
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = theme === 'dark' ? '☀' : '🌙';
+    }
+
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('jam_theme', next);
+      updateThemeIcon(next);
+    };
+  </script>
 </body>
 </html>
