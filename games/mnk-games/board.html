@@ -10,14 +10,55 @@
   <link rel="stylesheet" href="../css/lichess-offline.css">
   <script src="../js/lichess-sound.js"></script>
   <script src="../engines/engine-controller.js"></script>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
   <style>
+    /* Offline Compatibility Layout Helpers */
+    .min-h-screen { min-height: 100vh; }
+    .bg-\[\#161512\] { background-color: var(--bg-page) !important; }
+    .bg-\[\#1e1c18\] { background-color: var(--bg-surface) !important; }
+    .bg-\[\#262421\] { background-color: var(--bg-panel) !important; }
+    .bg-\[\#363431\] { background-color: var(--bg-button-hover) !important; }
+    .bg-\[\#1a1815\] { background-color: var(--bg-page) !important; }
+    .border-\[\#363431\] { border-color: var(--border) !important; }
+    .border-\[\#4a4742\] { border-color: var(--border-hover) !important; }
+    .text-gray-200 { color: var(--text-bright) !important; }
+    .text-gray-300 { color: var(--text-main) !important; }
+    .text-gray-400 { color: var(--text-muted) !important; }
+    .text-gray-500 { color: var(--text-dim) !important; }
+    .text-white { color: var(--text-bright) !important; }
+    .text-\[\#7ec62f\] { color: #7ec62f !important; }
+    .text-\[\#629924\] { color: var(--accent-green) !important; }
+    .text-\[\#e69f00\] { color: var(--accent-gold) !important; }
+    .text-\[\#3692e7\] { color: var(--accent-blue) !important; }
+    .text-\[\#38bdf8\] { color: #38bdf8 !important; }
+    .bg-\[\#629924\] { background-color: var(--accent-green) !important; }
+    .hover\:bg-\[\#363431\]:hover { background-color: var(--bg-button-hover) !important; }
+    .hover\:border-\[\#629924\]:hover { border-color: var(--accent-green) !important; }
+    .max-w-\[1440px\] { max-width: 1440px; }
+    .max-w-\[680px\] { max-width: 680px; }
+    .lg\:w-\[460px\] { width: 100%; }
+    @media (min-width: 1024px) {
+      .lg\:w-\[460px\] { width: 460px; }
+      .lg\:flex-row { flex-direction: row !important; }
+      .lg\:items-start { align-items: flex-start !important; }
+      .lg\:inline { display: inline !important; }
+    }
+    @media (min-width: 768px) {
+      .md\:inline { display: inline !important; }
+      .md\:flex { display: flex !important; }
+    }
+    @media (min-width: 640px) {
+      .sm\:inline { display: inline !important; }
+      .sm\:flex { display: flex !important; }
+      .sm\:p-4 { padding: 1rem !important; }
+      .sm\:gap-3 { gap: 0.75rem !important; }
+      .sm\:w-8 { width: 2rem !important; }
+      .sm\:p-3 { padding: 0.75rem !important; }
+    }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #161512;
@@ -196,16 +237,10 @@
         <span class="text-[10px] text-gray-400">▾</span>
       </button>
 
-      <!-- Solved Atlas Link -->
-      <a href="solved_status_of_mnk_games.html" title="Interactive Solved Status of (m,n,k)-Games from k=1 to k≥8" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
+      <!-- Tablebase Link -->
+      <a href="solved_status_of_mnk_games.html" title="Endgame Tablebase: Solved Status from k=1 to k≥8" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
         <span>📊</span>
-        <span>Solved Atlas</span>
-      </a>
-
-      <!-- Theory Article Link -->
-      <a href="mnk_games_theory_and_ai.html" title="Read Complete Research Article: Game States & SOTA AI Algorithms" class="hidden md:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
-        <span>📖</span>
-        <span>Theory & AI</span>
+        <span>Tablebase</span>
       </a>
 
       <a href="../" title="Games Hub" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
@@ -244,6 +279,11 @@
         <svg id="sound-icon-on" class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
         <svg id="sound-icon-off" class="w-4 h-4 text-gray-500 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
         <span class="hidden md:inline">Audio</span>
+      </button>
+
+      <!-- Theme toggle -->
+      <button id="theme-btn" title="Toggle Dark/Light Theme" class="p-1.5 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 border border-[#363431] flex items-center text-xs font-medium space-x-1 transition" onclick="toggleTheme()">
+        <span>☀️</span>
       </button>
 
       <!-- Flip Board -->
@@ -1343,8 +1383,8 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center justify-between pt-2">
-        <a href="mnk_games_theory_and_ai.html" target="_blank" class="text-xs text-[#38bdf8] hover:underline flex items-center space-x-1">
-          <span>📖 Learn (m,n,k) Theory</span>
+        <a href="solved_status_of_mnk_games.html" target="_blank" class="text-xs text-[#38bdf8] hover:underline flex items-center space-x-1">
+          <span>📊 Solved Tablebase</span>
         </a>
         <div class="flex items-center space-x-2">
           <button type="button" id="btn-cancel-modal" class="px-3 py-1.5 rounded text-xs font-semibold bg-[#1e1c18] hover:bg-[#363431] text-gray-300 transition">Cancel</button>
@@ -1470,6 +1510,13 @@
 
     function playSound(type) {
       if (!soundEnabled) return;
+      if (window.LichessSound && window.LichessSound.isEnabled()) {
+        if (type === 'move') { window.LichessSound.playMove(); return; }
+        if (type === 'win') { window.LichessSound.playVictory(); return; }
+        if (type === 'draw') { window.LichessSound.playCheck(); return; }
+        if (type === 'blunder') { window.LichessSound.playDefeat(); return; }
+        if (type === 'low_time') { window.LichessSound.playLowTime(); return; }
+      }
       try {
         initAudio();
         if (!audioCtx) return;
@@ -7101,13 +7148,25 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     // Toggle Sound
     document.getElementById('toggle-sound-btn').addEventListener('click', () => {
       soundEnabled = !soundEnabled;
+      if (window.LichessSound) window.LichessSound.toggle(soundEnabled);
       try {
         localStorage.setItem('mnk_sound_enabled', soundEnabled ? 'true' : 'false');
       } catch (e) {}
       document.getElementById('sound-icon-on').classList.toggle('hidden', !soundEnabled);
       document.getElementById('sound-icon-off').classList.toggle('hidden', soundEnabled);
+      if (soundEnabled && window.LichessSound) window.LichessSound.playMove();
       showToast(soundEnabled ? 'Audio enabled' : 'Audio muted');
     });
+
+    // Theme Toggle Function
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      const btn = document.getElementById('theme-btn');
+      if (btn) btn.querySelector('span').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
 
     // Window Resize Debounced Listener
     let resizeTimer = null;
@@ -8846,6 +8905,27 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
     // Initial render on page load
     window.onload = function() {
+      // Sync Theme from localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const themeBtn = document.getElementById('theme-btn');
+        if (themeBtn) themeBtn.querySelector('span').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      }
+
+      // Sync Sound from localStorage
+      const savedSound = localStorage.getItem('mnk_sound_enabled');
+      if (savedSound !== null) {
+        soundEnabled = savedSound === 'true';
+        if (window.LichessSound) window.LichessSound.toggle(soundEnabled);
+        const iconOn = document.getElementById('sound-icon-on');
+        const iconOff = document.getElementById('sound-icon-off');
+        if (iconOn && iconOff) {
+          iconOn.classList.toggle('hidden', !soundEnabled);
+          iconOff.classList.toggle('hidden', soundEnabled);
+        }
+      }
+
       // Check URL parameters: ?m=15&n=15&k=5&j=3&level=8
       const urlParams = new URLSearchParams(window.location.search);
       const paramM = urlParams.get('m') || urlParams.get('rows');
@@ -8869,9 +8949,21 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         resetBoard();
       }
 
-      // Handle time control param (e.g. ?tc=3+2 or ?tc=unlimited)
+      // Handle time control param (e.g. ?tc=3+2 or ?time=180&inc=2 or ?time=0)
+      const paramTime = urlParams.get('time');
+      const paramInc = urlParams.get('inc') || '0';
       const paramTc = urlParams.get('tc') || urlParams.get('clock');
-      if (paramTc) {
+
+      if (paramTime !== null) {
+        const seconds = parseInt(paramTime, 10);
+        const incSecs = parseInt(paramInc, 10);
+        if (seconds === 0) {
+          initClocks(0, 0, 'Unlimited');
+        } else {
+          const mins = Math.floor(seconds / 60);
+          initClocks(seconds * 1000, incSecs * 1000, `${mins}+${incSecs}`);
+        }
+      } else if (paramTc) {
         const tcLower = paramTc.toLowerCase();
         if (tcLower === 'unlimited' || tcLower === 'none' || tcLower === '0') {
           initClocks(0, 0, 'Unlimited');
@@ -8887,6 +8979,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
 
       // Handle side selection param (e.g. ?side=First / ?side=Second / ?side=Random)
       const paramSide = (urlParams.get('side') || '').toLowerCase();
+      let isAiTurnFirst = false;
       if (paramSide) {
         let sideChoice = paramSide;
         if (sideChoice === 'random') {
@@ -8902,6 +8995,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
           const pO = getPlayerConfig('O');
           if (pX) { pX.type = 'ai'; pX.level = state.engineLevel; }
           if (pO) { pO.type = 'human'; }
+          isAiTurnFirst = true;
         } else {
           state.playerPiece = 'X';
           if (playAsXBtn) playAsXBtn.className = 'px-3 py-1 text-xs rounded font-bold bg-[#629924] text-white transition flex items-center space-x-1';
@@ -8919,7 +9013,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       const paramPreset = (urlParams.get('preset') || urlParams.get('match') || '').toLowerCase();
       if (paramPreset === 'hvh' || paramPreset === 'pass' || paramPreset === 'friend' || paramPreset === 'human_vs_human') {
         setMatchPreset('hvh', false);
-      } else if (paramPreset === 'ava' || paramPreset === 'ai_vs_ai') {
+      } else if (paramPreset === 'ava' || paramPreset === 'ai_vs_ai' || paramPreset === 'tv') {
         setMatchPreset('ava', false);
       } else if (paramPreset === 'hva' || paramPreset === 'ai' || paramPreset === 'computer' || paramPreset === 'human_vs_ai') {
         setMatchPreset('hva', false);
@@ -8927,10 +9021,13 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         updatePresetButtonsUI(playMatchState.preset || 'hva');
       }
 
-      const wantsAnalysis = window.location.hash === '#analysis';
-      const wantsTournament = window.location.hash === '#tournament';
-      const wantsEditor = window.location.hash === '#editor';
-      const wantsPlay = window.location.hash === '#play' || urlParams.get('mode') === 'play' || urlParams.get('play') !== null || (paramM && !wantsAnalysis);
+      // Check mode parameter explicitly
+      const modeParam = (urlParams.get('mode') || '').toLowerCase();
+      const wantsAnalysis = window.location.hash === '#analysis' || modeParam === 'analysis';
+      const wantsTournament = window.location.hash === '#tournament' || modeParam === 'tournament';
+      const wantsEditor = window.location.hash === '#editor' || modeParam === 'editor';
+      const wantsPass = modeParam === 'pass' || modeParam === 'friend' || paramPreset === 'hvh';
+      const wantsPlay = window.location.hash === '#play' || modeParam === 'play' || wantsPass || (!wantsAnalysis && !wantsTournament && !wantsEditor && urlParams.get('play') !== null);
 
       if (wantsTournament) {
         switchMainMode('tournament');
@@ -8938,7 +9035,9 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         switchMainMode('editor');
       } else if (wantsPlay) {
         switchMainMode('play');
-        triggerAiIfTurn();
+        if (isAiTurnFirst || isTurnControlledByAi(state.turn)) {
+          triggerAiIfTurn();
+        }
       } else {
         switchMainMode('analysis');
       }

@@ -1,957 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mnk games &bull; Offline (m,n,k,j)-Games &amp; Engine Platform</title>
-  <meta name="description" content="Offline (m,n,k,j)-games platform: interactive threat-space search AI, precision chess clocks, local pass & play, tournament arena, and game-theoretic solved atlas.">
+  <title>mnk.games &bull; Free Offline (m,n,k)-Games &amp; Engine Platform</title>
+  <meta name="description" content="Free offline (m,n,k,j)-games platform: Threat-space search AI, Fairy-Stockfish 14 NNUE, Rapfi Mixnet SOTA, chess clocks, local pass & play, tournament arena, and endgame tablebase.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
-  <!-- Lichess Offline Stylesheet (100% Offline Independent) -->
   <link rel="stylesheet" href="../css/lichess-offline.css">
   <script src="../js/lichess-sound.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    /* ==========================================================================
-       mnk games Authentic Minimal Theme (Offline Lichess Aesthetic)
-       ========================================================================== */
-    :root {
-      --bg-page: #161512;
-      --bg-header: #161512;
-      --bg-panel: #262421;
-      --bg-card: #262421;
-      --bg-card-hover: #302e2b;
-      --bg-button: #262421;
-      --bg-button-hover: #363431;
-      --bg-tab-hover: #211f1c;
-
-      --border: #363431;
-      --border-subtle: #2b2824;
-      --border-hover: #48443f;
-
-      --text-bright: #ffffff;
-      --text-main: #bababa;
-      --text-muted: #73706c;
-      --text-dim: #54514d;
-
-      --accent-orange: #d97724;
-      --accent-gold: #e69f00;
-      --accent-green: #629924;
-      --accent-blue: #3692e7;
-
-      --radius-sm: 4px;
-      --radius-md: 6px;
-      --radius-lg: 8px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-page);
-      color: var(--text-main);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-      color: inherit;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      background: none;
-    }
-
-    /* --------------------------------------------------------------------------
-       Top Navigation Bar
-       -------------------------------------------------------------------------- */
-    .site-nav {
-      background-color: var(--bg-header);
-      border-bottom: 1px solid var(--border-subtle);
-      height: 44px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 1400px;
-      height: 100%;
+    /* TV Mini-Board styling */
+    .tv-mini-board {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 2px;
+      background: var(--border);
+      padding: 2px;
+      border-radius: var(--radius-sm);
+      width: 140px;
+      height: 140px;
       margin: 0 auto;
-      padding: 0 1rem;
+    }
+    .tv-mini-cell {
+      background: var(--bg-surface);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      gap: 0.25rem;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-right: 1.25rem;
-      padding: 0.2rem 0;
-      text-decoration: none;
-    }
-
-    .brand-logo svg {
-      width: 26px;
-      height: 26px;
-      fill: none;
-      stroke: #bababa;
-      stroke-width: 2.2;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-      transition: stroke 0.15s ease;
-    }
-
-    .brand-logo:hover svg {
-      stroke: var(--text-bright);
-    }
-
-    .brand-title {
-      font-size: 1.2rem;
+      justify-content: center;
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text-bright);
-      display: flex;
-      align-items: baseline;
-      gap: 3px;
     }
-
-    .brand-badge {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      background: #2a2825;
-      color: var(--accent-gold);
-      border: 1px solid var(--border);
-      padding: 1px 5px;
-      border-radius: var(--radius-sm);
-      margin-left: 6px;
-      letter-spacing: 0.05em;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      list-style: none;
-    }
-
-    .nav-item {
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-link {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      padding: 0 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--text-main);
-      text-transform: uppercase;
-      transition: color 0.15s ease, background-color 0.15s ease;
-    }
-
-    .nav-link:hover, .nav-item:hover .nav-link {
-      color: var(--text-bright);
-      background-color: var(--bg-card-hover);
-    }
-
-    /* Dropdown Menus */
-    .nav-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 230px;
-      background-color: #1e1c18;
-      border: 1px solid var(--border);
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      padding: 0.35rem 0;
-      display: none;
-      z-index: 120;
-    }
-
-    .nav-item:hover .nav-dropdown {
-      display: block;
-    }
-
-    .dropdown-link {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      padding: 0.55rem 0.9rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-main);
-      text-transform: none;
-      letter-spacing: normal;
-      transition: background 0.12s ease, color 0.12s ease;
-    }
-
-    .dropdown-link:hover {
-      background-color: var(--bg-button-hover);
-      color: var(--text-bright);
-    }
-
-    .dropdown-divider {
-      height: 1px;
-      background-color: var(--border);
-      margin: 0.35rem 0;
-    }
-
-    /* Nav Right Controls */
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .nav-icon-btn {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-sm);
-      color: var(--text-main);
-      transition: color 0.15s ease, background-color 0.15s ease;
-      text-decoration: none;
-    }
-
-    .nav-icon-btn:hover {
-      color: var(--text-bright);
-      background-color: var(--bg-card-hover);
-    }
-
-    .nav-icon-btn svg {
-      width: 17px;
-      height: 17px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* --------------------------------------------------------------------------
-       Main Page Layout (3-Column Grid)
-       -------------------------------------------------------------------------- */
-    .main-wrapper {
-      flex: 1;
-      max-width: 1360px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 1.5rem 1rem 3rem;
-    }
-
-    .portal-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr 280px;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    @media (max-width: 1100px) {
-      .portal-grid {
-        grid-template-columns: 1fr 280px;
-      }
-      .col-left {
-        order: 3;
-        grid-column: span 2;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.25rem;
-      }
-    }
-
-    @media (max-width: 780px) {
-      .portal-grid {
-        grid-template-columns: 1fr;
-      }
-      .col-left {
-        grid-column: span 1;
-        display: block;
-      }
-      .nav-menu {
-        display: none;
-      }
-    }
-
-    /* --------------------------------------------------------------------------
-       Left Column (Engine Banner, Tournaments, Theory Resources)
-       -------------------------------------------------------------------------- */
-    .col-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    /* Highlight Banner */
-    .highlight-banner {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      transition: border-color 0.15s ease;
-    }
-
-    .highlight-banner:hover {
-      border-color: var(--border-hover);
-    }
-
-    .highlight-banner .stream-icon {
-      color: var(--accent-gold);
-      font-size: 1.1rem;
-    }
-
-    .highlight-banner .stream-title {
-      font-weight: 600;
-      color: var(--text-bright);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .highlight-banner .stream-arrow {
-      color: var(--accent-gold);
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    /* Side Card Box */
-    .side-box {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-
-    .tourn-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.12s ease;
-      text-decoration: none;
-    }
-
-    .tourn-item:last-child {
-      border-bottom: none;
-    }
-
-    .tourn-item:hover {
-      background-color: var(--bg-card-hover);
-    }
-
-    .tourn-icon-box {
-      font-size: 1.25rem;
-      width: 28px;
-      display: flex;
-      justify-content: center;
-      color: #df6438;
-    }
-
-    .tourn-details {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .tourn-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-bright);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.3;
-    }
-
-    .tourn-meta {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* Theory & Atlas List Box */
-    .activity-feed {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .feed-item {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border-subtle);
-      font-size: 0.8rem;
-      line-height: 1.4;
-      color: var(--text-muted);
-      transition: background 0.12s ease;
-    }
-
-    .feed-item:last-child {
-      border-bottom: none;
-    }
-
-    .feed-item:hover {
-      background-color: var(--bg-card-hover);
-    }
-
-    .feed-author {
-      font-weight: 600;
-      color: var(--text-bright);
-    }
-
-    .feed-author:hover {
-      color: var(--accent-gold);
-    }
-
-    .feed-meta {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      margin-top: 2px;
-    }
-
-    /* --------------------------------------------------------------------------
-       Center Column (Tabs, 3x4 Quick Start Grid, All Variants, Solved Atlas)
-       -------------------------------------------------------------------------- */
-    .col-center {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Tabs Bar */
-    .tabs-bar {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--border-subtle);
-      margin-bottom: 0.75rem;
-      padding-bottom: 0;
-    }
-
-    .tab-btn {
-      padding: 0.65rem 1.15rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      position: relative;
-      transition: color 0.15s ease;
-    }
-
-    .tab-btn:hover {
-      color: var(--text-bright);
-    }
-
-    .tab-btn.active {
-      color: var(--text-bright);
-    }
-
-    .tab-btn.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--accent-orange);
-      border-radius: 2px 2px 0 0;
-    }
-
-    /* Quick Start Container */
-    .quick-wrap {
-      position: relative;
-    }
-
-    /* mnk games Geometric Grid Watermark */
-    .grid-watermark {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 320px;
-      height: 320px;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.11;
-      stroke: #bababa;
-      fill: none;
-    }
-
-    /* 3x4 Pairing Grid */
-    .pairing-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 0.5rem;
-    }
-
-    @media (max-width: 520px) {
-      .pairing-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-      }
-    }
-
-    .pairing-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.35rem 0.75rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.12s ease, border-color 0.12s ease;
-      min-height: 94px;
-    }
-
-    .pairing-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-hover);
-    }
-
-    .card-title {
-      font-size: 1.55rem;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.15;
-      font-family: 'Inter', sans-serif;
-      transition: color 0.12s ease;
-    }
-
-    .pairing-card:hover .card-title {
-      color: var(--text-bright);
-    }
-
-    .card-subtitle {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      margin-top: 0.35rem;
-      transition: color 0.12s ease;
-    }
-
-    .pairing-card:hover .card-subtitle {
-      color: var(--text-main);
-    }
-
-    /* Variants Table Tab */
-    .variants-table-wrap {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow-x: auto;
-      display: none;
-    }
-
-    .variants-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 0.85rem;
-    }
-
-    .variants-table th {
-      background: #1e1c18;
-      padding: 0.75rem 1rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-
-    .variants-table td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border-subtle);
-      color: var(--text-main);
-    }
-
-    .variants-table tr:hover td {
-      background-color: var(--bg-card-hover);
-    }
-
-    .btn-table-play {
-      background: #363431;
-      color: var(--text-bright);
-      padding: 0.3rem 0.65rem;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      font-size: 0.75rem;
-      transition: background 0.15s ease;
-      display: inline-block;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-table-play:hover {
-      background: var(--accent-green);
+    .tv-mini-cell.x {
       color: #ffffff;
     }
-
-    .btn-table-pass {
-      background: #2b2824;
-      color: var(--text-main);
-      padding: 0.3rem 0.65rem;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      font-size: 0.75rem;
-      border: 1px solid var(--border);
-      transition: all 0.15s ease;
-      display: inline-block;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-table-pass:hover {
-      background: #363431;
-      color: var(--text-bright);
-      border-color: var(--border-hover);
-    }
-
-    /* Solved Atlas Tab */
-    .solved-quick-wrap {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      display: none;
-    }
-
-    .solved-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .solved-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .solved-table td, .solved-table th {
-      padding: 0.6rem 0.85rem;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .solved-table th {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-    }
-
-    .badge-win {
-      color: #7ec62f;
-      font-weight: 600;
-    }
-
-    .badge-draw {
+    .tv-mini-cell.o {
       color: var(--accent-gold);
-      font-weight: 600;
     }
-
-    /* --------------------------------------------------------------------------
-       Right Column (Primary Action Buttons & Specs)
-       -------------------------------------------------------------------------- */
-    .col-right {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .btn-action {
-      background: var(--bg-button);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      height: 48px;
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      padding: 0 1.15rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-main);
-      text-decoration: none;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-      width: 100%;
-    }
-
-    .btn-action:hover {
-      background: var(--bg-button-hover);
-      border-color: var(--border-hover);
-      color: var(--text-bright);
-    }
-
-    .btn-action svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--text-muted);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition: stroke 0.15s ease;
-      flex-shrink: 0;
-    }
-
-    .btn-action:hover svg {
-      stroke: var(--text-bright);
-    }
-
-    .action-subtext {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 1px;
-    }
-
-    /* Engine Specs */
-    .stats-footer {
-      margin-top: 1.5rem;
-      text-align: right;
-      padding-right: 0.5rem;
-    }
-
-    /* --------------------------------------------------------------------------
-       Footer
-       -------------------------------------------------------------------------- */
-    .site-footer {
-      border-top: 1px solid var(--border-subtle);
-      background: #141311;
-      padding: 2.5rem 1rem;
-      margin-top: auto;
-    }
-
-    .footer-container {
-      max-width: 1360px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-col h4 {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.85rem;
-    }
-
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .footer-links a {
-      font-size: 0.85rem;
-      color: var(--text-main);
-      transition: color 0.15s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-bright);
-    }
-
-    .footer-copy {
-      max-width: 1360px;
-      margin: 2rem auto 0;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    /* --------------------------------------------------------------------------
-       Modal Windows
-       -------------------------------------------------------------------------- */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.72);
-      backdrop-filter: blur(3px);
-      z-index: 500;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-box {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-      width: 100%;
-      max-width: 460px;
-      overflow: hidden;
-      animation: modalFadeIn 0.15s ease-out;
-    }
-
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .modal-header {
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .modal-header h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-bright);
-    }
-
-    .modal-close {
-      font-size: 1.4rem;
-      line-height: 1;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: color 0.15s ease;
-    }
-
-    .modal-close:hover {
-      color: var(--text-bright);
-    }
-
-    .modal-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .form-slider {
-      width: 100%;
-      height: 6px;
-      border-radius: 3px;
-      background: #1e1c18;
-      outline: none;
-      -webkit-appearance: none;
-    }
-
-    .form-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--accent-orange);
-      cursor: pointer;
-    }
-
-    .side-choice-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-    }
-
-    .btn-side {
-      background: #1e1c18;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 0.75rem 0.5rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .btn-side.selected, .btn-side:hover {
-      border-color: var(--accent-orange);
-      background: var(--bg-card-hover);
-      color: var(--text-bright);
-    }
-
-    .btn-modal-submit {
-      background: var(--accent-green);
-      color: #ffffff;
-      padding: 0.85rem;
-      border-radius: var(--radius-sm);
-      font-size: 1rem;
-      font-weight: 700;
-      width: 100%;
-      text-align: center;
-      transition: background 0.15s ease;
-      box-shadow: 0 4px 12px rgba(98, 153, 36, 0.3);
-    }
-
-    .btn-modal-submit:hover {
-      background: #73b32a;
+    .tv-mini-cell.last {
+      background: rgba(98, 153, 36, 0.4);
     }
   </style>
 </head>
@@ -960,559 +46,628 @@
   <!-- Top Navigation Bar -->
   <header class="site-nav">
     <div class="nav-container">
-      <div class="nav-left">
-        <!-- Logo -->
-        <a href="./" class="brand-logo" title="mnk games">
-          <svg viewBox="0 0 24 24" style="stroke: #e69f00; stroke-width: 2.2;">
+      <div class="brand-section">
+        <a href="./" class="brand-logo" title="mnk.games Home">
+          <svg viewBox="0 0 24 24" class="brand-icon" style="stroke: var(--accent-orange); fill: none; stroke-width: 2.2; width: 26px; height: 26px;">
             <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
             <line x1="9" y1="3" x2="9" y2="21"></line>
             <line x1="15" y1="3" x2="15" y2="21"></line>
             <line x1="3" y1="9" x2="21" y2="9"></line>
             <line x1="3" y1="15" x2="21" y2="15"></line>
           </svg>
-          <span class="brand-title">mnk <span style="color: var(--accent-orange); font-weight: 800;">games</span></span>
-          <span class="brand-badge">Offline</span>
+          <span style="font-weight: 800; font-size: 1.15rem; color: var(--text-bright);">mnk<span style="color: var(--accent-orange);">games</span></span>
+          <span class="brand-badge">OFFLINE</span>
         </a>
 
-        <!-- Clean Chess-Style Navigation -->
-        <ul class="nav-menu">
+        <nav class="nav-links">
           <!-- PLAY -->
-          <li class="nav-item">
-            <a href="board.html#play" class="nav-link">Play</a>
+          <div class="nav-item">
+            <a href="board.html#play" class="nav-btn">
+              <span>Play</span>
+              <span style="font-size: 9px; opacity: 0.7;">▼</span>
+            </a>
             <div class="nav-dropdown">
-              <a href="#" class="dropdown-link" onclick="openModal('modal-computer'); return false;">
-                <span>🤖</span>
-                <span>Play against computer</span>
-              </a>
-              <a href="#" class="dropdown-link" onclick="openModal('modal-friend'); return false;">
-                <span>👥</span>
-                <span>Pass &amp; Play (Local Match)</span>
-              </a>
-              <a href="#" class="dropdown-link" onclick="openModal('modal-custom'); return false;">
-                <span>⚙️</span>
-                <span>Custom (m,n,k,j) Game</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="board.html#tournament" class="dropdown-link">
-                <span>🏆</span>
-                <span>Tournament Arena</span>
-              </a>
+              <a href="#" onclick="openModal('modal-custom'); return false;">➕ Create a game</a>
+              <a href="#" onclick="openModal('modal-computer'); return false;">⚔️ Play with the computer</a>
+              <a href="#" onclick="openModal('modal-friend'); return false;">👥 Play with a friend (Pass &amp; Play)</a>
+              <div style="height: 1px; background: var(--border); margin: 0.35rem 0;"></div>
+              <a href="board.html#tournament">🏆 Arena Tournaments</a>
+              <a href="board.html#tournament">🎖️ Swiss / Round Robin</a>
             </div>
-          </li>
+          </div>
 
-          <!-- ANALYSIS -->
-          <li class="nav-item">
-            <a href="board.html#analysis" class="nav-link">Analysis</a>
+          <!-- VARIANTS -->
+          <div class="nav-item">
+            <a href="#" class="nav-btn" onclick="switchTab('variants'); return false;">
+              <span>Variants</span>
+              <span style="font-size: 9px; opacity: 0.7;">▼</span>
+            </a>
             <div class="nav-dropdown">
-              <a href="board.html#analysis" class="dropdown-link">
-                <span>♟️</span>
-                <span>Threat-Space Analysis Board</span>
-              </a>
-              <a href="board.html#editor" class="dropdown-link">
-                <span>✏️</span>
-                <span>Board Editor &amp; Barriers (#)</span>
-              </a>
+              <a href="board.html?m=3&n=3&k=3&level=8#play">⭕ Tic-Tac-Toe (3,3,3)</a>
+              <a href="board.html?m=5&n=5&k=4&level=8#play">⚡ Mini-Gomoku (5,5,4)</a>
+              <a href="board.html?m=7&n=6&k=4&level=8#play">🔴 Connect Four (7,6,4)</a>
+              <a href="board.html?m=10&n=10&k=5&level=8#play">📐 Freestyle Gomoku (10,10,5)</a>
+              <a href="board.html?m=15&n=15&k=5&level=8#play">⚫ Standard Gomoku (15,15,5)</a>
+              <a href="board.html?m=19&n=19&k=5&level=8#play">⚪ 19×19 Renju (19,19,5)</a>
+              <div style="height: 1px; background: var(--border); margin: 0.35rem 0;"></div>
+              <a href="board.html?m=6&n=6&k=4&j=3&preset=hvh#play">🎲 3-Player Rotation (6,6,4)</a>
+              <a href="board.html?m=8&n=8&k=5&j=4&preset=hvh#play">💠 4-Player Rotation (8,8,5)</a>
+              <a href="#" onclick="openModal('modal-custom'); return false;">⚙️ Custom (m,n,k,j) Game</a>
             </div>
-          </li>
+          </div>
 
-          <!-- THEORY & ATLAS -->
-          <li class="nav-item">
-            <a href="solved_status_of_mnk_games.html" class="nav-link">Theory &amp; Atlas</a>
+          <!-- TOOLS -->
+          <div class="nav-item">
+            <a href="board.html#analysis" class="nav-btn">
+              <span>Tools</span>
+              <span style="font-size: 9px; opacity: 0.7;">▼</span>
+            </a>
             <div class="nav-dropdown">
-              <a href="solved_status_of_mnk_games.html" class="dropdown-link">
-                <span>📊</span>
-                <span>Solved Status Atlas (k=1..8+)</span>
-              </a>
-              <a href="mnk_games_theory_and_ai.html" class="dropdown-link">
-                <span>📖</span>
-                <span>Mathematics &amp; SOTA AI Paper</span>
-              </a>
-              <a href="mnk_games_theory_and_ai.html#strategy-stealing" class="dropdown-link">
-                <span>⚡</span>
-                <span>Nash's Strategy-Stealing</span>
-              </a>
-              <a href="mnk_games_theory_and_ai.html#ramsey" class="dropdown-link">
-                <span>🛡️</span>
-                <span>Ramsey &amp; Hales-Jewett Proofs</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link">
-                <span>📥</span>
-                <span>Download Dataset (.xlsx)</span>
-              </a>
+              <a href="board.html#analysis">🔍 Analysis Board</a>
+              <a href="board.html#editor">🎨 Board Editor &amp; Barriers (#)</a>
+              <a href="solved_status_of_mnk_games.html">📊 Solved Tablebase (k=1..8+)</a>
+              <a href="board.html#analysis" onclick="setTimeout(() => { if (typeof openImportGameModal === 'function') openImportGameModal(); }, 200);">📥 Import Game PGN/FEN</a>
             </div>
-          </li>
-        </ul>
+          </div>
+
+          <!-- WATCH / TV -->
+          <div class="nav-item">
+            <a href="board.html?preset=ava&level=8#play" class="nav-btn">
+              <span>Watch</span>
+            </a>
+          </div>
+
+          <!-- GAMES HUB -->
+          <div class="nav-item">
+            <a href="../" class="nav-btn">
+              <span>Games Hub</span>
+            </a>
+          </div>
+        </nav>
       </div>
 
-      <!-- Nav Right Controls -->
-      <div class="nav-right">
-        <button class="nav-icon-btn" title="Search variants &amp; research" onclick="openModal('modal-search')">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <!-- Nav Controls -->
+      <div class="nav-controls">
+        <button class="nav-icon-btn" title="Search variants &amp; games" onclick="openModal('modal-search')">
+          <svg viewBox="0 0 24 24" style="width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
-        <a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener" class="nav-icon-btn" title="GitHub Repository">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-        </a>
-        <a href="../" class="nav-icon-btn" title="Games Hub" style="font-size: 1.05rem; text-decoration: none;">
-          🎮
-        </a>
-        <a href="../../" class="nav-icon-btn" title="Portfolio Home">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        </a>
+
+        <button id="sound-btn" class="nav-icon-btn" onclick="toggleSound()" title="Toggle Sound">
+          <span id="sound-icon">🔊</span>
+        </button>
+
+        <button id="theme-btn" class="nav-icon-btn" onclick="toggleTheme()" title="Toggle Dark/Light Theme">
+          <span>☀️</span>
+        </button>
+
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-bright); background: var(--bg-surface); padding: 0.3rem 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+          Guest
+        </span>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Layout -->
-  <main class="main-wrapper">
-    <div class="portal-grid">
+  <!-- Main 3-Column Lobby Layout (Authentic Lichess Grid) -->
+  <main style="max-width: 1380px; margin: 1.5rem auto 3rem; padding: 0 1rem; flex: 1;">
+    <div style="display: grid; grid-template-columns: 280px 1fr 300px; gap: 1.5rem; align-items: start;" id="main-lobby-grid">
+      
+      <!-- =====================================================================
+           LEFT COLUMN: mnk TV, Tournaments & Engine Rankings
+           ===================================================================== -->
+      <aside style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <!-- mnk TV (Live AI Match Simulation) -->
+        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-bright);">
+              <span style="color: var(--accent-orange); font-size: 1.1rem;">📺</span>
+              <span>mnk TV</span>
+            </div>
+            <span style="font-size: 0.72rem; color: var(--accent-green); font-weight: 700; background: rgba(98, 153, 36, 0.15); padding: 0.15rem 0.45rem; border-radius: var(--radius-sm);">LIVE</span>
+          </div>
 
-      <!-- LEFT COLUMN: Engine Highlight, Tournaments & Research Atlas -->
-      <aside class="col-left">
-        <!-- mnk AI Engine Highlight -->
-        <a href="board.html#analysis" class="highlight-banner" title="Threat-Space Search Analysis Engine">
-          <div style="display: flex; align-items: center; gap: 0.65rem; min-width: 0;">
-            <span class="stream-icon">♟️</span>
+          <!-- Mini Board Animated Frame -->
+          <div class="tv-mini-board" id="tv-board" title="Live Computer Match">
+            <!-- Populated via JS -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem;">
             <div>
-              <div class="stream-title">Threat-Space AI Engine</div>
-              <div style="font-size: 0.72rem; color: var(--text-muted);">Iterative Deepening &amp; Live Eval Bar</div>
+              <span id="tv-player-x" style="font-weight: 700; color: #ffffff;">AI White (2800)</span> vs 
+              <span id="tv-player-o" style="font-weight: 700; color: var(--accent-gold);">AI Black (2800)</span>
             </div>
+            <span id="tv-eval-score" style="font-family: var(--font-mono); font-weight: 800; color: #7ec62f;">0.0</span>
           </div>
-          <span class="stream-arrow">Engine »</span>
-        </a>
 
-        <!-- Tournaments Box -->
-        <div class="side-box">
-          <a href="board.html#tournament" class="tourn-item">
-            <div class="tourn-icon-box">🔥</div>
-            <div class="tourn-details">
-              <div class="tourn-name">Knockout Arena Championship</div>
-              <div class="tourn-meta">8 Players &amp; AIs • Single Elimination</div>
+          <a href="board.html?preset=ava&level=8#play" class="btn-lichess btn-lichess-dark" style="width: 100%; font-size: 0.78rem; padding: 0.4rem;">
+            Watch &amp; Analyze »
+          </a>
+        </div>
+
+        <!-- Tournaments Card -->
+        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;">
+          <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--text-bright); display: flex; align-items: center; gap: 0.45rem;">
+              <span>🏆</span>
+              <span>Tournaments</span>
+            </h3>
+            <a href="board.html#tournament" style="font-size: 0.75rem; color: var(--accent-orange); font-weight: 700;">Arena »</a>
+          </div>
+
+          <a href="board.html#tournament" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-subtle); transition: background 0.12s ease; text-decoration: none;" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+            <span style="font-size: 1.3rem;">🔥</span>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-bright);">Knockout Championship</div>
+              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 1px;">8-Player Single Elimination</div>
             </div>
           </a>
-          <a href="board.html#tournament" class="tourn-item">
-            <div class="tourn-icon-box">🏆</div>
-            <div class="tourn-details">
-              <div class="tourn-name">Round Robin Grand Prix</div>
-              <div class="tourn-meta">All-play-all bracket • Round Robin</div>
+
+          <a href="board.html#tournament" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-subtle); transition: background 0.12s ease; text-decoration: none;" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+            <span style="font-size: 1.3rem;">🎖️</span>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-bright);">Round Robin League</div>
+              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 1px;">All-play-all Berger Bracket</div>
             </div>
           </a>
-          <a href="board.html?j=3#play" class="tourn-item">
-            <div class="tourn-icon-box">🎲</div>
-            <div class="tourn-details">
-              <div class="tourn-name">Generalized (m,n,k,j) League</div>
-              <div class="tourn-meta">3–4 Circular turns • Local Multi-Player</div>
-            </div>
-          </a>
-          <a href="board.html?m=5&n=5&k=4#play" class="tourn-item">
-            <div class="tourn-icon-box">⚡</div>
-            <div class="tourn-details">
-              <div class="tourn-name">Mini-Gomoku (5,5,4) Trophy</div>
-              <div class="tourn-meta">Tactical Blitz • 5×5 Board (k=4)</div>
+
+          <a href="board.html?m=5&n=5&k=4#tournament" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; transition: background 0.12s ease; text-decoration: none;" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+            <span style="font-size: 1.3rem;">⚡</span>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-bright);">Mini-Gomoku 5×5 Trophy</div>
+              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 1px;">Tactical 3-Minute Blitz Arena</div>
             </div>
           </a>
         </div>
 
-        <!-- Theory & Atlas Compendium Box -->
-        <div class="side-box activity-feed">
-          <div class="feed-item">
-            <a href="solved_status_of_mnk_games.html" class="feed-author">Solved Status Atlas</a>
-            <span>fact-checked solutions from k=1 to k≥8 complete</span>
-            <div class="feed-meta">Verified Game Theory • Interactive Matrix</div>
-          </div>
-          <div class="feed-item">
-            <a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" class="feed-author">Excel Dataset (.xlsx)</a>
-            <span>full matrix dataset available for direct research download</span>
-            <div class="feed-meta">Open Science Data • Direct Download (.xlsx)</div>
-          </div>
-          <div class="feed-item">
-            <a href="mnk_games_theory_and_ai.html" class="feed-author">The Mathematics &amp; SOTA AI</a>
-            <span>treatise on Nash's strategy-stealing &amp; Ramsey theory</span>
-            <div class="feed-meta">Research Guide • Theory &amp; Algorithms</div>
-          </div>
-          <div class="feed-item">
-            <a href="mnk_games_theory_and_ai.html#hales" class="feed-author">Hales-Jewett Theorem</a>
-            <span>pairing strategy proves second-player draw for k≥8</span>
-            <div class="feed-meta">Mathematical Proof • Pairing Strategy (k &ge; 8)</div>
-          </div>
-          <div class="feed-item">
-            <a href="board.html#editor" class="feed-author">Board Editor &amp; Barriers</a>
-            <span>active frozen obstacle squares (#) configured</span>
-            <div class="feed-meta">Analysis Engine • Custom Board Setup</div>
+        <!-- Engines Leaderboard -->
+        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem;">
+          <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--text-bright); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.45rem;">
+            <span>🤖</span>
+            <span>Offline SOTA Engines</span>
+          </h3>
+
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.8rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.35rem 0; border-bottom: 1px solid var(--border-subtle);">
+              <div>
+                <strong style="color: var(--text-bright);">Rapfi Mixnet</strong>
+                <span style="font-size: 0.72rem; color: var(--text-muted); margin-left: 4px;">(k=5)</span>
+              </div>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-orange);">3200 Elo</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.35rem 0; border-bottom: 1px solid var(--border-subtle);">
+              <div>
+                <strong style="color: var(--text-bright);">Fairy-Stockfish 14</strong>
+                <span style="font-size: 0.72rem; color: var(--text-muted); margin-left: 4px;">(k≤4)</span>
+              </div>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-blue);">3000 Elo</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.35rem 0;">
+              <div>
+                <strong style="color: var(--text-bright);">Threat-Space AI</strong>
+                <span style="font-size: 0.72rem; color: var(--text-muted); margin-left: 4px;">(Multi-P)</span>
+              </div>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent-green);">2800 Elo</span>
+            </div>
           </div>
         </div>
+
       </aside>
 
-      <!-- CENTER COLUMN: Tabs & Iconic Quick Start Grid -->
-      <section class="col-center">
-        <!-- Tabs Navigation -->
-        <nav class="tabs-bar">
-          <button class="tab-btn active" id="tab-quick-btn" onclick="switchTab('quick')">Quick Start</button>
-          <button class="tab-btn" id="tab-variants-btn" onclick="switchTab('variants')">All Variants</button>
-          <button class="tab-btn" id="tab-solved-btn" onclick="switchTab('solved')">Solved Atlas</button>
+      <!-- =====================================================================
+           CENTER COLUMN: Tabs, Quick Pairing 3x4 Grid, Lobby, Variants
+           ===================================================================== -->
+      <section style="display: flex; flex-direction: column;">
+        
+        <!-- Tab Bar -->
+        <nav style="display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 0.75rem;">
+          <button type="button" class="tab-btn active" id="tab-quick-btn" onclick="switchTab('quick')">Quick Pairing</button>
+          <button type="button" class="tab-btn" id="tab-lobby-btn" onclick="switchTab('lobby')">Lobby</button>
+          <button type="button" class="tab-btn" id="tab-variants-btn" onclick="switchTab('variants')">Variants</button>
+          <button type="button" class="tab-btn" id="tab-tablebase-btn" onclick="switchTab('tablebase')">Tablebase</button>
         </nav>
 
-        <!-- 1. Quick Start Tab Panel -->
-        <div id="panel-quick" class="quick-wrap">
-          <!-- mnk games Geometric Grid Watermark -->
-          <svg class="grid-watermark" viewBox="0 0 200 200">
-            <rect x="25" y="25" width="150" height="150" rx="14" stroke-width="4" stroke="currentColor" fill="none" opacity="0.6"/>
-            <line x1="75" y1="25" x2="75" y2="175" stroke-width="4" stroke="currentColor" opacity="0.6"/>
-            <line x1="125" y1="25" x2="125" y2="175" stroke-width="4" stroke="currentColor" opacity="0.6"/>
-            <line x1="25" y1="75" x2="175" y2="75" stroke-width="4" stroke="currentColor" opacity="0.6"/>
-            <line x1="25" y1="125" x2="175" y2="125" stroke-width="4" stroke="currentColor" opacity="0.6"/>
-            <circle cx="100" cy="100" r="14" stroke-width="4.5" stroke="currentColor" fill="none" opacity="0.7"/>
-            <line x1="40" y1="40" x2="60" y2="60" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
-            <line x1="60" y1="40" x2="40" y2="60" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
-            <line x1="140" y1="140" x2="160" y2="160" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
-            <line x1="160" y1="140" x2="140" y2="160" stroke-width="4.5" stroke="currentColor" stroke-linecap="round" opacity="0.7"/>
-          </svg>
-
-          <!-- 3x4 Pairing Grid (12 Popular Presets) -->
-          <div class="pairing-grid">
+        <!-- 1. Quick Pairing Panel (Iconic 3x4 Grid) -->
+        <div id="panel-quick" style="display: block;">
+          <div class="lobby-grid">
+            
             <!-- Row 1 -->
-            <a href="board.html?m=3&n=3&k=3#play" class="pairing-card">
-              <div class="card-title">3×3 (k=3)</div>
-              <div class="card-subtitle">Tic-Tac-Toe</div>
-            </a>
-            <a href="board.html?m=4&n=4&k=4#play" class="pairing-card">
-              <div class="card-title">4×4 (k=4)</div>
-              <div class="card-subtitle">4-in-a-Row</div>
-            </a>
-            <a href="board.html?m=5&n=5&k=4#play" class="pairing-card">
-              <div class="card-title">5×5 (k=4)</div>
-              <div class="card-subtitle">Mini-Gomoku</div>
-            </a>
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=1%2B0'">
+              <div class="lobby-box-time">1 + 0</div>
+              <div class="lobby-box-label">Bullet &bull; Rated</div>
+              <div class="lobby-box-engine">Fairy-Stockfish 14</div>
+            </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=2%2B1'">
+              <div class="lobby-box-time">2 + 1</div>
+              <div class="lobby-box-label">Bullet &bull; Rated</div>
+              <div class="lobby-box-engine">Fairy-Stockfish 14</div>
+            </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=3%2B0'">
+              <div class="lobby-box-time">3 + 0</div>
+              <div class="lobby-box-label">Blitz &bull; Rated</div>
+              <div class="lobby-box-engine">Fairy-Stockfish 14</div>
+            </div>
 
             <!-- Row 2 -->
-            <a href="board.html?m=7&n=6&k=4#play" class="pairing-card">
-              <div class="card-title">7×6 (k=4)</div>
-              <div class="card-subtitle">Connect Four</div>
-            </a>
-            <a href="board.html?m=8&n=8&k=5#play" class="pairing-card">
-              <div class="card-title">8×8 (k=5)</div>
-              <div class="card-subtitle">Freestyle 8×8</div>
-            </a>
-            <a href="board.html?m=10&n=10&k=5#play" class="pairing-card">
-              <div class="card-title">10×10 (k=5)</div>
-              <div class="card-subtitle">Freestyle 10×10</div>
-            </a>
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=3%2B2'">
+              <div class="lobby-box-time">3 + 2</div>
+              <div class="lobby-box-label">Blitz &bull; Rated</div>
+              <div class="lobby-box-engine">Fairy-Stockfish 14</div>
+            </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=5%2B0'">
+              <div class="lobby-box-time">5 + 0</div>
+              <div class="lobby-box-label">Rapid &bull; Rated</div>
+              <div class="lobby-box-engine">Fairy-Stockfish 14</div>
+            </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=5%2B3'">
+              <div class="lobby-box-time">5 + 3</div>
+              <div class="lobby-box-label">Rapid &bull; Rated</div>
+              <div class="lobby-box-engine">Fairy-Stockfish 14</div>
+            </div>
 
             <!-- Row 3 -->
-            <a href="board.html?m=15&n=15&k=5#play" class="pairing-card">
-              <div class="card-title">15×15 (k=5)</div>
-              <div class="card-subtitle">Standard Gomoku</div>
-            </a>
-            <a href="board.html?m=19&n=19&k=5#play" class="pairing-card">
-              <div class="card-title">19×19 (k=5)</div>
-              <div class="card-subtitle">Renju / Go Board</div>
-            </a>
-            <a href="board.html?m=32&n=32&k=6#play" class="pairing-card">
-              <div class="card-title">32×32 (k=6)</div>
-              <div class="card-subtitle">Max Board</div>
-            </a>
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=10%2B0'">
+              <div class="lobby-box-time">10 + 0</div>
+              <div class="lobby-box-label">Rapid &bull; Rated</div>
+              <div class="lobby-box-engine">Auto Engine</div>
+            </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&tc=15%2B10'">
+              <div class="lobby-box-time">15 + 10</div>
+              <div class="lobby-box-label">Classical &bull; Rated</div>
+              <div class="lobby-box-engine">Auto Engine</div>
+            </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&m=15&n=15&k=5&tc=3%2B2'">
+              <div class="lobby-box-time">15×15</div>
+              <div class="lobby-box-label">Gomoku &bull; Blitz</div>
+              <div class="lobby-box-engine" style="color: var(--accent-orange);">Rapfi SOTA</div>
+            </div>
 
             <!-- Row 4 -->
-            <a href="board.html?tc=1%2B0#play" class="pairing-card">
-              <div class="card-title">1 + 0</div>
-              <div class="card-subtitle">Bullet Clocks</div>
-            </a>
-            <a href="board.html?tc=3%2B2#play" class="pairing-card">
-              <div class="card-title">3 + 2</div>
-              <div class="card-subtitle">Blitz Clocks</div>
-            </a>
-            <div class="pairing-card" onclick="openModal('modal-custom')">
-              <div class="card-title" style="color: var(--accent-orange);">Custom</div>
-              <div class="card-subtitle">Custom (m,n,k,j)</div>
+            <div class="lobby-box" onclick="location.href='board.html?m=7&n=6&k=4&tc=3%2B0'">
+              <div class="lobby-box-time">7×6</div>
+              <div class="lobby-box-label">Connect Four &bull; Blitz</div>
+              <div class="lobby-box-engine" style="color: var(--accent-blue);">Fairy-Stockfish 14</div>
             </div>
+
+            <div class="lobby-box" onclick="location.href='board.html?m=5&n=5&k=4&tc=3%2B2'">
+              <div class="lobby-box-time">5×5</div>
+              <div class="lobby-box-label">Mini-Gomoku &bull; Blitz</div>
+              <div class="lobby-box-engine" style="color: #7ec62f;">Threat-Space AI</div>
+            </div>
+
+            <div class="lobby-box" onclick="openModal('modal-custom')">
+              <div class="lobby-box-time" style="color: var(--accent-orange);">Custom</div>
+              <div class="lobby-box-label">Custom (m,n,k,j)</div>
+              <div class="lobby-box-engine">Setup game...</div>
+            </div>
+
           </div>
         </div>
 
-        <!-- 2. Variants Tab Panel -->
-        <div id="panel-variants" class="variants-table-wrap">
-          <table class="variants-table">
+        <!-- 2. Open Lobby Tab -->
+        <div id="panel-lobby" style="display: none; background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
             <thead>
-              <tr>
-                <th>Variant</th>
-                <th>Grid (m×n)</th>
-                <th>Win (k)</th>
-                <th>Players (j)</th>
-                <th>Status</th>
-                <th>Actions</th>
+              <tr style="background: var(--bg-surface); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
+                <th style="padding: 0.75rem 1rem; text-align: left;">Player</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Variant</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Time</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Mode</th>
+                <th style="padding: 0.75rem 1rem; text-align: right;">Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>Tic-Tac-Toe Classic</strong></td>
-                <td>3 × 3</td>
-                <td>k = 3</td>
-                <td>2</td>
-                <td><span class="badge-draw">Draw</span></td>
-                <td>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <a href="board.html?m=3&n=3&k=3&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=3&n=3&k=3&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
-                  </div>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">🤖 Fairy-Stockfish (3000)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Tic-Tac-Toe (3,3,3)</td>
+                <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">1 + 0</td>
+                <td style="padding: 0.75rem 1rem; color: var(--accent-green); font-weight: 600;">Rated</td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <a href="board.html?mode=play&m=3&n=3&k=3&tc=1%2B0" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.3rem 0.75rem;">Play</a>
                 </td>
               </tr>
-              <tr>
-                <td><strong>Mini-Gomoku Tactician</strong></td>
-                <td>5 × 5</td>
-                <td>k = 4</td>
-                <td>2</td>
-                <td><span class="badge-draw">Draw</span></td>
-                <td>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <a href="board.html?m=5&n=5&k=4&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=5&n=5&k=4&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
-                  </div>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">🤖 Rapfi Mixnet (3200)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Standard Gomoku (15,15,5)</td>
+                <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">3 + 2</td>
+                <td style="padding: 0.75rem 1rem; color: var(--accent-orange); font-weight: 600;">SOTA Match</td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <a href="board.html?mode=play&m=15&n=15&k=5&tc=3%2B2" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.3rem 0.75rem;">Play</a>
                 </td>
               </tr>
-              <tr>
-                <td><strong>Connect-Style Grid</strong></td>
-                <td>7 × 6</td>
-                <td>k = 4</td>
-                <td>2</td>
-                <td><span class="badge-win">First-Player Win</span></td>
-                <td>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <a href="board.html?m=7&n=6&k=4&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=7&n=6&k=4&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
-                  </div>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">🤖 Fairy-Stockfish (2500)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Connect Four (7,6,4)</td>
+                <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">3 + 0</td>
+                <td style="padding: 0.75rem 1rem; color: var(--accent-blue); font-weight: 600;">Casual</td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <a href="board.html?mode=play&m=7&n=6&k=4&tc=3%2B0" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.3rem 0.75rem;">Play</a>
                 </td>
               </tr>
-              <tr>
-                <td><strong>Freestyle Gomoku 10×10</strong></td>
-                <td>10 × 10</td>
-                <td>k = 5</td>
-                <td>2</td>
-                <td><span class="badge-win">First-Player Win</span></td>
-                <td>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <a href="board.html?m=10&n=10&k=5&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=10&n=10&k=5&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Standard Gomoku</strong></td>
-                <td>15 × 15</td>
-                <td>k = 5</td>
-                <td>2</td>
-                <td><span class="badge-win">First-Player Win</span></td>
-                <td>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <a href="board.html?m=15&n=15&k=5&level=8#play" class="btn-table-play">vs AI</a>
-                    <a href="board.html?m=15&n=15&k=5&preset=hvh#play" class="btn-table-pass">Pass &amp; Play</a>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Circular Multi-Player</strong></td>
-                <td>6 × 6</td>
-                <td>k = 4</td>
-                <td>3</td>
-                <td><span style="color: #3692e7; font-weight: 600;">3-Player Turn</span></td>
-                <td>
-                  <a href="board.html?m=6&n=6&k=4&j=3&preset=hvh#play" class="btn-table-pass">Pass &amp; Play (3P)</a>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Generalized 4-Player</strong></td>
-                <td>8 × 8</td>
-                <td>k = 5</td>
-                <td>4</td>
-                <td><span style="color: #e69f00; font-weight: 600;">4-Player Turn</span></td>
-                <td>
-                  <a href="board.html?m=8&n=8&k=5&j=4&preset=hvh#play" class="btn-table-pass">Pass &amp; Play (4P)</a>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Obstacle Barrier Board</strong></td>
-                <td>8 × 8</td>
-                <td>k = 5</td>
-                <td>2</td>
-                <td><span style="color: #bababa; font-weight: 600;">Obstacles (#)</span></td>
-                <td>
-                  <a href="board.html#editor" class="btn-table-pass">Board Editor</a>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Knockout Tournament</strong></td>
-                <td>5 × 5</td>
-                <td>k = 4</td>
-                <td>8</td>
-                <td><span style="color: #df6438; font-weight: 600;">Bracket</span></td>
-                <td>
-                  <a href="board.html#tournament" class="btn-table-play">Tournament</a>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Round Robin League</strong></td>
-                <td>3 × 3</td>
-                <td>k = 3</td>
-                <td>4</td>
-                <td><span style="color: #7ec62f; font-weight: 600;">All-Play-All</span></td>
-                <td>
-                  <a href="board.html#tournament" class="btn-table-play">League</a>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">👥 Pass &amp; Play (Local)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Mini-Gomoku (5,5,4)</td>
+                <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">5 + 3</td>
+                <td style="padding: 0.75rem 1rem; color: #bababa; font-weight: 600;">2 Players</td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <a href="board.html?mode=play&preset=hvh&m=5&n=5&k=4&tc=5%2B3" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.3rem 0.75rem;">Start Match</a>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- 3. Solved Status Atlas Tab Panel -->
-        <div id="panel-solved" class="solved-quick-wrap">
-          <div class="solved-header">
+        <!-- 3. Variants Tab -->
+        <div id="panel-variants" style="display: none; background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+            <thead>
+              <tr style="background: var(--bg-surface); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
+                <th style="padding: 0.75rem 1rem; text-align: left;">Variant</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Grid (m×n)</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Win (k)</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Players</th>
+                <th style="padding: 0.75rem 1rem; text-align: left;">Tablebase Status</th>
+                <th style="padding: 0.75rem 1rem; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Tic-Tac-Toe</td>
+                <td style="padding: 0.75rem 1rem;">3 × 3</td>
+                <td style="padding: 0.75rem 1rem;">k = 3</td>
+                <td style="padding: 0.75rem 1rem;">2</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-gold); font-weight: 700;">Proven Draw</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <div style="display: inline-flex; gap: 0.35rem;">
+                    <a href="board.html?mode=play&m=3&n=3&k=3" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
+                    <a href="board.html?preset=hvh&m=3&n=3&k=3#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Mini-Gomoku</td>
+                <td style="padding: 0.75rem 1rem;">5 × 5</td>
+                <td style="padding: 0.75rem 1rem;">k = 4</td>
+                <td style="padding: 0.75rem 1rem;">2</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-gold); font-weight: 700;">Proven Draw</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <div style="display: inline-flex; gap: 0.35rem;">
+                    <a href="board.html?mode=play&m=5&n=5&k=4" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
+                    <a href="board.html?preset=hvh&m=5&n=5&k=4#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Connect Four</td>
+                <td style="padding: 0.75rem 1rem;">7 × 6</td>
+                <td style="padding: 0.75rem 1rem;">k = 4</td>
+                <td style="padding: 0.75rem 1rem;">2</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: #7ec62f; font-weight: 700;">First Player Win</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <div style="display: inline-flex; gap: 0.35rem;">
+                    <a href="board.html?mode=play&m=7&n=6&k=4" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
+                    <a href="board.html?preset=hvh&m=7&n=6&k=4#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Standard Gomoku</td>
+                <td style="padding: 0.75rem 1rem;">15 × 15</td>
+                <td style="padding: 0.75rem 1rem;">k = 5</td>
+                <td style="padding: 0.75rem 1rem;">2</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: #7ec62f; font-weight: 700;">First Player Win</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <div style="display: inline-flex; gap: 0.35rem;">
+                    <a href="board.html?mode=play&m=15&n=15&k=5" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
+                    <a href="board.html?preset=hvh&m=15&n=15&k=5#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Renju / Freerule</td>
+                <td style="padding: 0.75rem 1rem;">19 × 19</td>
+                <td style="padding: 0.75rem 1rem;">k = 5</td>
+                <td style="padding: 0.75rem 1rem;">2</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-orange); font-weight: 700;">SOTA Rapfi</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <div style="display: inline-flex; gap: 0.35rem;">
+                    <a href="board.html?mode=play&m=19&n=19&k=5" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
+                    <a href="board.html?preset=hvh&m=19&n=19&k=5#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass</a>
+                  </div>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">3-Player Rotation</td>
+                <td style="padding: 0.75rem 1rem;">6 × 6</td>
+                <td style="padding: 0.75rem 1rem;">k = 4</td>
+                <td style="padding: 0.75rem 1rem;">3</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-blue); font-weight: 700;">Multi-Player</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <a href="board.html?preset=hvh&m=6&n=6&k=4&j=3#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass &amp; Play (3P)</a>
+                </td>
+              </tr>
+              <tr onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">4-Player Rotation</td>
+                <td style="padding: 0.75rem 1rem;">8 × 8</td>
+                <td style="padding: 0.75rem 1rem;">k = 5</td>
+                <td style="padding: 0.75rem 1rem;">4</td>
+                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-gold); font-weight: 700;">Multi-Player</span></td>
+                <td style="padding: 0.75rem 1rem; text-align: right;">
+                  <a href="board.html?preset=hvh&m=8&n=8&k=5&j=4#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass &amp; Play (4P)</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4. Tablebase Tab -->
+        <div id="panel-tablebase" style="display: none; background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
             <div>
-              <h3 style="font-size: 1.1rem; color: var(--text-bright); font-weight: 700;">Game-Theoretic Solved Status</h3>
-              <p style="font-size: 0.82rem; color: var(--text-muted);">Exact values and proof citations from k=1 to k≥8</p>
+              <h3 style="font-size: 1.1rem; color: var(--text-bright); font-weight: 800;">Endgame Tablebase &amp; Solved Status</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Proven outcomes from k=1 to k≥8</p>
             </div>
-            <a href="solved_status_of_mnk_games.html" class="btn-table-play" style="background: var(--accent-orange);">Open Full Atlas »</a>
+            <a href="solved_status_of_mnk_games.html" class="btn-lichess btn-lichess-green" style="font-size: 0.8rem;">Open Full Tablebase »</a>
           </div>
 
-          <table class="solved-table">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1rem;">
             <thead>
-              <tr>
-                <th>Win Streak (k)</th>
-                <th>Game-Theoretic Value</th>
-                <th>Mathematical Citation / Proof</th>
+              <tr style="border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
+                <th style="padding: 0.5rem; text-align: left;">Streak (k)</th>
+                <th style="padding: 0.5rem; text-align: left;">Outcome</th>
+                <th style="padding: 0.5rem; text-align: left;">Proof / Citation</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>k = 1</strong></td>
-                <td><span class="badge-win">First-Player Win</span></td>
-                <td>Trivial 1-move win for any m,n ≥ 1</td>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 1, 2</td>
+                <td style="padding: 0.6rem 0.5rem;"><span style="color: #7ec62f; font-weight: 700;">First-Player Win</span></td>
+                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Trivial win in ≤4 plies</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 3</td>
+                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">3×3 Draw</span> / <span style="color: #7ec62f; font-weight: 700;">m≥3, n≥4 Win</span></td>
+                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Tic-Tac-Toe solved</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 4</td>
+                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">5×5 Draw</span> / <span style="color: #7ec62f; font-weight: 700;">6×5 Win</span></td>
+                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Patashnik (1980), Uiterwijk (2002)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-subtle);">
+                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 5</td>
+                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">8×8 Draw</span> / <span style="color: #7ec62f; font-weight: 700;">9×9 Win</span></td>
+                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Allis (1993), Hsu &amp; Ko (2020)</td>
               </tr>
               <tr>
-                <td><strong>k = 2</strong></td>
-                <td><span class="badge-win">First-Player Win</span></td>
-                <td>Win in at most 4 plies for any m,n ≥ 2</td>
-              </tr>
-              <tr>
-                <td><strong>k = 3</strong></td>
-                <td><span class="badge-draw">3×3 Draw</span> / <span class="badge-win">m≥3, n≥4 Win</span></td>
-                <td>Tic-Tac-Toe is Draw; wider boards First-Player Win</td>
-              </tr>
-              <tr>
-                <td><strong>k = 4</strong></td>
-                <td><span class="badge-draw">5×5 Draw</span> / <span class="badge-win">6×5 Win</span></td>
-                <td>Mini-Gomoku solved (Patashnik 1980, Uiterwijk 2002); 4×4 &amp; 5×5 Draw</td>
-              </tr>
-              <tr>
-                <td><strong>k = 5</strong></td>
-                <td><span class="badge-draw">8×8 Draw</span> / <span class="badge-win">9×9 Win</span></td>
-                <td>Gomoku solved (Victor Allis 1993); 7×7 &amp; 8×8 Draw (Hsu &amp; Ko 2020)</td>
-              </tr>
-              <tr>
-                <td><strong>k ≥ 8</strong></td>
-                <td><span class="badge-draw">Draw (Any Dimensions)</span></td>
-                <td>Hales-Jewett Pairing Strategy proves 2nd-player draw</td>
+                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k &ge; 8</td>
+                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">Draw (All Dimensions)</span></td>
+                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Hales-Jewett Pairing Strategy</td>
               </tr>
             </tbody>
           </table>
 
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <a href="solved_status_of_mnk_games.html" class="btn-table-play" style="padding: 0.5rem 1rem; font-size: 0.85rem;">📊 Explore Interactive Atlas</a>
-            <a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-table-play" style="padding: 0.5rem 1rem; font-size: 0.85rem; background: #262421; border: 1px solid var(--border);">📥 Download Excel Dataset (.xlsx)</a>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="solved_status_of_mnk_games.html" class="btn-lichess btn-lichess-green" style="font-size: 0.85rem;">📊 Explore Interactive Tablebase</a>
+            <a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-lichess btn-lichess-dark" style="font-size: 0.85rem;">📥 Download Dataset (.xlsx)</a>
           </div>
         </div>
+
       </section>
 
-      <!-- RIGHT COLUMN: Primary Action Buttons & Engine Status -->
-      <aside class="col-right">
-        <!-- 1. Custom (m,n,k,j) Game -->
-        <button class="btn-action" onclick="openModal('modal-custom')">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <!-- =====================================================================
+           RIGHT COLUMN: 3 Big Lichess Action Buttons & Tablebase Box
+           ===================================================================== -->
+      <aside style="display: flex; flex-direction: column; gap: 0.75rem;">
+        
+        <!-- 1. Create a Game -->
+        <button class="btn-action" onclick="openModal('modal-custom')" style="height: 52px; background: var(--bg-button); border: 1px solid var(--border); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.85rem; padding: 0 1.15rem; font-size: 0.95rem; font-weight: 700; color: var(--text-bright); cursor: pointer; transition: all 0.15s ease;">
+          <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: var(--accent-orange); fill: none; stroke-width: 2;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
           <div style="text-align: left;">
-            <div>Custom (m,n,k,j) Game</div>
+            <div>Create a game</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Custom (m,n,k,j) parameters</div>
           </div>
         </button>
 
-        <!-- 2. Pass & Play (Local) -->
-        <button class="btn-action" onclick="openModal('modal-friend')">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <!-- 2. Play with a friend -->
+        <button class="btn-action" onclick="openModal('modal-friend')" style="height: 52px; background: var(--bg-button); border: 1px solid var(--border); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.85rem; padding: 0 1.15rem; font-size: 0.95rem; font-weight: 700; color: var(--text-bright); cursor: pointer; transition: all 0.15s ease;">
+          <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: var(--accent-blue); fill: none; stroke-width: 2;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           <div style="text-align: left;">
-            <div>Pass &amp; Play (Local)</div>
+            <div>Play with a friend</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Pass &amp; play on same device</div>
           </div>
         </button>
 
-        <!-- 3. Play against Computer -->
-        <button class="btn-action" onclick="openModal('modal-computer')">
-          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+        <!-- 3. Play with the computer -->
+        <button class="btn-action" onclick="openModal('modal-computer')" style="height: 52px; background: var(--bg-button); border: 1px solid var(--border); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.85rem; padding: 0 1.15rem; font-size: 0.95rem; font-weight: 700; color: var(--text-bright); cursor: pointer; transition: all 0.15s ease;">
+          <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #7ec62f; fill: none; stroke-width: 2;"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
           <div style="text-align: left;">
-            <div>Play against Computer</div>
+            <div>Play with the machine</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Levels 1 to 8 (600–3000 Elo)</div>
           </div>
         </button>
 
-        <!-- 4. Analysis Board Direct Link -->
-        <a href="board.html#analysis" class="btn-action">
-          <svg viewBox="0 0 24 24"><path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/></svg>
+        <!-- 4. Analysis Board Link -->
+        <a href="board.html#analysis" class="btn-action" style="height: 52px; background: var(--bg-button); border: 1px solid var(--border); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.85rem; padding: 0 1.15rem; font-size: 0.95rem; font-weight: 700; color: var(--text-bright); text-decoration: none; transition: all 0.15s ease;">
+          <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: var(--accent-gold); fill: none; stroke-width: 2;"><path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/></svg>
           <div style="text-align: left;">
             <div>Analysis board</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Live eval bar &amp; engine arrows</div>
           </div>
         </a>
 
-        <!-- Engine Specs / Variant Info -->
-        <div class="stats-footer">
-          <div class="action-subtext">Threat-Space AI 600–3000 Elo • Local 1–4 Players • 1×1 to 32×32</div>
+        <!-- Tablebase Quick Link -->
+        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin-top: 0.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h4 style="font-size: 0.82rem; font-weight: 800; color: var(--text-bright); display: flex; align-items: center; gap: 0.35rem;">
+              <span>📊</span>
+              <span>Tablebase</span>
+            </h4>
+            <a href="solved_status_of_mnk_games.html" style="font-size: 0.74rem; color: var(--accent-green); font-weight: 700;">Explore →</a>
+          </div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+            Explore exact solved solutions for any streak $k=1..8+$ across boards up to $32\times 32$.
+          </p>
         </div>
+
       </aside>
 
     </div>
   </main>
 
-  <!-- mnk games Footer -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <h4>Play</h4>
-        <ul class="footer-links">
-          <li><a href="board.html#analysis">Analysis Board</a></li>
-          <li><a href="#" onclick="openModal('modal-computer'); return false;">Play against Computer</a></li>
-          <li><a href="#" onclick="openModal('modal-friend'); return false;">Pass &amp; Play (Local)</a></li>
-          <li><a href="board.html#tournament">Tournament Arena</a></li>
-          <li><a href="board.html#editor">Board Editor (#)</a></li>
+  <!-- Lichess Footer -->
+  <footer style="border-top: 1px solid var(--border-subtle); background: var(--bg-header); padding: 2.5rem 1rem; margin-top: auto;">
+    <div style="max-width: 1380px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">Play</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
+          <li><a href="board.html?mode=play" style="color: var(--text-main);">Play against Computer</a></li>
+          <li><a href="#" onclick="openModal('modal-friend'); return false;" style="color: var(--text-main);">Pass &amp; Play (Local)</a></li>
+          <li><a href="board.html#tournament" style="color: var(--text-main);">Tournament Arena</a></li>
+          <li><a href="#" onclick="openModal('modal-custom'); return false;" style="color: var(--text-main);">Custom Game</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>Theory &amp; Atlas</h4>
-        <ul class="footer-links">
-          <li><a href="mnk_games_theory_and_ai.html">The Mathematics &amp; SOTA AI</a></li>
-          <li><a href="solved_status_of_mnk_games.html">Solved Status Atlas Matrix</a></li>
-          <li><a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx">Download Dataset (.xlsx)</a></li>
-          <li><a href="mnk_games_theory_and_ai.html#strategy-stealing">Nash's Strategy-Stealing</a></li>
-          <li><a href="mnk_games_theory_and_ai.html#ramsey">Ramsey &amp; Hales-Jewett</a></li>
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">Tools</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
+          <li><a href="board.html#analysis" style="color: var(--text-main);">Analysis Board</a></li>
+          <li><a href="board.html#editor" style="color: var(--text-main);">Board Editor &amp; Barriers</a></li>
+          <li><a href="solved_status_of_mnk_games.html" style="color: var(--text-main);">Solved Status Tablebase</a></li>
+          <li><a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" style="color: var(--text-main);">Download Dataset (.xlsx)</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>Engine Features</h4>
-        <ul class="footer-links">
-          <li><a href="board.html#analysis">Threat-Space Search (TSS)</a></li>
-          <li><a href="board.html#play">Precision Chess Clocks</a></li>
-          <li><a href="board.html#analysis">Live Evaluation Bar [-100, +100]</a></li>
-          <li><a href="board.html#play">Multi-Player (j &ge; 3) Rotation</a></li>
-          <li><a href="board.html">Arbitrary Dimensions (1×1 to 32×32)</a></li>
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">Variants</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
+          <li><a href="board.html?m=3&n=3&k=3" style="color: var(--text-main);">Tic-Tac-Toe (3,3,3)</a></li>
+          <li><a href="board.html?m=5&n=5&k=4" style="color: var(--text-main);">Mini-Gomoku (5,5,4)</a></li>
+          <li><a href="board.html?m=7&n=6&k=4" style="color: var(--text-main);">Connect Four (7,6,4)</a></li>
+          <li><a href="board.html?m=15&n=15&k=5" style="color: var(--text-main);">Standard Gomoku (15,15,5)</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>About</h4>
-        <ul class="footer-links">
-          <li><a href="../../">Vaibhav Geometer Portfolio</a></li>
-          <li><a href="../">Games Ecosystem Hub</a></li>
-          <li><a href="../../academic/">Academic Portals</a></li>
-          <li><a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener">GitHub Repository</a></li>
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">Ecosystem</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
+          <li><a href="../" style="color: var(--text-main);">Games Hub</a></li>
+          <li><a href="../../academic/" style="color: var(--text-main);">Academic Portals</a></li>
+          <li><a href="../../" style="color: var(--text-main);">Vaibhav Geometer Portfolio</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-copy">
-      <div>&copy; 2026 Vaibhav Geometer &middot; Standalone offline (m,n,k,j)-games platform</div>
-      <div>Minimalist, high-performance offline engine and tournament arena for (m,n,k)-games</div>
+    <div style="max-width: 1380px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-dim); flex-wrap: wrap; gap: 1rem;">
+      <div>&copy; 2026 mnk.games &middot; 100% Free, Offline (m,n,k,j)-Games &amp; Engine Platform</div>
+      <div>Zero external servers &middot; Client-Side WebAssembly Engines</div>
     </div>
   </footer>
 
@@ -1522,44 +677,44 @@
   <div id="modal-computer" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-computer')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>Play against Computer</h3>
+        <h3>⚔️ Play against the computer</h3>
         <button class="modal-close" onclick="closeModal('modal-computer')">&times;</button>
       </div>
       <div class="modal-body">
         <div class="form-group">
           <label class="form-label">
-            <span>AI Engine Level</span>
+            <span>Engine Strength</span>
             <span id="label-ai-level" style="color: var(--accent-orange); font-weight: 700;">Level 8 (Elo 3000)</span>
           </label>
           <input type="range" min="1" max="8" value="8" class="form-slider" id="slider-ai-level" oninput="updateAiLevelLabel(this.value)">
         </div>
 
         <div class="form-group">
-          <label class="form-label">Game Variant &amp; Integrated Engine</label>
-          <select id="select-ai-variant" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-            <option value="m=3&n=3&k=3">(3,3,3) Tic-Tac-Toe • [Fairy-Stockfish 14]</option>
-            <option value="m=7&n=6&k=4">(7,6,4) Connect Four • [Fairy-Stockfish 14]</option>
-            <option value="m=4&n=4&k=4">(4,4,4) 4-in-a-Row • [Fairy-Stockfish 14]</option>
-            <option value="m=15&n=15&k=5" selected>(15,15,5) Standard Gomoku • [Rapfi Mixnet SOTA]</option>
-            <option value="m=19&n=19&k=5">(19,19,5) Renju / Freerule • [Rapfi Mixnet SOTA]</option>
-            <option value="m=5&n=5&k=4">(5,5,4) Mini-Gomoku • [Fairy-Stockfish 14]</option>
+          <label class="form-label">Game Variant</label>
+          <select id="select-ai-variant" class="form-select">
+            <option value="m=3&n=3&k=3">(3,3,3) Tic-Tac-Toe &bull; Fairy-Stockfish 14</option>
+            <option value="m=5&n=5&k=4">(5,5,4) Mini-Gomoku &bull; Threat-Space AI</option>
+            <option value="m=7&n=6&k=4">(7,6,4) Connect Four &bull; Fairy-Stockfish 14</option>
+            <option value="m=10&n=10&k=5">(10,10,5) Freestyle 10×10 &bull; Rapfi SOTA</option>
+            <option value="m=15&n=15&k=5" selected>(15,15,5) Standard Gomoku &bull; Rapfi SOTA</option>
+            <option value="m=19&n=19&k=5">(19,19,5) Renju &bull; Rapfi SOTA</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label class="form-label">
-            <span>Offline Engine Routing</span>
-            <span style="color: var(--accent-green); font-weight: 700;">100% Local</span>
-          </label>
-          <div style="font-size: 0.78rem; color: var(--text-muted); background: #161512; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); line-height: 1.5;">
-            • <strong>5-in-a-row ($k=5$)</strong>: Rapfi Mixnet SOTA (Gomocup Champion)<br>
-            • <strong>1, 2, 3, 4-in-a-row ($k\le 4$)</strong>: Fairy-Stockfish 14 NNUE (LB WASM)<br>
-            • <strong>$k \ge 6$ or $J \ge 3$</strong>: Threat-Space Minimax Solver
-          </div>
+          <label class="form-label">Time Control</label>
+          <select id="select-ai-clock" class="form-select">
+            <option value="unlimited">Unlimited (Casual)</option>
+            <option value="1+0">1 + 0 (Bullet)</option>
+            <option value="3+0">3 + 0 (Blitz)</option>
+            <option value="3+2" selected>3 + 2 (Blitz)</option>
+            <option value="5+3">5 + 3 (Rapid)</option>
+            <option value="10+0">10 + 0 (Classical)</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Choose Your Side</label>
+          <label class="form-label">Choose your side</label>
           <div class="side-choice-grid">
             <button type="button" class="btn-side selected" onclick="selectSideChoice(this, 'first')">⚪ Play First (X)</button>
             <button type="button" class="btn-side" onclick="selectSideChoice(this, 'random')">☯️ Random</button>
@@ -1567,7 +722,7 @@
           </div>
         </div>
 
-        <button type="button" class="btn-modal-submit" onclick="launchComputerGame()">Start Match against AI</button>
+        <button type="button" class="btn-modal-submit" onclick="launchComputerGame()">Start Game</button>
       </div>
     </div>
   </div>
@@ -1578,7 +733,7 @@
   <div id="modal-custom" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-custom')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>Create Custom (m,n,k,j) Game</h3>
+        <h3>⚙️ Create a Game</h3>
         <button class="modal-close" onclick="closeModal('modal-custom')">&times;</button>
       </div>
       <div class="modal-body">
@@ -1602,7 +757,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
           <div class="form-group">
             <label class="form-label">
-              <span>Win Streak (k)</span>
+              <span>Streak (k)</span>
               <span id="label-custom-k" style="color: var(--accent-orange); font-weight: 700;">4</span>
             </label>
             <input type="range" min="1" max="8" value="4" class="form-slider" id="slider-custom-k" oninput="document.getElementById('label-custom-k').textContent = this.value">
@@ -1619,22 +774,22 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
           <div class="form-group">
             <label class="form-label">Time Control</label>
-            <select id="select-custom-clock" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-              <option value="">Unlimited</option>
+            <select id="select-custom-clock" class="form-select">
+              <option value="unlimited">Unlimited</option>
               <option value="1+0">1 + 0 (Bullet)</option>
               <option value="3+0">3 + 0 (Blitz)</option>
-              <option value="3+2" selected>3 + 2 (Blitz with Inc)</option>
+              <option value="3+2" selected>3 + 2 (Blitz)</option>
               <option value="5+3">5 + 3 (Rapid)</option>
               <option value="10+0">10 + 0 (Rapid)</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label">Mode</label>
-            <select id="select-custom-mode" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-              <option value="play-ai" selected>🤖 vs Computer (AI)</option>
+            <select id="select-custom-mode" class="form-select">
+              <option value="play-ai" selected>⚔️ vs Computer (AI)</option>
               <option value="play-pass">👥 Pass &amp; Play (Local)</option>
               <option value="analysis">🔍 Analysis Board</option>
-              <option value="editor">✏️ Board Editor</option>
+              <option value="editor">🎨 Board Editor</option>
             </select>
           </div>
         </div>
@@ -1650,29 +805,25 @@
   <div id="modal-friend" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-friend')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>Pass &amp; Play (Local Match)</h3>
+        <h3>👥 Play with a friend</h3>
         <button class="modal-close" onclick="closeModal('modal-friend')">&times;</button>
       </div>
       <div class="modal-body">
-        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-          Play locally on the same device with 2 to 4 players, precision chess clocks, obstacle barriers (#), and move notation.
-        </p>
-
         <div class="form-group">
           <label class="form-label">Preset Configuration</label>
-          <select id="select-friend-variant" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+          <select id="select-friend-variant" class="form-select">
             <option value="m=3&n=3&k=3">3×3 (k=3) Classic Tic-Tac-Toe</option>
             <option value="m=5&n=5&k=4" selected>5×5 (k=4) Mini-Gomoku</option>
             <option value="m=7&n=6&k=4">7×6 (k=4) Connect Four Grid</option>
             <option value="m=10&n=10&k=5">10×10 (k=5) Freestyle Gomoku</option>
-            <option value="m=15&n=15&k=5">15×15 (k=5) Gomoku</option>
+            <option value="m=15&n=15&k=5">15×15 (k=5) Standard Gomoku</option>
           </select>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
           <div class="form-group">
-            <label class="form-label">Players (j)</label>
-            <select id="select-friend-players" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
+            <label class="form-label">Players</label>
+            <select id="select-friend-players" class="form-select">
               <option value="2" selected>2 Players (X vs O)</option>
               <option value="3">3 Players (X vs O vs ▲)</option>
               <option value="4">4 Players (X vs O vs ▲ vs ◆)</option>
@@ -1680,8 +831,8 @@
           </div>
           <div class="form-group">
             <label class="form-label">Time Control</label>
-            <select id="select-friend-clock" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-              <option value="">Unlimited</option>
+            <select id="select-friend-clock" class="form-select">
+              <option value="unlimited">Unlimited</option>
               <option value="1+0">1 + 0 (Bullet)</option>
               <option value="3+2" selected>3 + 2 (Blitz)</option>
               <option value="5+3">5 + 3 (Rapid)</option>
@@ -1690,7 +841,7 @@
           </div>
         </div>
 
-        <button type="button" class="btn-modal-submit" onclick="launchFriendGame()">Start Local Pass &amp; Play</button>
+        <button type="button" class="btn-modal-submit" onclick="launchFriendGame()">Start Match</button>
       </div>
     </div>
   </div>
@@ -1701,50 +852,42 @@
   <div id="modal-search" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-search')">
     <div class="modal-box" style="max-width: 520px;">
       <div class="modal-header">
-        <h3>Search (m,n,k,j)-Games</h3>
+        <h3>🔍 Search (m,n,k)-Games</h3>
         <button class="modal-close" onclick="closeModal('modal-search')">&times;</button>
       </div>
       <div class="modal-body">
-        <input type="text" id="search-input" placeholder="Search variants, theorems, analysis board..." oninput="filterSearchResults(this.value)" style="width: 100%; background: #1e1c18; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; color: var(--text-bright); font-size: 0.95rem; outline: none;">
+        <input type="text" id="search-input" placeholder="Search variants, board sizes, tablebase..." oninput="filterSearchResults(this.value)" class="form-input" style="font-size: 0.95rem;">
         
         <div id="search-results-list" style="display: flex; flex-direction: column; gap: 0.35rem; max-height: 240px; overflow-y: auto;">
-          <a href="board.html#analysis" class="dropdown-link" style="border-radius: 4px;">♟️ Threat-Space Analysis Board (1x1 to 32x32)</a>
-          <a href="solved_status_of_mnk_games.html" class="dropdown-link" style="border-radius: 4px;">📊 Solved Status Atlas (k=1 to k≥8)</a>
-          <a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" class="dropdown-link" style="border-radius: 4px;">📥 Download Solved Atlas Excel (.xlsx)</a>
-          <a href="mnk_games_theory_and_ai.html" class="dropdown-link" style="border-radius: 4px;">📖 The Mathematics &amp; SOTA AI of (m,n,k)-Games</a>
-          <a href="board.html#tournament" class="dropdown-link" style="border-radius: 4px;">🏆 Tournament Arena (Knockout &amp; Round Robin)</a>
-          <a href="board.html#editor" class="dropdown-link" style="border-radius: 4px;">✏️ Board Editor &amp; Obstacle Barrier Blocks (#)</a>
-          <a href="board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px;">🎯 (5,5,4) Mini-Gomoku Board</a>
-          <a href="../" class="dropdown-link" style="border-radius: 4px;">🎮 Games Hub</a>
-          <a href="../../academic/" class="dropdown-link" style="border-radius: 4px;">🎓 Vaibhav Geometer Academic Portals</a>
-          <a href="../../" class="dropdown-link" style="border-radius: 4px;">📐 Vaibhav Geometer Home</a>
+          <a href="board.html#analysis" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">♟️ Threat-Space Analysis Board</a>
+          <a href="solved_status_of_mnk_games.html" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">📊 Solved Tablebase Matrix (k=1 to k≥8)</a>
+          <a href="board.html#tournament" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🏆 Tournament Arena (Knockouts &amp; Round Robin)</a>
+          <a href="board.html#editor" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🎨 Board Editor &amp; Barriers (#)</a>
+          <a href="board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚡ (5,5,4) Mini-Gomoku Board</a>
+          <a href="board.html?m=15&n=15&k=5#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚫ (15,15,5) Standard Gomoku Board</a>
+          <a href="board.html?m=7&n=6&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🔴 (7,6,4) Connect Four Grid</a>
+          <a href="../" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🎮 Games Hub</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Inline Script for Tab Switching & Dialogs -->
   <script>
     // Tab Switching
     function switchTab(tabId) {
-      document.getElementById('tab-quick-btn').classList.remove('active');
-      document.getElementById('tab-variants-btn').classList.remove('active');
-      document.getElementById('tab-solved-btn').classList.remove('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      const panels = ['quick', 'lobby', 'variants', 'tablebase'];
+      panels.forEach(p => {
+        const el = document.getElementById(`panel-${p}`);
+        if (el) el.style.display = 'none';
+      });
 
-      document.getElementById('panel-quick').style.display = 'none';
-      document.getElementById('panel-variants').style.display = 'none';
-      document.getElementById('panel-solved').style.display = 'none';
+      const activeBtn = document.getElementById(`tab-${tabId}-btn`);
+      if (activeBtn) activeBtn.classList.add('active');
+      const activePanel = document.getElementById(`panel-${tabId}`);
+      if (activePanel) activePanel.style.display = 'block';
 
-      if (tabId === 'quick') {
-        document.getElementById('tab-quick-btn').classList.add('active');
-        document.getElementById('panel-quick').style.display = 'block';
-      } else if (tabId === 'variants') {
-        document.getElementById('tab-variants-btn').classList.add('active');
-        document.getElementById('panel-variants').style.display = 'block';
-      } else if (tabId === 'solved') {
-        document.getElementById('tab-solved-btn').classList.add('active');
-        document.getElementById('panel-solved').style.display = 'block';
-      }
+      if (window.LichessSound) window.LichessSound.playMove();
     }
 
     // Modal Control
@@ -1769,7 +912,7 @@
       }
     }
 
-    // AI Level Label update
+    // AI Elo Ratings
     const eloRatings = {
       1: 'Level 1 (Elo 600 - Random)',
       2: 'Level 2 (Elo 900 - Novice)',
@@ -1778,7 +921,7 @@
       5: 'Level 5 (Elo 1800 - Club Player)',
       6: 'Level 6 (Elo 2100 - Expert)',
       7: 'Level 7 (Elo 2500 - Master)',
-      8: 'Level 8 (Elo 3000 - SOTA Threat-Space)'
+      8: 'Level 8 (Elo 3000 - SOTA AI)'
     };
 
     function updateAiLevelLabel(val) {
@@ -1790,13 +933,16 @@
       document.querySelectorAll('.side-choice-grid .btn-side').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
       selectedSide = side;
+      if (window.LichessSound) window.LichessSound.playMove();
     }
 
     function launchComputerGame() {
       const level = document.getElementById('slider-ai-level').value;
       const variantParams = document.getElementById('select-ai-variant').value;
+      const clock = document.getElementById('select-ai-clock').value;
       const side = selectedSide === 'random' ? (Math.random() < 0.5 ? 'first' : 'second') : selectedSide;
-      window.location.href = `board.html?${variantParams}&preset=hva&level=${level}&side=${side}#play`;
+      const clockParam = clock !== 'unlimited' ? `&tc=${encodeURIComponent(clock)}` : '';
+      window.location.href = `board.html?mode=play&${variantParams}&preset=hva&level=${level}&side=${side}${clockParam}#play`;
     }
 
     function updateCustomMaxK() {
@@ -1821,29 +967,34 @@
       const j = document.getElementById('slider-custom-j').value;
       const clock = document.getElementById('select-custom-clock')?.value;
       const mode = document.getElementById('select-custom-mode')?.value || 'play-ai';
-      const clockParam = clock ? `&tc=${encodeURIComponent(clock)}` : '';
+      const clockParam = (clock && clock !== 'unlimited') ? `&tc=${encodeURIComponent(clock)}` : '';
 
       let hash = 'play';
+      let modeParam = 'play';
       let presetParam = '&preset=hva';
+
       if (mode === 'play-pass') {
         hash = 'play';
+        modeParam = 'play';
         presetParam = '&preset=hvh';
       } else if (mode === 'analysis') {
         hash = 'analysis';
+        modeParam = 'analysis';
         presetParam = '';
       } else if (mode === 'editor') {
         hash = 'editor';
+        modeParam = 'editor';
         presetParam = '';
       }
-      window.location.href = `board.html?m=${m}&n=${n}&k=${k}&j=${j}${presetParam}${clockParam}#${hash}`;
+      window.location.href = `board.html?mode=${modeParam}&m=${m}&n=${n}&k=${k}&j=${j}${presetParam}${clockParam}#${hash}`;
     }
 
     function launchFriendGame() {
       const variantParams = document.getElementById('select-friend-variant').value;
       const j = document.getElementById('select-friend-players')?.value || 2;
       const clock = document.getElementById('select-friend-clock')?.value;
-      const clockParam = clock ? `&tc=${encodeURIComponent(clock)}` : '';
-      window.location.href = `board.html?${variantParams}&j=${j}&preset=hvh${clockParam}#play`;
+      const clockParam = (clock && clock !== 'unlimited') ? `&tc=${encodeURIComponent(clock)}` : '';
+      window.location.href = `board.html?mode=play&${variantParams}&j=${j}&preset=hvh${clockParam}#play`;
     }
 
     function filterSearchResults(query) {
@@ -1861,6 +1012,96 @@
         document.querySelectorAll('.modal-backdrop').forEach(m => m.style.display = 'none');
       }
     });
+
+    // Theme Toggle
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      const btn = document.getElementById('theme-btn');
+      if (btn) btn.querySelector('span').textContent = next === 'dark' ? '☀️' : '🌙';
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      const btn = document.getElementById('theme-btn');
+      if (btn) btn.querySelector('span').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Sound Toggle
+    function toggleSound() {
+      if (window.LichessSound) {
+        const enabled = window.LichessSound.toggle();
+        document.getElementById('sound-icon').textContent = enabled ? '🔊' : '🔇';
+        if (enabled) window.LichessSound.playMove();
+      }
+    }
+    if (window.LichessSound && !window.LichessSound.isEnabled()) {
+      const sIcon = document.getElementById('sound-icon');
+      if (sIcon) sIcon.textContent = '🔇';
+    }
+
+    // Animated mnk TV mini-board simulation
+    (function initTvBoard() {
+      const boardEl = document.getElementById('tv-board');
+      if (!boardEl) return;
+      const cells = [];
+      for (let i = 0; i < 25; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'tv-mini-cell';
+        boardEl.appendChild(cell);
+        cells.push(cell);
+      }
+
+      // Predefined sample 5x5 moves sequence
+      const sampleGames = [
+        [12, 11, 7, 17, 8, 16, 6, 18, 13],
+        [12, 6, 18, 8, 16, 7, 17, 13, 11],
+        [12, 13, 11, 7, 17, 8, 16, 6, 14]
+      ];
+
+      let gameIdx = 0;
+      let moveIdx = 0;
+      let tvBoardState = new Array(25).fill(null);
+
+      function stepTv() {
+        const moves = sampleGames[gameIdx];
+        if (moveIdx >= moves.length) {
+          // Restart with next game
+          setTimeout(() => {
+            cells.forEach(c => {
+              c.textContent = '';
+              c.className = 'tv-mini-cell';
+            });
+            tvBoardState.fill(null);
+            gameIdx = (gameIdx + 1) % sampleGames.length;
+            moveIdx = 0;
+            document.getElementById('tv-eval-score').textContent = '0.0';
+            setTimeout(stepTv, 1000);
+          }, 3000);
+          return;
+        }
+
+        const m = moves[moveIdx];
+        const piece = moveIdx % 2 === 0 ? 'X' : 'O';
+        tvBoardState[m] = piece;
+
+        cells.forEach(c => c.classList.remove('last'));
+        cells[m].textContent = piece;
+        cells[m].classList.add(piece.toLowerCase());
+        cells[m].classList.add('last');
+
+        // Update score slightly
+        const scores = ['0.0', '+0.4', '-0.2', '+0.8', '+1.4', '+2.5', '+4.1', '#1'];
+        document.getElementById('tv-eval-score').textContent = scores[Math.min(moveIdx, scores.length - 1)];
+
+        moveIdx++;
+        setTimeout(stepTv, 1600);
+      }
+
+      setTimeout(stepTv, 1200);
+    })();
   </script>
 </body>
 </html>

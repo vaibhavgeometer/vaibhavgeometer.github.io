@@ -8,7 +8,7 @@
 [![mnk games Platform](https://img.shields.io/badge/mnk%20games-Free%20Online%20Platform-d97724?logo=lichess)](https://vaibhavgeometer.github.io/games/mnk-games/)
 [![mnk games Engine](https://img.shields.io/badge/mnk%20games-SOTA%20(m%2Cn%2Ck)%20Analysis%20Board-629924)](https://vaibhavgeometer.github.io/games/mnk-games/board.html)
 [![Tournament Arena](https://img.shields.io/badge/Tournaments-Round%20Robin%20%26%20Knockouts-e69f00.svg)](https://vaibhavgeometer.github.io/games/mnk-games/board.html#tournament)
-[![Theory & AI Article](https://img.shields.io/badge/Theory%20Article-(m%2Cn%2Ck)%20Theory%20%26%20AI-0284c7)](https://vaibhavgeometer.github.io/games/mnk-games/mnk_games_theory_and_ai.html)
+[![Endgame Tablebase](https://img.shields.io/badge/Tablebase-(m%2Cn%2Ck)%20Solved%20Atlas-0284c7)](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html)
 [![Solved Status Atlas](https://img.shields.io/badge/Solved%20Atlas-(m%2Cn%2Ck)%20Matrix%20k=1..8+-emerald)](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
@@ -44,8 +44,8 @@
 | ⚔️ **Offline Match Play & Clocks** | Competitive play vs AI (Levels 1–8) or human with precision clocks ($1+0$, $3+2$, $5+3$, $10+5$) | [Launch Play Mode](https://vaibhavgeometer.github.io/games/mnk-games/board.html#play) |
 | 🏆 **Tournament Arena** | Round Robin (Berger pairings) & Knockout brackets with mixed human/AI rosters | [Launch Tournament Arena](https://vaibhavgeometer.github.io/games/mnk-games/board.html#tournament) |
 | 🎨 **Board Editor & Barriers (`#`)** | Setup custom positions and place frozen obstacle squares blocking streaks | [Open Board Editor](https://vaibhavgeometer.github.io/games/mnk-games/board.html#editor) |
-| 📊 **Solved Status Atlas** | Verified matrix atlas of $(m,n,k)$ game solutions ($k=1$ to $k \ge 8$) with proofs & dataset | [Explore Solved Atlas](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html) |
-| 📖 **(m,n,k) Games Theory & AI** | Deep-dive research into Ramsey theory, Nash strategy-stealing, solved games catalog & SOTA AI | [Read Theory Article](https://vaibhavgeometer.github.io/games/mnk-games/mnk_games_theory_and_ai.html) |
+| 📊 **Endgame Tablebase** | Verified matrix atlas of $(m,n,k)$ game solutions ($k=1$ to $k \ge 8$) with proofs & dataset | [Explore Tablebase](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html) |
+| 🏆 **Tournament Arena** | Round Robin (Berger pairings) & Knockout brackets with mixed human/AI rosters | [Launch Tournament Arena](https://vaibhavgeometer.github.io/games/mnk-games/board.html#tournament) |
 
 ---
 
@@ -233,9 +233,8 @@ The central Games Hub coordinates all game projects, presenting structured subse
 - **Frozen Barrier Squares (`#` / ❄️)**: Place impassable obstacle squares where moves cannot be made and win streaks are blocked.
 - **One-Click Export**: Launch customized positions directly into the Analysis Board or Match Play mode.
 
-#### 7. Solved Status Atlas & Research Guide
-- **Verified Matrix Atlas (`solved_status_of_mnk_games.html`)**: Complete classification table for $k=1$ to $k \ge 8$ across boards up to $32\times 32$, documenting theoretical first-player wins ($X$), second-player wins ($O$), and theoretical draws. Downloadable Excel dataset included.
-- **Game Theory & SOTA AI Paper (`mnk_games_theory_and_ai.html`)**: In-depth academic exposition detailing Nash strategy-stealing, Ramsey theory, Hales-Jewett theorem, Paired-Strategy draw proofs, Threat-Space Search (VCF/VCT), and Proof-Number Search.
+#### 7. Endgame Tablebase & Solved Status Atlas
+- **Verified Matrix Tablebase (`solved_status_of_mnk_games.html`)**: Complete classification table for $k=1$ to $k \ge 8$ across boards up to $32\times 32$, documenting theoretical first-player wins ($X$), second-player wins ($O$), and theoretical draws. Downloadable Excel dataset included.
 
 ---
 
@@ -372,9 +371,8 @@ vaibhavgeometer.github.io/
 │   └── mnk-games/                             # ♟️ (m,n,k)-Games Platform & SOTA AI Ecosystem
 │       ├── index.html                         # Lichess-style web platform hub, quick pairings & lobby
 │       ├── board.html                         # SOTA Analysis Board, Tournament Arena, Match Play & Editor
-│       ├── solved_status_of_mnk_games.html    # Solved Status Matrix Atlas (k=1 to k≥8) & dataset
-│       ├── solved_status_of_mnk_games.xlsx    # Excel format complete dataset & classification matrix
-│       └── mnk_games_theory_and_ai.html       # Comprehensive Game Theory & AI Research Guide
+│       ├── solved_status_of_mnk_games.html    # Endgame Tablebase & Solved Status Matrix (k=1 to k≥8)
+│       └── solved_status_of_mnk_games.xlsx    # Excel format complete dataset & classification matrix
 │
 ├── css/                                       # 🌐 Glassmorphism design system & portal stylesheet
 │   └── portfolio.css
@@ -482,7 +480,7 @@ This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generat
 - **Generalized Multi-Player $(m,n,k,j)$ Games (Demand 3)**: Extends $(m,n,k)$-games to arbitrary $j=2, 3, 4, 5$ players with circular turn rotation (Player 1 $X$, Player 2 $O$, Player 3 $\blacktriangle$ Emerald, Player 4 $\blacksquare$ Sky Blue, Player 5 $\blacklozenge$ Purple), custom SVG geometries, and multi-opponent threat detection for AI levels 1 to 8.
 - **Board Editor & Frozen Obstacle Squares (Demand 4)**: Interactive position editor to place frozen squares (`#` / ❄️) where moves cannot be placed and streaks are blocked, place custom piece layouts, assign starting turns, and load directly into Analysis or Play modes.
 - **Clean Architecture (Demand 5 & 6)**: Reorganized repository into clear domains (`academic/`, `games/mnk-games/`), keeping root configuration (`css/`, `.gitignore`, `README.md`, `LICENSE`, `scratch/`) and zero-regression entry points to guarantee 100% backward compatibility for all URLs and bookmarks.
-- **Complete & Partial Endgame Tablebases Catalog (Demand 7)**: Documented complete retrograde tablebases ($1\times 1$, $2\times 2$, $3\times 3, k=2$, $3\times 3, k=3$, $4\times 4, k=4$ Patashnik draw, $3\times 4, k=3$), partial tablebases & opening books ($5\times 5, k=4$ theoretical draw, $6\times 6, k=4$, $7\times 7, k=5$ Small Gomoku, $15\times 15, k=5$ Gomoku, $19\times 19, k=5$ Pente), and open classifications ($k \ge 6$) in `mnk_games_theory_and_ai.html`.
+- **Complete & Partial Endgame Tablebases Catalog (Demand 7)**: Documented complete retrograde tablebases ($1\times 1$, $2\times 2$, $3\times 3, k=2$, $3\times 3, k=3$, $4\times 4, k=4$ Patashnik draw, $3\times 4, k=3$), partial tablebases & opening books ($5\times 5, k=4$ theoretical draw, $6\times 6, k=4$, $7\times 7, k=5$ Small Gomoku, $15\times 15, k=5$ Gomoku, $19\times 19, k=5$ Pente), and open classifications ($k \ge 6$) in the interactive Endgame Tablebase (`solved_status_of_mnk_games.html`).
 
 ### October 2026 — mnk games Engine, Eval Bar & Analysis Board Major Update
 - **Progressive AI Thinking & Iterative Deepening (SOTA Engine Style)**: Implemented an asynchronous iterative deepening search engine ($d=1..24$) with cooperative micro-yielding, PV move ordering, live telemetry (depth, nodes, kN/s, timer, progress bar, `Stop`/`Run` toggle), and real-time Principal Variation line display.
@@ -491,7 +489,7 @@ This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generat
 - **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**: Developed and implemented a static positional kernel evaluating Chebyshev center proximity and unblocked line counts. Completely eliminates leaf-node horizon oscillations, keeping opening moves on theoretical draw boards like $(5,5,4)$ rock-solid at $0$.
 - **All-Square Evaluation Badges**: Real-time evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (green for best moves, gray for equal/draws, red for blunders).
 - **Match Evaluation & Privacy Toggle**: Added play-mode toggle (`playShowEval`) to conceal engine evaluations and hints for competitive matches vs engine Levels 1–8.
-- **Research Article Expansion**: Published new sections in `mnk_games_theory_and_ai.html` covering progressive AI thinking, static evaluation kernel mathematics, horizon effect mitigation, and win probability modeling.
+- **Tablebase & Analysis Expansion**: Added comprehensive engine features covering progressive AI thinking, static evaluation kernel mathematics, horizon effect mitigation, and win probability modeling.
 
 ### August 2026 — JAM Portal & CBT Simulator Code Audit
 - **Simulator Engine Improvements**: Fixed an issue where the `C` keyboard shortcut for Option C conflicted with clearing responses. Refined the NAT evaluation logic for exact value single-answer keys to a strict `0.001` tolerance. Added support for hyphen (`-`) as a valid range delimiter.
