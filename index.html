@@ -34,6 +34,9 @@
         <a href="academic/JAM/" class="nav-link" title="IIT JAM Portal">
           IIT JAM
         </a>
+        <a href="games/" class="nav-link" title="Games Ecosystem &amp; Board Games">
+          Games
+        </a>
         <a href="mnk-games/" class="nav-link" title="m,n,k-game &amp; generalizations Ecosystem">
           (m,n,k) Games
         </a>
@@ -108,20 +111,138 @@
             </div>
           </div>
 
-          <!-- Featured Project 2: mnk games -->
-          <div class="jam-card engine-card">
+          <!-- Featured Project 2: Games -->
+          <div class="jam-card engine-card" id="games">
             <div class="jam-card-header">
-              <div class="jam-badge engine-badge">Interactive Engine · Game Theory & AI</div>
-              <h2 class="jam-title">mnk games</h2>
+              <div class="jam-badge engine-badge">Featured Platform · Games &amp; Engines</div>
+              <h2 class="jam-title">Games</h2>
               <p class="jam-summary">
-                Minimalist, high-performance platform for generalized (m,n,k)-games from 1×1 to 32×32 with win streak k from 1 to 8 (including Tic-Tac-Toe, Qubic, and 15×15 Gomoku). Powered by SOTA Threat-Space Search (VCF/VCT), distance-2 neighborhood pruning, exact retrograde tablebases, and verified Solved Status Atlas (k=1 to k≥8). Includes 8 calibrated AI difficulty levels (600–3000 Elo), active frozen barrier blocks (#), chess clocks, and tournament platform.
+                Dedicated gaming ecosystem encompassing abstract strategy board games (mainly board games), combinatorial game theory engines, and interactive video games.
               </p>
             </div>
 
+            <!-- Games Subsections: Board Games & Video Games -->
+            <div class="games-subsections-container">
+              
+              <!-- Subsection 1: Board Games (Main Focus) -->
+              <div class="games-group">
+                <div class="games-group-header">
+                  <div class="games-group-title">
+                    <span>🎲</span>
+                    <span>Board Games</span>
+                  </div>
+                  <span class="games-group-tag">Main Focus</span>
+                </div>
+
+                <div class="games-grid">
+                  <!-- Active Game: (m,n,k) Games -->
+                  <div class="game-card-item item-active">
+                    <div>
+                      <div class="game-card-top">
+                        <span class="game-card-title">♟️ (m,n,k) Games</span>
+                        <span class="status-badge badge-active">Active Platform</span>
+                      </div>
+                      <p class="game-card-desc">
+                        Generalized $(m,n,k)$-games from 1×1 to 32×32 with streak $k=1..8$ (Tic-Tac-Toe, Qubic, Gomoku). Threat-Space Search (VCF/VCT), retrograde tablebases, and verified Solved Atlas.
+                      </p>
+                    </div>
+                    <div class="game-card-actions">
+                      <a href="mnk-games/" class="btn-mini btn-mini-primary">▶ Play Platform</a>
+                      <a href="mnk-games/board.html" class="btn-mini btn-mini-secondary">🔍 Analysis</a>
+                      <a href="mnk-games/solved_status_of_mnk_games.html" class="btn-mini btn-mini-secondary">📊 Atlas</a>
+                      <a href="mnk-games/mnk_games_theory_and_ai.html" class="btn-mini btn-mini-secondary">📖 Theory</a>
+                    </div>
+                  </div>
+
+                  <!-- Placeholder: Chess -->
+                  <div class="game-card-item item-placeholder">
+                    <div>
+                      <div class="game-card-top">
+                        <span class="game-card-title">♞ Chess</span>
+                        <span class="status-badge badge-dev">In Development</span>
+                      </div>
+                      <p class="game-card-desc">
+                        Classical 8×8 abstract strategy board game. Planned interactive analysis engine, FEN/PGN move explorer, opening book database, and endgame tablebases.
+                      </p>
+                    </div>
+                    <div class="game-card-actions">
+                      <span class="btn-mini btn-mini-disabled">⏳ Coming Soon</span>
+                    </div>
+                  </div>
+
+                  <!-- Placeholder: Shogi -->
+                  <div class="game-card-item item-placeholder">
+                    <div>
+                      <div class="game-card-top">
+                        <span class="game-card-title">☖ Shogi</span>
+                        <span class="status-badge badge-dev">In Development</span>
+                      </div>
+                      <p class="game-card-desc">
+                        Traditional 9×9 Japanese chess with piece drop mechanics and promotion zones. Planned Minimax/Alpha-Beta search and Tsume-shogi mating problem solver.
+                      </p>
+                    </div>
+                    <div class="game-card-actions">
+                      <span class="btn-mini btn-mini-disabled">⏳ Coming Soon</span>
+                    </div>
+                  </div>
+
+                  <!-- Placeholder: Other Classic Board Games -->
+                  <div class="game-card-item item-placeholder">
+                    <div>
+                      <div class="game-card-top">
+                        <span class="game-card-title">🀄 Xiangqi &amp; Strategy</span>
+                        <span class="status-badge badge-planned">Planned</span>
+                      </div>
+                      <p class="game-card-desc">
+                        Chinese chess (Xiangqi), Go / Baduk (19×19 territorial grid), and other classic perfect-information combinatorial strategy board games.
+                      </p>
+                    </div>
+                    <div class="game-card-actions">
+                      <span class="btn-mini btn-mini-disabled">📋 Roadmap</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Subsection 2: Video Games -->
+              <div class="games-group">
+                <div class="games-group-header">
+                  <div class="games-group-title">
+                    <span>🎮</span>
+                    <span>Video Games &amp; Simulations</span>
+                  </div>
+                  <span class="games-group-tag tag-secondary">Interactive &amp; Arcade</span>
+                </div>
+
+                <div class="games-grid">
+                  <!-- Placeholder: Video Games -->
+                  <div class="game-card-item item-placeholder" style="grid-column: 1 / -1;">
+                    <div>
+                      <div class="game-card-top">
+                        <span class="game-card-title">👾 Video Games &amp; Algorithmic Puzzles</span>
+                        <span class="status-badge badge-dev">In Development</span>
+                      </div>
+                      <p class="game-card-desc">
+                        Interactive discrete-state simulations, cellular automata (Conway's Life, Wireworld), procedural maze engines, and mathematical retro-arcade video games.
+                      </p>
+                    </div>
+                    <div class="game-card-actions">
+                      <span class="btn-mini btn-mini-disabled">⏳ Coming Soon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Global Card Actions -->
             <div class="jam-actions">
-              <a href="mnk-games/" class="btn-primary btn-engine">
-                <span>♟️ Open mnk games Platform</span>
+              <a href="games/" class="btn-primary btn-engine">
+                <span>🎮 Open Games Hub</span>
                 <span>→</span>
+              </a>
+              <a href="mnk-games/" class="btn-secondary">
+                <span>♟️ (m,n,k) Games Platform</span>
               </a>
               <a href="mnk-games/board.html" class="btn-secondary">
                 <span>🔍 Analysis Board</span>
@@ -130,13 +251,15 @@
                 <span>📊 Solved Status Atlas</span>
               </a>
               <a href="mnk-games/mnk_games_theory_and_ai.html" class="btn-secondary">
-                <span>📖 Read Theory Article</span>
+                <span>📖 Theory &amp; AI</span>
               </a>
             </div>
 
             <div class="jam-quick-links">
-              <span class="quick-links-label">Highlights:</span>
-              <a href="mnk-games/" class="text-link">Quick Play Presets</a>
+              <span class="quick-links-label">Games Ecosystem:</span>
+              <a href="games/" class="text-link">Games Hub</a>
+              <span class="dot">•</span>
+              <a href="mnk-games/" class="text-link">(m,n,k) Presets</a>
               <span class="dot">•</span>
               <a href="mnk-games/board.html" class="text-link">1×1 to 32×32 Boards (k=1..8)</a>
               <span class="dot">•</span>
@@ -144,11 +267,9 @@
               <span class="dot">•</span>
               <a href="mnk-games/board.html#analysis" class="text-link">[-100, +100] Eval Bar</a>
               <span class="dot">•</span>
-              <a href="mnk-games/board.html#editor" class="text-link">Obstacle Blocks (#)</a>
-              <span class="dot">•</span>
               <a href="mnk-games/board.html#play" class="text-link">8 Engine Levels (600–3000 Elo)</a>
               <span class="dot">•</span>
-              <a href="mnk-games/mnk_games_theory_and_ai.html" class="text-link">Game Theory & SOTA AI</a>
+              <span style="color: var(--text-muted);">Chess &amp; Shogi (In Development)</span>
             </div>
           </div>
 
@@ -165,6 +286,7 @@
       <div class="footer-links">
         <a href="academic/">Academic Portals</a>
         <a href="academic/JAM/">IIT JAM</a>
+        <a href="games/">Games</a>
         <a href="mnk-games/">mnk games</a>
         <a href="mnk-games/board.html">Analysis Board</a>
         <a href="mnk-games/solved_status_of_mnk_games.html">Solved Atlas</a>

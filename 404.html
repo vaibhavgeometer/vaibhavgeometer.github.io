@@ -48,6 +48,11 @@
         return;
       }
 
+      if (lower === '/games' || lower === '/games/') {
+        window.location.replace('/games/' + search + hash);
+        return;
+      }
+
       if (lower === '/cuet' || lower === '/cuet/' || lower === '/cuet-pg' || lower === '/cuet-pg/') {
         window.location.replace('/academic/CUET-PG/' + search + hash);
         return;
@@ -131,6 +136,9 @@
     <div class="error-actions">
       <a href="academic/JAM/" class="btn-primary">
         <span>🚀</span> <span>IIT JAM Mathematics Portal</span>
+      </a>
+      <a href="games/" class="btn-secondary">
+        <span>🎮</span> <span>Games Hub</span>
       </a>
       <a href="mnk-games/board.html" class="btn-secondary">
         <span>♟️</span> <span>m,n,k-game &amp; generalizations</span>

@@ -19,7 +19,7 @@
 
 > **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring two flagship domains:
 > 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator, alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
-> 2. **[mnk games — Free Online (m,n,k)-Games Platform & SOTA AI Engine](https://vaibhavgeometer.github.io/mnk-games/)**: Lichess-inspired dark-mode platform, advanced analysis board and game-tree engine for generalized $(m,n,k)$-games ($1\times 1$ to $32\times 32$, $k=1..8$, $j=2..5$ players), calibrated $[-100, +100]$ win probability eval bar, horizon-free Chebyshev static board evaluation, transposition table with exact/lower/upper bound flags, open $(k-1)$ decisive threat heuristic, 8 calibrated engine difficulty tiers (600–3000 Elo), tournament arena (Round Robin & Knockouts), precision chess clocks with time forfeit detection, board editor with active frozen obstacle barriers (`#`), post-match full game computer analysis report, and verified Solved Status Atlas.
+> 2. **[Games Platform & SOTA AI Engines](https://vaibhavgeometer.github.io/games/)**: Dedicated gaming ecosystem focused on abstract strategy board games (mainly board games) featuring the flagship **[mnk games Platform & SOTA AI Engine](https://vaibhavgeometer.github.io/mnk-games/)** (Lichess-inspired dark-mode platform, advanced analysis board, calibrated $[-100, +100]$ win probability eval bar, Threat-Space Search AI, 8 difficulty tiers 600–3000 Elo, tournament arena, barrier blocks, and verified Solved Atlas), alongside development roadmap placeholders for Chess, Shogi, and interactive Video Games.
 
 ---
 
@@ -38,6 +38,7 @@
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Cheat Sheets](#-14-high-yield-formula-cheat-sheets) |
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
+| 🎮 **Games Hub** | Central portal for strategy board games ((m,n,k), Chess, Shogi) & video games | [vaibhavgeometer.github.io/games](https://vaibhavgeometer.github.io/games/) |
 | ♟️ **mnk games Platform Hub** | Lichess-style dark web platform with quick pairings, open lobby, and game creation | [vaibhavgeometer.github.io/mnk-games](https://vaibhavgeometer.github.io/mnk-games/) |
 | 🔍 **mnk SOTA Analysis Board** | Advanced $(m,n,k,j)$ board ($1\times 1$ to $32\times 32$), eval bar, MultiPV & full game reports | [Launch Analysis Board](https://vaibhavgeometer.github.io/mnk-games/board.html) |
 | ⚔️ **Offline Match Play & Clocks** | Competitive play vs AI (Levels 1–8) or human with precision clocks ($1+0$, $3+2$, $5+3$, $10+5$) | [Launch Play Mode](https://vaibhavgeometer.github.io/mnk-games/board.html#play) |
@@ -144,9 +145,21 @@
 
 ---
 
-### ♟️ Domain 2: mnk games & SOTA Game Theory Ecosystem
+### 🎮 Domain 2: Games Ecosystem & SOTA Game Theory
 
-#### 1. Lichess-Inspired Web Platform Hub (`mnk-games/index.html`)
+The Games domain is dedicated primarily to **abstract strategy board games** alongside upcoming **interactive video games**:
+- **Board Games (Main Focus)**:
+  - **(m,n,k)-Games Ecosystem** (Active Platform): Full platform hub, analysis board, AI engine, and solved atlas.
+  - **Chess** (In Development): 8×8 classical chess engine and analysis board placeholder.
+  - **Shogi** (In Development): 9×9 Japanese chess with piece drop rules placeholder.
+  - **Xiangqi & Classic Strategy** (Planned Roadmap): Chinese chess and Go/Baduk territory analysis.
+- **Video Games & Interactive Simulations**:
+  - **Algorithmic Video Games** (In Development): Browser-native cellular automata, procedural maze puzzles, and arcade games.
+
+#### 1. Games Hub (`games/index.html`) & Platform Overview
+The central Games Hub coordinates all game projects, presenting structured subsections for board games and video games with real-time status badges and links to playable engines.
+
+#### 2. Lichess-Inspired mnk games Web Platform Hub (`mnk-games/index.html`)
 - **Modern Minimalist Dark Design System**: High-contrast, sleek interface styled after modern competitive platforms like Lichess, utilizing pure CSS variables, custom scrollbars, and responsive CSS grids.
 - **Quick Pairing Cards**: Instant 1-click presets for classic and modern variants:
   - **3×3 Tic-Tac-Toe**: Bullet ($1+0$), Blitz ($3+2$), Classical ($10+5$)
@@ -353,6 +366,9 @@ vaibhavgeometer.github.io/
 │   │   └── assets/                            # 56 Mock PDFs, PYQs, Formula Sheets, Answer Keys
 │   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024–2026 PDFs)
 │   └── scripts/                               # Data pipeline & Typst PDF generation compilers
+│
+├── games/                                     # 🎮 Games Ecosystem Hub (Board Games & Video Games)
+│   └── index.html                             # Games portal, board games section & video games placeholders
 │
 ├── mnk-games/                                 # ♟️ (m,n,k)-Games Platform & SOTA AI Ecosystem
 │   ├── index.html                             # Lichess-style web platform hub, quick pairings & lobby
