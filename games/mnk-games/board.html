@@ -6,7 +6,11 @@
   <title>mnk games &bull; Play &amp; Analysis Board</title>
   <meta name="description" content="Interactive board and engine for generalized (m,n,k)-games from 1x1 to 32x32. Powered by SOTA Threat-Space Search, iterative deepening, and tablebases.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
-  <!-- Tailwind CSS CDN -->
+  <!-- Lichess Offline Stylesheet (100% Offline Independent) -->
+  <link rel="stylesheet" href="../css/lichess-offline.css">
+  <script src="../js/lichess-sound.js"></script>
+  <script src="../engines/engine-controller.js"></script>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -444,11 +448,17 @@
           <div id="engine-progress-bar" class="absolute top-0 left-0 h-[2px] bg-[#629924] transition-all duration-200" style="width: 0%;"></div>
 
           <!-- Engine Title & Solver Status -->
-          <div class="flex items-center justify-between border-b border-[#363431] pb-2">
-            <div class="flex items-center space-x-2">
+          <div class="flex items-center justify-between border-b border-[#363431] pb-2 flex-wrap gap-1">
+            <div class="flex items-center space-x-2 flex-wrap gap-1">
               <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
-              <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">mnk AI SOTA</span>
+              <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">Fairy-Stockfish 14</span>
               <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 1/16</span>
+              <select id="engine-override-select" class="text-[10px] bg-[#1e1c18] text-gray-300 border border-[#363431] rounded px-1.5 py-0.5 outline-none font-semibold cursor-pointer hover:border-[#629924]" title="Select Engine Core (Rapfi for 5-in-a-row, Fairy-Stockfish for 1,2,3,4)">
+                <option value="auto" selected>⚡ Auto (Rapfi for k=5, Fairy-SF for k=1..4)</option>
+                <option value="rapfi">Rapfi Gomoku AI (Mixnet SOTA · Gomocup)</option>
+                <option value="fairy-stockfish">Fairy-Stockfish 14 (NNUE Variant AI)</option>
+                <option value="threat-space">mnk Threat-Space Search (SOTA VCF/VCT)</option>
+              </select>
             </div>
             <div class="flex items-center space-x-2 text-xs">
               <span id="engine-tablebase-label" class="text-[#73706c]">Solver:</span>
@@ -5915,6 +5925,21 @@
       lineEl.classList.remove('hidden');
     }
 
+    function getActiveEngineType() {
+      const select = document.getElementById('engine-override-select');
+      const val = select ? select.value : 'auto';
+      if (val === 'rapfi') return 'rapfi';
+      if (val === 'fairy-stockfish') return 'fairy-stockfish';
+      if (val === 'threat-space') return 'threat-space';
+      // Auto selection logic requested by user:
+      // For 5 in a row: Rapfi
+      // For 1, 2, 3, 4 in a row: Fairy-Stockfish
+      if (config.j && config.j > 2) return 'threat-space';
+      if (config.k === 5) return 'rapfi';
+      if (config.k >= 1 && config.k <= 4) return 'fairy-stockfish';
+      return 'threat-space';
+    }
+
     /**
      * Update Engine Header Box Labels
      */
@@ -5926,15 +5951,35 @@
       const tablebaseStatus = document.getElementById('engine-tablebase-status');
 
       if (!nameLabel) return;
+      const core = getActiveEngineType();
 
       if (state.mode === 'analysis') {
         if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse';
-        nameLabel.textContent = `mnk AI SOTA (${config.rows}×${config.cols}, k=${config.k})`;
-        if (depthBadge) depthBadge.textContent = config.rows * config.cols <= 9 ? 'depth 9/9' : 'TSS + Heuristic';
-        if (tablebaseLabel) tablebaseLabel.textContent = 'Solver:';
-        if (tablebaseStatus) {
-          tablebaseStatus.textContent = config.rows * config.cols <= 9 ? 'SOLVED' : 'SOTA MNK';
-          tablebaseStatus.className = 'text-[#629924] font-semibold mono-font';
+        if (core === 'rapfi') {
+          nameLabel.textContent = `Rapfi Gomoku AI (${config.rows}×${config.cols}, k=5)`;
+          if (depthBadge) depthBadge.textContent = 'Mixnet SOTA';
+          if (tablebaseLabel) tablebaseLabel.textContent = 'Engine:';
+          if (tablebaseStatus) {
+            tablebaseStatus.textContent = 'RAPFI MIXNET';
+            tablebaseStatus.className = 'text-[#d97724] font-semibold mono-font';
+          }
+        } else if (core === 'fairy-stockfish') {
+          const varLabel = config.k === 3 ? 'Tic-Tac-Toe' : (config.k === 4 ? 'Connect-4' : (config.k <= 2 ? `Mate in ${config.k}` : `k=${config.k}`));
+          nameLabel.textContent = `Fairy-Stockfish 14 (${varLabel})`;
+          if (depthBadge) depthBadge.textContent = 'NNUE LB';
+          if (tablebaseLabel) tablebaseLabel.textContent = 'Engine:';
+          if (tablebaseStatus) {
+            tablebaseStatus.textContent = 'FAIRY-SF NNUE';
+            tablebaseStatus.className = 'text-[#3692e7] font-semibold mono-font';
+          }
+        } else {
+          nameLabel.textContent = `mnk Threat-Space AI (${config.rows}×${config.cols}, k=${config.k})`;
+          if (depthBadge) depthBadge.textContent = config.rows * config.cols <= 9 ? 'depth 9/9' : 'TSS + Heuristic';
+          if (tablebaseLabel) tablebaseLabel.textContent = 'Solver:';
+          if (tablebaseStatus) {
+            tablebaseStatus.textContent = config.rows * config.cols <= 9 ? 'SOLVED' : 'SOTA MNK';
+            tablebaseStatus.className = 'text-[#629924] font-semibold mono-font';
+          }
         }
       } else {
         const lvl = LEVELS[state.engineLevel - 1];
@@ -5943,7 +5988,13 @@
             ? 'w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block animate-ping'
             : 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block';
         }
-        nameLabel.textContent = `mnk AI Lvl ${state.engineLevel}`;
+        if (core === 'rapfi') {
+          nameLabel.textContent = `Rapfi AI Lvl ${state.engineLevel} (k=5)`;
+        } else if (core === 'fairy-stockfish') {
+          nameLabel.textContent = `Fairy-SF Lvl ${state.engineLevel} (k=${config.k})`;
+        } else {
+          nameLabel.textContent = `mnk AI Lvl ${state.engineLevel}`;
+        }
         if (depthBadge) depthBadge.textContent = `Elo ${lvl.elo}`;
         if (tablebaseLabel) tablebaseLabel.textContent = 'Tier:';
         if (tablebaseStatus) {
@@ -7168,6 +7219,17 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
     const btnEngineToggle = document.getElementById('btn-engine-toggle');
     if (btnEngineToggle) {
       btnEngineToggle.addEventListener('click', toggleEngineCalculation);
+    }
+
+    // Engine Core Selection Override
+    const engineSelect = document.getElementById('engine-override-select');
+    if (engineSelect) {
+      engineSelect.addEventListener('change', () => {
+        updateEngineHeader();
+        if (state.mode === 'analysis') {
+          triggerAnalysis();
+        }
+      });
     }
 
     // Candidate Engine Lines (MultiPV) Selector Controls

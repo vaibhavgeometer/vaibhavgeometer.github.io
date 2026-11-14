@@ -6,6 +6,9 @@
   <title>mnk games &bull; Offline (m,n,k,j)-Games &amp; Engine Platform</title>
   <meta name="description" content="Offline (m,n,k,j)-games platform: interactive threat-space search AI, precision chess clocks, local pass & play, tournament arena, and game-theoretic solved atlas.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
+  <!-- Lichess Offline Stylesheet (100% Offline Independent) -->
+  <link rel="stylesheet" href="../css/lichess-offline.css">
+  <script src="../js/lichess-sound.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -1532,15 +1535,27 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Game Variant / Dimensions</label>
+          <label class="form-label">Game Variant &amp; Integrated Engine</label>
           <select id="select-ai-variant" style="background: #1e1c18; color: var(--text-bright); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; font-size: 0.9rem; outline: none;">
-            <option value="m=3&n=3&k=3">(3,3,3) Tic-Tac-Toe</option>
-            <option value="m=4&n=4&k=4">(4,4,4) 4-in-a-Row</option>
-            <option value="m=5&n=5&k=4" selected>(5,5,4) Mini-Gomoku</option>
-            <option value="m=7&n=6&k=4">(7,6,4) Connect Four Grid</option>
-            <option value="m=10&n=10&k=5">(10,10,5) Freestyle Gomoku</option>
-            <option value="m=15&n=15&k=5">(15,15,5) Standard Gomoku</option>
+            <option value="m=3&n=3&k=3">(3,3,3) Tic-Tac-Toe • [Fairy-Stockfish 14]</option>
+            <option value="m=7&n=6&k=4">(7,6,4) Connect Four • [Fairy-Stockfish 14]</option>
+            <option value="m=4&n=4&k=4">(4,4,4) 4-in-a-Row • [Fairy-Stockfish 14]</option>
+            <option value="m=15&n=15&k=5" selected>(15,15,5) Standard Gomoku • [Rapfi Mixnet SOTA]</option>
+            <option value="m=19&n=19&k=5">(19,19,5) Renju / Freerule • [Rapfi Mixnet SOTA]</option>
+            <option value="m=5&n=5&k=4">(5,5,4) Mini-Gomoku • [Fairy-Stockfish 14]</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            <span>Offline Engine Routing</span>
+            <span style="color: var(--accent-green); font-weight: 700;">100% Local</span>
+          </label>
+          <div style="font-size: 0.78rem; color: var(--text-muted); background: #161512; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); line-height: 1.5;">
+            • <strong>5-in-a-row ($k=5$)</strong>: Rapfi Mixnet SOTA (Gomocup Champion)<br>
+            • <strong>1, 2, 3, 4-in-a-row ($k\le 4$)</strong>: Fairy-Stockfish 14 NNUE (LB WASM)<br>
+            • <strong>$k \ge 6$ or $J \ge 3$</strong>: Threat-Space Minimax Solver
+          </div>
         </div>
 
         <div class="form-group">
