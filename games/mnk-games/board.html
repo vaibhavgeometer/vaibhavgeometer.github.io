@@ -59,6 +59,52 @@
       .sm\:w-8 { width: 2rem !important; }
       .sm\:p-3 { padding: 0.75rem !important; }
     }
+
+    /* Piece SVGs & Board Elements (Robust cross-platform rendering) */
+    .piece-svg {
+      display: block;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+    .piece-x {
+      stroke: #ffffff !important;
+      color: #ffffff !important;
+    }
+    .piece-o {
+      stroke: #f59e0b !important;
+      color: #f59e0b !important;
+    }
+    .piece-tri {
+      fill: #10b981 !important;
+      stroke: #059669 !important;
+    }
+    .piece-sq {
+      fill: #38bdf8 !important;
+      stroke: #0284c7 !important;
+    }
+    .piece-dia {
+      fill: #c084fc !important;
+      stroke: #9333ea !important;
+    }
+    .w-\[78\%\] { width: 78% !important; }
+    .h-\[78\%\] { height: 78% !important; }
+    .w-\[76\%\] { width: 76% !important; }
+    .h-\[76\%\] { height: 76% !important; }
+    .w-\[75\%\] { width: 75% !important; }
+    .h-\[75\%\] { height: 75% !important; }
+    .w-\[72\%\] { width: 72% !important; }
+    .h-\[72\%\] { height: 72% !important; }
+    .w-\[62\%\] { width: 62% !important; }
+    .h-\[62\%\] { height: 62% !important; }
+    .stroke-current { stroke: currentColor !important; }
+    .fill-current { fill: currentColor !important; }
+    .drop-shadow-md { filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.4)) !important; }
+    .text-amber-400 { color: #f59e0b !important; }
+    .bg-amber-400 { background-color: #f59e0b !important; }
+    .text-emerald-400 { color: #10b981 !important; }
+    .text-sky-400 { color: #38bdf8 !important; }
+    .text-purple-400 { color: #c084fc !important; }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #161512;
@@ -237,12 +283,6 @@
         <span class="text-[10px] text-gray-400">▾</span>
       </button>
 
-      <!-- Tablebase Link -->
-      <a href="solved_status_of_mnk_games.html" title="Endgame Tablebase: Solved Status from k=1 to k≥8" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
-        <span>📊</span>
-        <span>Tablebase</span>
-      </a>
-
       <a href="../" title="Games Hub" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-xs font-semibold text-gray-300 hover:text-white border border-[#363431] transition">
         <span>🎮</span>
         <span>Games</span>
@@ -300,46 +340,30 @@
     <!-- LEFT SECTION: Dynamic Eval Bar + Flexible (m,n,k) Board -->
     <div id="board-workspace" class="flex items-stretch justify-center gap-2 sm:gap-3 w-full max-w-[680px]">
       
-      <!-- Vertical Evaluation Bar (-100 to +100 Scale) -->
-      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#262421] border border-[#4a4742] rounded overflow-hidden shadow-lg select-none flex-shrink-0" title="Win Probability Evaluation (-100 to +100: +100 = 100% Win for First Player, 0 = 50-50, -100 = 100% Win for Second Player)">
+      <!-- Vertical Evaluation Bar (Stockfish Chess Scale: Pawns & #M Mate) -->
+      <div id="eval-bar-wrapper" class="relative w-7 sm:w-8 bg-[#262421] border border-[#4a4742] rounded overflow-hidden shadow-lg select-none flex-shrink-0" title="Stockfish Evaluation Bar">
         <!-- Dynamic White/X fill (covers bottom when normal, top when flipped) -->
         <div id="eval-bar-fill" class="eval-bar-fill absolute left-0 right-0 w-full bg-[#f0f0f0]" style="bottom: 0; height: 50%;"></div>
 
-        <!-- 50-50 Center divider line (Eval: 0) -->
-        <div class="absolute top-1/2 left-0 right-0 h-[1.5px] bg-red-500/75 z-20 pointer-events-none"></div>
+        <!-- 50-50 Center divider line (Eval: 0.0) -->
+        <div id="eval-bar-midline" class="absolute top-1/2 left-0 right-0 h-[1.5px] bg-red-500/75 z-20 pointer-events-none"></div>
 
         <!-- Black/O portion text (top) -->
-        <div class="absolute top-0 left-0 right-0 pt-1.5 flex justify-center z-30 pointer-events-none">
+        <div id="eval-text-top-container" class="absolute top-0 left-0 right-0 pt-1.5 flex justify-center z-30 pointer-events-none">
           <span id="eval-text-top" class="mono-font text-[10px] sm:text-[11px] font-black text-white select-none"></span>
         </div>
 
         <!-- White/X portion text (bottom) -->
-        <div class="absolute bottom-0 left-0 right-0 pb-1.5 flex justify-center z-30 pointer-events-none">
-          <span id="eval-text-bottom" class="mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none">0</span>
-        </div>
-      </div>
-
-      <!-- Multi-Player Evaluation Disc (Demand 1: for 3 or more players) -->
-      <div id="eval-disc-wrapper" class="hidden relative w-16 sm:w-20 bg-[#262421] border border-[#4a4742] rounded-lg p-1.5 shadow-lg select-none flex-shrink-0 flex-col items-center justify-between transition-all" title="Multi-Player Eval Disc: Win Probability Distribution across all active players">
-        <div class="text-[9px] font-black text-gray-400 uppercase tracking-wider text-center border-b border-[#363431] pb-1 w-full">Eval Disc</div>
-        
-        <!-- SVG Donut Disc with Player Color Arcs -->
-        <div class="relative w-14 h-14 sm:w-16 sm:h-16 my-2 flex items-center justify-center">
-          <svg id="eval-disc-svg" viewBox="0 0 64 64" class="w-full h-full transform -rotate-90">
-            <!-- Dynamically populated with <circle> donut segments -->
-          </svg>
-          <!-- Center Hole Badge -->
-          <div id="eval-disc-center" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
-            <span id="eval-disc-center-symbol" class="text-xs font-black text-white">X</span>
-            <span id="eval-disc-center-val" class="mono-font text-[9px] font-bold text-[#7ec62f]">45%</span>
-          </div>
+        <div id="eval-text-bottom-container" class="absolute bottom-0 left-0 right-0 pb-1.5 flex justify-center z-30 pointer-events-none">
+          <span id="eval-text-bottom" class="mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none">0.0</span>
         </div>
 
-        <!-- Mini Player Probability Breakdown Pills -->
-        <div id="eval-disc-pills" class="w-full space-y-1">
-          <!-- Dynamically populated with player pills -->
-        </div>
+        <!-- Multi-Player Stacked Bar Container (Active for j > 2) -->
+        <div id="eval-multi-container" class="hidden absolute inset-0 w-full h-full flex flex-col-reverse overflow-hidden z-25 pointer-events-none"></div>
       </div>
+
+      <!-- Multi-Player Evaluation Disc (Hidden fallback container) -->
+      <div id="eval-disc-wrapper" class="hidden" style="display:none !important;"></div>
 
       <!-- Board Outer Frame -->
       <div class="flex-1 flex flex-col items-center min-w-0">
@@ -431,11 +455,11 @@
 
     </div>
 
-    <!-- RIGHT SECTION: Mode Switcher, Engine, Play & Clocks, Tournament, Editor, History -->
+    <!-- RIGHT SECTION: Mode Switcher, Engine, Play & Clocks, Editor, History -->
     <div class="w-full lg:w-[460px] xl:w-[480px] flex-shrink-0 flex flex-col space-y-3">
 
-      <!-- 4 Main Mode Switcher Navigation Tabs -->
-      <div class="grid grid-cols-4 gap-1 p-1 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow-md">
+      <!-- 3 Main Mode Switcher Navigation Tabs -->
+      <div class="grid grid-cols-3 gap-1 p-1 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow-md">
         <button id="tab-analysis-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow">
           <span>🔍</span>
           <span class="truncate">Analysis</span>
@@ -443,10 +467,6 @@
         <button id="tab-play-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
           <span>⚔️</span>
           <span class="truncate">Play Match</span>
-        </button>
-        <button id="tab-tournament-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
-          <span>🏆</span>
-          <span class="truncate">Tournament</span>
         </button>
         <button id="tab-editor-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
           <span>🎨</span>
@@ -892,183 +912,6 @@
       </div> <!-- /#play-settings-drawer -->
       </div> <!-- /#panel-play -->
 
-      <!-- PANEL 3: TOURNAMENT SYSTEM (Demand 1) -->
-      <div id="panel-tournament" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
-        <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
-          <div class="flex items-center space-x-2">
-            <span class="text-base">🏆</span>
-            <div>
-              <div class="text-xs font-bold text-white uppercase tracking-wider">Tournament System</div>
-              <div class="text-[10px] text-gray-400">Multi-Player Round Robin & Knockout</div>
-            </div>
-          </div>
-          <span id="tourn-variant-indicator" class="text-[11px] mono-font text-[#7ec62f] bg-[#1e1c18] px-2 py-0.5 rounded border border-[#363431]">(3,3,3)</span>
-        </div>
-
-        <!-- Setup Card (Visible before tournament starts) -->
-        <div id="tourn-setup-box" class="space-y-3">
-          <!-- Format: Round Robin vs Knockout -->
-          <div>
-            <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wide mb-1.5">Tournament Format</label>
-            <div class="grid grid-cols-2 gap-1.5">
-              <button type="button" id="tourn-format-rr-btn" class="p-2 rounded text-xs font-bold border transition text-center bg-[#629924] text-white border-[#629924] shadow-sm">
-                🔄 Round Robin
-              </button>
-              <button type="button" id="tourn-format-ko-btn" class="p-2 rounded text-xs font-bold border transition text-center bg-[#1e1c18] text-gray-300 border-[#363431] hover:bg-[#363431]">
-                ⚡ Knockout Bracket
-              </button>
-            </div>
-          </div>
-
-          <!-- Round Robin Cycles: 1x to 10x (Demand 1 line 6) -->
-          <div id="tourn-cycles-row" class="bg-[#1e1c18] p-2.5 rounded border border-[#363431]">
-            <div class="flex items-center justify-between text-xs mb-1.5">
-              <span class="text-gray-300 font-semibold">Cycles (Number of times players face each other):</span>
-              <span id="tourn-cycles-val" class="mono-font text-[#7ec62f] font-bold bg-[#262421] px-2 py-0.5 rounded border border-[#629924]/40">1x (Single Round)</span>
-            </div>
-            <input type="range" id="tourn-cycles-slider" min="1" max="10" value="1" class="w-full accent-[#629924] cursor-pointer">
-            <div class="flex justify-between text-[10px] text-gray-500 mt-1">
-              <span>1x</span><span>2x (Double)</span><span>3x</span><span>5x</span><span>10x (Decuple)</span>
-            </div>
-          </div>
-
-          <!-- Quick Presets for Roster (Demand 1 line 4) -->
-          <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-[11px] font-semibold text-gray-300 uppercase tracking-wide">Player Roster Presets</span>
-            </div>
-            <div class="grid grid-cols-3 gap-1.5 text-xs">
-              <button type="button" id="preset-roster-demand1" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" title="Demand 1: 2 Humans + 5 AIs (L2, L2, L8, L7, L6)">
-                <div class="font-bold text-[#7ec62f] truncate">2H + 5 AIs</div>
-                <div class="text-[10px] text-gray-400 truncate">L2, L2, L8, L7, L6</div>
-              </button>
-              <button type="button" id="preset-roster-8ai" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" title="All 8 AI engine levels from Beginner to Elo 3000">
-                <div class="font-bold text-white truncate">8 AI Championship</div>
-                <div class="text-[10px] text-gray-400 truncate">Levels 1 to 8</div>
-              </button>
-              <button type="button" id="preset-roster-4h" class="p-1.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" title="4 Human players Blitz cup">
-                <div class="font-bold text-white truncate">4 Humans Cup</div>
-                <div class="text-[10px] text-gray-400 truncate">Pass & Play</div>
-              </button>
-            </div>
-          </div>
-
-          <!-- Roster List -->
-          <div>
-            <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-semibold text-gray-300">Active Roster (<span id="tourn-player-count">7</span> Players):</span>
-            </div>
-            <div id="tourn-players-list" class="max-h-36 overflow-y-auto space-y-1 bg-[#1e1c18] p-1.5 rounded border border-[#363431]">
-              <!-- Dynamically rendered players -->
-            </div>
-          </div>
-
-          <!-- Add Player Row -->
-          <div class="flex items-center space-x-1.5 pt-1 text-xs">
-            <input type="text" id="new-player-name" placeholder="Player Name" class="flex-1 bg-[#1e1c18] border border-[#363431] rounded px-2 py-1 text-white text-xs">
-            <select id="new-player-type" class="bg-[#1e1c18] border border-[#363431] rounded px-2 py-1 text-white text-xs">
-              <option value="human">Human</option>
-              <option value="ai-8">AI Level 8 (3000)</option>
-              <option value="ai-7">AI Level 7 (2400)</option>
-              <option value="ai-6">AI Level 6 (2100)</option>
-              <option value="ai-5">AI Level 5 (1800)</option>
-              <option value="ai-4">AI Level 4 (1500)</option>
-              <option value="ai-3">AI Level 3 (1200)</option>
-              <option value="ai-2">AI Level 2 (900)</option>
-              <option value="ai-1">AI Level 1 (600)</option>
-            </select>
-            <button type="button" id="btn-add-tourn-player" class="px-2.5 py-1 bg-[#363431] hover:bg-[#474440] text-white font-bold rounded transition text-xs whitespace-nowrap">
-              + Add
-            </button>
-          </div>
-
-          <!-- Start Tournament Button -->
-          <button type="button" id="btn-start-tournament" class="w-full py-2 bg-[#629924] hover:bg-[#72b02a] text-white font-bold rounded text-xs transition shadow-md flex items-center justify-center space-x-2">
-            <span>🚀 Initialize & Start Tournament</span>
-          </button>
-        </div>
-
-        <!-- Active Tournament Dashboard (Hidden until started) -->
-        <div id="tourn-active-dashboard" class="hidden space-y-3">
-          <!-- Current Match Status Banner -->
-          <div class="p-2.5 rounded bg-[#1e1c18] border border-[#363431] space-y-2">
-            <div class="flex items-center justify-between text-xs">
-              <span id="tourn-match-index-label" class="text-gray-400 font-semibold uppercase tracking-wider text-[10px]">Match 1 of 21</span>
-              <span id="tourn-round-label" class="text-[#7ec62f] font-bold text-[11px]">Round 1</span>
-            </div>
-            <div id="tourn-current-match-title" class="text-sm font-bold text-white text-center py-1">
-              Human 1 (X) vs mnk AI (L8) (O)
-            </div>
-            <!-- Match Action Buttons -->
-            <div class="grid grid-cols-3 gap-1.5 pt-1">
-              <button type="button" id="btn-tourn-play-match" class="py-1 px-2 rounded bg-[#629924] hover:bg-[#72b02a] text-white font-bold text-xs transition text-center shadow">
-                ▶ Play Match
-              </button>
-              <button type="button" id="btn-tourn-sim-match" class="py-1 px-2 rounded bg-[#363431] hover:bg-[#474440] text-gray-200 hover:text-white font-bold text-xs transition text-center">
-                ⚡ Simulate
-              </button>
-              <button type="button" id="btn-tourn-sim-all" class="py-1 px-2 rounded bg-[#3692e7] hover:bg-[#4ea2f0] text-white font-bold text-xs transition text-center shadow">
-                ⏩ Run All
-              </button>
-            </div>
-          </div>
-
-          <!-- Live Standings Table -->
-          <div>
-            <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-bold text-gray-200 uppercase tracking-wider text-[11px]">Live Standings</span>
-              <span class="text-[10px] text-gray-400">Pts: W=1, D=0.5, L=0</span>
-            </div>
-            <div class="overflow-x-auto rounded border border-[#363431]">
-              <table class="w-full text-left text-xs bg-[#1e1c18]">
-                <thead class="bg-[#262421] text-gray-400 border-b border-[#363431] text-[10px] uppercase">
-                  <tr>
-                    <th class="py-1 px-1.5 text-center">#</th>
-                    <th class="py-1 px-2">Player</th>
-                    <th class="py-1 px-1 text-center">Pld</th>
-                    <th class="py-1 px-1 text-center">W</th>
-                    <th class="py-1 px-1 text-center">D</th>
-                    <th class="py-1 px-1 text-center">L</th>
-                    <th class="py-1 px-1.5 text-center font-bold text-[#7ec62f]">Pts</th>
-                    <th class="py-1 px-1.5 text-center text-gray-400">SB</th>
-                  </tr>
-                </thead>
-                <tbody id="tourn-standings-body" class="divide-y divide-[#363431] mono-font">
-                  <!-- Standings rows rendered here -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Schedule & Recent Match Results -->
-          <div>
-            <span class="block text-[11px] font-bold text-gray-200 uppercase tracking-wider mb-1">Match Schedule & Results</span>
-            <div id="tourn-matches-list" class="max-h-32 overflow-y-auto space-y-1 bg-[#1e1c18] p-1.5 rounded border border-[#363431] text-xs">
-              <!-- Matches rendered dynamically -->
-            </div>
-          </div>
-
-          <!-- Tournament Export Toolbar (Demand 1 line 7) -->
-          <div class="flex flex-wrap items-center justify-between gap-1.5 pt-1 border-t border-[#363431]">
-            <button type="button" id="btn-tourn-copy-summary" class="flex-1 py-1 px-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-white font-semibold text-xs transition flex items-center justify-center space-x-1" title="Copy formatted text report of standings and all games">
-              <span>📋</span>
-              <span class="truncate">Copy Summary</span>
-            </button>
-            <button type="button" id="btn-tourn-copy-stats" class="flex-1 py-1 px-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-white font-semibold text-xs transition flex items-center justify-center space-x-1" title="Copy game-by-game statistics and moves">
-              <span>📊</span>
-              <span class="truncate">Game Stats</span>
-            </button>
-            <button type="button" id="btn-tourn-export-json" class="py-1 px-2.5 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-gray-300 hover:text-white font-semibold text-xs transition" title="Export raw JSON">
-              JSON
-            </button>
-            <button type="button" id="btn-tourn-reset" class="py-1 px-2 rounded bg-[#363431] hover:bg-[#c33a38]/80 text-gray-300 hover:text-white font-semibold text-xs transition">
-              ↺ Reset
-            </button>
-          </div>
-        </div>
-
-      </div>
-
       <!-- PANEL 4: BOARD EDITOR & FROZEN SQUARES (Demand 4) -->
       <div id="panel-editor" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
         <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
@@ -1382,10 +1225,7 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex items-center justify-between pt-2">
-        <a href="solved_status_of_mnk_games.html" target="_blank" class="text-xs text-[#38bdf8] hover:underline flex items-center space-x-1">
-          <span>📊 Solved Tablebase</span>
-        </a>
+      <div class="flex items-center justify-end pt-2">
         <div class="flex items-center space-x-2">
           <button type="button" id="btn-cancel-modal" class="px-3 py-1.5 rounded text-xs font-semibold bg-[#1e1c18] hover:bg-[#363431] text-gray-300 transition">Cancel</button>
           <button type="button" id="btn-apply-modal" class="px-4 py-1.5 rounded text-xs font-bold bg-[#629924] hover:bg-[#72b02a] text-white shadow-md transition">Apply & Reset</button>
@@ -2652,23 +2492,31 @@
         board[move] = null;
 
         let normScore = 0;
+        let moveMate = null;
         let desc = item.desc;
         if (searchVal >= 999000) {
-          normScore = isX ? 100 : -100;
-          desc = `Forced Win in ${Math.max(1, 1000000 + depth - searchVal)} ply`;
+          const plies = Math.max(1, 1000000 + depth - searchVal);
+          const mateMoves = Math.max(1, Math.ceil(plies / 2));
+          moveMate = isX ? mateMoves : -mateMoves;
+          normScore = isX ? 10000 : -10000;
+          desc = `Forced Win in ${plies} ply (#${Math.abs(moveMate)})`;
         } else if (searchVal <= -999000) {
-          normScore = isX ? -100 : 100;
-          desc = 'Allows Opponent Win';
+          const plies = Math.max(1, 1000000 + depth - (-searchVal));
+          const mateMoves = Math.max(1, Math.ceil(plies / 2));
+          moveMate = isX ? -mateMoves : mateMoves;
+          normScore = isX ? -10000 : 10000;
+          desc = `Allows Opponent Win (#-${Math.abs(moveMate)})`;
         } else {
-          const clamped = Math.max(-500, Math.min(500, searchVal));
-          const turnPosScore = Math.round(clamped / 35);
-          normScore = isX ? turnPosScore : -turnPosScore;
+          const pawnScore = Number((searchVal / 70).toFixed(1));
+          normScore = isX ? pawnScore : -pawnScore;
+          if (Math.abs(normScore) < 0.05) normScore = 0.0;
         }
 
         scoredMoves.push({
           move,
           rawScore: searchVal,
           score: normScore,
+          mate: moveMate,
           tacticalDesc: desc,
           pv: [move]
         });
@@ -2695,15 +2543,18 @@
           }
 
           let normScore = 0;
+          let moveMate = null;
           let desc = item.desc;
           if (oppCanWin) {
-            normScore = isX ? -100 : 100;
-            desc = 'Allows Opponent Win (-100)';
+            normScore = isX ? -10000 : 10000;
+            moveMate = isX ? -1 : 1;
+            desc = 'Allows Opponent Win (#-1)';
           } else {
             const net = evaluateBoardState(board, rows, cols, k);
             const turnVal = isX ? net : -net;
-            const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
-            normScore = isX ? turnPos : -turnPos;
+            const pawnScore = Number((turnVal / 70).toFixed(1));
+            normScore = isX ? pawnScore : -pawnScore;
+            if (Math.abs(normScore) < 0.05) normScore = 0.0;
           }
           board[move] = null;
 
@@ -2711,6 +2562,7 @@
             move,
             rawScore: oppCanWin ? -1000000 : item.initialScore - 200000,
             score: normScore,
+            mate: moveMate,
             tacticalDesc: desc,
             pv: [move]
           });
@@ -2719,8 +2571,9 @@
 
       scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
       const best = scoredMoves[0];
-      let finalScore = best ? best.score : 0;
-      if (Math.abs(finalScore) <= 2) finalScore = 0;
+      const rootMate = best ? best.mate : null;
+      let finalScore = best ? best.score : 0.0;
+      if (rootMate === null && Math.abs(finalScore) < 0.05) finalScore = 0.0;
 
       // Store root position in ttMap for PV extraction and candidate move ordering
       const rootKey = board.map(c => c || '.').join('') + ' ' + turn;
@@ -2744,10 +2597,12 @@
       return {
         bestMove: best ? best.move : targetMoves[0],
         score: finalScore,
+        mate: rootMate,
         isSolved,
         pv: rootPv,
         analysis: {
           score: finalScore,
+          mate: rootMate,
           bestMove: best ? best.move : targetMoves[0],
           pv: rootPv,
           allMoves: scoredMoves,
@@ -2802,28 +2657,34 @@
           board[move] = null;
 
           let score = 0;
+          let moveMate = null;
           let desc = '';
           if (isWin) {
-            score = isX ? 100 : -100;
-            desc = 'Instant Win (+100)';
+            score = isX ? 10000 : -10000;
+            moveMate = isX ? 1 : -1;
+            desc = 'Instant Win (#1)';
           } else if (oppCanWin) {
-            score = isX ? -100 : 100;
-            desc = 'Allows Opponent Win (-100)';
+            score = isX ? -10000 : 10000;
+            moveMate = isX ? -1 : 1;
+            desc = 'Allows Opponent Win (#-1)';
           } else {
-            score = isX ? -50 : 50;
+            score = isX ? -5.0 : 5.0;
             desc = 'Missed Instant Win';
           }
           scoredMoves.push({
             move,
             rawScore: isWin ? 1000000 : (oppCanWin ? -1000000 : -500000),
             score,
+            mate: moveMate,
             tacticalDesc: desc,
             pv: [move]
           });
         }
         scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
+        const best = scoredMoves[0];
         return {
-          score: isX ? 100 : -100,
+          score: isX ? 10000 : -10000,
+          mate: isX ? 1 : -1,
           bestMove,
           pv: [bestMove],
           allMoves: scoredMoves,
@@ -2860,15 +2721,18 @@
         }
 
         let normScore = 0;
+        let moveMate = null;
         let desc = item.desc;
         if (oppCanWin) {
-          normScore = isX ? -100 : 100;
-          desc = 'Allows Opponent Win (-100)';
+          normScore = isX ? -10000 : 10000;
+          moveMate = isX ? -1 : 1;
+          desc = 'Allows Opponent Win (#-1)';
         } else {
           const net = evaluateBoardState(board, rows, cols, k);
           const turnVal = isX ? net : -net;
-          const turnPos = Math.round(Math.max(-500, Math.min(500, turnVal)) / 35);
-          normScore = isX ? turnPos : -turnPos;
+          const pawnScore = Number((turnVal / 70).toFixed(1));
+          normScore = isX ? pawnScore : -pawnScore;
+          if (Math.abs(normScore) < 0.05) normScore = 0.0;
         }
         board[move] = null;
 
@@ -2876,6 +2740,7 @@
           move,
           rawScore: oppCanWin ? -1000000 : item.initialScore,
           score: normScore,
+          mate: moveMate,
           tacticalDesc: desc,
           pv: [move]
         });
@@ -2883,11 +2748,13 @@
 
       scoredMoves.sort((a, b) => b.rawScore - a.rawScore);
       const best = scoredMoves[0];
-      let finalScore = best ? best.score : 0;
-      if (Math.abs(finalScore) <= 2) finalScore = 0;
+      const finalMate = best ? best.mate : null;
+      let finalScore = best ? best.score : 0.0;
+      if (finalMate === null && Math.abs(finalScore) < 0.05) finalScore = 0.0;
 
       return {
         score: finalScore,
+        mate: finalMate,
         bestMove: best ? best.move : targetMoves[0],
         pv: best ? best.pv : [],
         allMoves: scoredMoves,
@@ -2992,9 +2859,10 @@
       const terminal = checkWinner(board, rows, cols, k);
       if (terminal) {
         let score = 0;
-        if (terminal.winner === 'X') score = 100;
-        else if (terminal.winner === 'O') score = -100;
-        const res = { score, bestMove: null, pv: [], allMoves: [], terminal: true, winner: terminal.winner, line: terminal.line };
+        let mate = null;
+        if (terminal.winner === 'X') { score = 10000; mate = 0; }
+        else if (terminal.winner === 'O') { score = -10000; mate = 0; }
+        const res = { score, mate, bestMove: null, pv: [], allMoves: [], terminal: true, winner: terminal.winner, line: terminal.line };
         ttMap.set(key, res);
         return res;
       }
@@ -3005,7 +2873,7 @@
       }
 
       if (legalMoves.length === 0) {
-        const res = { score: 0, bestMove: null, pv: [], allMoves: [], terminal: true, winner: 'Draw', line: null };
+        const res = { score: 0, mate: null, bestMove: null, pv: [], allMoves: [], terminal: true, winner: 'Draw', line: null };
         ttMap.set(key, res);
         return res;
       }
@@ -3029,25 +2897,41 @@
         const posBonus = 100 - distSq * 10;
         const normScore = isX ? childScore : -childScore;
 
+        const isWinX = childScore >= 100 || (childAnalysis.mate !== null && childAnalysis.mate > 0);
+        const isWinO = childScore <= -100 || (childAnalysis.mate !== null && childAnalysis.mate < 0);
+        let childMate = childAnalysis.mate;
+        if (childMate !== null && childMate !== undefined) {
+          childMate = childMate > 0 ? childMate + 1 : childMate - 1;
+        } else if (isWinX) {
+          childMate = 1;
+        } else if (isWinO) {
+          childMate = -1;
+        }
+
+        const desc = isWinX
+          ? `Theoretical Win (#${Math.abs(childMate || 1)})`
+          : (isWinO ? `Theoretical Loss (#-${Math.abs(childMate || 1)})` : 'Theoretical Draw (0.0)');
+
         moveEvaluations.push({
           move,
           score: childScore,
+          mate: childMate,
           rawScore: normScore * 1000 + posBonus,
-          tacticalDesc: childScore === 100 ? 'Theoretical Win (+100)' : (childScore === -100 ? 'Theoretical Loss (-100)' : 'Theoretical Draw (0)'),
-          pv: [move, ...childAnalysis.pv]
+          tacticalDesc: desc,
+          pv: [move, ...(childAnalysis.pv || [])]
         });
 
         if (isX) {
           if (childScore > bestScore) {
             bestScore = childScore;
             bestMove = move;
-            bestPv = [move, ...childAnalysis.pv];
+            bestPv = [move, ...(childAnalysis.pv || [])];
           }
         } else {
           if (childScore < bestScore) {
             bestScore = childScore;
             bestMove = move;
-            bestPv = [move, ...childAnalysis.pv];
+            bestPv = [move, ...(childAnalysis.pv || [])];
           }
         }
       }
@@ -3064,8 +2948,24 @@
       bestPv = moveEvaluations[0].pv;
       bestScore = moveEvaluations[0].score;
 
+      let rootMate = null;
+      let rootScore = 0.0;
+      if (bestScore >= 100 || bestScore >= 9000) {
+        const plies = bestPv && bestPv.length > 0 ? bestPv.length : 1;
+        rootMate = Math.max(1, Math.ceil(plies / 2));
+        rootScore = 10000;
+      } else if (bestScore <= -100 || bestScore <= -9000) {
+        const plies = bestPv && bestPv.length > 0 ? bestPv.length : 1;
+        rootMate = -Math.max(1, Math.ceil(plies / 2));
+        rootScore = -10000;
+      } else {
+        rootScore = 0.0;
+        rootMate = null;
+      }
+
       const res = {
-        score: bestScore,
+        score: rootScore,
+        mate: rootMate,
         bestMove,
         pv: bestPv,
         allMoves: moveEvaluations,
@@ -4454,22 +4354,12 @@
         if (terminal || clockState.flaggedPlayer || state.gameOver) return false;
         return true;
       }
-      if (state.mode === 'tournament') {
-        if (!tournamentState.active) return false;
-        if (state.currentPly === 0) return false;
-        const current = state.history[state.currentPly];
-        if (!current) return false;
-        const terminal = checkWinner(current.board);
-        if (terminal || clockState.flaggedPlayer || state.gameOver) return false;
-        return true;
-      }
       return false;
     }
 
     function updateModeTabsLockState() {
       const inProgress = isMatchInProgress();
       const tabAnalysis = document.getElementById('tab-analysis-btn');
-      const tabTourn = document.getElementById('tab-tournament-btn');
       const tabEditor = document.getElementById('tab-editor-btn');
 
       if (tabAnalysis) {
@@ -4483,20 +4373,6 @@
           tabAnalysis.title = 'Analysis Board';
           const textSpan = tabAnalysis.querySelector('.truncate');
           if (textSpan) textSpan.textContent = 'Analysis Board';
-        }
-      }
-
-      if (tabTourn) {
-        if (inProgress) {
-          tabTourn.classList.add('opacity-40', 'cursor-not-allowed');
-          tabTourn.title = '🔒 Tournament is locked during an active match. Resign or complete the game first.';
-          const textSpan = tabTourn.querySelector('.truncate');
-          if (textSpan) textSpan.textContent = '🔒 Tournament';
-        } else {
-          tabTourn.classList.remove('opacity-40', 'cursor-not-allowed');
-          tabTourn.title = 'Tournament';
-          const textSpan = tabTourn.querySelector('.truncate');
-          if (textSpan) textSpan.textContent = 'Tournament';
         }
       }
 
@@ -4516,8 +4392,9 @@
     }
 
     function switchMainMode(mode) {
+      if (mode === 'tournament') mode = 'play';
       if (mode !== state.mode && isMatchInProgress()) {
-        const targetName = mode === 'analysis' ? 'Analysis board' : (mode === 'tournament' ? 'Tournament' : 'Board editor');
+        const targetName = mode === 'analysis' ? 'Analysis board' : 'Board editor';
         showToast(`🔒 ${targetName} is locked during an active match! Resign or complete the game first.`);
         return;
       }
@@ -4525,19 +4402,17 @@
 
       const tabAnalysisBtn = document.getElementById('tab-analysis-btn');
       const tabPlayBtn = document.getElementById('tab-play-btn');
-      const tabTournBtn = document.getElementById('tab-tournament-btn');
       const tabEditorBtn = document.getElementById('tab-editor-btn');
 
       const panelAnalysis = document.getElementById('panel-analysis');
       const panelPlay = document.getElementById('panel-play');
-      const panelTourn = document.getElementById('panel-tournament');
       const panelEditor = document.getElementById('panel-editor');
 
-      [tabAnalysisBtn, tabPlayBtn, tabTournBtn, tabEditorBtn].forEach(btn => {
+      [tabAnalysisBtn, tabPlayBtn, tabEditorBtn].forEach(btn => {
         if (btn) btn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]';
       });
 
-      [panelAnalysis, panelPlay, panelTourn, panelEditor].forEach(p => {
+      [panelAnalysis, panelPlay, panelEditor].forEach(p => {
         if (p) p.classList.add('hidden');
       });
 
@@ -4578,7 +4453,7 @@
         if (clockOContainer) clockOContainer.classList.remove('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
-        if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
+        if (evalBarWrapper) evalBarWrapper.classList.toggle('hidden', !state.playShowEval);
         if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
         if (modeAnalysisBtn) modeAnalysisBtn.classList.add('hidden');
         if (modePlayBtn) modePlayBtn.classList.add('hidden');
@@ -4586,21 +4461,7 @@
         if (btnImportGameTrigger) btnImportGameTrigger.classList.add('hidden');
         if (fenExportWrapper) fenExportWrapper.classList.add('hidden');
         if (historyNavControls) historyNavControls.classList.add('hidden');
-        state.playShowEval = false;
         stopCurrentAnalysis();
-      } else if (mode === 'tournament') {
-        if (tabTournBtn) tabTournBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
-        if (panelTourn) panelTourn.classList.remove('hidden');
-        if (moveHistoryCard) moveHistoryCard.classList.add('hidden');
-        if (clockXContainer) clockXContainer.classList.remove('hidden');
-        if (clockOContainer) clockOContainer.classList.remove('hidden');
-        if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
-        if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
-        if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
-        if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
-        state.playShowEval = false;
-        stopCurrentAnalysis();
-        updateTournamentUI();
       } else if (mode === 'editor') {
         if (tabEditorBtn) tabEditorBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelEditor) panelEditor.classList.remove('hidden');
@@ -4641,7 +4502,13 @@
     function updateBoardBadges(analysis) {
       if (!analysis || !analysis.allMoves) return;
       const moveScoreMap = new Map();
-      analysis.allMoves.forEach(m => moveScoreMap.set(m.move, m.score));
+      const moveMateMap = new Map();
+      analysis.allMoves.forEach(m => {
+        moveScoreMap.set(m.move, m.score);
+        if (m.mate !== undefined && m.mate !== null) {
+          moveMateMap.set(m.move, m.mate);
+        }
+      });
 
       const isTurnX = state.history[state.currentPly].turn === 'X';
       const badges = document.querySelectorAll('.eval-badge');
@@ -4649,14 +4516,22 @@
         const idx = parseInt(badge.dataset.idx, 10);
         if (moveScoreMap.has(idx)) {
           const score = moveScoreMap.get(idx);
-          const moveVal = isTurnX ? score : -score;
-          badge.textContent = formatEval(score);
+          const mate = moveMateMap.get(idx);
+          badge.textContent = formatEval(score, mate);
 
           let styleClass = 'bg-[#1e1c18]/90 text-gray-200 border-[#4a4742] font-semibold';
-          if (moveVal >= 10) {
-            styleClass = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
-          } else if (moveVal <= -10) {
-            styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+          if (mate !== undefined && mate !== null) {
+            const isWinForTurn = isTurnX ? mate > 0 : mate < 0;
+            styleClass = isWinForTurn
+              ? 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold'
+              : 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+          } else {
+            const moveVal = isTurnX ? score : -score;
+            if (moveVal >= 1.5) {
+              styleClass = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+            } else if (moveVal <= -1.5) {
+              styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+            }
           }
           badge.className = `eval-badge absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${styleClass}`;
         }
@@ -4837,7 +4712,7 @@
 
         // Live in-place board evaluation updates
         updateBoardBadges(lastCompletedAnalysis);
-        updateEvalBar(lastCompletedAnalysis.score, null);
+        updateEvalBar(lastCompletedAnalysis.score, null, lastCompletedAnalysis.mate);
         renderCandidateMoves(lastCompletedAnalysis, null);
         updateArrows();
 
@@ -5215,14 +5090,21 @@
     }
 
     /**
-     * Format theoretical evaluation into string
+     * Format theoretical evaluation into Stockfish chess string
+     * e.g. #4 for White mate in 4, #-2 for Black mate in 2, +1.4, -0.8, 0.0
      */
-    function formatEval(val) {
-      if (val >= 99.5) return '+100';
-      if (val <= -99.5) return '-100';
-      if (Math.abs(val) < 0.5) return '0';
-      const rounded = Math.round(val);
-      return (rounded > 0 ? '+' : '') + rounded;
+    function formatEval(val, mate) {
+      if (mate !== undefined && mate !== null && mate !== 0) {
+        return mate > 0 ? `#${mate}` : `#-${Math.abs(mate)}`;
+      }
+      if (typeof val === 'number') {
+        if (val >= 9000 || val >= 99.5) return '#1';
+        if (val <= -9000 || val <= -99.5) return '#-1';
+        if (Math.abs(val) < 0.05) return '0.0';
+        const sign = val > 0 ? '+' : '';
+        return sign + val.toFixed(1);
+      }
+      return '0.0';
     }
 
     /**
@@ -5436,18 +5318,17 @@
       const current = state.history[state.currentPly];
       const analysis = analyzePosition(current.board, current.turn);
       const winStatus = checkWinner(current.board);
-      const isPlayMode = state.mode === 'play' || state.mode === 'tournament' || state.mode === 'editor';
-      const showEval = state.mode === 'analysis';
+      const isPlayMode = state.mode === 'play' || state.mode === 'editor';
+      const showEval = state.mode === 'analysis' || (state.mode === 'play' && state.playShowEval);
 
-      // 0. Toggle Eval Bar vs Multi-Player Eval Disc visibility (hidden in Play mode)
-      const isMulti = config.j && config.j > 2;
+      // 0. Toggle Eval Bar visibility
       const evalBarWrapper = document.getElementById('eval-bar-wrapper');
       const evalDiscWrapper = document.getElementById('eval-disc-wrapper');
       if (evalBarWrapper) {
-        evalBarWrapper.classList.toggle('hidden', isPlayMode || isMulti);
+        evalBarWrapper.classList.toggle('hidden', !showEval);
       }
       if (evalDiscWrapper) {
-        evalDiscWrapper.classList.toggle('hidden', isPlayMode || !isMulti);
+        evalDiscWrapper.classList.add('hidden');
       }
 
       // 1. Update Board Variant Badges
@@ -5482,10 +5363,16 @@
       grid.style.gap = (Math.max(rows, cols) > 16) ? '1px' : '2px';
       grid.innerHTML = '';
 
-      // Lookup of top scores
+      // Lookup of top scores & mates
       const candidateScoreMap = new Map();
+      const candidateMateMap = new Map();
       if (!winStatus && analysis.allMoves) {
-        analysis.allMoves.forEach(m => candidateScoreMap.set(m.move, m.score));
+        analysis.allMoves.forEach(m => {
+          candidateScoreMap.set(m.move, m.score);
+          if (m.mate !== undefined && m.mate !== null) {
+            candidateMateMap.set(m.move, m.mate);
+          }
+        });
       }
 
       // Visual cell indices with flip support
@@ -5509,7 +5396,7 @@
             cell.classList.add('frozen-square');
             cell.innerHTML = `
               <div class="flex items-center justify-center w-full h-full text-sky-300 drop-shadow select-none pointer-events-none">
-                <svg class="w-[62%] h-[62%]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="w-[62%] h-[62%]" viewBox="0 0 24 24" width="62%" height="62%" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="2" y1="12" x2="22" y2="12"></line>
                   <line x1="12" y1="2" x2="12" y2="22"></line>
                   <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
@@ -5520,7 +5407,7 @@
           } else if (piece === 'X') {
             const strokeWidth = cellSizePx < 28 ? '3.5' : '2.8';
             cell.innerHTML = `
-              <svg class="w-[78%] h-[78%] text-white drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
+              <svg class="piece-svg piece-x w-[78%] h-[78%] text-white drop-shadow-md stroke-current" viewBox="0 0 24 24" width="76%" height="76%" fill="none" stroke="#ffffff" stroke-width="${strokeWidth}" stroke-linecap="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
@@ -5528,25 +5415,25 @@
           } else if (piece === 'O') {
             const strokeWidth = cellSizePx < 28 ? '3.8' : '3.0';
             cell.innerHTML = `
-              <svg class="w-[78%] h-[78%] text-amber-400 drop-shadow-md stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="${strokeWidth}" stroke-linecap="round">
+              <svg class="piece-svg piece-o w-[78%] h-[78%] text-amber-400 drop-shadow-md stroke-current" viewBox="0 0 24 24" width="76%" height="76%" fill="none" stroke="#f59e0b" stroke-width="${strokeWidth}" stroke-linecap="round">
                 <circle cx="12" cy="12" r="8"></circle>
               </svg>
             `;
           } else if (piece === '▲') {
             cell.innerHTML = `
-              <svg class="w-[78%] h-[78%] text-emerald-400 drop-shadow-md fill-current" viewBox="0 0 24 24">
+              <svg class="piece-svg piece-tri w-[78%] h-[78%] text-emerald-400 drop-shadow-md fill-current" viewBox="0 0 24 24" width="76%" height="76%" fill="#10b981" stroke="#059669" stroke-width="1">
                 <polygon points="12,4 21,20 3,20"></polygon>
               </svg>
             `;
           } else if (piece === '■') {
             cell.innerHTML = `
-              <svg class="w-[72%] h-[72%] text-sky-400 drop-shadow-md fill-current" viewBox="0 0 24 24">
+              <svg class="piece-svg piece-sq w-[72%] h-[72%] text-sky-400 drop-shadow-md fill-current" viewBox="0 0 24 24" width="72%" height="72%" fill="#38bdf8" stroke="#0284c7" stroke-width="1">
                 <rect x="3" y="3" width="18" height="18" rx="2"></rect>
               </svg>
             `;
           } else if (piece === '◆') {
             cell.innerHTML = `
-              <svg class="w-[75%] h-[75%] text-purple-400 drop-shadow-md fill-current" viewBox="0 0 24 24">
+              <svg class="piece-svg piece-dia w-[75%] h-[75%] text-purple-400 drop-shadow-md fill-current" viewBox="0 0 24 24" width="76%" height="76%" fill="#c084fc" stroke="#9333ea" stroke-width="1">
                 <polygon points="12,2 22,12 12,22 2,12"></polygon>
               </svg>
             `;
@@ -5554,20 +5441,28 @@
             // Empty cell: show badge if enabled and board size is compact
             if (!winStatus && showEval && state.showBadges && candidateScoreMap.has(idx) && Math.max(rows, cols) <= 10) {
               const score = candidateScoreMap.get(idx);
+              const mate = candidateMateMap.get(idx);
               const badge = document.createElement('div');
               const isTurnX = current.turn === 'X';
-              const moveValForTurn = isTurnX ? score : -score;
 
               let styleClass = 'bg-[#1e1c18]/90 text-gray-200 border-[#4a4742] font-semibold';
-              if (moveValForTurn >= 10) {
-                styleClass = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
-              } else if (moveValForTurn <= -10) {
-                styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+              if (mate !== undefined && mate !== null) {
+                const isWinForTurn = isTurnX ? mate > 0 : mate < 0;
+                styleClass = isWinForTurn
+                  ? 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold'
+                  : 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+              } else {
+                const moveValForTurn = isTurnX ? score : -score;
+                if (moveValForTurn >= 1.5) {
+                  styleClass = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+                } else if (moveValForTurn <= -1.5) {
+                  styleClass = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+                }
               }
 
               badge.className = `eval-badge absolute top-0.5 right-0.5 text-[9px] mono-font px-1 py-0.2 rounded border shadow-sm pointer-events-none ${styleClass}`;
               badge.dataset.idx = idx;
-              badge.textContent = formatEval(score);
+              badge.textContent = formatEval(score, mate);
               cell.appendChild(badge);
             }
           }
@@ -5616,7 +5511,7 @@
 
       // 4. Update Engine Header & Evaluation Bar
       updateEngineHeader();
-      updateEvalBar(analysis.score, winStatus);
+      updateEvalBar(analysis.score, winStatus, analysis.mate);
 
       // 5. Update Status & Turn Indicators
       const turnLabel = document.getElementById('turn-label');
@@ -6054,163 +5949,176 @@
     /**
      * Update Eval Bar and Numeric Badges
      */
-    /**
-     * Multi-Player Evaluation Disc Renderer (Demand 1)
-     */
     function updateEvalDisc(winStatus) {
-      const discWrapper = document.getElementById('eval-disc-wrapper');
-      const barWrapper = document.getElementById('eval-bar-wrapper');
-      if (barWrapper) barWrapper.classList.add('hidden');
-      if (discWrapper) discWrapper.classList.remove('hidden');
-
-      const discSvg = document.getElementById('eval-disc-svg');
-      const centerSymbol = document.getElementById('eval-disc-center-symbol');
-      const centerVal = document.getElementById('eval-disc-center-val');
-      const discPills = document.getElementById('eval-disc-pills');
-      const bigEval = document.getElementById('big-eval-badge');
-      const evalInterpretation = document.getElementById('eval-interpretation');
-      const summaryEval = document.getElementById('summary-eval-val');
-
-      const current = state.history[state.currentPly];
-      const activeCount = config.j || 2;
-      const activePlayers = PLAYERS.slice(0, activeCount);
-
-      const dist = evaluateMultiPlayerDistribution(current.board, config.rows, config.cols, config.k, activeCount, winStatus);
-      const probs = dist.probs;
-      const leader = dist.leader;
-      const leaderProb = dist.leaderProb;
-
-      const C = 2 * Math.PI * 22;
-      let offset = 0;
-      let svgContent = '';
-
-      activePlayers.forEach(p => {
-        const prob = probs[p] || 0;
-        const dash = (prob / 100) * C;
-        const color = PLAYER_COLORS[p] || '#ffffff';
-        svgContent += `<circle r="22" cx="32" cy="32" fill="none" stroke="${color}" stroke-width="10" stroke-dasharray="${dash.toFixed(2)} ${(C - dash).toFixed(2)}" stroke-dashoffset="${(-offset).toFixed(2)}" stroke-linecap="butt" class="eval-disc-slice" data-player="${p}"><title>mnk games &bull; Play &amp; Analysis Board</title></circle>`;
-        offset += dash;
-      });
-      if (discSvg) discSvg.innerHTML = svgContent;
-
-      if (winStatus) {
-        if (winStatus.winner === 'Draw') {
-          if (centerSymbol) { centerSymbol.textContent = '½'; centerSymbol.style.color = '#eab308'; }
-          if (centerVal) { centerVal.textContent = 'DRAW'; centerVal.className = 'mono-font text-[9px] font-bold text-yellow-400'; }
-          if (bigEval) {
-            bigEval.textContent = '½ - ½';
-            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
-          }
-          if (evalInterpretation) evalInterpretation.textContent = 'Final Result: Draw (Equal Points)';
-          if (summaryEval) summaryEval.textContent = '½-½';
-        } else {
-          const winCol = PLAYER_COLORS[winStatus.winner] || '#ffffff';
-          if (centerSymbol) { centerSymbol.textContent = winStatus.winner; centerSymbol.style.color = winCol; }
-          if (centerVal) { centerVal.textContent = 'WIN'; centerVal.className = 'mono-font text-[9px] font-bold text-[#7ec62f]'; }
-          if (bigEval) {
-            bigEval.textContent = `${winStatus.winner} WON`;
-            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
-          }
-          if (evalInterpretation) evalInterpretation.textContent = `Victory: ${PLAYER_NAMES[winStatus.winner] || winStatus.winner} won (${config.k} in a row)`;
-          if (summaryEval) summaryEval.textContent = `${winStatus.winner} Won`;
-        }
-      } else {
-        const leaderColor = PLAYER_COLORS[leader] || '#ffffff';
-        if (centerSymbol) { centerSymbol.textContent = leader; centerSymbol.style.color = leaderColor; }
-        if (centerVal) { centerVal.textContent = `${leaderProb.toFixed(0)}%`; centerVal.className = 'mono-font text-[9px] font-bold text-white'; }
-
-        if (bigEval) {
-          bigEval.textContent = `${leader} ${leaderProb.toFixed(0)}%`;
-          bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-white';
-        }
-        const breakdownStr = activePlayers.map(p => `${p}: ${probs[p].toFixed(1)}%`).join(' · ');
-        if (evalInterpretation) evalInterpretation.textContent = `${breakdownStr} (${activeCount} Players)`;
-        if (summaryEval) summaryEval.textContent = `${leader} ${leaderProb.toFixed(0)}%`;
-      }
-
-      if (discPills) {
-        discPills.innerHTML = activePlayers.map(p => {
-          const prob = probs[p] || 0;
-          const isTurn = current && current.turn === p && !winStatus;
-          const color = PLAYER_COLORS[p] || '#ffffff';
-          return `
-            <div class="flex items-center justify-between px-1 py-0.5 rounded text-[9px] mono-font transition ${isTurn ? 'border border-[#629924] bg-[#1a1815]' : 'bg-[#1e1c18] border border-transparent'}" title="${PLAYER_NAMES[p] || p}">
-              <span class="flex items-center space-x-1">
-                <span class="w-2 h-2 rounded-full inline-block" style="background-color: ${color}"></span>
-                <span class="font-bold text-gray-300">${p}</span>
-              </span>
-              <span class="font-black text-white">${prob.toFixed(1)}%</span>
-            </div>
-          `;
-        }).join('');
-      }
+      updateEvalBar(0, winStatus, null);
     }
 
-    function updateEvalBar(score, winStatus) {
-      if (config.j && config.j > 2) {
-        updateEvalDisc(winStatus);
-        return;
+    function updateEvalBar(score, winStatus, mate) {
+      if (typeof score === 'object' && score !== null) {
+        mate = score.mate;
+        winStatus = score.winStatus;
+        score = score.score;
       }
+      if (mate === undefined) {
+        mate = state.currentAnalysis ? state.currentAnalysis.mate : null;
+      }
+
+      const isMulti = config.j && config.j > 2;
+      const barWrapper = document.getElementById('eval-bar-wrapper');
       const discWrapper = document.getElementById('eval-disc-wrapper');
       if (discWrapper) discWrapper.classList.add('hidden');
 
+      const isPlayMode = state.mode === 'play';
+      const showEval = !isPlayMode || state.playShowEval;
+      if (barWrapper) {
+        barWrapper.classList.toggle('hidden', !showEval);
+      }
+
       const barFill = document.getElementById('eval-bar-fill');
+      const midLine = document.getElementById('eval-bar-midline');
+      const textTopContainer = document.getElementById('eval-text-top-container');
+      const textBottomContainer = document.getElementById('eval-text-bottom-container');
       const textTop = document.getElementById('eval-text-top');
       const textBottom = document.getElementById('eval-text-bottom');
+      const multiContainer = document.getElementById('eval-multi-container');
+
       const bigEval = document.getElementById('big-eval-badge');
       const evalInterpretation = document.getElementById('eval-interpretation');
       const summaryEval = document.getElementById('summary-eval-val');
       const nodesCount = document.getElementById('nodes-count');
       const speedLabel = document.getElementById('speed-label');
 
-      const isPlayMode = state.mode === 'play';
-      const showEval = !isPlayMode || state.playShowEval;
       const current = state.history[state.currentPly];
-      const lvl = LEVELS[state.engineLevel - 1];
+      const lvl = (typeof LEVELS !== 'undefined' && LEVELS[state.engineLevel - 1]) ? LEVELS[state.engineLevel - 1] : { name: 'Engine' };
 
       if (!showEval) {
         if (summaryEval) summaryEval.textContent = 'Off';
         if (winStatus) {
           if (winStatus.winner === 'Draw') {
-            bigEval.textContent = '½ - ½';
-            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
-            evalInterpretation.textContent = 'Final Result: Draw';
+            if (bigEval) {
+              bigEval.textContent = '½ - ½';
+              bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
+            }
+            if (evalInterpretation) evalInterpretation.textContent = 'Final Result: Draw';
             if (summaryEval) summaryEval.textContent = '½-½';
           } else {
             const isUserWin = winStatus.winner === state.playerPiece;
-            bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
-            bigEval.className = isUserWin
-              ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
-              : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-            evalInterpretation.textContent = isUserWin ? '🎉 Victory!' : 'mnk AI Won';
+            if (bigEval) {
+              bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
+              bigEval.className = isUserWin
+                ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
+                : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+            }
+            if (evalInterpretation) evalInterpretation.textContent = isUserWin ? '🎉 Victory!' : 'mnk AI Won';
             if (summaryEval) summaryEval.textContent = winStatus.winner === 'X' ? '1-0' : '0-1';
           }
           if (nodesCount) nodesCount.textContent = 'Match Over';
           if (speedLabel) speedLabel.textContent = `vs Level ${state.engineLevel}`;
         } else {
-          bigEval.textContent = 'VS';
-          bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-300';
-          evalInterpretation.textContent = `Match vs Level ${state.engineLevel} (${lvl.name})`;
+          if (bigEval) {
+            bigEval.textContent = 'VS';
+            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-300';
+          }
+          if (evalInterpretation) evalInterpretation.textContent = `Match vs Level ${state.engineLevel} (${lvl.name})`;
           if (nodesCount) nodesCount.textContent = 'Eval Hidden (Match)';
           if (speedLabel) speedLabel.textContent = current.turn === state.playerPiece ? 'Your turn' : 'Engine thinking...';
         }
         return;
       }
 
-      // Eval is ON: Evaluation is on -100 to +100 scale
-      // +100: 100% win probability for first player (X)
-      // 0: 50-50 balanced / theoretical draw
-      // -100: 100% win probability for second player (O) (0% for first player)
-      const formatted = formatEval(score);
+      // ==========================================
+      // MULTI-PLAYER EVALUATION (j > 2)
+      // ==========================================
+      if (isMulti) {
+        if (barFill) barFill.classList.add('hidden');
+        if (midLine) midLine.classList.add('hidden');
+        if (textTopContainer) textTopContainer.classList.add('hidden');
+        if (textBottomContainer) textBottomContainer.classList.add('hidden');
+        if (multiContainer) multiContainer.classList.remove('hidden');
+
+        const activeCount = config.j || 3;
+        const activePlayers = PLAYERS.slice(0, activeCount);
+        const dist = evaluateMultiPlayerDistribution(current.board, config.rows, config.cols, config.k, activeCount, winStatus);
+        const probs = dist.probs;
+        const leader = dist.leader;
+        const leaderProb = dist.leaderProb;
+
+        if (multiContainer) {
+          multiContainer.innerHTML = '';
+          // Render stacked vertical slices from bottom to top
+          activePlayers.forEach(p => {
+            const prob = probs[p] || 0;
+            const slice = document.createElement('div');
+            slice.style.height = `${prob}%`;
+            slice.style.backgroundColor = PLAYER_COLORS[p] || '#ffffff';
+            slice.style.transition = 'height 0.25s ease';
+            slice.className = 'w-full flex items-center justify-center relative overflow-hidden select-none';
+            slice.title = `${PLAYER_NAMES[p] || p}: ${prob.toFixed(1)}%`;
+
+            if (prob >= 12) {
+              const isLight = p === 'X' || p === 'O';
+              const textCol = isLight ? '#161512' : '#ffffff';
+              slice.innerHTML = `<span class="mono-font font-black text-[9px] select-none pointer-events-none" style="color: ${textCol}">${p} ${Math.round(prob)}%</span>`;
+            }
+            multiContainer.appendChild(slice);
+          });
+        }
+
+        if (winStatus) {
+          if (winStatus.winner === 'Draw') {
+            if (bigEval) {
+              bigEval.textContent = '½ - ½';
+              bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
+            }
+            if (evalInterpretation) evalInterpretation.textContent = 'Final Result: Draw (Equal Points)';
+            if (summaryEval) summaryEval.textContent = '½-½';
+          } else {
+            if (bigEval) {
+              bigEval.textContent = `${winStatus.winner} WON`;
+              bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+            }
+            if (evalInterpretation) evalInterpretation.textContent = `Victory: ${PLAYER_NAMES[winStatus.winner] || winStatus.winner} won (${config.k} in a row)`;
+            if (summaryEval) summaryEval.textContent = `${winStatus.winner} Won`;
+          }
+        } else {
+          if (bigEval) {
+            bigEval.textContent = `${leader} ${Math.round(leaderProb)}%`;
+            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-white';
+          }
+          const breakdownStr = activePlayers.map(p => `${p}: ${probs[p].toFixed(0)}%`).join(' · ');
+          if (evalInterpretation) evalInterpretation.textContent = `Win Chances: ${breakdownStr} (Leader: ${PLAYER_NAMES[leader] || leader})`;
+          if (summaryEval) summaryEval.textContent = `${leader} ${Math.round(leaderProb)}%`;
+        }
+        return;
+      }
+
+      // ==========================================
+      // TWO-PLAYER STOCKFISH EVALUATION (j == 2)
+      // ==========================================
+      if (multiContainer) multiContainer.classList.add('hidden');
+      if (barFill) barFill.classList.remove('hidden');
+      if (midLine) midLine.classList.remove('hidden');
+      if (textTopContainer) textTopContainer.classList.remove('hidden');
+      if (textBottomContainer) textBottomContainer.classList.remove('hidden');
+
+      const isMate = mate !== undefined && mate !== null && mate !== 0;
+      const formatted = formatEval(score, mate);
       if (summaryEval) summaryEval.textContent = formatted;
       if (bigEval) bigEval.textContent = formatted;
 
-      // Win probability for first player (X):
-      // When score = +100 -> winProb = 100% -> fillPct = 100%
-      // When score = 0 -> winProb = 50% -> fillPct = 50%
-      // When score = -100 -> winProb = 0% -> fillPct = 0%
-      let fillPct = 50 + (score / 2);
-      fillPct = Math.max(0, Math.min(100, fillPct));
+      // Calculate fill percentage using Stockfish / Lichess sigmoid winning chances formula
+      let fillPct = 50;
+      if (winStatus) {
+        if (winStatus.winner === 'X') fillPct = 100;
+        else if (winStatus.winner === 'O') fillPct = 0;
+        else fillPct = 50;
+      } else if (isMate) {
+        fillPct = mate > 0 ? 100 : 0;
+      } else {
+        const cp = (typeof score === 'number' ? score : 0) * 100;
+        const winChance = 50 + 50 * (2 / (1 + Math.exp(-0.00368208 * Math.max(-1000, Math.min(1000, cp)))) - 1);
+        fillPct = Math.max(2, Math.min(98, winChance));
+      }
 
       if (barFill) {
         if (!state.flipped) {
@@ -6224,15 +6132,21 @@
         }
       }
 
-      // Display numeric label on the evaluation bar
+      // Display numeric label on the evaluation bar (Stockfish chess style)
+      // White advantage: text on White fill in dark font (#161512)
+      // Black advantage: text on Dark background in white font (#ffffff)
+      // 0.0: text on bar
+      const isWhiteAdvantage = isMate ? (mate > 0) : (score > 0.05);
+      const isBlackAdvantage = isMate ? (mate < 0) : (score < -0.05);
+
       if (!state.flipped) {
-        if (score >= 1.5) {
+        if (isWhiteAdvantage) {
           if (textTop) textTop.textContent = '';
           if (textBottom) {
             textBottom.textContent = formatted;
             textBottom.className = 'mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none';
           }
-        } else if (score <= -1.5) {
+        } else if (isBlackAdvantage) {
           if (textTop) {
             textTop.textContent = formatted;
             textTop.className = 'mono-font text-[10px] sm:text-[11px] font-black text-white select-none';
@@ -6241,18 +6155,19 @@
         } else {
           if (textTop) textTop.textContent = '';
           if (textBottom) {
-            textBottom.textContent = '0';
+            textBottom.textContent = '0.0';
             textBottom.className = 'mono-font text-[10px] sm:text-[11px] font-bold text-[#161512] select-none';
           }
         }
       } else {
-        if (score >= 1.5) {
+        // Flipped orientation: White at top, Black at bottom
+        if (isWhiteAdvantage) {
           if (textBottom) textBottom.textContent = '';
           if (textTop) {
             textTop.textContent = formatted;
             textTop.className = 'mono-font text-[10px] sm:text-[11px] font-black text-[#161512] select-none';
           }
-        } else if (score <= -1.5) {
+        } else if (isBlackAdvantage) {
           if (textBottom) {
             textBottom.textContent = formatted;
             textBottom.className = 'mono-font text-[10px] sm:text-[11px] font-black text-white select-none';
@@ -6261,51 +6176,55 @@
         } else {
           if (textBottom) textBottom.textContent = '';
           if (textTop) {
-            textTop.textContent = '0';
+            textTop.textContent = '0.0';
             textTop.className = 'mono-font text-[10px] sm:text-[11px] font-bold text-[#161512] select-none';
           }
         }
       }
 
-      // Human-readable interpretation with exact win probabilities
-      if (score >= 99.5) {
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
-        evalInterpretation.textContent = '+100: 100% Win Probability for First Player (X)';
-      } else if (score <= -99.5) {
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-        evalInterpretation.textContent = '-100: 100% Win Probability for Second Player (O)';
-      } else if (Math.abs(score) < 0.5) {
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200';
-        evalInterpretation.textContent = '0: 50-50 Balanced (Theoretical Draw)';
-      } else if (score > 0) {
-        const winProb = Math.round(50 + score / 2);
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
-        evalInterpretation.textContent = `${formatted}: ${winProb}% Win Probability for First Player (X)`;
+      // Human-readable interpretation with Stockfish badges
+      if (winStatus) {
+        if (winStatus.winner === 'Draw') {
+          if (bigEval) {
+            bigEval.textContent = '½ - ½';
+            bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
+          }
+          if (evalInterpretation) evalInterpretation.textContent = 'Final Result: Draw (Equal position)';
+          if (summaryEval) summaryEval.textContent = '½-½';
+        } else {
+          if (bigEval) {
+            bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
+            bigEval.className = (winStatus.winner === 'X')
+              ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
+              : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+          }
+          if (evalInterpretation) evalInterpretation.textContent = `Final Result: ${winStatus.winner} Won (${config.k} in a row)`;
+          if (summaryEval) summaryEval.textContent = winStatus.winner === 'X' ? '1-0' : '0-1';
+        }
+      } else if (isMate) {
+        if (mate > 0) {
+          if (bigEval) bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+          if (evalInterpretation) evalInterpretation.textContent = `White (X) has forced mate in ${mate} ${mate === 1 ? 'move' : 'moves'} (#${mate})`;
+        } else {
+          if (bigEval) bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+          if (evalInterpretation) evalInterpretation.textContent = `Black (O) has forced mate in ${Math.abs(mate)} ${Math.abs(mate) === 1 ? 'move' : 'moves'} (#-${Math.abs(mate)})`;
+        }
+      } else if (score > 0.05) {
+        const winChance = Math.round(50 + 50 * (2 / (1 + Math.exp(-0.00368208 * Math.max(-1000, Math.min(1000, score * 100)))) - 1));
+        if (bigEval) bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]';
+        if (evalInterpretation) evalInterpretation.textContent = `+${score.toFixed(1)}: White (X) advantage (${winChance}% win chance)`;
+      } else if (score < -0.05) {
+        const winChance = Math.round(50 + 50 * (2 / (1 + Math.exp(-0.00368208 * Math.max(-1000, Math.min(1000, score * 100)))) - 1));
+        if (bigEval) bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
+        if (evalInterpretation) evalInterpretation.textContent = `${score.toFixed(1)}: Black (O) advantage (${100 - winChance}% win chance)`;
       } else {
-        const winProbO = Math.round(50 + Math.abs(score) / 2);
-        bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-        evalInterpretation.textContent = `${formatted}: ${winProbO}% Win Probability for Second Player (O)`;
+        if (bigEval) bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#1e1c18] border border-[#363431] text-gray-200';
+        if (evalInterpretation) evalInterpretation.textContent = '0.0: Equal position / Theoretical draw';
       }
 
       if (!state.isAnalyzing && engineStats.nodes === 0) {
         if (nodesCount) nodesCount.textContent = `Board: ${config.rows * config.cols} cells`;
         if (speedLabel) speedLabel.textContent = 'SOTA Fast Search';
-      }
-
-      if (winStatus) {
-        if (winStatus.winner === 'Draw') {
-          bigEval.textContent = '½ - ½';
-          bigEval.className = 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-yellow-500/20 border border-yellow-500 text-yellow-400';
-          evalInterpretation.textContent = 'Final Result: Draw (50-50)';
-          if (summaryEval) summaryEval.textContent = '½-½';
-        } else {
-          bigEval.textContent = winStatus.winner === 'X' ? '1 - 0' : '0 - 1';
-          bigEval.className = (winStatus.winner === 'X')
-            ? 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#629924]/20 border border-[#629924] text-[#7ec62f]'
-            : 'mono-font text-2xl font-black px-2.5 py-0.5 rounded bg-[#c33a38]/20 border border-[#c33a38] text-[#ef5350]';
-          evalInterpretation.textContent = `Final Result: ${winStatus.winner} Won (${config.k} in a row)`;
-          if (summaryEval) summaryEval.textContent = winStatus.winner === 'X' ? '1-0' : '0-1';
-        }
       }
     }
 
@@ -6467,14 +6386,21 @@
         row.className = 'px-3 py-2 flex items-center justify-between text-xs hover:bg-[#363431] cursor-pointer transition select-none';
 
         const isBest = idx === 0;
-        const evalStr = formatEval(cand.score);
+        const evalStr = formatEval(cand.score, cand.mate);
         const coord = getCoord(cand.move, config.rows, config.cols);
 
         let badgeBg = 'bg-[#1e1c18] text-gray-300 border-[#363431]';
         const isTurnX = current.turn === 'X';
-        const moveVal = isTurnX ? cand.score : -cand.score;
-        if (moveVal > 2) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
-        else if (moveVal < -2) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+        if (cand.mate !== undefined && cand.mate !== null) {
+          const isWinForTurn = isTurnX ? cand.mate > 0 : cand.mate < 0;
+          badgeBg = isWinForTurn
+            ? 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold'
+            : 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+        } else {
+          const moveVal = isTurnX ? cand.score : -cand.score;
+          if (moveVal > 0.5) badgeBg = 'bg-[#629924]/20 text-[#7ec62f] border-[#629924]/50 font-bold';
+          else if (moveVal < -0.5) badgeBg = 'bg-[#c33a38]/20 text-[#ef5350] border-[#c33a38]/50 font-bold';
+        }
 
         let lineDesc = cand.tacticalDesc || 'Candidate';
         if (cand.pv && cand.pv.length > 1) {
@@ -9024,14 +8950,11 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       // Check mode parameter explicitly
       const modeParam = (urlParams.get('mode') || '').toLowerCase();
       const wantsAnalysis = window.location.hash === '#analysis' || modeParam === 'analysis';
-      const wantsTournament = window.location.hash === '#tournament' || modeParam === 'tournament';
       const wantsEditor = window.location.hash === '#editor' || modeParam === 'editor';
       const wantsPass = modeParam === 'pass' || modeParam === 'friend' || paramPreset === 'hvh';
-      const wantsPlay = window.location.hash === '#play' || modeParam === 'play' || wantsPass || (!wantsAnalysis && !wantsTournament && !wantsEditor && urlParams.get('play') !== null);
+      const wantsPlay = window.location.hash === '#play' || window.location.hash === '#tournament' || modeParam === 'play' || modeParam === 'tournament' || wantsPass || (!wantsAnalysis && !wantsEditor && urlParams.get('play') !== null);
 
-      if (wantsTournament) {
-        switchMainMode('tournament');
-      } else if (wantsEditor) {
+      if (wantsEditor) {
         switchMainMode('editor');
       } else if (wantsPlay) {
         switchMainMode('play');
@@ -9049,10 +8972,8 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         history.replaceState(null, '', '#play');
         return;
       }
-      if (window.location.hash === '#play') {
+      if (window.location.hash === '#play' || window.location.hash === '#tournament') {
         switchMainMode('play');
-      } else if (window.location.hash === '#tournament') {
-        switchMainMode('tournament');
       } else if (window.location.hash === '#editor') {
         switchMainMode('editor');
       } else if (window.location.hash === '#analysis' || !window.location.hash) {

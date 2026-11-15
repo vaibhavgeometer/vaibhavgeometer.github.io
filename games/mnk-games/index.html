@@ -4,42 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mnk.games &bull; Free Offline (m,n,k)-Games &amp; Engine Platform</title>
-  <meta name="description" content="Free offline (m,n,k,j)-games platform: Threat-space search AI, Fairy-Stockfish 14 NNUE, Rapfi Mixnet SOTA, chess clocks, local pass & play, tournament arena, and endgame tablebase.">
+  <meta name="description" content="Free offline (m,n,k,j)-games platform: Threat-space search AI, Fairy-Stockfish 14 NNUE, Rapfi Mixnet SOTA, chess clocks, and local pass & play.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♟️</text></svg>">
   <link rel="stylesheet" href="../css/lichess-offline.css">
   <script src="../js/lichess-sound.js"></script>
-  <style>
-    /* TV Mini-Board styling */
-    .tv-mini-board {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      gap: 2px;
-      background: var(--border);
-      padding: 2px;
-      border-radius: var(--radius-sm);
-      width: 140px;
-      height: 140px;
-      margin: 0 auto;
-    }
-    .tv-mini-cell {
-      background: var(--bg-surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .tv-mini-cell.x {
-      color: #ffffff;
-    }
-    .tv-mini-cell.o {
-      color: var(--accent-gold);
-    }
-    .tv-mini-cell.last {
-      background: rgba(98, 153, 36, 0.4);
-    }
-  </style>
 </head>
 <body>
 
@@ -70,9 +38,6 @@
               <a href="#" onclick="openModal('modal-custom'); return false;">➕ Create a game</a>
               <a href="#" onclick="openModal('modal-computer'); return false;">⚔️ Play with the computer</a>
               <a href="#" onclick="openModal('modal-friend'); return false;">👥 Play with a friend (Pass &amp; Play)</a>
-              <div style="height: 1px; background: var(--border); margin: 0.35rem 0;"></div>
-              <a href="board.html#tournament">🏆 Arena Tournaments</a>
-              <a href="board.html#tournament">🎖️ Swiss / Round Robin</a>
             </div>
           </div>
 
@@ -105,16 +70,8 @@
             <div class="nav-dropdown">
               <a href="board.html#analysis">🔍 Analysis Board</a>
               <a href="board.html#editor">🎨 Board Editor &amp; Barriers (#)</a>
-              <a href="solved_status_of_mnk_games.html">📊 Solved Tablebase (k=1..8+)</a>
               <a href="board.html#analysis" onclick="setTimeout(() => { if (typeof openImportGameModal === 'function') openImportGameModal(); }, 200);">📥 Import Game PGN/FEN</a>
             </div>
-          </div>
-
-          <!-- WATCH / TV -->
-          <div class="nav-item">
-            <a href="board.html?preset=ava&level=8#play" class="nav-btn">
-              <span>Watch</span>
-            </a>
           </div>
 
           <!-- GAMES HUB -->
@@ -152,72 +109,9 @@
     <div style="display: grid; grid-template-columns: 280px 1fr 300px; gap: 1.5rem; align-items: start;" id="main-lobby-grid">
       
       <!-- =====================================================================
-           LEFT COLUMN: mnk TV, Tournaments & Engine Rankings
+           LEFT COLUMN: Engine Rankings & Quick Start
            ===================================================================== -->
       <aside style="display: flex; flex-direction: column; gap: 1.25rem;">
-        
-        <!-- mnk TV (Live AI Match Simulation) -->
-        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 0.88rem; color: var(--text-bright);">
-              <span style="color: var(--accent-orange); font-size: 1.1rem;">📺</span>
-              <span>mnk TV</span>
-            </div>
-            <span style="font-size: 0.72rem; color: var(--accent-green); font-weight: 700; background: rgba(98, 153, 36, 0.15); padding: 0.15rem 0.45rem; border-radius: var(--radius-sm);">LIVE</span>
-          </div>
-
-          <!-- Mini Board Animated Frame -->
-          <div class="tv-mini-board" id="tv-board" title="Live Computer Match">
-            <!-- Populated via JS -->
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem;">
-            <div>
-              <span id="tv-player-x" style="font-weight: 700; color: #ffffff;">AI White (2800)</span> vs 
-              <span id="tv-player-o" style="font-weight: 700; color: var(--accent-gold);">AI Black (2800)</span>
-            </div>
-            <span id="tv-eval-score" style="font-family: var(--font-mono); font-weight: 800; color: #7ec62f;">0.0</span>
-          </div>
-
-          <a href="board.html?preset=ava&level=8#play" class="btn-lichess btn-lichess-dark" style="width: 100%; font-size: 0.78rem; padding: 0.4rem;">
-            Watch &amp; Analyze »
-          </a>
-        </div>
-
-        <!-- Tournaments Card -->
-        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;">
-          <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--text-bright); display: flex; align-items: center; gap: 0.45rem;">
-              <span>🏆</span>
-              <span>Tournaments</span>
-            </h3>
-            <a href="board.html#tournament" style="font-size: 0.75rem; color: var(--accent-orange); font-weight: 700;">Arena »</a>
-          </div>
-
-          <a href="board.html#tournament" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-subtle); transition: background 0.12s ease; text-decoration: none;" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-            <span style="font-size: 1.3rem;">🔥</span>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-bright);">Knockout Championship</div>
-              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 1px;">8-Player Single Elimination</div>
-            </div>
-          </a>
-
-          <a href="board.html#tournament" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-subtle); transition: background 0.12s ease; text-decoration: none;" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-            <span style="font-size: 1.3rem;">🎖️</span>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-bright);">Round Robin League</div>
-              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 1px;">All-play-all Berger Bracket</div>
-            </div>
-          </a>
-
-          <a href="board.html?m=5&n=5&k=4#tournament" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; transition: background 0.12s ease; text-decoration: none;" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-            <span style="font-size: 1.3rem;">⚡</span>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-bright);">Mini-Gomoku 5×5 Trophy</div>
-              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 1px;">Tactical 3-Minute Blitz Arena</div>
-            </div>
-          </a>
-        </div>
 
         <!-- Engines Leaderboard -->
         <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem;">
@@ -253,6 +147,20 @@
           </div>
         </div>
 
+        <!-- Quick Start Guide Card -->
+        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem;">
+          <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--text-bright); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.45rem;">
+            <span>⚡</span>
+            <span>Game Modes</span>
+          </h3>
+          <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0.75rem;">
+            Play against offline grandmaster engines with live Stockfish evaluation bars, pass &amp; play locally with friends, or analyze deep lines in threat-space search.
+          </p>
+          <a href="board.html#analysis" class="btn-lichess btn-lichess-dark" style="width: 100%; font-size: 0.78rem; padding: 0.45rem; text-align: center;">
+            Launch Analysis Board »
+          </a>
+        </div>
+
       </aside>
 
       <!-- =====================================================================
@@ -265,7 +173,6 @@
           <button type="button" class="tab-btn active" id="tab-quick-btn" onclick="switchTab('quick')">Quick Pairing</button>
           <button type="button" class="tab-btn" id="tab-lobby-btn" onclick="switchTab('lobby')">Lobby</button>
           <button type="button" class="tab-btn" id="tab-variants-btn" onclick="switchTab('variants')">Variants</button>
-          <button type="button" class="tab-btn" id="tab-tablebase-btn" onclick="switchTab('tablebase')">Tablebase</button>
         </nav>
 
         <!-- 1. Quick Pairing Panel (Iconic 3x4 Grid) -->
@@ -413,7 +320,6 @@
                 <th style="padding: 0.75rem 1rem; text-align: left;">Grid (m×n)</th>
                 <th style="padding: 0.75rem 1rem; text-align: left;">Win (k)</th>
                 <th style="padding: 0.75rem 1rem; text-align: left;">Players</th>
-                <th style="padding: 0.75rem 1rem; text-align: left;">Tablebase Status</th>
                 <th style="padding: 0.75rem 1rem; text-align: right;">Actions</th>
               </tr>
             </thead>
@@ -423,7 +329,6 @@
                 <td style="padding: 0.75rem 1rem;">3 × 3</td>
                 <td style="padding: 0.75rem 1rem;">k = 3</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-gold); font-weight: 700;">Proven Draw</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <div style="display: inline-flex; gap: 0.35rem;">
                     <a href="board.html?mode=play&m=3&n=3&k=3" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
@@ -436,7 +341,6 @@
                 <td style="padding: 0.75rem 1rem;">5 × 5</td>
                 <td style="padding: 0.75rem 1rem;">k = 4</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-gold); font-weight: 700;">Proven Draw</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <div style="display: inline-flex; gap: 0.35rem;">
                     <a href="board.html?mode=play&m=5&n=5&k=4" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
@@ -449,7 +353,6 @@
                 <td style="padding: 0.75rem 1rem;">7 × 6</td>
                 <td style="padding: 0.75rem 1rem;">k = 4</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: #7ec62f; font-weight: 700;">First Player Win</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <div style="display: inline-flex; gap: 0.35rem;">
                     <a href="board.html?mode=play&m=7&n=6&k=4" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
@@ -462,7 +365,6 @@
                 <td style="padding: 0.75rem 1rem;">15 × 15</td>
                 <td style="padding: 0.75rem 1rem;">k = 5</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: #7ec62f; font-weight: 700;">First Player Win</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <div style="display: inline-flex; gap: 0.35rem;">
                     <a href="board.html?mode=play&m=15&n=15&k=5" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
@@ -475,7 +377,6 @@
                 <td style="padding: 0.75rem 1rem;">19 × 19</td>
                 <td style="padding: 0.75rem 1rem;">k = 5</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-orange); font-weight: 700;">SOTA Rapfi</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <div style="display: inline-flex; gap: 0.35rem;">
                     <a href="board.html?mode=play&m=19&n=19&k=5" class="btn-lichess btn-lichess-green" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">vs AI</a>
@@ -488,7 +389,6 @@
                 <td style="padding: 0.75rem 1rem;">6 × 6</td>
                 <td style="padding: 0.75rem 1rem;">k = 4</td>
                 <td style="padding: 0.75rem 1rem;">3</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-blue); font-weight: 700;">Multi-Player</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <a href="board.html?preset=hvh&m=6&n=6&k=4&j=3#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass &amp; Play (3P)</a>
                 </td>
@@ -498,7 +398,6 @@
                 <td style="padding: 0.75rem 1rem;">8 × 8</td>
                 <td style="padding: 0.75rem 1rem;">k = 5</td>
                 <td style="padding: 0.75rem 1rem;">4</td>
-                <td style="padding: 0.75rem 1rem;"><span style="color: var(--accent-gold); font-weight: 700;">Multi-Player</span></td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
                   <a href="board.html?preset=hvh&m=8&n=8&k=5&j=4#play" class="btn-lichess btn-lichess-dark" style="font-size: 0.75rem; padding: 0.25rem 0.6rem;">Pass &amp; Play (4P)</a>
                 </td>
@@ -507,63 +406,10 @@
           </table>
         </div>
 
-        <!-- 4. Tablebase Tab -->
-        <div id="panel-tablebase" style="display: none; background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
-            <div>
-              <h3 style="font-size: 1.1rem; color: var(--text-bright); font-weight: 800;">Endgame Tablebase &amp; Solved Status</h3>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Proven outcomes from k=1 to k≥8</p>
-            </div>
-            <a href="solved_status_of_mnk_games.html" class="btn-lichess btn-lichess-green" style="font-size: 0.8rem;">Open Full Tablebase »</a>
-          </div>
-
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1rem;">
-            <thead>
-              <tr style="border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
-                <th style="padding: 0.5rem; text-align: left;">Streak (k)</th>
-                <th style="padding: 0.5rem; text-align: left;">Outcome</th>
-                <th style="padding: 0.5rem; text-align: left;">Proof / Citation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 1, 2</td>
-                <td style="padding: 0.6rem 0.5rem;"><span style="color: #7ec62f; font-weight: 700;">First-Player Win</span></td>
-                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Trivial win in ≤4 plies</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 3</td>
-                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">3×3 Draw</span> / <span style="color: #7ec62f; font-weight: 700;">m≥3, n≥4 Win</span></td>
-                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Tic-Tac-Toe solved</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 4</td>
-                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">5×5 Draw</span> / <span style="color: #7ec62f; font-weight: 700;">6×5 Win</span></td>
-                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Patashnik (1980), Uiterwijk (2002)</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border-subtle);">
-                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k = 5</td>
-                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">8×8 Draw</span> / <span style="color: #7ec62f; font-weight: 700;">9×9 Win</span></td>
-                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Allis (1993), Hsu &amp; Ko (2020)</td>
-              </tr>
-              <tr>
-                <td style="padding: 0.6rem 0.5rem; font-weight: 700;">k &ge; 8</td>
-                <td style="padding: 0.6rem 0.5rem;"><span style="color: var(--accent-gold); font-weight: 700;">Draw (All Dimensions)</span></td>
-                <td style="padding: 0.6rem 0.5rem; color: var(--text-muted);">Hales-Jewett Pairing Strategy</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div style="display: flex; gap: 0.75rem;">
-            <a href="solved_status_of_mnk_games.html" class="btn-lichess btn-lichess-green" style="font-size: 0.85rem;">📊 Explore Interactive Tablebase</a>
-            <a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" class="btn-lichess btn-lichess-dark" style="font-size: 0.85rem;">📥 Download Dataset (.xlsx)</a>
-          </div>
-        </div>
-
       </section>
 
       <!-- =====================================================================
-           RIGHT COLUMN: 3 Big Lichess Action Buttons & Tablebase Box
+           RIGHT COLUMN: 3 Big Lichess Action Buttons & Quick Analysis
            ===================================================================== -->
       <aside style="display: flex; flex-direction: column; gap: 0.75rem;">
         
@@ -599,23 +445,9 @@
           <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: var(--accent-gold); fill: none; stroke-width: 2;"><path d="M19 22H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1M18.5 7A2.5 2.5 0 0 0 16 4.5h-.5A2.5 2.5 0 0 0 13 2H9a1 1 0 0 0-1 1v1.5a4.5 4.5 0 0 0-3.5 4.4c0 .8.2 1.6.6 2.3A5.5 5.5 0 0 0 7 16h10a5.5 5.5 0 0 0 1.9-4.8c.4-.7.6-1.5.6-2.2z"/></svg>
           <div style="text-align: left;">
             <div>Analysis board</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Live eval bar &amp; engine arrows</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Live Stockfish eval bar &amp; engine arrows</div>
           </div>
         </a>
-
-        <!-- Tablebase Quick Link -->
-        <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin-top: 0.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-            <h4 style="font-size: 0.82rem; font-weight: 800; color: var(--text-bright); display: flex; align-items: center; gap: 0.35rem;">
-              <span>📊</span>
-              <span>Tablebase</span>
-            </h4>
-            <a href="solved_status_of_mnk_games.html" style="font-size: 0.74rem; color: var(--accent-green); font-weight: 700;">Explore →</a>
-          </div>
-          <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
-            Explore exact solved solutions for any streak $k=1..8+$ across boards up to $32\times 32$.
-          </p>
-        </div>
 
       </aside>
 
@@ -630,7 +462,6 @@
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
           <li><a href="board.html?mode=play" style="color: var(--text-main);">Play against Computer</a></li>
           <li><a href="#" onclick="openModal('modal-friend'); return false;" style="color: var(--text-main);">Pass &amp; Play (Local)</a></li>
-          <li><a href="board.html#tournament" style="color: var(--text-main);">Tournament Arena</a></li>
           <li><a href="#" onclick="openModal('modal-custom'); return false;" style="color: var(--text-main);">Custom Game</a></li>
         </ul>
       </div>
@@ -640,8 +471,6 @@
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
           <li><a href="board.html#analysis" style="color: var(--text-main);">Analysis Board</a></li>
           <li><a href="board.html#editor" style="color: var(--text-main);">Board Editor &amp; Barriers</a></li>
-          <li><a href="solved_status_of_mnk_games.html" style="color: var(--text-main);">Solved Status Tablebase</a></li>
-          <li><a href="solved_status_of_mnk_games.xlsx" download="Solved Status of mnk games.xlsx" style="color: var(--text-main);">Download Dataset (.xlsx)</a></li>
         </ul>
       </div>
 
@@ -856,12 +685,10 @@
         <button class="modal-close" onclick="closeModal('modal-search')">&times;</button>
       </div>
       <div class="modal-body">
-        <input type="text" id="search-input" placeholder="Search variants, board sizes, tablebase..." oninput="filterSearchResults(this.value)" class="form-input" style="font-size: 0.95rem;">
+        <input type="text" id="search-input" placeholder="Search variants, board sizes..." oninput="filterSearchResults(this.value)" class="form-input" style="font-size: 0.95rem;">
         
         <div id="search-results-list" style="display: flex; flex-direction: column; gap: 0.35rem; max-height: 240px; overflow-y: auto;">
           <a href="board.html#analysis" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">♟️ Threat-Space Analysis Board</a>
-          <a href="solved_status_of_mnk_games.html" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">📊 Solved Tablebase Matrix (k=1 to k≥8)</a>
-          <a href="board.html#tournament" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🏆 Tournament Arena (Knockouts &amp; Round Robin)</a>
           <a href="board.html#editor" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🎨 Board Editor &amp; Barriers (#)</a>
           <a href="board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚡ (5,5,4) Mini-Gomoku Board</a>
           <a href="board.html?m=15&n=15&k=5#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚫ (15,15,5) Standard Gomoku Board</a>
@@ -876,7 +703,7 @@
     // Tab Switching
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      const panels = ['quick', 'lobby', 'variants', 'tablebase'];
+      const panels = ['quick', 'lobby', 'variants'];
       panels.forEach(p => {
         const el = document.getElementById(`panel-${p}`);
         if (el) el.style.display = 'none';
@@ -1041,67 +868,6 @@
       const sIcon = document.getElementById('sound-icon');
       if (sIcon) sIcon.textContent = '🔇';
     }
-
-    // Animated mnk TV mini-board simulation
-    (function initTvBoard() {
-      const boardEl = document.getElementById('tv-board');
-      if (!boardEl) return;
-      const cells = [];
-      for (let i = 0; i < 25; i++) {
-        const cell = document.createElement('div');
-        cell.className = 'tv-mini-cell';
-        boardEl.appendChild(cell);
-        cells.push(cell);
-      }
-
-      // Predefined sample 5x5 moves sequence
-      const sampleGames = [
-        [12, 11, 7, 17, 8, 16, 6, 18, 13],
-        [12, 6, 18, 8, 16, 7, 17, 13, 11],
-        [12, 13, 11, 7, 17, 8, 16, 6, 14]
-      ];
-
-      let gameIdx = 0;
-      let moveIdx = 0;
-      let tvBoardState = new Array(25).fill(null);
-
-      function stepTv() {
-        const moves = sampleGames[gameIdx];
-        if (moveIdx >= moves.length) {
-          // Restart with next game
-          setTimeout(() => {
-            cells.forEach(c => {
-              c.textContent = '';
-              c.className = 'tv-mini-cell';
-            });
-            tvBoardState.fill(null);
-            gameIdx = (gameIdx + 1) % sampleGames.length;
-            moveIdx = 0;
-            document.getElementById('tv-eval-score').textContent = '0.0';
-            setTimeout(stepTv, 1000);
-          }, 3000);
-          return;
-        }
-
-        const m = moves[moveIdx];
-        const piece = moveIdx % 2 === 0 ? 'X' : 'O';
-        tvBoardState[m] = piece;
-
-        cells.forEach(c => c.classList.remove('last'));
-        cells[m].textContent = piece;
-        cells[m].classList.add(piece.toLowerCase());
-        cells[m].classList.add('last');
-
-        // Update score slightly
-        const scores = ['0.0', '+0.4', '-0.2', '+0.8', '+1.4', '+2.5', '+4.1', '#1'];
-        document.getElementById('tv-eval-score').textContent = scores[Math.min(moveIdx, scores.length - 1)];
-
-        moveIdx++;
-        setTimeout(stepTv, 1600);
-      }
-
-      setTimeout(stepTv, 1200);
-    })();
   </script>
 </body>
 </html>
