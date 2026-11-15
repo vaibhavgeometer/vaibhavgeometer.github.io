@@ -1,6 +1,6 @@
 /**
  * Unified Offline Engine Controller for Lichess/PlayStrategy mnk games
- * - For k = 5 (Gomoku/Renju/Five-in-a-Row): Integrates Rapfi Engine (Mixnet SOTA)
+ * - For k = 5 ((15,15,5) / 5-in-a-row): Integrates Rapfi Engine (Mixnet SOTA)
  * - For k = 1, 2, 3, 4: Integrates Fairy-Stockfish 14 Engine (UCI Variant)
  * - For k >= 6 or multi-player: Integrates SOTA Threat-Space Search
  */
@@ -66,15 +66,15 @@
     getEngineTitle(m, n, k, j = 2) {
       const eng = this.resolveEngine(m, n, k, j);
       if (eng === 'rapfi') {
-        return 'Rapfi Gomoku AI (Mixnet SOTA · Gomocup Champion)';
+        return `Rapfi Mixnet (${m}×${n}, k=5 SOTA)`;
       }
       if (eng === 'fairy-stockfish') {
-        if (k === 3) return 'Fairy-Stockfish 14 (Tic-Tac-Toe NNUE)';
-        if (k === 4) return 'Fairy-Stockfish 14 (Connect-4 NNUE)';
-        if (k === 1 || k === 2) return 'Fairy-Stockfish 14 (Direct Mate Solver)';
-        return 'Fairy-Stockfish 14 (Variant Engine)';
+        if (k === 3) return 'Fairy-Stockfish 14 ((3,3,3) NNUE)';
+        if (k === 4) return 'Fairy-Stockfish 14 ((7,6,4) NNUE)';
+        if (k === 1 || k === 2) return `Fairy-Stockfish 14 (${m}×${n}, k=${k} Mate Solver)`;
+        return `Fairy-Stockfish 14 (${m}×${n}, k=${k})`;
       }
-      return 'mnk Threat-Space AI (SOTA VCF/VCT)';
+      return `mnk Threat-Space AI (${m}×${n}, k=${k})`;
     }
 
     /**
@@ -124,7 +124,7 @@
           if (this.currentJobId !== jobId) return;
           const elapsed = (performance.now() - startTime) / 1000;
           this.emitEval({
-            engineName: 'Rapfi Gomoku AI (Mixnet SOTA)',
+            engineName: `Rapfi Mixnet (${rows}×${cols}, k=5)`,
             depth: 24,
             maxDepth: 30,
             score: 100.0,
@@ -141,7 +141,7 @@
         return;
       }
 
-      // Rapfi Evaluation via Deep SOTA Gomoku Threat-Space heuristic
+      // Rapfi Evaluation via Deep SOTA Threat-Space heuristic
       // Iterative deepening search
       let depth = 1;
       const maxDepth = Math.min(24, Math.max(8, this.engineLevel * 3));
@@ -154,7 +154,7 @@
         const nps = Math.floor(nodes / Math.max(0.05, elapsed));
 
         this.emitEval({
-          engineName: 'Rapfi Gomoku AI (Mixnet SOTA)',
+          engineName: `Rapfi Mixnet (${rows}×${cols}, k=5)`,
           depth: depth,
           maxDepth: maxDepth,
           score: result.score,

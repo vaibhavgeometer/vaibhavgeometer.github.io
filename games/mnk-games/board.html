@@ -304,12 +304,12 @@
     <div class="flex items-center space-x-2 sm:space-x-3">
       <!-- mnk games Logo & Title -->
       <a href="./" class="flex items-center space-x-2 group" title="mnk games Hub">
-        <svg class="w-7 h-7 stroke-[#e69f00] fill-none" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
-          <line x1="9" y1="3" x2="9" y2="21"></line>
-          <line x1="15" y1="3" x2="15" y2="21"></line>
-          <line x1="3" y1="9" x2="21" y2="9"></line>
-          <line x1="3" y1="15" x2="21" y2="15"></line>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e69f00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 flex-shrink-0" style="fill:none; stroke:#e69f00;">
+          <rect x="3" y="3" width="18" height="18" rx="3" ry="3" fill="none" stroke="#e69f00" stroke-width="2.2"></rect>
+          <line x1="9" y1="3" x2="9" y2="21" stroke="#e69f00" stroke-width="2.2"></line>
+          <line x1="15" y1="3" x2="15" y2="21" stroke="#e69f00" stroke-width="2.2"></line>
+          <line x1="3" y1="9" x2="21" y2="9" stroke="#e69f00" stroke-width="2.2"></line>
+          <line x1="3" y1="15" x2="21" y2="15" stroke="#e69f00" stroke-width="2.2"></line>
         </svg>
         <span class="font-extrabold text-lg text-white tracking-wide">mnk <span class="text-[#e69f00]">games</span></span>
       </a>
@@ -499,20 +499,52 @@
     <!-- RIGHT SECTION: Mode Switcher, Engine, Play & Clocks, Editor, History -->
     <div class="w-full lg:w-[460px] xl:w-[480px] flex-shrink-0 flex flex-col space-y-3">
 
-      <!-- 3 Main Mode Switcher Navigation Tabs -->
-      <div class="grid grid-cols-3 gap-1 p-1 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow-md">
-        <button id="tab-analysis-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow">
-          <span>🔍</span>
-          <span class="truncate">Analysis</span>
-        </button>
-        <button id="tab-play-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
-          <span>⚔️</span>
-          <span class="truncate">Play Match</span>
-        </button>
-        <button id="tab-editor-btn" class="main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 text-gray-300 hover:text-white hover:bg-[#262421]">
-          <span>🎨</span>
-          <span class="truncate">Editor</span>
-        </button>
+      <!-- Mode Headers (Strict Separation like lichess.org - Anti-Cheat) -->
+      <!-- Mode 1: Play Match Header (Analysis/Editor switcher completely hidden during play) -->
+      <div id="mode-header-play" class="flex items-center justify-between p-2.5 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow">
+        <div class="flex items-center space-x-2">
+          <span class="text-base">⚔️</span>
+          <span class="font-bold text-white tracking-wide">Play Match</span>
+          <span class="text-[10px] text-[#7ec62f] bg-[#629924]/20 px-1.5 py-0.5 rounded border border-[#629924]/40 font-mono">Fair Play</span>
+        </div>
+        <div class="text-[11px] text-gray-400 flex items-center space-x-1">
+          <span>🔒</span>
+          <span>Analysis locked during match</span>
+        </div>
+      </div>
+
+      <!-- Mode 2: Analysis Board Header -->
+      <div id="mode-header-analysis" class="hidden flex items-center justify-between p-2 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow">
+        <div class="flex items-center space-x-2">
+          <span class="text-base">🔍</span>
+          <span class="font-bold text-[#7ec62f] tracking-wide">Analysis Board</span>
+          <span class="text-[10px] text-gray-400 bg-[#262421] px-1.5 py-0.5 rounded border border-[#363431] font-mono">Stockfish / SOTA</span>
+        </div>
+        <div class="flex items-center space-x-1.5">
+          <a href="board.html#play" class="px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 hover:text-white text-[11px] font-semibold border border-[#363431] transition flex items-center space-x-1" title="Play Match">
+            <span>⚔️</span><span>Play Match</span>
+          </a>
+          <a href="board.html#editor" class="px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 hover:text-white text-[11px] font-semibold border border-[#363431] transition flex items-center space-x-1" title="Board Editor">
+            <span>🎨</span><span>Editor</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mode 3: Board Editor Header -->
+      <div id="mode-header-editor" class="hidden flex items-center justify-between p-2 bg-[#1e1c18] border border-[#363431] rounded-lg text-xs font-semibold select-none shadow">
+        <div class="flex items-center space-x-2">
+          <span class="text-base">🎨</span>
+          <span class="font-bold text-[#3692e7] tracking-wide">Board Editor</span>
+          <span class="text-[10px] text-gray-400 bg-[#262421] px-1.5 py-0.5 rounded border border-[#363431] font-mono">Custom Setup</span>
+        </div>
+        <div class="flex items-center space-x-1.5">
+          <a href="board.html#analysis" class="px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 hover:text-white text-[11px] font-semibold border border-[#363431] transition flex items-center space-x-1" title="Analysis Board">
+            <span>🔍</span><span>Analysis Board</span>
+          </a>
+          <a href="board.html#play" class="px-2.5 py-1 rounded bg-[#262421] hover:bg-[#363431] text-gray-300 hover:text-white text-[11px] font-semibold border border-[#363431] transition flex items-center space-x-1" title="Play Match">
+            <span>⚔️</span><span>Play Match</span>
+          </a>
+        </div>
       </div>
 
       <!-- PANEL 1: ANALYSIS MODE -->
@@ -554,11 +586,11 @@
               <span id="engine-status-dot" class="w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse"></span>
               <span id="engine-title-name" class="font-bold text-sm text-white tracking-wide">Fairy-Stockfish 14</span>
               <span id="engine-depth-tag" class="text-[11px] bg-[#1e1c18] text-[#73706c] px-1.5 py-0.5 rounded mono-font">depth 1/16</span>
-              <select id="engine-override-select" class="text-[10px] bg-[#1e1c18] text-gray-300 border border-[#363431] rounded px-1.5 py-0.5 outline-none font-semibold cursor-pointer hover:border-[#629924]" title="Select Engine Core (Rapfi for 5-in-a-row, Fairy-Stockfish for 1,2,3,4)">
+              <select id="engine-override-select" class="text-[10px] bg-[#1e1c18] text-gray-300 border border-[#363431] rounded px-1.5 py-0.5 outline-none font-semibold cursor-pointer hover:border-[#629924]" title="Select Engine Core (Rapfi for k=5, Fairy-Stockfish for k=1..4)">
                 <option value="auto" selected>⚡ Auto (Rapfi for k=5, Fairy-SF for k=1..4)</option>
-                <option value="rapfi">Rapfi Gomoku AI (Mixnet SOTA · Gomocup)</option>
+                <option value="rapfi">Rapfi Mixnet (Mixnet SOTA · (15,15,5))</option>
                 <option value="fairy-stockfish">Fairy-Stockfish 14 (NNUE Variant AI)</option>
-                <option value="threat-space">mnk Threat-Space Search (SOTA VCF/VCT)</option>
+                <option value="threat-space">Threat-Space Search (SOTA VCF/VCT)</option>
               </select>
             </div>
             <div class="flex items-center space-x-2 text-xs">
@@ -766,18 +798,19 @@
 
       <!-- PANEL 2: PLAY & CLOCKS (Demand 2) -->
       <div id="panel-play" class="hidden bg-[#262421] border border-[#363431] rounded-lg p-3.5 shadow-lg space-y-3.5">
-        <!-- Game Over Banner in Play Area -->
+        <!-- Game Over Banner in Play Area (Anti-Cheat: Analysis Board only available post-game, opens in new tab) -->
         <div id="play-game-finished-card" class="hidden bg-[#1e1c18] border border-[#629924] rounded-lg p-3 text-center space-y-2 shadow-lg">
           <div class="text-sm font-bold text-white" id="play-game-finished-title">🏆 Game Finished</div>
           <div class="text-xs text-gray-300" id="play-game-finished-desc">Match complete</div>
-          <div class="flex items-center justify-center gap-2 pt-1">
-            <button type="button" onclick="resetBoard();" class="px-3 py-1.5 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-xs font-bold transition flex items-center space-x-1 shadow">
+          <div class="flex items-center justify-center gap-2 pt-1 flex-wrap">
+            <button type="button" onclick="resetBoard();" class="px-3.5 py-1.5 bg-[#629924] hover:bg-[#72b02a] text-white rounded text-xs font-bold transition flex items-center space-x-1 shadow">
               <span>🔄 Rematch</span>
             </button>
-            <button type="button" onclick="reviewGameInAnalysis();" class="px-3 py-1.5 bg-[#363431] hover:bg-[#474440] text-gray-200 rounded text-xs font-bold transition flex items-center space-x-1 border border-[#4a4742]">
-              <span>🔍 Analysis Board »</span>
+            <button type="button" onclick="openGameInAnalysisNewTab();" id="btn-open-analysis-new-tab" class="px-3.5 py-1.5 bg-[#3692e7] hover:bg-[#4ea2f0] text-white rounded text-xs font-bold transition flex items-center space-x-1 border border-[#3692e7] shadow">
+              <span>🔍 Analysis Board ↗</span>
             </button>
           </div>
+          <div class="text-[10px] text-gray-400 italic">Opens interactive analysis &amp; Stockfish evaluation in a new tab</div>
         </div>
         <div class="flex items-center justify-between pb-2 border-b border-[#363431]">
           <div class="flex items-center space-x-2">
@@ -1145,40 +1178,40 @@
         <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Quick Presets</label>
         <div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 text-xs">
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="3" data-n="3" data-k="3">
-            <div class="font-bold text-white">3 × 3 (k=3)</div>
-            <div class="text-[10px] text-gray-400">Classic TTT</div>
+            <div class="font-bold text-white">(3,3,3)</div>
+            <div class="text-[10px] text-gray-400">3 × 3 (k=3)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="4" data-n="4" data-k="4">
-            <div class="font-bold text-white">4 × 4 (k=4)</div>
-            <div class="text-[10px] text-gray-400">Patashnik Draw</div>
+            <div class="font-bold text-white">(4,4,4)</div>
+            <div class="text-[10px] text-gray-400">4 × 4 (k=4)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="5" data-n="5" data-k="4">
-            <div class="font-bold text-white">5 × 5 (k=4)</div>
-            <div class="text-[10px] text-gray-400">Theoretical Draw</div>
+            <div class="font-bold text-white">(5,5,4)</div>
+            <div class="text-[10px] text-gray-400">5 × 5 (k=4)</div>
           </button>
-          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="7" data-n="7" data-k="5">
-            <div class="font-bold text-white">7 × 7 (k=5)</div>
-            <div class="text-[10px] text-gray-400">Small Gomoku</div>
+          <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="7" data-n="6" data-k="4">
+            <div class="font-bold text-white">(7,6,4)</div>
+            <div class="text-[10px] text-gray-400">7 × 6 (k=4)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="10" data-n="10" data-k="5">
-            <div class="font-bold text-white">10 × 10 (k=5)</div>
-            <div class="text-[10px] text-gray-400">Fast Tactical</div>
+            <div class="font-bold text-white">(10,10,5)</div>
+            <div class="text-[10px] text-gray-400">10 × 10 (k=5)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="15" data-n="15" data-k="5">
-            <div class="font-bold text-[#7ec62f]">15 × 15 (k=5)</div>
-            <div class="text-[10px] text-gray-400">Standard Gomoku</div>
+            <div class="font-bold text-[#7ec62f]">(15,15,5)</div>
+            <div class="text-[10px] text-gray-400">15 × 15 (k=5)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="19" data-n="19" data-k="5">
-            <div class="font-bold text-white">19 × 19 (k=5)</div>
-            <div class="text-[10px] text-gray-400">Go Board / Pente</div>
+            <div class="font-bold text-white">(19,19,5)</div>
+            <div class="text-[10px] text-gray-400">19 × 19 (k=5)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="32" data-n="32" data-k="6">
-            <div class="font-bold text-yellow-400">32 × 32 (k=6)</div>
-            <div class="text-[10px] text-gray-400">Max Scale (Open)</div>
+            <div class="font-bold text-yellow-400">(32,32,6)</div>
+            <div class="text-[10px] text-gray-400">32 × 32 (k=6)</div>
           </button>
           <button type="button" class="preset-btn p-2 rounded bg-[#1e1c18] hover:bg-[#363431] border border-[#363431] text-left transition" data-m="1" data-n="1" data-k="1">
-            <div class="font-bold text-gray-300">1 × 1 (k=1)</div>
-            <div class="text-[10px] text-gray-400">Micro 1-Ply Win</div>
+            <div class="font-bold text-gray-300">(1,1,1)</div>
+            <div class="text-[10px] text-gray-400">1 × 1 (k=1)</div>
           </button>
         </div>
       </div>
@@ -1550,7 +1583,7 @@
       if (k === 5) {
         // Hsu & Ko (2018) proved (7,7,5) and (8,8,5) are draws => all m, n <= 8 are draws
         if (maxDim <= 8) return 'Theoretical Draw (Hsu & Ko 2018)';
-        // Allis (1993) proved (15,15,5) Gomoku is a first-player win
+        // Allis (1993) proved (15,15,5) is a first-player win
         if (minDim >= 15 && maxDim >= 15) return 'First-Player Win (Allis 1993)';
       }
 
@@ -3628,17 +3661,23 @@
               </button>
             </div>
 
-            <!-- Engine Level Selector (Visible when AI is selected) -->
-            <div class="${p.type === 'ai' ? '' : 'hidden'} play-level-wrap flex items-center space-x-1">
+            <!-- Bot Engine & Level Selector (Visible when AI is selected) -->
+            <div class="${p.type === 'ai' ? '' : 'hidden'} play-level-wrap flex items-center space-x-1 flex-wrap gap-1">
+              <select class="play-engine-select bg-[#262421] text-gray-200 border border-[#363431] text-[11px] font-bold rounded px-1.5 py-0.5 focus:border-[#629924] outline-none" data-piece="${piece}" title="Select Bot Engine">
+                <option value="auto" ${(!p.engine || p.engine === 'auto') ? 'selected' : ''}>⚡ Auto Bot</option>
+                <option value="fairy-stockfish" ${p.engine === 'fairy-stockfish' ? 'selected' : ''}>🤖 Fairy-Stockfish 14</option>
+                <option value="rapfi" ${p.engine === 'rapfi' ? 'selected' : ''}>🧠 Rapfi Mixnet</option>
+                <option value="threat-space" ${p.engine === 'threat-space' ? 'selected' : ''}>🎯 Threat-Space</option>
+              </select>
               <select class="play-level-select bg-[#262421] text-gray-200 border border-[#363431] text-[11px] font-bold rounded px-1.5 py-0.5 focus:border-[#629924] outline-none" data-piece="${piece}" title="Select Engine Level">
-                <option value="1" ${p.level === 1 ? 'selected' : ''}>L1 · 600</option>
+                <option value="1" ${p.level === 1 ? 'selected' : ''}>L1 · 600 (Weakest)</option>
                 <option value="2" ${p.level === 2 ? 'selected' : ''}>L2 · 900</option>
                 <option value="3" ${p.level === 3 ? 'selected' : ''}>L3 · 1200</option>
                 <option value="4" ${p.level === 4 ? 'selected' : ''}>L4 · 1500</option>
                 <option value="5" ${p.level === 5 ? 'selected' : ''}>L5 · 1800</option>
                 <option value="6" ${p.level === 6 ? 'selected' : ''}>L6 · 2100</option>
                 <option value="7" ${p.level === 7 ? 'selected' : ''}>L7 · 2400</option>
-                <option value="8" ${p.level === 8 ? 'selected' : ''}>L8 · 3000</option>
+                <option value="8" ${p.level === 8 ? 'selected' : ''}>L8 · 3000 (Strongest)</option>
               </select>
             </div>
           </div>
@@ -3669,6 +3708,17 @@
           p.level = lvl;
           updatePlayerBoxes();
           showToast(`${p.name} set to Level ${lvl}`);
+        });
+      });
+
+      container.querySelectorAll('.play-engine-select').forEach(sel => {
+        sel.addEventListener('change', (e) => {
+          const piece = sel.dataset.piece;
+          const engineVal = e.target.value;
+          const p = getPlayerConfig(piece);
+          p.engine = engineVal;
+          updatePlayerBoxes();
+          showToast(`${p.name} engine set to ${engineVal.toUpperCase()}`);
         });
       });
     }
@@ -4457,8 +4507,16 @@
         if (p) p.classList.add('hidden');
       });
 
+      const headerPlay = document.getElementById('mode-header-play');
+      const headerAnalysis = document.getElementById('mode-header-analysis');
+      const headerEditor = document.getElementById('mode-header-editor');
+      if (headerPlay) headerPlay.classList.toggle('hidden', mode !== 'play');
+      if (headerAnalysis) headerAnalysis.classList.toggle('hidden', mode !== 'analysis');
+      if (headerEditor) headerEditor.classList.toggle('hidden', mode !== 'editor');
+
       const evalBarWrapper = document.getElementById('eval-bar-wrapper');
       const evalDiscWrapper = document.getElementById('eval-disc-wrapper');
+      const boardEvalSummary = document.getElementById('board-eval-summary');
       const toggleArrowsBtn = document.getElementById('toggle-arrows-btn');
       const toggleBadgesBtn = document.getElementById('toggle-badges-btn');
       const modeAnalysisBtn = document.getElementById('mode-analysis-btn');
@@ -4472,13 +4530,14 @@
       const clockOContainer = document.getElementById('clock-o-container');
 
       if (mode === 'analysis') {
-        if (tabAnalysisBtn) tabAnalysisBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelAnalysis) panelAnalysis.classList.remove('hidden');
         if (moveHistoryCard) moveHistoryCard.classList.remove('hidden');
         if (clockXContainer) clockXContainer.classList.remove('hidden');
         if (clockOContainer) clockOContainer.classList.remove('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.remove('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.remove('hidden');
+        if (evalBarWrapper) evalBarWrapper.classList.remove('hidden');
+        if (boardEvalSummary) boardEvalSummary.classList.remove('hidden');
         if (modeAnalysisBtn) modeAnalysisBtn.classList.remove('hidden');
         if (modePlayBtn) modePlayBtn.classList.remove('hidden');
         if (btnAnalysisReportTrigger) btnAnalysisReportTrigger.classList.remove('hidden');
@@ -4487,14 +4546,15 @@
         if (historyNavControls) historyNavControls.classList.remove('hidden');
         stopClock();
       } else if (mode === 'play') {
-        if (tabPlayBtn) tabPlayBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
+        state.playShowEval = false;
         if (panelPlay) panelPlay.classList.remove('hidden');
         if (moveHistoryCard) moveHistoryCard.classList.remove('hidden');
         if (clockXContainer) clockXContainer.classList.remove('hidden');
         if (clockOContainer) clockOContainer.classList.remove('hidden');
         if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
-        if (evalBarWrapper) evalBarWrapper.classList.toggle('hidden', !state.playShowEval);
+        if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
+        if (boardEvalSummary) boardEvalSummary.classList.add('hidden');
         if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
         if (modeAnalysisBtn) modeAnalysisBtn.classList.add('hidden');
         if (modePlayBtn) modePlayBtn.classList.add('hidden');
@@ -4502,9 +4562,10 @@
         if (btnImportGameTrigger) btnImportGameTrigger.classList.add('hidden');
         if (fenExportWrapper) fenExportWrapper.classList.add('hidden');
         if (historyNavControls) historyNavControls.classList.add('hidden');
+        clearArrows();
+        clearSquareBadges();
         stopCurrentAnalysis();
       } else if (mode === 'editor') {
-        if (tabEditorBtn) tabEditorBtn.className = 'main-mode-tab py-1.5 px-1 rounded text-center transition flex items-center justify-center space-x-1 bg-[#629924] text-white shadow';
         if (panelEditor) panelEditor.classList.remove('hidden');
         if (moveHistoryCard) moveHistoryCard.classList.add('hidden');
         if (fenExportWrapper) fenExportWrapper.classList.remove('hidden');
@@ -4513,7 +4574,10 @@
         if (toggleArrowsBtn) toggleArrowsBtn.classList.add('hidden');
         if (toggleBadgesBtn) toggleBadgesBtn.classList.add('hidden');
         if (evalBarWrapper) evalBarWrapper.classList.add('hidden');
+        if (boardEvalSummary) boardEvalSummary.classList.add('hidden');
         if (evalDiscWrapper) evalDiscWrapper.classList.add('hidden');
+        clearArrows();
+        clearSquareBadges();
         stopClock();
         stopCurrentAnalysis();
       }
@@ -5904,15 +5968,22 @@
       lineEl.classList.remove('hidden');
     }
 
-    function getActiveEngineType() {
+    function getActiveEngineType(forTurn = null) {
+      if (state.mode === 'play') {
+        const turn = forTurn || state.history[state.currentPly].turn;
+        const p = getPlayerConfig(turn);
+        if (p && p.engine && p.engine !== 'auto') {
+          return p.engine;
+        }
+      }
       const select = document.getElementById('engine-override-select');
       const val = select ? select.value : 'auto';
       if (val === 'rapfi') return 'rapfi';
       if (val === 'fairy-stockfish') return 'fairy-stockfish';
       if (val === 'threat-space') return 'threat-space';
-      // Auto selection logic requested by user:
-      // For 5 in a row: Rapfi
-      // For 1, 2, 3, 4 in a row: Fairy-Stockfish
+      // Auto selection logic:
+      // For 5 in a row: Rapfi Mixnet
+      // For 1, 2, 3, 4 in a row: Fairy-Stockfish 14
       if (config.j && config.j > 2) return 'threat-space';
       if (config.k === 5) return 'rapfi';
       if (config.k >= 1 && config.k <= 4) return 'fairy-stockfish';
@@ -5935,7 +6006,7 @@
       if (state.mode === 'analysis') {
         if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-[#629924] inline-block animate-pulse';
         if (core === 'rapfi') {
-          nameLabel.textContent = `Rapfi Gomoku AI (${config.rows}×${config.cols}, k=5)`;
+          nameLabel.textContent = `Rapfi Mixnet (${config.rows}×${config.cols}, k=5)`;
           if (depthBadge) depthBadge.textContent = 'Mixnet SOTA';
           if (tablebaseLabel) tablebaseLabel.textContent = 'Engine:';
           if (tablebaseStatus) {
@@ -5943,7 +6014,7 @@
             tablebaseStatus.className = 'text-[#d97724] font-semibold mono-font';
           }
         } else if (core === 'fairy-stockfish') {
-          const varLabel = config.k === 3 ? 'Tic-Tac-Toe' : (config.k === 4 ? 'Connect-4' : (config.k <= 2 ? `Mate in ${config.k}` : `k=${config.k}`));
+          const varLabel = `(${config.rows},${config.cols},${config.k})`;
           nameLabel.textContent = `Fairy-Stockfish 14 (${varLabel})`;
           if (depthBadge) depthBadge.textContent = 'NNUE LB';
           if (tablebaseLabel) tablebaseLabel.textContent = 'Engine:';
@@ -6859,9 +6930,35 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       }
     }
 
+    function openGameInAnalysisNewTab() {
+      const m = config.rows;
+      const n = config.cols;
+      const k = config.k;
+      const j = config.j || 2;
+      const moves = state.history.slice(1).map(h => {
+        if (!h.lastMove && h.lastMove !== 0) return '';
+        return getCoord(h.lastMove, m, n);
+      }).filter(Boolean).join(' ');
+
+      try {
+        sessionStorage.setItem('mnk_analysis_game', JSON.stringify({
+          m, n, k, j,
+          moves: state.history.slice(1).map(h => h.lastMove),
+          moveStrings: state.history.slice(1).map(h => getCoord(h.lastMove, m, n)),
+          result: state.winner,
+          date: new Date().toISOString()
+        }));
+      } catch (e) {
+        console.warn('sessionStorage write error', e);
+      }
+
+      const analysisUrl = `board.html?mode=analysis&m=${m}&n=${n}&k=${k}&j=${j}&moves=${encodeURIComponent(moves)}#analysis`;
+      window.open(analysisUrl, '_blank');
+      showToast('Opening Analysis Board in new tab ↗');
+    }
+
     function reviewGameInAnalysis() {
-      switchMainMode('analysis');
-      showToast('Switched to Analysis Mode: explore evaluations and blunder annotations');
+      openGameInAnalysisNewTab();
     }
 
     /**
@@ -7974,7 +8071,7 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
       // Board <= 9 (e.g. 3x3): exact tablebase retrograde minimax
       // Board <= 25 (e.g. 4x4, 5x5): 6 plies
       // Board <= 64 (e.g. 6x6, 7x7, 8x8): 5 plies
-      // Large boards (> 64 cells, e.g. 10x10, 15x15 Gomoku): 4 plies (+ leaf quiescence extending beyond)
+      // Large boards (> 64 cells, e.g. 10x10, 15x15): 4 plies (+ leaf quiescence extending beyond)
       const searchDepth = (rows * cols <= 25) ? 6 : (rows * cols <= 64 ? 5 : 4);
 
       if (is2Player) {
@@ -8988,6 +9085,23 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         updatePresetButtonsUI(playMatchState.preset || 'hva');
       }
 
+      // Handle bot engine params (e.g. ?bot=fairy-stockfish or ?bot=rapfi or ?bot=threat-space)
+      const paramBot = urlParams.get('bot') || urlParams.get('engine');
+      if (paramBot) {
+        const pOpp = getPlayerConfig(state.playerPiece === 'X' ? 'O' : 'X');
+        if (pOpp) pOpp.engine = paramBot.toLowerCase();
+      }
+      const paramBot1 = urlParams.get('bot1');
+      const paramBot2 = urlParams.get('bot2');
+      const paramL1 = urlParams.get('l1');
+      const paramL2 = urlParams.get('l2');
+      if (paramBot1) { const p1 = getPlayerConfig('X'); if (p1) p1.engine = paramBot1.toLowerCase(); }
+      if (paramBot2) { const p2 = getPlayerConfig('O'); if (p2) p2.engine = paramBot2.toLowerCase(); }
+      if (paramL1) { const p1 = getPlayerConfig('X'); if (p1) p1.level = Math.max(1, Math.min(8, parseInt(paramL1, 10))); }
+      if (paramL2) { const p2 = getPlayerConfig('O'); if (p2) p2.level = Math.max(1, Math.min(8, parseInt(paramL2, 10))); }
+      renderPlayRoster();
+      updatePlayerBoxes();
+
       // Check mode parameter explicitly
       const modeParam = (urlParams.get('mode') || '').toLowerCase();
       const wantsAnalysis = window.location.hash === '#analysis' || modeParam === 'analysis';
@@ -9004,6 +9118,32 @@ ${moveHistoryString}${pgnResult !== '*' ? ' ' + pgnResult : ''}`;
         }
       } else {
         switchMainMode('analysis');
+      }
+
+      // Check for incoming game moves in Analysis Mode (from completed match new tab)
+      if (wantsAnalysis) {
+        const movesParam = urlParams.get('moves');
+        if (movesParam) {
+          setTimeout(() => {
+            loadGameMoves(movesParam, config.rows, config.cols, config.k, config.j || 2, false, 'quick');
+            showToast('Game loaded into Analysis Board!');
+          }, 80);
+        } else {
+          try {
+            const savedGame = sessionStorage.getItem('mnk_analysis_game');
+            if (savedGame) {
+              const data = JSON.parse(savedGame);
+              if (data && data.moves && data.moves.length > 0 && Date.now() - new Date(data.date).getTime() < 30000) {
+                const moveCoords = data.moveStrings || data.moves.map(m => getCoord(m, data.m, data.n));
+                const movesStr = moveCoords.join(' ');
+                setTimeout(() => {
+                  loadGameMoves(movesStr, data.m, data.n, data.k, data.j || 2, false, 'quick');
+                  showToast('Game loaded into Analysis Board!');
+                }, 80);
+              }
+            }
+          } catch (e) {}
+        }
       }
     };
 

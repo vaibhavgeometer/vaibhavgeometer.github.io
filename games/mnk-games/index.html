@@ -48,12 +48,12 @@
               <span style="font-size: 9px; opacity: 0.7;">▼</span>
             </a>
             <div class="nav-dropdown">
-              <a href="board.html?m=3&n=3&k=3&level=8#play">⭕ Tic-Tac-Toe (3,3,3)</a>
-              <a href="board.html?m=5&n=5&k=4&level=8#play">⚡ Mini-Gomoku (5,5,4)</a>
-              <a href="board.html?m=7&n=6&k=4&level=8#play">🔴 Connect Four (7,6,4)</a>
-              <a href="board.html?m=10&n=10&k=5&level=8#play">📐 Freestyle Gomoku (10,10,5)</a>
-              <a href="board.html?m=15&n=15&k=5&level=8#play">⚫ Standard Gomoku (15,15,5)</a>
-              <a href="board.html?m=19&n=19&k=5&level=8#play">⚪ 19×19 Renju (19,19,5)</a>
+              <a href="board.html?m=3&n=3&k=3&level=8#play">⭕ (3,3,3)</a>
+              <a href="board.html?m=5&n=5&k=4&level=8#play">⚡ (5,5,4)</a>
+              <a href="board.html?m=7&n=6&k=4&level=8#play">🔴 (7,6,4)</a>
+              <a href="board.html?m=10&n=10&k=5&level=8#play">📐 (10,10,5)</a>
+              <a href="board.html?m=15&n=15&k=5&level=8#play">⚫ (15,15,5)</a>
+              <a href="board.html?m=19&n=19&k=5&level=8#play">⚪ (19,19,5)</a>
               <div style="height: 1px; background: var(--border); margin: 0.35rem 0;"></div>
               <a href="board.html?m=6&n=6&k=4&j=3&preset=hvh#play">🎲 3-Player Rotation (6,6,4)</a>
               <a href="board.html?m=8&n=8&k=5&j=4&preset=hvh#play">💠 4-Player Rotation (8,8,5)</a>
@@ -231,22 +231,22 @@
             </div>
 
             <div class="lobby-box" onclick="location.href='board.html?mode=play&m=15&n=15&k=5&tc=3%2B2'">
-              <div class="lobby-box-time">15×15</div>
-              <div class="lobby-box-label">Gomoku &bull; Blitz</div>
-              <div class="lobby-box-engine" style="color: var(--accent-orange);">Rapfi SOTA</div>
+              <div class="lobby-box-time">(15,15,5)</div>
+              <div class="lobby-box-label">3+2 &bull; Blitz</div>
+              <div class="lobby-box-engine" style="color: var(--accent-orange);">Rapfi Mixnet</div>
             </div>
 
             <!-- Row 4 -->
-            <div class="lobby-box" onclick="location.href='board.html?m=7&n=6&k=4&tc=3%2B0'">
-              <div class="lobby-box-time">7×6</div>
-              <div class="lobby-box-label">Connect Four &bull; Blitz</div>
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&m=7&n=6&k=4&tc=3%2B0'">
+              <div class="lobby-box-time">(7,6,4)</div>
+              <div class="lobby-box-label">3+0 &bull; Blitz</div>
               <div class="lobby-box-engine" style="color: var(--accent-blue);">Fairy-Stockfish 14</div>
             </div>
 
-            <div class="lobby-box" onclick="location.href='board.html?m=5&n=5&k=4&tc=3%2B2'">
-              <div class="lobby-box-time">5×5</div>
-              <div class="lobby-box-label">Mini-Gomoku &bull; Blitz</div>
-              <div class="lobby-box-engine" style="color: #7ec62f;">Threat-Space AI</div>
+            <div class="lobby-box" onclick="location.href='board.html?mode=play&m=5&n=5&k=4&tc=3%2B2'">
+              <div class="lobby-box-time">(5,5,4)</div>
+              <div class="lobby-box-label">3+2 &bull; Blitz</div>
+              <div class="lobby-box-engine" style="color: #7ec62f;">Threat-Space Bot</div>
             </div>
 
             <div class="lobby-box" onclick="openModal('modal-custom')">
@@ -273,7 +273,7 @@
             <tbody>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
                 <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">🤖 Fairy-Stockfish (3000)</td>
-                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Tic-Tac-Toe (3,3,3)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main); font-weight: 600;">(3,3,3)</td>
                 <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">1 + 0</td>
                 <td style="padding: 0.75rem 1rem; color: var(--accent-green); font-weight: 600;">Rated</td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
@@ -282,7 +282,7 @@
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
                 <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">🤖 Rapfi Mixnet (3200)</td>
-                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Standard Gomoku (15,15,5)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main); font-weight: 600;">(15,15,5)</td>
                 <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">3 + 2</td>
                 <td style="padding: 0.75rem 1rem; color: var(--accent-orange); font-weight: 600;">SOTA Match</td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
@@ -291,7 +291,7 @@
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
                 <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">🤖 Fairy-Stockfish (2500)</td>
-                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Connect Four (7,6,4)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main); font-weight: 600;">(7,6,4)</td>
                 <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">3 + 0</td>
                 <td style="padding: 0.75rem 1rem; color: var(--accent-blue); font-weight: 600;">Casual</td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
@@ -300,7 +300,7 @@
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
                 <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">👥 Pass &amp; Play (Local)</td>
-                <td style="padding: 0.75rem 1rem; color: var(--text-main);">Mini-Gomoku (5,5,4)</td>
+                <td style="padding: 0.75rem 1rem; color: var(--text-main); font-weight: 600;">(5,5,4)</td>
                 <td style="padding: 0.75rem 1rem; font-family: var(--font-mono);">5 + 3</td>
                 <td style="padding: 0.75rem 1rem; color: #bababa; font-weight: 600;">2 Players</td>
                 <td style="padding: 0.75rem 1rem; text-align: right;">
@@ -325,7 +325,7 @@
             </thead>
             <tbody>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Tic-Tac-Toe</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">(3,3,3)</td>
                 <td style="padding: 0.75rem 1rem;">3 × 3</td>
                 <td style="padding: 0.75rem 1rem;">k = 3</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
@@ -337,7 +337,7 @@
                 </td>
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Mini-Gomoku</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">(5,5,4)</td>
                 <td style="padding: 0.75rem 1rem;">5 × 5</td>
                 <td style="padding: 0.75rem 1rem;">k = 4</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
@@ -349,7 +349,7 @@
                 </td>
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Connect Four</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">(7,6,4)</td>
                 <td style="padding: 0.75rem 1rem;">7 × 6</td>
                 <td style="padding: 0.75rem 1rem;">k = 4</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
@@ -361,7 +361,7 @@
                 </td>
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Standard Gomoku</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">(15,15,5)</td>
                 <td style="padding: 0.75rem 1rem;">15 × 15</td>
                 <td style="padding: 0.75rem 1rem;">k = 5</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
@@ -373,7 +373,7 @@
                 </td>
               </tr>
               <tr style="border-bottom: 1px solid var(--border-subtle);" onmouseover="this.style.background='var(--bg-card-hover)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">Renju / Freerule</td>
+                <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-bright);">(19,19,5)</td>
                 <td style="padding: 0.75rem 1rem;">19 × 19</td>
                 <td style="padding: 0.75rem 1rem;">k = 5</td>
                 <td style="padding: 0.75rem 1rem;">2</td>
@@ -435,8 +435,17 @@
         <button class="btn-action" onclick="openModal('modal-computer')" style="height: 52px; background: var(--bg-button); border: 1px solid var(--border); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.85rem; padding: 0 1.15rem; font-size: 0.95rem; font-weight: 700; color: var(--text-bright); cursor: pointer; transition: all 0.15s ease;">
           <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #7ec62f; fill: none; stroke-width: 2;"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
           <div style="text-align: left;">
-            <div>Play with the machine</div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Levels 1 to 8 (600–3000 Elo)</div>
+            <div>Play vs Bots</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Fairy-SF, Rapfi, Threat-Space (L1-8)</div>
+          </div>
+        </button>
+
+        <!-- 3b. Bot vs Bot Arena -->
+        <button class="btn-action" onclick="openModal('modal-bot-vs-bot')" style="height: 52px; background: var(--bg-button); border: 1px solid var(--border); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.85rem; padding: 0 1.15rem; font-size: 0.95rem; font-weight: 700; color: var(--text-bright); cursor: pointer; transition: all 0.15s ease;">
+          <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: var(--accent-orange); fill: none; stroke-width: 2;"><rect x="2" y="6" width="9" height="12" rx="2"></rect><rect x="13" y="6" width="9" height="12" rx="2"></rect><line x1="6.5" y1="2" x2="6.5" y2="6"></line><line x1="17.5" y1="2" x2="17.5" y2="6"></line><circle cx="6.5" cy="11" r="1"></circle><circle cx="17.5" cy="11" r="1"></circle></svg>
+          <div style="text-align: left;">
+            <div>Bot vs Bot Arena</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Spectate AI vs AI matches</div>
           </div>
         </button>
 
@@ -477,10 +486,12 @@
       <div>
         <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">Variants</h4>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
-          <li><a href="board.html?m=3&n=3&k=3" style="color: var(--text-main);">Tic-Tac-Toe (3,3,3)</a></li>
-          <li><a href="board.html?m=5&n=5&k=4" style="color: var(--text-main);">Mini-Gomoku (5,5,4)</a></li>
-          <li><a href="board.html?m=7&n=6&k=4" style="color: var(--text-main);">Connect Four (7,6,4)</a></li>
-          <li><a href="board.html?m=15&n=15&k=5" style="color: var(--text-main);">Standard Gomoku (15,15,5)</a></li>
+          <li><a href="board.html?m=3&n=3&k=3" style="color: var(--text-main);">(3,3,3)</a></li>
+          <li><a href="board.html?m=5&n=5&k=4" style="color: var(--text-main);">(5,5,4)</a></li>
+          <li><a href="board.html?m=7&n=6&k=4" style="color: var(--text-main);">(7,6,4)</a></li>
+          <li><a href="board.html?m=10&n=10&k=5" style="color: var(--text-main);">(10,10,5)</a></li>
+          <li><a href="board.html?m=15&n=15&k=5" style="color: var(--text-main);">(15,15,5)</a></li>
+          <li><a href="board.html?m=19&n=19&k=5" style="color: var(--text-main);">(19,19,5)</a></li>
         </ul>
       </div>
 
@@ -506,13 +517,23 @@
   <div id="modal-computer" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-computer')">
     <div class="modal-box">
       <div class="modal-header">
-        <h3>⚔️ Play against the computer</h3>
+        <h3>⚔️ Play against Bot</h3>
         <button class="modal-close" onclick="closeModal('modal-computer')">&times;</button>
       </div>
       <div class="modal-body">
         <div class="form-group">
+          <label class="form-label">Opponent Bot Engine</label>
+          <select id="select-ai-engine" class="form-select">
+            <option value="auto" selected>⚡ Auto Bot (Recommended)</option>
+            <option value="fairy-stockfish">🤖 Fairy-Stockfish 14 (NNUE Variant Engine)</option>
+            <option value="rapfi">🧠 Rapfi Mixnet (Mixnet SOTA Engine)</option>
+            <option value="threat-space">🎯 Threat-Space Bot (Pattern Search)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label class="form-label">
-            <span>Engine Strength</span>
+            <span>Bot Strength (Level 1 to 8)</span>
             <span id="label-ai-level" style="color: var(--accent-orange); font-weight: 700;">Level 8 (Elo 3000)</span>
           </label>
           <input type="range" min="1" max="8" value="8" class="form-slider" id="slider-ai-level" oninput="updateAiLevelLabel(this.value)">
@@ -521,12 +542,12 @@
         <div class="form-group">
           <label class="form-label">Game Variant</label>
           <select id="select-ai-variant" class="form-select">
-            <option value="m=3&n=3&k=3">(3,3,3) Tic-Tac-Toe &bull; Fairy-Stockfish 14</option>
-            <option value="m=5&n=5&k=4">(5,5,4) Mini-Gomoku &bull; Threat-Space AI</option>
-            <option value="m=7&n=6&k=4">(7,6,4) Connect Four &bull; Fairy-Stockfish 14</option>
-            <option value="m=10&n=10&k=5">(10,10,5) Freestyle 10×10 &bull; Rapfi SOTA</option>
-            <option value="m=15&n=15&k=5" selected>(15,15,5) Standard Gomoku &bull; Rapfi SOTA</option>
-            <option value="m=19&n=19&k=5">(19,19,5) Renju &bull; Rapfi SOTA</option>
+            <option value="m=3&n=3&k=3">(3,3,3)</option>
+            <option value="m=5&n=5&k=4">(5,5,4)</option>
+            <option value="m=7&n=6&k=4">(7,6,4)</option>
+            <option value="m=10&n=10&k=5">(10,10,5)</option>
+            <option value="m=15&n=15&k=5" selected>(15,15,5)</option>
+            <option value="m=19&n=19&k=5">(19,19,5)</option>
           </select>
         </div>
 
@@ -552,6 +573,67 @@
         </div>
 
         <button type="button" class="btn-modal-submit" onclick="launchComputerGame()">Start Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 1b: Bot vs Bot Match Arena
+       ========================================================================= -->
+  <div id="modal-bot-vs-bot" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'modal-bot-vs-bot')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>🤖 Bot vs Bot Match</h3>
+        <button class="modal-close" onclick="closeModal('modal-bot-vs-bot')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="form-group">
+            <label class="form-label">Bot 1 (First · X)</label>
+            <select id="select-bot1-engine" class="form-select">
+              <option value="fairy-stockfish" selected>🤖 Fairy-Stockfish 14</option>
+              <option value="rapfi">🧠 Rapfi Mixnet</option>
+              <option value="threat-space">🎯 Threat-Space Bot</option>
+            </select>
+            <label class="form-label" style="margin-top: 0.4rem; font-size: 0.75rem;">Strength: <span id="label-bot1-level" style="color: var(--accent-orange); font-weight: 700;">L8 (Elo 3000)</span></label>
+            <input type="range" min="1" max="8" value="8" class="form-slider" id="slider-bot1-level" oninput="document.getElementById('label-bot1-level').textContent = 'L' + this.value;">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bot 2 (Second · O)</label>
+            <select id="select-bot2-engine" class="form-select">
+              <option value="rapfi" selected>🧠 Rapfi Mixnet</option>
+              <option value="fairy-stockfish">🤖 Fairy-Stockfish 14</option>
+              <option value="threat-space">🎯 Threat-Space Bot</option>
+            </select>
+            <label class="form-label" style="margin-top: 0.4rem; font-size: 0.75rem;">Strength: <span id="label-bot2-level" style="color: var(--accent-orange); font-weight: 700;">L8 (Elo 3000)</span></label>
+            <input type="range" min="1" max="8" value="8" class="form-slider" id="slider-bot2-level" oninput="document.getElementById('label-bot2-level').textContent = 'L' + this.value;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Game Variant</label>
+          <select id="select-bot-variant" class="form-select">
+            <option value="m=3&n=3&k=3">(3,3,3)</option>
+            <option value="m=5&n=5&k=4">(5,5,4)</option>
+            <option value="m=7&n=6&k=4">(7,6,4)</option>
+            <option value="m=10&n=10&k=5">(10,10,5)</option>
+            <option value="m=15&n=15&k=5" selected>(15,15,5)</option>
+            <option value="m=19&n=19&k=5">(19,19,5)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Time Control</label>
+          <select id="select-bot-clock" class="form-select">
+            <option value="unlimited" selected>Unlimited (Casual)</option>
+            <option value="1+0">1 + 0 (Bullet)</option>
+            <option value="3+0">3 + 0 (Blitz)</option>
+            <option value="3+2">3 + 2 (Blitz)</option>
+            <option value="5+3">5 + 3 (Rapid)</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn-modal-submit" onclick="launchBotVsBotGame()">Start Bot Match</button>
       </div>
     </div>
   </div>
@@ -641,11 +723,12 @@
         <div class="form-group">
           <label class="form-label">Preset Configuration</label>
           <select id="select-friend-variant" class="form-select">
-            <option value="m=3&n=3&k=3">3×3 (k=3) Classic Tic-Tac-Toe</option>
-            <option value="m=5&n=5&k=4" selected>5×5 (k=4) Mini-Gomoku</option>
-            <option value="m=7&n=6&k=4">7×6 (k=4) Connect Four Grid</option>
-            <option value="m=10&n=10&k=5">10×10 (k=5) Freestyle Gomoku</option>
-            <option value="m=15&n=15&k=5">15×15 (k=5) Standard Gomoku</option>
+            <option value="m=3&n=3&k=3">(3,3,3)</option>
+            <option value="m=5&n=5&k=4" selected>(5,5,4)</option>
+            <option value="m=7&n=6&k=4">(7,6,4)</option>
+            <option value="m=10&n=10&k=5">(10,10,5)</option>
+            <option value="m=15&n=15&k=5">(15,15,5)</option>
+            <option value="m=19&n=19&k=5">(19,19,5)</option>
           </select>
         </div>
 
@@ -655,7 +738,8 @@
             <select id="select-friend-players" class="form-select">
               <option value="2" selected>2 Players (X vs O)</option>
               <option value="3">3 Players (X vs O vs ▲)</option>
-              <option value="4">4 Players (X vs O vs ▲ vs ◆)</option>
+              <option value="4">4 Players (X vs O vs ▲ vs ■)</option>
+              <option value="5">5 Players (X vs O vs ▲ vs ■ vs ◆)</option>
             </select>
           </div>
           <div class="form-group">
@@ -688,11 +772,14 @@
         <input type="text" id="search-input" placeholder="Search variants, board sizes..." oninput="filterSearchResults(this.value)" class="form-input" style="font-size: 0.95rem;">
         
         <div id="search-results-list" style="display: flex; flex-direction: column; gap: 0.35rem; max-height: 240px; overflow-y: auto;">
-          <a href="board.html#analysis" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">♟️ Threat-Space Analysis Board</a>
+          <a href="board.html#analysis" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🔍 Analysis Board</a>
           <a href="board.html#editor" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🎨 Board Editor &amp; Barriers (#)</a>
-          <a href="board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚡ (5,5,4) Mini-Gomoku Board</a>
-          <a href="board.html?m=15&n=15&k=5#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚫ (15,15,5) Standard Gomoku Board</a>
-          <a href="board.html?m=7&n=6&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🔴 (7,6,4) Connect Four Grid</a>
+          <a href="board.html?m=3&n=3&k=3#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⭕ (3,3,3) Board</a>
+          <a href="board.html?m=5&n=5&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚡ (5,5,4) Board</a>
+          <a href="board.html?m=7&n=6&k=4#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🔴 (7,6,4) Board</a>
+          <a href="board.html?m=10&n=10&k=5#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">📐 (10,10,5) Board</a>
+          <a href="board.html?m=15&n=15&k=5#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚫ (15,15,5) Board</a>
+          <a href="board.html?m=19&n=19&k=5#play" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">⚪ (19,19,5) Board</a>
           <a href="../" class="dropdown-link" style="border-radius: 4px; padding: 0.5rem 0.75rem;">🎮 Games Hub</a>
         </div>
       </div>
@@ -765,11 +852,24 @@
 
     function launchComputerGame() {
       const level = document.getElementById('slider-ai-level').value;
+      const engine = document.getElementById('select-ai-engine')?.value || 'auto';
       const variantParams = document.getElementById('select-ai-variant').value;
       const clock = document.getElementById('select-ai-clock').value;
       const side = selectedSide === 'random' ? (Math.random() < 0.5 ? 'first' : 'second') : selectedSide;
       const clockParam = clock !== 'unlimited' ? `&tc=${encodeURIComponent(clock)}` : '';
-      window.location.href = `board.html?mode=play&${variantParams}&preset=hva&level=${level}&side=${side}${clockParam}#play`;
+      const botParam = engine !== 'auto' ? `&bot=${engine}` : '';
+      window.location.href = `board.html?mode=play&${variantParams}&preset=hva&level=${level}&side=${side}${botParam}${clockParam}#play`;
+    }
+
+    function launchBotVsBotGame() {
+      const b1 = document.getElementById('select-bot1-engine')?.value || 'fairy-stockfish';
+      const l1 = document.getElementById('slider-bot1-level')?.value || '8';
+      const b2 = document.getElementById('select-bot2-engine')?.value || 'rapfi';
+      const l2 = document.getElementById('slider-bot2-level')?.value || '8';
+      const variantParams = document.getElementById('select-bot-variant')?.value || 'm=15&n=15&k=5';
+      const clock = document.getElementById('select-bot-clock')?.value || 'unlimited';
+      const clockParam = (clock && clock !== 'unlimited') ? `&tc=${encodeURIComponent(clock)}` : '';
+      window.location.href = `board.html?mode=play&${variantParams}&preset=ava&bot1=${b1}&l1=${l1}&bot2=${b2}&l2=${l2}${clockParam}#play`;
     }
 
     function updateCustomMaxK() {

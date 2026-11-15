@@ -483,33 +483,33 @@
             </div>
 
             <div class="lobby-grid">
-              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=15&n=15&k=5&time=180&inc=2'" title="15x15 Gomoku: 3m+2s vs Rapfi Mixnet">
+              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=15&n=15&k=5&time=180&inc=2'" title="(15,15,5): 3m+2s vs Rapfi Mixnet">
                 <div class="lobby-box-time">3 + 2</div>
-                <div class="lobby-box-label">Blitz &bull; Gomoku</div>
+                <div class="lobby-box-label">Blitz &bull; (15,15,5)</div>
                 <div class="lobby-box-engine">Rapfi Engine (k=5)</div>
               </div>
 
-              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=7&n=6&k=4&time=180&inc=0'" title="Connect Four: 3m vs Fairy-Stockfish 14">
+              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=7&n=6&k=4&time=180&inc=0'" title="(7,6,4): 3m vs Fairy-Stockfish 14">
                 <div class="lobby-box-time">3 + 0</div>
-                <div class="lobby-box-label">Blitz &bull; Connect 4</div>
+                <div class="lobby-box-label">Blitz &bull; (7,6,4)</div>
                 <div class="lobby-box-engine">Fairy-Stockfish 14 (k=4)</div>
               </div>
 
-              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=3&n=3&k=3&time=60&inc=0'" title="Tic-Tac-Toe: 1m Bullet">
+              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=3&n=3&k=3&time=60&inc=0'" title="(3,3,3): 1m Bullet">
                 <div class="lobby-box-time">1 + 0</div>
-                <div class="lobby-box-label">Bullet &bull; Tic-Tac-Toe</div>
+                <div class="lobby-box-label">Bullet &bull; (3,3,3)</div>
                 <div class="lobby-box-engine">Fairy-Stockfish 14 (k=3)</div>
               </div>
 
-              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=15&n=15&k=5&time=300&inc=3'" title="15x15 Gomoku: 5m+3s Rapid">
+              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=5&n=5&k=4&time=300&inc=3'" title="(5,5,4): 5m+3s Rapid">
                 <div class="lobby-box-time">5 + 3</div>
-                <div class="lobby-box-label">Rapid &bull; Gomoku</div>
-                <div class="lobby-box-engine">Rapfi Engine (k=5)</div>
+                <div class="lobby-box-label">Rapid &bull; (5,5,4)</div>
+                <div class="lobby-box-engine">Threat-Space (k=4)</div>
               </div>
 
-              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=19&n=19&k=5&time=600&inc=0'" title="19x19 Freerule Renju: 10m Classical">
+              <div class="lobby-box" onclick="location.href='mnk-games/board.html?mode=play&m=19&n=19&k=5&time=600&inc=0'" title="(19,19,5): 10m Classical">
                 <div class="lobby-box-time">10 + 0</div>
-                <div class="lobby-box-label">Classical &bull; 19x19</div>
+                <div class="lobby-box-label">Classical &bull; (19,19,5)</div>
                 <div class="lobby-box-engine">Rapfi Engine (k=5)</div>
               </div>
 
@@ -529,11 +529,11 @@
             </div>
 
             <div class="variant-card-grid">
-              <!-- Tic-Tac-Toe -->
+              <!-- (3,3,3) -->
               <div class="variant-box" onclick="location.href='mnk-games/board.html?m=3&n=3&k=3'">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                    <span style="font-weight: 800; color: var(--text-bright);">Tic-Tac-Toe</span>
+                    <span style="font-weight: 800; color: var(--text-bright);">(3,3,3)</span>
                     <span class="pill-fairysf engine-pill">Fairy-SF (k=3)</span>
                   </div>
                   <div style="font-size: 0.78rem; color: var(--text-muted);">Grid: 3&times;3 &bull; Streak: 3</div>
@@ -544,11 +544,11 @@
                 </div>
               </div>
 
-              <!-- Connect Four -->
+              <!-- (7,6,4) -->
               <div class="variant-box" onclick="location.href='mnk-games/board.html?m=7&n=6&k=4'">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                    <span style="font-weight: 800; color: var(--text-bright);">Connect Four</span>
+                    <span style="font-weight: 800; color: var(--text-bright);">(7,6,4)</span>
                     <span class="pill-fairysf engine-pill">Fairy-SF (k=4)</span>
                   </div>
                   <div style="font-size: 0.78rem; color: var(--text-muted);">Grid: 7&times;6 &bull; Streak: 4</div>
@@ -559,11 +559,11 @@
                 </div>
               </div>
 
-              <!-- Gomoku 15x15 -->
+              <!-- (15,15,5) -->
               <div class="variant-box" onclick="location.href='mnk-games/board.html?m=15&n=15&k=5'">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                    <span style="font-weight: 800; color: var(--text-bright);">15&times;15 Gomoku</span>
+                    <span style="font-weight: 800; color: var(--text-bright);">(15,15,5)</span>
                     <span class="pill-rapfi engine-pill">Rapfi Mixnet (k=5)</span>
                   </div>
                   <div style="font-size: 0.78rem; color: var(--text-muted);">Grid: 15&times;15 &bull; Streak: 5</div>
@@ -574,11 +574,11 @@
                 </div>
               </div>
 
-              <!-- Renju 19x19 -->
+              <!-- (19,19,5) -->
               <div class="variant-box" onclick="location.href='mnk-games/board.html?m=19&n=19&k=5'">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                    <span style="font-weight: 800; color: var(--text-bright);">19&times;19 Renju</span>
+                    <span style="font-weight: 800; color: var(--text-bright);">(19,19,5)</span>
                     <span class="pill-rapfi engine-pill">Rapfi Mixnet (k=5)</span>
                   </div>
                   <div style="font-size: 0.78rem; color: var(--text-muted);">Grid: 19&times;19 &bull; Streak: 5</div>
@@ -589,11 +589,11 @@
                 </div>
               </div>
 
-              <!-- Qubic 3D -->
+              <!-- (4,4,4) -->
               <div class="variant-box" onclick="location.href='mnk-games/board.html?m=4&n=4&k=4'">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-                    <span style="font-weight: 800; color: var(--text-bright);">Qubic 3D</span>
+                    <span style="font-weight: 800; color: var(--text-bright);">(4,4,4)</span>
                     <span class="pill-fairysf engine-pill">Fairy-SF (k=4)</span>
                   </div>
                   <div style="font-size: 0.78rem; color: var(--text-muted);">Grid: 4&times;4&times;4 &bull; Streak: 4</div>
@@ -946,7 +946,7 @@
                   Rapfi Engine (k=5)
                 </h3>
                 <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
-                  Superhuman Gomoku &amp; Renju engine using compressed pattern codebooks distilled from neural networks, paired with incremental $\alpha$-$\beta$ search. Powers $15\times 15$ Gomoku and $19\times 19$ Freerule Renju.
+                  Superhuman 5-in-a-row engine using compressed pattern codebooks distilled from neural networks, paired with incremental $\alpha$-$\beta$ search. Powers $(15,15,5)$ and $(19,19,5)$.
                 </p>
                 <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--bg-surface); padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--border); color: var(--text-muted);">
                   Protocol: Piskvork/Yixin &bull; Active for $k=5$
@@ -970,7 +970,7 @@
                   Fairy-Stockfish 14 (k=1..4)
                 </h3>
                 <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5; margin-bottom: 1rem;">
-                  Leading chess variant and combinatorial board game engine derived from Stockfish. Built with LargeBoard support, user-defined rules, and NNUE evaluation. Powers Tic-Tac-Toe, Connect Four, and upcoming chess variants.
+                  Leading combinatorial board game engine derived from Stockfish. Built with LargeBoard support, user-defined rules, and NNUE evaluation. Powers $(3,3,3)$, $(7,6,4)$, and upcoming combinatorial variants.
                 </p>
                 <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--bg-surface); padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--border); color: var(--text-muted);">
                   Protocol: UCI / UCI_Variant &bull; Active for $k=1..4$
@@ -1040,19 +1040,19 @@
 
           <ul style="list-style: none; font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.45rem;">
             <li style="display: flex; justify-content: space-between;">
-              <span style="color: var(--text-main);">Tic-Tac-Toe (3,3,3)</span>
+              <span style="color: var(--text-main);">(3,3,3)</span>
               <span class="status-solved-draw">Draw (=)</span>
             </li>
             <li style="display: flex; justify-content: space-between;">
-              <span style="color: var(--text-main);">Connect Four (7,6,4)</span>
+              <span style="color: var(--text-main);">(7,6,4)</span>
               <span class="status-solved-win">First Player Win (X)</span>
             </li>
             <li style="display: flex; justify-content: space-between;">
-              <span style="color: var(--text-main);">Qubic 3D (4,4,4)</span>
+              <span style="color: var(--text-main);">(4,4,4)</span>
               <span class="status-solved-win">First Player Win (X)</span>
             </li>
             <li style="display: flex; justify-content: space-between;">
-              <span style="color: var(--text-main);">Gomoku (15,15,5)</span>
+              <span style="color: var(--text-main);">(15,15,5)</span>
               <span class="status-solved-win">First Player Win (X)</span>
             </li>
             <li style="display: flex; justify-content: space-between;">
