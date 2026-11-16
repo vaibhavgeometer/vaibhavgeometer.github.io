@@ -1,15 +1,11 @@
-# Vaibhav Geometer — Academic & Research Portals, Game Theory & SOTA AI 📐♟️
+# Vaibhav Geometer — Academic & Research Portals (IIT JAM & CUET-PG) 📐🎓
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Main Portfolio](https://img.shields.io/badge/Portfolio-vaibhavgeometer.github.io-blue?logo=github)](https://vaibhavgeometer.github.io/)
+[![Academic Hub](https://img.shields.io/badge/Academic%20Hub-vaibhavgeometer.github.io%2Facademic-indigo?logo=github)](https://vaibhavgeometer.github.io/academic/)
 [![JAM Live Portal](https://img.shields.io/badge/JAM%20Portal-vaibhavgeometer.github.io%2FJAM-success?logo=github)](https://vaibhavgeometer.github.io/JAM/)
 [![PYQ Tracker](https://img.shields.io/badge/PYQ%20Tracker-885%20PYQs%20%26%205--Tier%20Difficulty-brightgreen.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![Study Analytics](https://img.shields.io/badge/Study%20Analytics-Streaks%20%26%20Topic%20Mastery-blueviolet.svg)](https://vaibhavgeometer.github.io/JAM/)
-[![mnk games Platform](https://img.shields.io/badge/mnk%20games-Free%20Online%20Platform-d97724?logo=lichess)](https://vaibhavgeometer.github.io/games/mnk-games/)
-[![mnk games Engine](https://img.shields.io/badge/mnk%20games-SOTA%20(m%2Cn%2Ck)%20Analysis%20Board-629924)](https://vaibhavgeometer.github.io/games/mnk-games/board.html)
-[![Tournament Arena](https://img.shields.io/badge/Tournaments-Round%20Robin%20%26%20Knockouts-e69f00.svg)](https://vaibhavgeometer.github.io/games/mnk-games/board.html#tournament)
-[![Endgame Tablebase](https://img.shields.io/badge/Tablebase-(m%2Cn%2Ck)%20Solved%20Atlas-0284c7)](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html)
-[![Solved Status Atlas](https://img.shields.io/badge/Solved%20Atlas-(m%2Cn%2Ck)%20Matrix%20k=1..8+-emerald)](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
@@ -17,9 +13,8 @@
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](academic/JAM/assets/iit_jam_pyqs_categorized.json)
 [![CUET-PG Archive](https://img.shields.io/badge/CUET--PG-2024--2026%20Papers-teal.svg)](academic/CUET-PG/)
 
-> **Official academic and interactive research portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring two flagship domains:
-> 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator, alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
-> 2. **[Games Platform & SOTA AI Engines](https://vaibhavgeometer.github.io/games/)**: Dedicated gaming ecosystem focused on abstract strategy board games (mainly board games) featuring the flagship **[mnk games Platform & SOTA AI Engine](https://vaibhavgeometer.github.io/games/mnk-games/)** (Lichess-inspired dark-mode platform, advanced analysis board, calibrated $[-100, +100]$ win probability eval bar, Threat-Space Search AI, 8 difficulty tiers 600–3000 Elo, tournament arena, barrier blocks, and verified Solved Atlas), alongside development roadmap placeholders for Chess, Shogi, and interactive Video Games.
+> **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics:
+> - **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator, alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
 
 ---
 
@@ -38,20 +33,13 @@
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Cheat Sheets](#-14-high-yield-formula-cheat-sheets) |
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
-| 🎮 **Games Hub** | Central portal for strategy board games ((m,n,k), Chess, Shogi) & video games | [vaibhavgeometer.github.io/games](https://vaibhavgeometer.github.io/games/) |
-| ♟️ **mnk games Platform Hub** | Lichess-style dark web platform with quick pairings, open lobby, and game creation | [vaibhavgeometer.github.io/games/mnk-games](https://vaibhavgeometer.github.io/games/mnk-games/) |
-| 🔍 **mnk SOTA Analysis Board** | Advanced $(m,n,k,j)$ board ($1\times 1$ to $32\times 32$), eval bar, MultiPV & full game reports | [Launch Analysis Board](https://vaibhavgeometer.github.io/games/mnk-games/board.html) |
-| ⚔️ **Offline Match Play & Clocks** | Competitive play vs AI (Levels 1–8) or human with precision clocks ($1+0$, $3+2$, $5+3$, $10+5$) | [Launch Play Mode](https://vaibhavgeometer.github.io/games/mnk-games/board.html#play) |
-| 🏆 **Tournament Arena** | Round Robin (Berger pairings) & Knockout brackets with mixed human/AI rosters | [Launch Tournament Arena](https://vaibhavgeometer.github.io/games/mnk-games/board.html#tournament) |
-| 🎨 **Board Editor & Barriers (`#`)** | Setup custom positions and place frozen obstacle squares blocking streaks | [Open Board Editor](https://vaibhavgeometer.github.io/games/mnk-games/board.html#editor) |
-| 📊 **Endgame Tablebase** | Verified matrix atlas of $(m,n,k)$ game solutions ($k=1$ to $k \ge 8$) with proofs & dataset | [Explore Tablebase](https://vaibhavgeometer.github.io/games/mnk-games/solved_status_of_mnk_games.html) |
-| 🏆 **Tournament Arena** | Round Robin (Berger pairings) & Knockout brackets with mixed human/AI rosters | [Launch Tournament Arena](https://vaibhavgeometer.github.io/games/mnk-games/board.html#tournament) |
+| 🏛️ **UNPG Results Portal** | Semester marks & results lookup for UNPG BSc Mathematics | [Explore Results](academic/unpg-results/) |
 
 ---
 
 ## 🌟 Key Features
 
-### 🏛 Domain 1: IIT JAM Mathematics Ecosystem
+### 🏛 IIT JAM Mathematics Ecosystem
 
 #### 1. 22-Year Official Mock Test Series (2005–2026 • 885 Official PYQs)
 - **Complete Historical Coverage**: Full archive of official IIT JAM Mathematics examination papers from 2005 through 2026.
@@ -142,99 +130,6 @@
 
 #### 12. CUET-PG Mathematics Examination Archive (2024–2026)
 - **Central Universities Entrance Test (CUET-PG)**: Full official master question papers for 2024, 2025, and 2026 available directly for download and reference in `academic/CUET-PG/`.
-
----
-
-### 🎮 Domain 2: Games Ecosystem & SOTA Game Theory
-
-The Games domain is dedicated primarily to **abstract strategy board games** alongside upcoming **interactive video games**:
-- **Board Games (Main Focus)**:
-  - **(m,n,k)-Games Ecosystem** (Active Platform): Full platform hub, analysis board, AI engine, and solved atlas.
-  - **Chess** (In Development): 8×8 classical chess engine and analysis board placeholder.
-  - **Shogi** (In Development): 9×9 Japanese chess with piece drop rules placeholder.
-  - **Xiangqi & Classic Strategy** (Planned Roadmap): Chinese chess and Go/Baduk territory analysis.
-- **Video Games & Interactive Simulations**:
-  - **Algorithmic Video Games** (In Development): Browser-native cellular automata, procedural maze puzzles, and arcade games.
-
-#### 1. Games Hub (`games/index.html`) & Platform Overview
-The central Games Hub coordinates all game projects, presenting structured subsections for board games and video games with real-time status badges and links to playable engines.
-
-#### 2. Lichess-Inspired mnk games Web Platform Hub (`games/mnk-games/index.html`)
-- **Modern Minimalist Dark Design System**: High-contrast, sleek interface styled after modern competitive platforms like Lichess, utilizing pure CSS variables, custom scrollbars, and responsive CSS grids.
-- **Quick Pairing Cards**: Instant 1-click presets for classic and modern variants:
-  - **3×3 Tic-Tac-Toe**: Bullet ($1+0$), Blitz ($3+2$), Classical ($10+5$)
-  - **4×4 (k=4) Qubic**: 3D cubic slice game
-  - **7×6 (k=4) Connect Four**: Classical gravity-less vertical line grid
-  - **8×8 (k=5) Gomoku**: Fast tactical Gomoku
-  - **10×10 (k=5) Pente**: Balanced five-in-a-row board
-  - **15×15 (k=5) Standard Gomoku**: Tournament Gomoku grid
-  - **19×19 (k=5) Renju / Go Board**: Full grandmaster board
-- **Interactive Open Lobby & Solved Atlas Quick View**: Browse open challenges, test theoretical tablebase openings, and inspect game status tables.
-- **Quick Game Creation Modals**:
-  - **Create a Game**: Custom dimensions ($m, n \in [1, 32]$), win streak ($k \in [1, 8]$), and number of players ($j \in [2, 5]$).
-  - **Play vs Computer**: Choose engine difficulty (Levels 1–8), play as X / O / Random, and toggle evaluation hints.
-
-#### 2. SOTA Analysis Board & Game-Tree Search Engine (`games/mnk-games/board.html`)
-- **Arbitrary Configurable Geometry ($1\times 1$ to $32\times 32$, $k=1..8$, $j=2..5$)**:
-  - Scales seamlessly from trivial $3\times 3$ to $15\times 15$ Gomoku, $19\times 19$ Pente, and generalized $(m,n,k,j)$ configurations.
-- **Standardized $[-100, +100]$ Win Probability Evaluation Bar**:
-  - Calibrated win probability model: $+100$ = 100% win for First Player ($X$), $0$ = 50–50 balanced / theoretical draw, $-100$ = 100% win for Second Player ($O$).
-  - Continuous vertical gauge with red 50–50 midpoint indicator line, high-contrast borders, and board flip orientation support.
-- **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**:
-  - Solves the $(m,n,k)$ horizon oscillation problem by evaluating center Chebyshev proximity and unblocked line segmentation on the static board, eliminating erratic score swings on theoretical draws like $(5,5,4)$.
-- **Upgraded Alpha-Beta Engine with Transposition Bounds Flags**:
-  - Full transposition caching with mathematical cutoff bounds (`FLAG_EXACT`, `FLAG_LOWERBOUND`, `FLAG_UPPERBOUND`) preventing unsound hash cutoffs during deep search.
-- **Decisive Open $(k-1)$ Threat Detection**:
-  - Examines open segments of length $k+1$ where both ends are unoccupied. Detects unstoppable double threats and decisive open $(k-1)$ streaks, preventing tactical blunders.
-- **Progressive AI Thinking & Iterative Deepening**:
-  - In unsolved positions, the AI thinks progressively deeper ($d=1, 2, 3, \dots, 24$), refining move evaluations, re-ranking candidate lines, and discovering tactical Principal Variations as time elapses.
-  - **Thinking Time Selector**: Quick pill selector offering `1s` (blitz), `5s` (standard analysis), `10s` (deep tactical search), `30s` (grandmaster ponder), and `∞` (unlimited search).
-  - **Live Engine Telemetry**: Real-time depth indicator, evaluated nodes counter, speed in kN/s, elapsed timer, animated progress bar, `Stop`/`Run` calculation toggle, and full algebraic Principal Variation sequence.
-- **All-Square Evaluation Badges & MultiPV Candidate Ranking**:
-  - Dynamic evaluation badges computed across every empty square for boards up to $10\times 10$, color-coded relative to the player to move (Best in green, Neutral in gray, Blunder in red).
-  - MultiPV candidate moves list ranking top moves with real-time tactical annotations.
-- **📊 Full Game Computer Analysis Report**:
-  - Subtab in Analysis Board that reconstructs the entire game history, evaluating every ply, calculating move-by-move evaluation deltas, and classifying moves into Best, Good, Inaccuracies, Mistakes, and Blunders.
-
-#### 3. Tournament Arena (`#tournament`)
-- **Competition Formats**:
-  - **Round Robin**: $1\times$ to $10\times$ cycles with Berger polygon cyclic pairing and balanced color alternation.
-  - **Knockout**: Single-elimination tournament brackets with automatic seed assignment.
-- **Flexible Roster Builder**:
-  - Mix human participants with any combination of AI difficulty levels (Levels 1–8).
-  - One-click instant presets: "8 AI Championship", "2 Humans + 5 AIs", "4 Humans Cup".
-- **Live Standings & Tiebreakers**:
-  - Real-time tournament table tracking Wins, Draws, Losses, Total Points, and Sonneborn-Berger tiebreak scores.
-  - 1-click export of standings and match logs to clipboard and JSON.
-
-#### 4. Competitive Offline Match Play & Precision Chess Clocks (`#play`)
-- **Genuine Competitive Match Interface**:
-  - Human vs Human (Pass & Play), Human vs Computer, or AI vs AI.
-  - Evaluation bar and hint arrows automatically concealed in tournament mode (`playShowEval` toggle).
-- **Precision Chess Clocks**:
-  - Presets: Bullet ($1+0$), Blitz ($3+2$), Rapid ($5+3$), Classical ($10+5$), and Custom base + increment times.
-  - Automatic time forfeit detection and flag drop banner at `00:00`.
-  - Level 8 AI plays instantly in opening tablebases, smoothly budgets search time, never flags, and refrains from thinking on opponent's turn by default (optional Ponder toggle available).
-- **Post-Game Terminal Banners**:
-  - Clear outcome cards for "Won by Resignation", "Won on Time" (flagged), "Won by Streak of $k$", and "Game Drawn".
-  - Quick resign and draw offer buttons.
-
-#### 5. Generalized Multi-Player $(m,n,k,j)$ Games ($j=2..5$)
-- Extends $(m,n,k)$-games to multi-player games with circular turn rotation:
-  - Player 1 ($X$, White)
-  - Player 2 ($O$, Amber)
-  - Player 3 ($\blacktriangle$, Emerald)
-  - Player 4 ($\blacksquare$, Sky Blue)
-  - Player 5 ($\blacklozenge$, Purple)
-- Multi-clock strip, multi-opponent threat detection, and custom SVG piece rendering.
-
-#### 6. Interactive Board Editor & Frozen Obstacle Squares (`#editor`)
-- **Custom Position Setup**: Place $X$, $O$, or additional player pieces on any board coordinate.
-- **Frozen Barrier Squares (`#` / ❄️)**: Place impassable obstacle squares where moves cannot be made and win streaks are blocked.
-- **One-Click Export**: Launch customized positions directly into the Analysis Board or Match Play mode.
-
-#### 7. Endgame Tablebase & Solved Status Atlas
-- **Verified Matrix Tablebase (`solved_status_of_mnk_games.html`)**: Complete classification table for $k=1$ to $k \ge 8$ across boards up to $32\times 32$, documenting theoretical first-player wins ($X$), second-player wins ($O$), and theoretical draws. Downloadable Excel dataset included.
 
 ---
 
@@ -364,27 +259,20 @@ vaibhavgeometer.github.io/
 │   │   │   └── questions_data.js              # Compiled questions metadata dataset
 │   │   └── assets/                            # 56 Mock PDFs, PYQs, Formula Sheets, Answer Keys
 │   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024–2026 PDFs)
+│   ├── unpg-results/                          # UNPG BSc Mathematics Results Lookup Portal
 │   └── scripts/                               # Data pipeline & Typst PDF generation compilers
-│
-├── games/                                     # 🎮 Games Ecosystem Hub (Board Games & Video Games)
-│   ├── index.html                             # Games portal, board games section & video games placeholders
-│   └── mnk-games/                             # ♟️ (m,n,k)-Games Platform & SOTA AI Ecosystem
-│       ├── index.html                         # Lichess-style web platform hub, quick pairings & lobby
-│       ├── board.html                         # SOTA Analysis Board, Tournament Arena, Match Play & Editor
-│       ├── solved_status_of_mnk_games.html    # Endgame Tablebase & Solved Status Matrix (k=1 to k≥8)
-│       └── solved_status_of_mnk_games.xlsx    # Excel format complete dataset & classification matrix
 │
 ├── css/                                       # 🌐 Glassmorphism design system & portal stylesheet
 │   └── portfolio.css
 ├── 404.html                                   # Dynamic client-side router & 404 handler
-├── index.html                                 # Personal portfolio landing page & platform showcase
+├── index.html                                 # Personal portfolio landing page & academic showcase
 ├── scratch/                                   # 📝 Development utilities & verification scripts
 ├── .gitignore                                 # Git ignore specifications
 ├── LICENSE                                    # MIT License
 └── README.md                                  # Master repository documentation
 ```
 
-> **Note on Zero Regressions:** Root entry points (`index.html`, `board.html`, `mnk_games_theory_and_ai.html`, `JAM/`, `CUET-PG/`, `mock-test/`, `countdown/`, `404.html`) remain fully accessible and functional to prevent broken bookmarks and preserve search indexing.
+> **Note on Zero Regressions:** Core entry points (`index.html`, `academic/`, `academic/JAM/`, `academic/CUET-PG/`, `academic/unpg-results/`, `404.html`) remain fully accessible and functional to prevent broken bookmarks and preserve search indexing.
 
 ---
 
@@ -392,7 +280,6 @@ vaibhavgeometer.github.io/
 
 - **Frontend Core**: Pure HTML5, Vanilla CSS3 (Custom CSS Variables, Grid/Flexbox, Dark & Light Mode), Vanilla ES6+ JavaScript.
 - **Zero Build**: Requires **no npm install, webpack, vite, or node builds** to run or deploy.
-- **Search & Game-Tree AI**: Pure JavaScript Minimax / Alpha-Beta with Transposition Tables, iterative deepening, threat-space heuristics (VCF/VCT), and Chebyshev positional evaluations.
 - **PDF Compilation**: Typst (`typst` Python API for publication-quality batch PDF generation) and jsPDF (`jspdf.umd.min.js` + `autotable` for in-browser on-demand compilation).
 - **Math Typesetting**: [MathJax 3](https://www.mathjax.org/) configured with TeX SVG rendering.
 - **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `typst`, `json`, `re`).
@@ -456,40 +343,16 @@ This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generat
 
 ## 🚀 Recent Updates
 
-### November 2026 — Architecture Refactoring, Kebab-Case Routing & Asset Standardization
-- **Standardized Kebab-Case URL Routing (`mnk-games/`)**: Standardized repository directory and routing naming conventions from snake_case (`mnk_games/`) to modern web-standard kebab-case (`mnk-games/`). Updated all cross-navigation links, breadcrumbs, canonical meta tags, and internal references across the portal while preserving seamless backward-compatible automatic redirects in `404.html`.
-- **CSS Modularization (`css/portfolio.css`)**: Centralized design system stylesheet from root `portfolio.css` into `css/portfolio.css`, updating all relative link imports and 404 router aliases.
-- **Asset Filename Standardization**: Normalized data assets including `solved_status_of_mnk_games.xlsx` to eliminate URL-encoded space issues across cross-platform environments.
-- **Documentation & Relative Link Audit**: Updated all relative documentation links in `README.md` to reflect the modular domain hierarchy (`academic/JAM/assets/` and `games/mnk-games/`), ensuring 100% valid links when browsing directly on GitHub.
+### November 2026 — Architecture Refactoring & Asset Standardization
+- **CSS Modularization (`css/portfolio.css`)**: Centralized design system stylesheet into `css/portfolio.css`, updating all relative link imports and 404 router aliases.
+- **Documentation & Relative Link Audit**: Updated all relative documentation links across `README.md` to reflect the modular domain hierarchy, ensuring 100% valid links when browsing directly on GitHub.
 
-### November 2026 — Universal PYQ Tracker, 5-Tier Difficulty Engine, Study Analytics & mnk games Platform Launch
+### November 2026 — Universal PYQ Tracker, 5-Tier Difficulty Engine & Study Analytics Launch
 - **IIT JAM 5-Tier Difficulty Engine (`pyq_difficulty.js`)**: Developed and deployed a standardized 5-level difficulty taxonomy (🟢 Very Easy, 🔵 Easy, 🟡 Medium, 🟠 Hard, 🟣 Hardest) across all 885 official PYQs. Includes an automated exam-structure inference fallback engine (distinguishing 1M/2M MCQs, MSQs, and NATs) with user override persistence in `localStorage`.
 - **Universal PYQ Tracker & Question Search Engine (`pyq_tracker.js`, `tracker.css`)**: Built an interactive searchable question bank covering all 885 PYQs with instant status toggles (Unattempted, Solved, Incorrect, Starred), custom notes modal, high-resolution original paper screenshots, official answer keys, and semantic concept search aliasing (e.g., `differential equations`, `eigenvalues`, `abelian groups`).
 - **Study Stats, Streaks & Topic Mastery Analytics Engine (`stats.js`)**: Real-time tracking of daily questions solved, current/best study streaks, weekly/monthly solving velocity, subject topic mastery breakdowns, and exam forecast targets.
 - **Cloud Sync (`cloud_sync.js`)**: Google Drive and JSON import/export integration to sync question progress, custom notes, bookmarks, and test history across multiple devices.
 - **Difficulty-Filtered Custom Tests & PDFs**: Extended `custom_pdf_generator.js` and CBT test generator to support filtering by difficulty tiers, enabling students to compile tailored mock tests and publication-grade LaTeX PDFs targeting specific difficulty levels.
-- **mnk games Lichess-Style Web Platform Hub (`games/mnk-games/index.html`)**: Launched a dedicated platform homepage styled after modern competitive chess platforms. Features 1-click Quick Pairing cards (3x3 Bullet/Blitz/Classical, 4x4 Qubic, 7x6 Connect-4, 8x8 Gomoku, 10x10 Pente, 15x15 Gomoku, 19x19 Renju), live lobby table, Solved Atlas preview, and responsive navigation.
-- **Alpha-Beta Search Engine Upgrade with Transposition Bounds Flags (`board.html`)**: Refactored the core search engine to store exact, lower-bound, and upper-bound flags (`FLAG_EXACT`, `FLAG_LOWERBOUND`, `FLAG_UPPERBOUND`) in the transposition cache, guaranteeing mathematically sound pruning at high search depths.
-- **Decisive Open $(k-1)$ Threat Heuristic**: Integrated decisive open-line threat evaluation for lines of length $k+1$ with both ends unblocked, preventing engine blindness to unstoppable double threats.
-- **Full Game Computer Analysis Report**: Added a dedicated post-match analysis report tab in `board.html` that steps through completed games, calculates move-by-move evaluation deltas, and tags moves as Best, Inaccuracy, Mistake, or Blunder.
-- **Terminal Banners & Game Controls**: Polished post-match cards with explicit banners for Time Forfeit, Resignation, Win by Streak of $k$, and Draws, along with quick resign and draw offer controls.
-
-### Late October 2026 — Tournament System, Offline Clocks, Multi-Player (m,n,k,j) & Board Editor Major Update (Demands 1–7)
-- **Tournament System for $(m,n,k)$-Games (Demand 1)**: Integrated competition suite supporting custom player rosters with mix of Humans and AI levels, instant presets (including "2 Humans, 5 AIs: Level 2, Level 2, Level 8, Level 7, Level 6", "8 AI Championship", "4 Humans Cup"), Round Robin ($1\times$ to $10\times$ cycles) with Berger polygon cyclic pairing and balanced color alternation, Single-elimination Knockout brackets, live standings with Sonneborn-Berger tiebreakers, and 1-click clipboard / JSON export.
-- **Offline Multiplayer with Precision Chess Clocks (Demand 2)**: Genuine cheat-free competitive match play (Human vs Human, Human vs AI, AI vs AI) with evaluation bars and hint arrows concealed. Precision chess-style clocks with initial base time and increment ($1+0$ Bullet, $3+2$ Blitz, $5+3$ Rapid, $10+5$ Classical, Custom) and automatic flagging at 00:00. Level 8 AI plays instantly in known opening book / tablebase positions, smoothly budgets time in unclear tactical positions, never flags, refrains from thinking on opponent's turn by default, with an optional Ponder toggle (ON/OFF).
-- **Generalized Multi-Player $(m,n,k,j)$ Games (Demand 3)**: Extends $(m,n,k)$-games to arbitrary $j=2, 3, 4, 5$ players with circular turn rotation (Player 1 $X$, Player 2 $O$, Player 3 $\blacktriangle$ Emerald, Player 4 $\blacksquare$ Sky Blue, Player 5 $\blacklozenge$ Purple), custom SVG geometries, and multi-opponent threat detection for AI levels 1 to 8.
-- **Board Editor & Frozen Obstacle Squares (Demand 4)**: Interactive position editor to place frozen squares (`#` / ❄️) where moves cannot be placed and streaks are blocked, place custom piece layouts, assign starting turns, and load directly into Analysis or Play modes.
-- **Clean Architecture (Demand 5 & 6)**: Reorganized repository into clear domains (`academic/`, `games/mnk-games/`), keeping root configuration (`css/`, `.gitignore`, `README.md`, `LICENSE`, `scratch/`) and zero-regression entry points to guarantee 100% backward compatibility for all URLs and bookmarks.
-- **Complete & Partial Endgame Tablebases Catalog (Demand 7)**: Documented complete retrograde tablebases ($1\times 1$, $2\times 2$, $3\times 3, k=2$, $3\times 3, k=3$, $4\times 4, k=4$ Patashnik draw, $3\times 4, k=3$), partial tablebases & opening books ($5\times 5, k=4$ theoretical draw, $6\times 6, k=4$, $7\times 7, k=5$ Small Gomoku, $15\times 15, k=5$ Gomoku, $19\times 19, k=5$ Pente), and open classifications ($k \ge 6$) in the interactive Endgame Tablebase (`solved_status_of_mnk_games.html`).
-
-### October 2026 — mnk games Engine, Eval Bar & Analysis Board Major Update
-- **Progressive AI Thinking & Iterative Deepening (SOTA Engine Style)**: Implemented an asynchronous iterative deepening search engine ($d=1..24$) with cooperative micro-yielding, PV move ordering, live telemetry (depth, nodes, kN/s, timer, progress bar, `Stop`/`Run` toggle), and real-time Principal Variation line display.
-- **Configurable AI Thinking Time**: Added interactive pill buttons allowing users to select engine thinking budgets: `1s`, `5s`, `10s`, `30s`, and `∞` (unlimited until mathematically solved or stopped).
-- **Win Probability Evaluation Bar (`[-100, +100]` Scale)**: Standardized the evaluation scale to intuitive win probability percentages ($+100$ = 100% win for First Player $X$, $0$ = 50–50 balanced / theoretical draw, $-100$ = 100% win for Second Player $O$). Features continuous height-matched fill, high-contrast borders, red 50–50 midpoint indicator line, and board flip orientation support.
-- **Horizon-Free Static Board Evaluation (`evaluateBoardState`)**: Developed and implemented a static positional kernel evaluating Chebyshev center proximity and unblocked line counts. Completely eliminates leaf-node horizon oscillations, keeping opening moves on theoretical draw boards like $(5,5,4)$ rock-solid at $0$.
-- **All-Square Evaluation Badges**: Real-time evaluation badges calculated across every single empty square for boards up to $10\times 10$, dynamically color-coded relative to the player to move (green for best moves, gray for equal/draws, red for blunders).
-- **Match Evaluation & Privacy Toggle**: Added play-mode toggle (`playShowEval`) to conceal engine evaluations and hints for competitive matches vs engine Levels 1–8.
-- **Tablebase & Analysis Expansion**: Added comprehensive engine features covering progressive AI thinking, static evaluation kernel mathematics, horizon effect mitigation, and win probability modeling.
 
 ### August 2026 — JAM Portal & CBT Simulator Code Audit
 - **Simulator Engine Improvements**: Fixed an issue where the `C` keyboard shortcut for Option C conflicted with clearing responses. Refined the NAT evaluation logic for exact value single-answer keys to a strict `0.001` tolerance. Added support for hyphen (`-`) as a valid range delimiter.

@@ -48,45 +48,8 @@
         return;
       }
 
-      if (lower === '/games' || lower === '/games/') {
-        window.location.replace('/games/' + search + hash);
-        return;
-      }
-
       if (lower === '/cuet' || lower === '/cuet/' || lower === '/cuet-pg' || lower === '/cuet-pg/') {
         window.location.replace('/academic/CUET-PG/' + search + hash);
-        return;
-      }
-
-      if (lower.indexOf('/solved status of mnk games.xlsx') !== -1 || lower.indexOf('/solved%20status%20of%20mnk%20games.xlsx') !== -1) {
-        window.location.replace('/games/mnk-games/solved_status_of_mnk_games.xlsx');
-        return;
-      }
-
-      if (lower === '/mnk-games' || lower === '/mnk-games/' || lower.indexOf('/mnk-games/') === 0) {
-        sub = path.replace(/^\/mnk-games\/?/i, '');
-        window.location.replace('/games/mnk-games/' + sub + search + hash);
-        return;
-      }
-
-      if (lower.indexOf('/mnk_games') === 0) {
-        sub = path.replace(/^\/mnk_games\/?/i, '');
-        window.location.replace('/games/mnk-games/' + sub + search + hash);
-        return;
-      }
-
-      if (lower === '/board.html' || lower === '/lichess_tic_tac_toe_analysis_board.html' || lower === '/tictactoe' || lower === '/tic-tac-toe' || lower === '/tictactoe/' || lower === '/tic-tac-toe/' || lower === '/analysis' || lower === '/analysis/' || lower === '/ttt' || lower === '/ttt/' || lower === '/gomoku' || lower === '/gomoku/' || lower === '/mnk' || lower === '/mnk/' || lower === '/play' || lower === '/play/' || lower === '/board' || lower === '/board/' || lower === '/stocktic' || lower === '/stocktic/') {
-        window.location.replace('/games/mnk-games/board.html' + search + hash);
-        return;
-      }
-
-      if (lower === '/solved_status_of_mnk_games.html' || lower === '/atlas' || lower === '/atlas/' || lower === '/solved' || lower === '/solved/') {
-        window.location.replace('/games/mnk-games/solved_status_of_mnk_games.html' + search + hash);
-        return;
-      }
-
-      if (lower === '/mnk_games_theory_and_ai.html' || lower === '/theory' || lower === '/theory/' || lower === '/article' || lower === '/article/' || lower === '/mnk-theory' || lower === '/mnk-theory/' || lower === '/game-theory' || lower === '/game-theory/') {
-        window.location.replace('/games/mnk-games/solved_status_of_mnk_games.html' + search + hash);
         return;
       }
     })();
@@ -148,17 +111,11 @@
       <a href="academic/JAM/" class="btn-primary">
         <span>🚀</span> <span>IIT JAM Mathematics Portal</span>
       </a>
-      <a href="games/" class="btn-secondary">
-        <span>🎮</span> <span>Games Hub</span>
+      <a href="academic/" class="btn-secondary">
+        <span>🎓</span> <span>Academic Portals Hub</span>
       </a>
-      <a href="games/mnk-games/board.html" class="btn-secondary">
-        <span>♟️</span> <span>m,n,k-game &amp; generalizations</span>
-      </a>
-      <a href="games/mnk-games/solved_status_of_mnk_games.html" class="btn-secondary">
-        <span>📊</span> <span>Solved Status Atlas</span>
-      </a>
-      <a href="games/mnk-games/board.html#tournament" class="btn-secondary">
-        <span>🏆</span> <span>Tournament Arena</span>
+      <a href="academic/unpg-results/" class="btn-secondary">
+        <span>🏛️</span> <span>UNPG BSc Results</span>
       </a>
       <a href="index.html" class="btn-secondary">
         <span>🏠</span> <span>Vaibhav Geometer Home</span>
