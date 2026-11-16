@@ -470,8 +470,16 @@
     if (!container) return;
 
     if (currentTopperSubtab === 'overall') {
-      const top3 = data.overall_toppers.slice(0, 3);
-      const rest = data.overall_toppers;
+      const allToppers = (data.overall_toppers && data.overall_toppers.length === data.students.length)
+        ? data.overall_toppers
+        : [...data.students].sort((a, b) => {
+            if (a.overall_cgpa_rank && b.overall_cgpa_rank) return a.overall_cgpa_rank - b.overall_cgpa_rank;
+            if (a.overall_cgpa_rank) return -1;
+            if (b.overall_cgpa_rank) return 1;
+            return (b.final_cgpa || 0) - (a.final_cgpa || 0);
+          });
+      const top3 = allToppers.slice(0, 3);
+      const rest = allToppers;
 
       container.innerHTML = `
         <div class="podium-grid">
@@ -481,7 +489,7 @@
             <div class="podium-rank-badge">Rank 2 (Silver)</div>
             <div class="podium-name">${top3[1].name}</div>
             <div class="podium-roll">Roll: ${top3[1].roll}</div>
-            <div class="podium-score">${top3[1].final_cgpa.toFixed(2)}</div>
+            <div class="podium-score">${top3[1].final_cgpa !== null && top3[1].final_cgpa !== undefined ? top3[1].final_cgpa.toFixed(2) : '—'}</div>
             <div class="podium-score-sub">Cumulative CGPA</div>
             <button class="btn-card-profile">View Profile</button>
           </div>
@@ -492,7 +500,7 @@
             <div class="podium-rank-badge">Rank 1 (Gold)</div>
             <div class="podium-name">${top3[0].name}</div>
             <div class="podium-roll">Roll: ${top3[0].roll}</div>
-            <div class="podium-score" style="color:#f59e0b;">${top3[0].final_cgpa.toFixed(2)}</div>
+            <div class="podium-score" style="color:#f59e0b;">${top3[0].final_cgpa !== null && top3[0].final_cgpa !== undefined ? top3[0].final_cgpa.toFixed(2) : '—'}</div>
             <div class="podium-score-sub">Cumulative CGPA</div>
             <button class="btn-card-profile" style="background:#f59e0b;color:#000;border:none;">View Profile</button>
           </div>
@@ -503,7 +511,7 @@
             <div class="podium-rank-badge">Rank 3 (Bronze)</div>
             <div class="podium-name">${top3[2].name}</div>
             <div class="podium-roll">Roll: ${top3[2].roll}</div>
-            <div class="podium-score">${top3[2].final_cgpa.toFixed(2)}</div>
+            <div class="podium-score">${top3[2].final_cgpa !== null && top3[2].final_cgpa !== undefined ? top3[2].final_cgpa.toFixed(2) : '—'}</div>
             <div class="podium-score-sub">Cumulative CGPA</div>
             <button class="btn-card-profile">View Profile</button>
           </div>
@@ -512,7 +520,7 @@
         <div class="leaderboard-wrap">
           <div style="padding:1.25rem 1.5rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
             <h3 style="font-family:var(--font-heading);font-size:1.15rem;color:var(--text-primary);">Overall Merit List (Batch 2024-2028)</h3>
-            <span style="font-size:0.85rem;color:var(--text-muted);">${rest.length} Students Completed 4 Semesters</span>
+            <span style="font-size:0.85rem;color:var(--text-muted);">${rest.length} Students (Batch 2024–2028)</span>
           </div>
           <div class="table-responsive">
             <table class="leaderboard-table">
@@ -532,13 +540,13 @@
                   <tr>
                     <td>
                       <span class="rank-pill ${idx === 0 ? 'r1' : (idx === 1 ? 'r2' : (idx === 2 ? 'r3' : ''))}">
-                        ${idx < 3 ? ['🥇', '🥈', '🥉'][idx] : `#${s.overall_cgpa_rank}`}
+                        ${idx < 3 ? ['🥇', '🥈', '🥉'][idx] : `#${s.overall_cgpa_rank || (idx + 1)}`}
                       </span>
                     </td>
                     <td style="font-weight:600;color:var(--text-primary);cursor:pointer;" onclick="window.showStudentProfile('${s.roll}')">${s.name}</td>
                     <td>${s.roll}</td>
                     <td><span class="roll-last-tag">#${s.last_3}</span></td>
-                    <td style="font-weight:700;font-family:var(--font-heading);font-size:1.1rem;color:${idx < 3 ? '#f59e0b' : 'var(--accent-cyan)'};">${s.final_cgpa.toFixed(2)}</td>
+                    <td style="font-weight:700;font-family:var(--font-heading);font-size:1.1rem;color:${idx < 3 ? '#f59e0b' : 'var(--accent-cyan)'};">${s.final_cgpa !== null && s.final_cgpa !== undefined ? s.final_cgpa.toFixed(2) : '—'}</td>
                     <td>${s.total_credits}</td>
                     <td>
                       <button class="btn-card-profile" style="padding:0.35rem 0.65rem;font-size:0.75rem;" onclick="window.showStudentProfile('${s.roll}')">Profile</button>
