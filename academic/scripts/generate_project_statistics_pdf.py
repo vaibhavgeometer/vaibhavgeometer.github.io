@@ -50,7 +50,10 @@ def load_data():
         enriched_qs.append(merged)
 
     cheat_sheets_dir = os.path.join(BASE_DIR, 'assets/cheat-sheets')
-    cheat_sheets = sorted([f for f in os.listdir(cheat_sheets_dir) if f.endswith('.pdf')])
+    if os.path.exists(cheat_sheets_dir):
+        cheat_sheets = sorted([f for f in os.listdir(cheat_sheets_dir) if f.endswith('.pdf')])
+    else:
+        cheat_sheets = []
 
     manifest_path = os.path.join(BASE_DIR, 'assets/Mock Tests_PDF/mock_tests_manifest.json')
     with open(manifest_path, 'r', encoding='utf-8') as mf:
