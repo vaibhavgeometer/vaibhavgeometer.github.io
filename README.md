@@ -34,6 +34,7 @@
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
 | 🏛️ **UNPG Results Portal** | Semester marks & results lookup for UNPG BSc Mathematics | [Explore Results](academic/unpg-results/) |
+| 📱 **Official Android App** | Standalone APK download for mobile devices via Median.co | [Download APK](https://median.co/share/lpapemy#apk) |
 
 ---
 

@@ -404,4 +404,121 @@ body {
   .btn-primary, .btn-secondary {
     justify-content: center;
   }
+  .nav-controls {
+    gap: 0.65rem;
+  }
+  .nav-link {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .brand-text {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Android App Download Badges & Card Enhancements
+   ========================================================================== */
+.hero-cta-wrap {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px -3px rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="light"] .hero-app-badge {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #059669;
+}
+
+.hero-app-badge:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #34d399;
+  transform: translateY(-2px);
+  color: #10b981;
+}
+
+.app-badge-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.25);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.app-card {
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.app-card::before {
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%) !important;
+}
+
+.app-badge {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+}
+
+[data-theme="light"] .app-badge {
+  color: #059669 !important;
+}
+
+.btn-android {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  box-shadow: 0 8px 20px -5px rgba(16, 185, 129, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.btn-android:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.nav-link-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #34d399 !important;
+  font-size: 0.85rem !important;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .nav-link-app {
+  color: #059669 !important;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.nav-link-app:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #34d399;
+  transform: translateY(-1px);
 }
