@@ -3,10 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IIT JAM Mathematics (MA): 22-Year Project Statistics & Analytics Report (2005–2026)</title>
+  <title>IIT JAM Mathematics (MA): 22-Year Project Statistics &amp; Analytics Report (2005–2026)</title>
   <meta name="description" content="Comprehensive data analytics, subject weightage breakdown, question type evolution, and empirical difficulty analysis across all 885 official IIT JAM Mathematics (MA) questions (2005–2026)." />
-  <meta name="keywords" content="IIT JAM Mathematics Statistics, IIT JAM MA Topic Weightage, IIT JAM Analysis 2005-2026, IIT JAM Question Distribution, JAM Mathematics Analytics" />
+  <meta name="keywords" content="IIT JAM Mathematics Statistics, IIT JAM MA Topic Weightage, IIT JAM Analysis 2005-2026, IIT JAM Question Distribution, JAM Mathematics Analytics, Real Analysis, Linear Algebra, Group Theory, Differential Equations" />
   <meta name="author" content="Vaibhav Geometer" />
+  <link rel="canonical" href="https://vaibhavgeometer.github.io/academic/JAM/analytics/" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://vaibhavgeometer.github.io/academic/JAM/analytics/" />
+  <meta property="og:title" content="IIT JAM Mathematics (MA): 22-Year Project Statistics &amp; Analytics Report (2005–2026)" />
+  <meta property="og:description" content="Comprehensive empirical study of all 885 official examination questions, 2,000 marks, subject domain weightages, testing eras, and cognitive difficulty hierarchy across 22 years of IIT JAM Mathematics." />
+  <meta property="og:site_name" content="IIT JAM Mathematics CBT Archive" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IIT JAM Mathematics (MA): 22-Year Project Statistics &amp; Analytics Report" />
+  <meta name="twitter:description" content="Definitive empirical analytics, subject weightage breakdown, question type dynamics, and CBT ecosystem metrics across 885 official questions." />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "IIT JAM Mathematics (MA): 22-Year Project Statistics & Analytics Report (2005–2026)",
+    "description": "Definitive empirical analytics across 885 official examination questions, 2,000 marks, subject domain weightages, testing era evolutions, and CBT simulator ecosystem metrics.",
+    "author": {
+      "@type": "Person",
+      "name": "Vaibhav Geometer",
+      "url": "https://vaibhavgeometer.github.io"
+    },
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-17",
+    "about": [
+      {"@type": "Thing", "name": "IIT JAM Mathematics"},
+      {"@type": "Thing", "name": "Real Analysis"},
+      {"@type": "Thing", "name": "Linear Algebra"},
+      {"@type": "Thing", "name": "Group Theory"},
+      {"@type": "Thing", "name": "Differential Equations"}
+    ]
+  }
+  </script>
+
+  <!-- Instant Theme Setup (Prevents FOUC) -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('jam_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch(e) {}
+    })();
+  </script>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
 
@@ -14,6 +61,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- MathJax 3 for Formula Rendering -->
+  <script src="../mock-test/js/mathjax_config.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <style>
     :root {
@@ -37,6 +88,31 @@
       --radius-md: 10px;
       --radius-lg: 16px;
       --font-mono: 'JetBrains Mono', monospace;
+      --table-header-bg: #101626;
+      --table-total-bg: #0f1624;
+      --progress-bg: linear-gradient(90deg, #38bdf8, #818cf8);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: #e2e8f0;
+      --card-border-hover: #0284c7;
+      --accent: #0284c7;
+      --accent-glow: rgba(2, 132, 199, 0.15);
+      --accent-dim: rgba(2, 132, 199, 0.08);
+      --purple: #6366f1;
+      --green: #059669;
+      --amber: #d97706;
+      --rose: #e11d48;
+      --text: #0f172a;
+      --text-secondary: #334155;
+      --muted: #64748b;
+      --table-header-bg: #f1f5f9;
+      --table-total-bg: #f8fafc;
+      --progress-bg: linear-gradient(90deg, #0284c7, #6366f1);
     }
 
     * {
@@ -56,6 +132,23 @@
       line-height: 1.65;
       overflow-x: hidden;
       font-size: 15px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    [data-theme="light"] body {
+      background: radial-gradient(circle at 50% 0%, #e2e8f0 0%, #f8fafc 65%);
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--progress-bg);
+      z-index: 1000;
+      transition: width 0.1s ease;
     }
 
     /* Sticky Navbar */
@@ -68,28 +161,35 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    [data-theme="light"] .top-nav {
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 16px;
       height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       color: var(--text);
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       letter-spacing: -0.2px;
       transition: color 0.2s ease;
+      flex-shrink: 0;
     }
 
     .nav-brand:hover {
@@ -97,21 +197,29 @@
     }
 
     .nav-brand span.logo-icon {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 7px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 4px 0;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 7px 13px;
-      font-size: 0.82rem;
+      gap: 5px;
+      padding: 6px 11px;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-secondary);
       background: rgba(255, 255, 255, 0.04);
@@ -120,12 +228,25 @@
       text-decoration: none;
       cursor: pointer;
       transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    [data-theme="light"] .nav-btn {
+      background: #f1f5f9;
+      border-color: #e2e8f0;
+      color: #334155;
     }
 
     .nav-btn:hover {
-      color: #fff;
+      color: var(--text);
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--accent);
+    }
+
+    [data-theme="light"] .nav-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
     }
 
     .nav-btn.primary {
@@ -134,16 +255,29 @@
       color: var(--accent);
     }
 
+    [data-theme="light"] .nav-btn.primary {
+      border-color: rgba(2, 132, 199, 0.4);
+    }
+
     .nav-btn.primary:hover {
       background: var(--accent);
       color: #0b0f19;
     }
 
+    [data-theme="light"] .nav-btn.primary:hover {
+      color: #ffffff;
+    }
+
+    .nav-btn.theme-toggle {
+      padding: 6px 10px;
+      font-size: 0.85rem;
+    }
+
     /* Container */
     .article-container {
-      max-width: 1000px;
+      max-width: 1040px;
       width: 100%;
-      padding: 40px 20px 80px;
+      padding: 36px 18px 80px;
     }
 
     /* Article Hero Header */
@@ -187,14 +321,14 @@
       font-weight: 900;
       line-height: 1.25;
       letter-spacing: -0.5px;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 16px;
     }
 
     .article-subtitle {
       font-size: 1.05rem;
       color: var(--text-secondary);
-      max-width: 840px;
+      max-width: 860px;
       margin: 0 auto 20px;
       line-height: 1.6;
     }
@@ -252,6 +386,10 @@
       border-color: var(--accent);
       color: #0b0f19;
       font-weight: 700;
+    }
+
+    [data-theme="light"] .action-btn.accent {
+      color: #ffffff;
     }
 
     .action-btn.accent:hover {
@@ -314,6 +452,10 @@
       margin-bottom: 45px;
     }
 
+    [data-theme="light"] .toc-card {
+      background: rgba(255, 255, 255, 0.85);
+    }
+
     .toc-title {
       font-size: 0.95rem;
       font-weight: 800;
@@ -363,7 +505,7 @@
     .section-heading {
       font-size: 1.5rem;
       font-weight: 800;
-      color: #fff;
+      color: var(--text);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -385,7 +527,7 @@
     }
 
     .section-p strong {
-      color: #fff;
+      color: var(--text);
     }
 
     /* Key Insights Alert Block */
@@ -412,7 +554,7 @@
 
     .insight-title {
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 6px;
       display: flex;
       align-items: center;
@@ -426,8 +568,12 @@
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       background: var(--bg-surface);
-      margin: 22px 0 28px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      margin: 18px 0 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="light"] .table-wrapper {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     table.analytics-table {
@@ -439,7 +585,7 @@
     }
 
     table.analytics-table th {
-      background: #101626;
+      background: var(--table-header-bg);
       color: var(--muted);
       font-weight: 700;
       font-size: 0.74rem;
@@ -451,7 +597,7 @@
 
     table.analytics-table td {
       padding: 11px 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--card-border);
       color: var(--text-secondary);
     }
 
@@ -459,16 +605,25 @@
       background: rgba(255, 255, 255, 0.025);
     }
 
+    [data-theme="light"] table.analytics-table tr:hover td {
+      background: rgba(2, 132, 199, 0.035);
+    }
+
     table.analytics-table tr.highlight-row td {
-      background: rgba(56, 189, 248, 0.05);
+      background: rgba(56, 189, 248, 0.06);
       font-weight: 700;
-      color: #fff;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--text);
+      border-top: 1px solid rgba(56, 189, 248, 0.25);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    [data-theme="light"] table.analytics-table tr.highlight-row td {
+      background: rgba(2, 132, 199, 0.06);
+      border-color: rgba(2, 132, 199, 0.25);
     }
 
     table.analytics-table tr.total-row td {
-      background: #0f1624;
+      background: var(--table-total-bg);
       font-weight: 800;
       color: var(--accent);
       border-top: 1px solid var(--card-border);
@@ -522,6 +677,90 @@
     .type-badge.msq { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
     .type-badge.nat { background: rgba(52, 211, 153, 0.15); color: #34d399; }
 
+    /* Action pills inside tables */
+    .table-action-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--accent);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    [data-theme="light"] .table-action-pill {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .table-action-pill:hover {
+      background: var(--accent);
+      color: #0b0f19;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    [data-theme="light"] .table-action-pill:hover {
+      color: #ffffff;
+    }
+
+    /* Filter Toolbar for Tables */
+    .table-filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill-btn {
+      padding: 5px 12px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill-btn.active, .filter-pill-btn:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .table-search-input {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: var(--bg-surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease;
+      min-width: 220px;
+    }
+
+    .table-search-input:focus {
+      border-color: var(--accent);
+    }
+
     /* Visual Distribution Bars */
     .dist-bar-card {
       background: var(--bg-surface);
@@ -549,6 +788,10 @@
       display: flex;
       background: #0f1624;
       margin-bottom: 12px;
+    }
+
+    [data-theme="light"] .dist-stacked-bar {
+      background: #e2e8f0;
     }
 
     .dist-segment {
@@ -601,7 +844,7 @@
     .info-card-title {
       font-size: 0.96rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -615,7 +858,41 @@
     }
 
     .info-card-p strong {
-      color: #fff;
+      color: var(--text);
+    }
+
+    /* Floating Back to Top Button */
+    .floating-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--card-border);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .floating-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .floating-top-btn:hover {
+      background: var(--accent);
+      color: #0b0f19;
+      transform: translateY(-2px);
     }
 
     /* Print Styling */
@@ -624,7 +901,7 @@
         background: #fff !important;
         color: #000 !important;
       }
-      .top-nav, .article-actions-bar, .toc-card, footer {
+      .top-nav, .article-actions-bar, .toc-card, footer, #reading-progress, .floating-top-btn, .table-filter-bar {
         display: none !important;
       }
       .article-container {
@@ -662,7 +939,7 @@
       .article-subtitle {
         font-size: 0.95rem;
       }
-      .nav-links .nav-btn:not(.primary) {
+      .nav-brand span.logo-text {
         display: none;
       }
     }
@@ -670,20 +947,26 @@
 </head>
 <body>
 
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
   <!-- Sticky Header Navigation -->
   <header class="top-nav">
     <div class="nav-inner">
       <a href="../index.html" class="nav-brand" title="Back to IIT JAM Mathematics Portal">
         <span class="logo-icon">📐</span>
-        <span>IIT JAM Mathematics (MA)</span>
+        <span class="logo-text">IIT JAM Mathematics (MA)</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="../index.html" class="nav-btn" title="Back to Portal Home">🏠 Portal Home</a>
-        <a href="../index.html#pyq-tracker" class="nav-btn" title="Open PYQ Tracker & Search">🎯 Tracker</a>
-        <a href="../index.html#custom-generator" class="nav-btn" title="Open Custom Mock Test & PDF Generator">🛠️ Custom Generator</a>
+      <nav class="nav-links" aria-label="Page Navigation">
+        <a href="../index.html" class="nav-btn" title="Back to Portal Home">🏠 Home</a>
+        <a href="../index.html#pyq-tracker" class="nav-btn" title="Open PYQ Tracker &amp; Search 885 Questions">🎯 Tracker</a>
+        <a href="../index.html#custom-generator" class="nav-btn" title="Open Custom Mock Test &amp; PDF Generator">🛠️ Generator</a>
         <a href="../countdown/" class="nav-btn" title="Live 2027 Countdown">⏳ 2027 Countdown</a>
-        <button type="button" class="nav-btn primary" onclick="window.print()" title="Print or save as PDF">🖨️ Print / Save PDF</button>
+        <a href="../assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" title="Open Official Syllabus PDF">📜 Syllabus</a>
+        <a href="../assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" title="Open 22-Year Consolidated PYQ Archive">🏛️ Archive</a>
+        <button type="button" class="nav-btn theme-toggle" id="theme-toggle-btn" onclick="window.toggleTheme()" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">☀️ Theme</button>
+        <button type="button" class="nav-btn primary" onclick="window.print()" title="Print or save as PDF">🖨️ Print</button>
       </nav>
     </div>
   </header>
@@ -724,7 +1007,7 @@
     </header>
 
     <!-- Key Metrics Highlight Grid -->
-    <section class="kpi-grid">
+    <section class="kpi-grid" aria-label="Key Performance Indicators">
       <div class="kpi-card">
         <div class="kpi-num">885</div>
         <div class="kpi-label">Official Questions</div>
@@ -758,7 +1041,7 @@
     </section>
 
     <!-- Table of Contents -->
-    <nav class="toc-card" id="toc">
+    <nav class="toc-card" id="toc" aria-label="Table of Contents">
       <div class="toc-title">📑 Table of Contents &amp; Report Navigation</div>
       <div class="toc-grid">
         <div class="toc-item"><a href="#sec-1"><span class="toc-num">01.</span> Executive Summary &amp; Repository Overview</a></div>
@@ -815,7 +1098,7 @@
       <div class="dist-bar-card">
         <div class="dist-bar-header">
           <span>Historical Questions Share by Testing Era (Total: 885 Questions)</span>
-          <span style="color: var(--accent);">2005 – 2026</span>
+          <span style="color: var(--accent); font-family: var(--font-mono);">2005 – 2026</span>
         </div>
         <div class="dist-stacked-bar">
           <div class="dist-segment" style="width: 33.9%; background: #38bdf8;" title="Recent CBT Era (2022-2026): 300 Qs (33.9%)"></div>
@@ -908,8 +1191,13 @@
         Every question across the 22-year dataset is categorized into <strong>3 Core In-Syllabus Subject Domains</strong> (spanning 9 official subtopics) plus a dedicated <strong>Classical / Out of Syllabus</strong> category.
       </p>
 
+      <div class="table-filter-bar">
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">🎯 10 Exhaustive Subtopic Question Banks</span>
+        <input type="text" id="subtopic-search" class="table-search-input" placeholder="🔍 Search subtopic or domain..." oninput="window.filterSubtopicsTable()">
+      </div>
+
       <div class="table-wrapper">
-        <table class="analytics-table">
+        <table class="analytics-table" id="subtopics-table">
           <thead>
             <tr>
               <th>Subtopic Code &amp; Name</th>
@@ -919,11 +1207,12 @@
               <th class="num-cell">MCQ</th>
               <th class="num-cell">MSQ</th>
               <th class="num-cell">NAT</th>
-              <th class="num-cell">% of Questions</th>
+              <th class="num-cell">% Share</th>
+              <th>Interactive Quick Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr data-domain="Real Analysis" data-subtopic="Sequences and Series of Real Numbers 1.1">
               <td><strong>1.1</strong> Sequences &amp; Series of Real Numbers</td>
               <td>Real Analysis</td>
               <td class="num-cell">131</td>
@@ -932,8 +1221,12 @@
               <td class="num-cell">15</td>
               <td class="num-cell">31</td>
               <td class="num-cell">14.8%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=1.1&amp;mode=official" class="table-action-pill" title="Launch 22-Year Sequences &amp; Series CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_1.1_Sequences_and_Series_of_Real_Numbers.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Real Analysis" data-subtopic="Functions of One Real Variable 1.2">
               <td><strong>1.2</strong> Functions of One Real Variable</td>
               <td>Real Analysis</td>
               <td class="num-cell">155</td>
@@ -942,8 +1235,12 @@
               <td class="num-cell">27</td>
               <td class="num-cell">43</td>
               <td class="num-cell">17.5%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=1.2&amp;mode=official" class="table-action-pill" title="Launch 22-Year Single Variable Calculus CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_1.2_Functions_of_One_Real_Variable.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr class="highlight-row">
+            <tr class="highlight-row" data-domain="Real Analysis" data-subtopic="Subtotal Real Analysis">
               <td><strong>Subtotal: 1. Real Analysis</strong></td>
               <td><strong>Domain 1 (2 Subtopics)</strong></td>
               <td class="num-cell"><strong>286</strong></td>
@@ -952,8 +1249,11 @@
               <td class="num-cell"><strong>42</strong></td>
               <td class="num-cell"><strong>74</strong></td>
               <td class="num-cell"><strong>32.3%</strong></td>
+              <td>
+                <a href="../index.html#pyq-tracker" class="table-action-pill" title="Explore Real Analysis in PYQ Tracker">🎯 In Tracker</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Multivariable Calculus &amp; ODE" data-subtopic="Functions of Several Variables 2.1">
               <td><strong>2.1</strong> Functions of Several Variables</td>
               <td>Multivariable &amp; ODE</td>
               <td class="num-cell">78</td>
@@ -962,8 +1262,12 @@
               <td class="num-cell">13</td>
               <td class="num-cell">21</td>
               <td class="num-cell">8.8%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=2.1&amp;mode=official" class="table-action-pill" title="Launch 22-Year Several Variables CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.1_Functions_of_Two_or_Three_Real_Variables.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Multivariable Calculus &amp; ODE" data-subtopic="Integral Calculus 2.2">
               <td><strong>2.2</strong> Integral Calculus</td>
               <td>Multivariable &amp; ODE</td>
               <td class="num-cell">66</td>
@@ -972,8 +1276,12 @@
               <td class="num-cell">3</td>
               <td class="num-cell">28</td>
               <td class="num-cell">7.5%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=2.2&amp;mode=official" class="table-action-pill" title="Launch 22-Year Integral Calculus CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.2_Integral_Calculus.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Multivariable Calculus &amp; ODE" data-subtopic="Ordinary Differential Equations ODE 2.3">
               <td><strong>2.3</strong> Ordinary Differential Equations (ODE)</td>
               <td>Multivariable &amp; ODE</td>
               <td class="num-cell">113</td>
@@ -982,8 +1290,12 @@
               <td class="num-cell">12</td>
               <td class="num-cell">31</td>
               <td class="num-cell">12.8%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=2.3&amp;mode=official" class="table-action-pill" title="Launch 22-Year ODE CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_2.3_Differential_Equations.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr class="highlight-row">
+            <tr class="highlight-row" data-domain="Multivariable Calculus &amp; ODE" data-subtopic="Subtotal Multivariable Calculus &amp; ODE">
               <td><strong>Subtotal: 2. Multivariable Calculus &amp; ODE</strong></td>
               <td><strong>Domain 2 (3 Subtopics)</strong></td>
               <td class="num-cell"><strong>257</strong></td>
@@ -992,8 +1304,11 @@
               <td class="num-cell"><strong>28</strong></td>
               <td class="num-cell"><strong>80</strong></td>
               <td class="num-cell"><strong>29.0%</strong></td>
+              <td>
+                <a href="../index.html#pyq-tracker" class="table-action-pill" title="Explore Multivariable in PYQ Tracker">🎯 In Tracker</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Linear Algebra and Algebra" data-subtopic="Basic Algebra 3.1">
               <td><strong>3.1</strong> Basic Algebra (P&amp;C, Binomial)</td>
               <td>Linear Algebra &amp; Groups</td>
               <td class="num-cell">3</td>
@@ -1002,8 +1317,12 @@
               <td class="num-cell">1</td>
               <td class="num-cell">2</td>
               <td class="num-cell">0.3%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=3.1&amp;mode=official" class="table-action-pill" title="Launch Basic Algebra CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.1_Basic_Algebra.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Linear Algebra and Algebra" data-subtopic="Matrices Systems of Linear Equations 3.2">
               <td><strong>3.2</strong> Matrices &amp; Systems of Linear Eq.</td>
               <td>Linear Algebra &amp; Groups</td>
               <td class="num-cell">75</td>
@@ -1012,8 +1331,12 @@
               <td class="num-cell">9</td>
               <td class="num-cell">23</td>
               <td class="num-cell">8.5%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=3.2&amp;mode=official" class="table-action-pill" title="Launch 22-Year Matrices CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.2_Matrices_and_Systems_of_Linear_Equations.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Linear Algebra and Algebra" data-subtopic="Finite Dimensional Vector Spaces 3.3">
               <td><strong>3.3</strong> Finite Dimensional Vector Spaces</td>
               <td>Linear Algebra &amp; Groups</td>
               <td class="num-cell">76</td>
@@ -1022,8 +1345,12 @@
               <td class="num-cell">12</td>
               <td class="num-cell">20</td>
               <td class="num-cell">8.6%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=3.3&amp;mode=official" class="table-action-pill" title="Launch 22-Year Vector Spaces CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.3_Finite_Dimensional_Vector_Spaces.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Linear Algebra and Algebra" data-subtopic="Group Theory Groups 3.4">
               <td><strong>3.4</strong> Group Theory</td>
               <td>Linear Algebra &amp; Groups</td>
               <td class="num-cell">101</td>
@@ -1032,8 +1359,12 @@
               <td class="num-cell">16</td>
               <td class="num-cell">29</td>
               <td class="num-cell">11.4%</td>
+              <td>
+                <a href="../mock-test/test.html?topic=3.4&amp;mode=official" class="table-action-pill" title="Launch 22-Year Groups CBT Test">🚀 CBT</a>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_3.4_Groups.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Topic PDF">📄 PDF</a>
+              </td>
             </tr>
-            <tr class="highlight-row">
+            <tr class="highlight-row" data-domain="Linear Algebra and Algebra" data-subtopic="Subtotal Linear Algebra and Algebra">
               <td><strong>Subtotal: 3. Linear Algebra and Algebra</strong></td>
               <td><strong>Domain 3 (4 Subtopics)</strong></td>
               <td class="num-cell"><strong>255</strong></td>
@@ -1042,8 +1373,11 @@
               <td class="num-cell"><strong>38</strong></td>
               <td class="num-cell"><strong>74</strong></td>
               <td class="num-cell"><strong>28.8%</strong></td>
+              <td>
+                <a href="../index.html#pyq-tracker" class="table-action-pill" title="Explore Algebra in PYQ Tracker">🎯 In Tracker</a>
+              </td>
             </tr>
-            <tr>
+            <tr data-domain="Out of Syllabus" data-subtopic="Classical Out of Syllabus Topics 4.1">
               <td><strong>4.1</strong> Classical Out of Syllabus Topics</td>
               <td>Out of Syllabus (2005–2021)</td>
               <td class="num-cell">87</td>
@@ -1052,6 +1386,9 @@
               <td class="num-cell">12</td>
               <td class="num-cell">12</td>
               <td class="num-cell">9.8%</td>
+              <td>
+                <a href="../assets/Mock Tests_PDF/Archive_2005-2026_Topic_Out_of_Syllabus_Problems.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download OOS LaTeX PDF">📄 PDF</a>
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -1064,6 +1401,9 @@
               <td class="num-cell">120</td>
               <td class="num-cell">240</td>
               <td class="num-cell">100.0%</td>
+              <td>
+                <a href="../index.html#custom-generator" class="table-action-pill" title="Open Custom Mock Generator">🛠️ Generator</a>
+              </td>
             </tr>
           </tfoot>
         </table>
@@ -1092,7 +1432,7 @@
           <div class="info-card-p">
             <strong>Total: 525 Questions (59.3%)</strong><br>
             • Sec A carries 30 Qs (10 at 1M + 20 at 2M = 50 Marks).<br>
-            • Negative Marking: $-1/3$ for 1-mark and $-2/3$ for 2-mark questions.<br>
+            • Negative Marking: $-\frac{1}{3}$ ($-0.33$) for 1-mark and $-\frac{2}{3}$ ($-0.67$) for 2-mark questions.<br>
             • Highest risk of score erosion: requires elimination of distractors.
           </div>
         </div>
@@ -1134,7 +1474,7 @@
       <div class="dist-bar-card">
         <div class="dist-bar-header">
           <span>Cognitive Difficulty Distribution (885 Questions)</span>
-          <span style="color: var(--accent);">5-Tier Analytical Scale</span>
+          <span style="color: var(--accent); font-family: var(--font-mono);">5-Tier Analytical Scale</span>
         </div>
         <div class="dist-stacked-bar">
           <div class="dist-segment" style="width: 6.8%; background: #22c55e;" title="Very Easy: 60 Qs (6.8%)"></div>
@@ -1236,11 +1576,22 @@
     <article class="article-section" id="sec-7">
       <h2 class="section-heading"><span class="heading-num">07</span> Annual Examination Matrix (2005–2026)</h2>
       <p class="section-p">
-        The complete 22-year historical ledger of all examination papers digitized in the platform:
+        The complete 22-year historical ledger of all examination papers digitized in the platform. Click any year to launch the authentic interactive CBT mock test or download the formatted LaTeX PDF:
       </p>
 
+      <!-- Interactive Filter Toolbar -->
+      <div class="table-filter-bar">
+        <div class="filter-btn-group" role="group" aria-label="Filter by testing era">
+          <button type="button" class="filter-pill-btn active" data-filter="all" onclick="window.filterYearTable('all', this)">All Eras (22)</button>
+          <button type="button" class="filter-pill-btn" data-filter="recent" onclick="window.filterYearTable('recent', this)">Recent CBT (5)</button>
+          <button type="button" class="filter-pill-btn" data-filter="cbt" onclick="window.filterYearTable('cbt', this)">Established CBT (7)</button>
+          <button type="button" class="filter-pill-btn" data-filter="classic" onclick="window.filterYearTable('classic', this)">Classic Paper (10)</button>
+        </div>
+        <input type="text" id="year-search" class="table-search-input" placeholder="🔍 Search year, pattern, or era..." oninput="window.searchYearTable()">
+      </div>
+
       <div class="table-wrapper">
-        <table class="analytics-table">
+        <table class="analytics-table" id="year-matrix-table">
           <thead>
             <tr>
               <th class="num-cell">Year</th>
@@ -1251,31 +1602,32 @@
               <th class="num-cell">MSQ</th>
               <th class="num-cell">NAT</th>
               <th>Paper Structure &amp; Specifications</th>
+              <th>Interactive Simulation &amp; PDF</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td class="num-cell">2026</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2025</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2024</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2023</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2022</td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2021</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2020</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2019</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2018</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2017</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2016</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2015</td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>First year of CBT format (Sec A: 30, Sec B: 10, Sec C: 20)</td></tr>
-            <tr><td class="num-cell">2014</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">35</td><td class="num-cell">60</td><td class="num-cell">35</td><td class="num-cell">0</td><td class="num-cell">0</td><td>Transitional 35 objective questions (10 at 1M, 25 at 2M)</td></tr>
-            <tr><td class="num-cell">2013</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">10</td><td class="num-cell">20</td><td class="num-cell">10</td><td class="num-cell">0</td><td class="num-cell">0</td><td>10 objective questions (2 marks each)</td></tr>
-            <tr><td class="num-cell">2012</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2011</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2010</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2009</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2008</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2007</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2006</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td></tr>
-            <tr><td class="num-cell">2005</td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>Inaugural IIT JAM Mathematics examination (15 at 6M)</td></tr>
+            <tr data-era="recent" data-year="2026"><td class="num-cell"><strong>2026</strong></td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2026&amp;mode=official" class="table-action-pill" title="Launch official 2026 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2026_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="recent" data-year="2025"><td class="num-cell"><strong>2025</strong></td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2025&amp;mode=official" class="table-action-pill" title="Launch official 2025 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2025_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="recent" data-year="2024"><td class="num-cell"><strong>2024</strong></td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2024&amp;mode=official" class="table-action-pill" title="Launch official 2024 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2024_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="recent" data-year="2023"><td class="num-cell"><strong>2023</strong></td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2023&amp;mode=official" class="table-action-pill" title="Launch official 2023 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2023_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="recent" data-year="2022"><td class="num-cell"><strong>2022</strong></td><td><span class="era-badge cbt-recent">Recent CBT</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2022&amp;mode=official" class="table-action-pill" title="Launch official 2022 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2022_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2021"><td class="num-cell"><strong>2021</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2021&amp;mode=official" class="table-action-pill" title="Launch official 2021 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2021_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2020"><td class="num-cell"><strong>2020</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2020&amp;mode=official" class="table-action-pill" title="Launch official 2020 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2020_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2019"><td class="num-cell"><strong>2019</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2019&amp;mode=official" class="table-action-pill" title="Launch official 2019 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2019_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2018"><td class="num-cell"><strong>2018</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2018&amp;mode=official" class="table-action-pill" title="Launch official 2018 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2018_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2017"><td class="num-cell"><strong>2017</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2017&amp;mode=official" class="table-action-pill" title="Launch official 2017 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2017_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2016"><td class="num-cell"><strong>2016</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>Standard 3-hour CBT (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2016&amp;mode=official" class="table-action-pill" title="Launch official 2016 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2016_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="cbt" data-year="2015"><td class="num-cell"><strong>2015</strong></td><td><span class="era-badge cbt-est">CBT Era</span></td><td class="num-cell">60</td><td class="num-cell">100</td><td class="num-cell">30</td><td class="num-cell">10</td><td class="num-cell">20</td><td>First year of CBT format (Sec A: 30, Sec B: 10, Sec C: 20)</td><td><a href="../mock-test/test.html?topic=2015&amp;mode=official" class="table-action-pill" title="Launch official 2015 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2015_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2014"><td class="num-cell"><strong>2014</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">35</td><td class="num-cell">60</td><td class="num-cell">35</td><td class="num-cell">0</td><td class="num-cell">0</td><td>Transitional 35 objective questions (10 at 1M, 25 at 2M)</td><td><a href="../mock-test/test.html?topic=2014&amp;mode=official" class="table-action-pill" title="Launch official 2014 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2014_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2013"><td class="num-cell"><strong>2013</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">10</td><td class="num-cell">20</td><td class="num-cell">10</td><td class="num-cell">0</td><td class="num-cell">0</td><td>10 objective questions (2 marks each)</td><td><a href="../mock-test/test.html?topic=2013&amp;mode=official" class="table-action-pill" title="Launch official 2013 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2013_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2012"><td class="num-cell"><strong>2012</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2012&amp;mode=official" class="table-action-pill" title="Launch official 2012 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2012_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2011"><td class="num-cell"><strong>2011</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2011&amp;mode=official" class="table-action-pill" title="Launch official 2011 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2011_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2010"><td class="num-cell"><strong>2010</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2010&amp;mode=official" class="table-action-pill" title="Launch official 2010 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2010_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2009"><td class="num-cell"><strong>2009</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2009&amp;mode=official" class="table-action-pill" title="Launch official 2009 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2009_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2008"><td class="num-cell"><strong>2008</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2008&amp;mode=official" class="table-action-pill" title="Launch official 2008 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2008_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2007"><td class="num-cell"><strong>2007</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2007&amp;mode=official" class="table-action-pill" title="Launch official 2007 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2007_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2006"><td class="num-cell"><strong>2006</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>15 high-weightage objective problems (6 marks each)</td><td><a href="../mock-test/test.html?topic=2006&amp;mode=official" class="table-action-pill" title="Launch official 2006 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2006_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
+            <tr data-era="classic" data-year="2005"><td class="num-cell"><strong>2005</strong></td><td><span class="era-badge classic">Classic Paper</span></td><td class="num-cell">15</td><td class="num-cell">90</td><td class="num-cell">15</td><td class="num-cell">0</td><td class="num-cell">0</td><td>Inaugural IIT JAM Mathematics examination (15 at 6M)</td><td><a href="../mock-test/test.html?topic=2005&amp;mode=official" class="table-action-pill" title="Launch official 2005 CBT Simulation">🚀 Start CBT</a> <a href="../assets/Mock Tests_PDF/IIT_JAM_2005_Mock_Test.pdf" target="_blank" rel="noopener noreferrer" class="table-action-pill" title="Download LaTeX Mock PDF">📄 PDF</a></td></tr>
           </tbody>
           <tfoot>
             <tr class="total-row">
@@ -1287,6 +1639,7 @@
               <td class="num-cell">120</td>
               <td class="num-cell">240</td>
               <td>Complete 22-Year Historical Archive</td>
+              <td><a href="../index.html#year-tests" class="table-action-pill" title="Browse All Year Mock Tests">📚 All Year Tests</a></td>
             </tr>
           </tfoot>
         </table>
@@ -1315,8 +1668,8 @@
           <div class="info-card-title">📦 Digital Assets &amp; Document Inventory</div>
           <div class="info-card-p">
             • <strong>885 PNG Question Cards:</strong> Precision-cropped original problem cards matching official print layout.<br>
-            • <strong>56 Pre-compiled LaTeX Mock PDFs:</strong> Ready-to-print papers formatted in standard LaTeX styling with master keys.<br>
-            • <strong>Master Historical Archive:</strong> Single consolidated 35.2 MB original PDF collection spanning 2005–2026.<br>
+            • <strong>59 Pre-compiled LaTeX Mock PDFs:</strong> Ready-to-print papers formatted in standard LaTeX styling with master keys (22 Annual + 27 Era + 10 All-Time Topic PDFs).<br>
+            • <strong>Master Historical Archive:</strong> Single consolidated ~33.6 MB original PDF collection spanning 2005–2026.<br>
             • <strong>Real-Time Countdown Engine:</strong> Dedicated countdown timer and study shortcuts for JAM 2027.
           </div>
         </div>
@@ -1348,7 +1701,7 @@
       <div class="insight-box">
         <div class="insight-title">4. Adopt Tiered Difficulty Drills</div>
         Use the platform's difficulty filter to progress methodically:
-        <code>Easy/Medium (345 Qs)</code> $\to$ build fundamental computational speed $\to$ then tackle <code>Hard/Hardest (480 Qs)</code> to refine edge-case reasoning and multi-statement MSQ analysis.
+        <code>Easy/Medium (345 Qs)</code> &rarr; build fundamental computational speed &rarr; then tackle <code>Hard/Hardest (480 Qs)</code> to refine edge-case reasoning and multi-statement MSQ analysis.
       </div>
 
       <div class="insight-box green">
@@ -1365,8 +1718,11 @@
 
   </main>
 
+  <!-- Floating Back to Top Button -->
+  <button type="button" class="floating-top-btn" id="floating-top-btn" onclick="window.scrollToTop()" title="Back to Top" aria-label="Back to Top">↑</button>
+
   <!-- Footer -->
-  <footer style="width: 100%; border-top: 1px solid var(--card-border); background: #070a12; padding: 35px 20px; text-align: center; color: var(--muted); font-size: 0.82rem; line-height: 1.6;">
+  <footer style="width: 100%; border-top: 1px solid var(--card-border); background: var(--bg-surface); padding: 35px 20px; text-align: center; color: var(--muted); font-size: 0.82rem; line-height: 1.6;">
     <p style="margin-bottom: 8px;">
       <strong>IIT JAM Mathematics (MA) CBT Platform &amp; Examination Archive</strong> • Curated by <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">Vaibhav Geometer</a>
     </p>
@@ -1378,10 +1734,101 @@
       <a href="../index.html#pyq-tracker" style="color: var(--text-secondary); text-decoration: none;">PYQ Tracker</a> • 
       <a href="../index.html#custom-generator" style="color: var(--text-secondary); text-decoration: none;">Custom Generator</a> • 
       <a href="../countdown/" style="color: var(--text-secondary); text-decoration: none;">2027 Countdown</a> • 
-      <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" style="color: var(--accent); text-decoration: none;">↑ Back to Top</a>
+      <a href="../assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Syllabus PDF</a> • 
+      <a href="../assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">Master Archive PDF</a> • 
+      <a href="javascript:window.scrollToTop();" style="color: var(--accent); text-decoration: none;">↑ Back to Top</a>
     </p>
   </footer>
 
+  <script>
+    // --- Theme Management ---
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try {
+        localStorage.setItem('jam_theme', next);
+      } catch (e) {}
+      updateThemeBtn(next);
+    };
+
+    function updateThemeBtn(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) {
+        btn.innerHTML = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
+      }
+    }
+
+    // --- Smooth Scroll to Top ---
+    window.scrollToTop = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // --- Table Filtering: Section 7 (Year Matrix) ---
+    window.filterYearTable = function(era, btn) {
+      const rows = document.querySelectorAll('#year-matrix-table tbody tr');
+      const buttons = document.querySelectorAll('.filter-pill-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const searchVal = (document.getElementById('year-search')?.value || '').toLowerCase().trim();
+
+      rows.forEach(row => {
+        const rowEra = row.getAttribute('data-era') || '';
+        const rowText = row.innerText.toLowerCase();
+        const matchesEra = (era === 'all' || rowEra === era);
+        const matchesSearch = (!searchVal || rowText.includes(searchVal));
+        row.style.display = (matchesEra && matchesSearch) ? '' : 'none';
+      });
+    };
+
+    window.searchYearTable = function() {
+      const activeBtn = document.querySelector('.filter-pill-btn.active');
+      const currentEra = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+      window.filterYearTable(currentEra, activeBtn);
+    };
+
+    // --- Table Filtering: Section 3 (Subtopics Table) ---
+    window.filterSubtopicsTable = function() {
+      const q = (document.getElementById('subtopic-search')?.value || '').toLowerCase().trim();
+      const rows = document.querySelectorAll('#subtopics-table tbody tr');
+      rows.forEach(row => {
+        if (!q) {
+          row.style.display = '';
+          return;
+        }
+        const text = (row.getAttribute('data-subtopic') || '') + ' ' + (row.getAttribute('data-domain') || '') + ' ' + row.innerText;
+        row.style.display = text.toLowerCase().includes(q) ? '' : 'none';
+      });
+    };
+
+    // --- Reading Progress & Floating Back-to-Top ---
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      const progressBar = document.getElementById('reading-progress');
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+
+      const topBtn = document.getElementById('floating-top-btn');
+      if (topBtn) {
+        if (winScroll > 450) {
+          topBtn.classList.add('visible');
+        } else {
+          topBtn.classList.remove('visible');
+        }
+      }
+    }, { passive: true });
+
+    // --- Initialize Theme Button State on DOM Ready ---
+    document.addEventListener('DOMContentLoaded', function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeBtn(current);
+    });
+  </script>
+
 </body>
 </html>
-
