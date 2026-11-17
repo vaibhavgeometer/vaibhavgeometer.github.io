@@ -6,6 +6,9 @@
 [![JAM Live Portal](https://img.shields.io/badge/JAM%20Portal-vaibhavgeometer.github.io%2FJAM-success?logo=github)](https://vaibhavgeometer.github.io/JAM/)
 [![PYQ Tracker](https://img.shields.io/badge/PYQ%20Tracker-885%20PYQs%20%26%205--Tier%20Difficulty-brightgreen.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![Study Analytics](https://img.shields.io/badge/Study%20Analytics-Streaks%20%26%20Topic%20Mastery-blueviolet.svg)](https://vaibhavgeometer.github.io/JAM/)
+[![22-Year Analytics](https://img.shields.io/badge/22--Year%20Analytics-885%20PYQs%20Report-orange.svg)](academic/JAM/analytics/)
+[![UNPG Results](https://img.shields.io/badge/UNPG%20Results-BSc%20Math%202024--2028-0ea5e9.svg)](academic/unpg-results/)
+[![Android App](https://img.shields.io/badge/Android%20App-APK%20Download-green.svg?logo=android)](https://median.co/share/lpapemy#apk)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
@@ -13,8 +16,10 @@
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](academic/JAM/assets/iit_jam_pyqs_categorized.json)
 [![CUET-PG Archive](https://img.shields.io/badge/CUET--PG-2024--2026%20Papers-teal.svg)](academic/CUET-PG/)
 
-> **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics:
-> - **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, cloud sync via Google Drive / JSON, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, and authentic CBT examination simulator with virtual scientific calculator, alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
+> **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics across three core pillars:
+> 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, zero-login 6-digit edge sync via Cloudflare KV worker and Google Drive / JSON backups, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, authentic CBT examination simulator with virtual scientific calculator, the definitive [22-Year Project Statistics & Analytics Report](academic/JAM/analytics/) (and [PDF Report](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf)), alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
+> 2. **[UNPG BSc Mathematics Results Portal (2024–2028)](academic/unpg-results/)**: Official university examination records, instant roll/name finder, merit leaderboards, 42 course toppers, 4 semester master compilation PDFs, and consolidated individual student scorecards across Semesters I–IV for UNPG Padrauna (DDU Gorakhpur University).
+> 3. **[Official Mobile Application (Android APK)](https://median.co/share/lpapemy#apk)**: Standalone native Android application powered by Median.co for direct fullscreen mobile access to all academic portals, CBT mock test simulations, and student scorecards.
 
 ---
 
@@ -26,6 +31,7 @@
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, study tracker, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
 | 🎯 **JAM PYQ Tracker & Search** | Universal question bank for all 885 PYQs with 5-tier difficulty tags & study status | [Open PYQ Tracker](https://vaibhavgeometer.github.io/JAM/#tracker) |
 | 📈 **JAM Study Analytics & Streaks** | Daily question velocity, active study streaks, topic mastery & exam completion forecast | [View Study Analytics](https://vaibhavgeometer.github.io/JAM/#stats) |
+| 📊 **22-Year JAM Analytics Report** | Comprehensive empirical study, domain weightage & difficulty analysis across all 885 PYQs | [Open Analytics Dashboard](academic/JAM/analytics/) • [View PDF](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf) |
 | 💻 **CBT Simulator** | Real exam interface with question palette, countdown timer & scientific calculator | [Launch CBT Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
 | ⏳ **JAM 2027 Countdown** | Live ticking countdown timer to 14 February 2027 | [Open Countdown](https://vaibhavgeometer.github.io/JAM/countdown/) |
 | 🛠️ **Difficulty-Aware Test Generator** | Generate custom tests & PDFs filtered by topic, question type, era, and difficulty | [Open Custom Generator](https://vaibhavgeometer.github.io/JAM/#custom-generator) |
@@ -33,8 +39,8 @@
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Cheat Sheets](#-14-high-yield-formula-cheat-sheets) |
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
-| 🏛️ **UNPG Results Portal** | Semester marks & results lookup for UNPG BSc Mathematics | [Explore Results](academic/unpg-results/) |
-| 📱 **Official Android App** | Standalone APK download for mobile devices via Median.co | [Download APK](https://median.co/share/lpapemy#apk) |
+| 🏛️ **UNPG Results Portal** | Semester marks & results lookup for UNPG BSc Mathematics (Batch 2024–2028) | [Explore Results](academic/unpg-results/) |
+| 📱 **Official Android App** | Standalone APK download for mobile devices via Median.co | [Download APK](https://median.co/share/lpapemy#apk) • [App Page](https://median.co/share/lpapemy) |
 
 ---
 
@@ -82,7 +88,8 @@
 - **Completion Forecasting**:
   - Projects syllabus completion dates and recommended daily quotas based on the target exam date (14 February 2027).
 
-#### 5. Cloud Sync & Multi-Device Backup (`cloud_sync.js`)
+#### 5. Cloud Sync & Multi-Device Backup (`cloud_sync.js` & `cloudflare-worker/`)
+- **Instant 6-Digit Edge Sync**: Zero-login, real-time cloud synchronization powered by an edge Cloudflare Worker with KV storage (`academic/JAM/cloudflare-worker/`). Share and restore study progress between desktop, tablet, and mobile instantly with a 6-digit sync key.
 - **Google Drive & Cloud Integration**: Seamless cloud synchronization of study progress, question statuses, test history, bookmarks, and custom notes.
 - **JSON Import / Export**: One-click export of complete study state to JSON files for offline backups or transferring between devices.
 
@@ -124,13 +131,45 @@
 
 #### 10. 9 Comprehensive Full-Archive Subtopic Mock Tests (2005–2026 • 798 PYQs)
 - Master tests aggregating all 22 years of questions for each of the 9 core syllabus subtopics.
-- **Out-of-Syllabus Isolation**: 87 obsolete questions from topics removed prior to 2022 (e.g., Vector Calculus [Green's/Stokes'/Divergence theorems, surface integrals], Metric Spaces / Point Set Topology, Rings & Fields, Linear Programming, and Numerical Analysis) have been cleanly isolated to avoid distractive preparation for modern exams.
+- **Out-of-Syllabus Isolation**: 87 obsolete questions from topics removed prior to 2022 (e.g., Vector Calculus [Green's/Stokes'/Divergence theorems, surface integrals], Metric Spaces / Point Set Topology, Rings & Fields, Linear Programming, and Numerical Analysis) have been cleanly isolated into dedicated legacy archives (`Archive_2005-2026_Topic_Out_of_Syllabus_Problems.pdf`) to avoid distractive preparation for modern exams.
 
 #### 11. 14 High-Yield Formula Cheat Sheets
 - High-yield, concise vector PDF revision cheat sheets covering Sequences, Series, Single & Multivariable Calculus, Integral Calculus, ODE, Linear Algebra, and Group Theory.
 
-#### 12. CUET-PG Mathematics Examination Archive (2024–2026)
+#### 12. 22-Year Project Statistics & Analytics Report (`academic/JAM/analytics/`)
+- **Empirical Study Across 22 Years**: Comprehensive research analytics report analyzing all 885 official questions and 2,000 marks from 2005 through 2026.
+- **Subject Domain Weightage Distribution**:
+  - **Real Analysis**: 34.6% of total historical marks (286 questions, 621 marks).
+  - **Linear Algebra & Modern Algebra**: 28.8% of total historical marks (255 questions, 559 marks).
+  - **Multivariable Calculus & Differential Equations**: 26.8% of total historical marks (257 questions, 542 marks).
+  - **Classical Out-of-Syllabus / Legacy Topics**: 9.8% of total historical marks (87 questions, 278 marks, isolated).
+- **Cognitive Difficulty Distribution**: Full 5-tier taxonomy breakdown showing distribution across Very Easy (12.2%), Easy (34.0%), Medium (34.2%), Hard (15.5%), and Hardest (4.1%).
+- **Interactive Web Dashboard & 10-Page Publication PDF**: Features an interactive analytics dashboard at [academic/JAM/analytics/](academic/JAM/analytics/) and a pre-compiled, publication-quality 10-page vector PDF report at [IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf).
+
+#### 13. CUET-PG Mathematics Examination Archive (2024–2026)
 - **Central Universities Entrance Test (CUET-PG)**: Full official master question papers for 2024, 2025, and 2026 available directly for download and reference in `academic/CUET-PG/`.
+
+---
+
+### 🏛 UNPG BSc Mathematics (2024–2028) Results & Records Portal
+
+Located at [`academic/unpg-results/`](academic/unpg-results/), this dedicated portal serves the Bachelor of Science (Mathematics Group) NEP 2020 4-Year Undergraduate Program cohort at UNPG Padrauna (affiliated with Deen Dayal Upadhyaya Gorakhpur University):
+
+- **Comprehensive Cohort Records**: Complete database covering all 70 enrolled students across Semesters I, II, III, and IV.
+- **Instant Student Result Finder**: Instant live search by student full name, roll number, or 3-digit roll suffix.
+- **Merit Leaderboard & Subject Toppers**: Dynamic rankings for overall CGPA, semester SGPAs, and specific course toppers across 42 individual curriculum subjects.
+- **Consolidated Individual Student PDFs (`assets/students/`)**: One-click download of high-resolution, multi-semester consolidated scorecards for each student in the batch.
+- **Master University Compilation PDFs (`assets/semesters/`)**: Official tabular university compilation sheets for Semesters I through IV for archival and administrative verification.
+
+---
+
+### 📱 Official Android Mobile Application
+
+The official mobile app is built and distributed via Median.co to provide students with a distraction-free mobile study environment:
+
+- **Fullscreen Native Mobile Experience**: Seamless, responsive mobile interface without browser address bars, tabs, or interface clutter.
+- **Direct Access to All Portals**: Fast switching between the IIT JAM CBT Simulator, Universal PYQ Tracker, UNPG Results, and Formula Sheets.
+- **Direct Download & QR Code**: Available directly as a standalone Android APK from [Median.co Download](https://median.co/share/lpapemy#apk) and via QR code on the [App Showcase Page](https://median.co/share/lpapemy).
 
 ---
 
@@ -241,9 +280,15 @@ The project is cleanly decoupled into dedicated functional domains while maintai
 vaibhavgeometer.github.io/
 │
 ├── academic/                                  # 🎓 Academic & Examination Ecosystem
-│   ├── index.html                             # Academic hub & exam selector
+│   ├── index.html                             # Academic hub, exam selector & degree records
 │   ├── JAM/                                   # Complete IIT JAM Mathematics Portal
 │   │   ├── index.html                         # Main JAM examination portal, test selector & tracker
+│   │   ├── analytics/                         # 📊 22-Year Project Statistics & Analytics Report
+│   │   │   └── index.html                     # Interactive analytics dashboard & empirical study
+│   │   ├── cloudflare-worker/                 # ☁️ 6-Digit KV cloud sync edge worker
+│   │   │   ├── worker.js                      # Edge Cloudflare Worker script
+│   │   │   ├── wrangler.toml                  # Cloudflare Wrangler deployment configuration
+│   │   │   └── README.md                      # Quick deployment instructions
 │   │   ├── countdown/                         # Live JAM 2027 countdown timer
 │   │   ├── mock-test/                         # Authentic CBT examination simulator
 │   │   │   ├── test.html                      # Real CBT testing interface & scientific calculator
@@ -258,10 +303,31 @@ vaibhavgeometer.github.io/
 │   │   │   ├── cloud_sync.js                  # Google Drive & JSON progress synchronization
 │   │   │   ├── custom_pdf_generator.js        # Difficulty-aware custom test & PDF compiler
 │   │   │   └── questions_data.js              # Compiled questions metadata dataset
-│   │   └── assets/                            # 56 Mock PDFs, PYQs, Formula Sheets, Answer Keys
-│   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024–2026 PDFs)
-│   ├── unpg-results/                          # UNPG BSc Mathematics Results Lookup Portal
-│   └── scripts/                               # Data pipeline & Typst PDF generation compilers
+│   │   └── assets/                            # 56 Mock PDFs, PYQs, Formula Sheets, Answer Keys, Analytics PDF
+│   │       ├── IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf
+│   │       ├── MA2005-2026_Original_PYQs.pdf  # 22-Year original question papers
+│   │       ├── Syllabus.pdf                   # Official examination syllabus
+│   │       ├── Mock Tests_PDF/                # 56 publication-quality LaTeX test PDFs
+│   │       ├── PYQs_Answer Keys/              # Master verified answer keys
+│   │       ├── PYQs_Screenshots/              # Original question paper cropped screenshots
+│   │       └── cheat-sheets/                  # 14 high-yield formula cheat sheets
+│   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024, 2025, 2026 PDFs)
+│   ├── unpg-results/                          # 🏛️ UNPG BSc Mathematics Results Lookup Portal
+│   │   ├── index.html                         # Results portal UI, student finder & leaderboards
+│   │   ├── css/results.css                    # Results portal stylesheet & glassmorphic cards
+│   │   ├── js/                                # Search engine & cohort dataset:
+│   │   │   ├── app.js                         # Student search, profile modal & topper tables
+│   │   │   └── results_data.js                # Compiled marks & ranking data for 70 students
+│   │   └── assets/                            # Master & individual student result PDFs:
+│   │       ├── semesters/                     # Semesters I–IV master university compilation sheets
+│   │       └── students/                      # 70 consolidated individual student scorecards
+│   └── scripts/                               # Data pipeline & Typst/Python PDF generation compilers:
+│       ├── generate_project_statistics_pdf.py # Analytics report PDF generator
+│       ├── generate_out_of_syllabus_pdf.py    # Out-of-syllabus archive PDF compiler
+│       ├── generate_all_mock_test_pdfs.py     # Batch 56 mock tests PDF compiler
+│       ├── generate_all_22_years_data.py      # Master question dataset compiler
+│       ├── extract_pyqs_screenshots.py        # Question screenshot extraction tool
+│       └── extract_all_pyqs_2005_2021.py      # Historical question extractor
 │
 ├── css/                                       # 🌐 Glassmorphism design system & portal stylesheet
 │   └── portfolio.css
@@ -284,6 +350,8 @@ vaibhavgeometer.github.io/
 - **PDF Compilation**: Typst (`typst` Python API for publication-quality batch PDF generation) and jsPDF (`jspdf.umd.min.js` + `autotable` for in-browser on-demand compilation).
 - **Math Typesetting**: [MathJax 3](https://www.mathjax.org/) configured with TeX SVG rendering.
 - **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `typst`, `json`, `re`).
+- **Edge Functions**: Cloudflare Worker with Cloudflare KV storage (`academic/JAM/cloudflare-worker/`).
+- **Mobile Distribution**: Median.co native Android application wrapper (`APK`).
 - **Hosting & CI/CD**: [GitHub Pages](https://pages.github.com/).
 
 ---
@@ -340,9 +408,38 @@ python scripts/generate_all_mock_test_pdfs.py
 ```
 This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generates `mock_tests_manifest.json`.
 
+### 3. Re-generating 22-Year Project Statistics & Analytics PDF
+To compile the publication-grade 10-page vector PDF report for the 22-Year IIT JAM Mathematics project:
+```bash
+cd academic
+python scripts/generate_project_statistics_pdf.py
+```
+This compiles `academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf`.
+
+### 4. Re-generating Out-of-Syllabus Legacy Problem PDFs
+To re-compile the 87 isolated out-of-syllabus legacy questions across the Classic and CBT eras:
+```bash
+cd academic
+python scripts/generate_out_of_syllabus_pdf.py
+```
+This compiles all 3 legacy test PDFs in `academic/JAM/assets/Mock Tests_PDF/`.
+
 ---
 
 ## 🚀 Recent Updates
+
+### November 2026 — Official Android Mobile App Launch
+- **Standalone Native Android APK**: Built and released the official Android application wrapper via Median.co, offering distraction-free fullscreen navigation, instant access to all academic portals, CBT simulation, and offline-friendly study sessions. Available via direct download at [Median.co Download](https://median.co/share/lpapemy#apk) and on the [App Showcase Page](https://median.co/share/lpapemy).
+
+### November 2026 — 22-Year IIT JAM Mathematics Analytics Report & Statistics Dashboard
+- **Comprehensive Empirical Study (`academic/JAM/analytics/`)**: Launched an in-depth analytics article and interactive web dashboard breaking down 885 official questions, 2,000 total marks, domain weightages, cognitive difficulty hierarchy, and testing eras (2005–2026).
+- **Publication-Quality Vector PDF Report**: Typeset and released a 10-page vector PDF report (`academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf`) with high-resolution charts, tables, and strategic preparation takeaways for aspirants.
+
+### November 2026 — UNPG BSc Mathematics (2024–2028) Results Portal
+- **Cohort Examination Records (`academic/unpg-results/`)**: Deployed a dedicated examination portal for all 70 students of UNPG Padrauna (DDU Gorakhpur University, NEP 2020 4-Year Undergraduate Program), featuring instant student search by roll number or name, merit leaderboards, 42 course toppers, 4 semester master compilation PDFs, and 70 individual consolidated scorecards.
+
+### November 2026 — CUET-PG Mathematics Archive Expansion
+- **Official Question Papers (2024–2026)**: Expanded the CUET-PG repository in `academic/CUET-PG/` to include full official master question papers for 2024, 2025, and 2026 for comprehensive postgraduate entrance preparation.
 
 ### November 2026 — Architecture Refactoring & Asset Standardization
 - **CSS Modularization (`css/portfolio.css`)**: Centralized design system stylesheet into `css/portfolio.css`, updating all relative link imports and 404 router aliases.
@@ -352,7 +449,7 @@ This compiles all 56 PDFs into `academic/JAM/assets/Mock Tests_PDF/` and generat
 - **IIT JAM 5-Tier Difficulty Engine (`pyq_difficulty.js`)**: Developed and deployed a standardized 5-level difficulty taxonomy (🟢 Very Easy, 🔵 Easy, 🟡 Medium, 🟠 Hard, 🟣 Hardest) across all 885 official PYQs. Includes an automated exam-structure inference fallback engine (distinguishing 1M/2M MCQs, MSQs, and NATs) with user override persistence in `localStorage`.
 - **Universal PYQ Tracker & Question Search Engine (`pyq_tracker.js`, `tracker.css`)**: Built an interactive searchable question bank covering all 885 PYQs with instant status toggles (Unattempted, Solved, Incorrect, Starred), custom notes modal, high-resolution original paper screenshots, official answer keys, and semantic concept search aliasing (e.g., `differential equations`, `eigenvalues`, `abelian groups`).
 - **Study Stats, Streaks & Topic Mastery Analytics Engine (`stats.js`)**: Real-time tracking of daily questions solved, current/best study streaks, weekly/monthly solving velocity, subject topic mastery breakdowns, and exam forecast targets.
-- **Cloud Sync (`cloud_sync.js`)**: Google Drive and JSON import/export integration to sync question progress, custom notes, bookmarks, and test history across multiple devices.
+- **Cloud Sync (`cloud_sync.js` & `cloudflare-worker/`)**: Google Drive, JSON import/export, and zero-login 6-digit Cloudflare KV edge worker integration to sync question progress, custom notes, bookmarks, and test history across multiple devices.
 - **Difficulty-Filtered Custom Tests & PDFs**: Extended `custom_pdf_generator.js` and CBT test generator to support filtering by difficulty tiers, enabling students to compile tailored mock tests and publication-grade LaTeX PDFs targeting specific difficulty levels.
 
 ### August 2026 — JAM Portal & CBT Simulator Code Audit
