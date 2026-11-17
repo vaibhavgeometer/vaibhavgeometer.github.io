@@ -276,6 +276,11 @@ body {
   margin-bottom: 1.75rem;
 }
 
+.jam-card .jam-actions:last-child,
+.jam-actions:last-child {
+  margin-bottom: 0;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
