@@ -8,7 +8,7 @@
 [![Study Analytics](https://img.shields.io/badge/Study%20Analytics-Streaks%20%26%20Topic%20Mastery-blueviolet.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![22-Year Analytics](https://img.shields.io/badge/22--Year%20Analytics-885%20PYQs%20Report-orange.svg)](academic/JAM/analytics/)
 [![UNPG Results](https://img.shields.io/badge/UNPG%20Results-BSc%20Math%202024--2028-0ea5e9.svg)](academic/unpg-results/)
-[![Android App](https://img.shields.io/badge/Android%20App-APK%20Download-green.svg?logo=android)](https://median.co/share/lpapemy#apk)
+[![Android App](https://img.shields.io/badge/Android%20App-APK%20Download-green.svg?logo=android)](app-release.apk)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
@@ -19,7 +19,7 @@
 > **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics across three core pillars:
 > 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, zero-login 6-digit edge sync via Cloudflare KV worker and Google Drive / JSON backups, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, authentic CBT examination simulator with virtual scientific calculator, the definitive [22-Year Project Statistics & Analytics Report](academic/JAM/analytics/) (and [PDF Report](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf)), alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
 > 2. **[UNPG BSc Mathematics Results Portal (2024–2028)](academic/unpg-results/)**: Official university examination records, instant roll/name finder, merit leaderboards, 42 course toppers, 4 semester master compilation PDFs, and consolidated individual student scorecards across Semesters I–IV for UNPG Padrauna (DDU Gorakhpur University).
-> 3. **[Official Mobile Application (Android APK)](https://median.co/share/lpapemy#apk)**: Standalone native Android application powered by Median.co for direct fullscreen mobile access to all academic portals, CBT mock test simulations, and student scorecards.
+> 3. **[Official Mobile Application (Android APK)](app-release.apk)**: Standalone native Android application for direct fullscreen mobile access to all academic portals, CBT mock test simulations, and student scorecards.
 
 ---
 
@@ -40,7 +40,7 @@
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
 | 🏛️ **UNPG Results Portal** | Semester marks & results lookup for UNPG BSc Mathematics (Batch 2024–2028) | [Explore Results](academic/unpg-results/) |
-| 📱 **Official Android App** | Standalone APK download for mobile devices via Median.co | [Download APK](https://median.co/share/lpapemy#apk) • [App Page](https://median.co/share/lpapemy) |
+| 📱 **Official Android App** | Standalone APK download for mobile devices | [Download APK (app-release.apk)](app-release.apk) |
 
 ---
 
@@ -165,11 +165,11 @@ Located at [`academic/unpg-results/`](academic/unpg-results/), this dedicated po
 
 ### 📱 Official Android Mobile Application
 
-The official mobile app is built and distributed via Median.co to provide students with a distraction-free mobile study environment:
+The official mobile app provides students with a distraction-free mobile study environment:
 
 - **Fullscreen Native Mobile Experience**: Seamless, responsive mobile interface without browser address bars, tabs, or interface clutter.
 - **Direct Access to All Portals**: Fast switching between the IIT JAM CBT Simulator, Universal PYQ Tracker, UNPG Results, and Formula Sheets.
-- **Direct Download & QR Code**: Available directly as a standalone Android APK from [Median.co Download](https://median.co/share/lpapemy#apk) and via QR code on the [App Showcase Page](https://median.co/share/lpapemy).
+- **Direct One-Click Download**: Available directly as a standalone Android APK via [Direct Download (app-release.apk)](app-release.apk).
 
 ---
 
@@ -351,7 +351,7 @@ vaibhavgeometer.github.io/
 - **Math Typesetting**: [MathJax 3](https://www.mathjax.org/) configured with TeX SVG rendering.
 - **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `typst`, `json`, `re`).
 - **Edge Functions**: Cloudflare Worker with Cloudflare KV storage (`academic/JAM/cloudflare-worker/`).
-- **Mobile Distribution**: Median.co native Android application wrapper (`APK`).
+- **Mobile Distribution**: Direct standalone Android package (`app-release.apk`).
 - **Hosting & CI/CD**: [GitHub Pages](https://pages.github.com/).
 
 ---
@@ -429,7 +429,7 @@ This compiles all 3 legacy test PDFs in `academic/JAM/assets/Mock Tests_PDF/`.
 ## 🚀 Recent Updates
 
 ### November 2026 — Official Android Mobile App Launch
-- **Standalone Native Android APK**: Built and released the official Android application wrapper via Median.co, offering distraction-free fullscreen navigation, instant access to all academic portals, CBT simulation, and offline-friendly study sessions. Available via direct download at [Median.co Download](https://median.co/share/lpapemy#apk) and on the [App Showcase Page](https://median.co/share/lpapemy).
+- **Standalone Native Android APK**: Built and released the official Android application, offering distraction-free fullscreen navigation, instant access to all academic portals, CBT simulation, and offline-friendly study sessions. Available via direct download at [Download APK (app-release.apk)](app-release.apk).
 
 ### November 2026 — 22-Year IIT JAM Mathematics Analytics Report & Statistics Dashboard
 - **Comprehensive Empirical Study (`academic/JAM/analytics/`)**: Launched an in-depth analytics article and interactive web dashboard breaking down 885 official questions, 2,000 total marks, domain weightages, cognitive difficulty hierarchy, and testing eras (2005–2026).

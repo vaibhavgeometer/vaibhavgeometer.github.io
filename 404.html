@@ -52,6 +52,11 @@
         window.location.replace('/academic/CUET-PG/' + search + hash);
         return;
       }
+
+      if (lower === '/apk' || lower === '/app' || lower === '/download') {
+        window.location.replace('/app-release.apk');
+        return;
+      }
     })();
   </script>
 
