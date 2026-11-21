@@ -661,7 +661,7 @@
           ${renderActiveTabBody(isLinked, currentCode, shareUrl, qrUrl)}
         </div>
 
-        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border);">
+        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border); flex-shrink: 0;">
           <div style="font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
             <span>🔒 Zero login required · 100% private · No Google verification needed</span>
           </div>

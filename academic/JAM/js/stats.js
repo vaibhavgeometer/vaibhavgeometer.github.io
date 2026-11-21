@@ -568,7 +568,7 @@
           ${renderTabBody(data)}
         </div>
 
-        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border);">
+        <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border); flex-shrink: 0;">
           <div style="font-size: 0.78rem; color: var(--text-muted);">
             ⭐ Most Productive Day: <strong style="color:var(--text-main);">${data.mostProductiveDay.count > 0 ? `${data.mostProductiveDay.date} (+${data.mostProductiveDay.count} questions)` : '—'}</strong>
           </div>

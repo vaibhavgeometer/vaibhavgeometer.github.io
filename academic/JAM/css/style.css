@@ -596,6 +596,7 @@ a.hero-pill:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .modal-title {
@@ -624,7 +625,12 @@ a.hero-pill:hover {
 .modal-body {
   padding: 20px 22px;
   overflow-y: auto;
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.modal-footer {
+  flex-shrink: 0;
 }
 
 .cheatsheet-category-title {
