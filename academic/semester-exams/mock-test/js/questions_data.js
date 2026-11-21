@@ -1980,7 +1980,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/MAT301F/2025-26/Q01.png",
-        "question": "5. 6. Which of the following is a one dimensional subspace of IR2: 5.",
+        "question": "1. Which of the following is not a basis of $\\mathbb{R}^3$ :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -1988,7 +1988,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "B",
-        "explanation": "Rank-Nullity Theorem: $\\text{Rank}(T) + \\text{Nullity}(T) = \\dim(V)$ for any linear transformation $T: V \\to W$."
+        "explanation": "In $\\mathbb{R}^3$, three vectors form a basis if and only if they are linearly independent. For option (B), $\{(1,0,0), (1,1,0), (3,2,0)\}$, all three vectors have third coordinate 0, so $\\det \\begin{pmatrix} 1 & 0 & 0 \\\\ 1 & 1 & 0 \\\\ 3 & 2 & 0 \\end{pmatrix} = 0$, meaning they are linearly dependent and cannot form a basis of $\\mathbb{R}^3$."
       },
       {
         "id": "MAT301F_2025-26_Q2",
