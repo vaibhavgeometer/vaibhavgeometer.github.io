@@ -8,6 +8,7 @@
 [![Study Analytics](https://img.shields.io/badge/Study%20Analytics-Streaks%20%26%20Topic%20Mastery-blueviolet.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![22-Year Analytics](https://img.shields.io/badge/22--Year%20Analytics-885%20PYQs%20Report-orange.svg)](academic/JAM/analytics/)
 [![UNPG Results](https://img.shields.io/badge/UNPG%20Results-BSc%20Math%202024--2028-0ea5e9.svg)](academic/unpg-results/)
+[![Semester Exams](https://img.shields.io/badge/Semester%20Exams-BSc%20Math%202024--2028-10b981.svg)](academic/semester-exams/)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
@@ -25,7 +26,8 @@
 
 | Resource | Description | Direct Link |
 | :--- | :--- | :--- |
-| 🎓 **Academic Portals Hub** | Unified portal hub for IIT JAM Mathematics & CUET-PG archives | [vaibhavgeometer.github.io/academic](https://vaibhavgeometer.github.io/academic/) |
+| 🎓 **Academic Portals Hub** | Unified portal hub for IIT JAM Mathematics, CUET-PG archives &amp; UNPG BSc | [vaibhavgeometer.github.io/academic](https://vaibhavgeometer.github.io/academic/) |
+| 📚 **UNPG BSc Math Semester Exams** | Academic curriculum, official syllabi, PYQs &amp; MCQs (Semester V Ongoing) | [vaibhavgeometer.github.io/academic/semester-exams](academic/semester-exams/) |
 | 🚀 **JAM Live Portal** | Complete 22-year test selector, study tracker, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
 | 🎯 **JAM PYQ Tracker & Search** | Universal question bank for all 885 PYQs with 5-tier difficulty tags & study status | [Open PYQ Tracker](https://vaibhavgeometer.github.io/JAM/#tracker) |
 | 📈 **JAM Study Analytics & Streaks** | Daily question velocity, active study streaks, topic mastery & exam completion forecast | [View Study Analytics](https://vaibhavgeometer.github.io/JAM/#stats) |
