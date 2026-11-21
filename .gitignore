@@ -108,3 +108,8 @@ assets/Custom_PDFs/
 assets/test.py
 test.py
 
+# --- Mobile Packages & Installers ---
+*.apk
+*.aab
+
+
