@@ -2056,7 +2056,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/MAT301F/2025-26/Q05.png",
-        "question": "5. 6. Which of the following is a one dimensional subspace of IR2: 5.",
+        "question": "5. Which of the following is a one dimensional subspace of $\\mathbb{R}^2$ :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -2064,7 +2064,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "B",
-        "explanation": "Rank-Nullity Theorem: $\\text{Rank}(T) + \\text{Nullity}(T) = \\dim(V)$ for any linear transformation $T: V \\to W$."
+        "explanation": "The set in option (B), $\\{(x,0) \\mid x \\in \\mathbb{R}\\}$, represents the $x$-axis, which passes through the origin $(0,0)$ and is closed under addition and scalar multiplication, making it a 1-dimensional subspace of $\\mathbb{R}^2$."
       },
       {
         "id": "MAT301F_2025-26_Q6",
@@ -2075,15 +2075,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/MAT301F/2025-26/Q06.png",
-        "question": "5. 6. Which of the following is a one dimensional subspace of IR2: 5.",
+        "question": "6. Consider the vector space $M_n(\\mathbb{R})$ of all square matrices of order $n$. Let $W_1$ and $W_2$ be subspaces of symmetric and skew symmetric matrices in $M_n(\\mathbb{R})$. Then which of the following is correct :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "Rank-Nullity Theorem: $\\text{Rank}(T) + \\text{Nullity}(T) = \\dim(V)$ for any linear transformation $T: V \\to W$."
+        "answer_key": "D",
+        "explanation": "For square matrices of order $n$ over $\\mathbb{R}$:\n(i) $\\dim(W_1) = \\frac{n(n+1)}{2}$ for symmetric matrices,\n(ii) $\\dim(W_2) = \\frac{n(n-1)}{2}$ for skew-symmetric matrices,\n(iii) $W_1 \\cap W_2 = \\{0\\}$ and $W_1 + W_2 = M_n(\\mathbb{R})$, so $W_1 \\oplus W_2 = M_n(\\mathbb{R})$.\nTherefore, all statements (A), (B), and (C) are correct (Option D)."
       },
       {
         "id": "MAT301F_2025-26_Q7",
