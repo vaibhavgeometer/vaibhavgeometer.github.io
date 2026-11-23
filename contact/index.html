@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact me — Vaibhav Geometer</title>
+  <meta name="description" content="Contact Vaibhav Geometer: Email, Linktree, and academic connections.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/portfolio.css">
+</head>
+<body>
+
+  <!-- Atmospheric Background Glow -->
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="brand-wrap" title="Vaibhav Geometer">
+        <div class="brand-icon-box">📐</div>
+        <span class="brand-text">Vaibhav Geometer</span>
+      </a>
+
+      <div class="nav-controls">
+        <a href="../academic/" class="nav-link" title="Academic Portals Hub">
+          Academic
+        </a>
+        <a href="../academic/semester-exams/" class="nav-link" title="UNPG BSc Semester Exams">
+          Semester Exams
+        </a>
+        <a href="../academic/JAM/" class="nav-link" title="IIT JAM Portal">
+          IIT JAM
+        </a>
+        <a href="./" class="nav-link" style="color: var(--accent-cyan);" title="Contact Me">
+          Contact
+        </a>
+        <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Intro Hero -->
+      <section class="hero-simple">
+        <h1 class="hero-title">Contact me</h1>
+        <p class="hero-desc">Feel free to reach out for mathematics queries, academic collaborations, or project discussions.</p>
+      </section>
+
+      <!-- Contact Details Stack -->
+      <section class="projects-section">
+        <div class="projects-stack">
+
+          <div class="jam-card">
+            <div class="jam-card-header">
+              <div class="jam-badge">Get in Touch · Connect</div>
+              <h2 class="jam-title">Connect with Me</h2>
+              <p class="jam-summary">
+                Direct contact information and links as featured on the official blog and social profiles.
+              </p>
+            </div>
+
+            <div class="contact-grid">
+              <a href="mailto:vaibhav27182@gmail.com" class="contact-card-item" title="Send Email to vaibhav27182@gmail.com">
+                <div class="contact-card-icon">✉️</div>
+                <div class="contact-card-content">
+                  <span class="contact-card-label">My Email</span>
+                  <span class="contact-card-value">vaibhav27182@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://linktr.ee/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="contact-card-item" title="Visit Linktree Profile">
+                <div class="contact-card-icon">🌲</div>
+                <div class="contact-card-content">
+                  <span class="contact-card-label">My Linktree</span>
+                  <span class="contact-card-value">linktr.ee/vaibhavgeometer</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="jam-actions">
+              <a href="mailto:vaibhav27182@gmail.com" class="btn-primary">
+                <span>✉️ Send Email</span>
+                <span>→</span>
+              </a>
+              <a href="https://linktr.ee/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <span>🌲 Open Linktree</span>
+                <span>↗</span>
+              </a>
+              <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <span>🐙 GitHub</span>
+                <span>↗</span>
+              </a>
+              <a href="../" class="btn-secondary">
+                <span>🏠 Home</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Vaibhav Geometer · Hosted on GitHub Pages</p>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../academic/">Academic Portals</a>
+        <a href="../academic/semester-exams/">Semester Exams</a>
+        <a href="../academic/unpg-results/">UNPG Results</a>
+        <a href="../academic/JAM/">IIT JAM</a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function initTheme() {
+      const saved = localStorage.getItem('jam_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    }
+
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('jam_theme', next);
+      updateThemeIcon(next);
+    };
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) {
+        btn.textContent = theme === 'dark' ? '☀' : '🌙';
+        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initTheme);
+  </script>
+</body>
+</html>

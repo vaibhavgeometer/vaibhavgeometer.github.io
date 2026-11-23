@@ -47,6 +47,7 @@
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
 | 🏛️ **UNPG Results Portal** | Semester marks &amp; results lookup for UNPG BSc Mathematics (Batch 2024–2028) | [Explore Results](academic/unpg-results/) |
+| ✉️ **Contact & Connect** | Direct email and social profiles | [Contact](contact/) • [Linktree](https://linktr.ee/vaibhavgeometer) • [vaibhav27182@gmail.com](mailto:vaibhav27182@gmail.com) |
 
 ---
 

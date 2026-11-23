@@ -69,6 +69,12 @@
         return;
       }
 
+      if (lower === '/contact' || lower === '/contact/' || lower.indexOf('/contact/') === 0) {
+        sub = path.replace(/^\/contact\/?/i, '');
+        window.location.replace('/contact/' + sub + search + hash);
+        return;
+      }
+
     })();
   </script>
 
