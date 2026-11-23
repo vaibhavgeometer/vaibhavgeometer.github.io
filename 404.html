@@ -75,6 +75,12 @@
         return;
       }
 
+      if (lower === '/art' || lower === '/art/' || lower.indexOf('/art/') === 0) {
+        sub = path.replace(/^\/art\/?/i, '');
+        window.location.replace('/art/' + sub + search + hash);
+        return;
+      }
+
     })();
   </script>
 
@@ -142,6 +148,9 @@
       </a>
       <a href="academic/unpg-results/" class="btn-secondary">
         <span>🏛️</span> <span>UNPG BSc Results</span>
+      </a>
+      <a href="art/" class="btn-secondary">
+        <span>🎨</span> <span>Art Gallery</span>
       </a>
       <a href="index.html" class="btn-secondary">
         <span>🏠</span> <span>Vaibhav Geometer Home</span>

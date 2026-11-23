@@ -47,6 +47,7 @@
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
 | 🏛️ **UNPG Results Portal** | Semester marks &amp; results lookup for UNPG BSc Mathematics (Batch 2024–2028) | [Explore Results](academic/unpg-results/) |
+| 🎨 **Art Gallery** | Original digital illustrations, geometric partitions &amp; cosmic artwork | [Explore Art Gallery](art/) • [vaibhavgeometer.github.io/art](https://vaibhavgeometer.github.io/art/) |
 | ✉️ **Contact & Connect** | Direct email and social profiles | [Contact](contact/) • [Linktree](https://linktr.ee/vaibhavgeometer) • [vaibhav27182@gmail.com](mailto:vaibhav27182@gmail.com) |
 
 ---
@@ -520,6 +521,11 @@ This compiles all 15 PDFs into `academic/semester-exams/assets/pdfs/` and regene
 ---
 
 ## 🚀 Recent Updates
+
+### November 2026 — Art Gallery, Contact Portal & Portfolio Personalization
+- **Art Gallery (`art/` & `images/art/`)**: Deployed dedicated digital art gallery showcasing original digital illustrations and designs: Geometric Color Partition, Sunny Landscape & Tower, and Cosmic Orbits & Planetary System.
+- **Contact Portal (`contact/`)**: Integrated direct contact information with interactive email links (`vaibhav27182@gmail.com`) and Linktree connection (`linktr.ee/vaibhavgeometer`).
+- **Profile Avatar & OpenGraph Metadata**: Added official portrait to hero banner and configured OpenGraph and Twitter card image previews for social sharing.
 
 ### November 2026 — UNPG BSc Math & Physics Semester V Examination Portal & Official Exam Papers
 - **15 Official Question Papers & 750 MCQs (`academic/semester-exams/`)**: Launched a comprehensive semester examination study portal for UNPG Padrauna & DDU Gorakhpur University (NEP 2020), providing 15 official examination papers from 2023 through 2026 across `MAT301F`, `MAT302F`, `MAT303F`, `PHY301F`, and `PHY302F`.
