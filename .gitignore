@@ -13,6 +13,7 @@ ehthumbs_vista.db
 Thumbs.db
 desktop.ini
 $RECYCLE.BIN/
+.directory
 
 # --- Editor & IDE Files ---
 .vscode/
@@ -21,11 +22,21 @@ $RECYCLE.BIN/
 .agents/
 *.sublime-project
 *.sublime-workspace
+*.code-workspace
 *.swp
 *.swo
 *.swn
 *~
 *.bak
+
+# --- Environment Variables & Local Secrets ---
+.env
+.env.*
+*.env
+.dev.vars
+
+# --- Cloudflare Wrangler & Edge Deployment ---
+.wrangler/
 
 # --- Python Artifacts & Virtual Environments ---
 __pycache__/
@@ -101,6 +112,8 @@ pnpm-debug.log*
 # --- Temporary & Scratch Files ---
 scratch/
 assets/Custom_PDFs/
+temp_*.html
+temp_*.pdf
 *.tmp
 *.temp
 *.typ
@@ -111,5 +124,3 @@ test.py
 # --- Mobile Packages & Installers ---
 *.apk
 *.aab
-
-

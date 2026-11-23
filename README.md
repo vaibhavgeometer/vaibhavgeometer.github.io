@@ -1,4 +1,4 @@
-# Vaibhav Geometer — Academic & Research Portals (IIT JAM & CUET-PG) 📐🎓
+# Vaibhav Geometer — Academic & Examination Portals (IIT JAM, Semester Exams & UNPG Results) 📐🎓
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Main Portfolio](https://img.shields.io/badge/Portfolio-vaibhavgeometer.github.io-blue?logo=github)](https://vaibhavgeometer.github.io/)
@@ -7,8 +7,11 @@
 [![PYQ Tracker](https://img.shields.io/badge/PYQ%20Tracker-885%20PYQs%20%26%205--Tier%20Difficulty-brightgreen.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![Study Analytics](https://img.shields.io/badge/Study%20Analytics-Streaks%20%26%20Topic%20Mastery-blueviolet.svg)](https://vaibhavgeometer.github.io/JAM/)
 [![22-Year Analytics](https://img.shields.io/badge/22--Year%20Analytics-885%20PYQs%20Report-orange.svg)](academic/JAM/analytics/)
+[![Semester Exams](https://img.shields.io/badge/Semester%20Exams-BSc%20Math%20%26%20Physics-10b981.svg)](academic/semester-exams/)
+[![Semester Papers](https://img.shields.io/badge/Semester%20Papers-15%20Official%20Papers-success.svg)](academic/semester-exams/)
+[![Semester MCQs](https://img.shields.io/badge/Semester%20MCQs-750%20Questions-blue.svg)](academic/semester-exams/)
+[![Video Solutions](https://img.shields.io/badge/Video%20Solutions-16%20YouTube%20Walkthroughs-red.svg?logo=youtube)](academic/semester-exams/#videos)
 [![UNPG Results](https://img.shields.io/badge/UNPG%20Results-BSc%20Math%202024--2028-0ea5e9.svg)](academic/unpg-results/)
-[![Semester Exams](https://img.shields.io/badge/Semester%20Exams-BSc%20Math%202024--2028-10b981.svg)](academic/semester-exams/)
 [![MathJax](https://img.shields.io/badge/MathJax-3.x%20(SVG)-orange.svg)](https://www.mathjax.org/)
 [![Pure Web](https://img.shields.io/badge/Vanilla-HTML5%20%7C%20CSS3%20%7C%20ES6+-informational.svg)](https://developer.mozilla.org/)
 [![Mock Tests](https://img.shields.io/badge/Mock%20Tests-58%20Total%20Suites-purple.svg)](https://vaibhavgeometer.github.io/JAM/)
@@ -16,9 +19,10 @@
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](academic/JAM/assets/iit_jam_pyqs_categorized.json)
 [![CUET-PG Archive](https://img.shields.io/badge/CUET--PG-2024--2026%20Papers-teal.svg)](academic/CUET-PG/)
 
-> **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics across two core pillars:
+> **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics across three core pillars:
 > 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, zero-login 6-digit edge sync via Cloudflare KV worker and Google Drive / JSON backups, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, authentic CBT examination simulator with virtual scientific calculator, the definitive [22-Year Project Statistics & Analytics Report](academic/JAM/analytics/) (and [PDF Report](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf)), alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
-> 2. **[UNPG BSc Mathematics Results Portal (2024–2028)](academic/unpg-results/)**: Official university examination records, instant roll/name finder, merit leaderboards, 42 course toppers, 4 semester master compilation PDFs, and consolidated individual student scorecards across Semesters I–IV for UNPG Padrauna (DDU Gorakhpur University).
+> 2. **[UNPG BSc Math & Physics Semester Exams Portal (2024–2028 • Semester V Ongoing)](academic/semester-exams/)**: Official university semester examination study portal for UNPG Padrauna (affiliated with Deen Dayal Upadhyaya Gorakhpur University, NEP 2020), featuring 15 official examination papers (2023–2026), 750 high-resolution university MCQs across Mathematics and Physics (`MAT301F`, `MAT302F`, `MAT303F`, `PHY301F`, `PHY302F`), 16 complete YouTube video solution walkthroughs, official syllabi regulations, authentic CBT mock test simulator with interactive palette and instantaneous evaluation, custom PDF generator, and batch PDF generation scripts.
+> 3. **[UNPG BSc Mathematics Results Portal (2024–2028)](academic/unpg-results/)**: Official university examination records, instant roll/name finder, merit leaderboards, 42 course toppers, 4 semester master compilation PDFs, and consolidated individual student scorecards across Semesters I–IV for UNPG Padrauna (DDU Gorakhpur University).
 
 ---
 
@@ -28,18 +32,21 @@
 | :--- | :--- | :--- |
 | 🎓 **Academic Portals Hub** | Unified portal hub for IIT JAM Mathematics, CUET-PG archives &amp; UNPG BSc | [vaibhavgeometer.github.io/academic](https://vaibhavgeometer.github.io/academic/) |
 | 📚 **UNPG BSc Math Semester Exams** | Academic curriculum, official syllabi, PYQs &amp; MCQs (Semester V Ongoing) | [vaibhavgeometer.github.io/academic/semester-exams](academic/semester-exams/) |
-| 🚀 **JAM Live Portal** | Complete 22-year test selector, study tracker, resource hub & dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
-| 🎯 **JAM PYQ Tracker & Search** | Universal question bank for all 885 PYQs with 5-tier difficulty tags & study status | [Open PYQ Tracker](https://vaibhavgeometer.github.io/JAM/#tracker) |
-| 📈 **JAM Study Analytics & Streaks** | Daily question velocity, active study streaks, topic mastery & exam completion forecast | [View Study Analytics](https://vaibhavgeometer.github.io/JAM/#stats) |
-| 📊 **22-Year JAM Analytics Report** | Comprehensive empirical study, domain weightage & difficulty analysis across all 885 PYQs | [Open Analytics Dashboard](academic/JAM/analytics/) • [View PDF](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf) |
-| 💻 **CBT Simulator** | Real exam interface with question palette, countdown timer & scientific calculator | [Launch CBT Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
+| 📑 **15 Official Semester Exam PDFs** | Complete publication-grade question paper PDFs with master answer keys | [View Manifest](academic/semester-exams/assets/pdfs/semester_exams_manifest.json) |
+| ▶️ **Semester Video Solutions** | 16 comprehensive YouTube walkthroughs solving all 750 MCQs | [Watch Solutions](academic/semester-exams/#videos) |
+| 💻 **Semester CBT Simulator** | University pattern mock test simulator with question screenshots &amp; scorecard | [Launch Semester CBT](academic/semester-exams/mock-test/test.html) |
+| 🚀 **JAM Live Portal** | Complete 22-year test selector, study tracker, resource hub &amp; dark/light theme | [vaibhavgeometer.github.io/JAM](https://vaibhavgeometer.github.io/JAM/) |
+| 🎯 **JAM PYQ Tracker & Search** | Universal question bank for all 885 PYQs with 5-tier difficulty tags &amp; study status | [Open PYQ Tracker](https://vaibhavgeometer.github.io/JAM/#tracker) |
+| 📈 **JAM Study Analytics & Streaks** | Daily question velocity, active study streaks, topic mastery &amp; exam completion forecast | [View Study Analytics](https://vaibhavgeometer.github.io/JAM/#stats) |
+| 📊 **22-Year JAM Analytics Report** | Comprehensive empirical study, domain weightage &amp; difficulty analysis across all 885 PYQs | [Open Analytics Dashboard](academic/JAM/analytics/) • [View PDF](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf) |
+| 💻 **JAM CBT Simulator** | Real exam interface with question palette, countdown timer &amp; scientific calculator | [Launch CBT Simulator](https://vaibhavgeometer.github.io/JAM/mock-test/test.html?topic=2026&mode=official) |
 | ⏳ **JAM 2027 Countdown** | Live ticking countdown timer to 14 February 2027 | [Open Countdown](https://vaibhavgeometer.github.io/JAM/countdown/) |
-| 🛠️ **Difficulty-Aware Test Generator** | Generate custom tests & PDFs filtered by topic, question type, era, and difficulty | [Open Custom Generator](https://vaibhavgeometer.github.io/JAM/#custom-generator) |
-| 📥 **56 Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs & master answer keys | [View Manifest](academic/JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |
+| 🛠️ **Difficulty-Aware Test Generator** | Generate custom tests &amp; PDFs filtered by topic, question type, era, and difficulty | [Open Custom Generator](https://vaibhavgeometer.github.io/JAM/#custom-generator) |
+| 📥 **56 JAM Mock Test PDFs** | Complete pre-compiled publication-quality mock test PDFs &amp; master answer keys | [View Manifest](academic/JAM/assets/Mock%20Tests_PDF/mock_tests_manifest.json) |
 | 📑 **14 Formula Cheat Sheets** | High-yield revision sheets for all 9 syllabus subtopics | [Browse Cheat Sheets](#-14-high-yield-formula-cheat-sheets) |
 | 🏛 **22-Year PYQ Archive PDF** | Complete 2005–2026 original question paper archive | [View PDF](academic/JAM/assets/MA2005-2026_Original_PYQs.pdf) |
 | 🎓 **CUET-PG Mathematics Archive** | Official master question papers for CUET-PG Mathematics (2024–2026) | [Explore CUET-PG](academic/CUET-PG/) |
-| 🏛️ **UNPG Results Portal** | Semester marks & results lookup for UNPG BSc Mathematics (Batch 2024–2028) | [Explore Results](academic/unpg-results/) |
+| 🏛️ **UNPG Results Portal** | Semester marks &amp; results lookup for UNPG BSc Mathematics (Batch 2024–2028) | [Explore Results](academic/unpg-results/) |
 
 ---
 
@@ -150,6 +157,36 @@
 
 ---
 
+### 📚 UNPG BSc Math & Physics Semester Exams Portal (Semester V Ongoing)
+
+Located at [`academic/semester-exams/`](academic/semester-exams/), this dedicated study and examination portal serves the Bachelor of Science (Mathematics & Physics Group) 4-Year Undergraduate Program cohort at UNPG Padrauna (affiliated with Deen Dayal Upadhyaya Gorakhpur University, NEP 2020 CBCS Pattern):
+
+#### 1. 15 Official Examination Papers (2023–2026 • 750 MCQs)
+- **Comprehensive Historical Archival**: Full archive of official end-semester examinations across three consecutive academic sessions (2023–24, 2024–25, and 2025–26) covering all five major theory courses.
+- **750 University Examination MCQs**: Every question paper contains exactly 50 multiple choice questions (1.5 marks each, 75 marks total, 90 minutes duration) with complete questions and all four options clearly visible.
+- **Departmental Breadth**:
+  - **Mathematics Core (10 Credits)**: `MAT 301F` (Ring Theory & Linear Algebra), `MAT 302F` (Tensor Analysis), and `MAT 303F` (Differential Geometry).
+  - **Physics Core & Practical (14 Credits)**: `PHY 301F` (Classical & Statistical Mechanics), `PHY 302F` (Quantum Mechanics & Spectroscopy), and `PHY 303F` (Physics Laboratory).
+
+#### 2. 16 Complete YouTube Video Solutions
+- **Comprehensive Step-by-Step Walkthroughs**: Direct portal integration with 16 high-definition YouTube video solutions solving all 750 university questions with complete mathematical derivations, tensor index simplifications, quantum operators, and theoretical proofs.
+- **One-Click Video Access**: Each paper card and the dedicated "Video Solutions" tab provide instant links to corresponding YouTube lectures.
+
+#### 3. 15 Publication-Grade Official Exam PDFs (`assets/pdfs/`)
+- **Master Pre-Compiled PDF Collection**: 15 high-resolution PDFs compiled with clean typography, header banners, question cards, and full 5-column answer key matrices, cataloged in `semester_exams_manifest.json`.
+- **Dual Viewing Options**: Download PDFs directly for offline preparation or view them instantly in the browser.
+
+#### 4. Authentic Semester CBT Exam Simulator (`mock-test/test.html`)
+- **Authentic Examination Interface**: Real exam simulation with question palette, live countdown timer, and virtual scientific calculator.
+- **Tailored University Scoring**: Evaluates tests strictly according to university semester exam rules: **+1.5 Marks per correct answer** with **0 Negative Marking**.
+- **Instant Result Scorecard**: Displays detailed accuracy breakdown, time spent, question status review, and official answer keys.
+
+#### 5. Academic Syllabus & Study Resources Repository (`5th-sem/`)
+- **Official NEP 2020 Syllabus**: Full curriculum regulations and course outlines (`5th-sem/5th Sem Syllabus.pdf`).
+- **Standard Textbooks & Supplementary Materials**: Authoritative references including Pearson Classical & Statistical Mechanics textbooks, practical copies (`PHY 303F Practical Copy.pdf`), and UPH supplementary MCQ repositories for `MAT301F` and `MAT303F`.
+
+---
+
 ### 🏛 UNPG BSc Mathematics (2024–2028) Results & Records Portal
 
 Located at [`academic/unpg-results/`](academic/unpg-results/), this dedicated portal serves the Bachelor of Science (Mathematics Group) NEP 2020 4-Year Undergraduate Program cohort at UNPG Padrauna (affiliated with Deen Dayal Upadhyaya Gorakhpur University):
@@ -162,17 +199,18 @@ Located at [`academic/unpg-results/`](academic/unpg-results/), this dedicated po
 
 ---
 
+## 📊 Complete Test Series & Examination Architecture
 
-## 📊 Complete Test Series Architecture (58 Tests Total)
+### 1. IIT JAM Mathematics Architecture (58 Tests Total)
 
 ```text
-Total Test Suites (58)
+IIT JAM Test Suites (58)
 ├── 🏛 22 Full-Length Year Mock Tests (2005–2026 • 885 PYQs)
 ├── ⚡ 27 Era-Based Subtopic Tests (3 Eras × 9 Subtopics)
 └── 🎯 9 Comprehensive Full-Archive Subtopic Tests (2005–2026 • 798 In-Syllabus PYQs)
 ```
 
-### 1. 22-Year Papers Overview (2005–2026)
+#### 22-Year Papers Overview (2005–2026)
 
 | Year | Era | Questions | Marks | Duration | Question Format | Mock PDF | Official Answer Key |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -220,6 +258,22 @@ Total Test Suites (58)
 
 ---
 
+### 3. UNPG BSc Semester V Examination Papers (15 Official Papers • 750 MCQs)
+
+All 15 official semester examination papers are cataloged in [`academic/semester-exams/assets/pdfs/semester_exams_manifest.json`](academic/semester-exams/assets/pdfs/semester_exams_manifest.json) and available in publication-grade PDF format:
+
+| Course Code | Course Title | Department | Credits | Academic Sessions | MCQs | Marks | Official Pre-Compiled Exam PDFs |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **MAT 301F** | `Ring Theory & Linear Algebra` | Mathematics | 4 | 2023–24, 2024–25, 2025–26 | 150 | 225 | [2023-24 PDF](academic/semester-exams/assets/pdfs/MAT301F_2023-24_Official_Exam_Paper.pdf) • [2024-25 PDF](academic/semester-exams/assets/pdfs/MAT301F_2024-25_Official_Exam_Paper.pdf) • [2025-26 PDF](academic/semester-exams/assets/pdfs/MAT301F_2025-26_Official_Exam_Paper.pdf) |
+| **MAT 302F** | `Tensor Analysis` | Mathematics | 3 | 2023–24, 2024–25, 2025–26 | 150 | 225 | [2023-24 PDF](academic/semester-exams/assets/pdfs/MAT302F_2023-24_Official_Exam_Paper.pdf) • [2024-25 PDF](academic/semester-exams/assets/pdfs/MAT302F_2024-25_Official_Exam_Paper.pdf) • [2025-26 PDF](academic/semester-exams/assets/pdfs/MAT302F_2025-26_Official_Exam_Paper.pdf) |
+| **MAT 303F** | `Differential Geometry` | Mathematics | 3 | 2023–24, 2024–25, 2025–26 | 150 | 225 | [2023-24 PDF](academic/semester-exams/assets/pdfs/MAT303F_2023-24_Official_Exam_Paper.pdf) • [2024-25 PDF](academic/semester-exams/assets/pdfs/MAT303F_2024-25_Official_Exam_Paper.pdf) • [2025-26 PDF](academic/semester-exams/assets/pdfs/MAT303F_2025-26_Official_Exam_Paper.pdf) |
+| **PHY 301F** | `Classical & Statistical Mechanics` | Physics | 4 | 2023–24, 2024–25, 2025–26 | 150 | 225 | [2023-24 PDF](academic/semester-exams/assets/pdfs/PHY301F_2023-24_Official_Exam_Paper.pdf) • [2024-25 PDF](academic/semester-exams/assets/pdfs/PHY301F_2024-25_Official_Exam_Paper.pdf) • [2025-26 PDF](academic/semester-exams/assets/pdfs/PHY301F_2025-26_Official_Exam_Paper.pdf) |
+| **PHY 302F** | `Quantum Mechanics & Spectroscopy` | Physics | 4 | 2023–24, 2024–25, 2025–26 | 150 | 225 | [2023-24 PDF](academic/semester-exams/assets/pdfs/PHY302F_2023-24_Official_Exam_Paper.pdf) • [2024-25 PDF](academic/semester-exams/assets/pdfs/PHY302F_2024-25_Official_Exam_Paper.pdf) • [2025-26 PDF](academic/semester-exams/assets/pdfs/PHY302F_2025-26_Official_Exam_Paper.pdf) |
+| **PHY 303F** | `Physics Laboratory` | Physics | 4 | Practical Curriculum | — | — | [Practical Copy PDF](academic/semester-exams/5th-sem/PHY303F/PHY%20303F%20Practical%20Copy.pdf) |
+| **TOTAL** | **B.Sc. Semester V Master Archive** | **Both** | **22** | **3 Academic Sessions** | **750** | **1,125** | [View Full Manifest](academic/semester-exams/assets/pdfs/semester_exams_manifest.json) |
+
+---
+
 ## 📑 14 High-Yield Formula Cheat Sheets
 
 All cheat sheets are formatted in vector PDF and accessible directly from the portal:
@@ -243,8 +297,9 @@ All cheat sheets are formatted in vector PDF and accessible directly from the po
 
 ---
 
-## ⚖ Real Exam Marking Scheme
+## ⚖ Examination Marking Schemes
 
+### 1. IIT JAM Mathematics Marking Scheme
 The simulator strictly enforces the official IIT JAM marking guidelines:
 
 ```text
@@ -258,6 +313,18 @@ The simulator strictly enforces the official IIT JAM marking guidelines:
 │ Section C: NAT (1-Mark) │ +1.00        │  0.00         │ Accepted within numeric range │
 │ Section C: NAT (2-Mark) │ +2.00        │  0.00         │ Accepted within numeric range │
 └─────────────────────────┴──────────────┴───────────────┴───────────────────────────────┘
+```
+
+### 2. UNPG B.Sc. Semester V Examination Marking Scheme
+Semester tests are evaluated according to official NEP 2020 university examination regulations:
+
+```text
+┌─────────────────────────────────┬──────────────┬───────────────┬───────────────────────────────┐
+│ Course Component                │ Correct Mark │ Negative Mark │ Examination Pattern & Rules   │
+├─────────────────────────────────┼──────────────┼───────────────┼───────────────────────────────┤
+│ Theory MCQs (MAT & PHY Courses) │ +1.50        │  0.00         │ 50 MCQs · 75 Marks · 90 Mins  │
+│ Laboratory Practice (PHY 303F)  │ Continuous   │  0.00         │ Experimental Record & Viva    │
+└─────────────────────────────────┴──────────────┴───────────────┴───────────────────────────────┘
 ```
 
 ---
@@ -301,6 +368,29 @@ vaibhavgeometer.github.io/
 │   │       ├── PYQs_Answer Keys/              # Master verified answer keys
 │   │       ├── PYQs_Screenshots/              # Original question paper cropped screenshots
 │   │       └── cheat-sheets/                  # 14 high-yield formula cheat sheets
+│   │
+│   ├── semester-exams/                        # 📚 UNPG BSc Math & Physics Semester Exams Hub
+│   │   ├── index.html                         # Semester exams portal UI, course matrix & resources
+│   │   ├── css/style.css                      # Semester exam portal stylesheet
+│   │   ├── js/                                # Main portal navigation & dynamic PDF generators:
+│   │   │   ├── main.js                        # Course filtering, paper cards & video solution rendering
+│   │   │   └── custom_pdf_generator.js        # In-browser test & PDF compiler
+│   │   ├── 5th-sem/                           # Syllabus PDF, textbook references & MCQ materials:
+│   │   │   ├── 5th Sem Syllabus.pdf           # Official university NEP 2020 syllabus regulation
+│   │   │   ├── MAT301F/                       # MAT301F MCQ repository
+│   │   │   ├── MAT303F/                       # MAT303F MCQ repository
+│   │   │   ├── PHY301F/                       # Classical & statistical mechanics standard textbooks & PYQ
+│   │   │   ├── PHY302F/                       # Quantum mechanics PYQ
+│   │   │   └── PHY303F/                       # Practical copy & departmental notices
+│   │   ├── assets/
+│   │   │   ├── pdfs/                          # 15 publication-grade official exam PDFs & manifest:
+│   │   │   │   └── semester_exams_manifest.json
+│   │   │   └── screenshots/                   # Cropped question screenshots for all 750 MCQs
+│   │   └── mock-test/                         # Authentic CBT exam simulator for semester tests:
+│   │       ├── test.html                      # Real CBT testing interface & question palette
+│   │       ├── css/app.css                    # CBT test simulator stylesheet
+│   │       └── js/                            # Test engine, calculator, questions data & results
+│   │
 │   ├── CUET-PG/                               # CUET-PG Mathematics Archive (2024, 2025, 2026 PDFs)
 │   ├── unpg-results/                          # 🏛️ UNPG BSc Mathematics Results Lookup Portal
 │   │   ├── index.html                         # Results portal UI, student finder & leaderboards
@@ -311,13 +401,15 @@ vaibhavgeometer.github.io/
 │   │   └── assets/                            # Master & individual student result PDFs:
 │   │       ├── semesters/                     # Semesters I–IV master university compilation sheets
 │   │       └── students/                      # 70 consolidated individual student scorecards
-│   └── scripts/                               # Data pipeline & Typst/Python PDF generation compilers:
-│       ├── generate_project_statistics_pdf.py # Analytics report PDF generator
-│       ├── generate_out_of_syllabus_pdf.py    # Out-of-syllabus archive PDF compiler
-│       ├── generate_all_mock_test_pdfs.py     # Batch 56 mock tests PDF compiler
-│       ├── generate_all_22_years_data.py      # Master question dataset compiler
-│       ├── extract_pyqs_screenshots.py        # Question screenshot extraction tool
-│       └── extract_all_pyqs_2005_2021.py      # Historical question extractor
+│   │
+│   └── scripts/                               # Data pipeline, Typst/Python & Node.js PDF compilers:
+│       ├── generate_all_15_exam_pdfs.js       # Batch 15 semester exam PDFs generator (Node.js/Chrome)
+│       ├── generate_project_statistics_pdf.py # Analytics report PDF generator (Typst)
+│       ├── generate_out_of_syllabus_pdf.py    # Out-of-syllabus archive PDF compiler (Typst)
+│       ├── generate_all_mock_test_pdfs.py     # Batch 56 mock tests PDF compiler (Typst)
+│       ├── generate_all_22_years_data.py      # Master question dataset compiler (Python)
+│       ├── extract_pyqs_screenshots.py        # Question screenshot extraction tool (PyMuPDF)
+│       └── extract_all_pyqs_2005_2021.py      # Historical question extractor (PyMuPDF)
 │
 ├── css/                                       # 🌐 Glassmorphism design system & portal stylesheet
 │   └── portfolio.css
@@ -329,7 +421,7 @@ vaibhavgeometer.github.io/
 └── README.md                                  # Master repository documentation
 ```
 
-> **Note on Zero Regressions:** Core entry points (`index.html`, `academic/`, `academic/JAM/`, `academic/CUET-PG/`, `academic/unpg-results/`, `404.html`) remain fully accessible and functional to prevent broken bookmarks and preserve search indexing.
+> **Note on Zero Regressions:** Core entry points (`index.html`, `academic/`, `academic/JAM/`, `academic/semester-exams/`, `academic/CUET-PG/`, `academic/unpg-results/`, `404.html`) remain fully accessible and functional to prevent broken bookmarks and preserve search indexing.
 
 ---
 
@@ -337,9 +429,12 @@ vaibhavgeometer.github.io/
 
 - **Frontend Core**: Pure HTML5, Vanilla CSS3 (Custom CSS Variables, Grid/Flexbox, Dark & Light Mode), Vanilla ES6+ JavaScript.
 - **Zero Build**: Requires **no npm install, webpack, vite, or node builds** to run or deploy.
-- **PDF Compilation**: Typst (`typst` Python API for publication-quality batch PDF generation) and jsPDF (`jspdf.umd.min.js` + `autotable` for in-browser on-demand compilation).
+- **PDF Compilation**:
+  - Typst (`typst` Python API for publication-quality batch PDF generation for IIT JAM).
+  - Headless Chrome via Node.js (`generate_all_15_exam_pdfs.js` for publication-grade semester exam PDFs).
+  - jsPDF (`jspdf.umd.min.js` + `autotable` for in-browser on-demand dynamic test compilation).
 - **Math Typesetting**: [MathJax 3](https://www.mathjax.org/) configured with TeX SVG rendering.
-- **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `typst`, `json`, `re`).
+- **Data Pipeline**: Python 3 (`PyMuPDF` / `fitz`, `typst`, `json`, `re`) & Node.js.
 - **Edge Functions**: Cloudflare Worker with Cloudflare KV storage (`academic/JAM/cloudflare-worker/`).
 - **Hosting & CI/CD**: [GitHub Pages](https://pages.github.com/).
 
@@ -383,7 +478,7 @@ python scripts/generate_all_22_years_data.py
 ```
 This compiles all `22` Year Tests, `27` Era Subtopic Tests, and `9` Full-Archive Tests, mapping them to the respective Mock Test PDFs and Answer Keys in `academic/JAM/mock-test/js/questions_data.js`.
 
-### 2. Re-generating All 56 Mock Test PDFs
+### 2. Re-generating All 56 JAM Mock Test PDFs
 To batch compile all 56 publication-quality LaTeX-formatted mock test PDFs:
 ```bash
 # Ensure dependencies are installed
@@ -413,9 +508,24 @@ python scripts/generate_out_of_syllabus_pdf.py
 ```
 This compiles all 3 legacy test PDFs in `academic/JAM/assets/Mock Tests_PDF/`.
 
+### 5. Re-generating All 15 Semester Exam PDFs (`generate_all_15_exam_pdfs.js`)
+To compile all 15 publication-grade semester examination papers with questions and master answer key matrices:
+```bash
+cd academic
+node scripts/generate_all_15_exam_pdfs.js
+```
+This compiles all 15 PDFs into `academic/semester-exams/assets/pdfs/` and regenerates `semester_exams_manifest.json`.
+
 ---
 
 ## 🚀 Recent Updates
+
+### November 2026 — UNPG BSc Math & Physics Semester V Examination Portal & Official Exam Papers
+- **15 Official Question Papers & 750 MCQs (`academic/semester-exams/`)**: Launched a comprehensive semester examination study portal for UNPG Padrauna & DDU Gorakhpur University (NEP 2020), providing 15 official examination papers from 2023 through 2026 across `MAT301F`, `MAT302F`, `MAT303F`, `PHY301F`, and `PHY302F`.
+- **750 High-Resolution Question Screenshots & Master Keys**: Cropped and cataloged all 750 questions with clear options and verified answer keys.
+- **16 Complete YouTube Video Solutions**: Embedded and linked full video solution walkthroughs for each course and session.
+- **CBT Examination Simulator**: Adapted the CBT mock test engine with authentic university marking (+1.5 marks, 0 penalty, 90 mins).
+- **Batch PDF Generator (`generate_all_15_exam_pdfs.js`)**: Automated publication-grade PDF compiler generating print-ready exam papers with master answer keys and `semester_exams_manifest.json`.
 
 ### November 2026 — 22-Year IIT JAM Mathematics Analytics Report & Statistics Dashboard
 - **Comprehensive Empirical Study (`academic/JAM/analytics/`)**: Launched an in-depth analytics article and interactive web dashboard breaking down 885 official questions, 2,000 total marks, domain weightages, cognitive difficulty hierarchy, and testing eras (2005–2026).
@@ -448,5 +558,8 @@ This compiles all 3 legacy test PDFs in `academic/JAM/assets/Mock Tests_PDF/`.
 ## 📄 License & Attribution
 
 - **Source Code & Materials**: Released under the [MIT License](LICENSE).
-- **Exam Content**: All official questions, question screenshots, syllabus descriptions, and master answer keys are sourced from official IIT JAM Mathematics (MA) examination papers conducted by various Indian Institutes of Technology (2005–2026).
+- **Exam Content**: All official questions, question screenshots, syllabus descriptions, and master answer keys are sourced from official examination bodies:
+  - **IIT JAM**: Official examination papers conducted by various Indian Institutes of Technology (2005–2026).
+  - **UNPG & DDUGU**: Official end-semester examination papers and curricula of Udit Narayan Post Graduate College (UNPG) Padrauna & Deen Dayal Upadhyaya Gorakhpur University (NEP 2020).
+  - **CUET-PG**: National Testing Agency (NTA) official postgraduate question papers (2024–2026).
 - **Curated & Developed with ❤️ by [Vaibhav Geometer](https://github.com/vaibhavgeometer)**.
