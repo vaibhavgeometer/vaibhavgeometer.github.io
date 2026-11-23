@@ -11,5 +11,31 @@
     "size_mb": "58.13",
     "total_questions": 50,
     "total_marks": 75
+  },
+  {
+    "id": "MAT301F_2024-25",
+    "course_code": "MAT301F",
+    "course_title": "Ring Theory & Linear Algebra",
+    "subject": "Mathematics",
+    "year": "2024-25",
+    "pdf_file": "MAT301F_2024-25_Official_Exam_Paper.pdf",
+    "pdf_rel_path": "assets/pdfs/MAT301F_2024-25_Official_Exam_Paper.pdf",
+    "size_bytes": 23900446,
+    "size_mb": "22.79",
+    "total_questions": 50,
+    "total_marks": 75
+  },
+  {
+    "id": "MAT301F_2023-24",
+    "course_code": "MAT301F",
+    "course_title": "Ring Theory & Linear Algebra",
+    "subject": "Mathematics",
+    "year": "2023-24",
+    "pdf_file": "MAT301F_2023-24_Official_Exam_Paper.pdf",
+    "pdf_rel_path": "assets/pdfs/MAT301F_2023-24_Official_Exam_Paper.pdf",
+    "size_bytes": 64689592,
+    "size_mb": "61.69",
+    "total_questions": 50,
+    "total_marks": 75
   }
 ]

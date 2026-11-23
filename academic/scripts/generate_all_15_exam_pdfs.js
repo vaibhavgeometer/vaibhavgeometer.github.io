@@ -465,7 +465,15 @@ async function run() {
   const testIds = requestedId ? allTestIds.filter(id => id === requestedId || id.includes(requestedId)) : allTestIds;
   console.log(`Starting PDF generation for ${testIds.length} examination paper(s)...`);
 
-  const manifest = [];
+  const manifestPath = path.join(OUTPUT_DIR, 'semester_exams_manifest.json');
+  let manifest = [];
+  if (fs.existsSync(manifestPath)) {
+    try {
+      manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    } catch (e) {
+      manifest = [];
+    }
+  }
   const tempHtmlPath = path.join(__dirname, 'temp_batch_render.html');
 
   for (let i = 0; i < testIds.length; i++) {
@@ -498,7 +506,7 @@ async function run() {
       const sizeBytes = fs.statSync(outputPdfPath).size;
       const sizeMb = (sizeBytes / (1024 * 1024)).toFixed(2);
       console.log(`   -> OK: ${pdfFileName} (${sizeMb} MB) in ${elapsed}s`);
-      manifest.push({
+      const entry = {
         id: testId,
         course_code: test.course_code,
         course_title: test.course_title || test.name,
@@ -510,7 +518,13 @@ async function run() {
         size_mb: sizeMb,
         total_questions: test.questions.length,
         total_marks: test.questions.length * 1.5
-      });
+      };
+      const existingIdx = manifest.findIndex(m => m.id === testId);
+      if (existingIdx >= 0) {
+        manifest[existingIdx] = entry;
+      } else {
+        manifest.push(entry);
+      }
     } else {
       console.error(`   -> FAILED: Could not generate ${outputPdfPath}`);
     }
@@ -521,7 +535,6 @@ async function run() {
   }
 
   // Save manifest
-  const manifestPath = path.join(OUTPUT_DIR, 'semester_exams_manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
   console.log(`\nAll 15 exam PDFs generated successfully! Manifest saved to: ${manifestPath}`);
 }
