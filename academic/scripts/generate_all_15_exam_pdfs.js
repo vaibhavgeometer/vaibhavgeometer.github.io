@@ -458,10 +458,12 @@ function generateHtmlForExam(testId, test) {
 </html>`;
 }
 
-// Generate all 15 exams sequentially
+// Generate all 15 exams sequentially (or specific one via CLI arg)
 async function run() {
-  const testIds = Object.keys(MOCK_TESTS_DATA);
-  console.log(`Starting PDF generation for all ${testIds.length} examination papers...`);
+  const requestedId = process.argv[2];
+  const allTestIds = Object.keys(MOCK_TESTS_DATA);
+  const testIds = requestedId ? allTestIds.filter(id => id === requestedId || id.includes(requestedId)) : allTestIds;
+  console.log(`Starting PDF generation for ${testIds.length} examination paper(s)...`);
 
   const manifest = [];
   const tempHtmlPath = path.join(__dirname, 'temp_batch_render.html');
