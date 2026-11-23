@@ -69,18 +69,38 @@
       gap: 0.75rem;
     }
     .card-actions-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
     }
     .card-actions-row a {
-      flex: 1;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
       text-decoration: none;
-      font-size: 0.85rem;
+      text-align: center;
+      min-width: 0;
+      line-height: 1.25;
+      border-radius: var(--radius-md);
+    }
+    .card-actions-row > a:last-child:nth-child(odd) {
+      grid-column: span 2;
     }
     .card-actions a.btn-primary {
       justify-content: center;
       text-decoration: none;
+    }
+    @media (max-width: 420px) {
+      .card-actions-row {
+        grid-template-columns: 1fr;
+      }
+      .card-actions-row > a:last-child:nth-child(odd) {
+        grid-column: auto;
+      }
     }
     .paper-name {
       font-weight: 600;
@@ -246,6 +266,9 @@
                 </a>
                 <a href="unpg-results/#toppers" class="btn-secondary">
                   🏆 View Toppers
+                </a>
+                <a href="unpg-results/#semesters" class="btn-secondary">
+                  📅 Semester Overviews
                 </a>
                 <a href="unpg-results/#downloads" class="btn-secondary">
                   📥 Master PDFs
