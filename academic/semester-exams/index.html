@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UNPG BSc Math & Physics Semester Exams — Mock Tests, PDF Generator & Study Hub</title>
-  <meta name="description" content="Authentic UNPG Padrauna & DDU Gorakhpur University B.Sc. Semester Examination portal: 15 full mock tests, 750 official PYQs (2023–2026), interactive CBT test simulator, offline PDF generator, syllabi, and verified master solutions.">
-  <meta name="keywords" content="UNPG Padrauna, DDU Gorakhpur University, BSc Maths, Semester Exams, MAT301F, MAT302F, MAT303F, PHY301F, PHY302F, Mock Tests, CBT Simulator, NEP 2020">
+  <title>UNPG BSc Math &amp; Physics Semester Exams — Official Question Papers (PDFs) &amp; Study Hub</title>
+  <meta name="description" content="Authentic UNPG Padrauna &amp; DDU Gorakhpur University B.Sc. Semester Examination portal: 15 official examination papers (2023–2026), 750 university MCQs with complete questions and options clearly visible, master verified answer keys, and academic study resources.">
+  <meta name="keywords" content="UNPG Padrauna, DDU Gorakhpur University, BSc Maths, Semester Exams, MAT301F, MAT302F, MAT303F, PHY301F, PHY302F, Exam Question Papers, Question Paper PDFs, NEP 2020">
   <meta name="author" content="Vaibhav Geometer">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
@@ -297,16 +297,16 @@
         🏛️ UNPG Padrauna · DDU Gorakhpur University · NEP 2020
       </div>
       <h1>UNPG BSc Math <span class="accent">Semester Exams</span></h1>
-      <p class="hero-sub">Complete 3-Year Mock Test Series (2023–2026) · 15 Official Papers · 750 MCQs</p>
-      <p class="hero-desc">Authentic Computer Based Test (CBT) simulator with official university paper screenshots, virtual scientific calculator, instant score cards, custom test &amp; PDF generator, and master verified answer keys across Mathematics &amp; Physics.</p>
+      <p class="hero-sub">Official Examination Question Papers (2023–2026) · 15 Papers · 750 MCQs</p>
+      <p class="hero-desc">Authentic UNPG Padrauna &amp; DDU Gorakhpur University B.Sc. Semester V examination question papers. Download complete, publication-grade PDFs for all 15 official papers with all 50 MCQs, full question statements, all four options clearly visible, and master verified answer keys across Mathematics &amp; Physics.</p>
 
       <div class="hero-badges" style="margin-top: 18px;">
-        <span class="hero-pill">🏛 <strong>15</strong> Official Papers</span>
+        <span class="hero-pill">🏛 <strong>15</strong> Official Papers (PDFs)</span>
         <span class="hero-pill">🎯 <strong>750</strong> University MCQs</span>
         <span class="hero-pill">📐 <strong>5</strong> Core Subjects</span>
         <span class="hero-pill">⚡ <strong>+1.5 Marks</strong> / 0 Neg.</span>
-        <span class="hero-pill">📸 <strong>High-Res</strong> Screenshots</span>
-        <span class="hero-pill">📥 <strong>Instant</strong> PDF Generator</span>
+        <span class="hero-pill">📸 <strong>High-Res</strong> Full Screenshots</span>
+        <span class="hero-pill">🔑 <strong>Verified</strong> Master Keys</span>
         <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="hero-pill" title="Download Official CBCS 5th Sem Syllabus PDF">📜 <strong>5th Sem</strong> Syllabus</a>
       </div>
     </div>
@@ -315,11 +315,8 @@
   <!-- Main Tab Switcher -->
   <section class="container">
     <div class="main-tab-switcher">
-      <button class="main-tab-btn active" onclick="window.switchMainTab('year-tests', this)">
-        🏛 15 Semester Exam Mock Tests (2023–2026)
-      </button>
-      <button class="main-tab-btn" id="tab-btn-custom-generator" onclick="window.switchMainTab('custom-generator', this)">
-        🛠️ Custom Test &amp; PDF Generator
+      <button class="main-tab-btn active" id="tab-btn-exam-papers" onclick="window.switchMainTab('exam-papers', this)">
+        📑 15 Official Exam Question Papers (PDFs)
       </button>
       <button class="main-tab-btn" id="tab-btn-resources" onclick="window.switchMainTab('resources', this)">
         📚 Study Materials Hub
@@ -332,9 +329,9 @@
     <div class="container">
 
       <!-- ==========================================
-           Panel 1: Semester Exam Mock Tests (15 Papers)
+           Panel 1: Official Exam Papers (15 PDFs)
            ========================================== -->
-      <div id="tab-panel-year-tests" class="tab-content-panel">
+      <div id="tab-panel-exam-papers" class="tab-content-panel">
         
         <div class="filter-group-row">
           <!-- Course Filter Buttons -->
@@ -362,191 +359,9 @@
           </div>
         </div>
 
-        <!-- Topics Grid for Mock Tests (Injected by main.js) -->
-        <div class="topics-grid" id="year-tests-container">
+        <!-- Topics Grid for Exam Papers (Injected by main.js) -->
+        <div class="topics-grid" id="exam-papers-container">
           <!-- Dynamically populated by main.js -->
-        </div>
-      </div>
-
-      <!-- ==========================================
-           Panel 2: Custom Test & PDF Generator
-           ========================================== -->
-      <div id="tab-panel-custom-generator" class="tab-content-panel hidden">
-        <div class="custom-generator-wrap">
-          
-          <!-- Generator Header -->
-          <div class="section-header-block" style="margin-bottom: 20px;">
-            <h2 class="section-title">🛠️ Offline Custom Test &amp; PDF Generator</h2>
-            <p class="section-sub">
-              Create tailor-made examination question papers and interactive tests. Select any combination of Semester V core courses across 2023–2026, set your desired question volume, and compile publication-grade PDFs with high-resolution screenshots and master answer keys or start CBT simulator.
-            </p>
-          </div>
-
-          <!-- Step 1: Course Selection -->
-          <div class="custom-card">
-            <div class="custom-card-header">
-              <div class="custom-step-pill">Step 1</div>
-              <h3 class="custom-card-title">Select Semester Courses to Include</h3>
-              <div style="margin-left: auto; display: flex; gap: 8px;">
-                <button type="button" class="btn-sm-action" onclick="window.selectAllCourses(true)">Select All</button>
-                <button type="button" class="btn-sm-action" onclick="window.selectAllCourses(false)">Clear All</button>
-              </div>
-            </div>
-
-            <div class="custom-topics-selection-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 14px;">
-              
-              <label class="topic-checkbox-card" style="display: flex; gap: 12px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="checkbox" name="custom-course" value="MAT301F" checked onchange="window.updateCustomGeneratorSummary()" style="margin-top: 4px;">
-                <div>
-                  <div style="font-weight: 700; color: #38bdf8;">📐 MAT 301F · Ring Theory &amp; Linear Alg</div>
-                  <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Rings, ideals, Euclidean domains, vector spaces, rank-nullity, Cayley-Hamilton</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">4 Credits Theory · 150 Qs Pool</div>
-                </div>
-              </label>
-
-              <label class="topic-checkbox-card" style="display: flex; gap: 12px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="checkbox" name="custom-course" value="MAT302F" checked onchange="window.updateCustomGeneratorSummary()" style="margin-top: 4px;">
-                <div>
-                  <div style="font-weight: 700; color: #818cf8;">🌐 MAT 302F · Tensor Analysis</div>
-                  <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Curvilinear coordinates, tensors, metric tensor, Christoffel symbols, Riemann curvature</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">3 Credits Theory · 150 Qs Pool</div>
-                </div>
-              </label>
-
-              <label class="topic-checkbox-card" style="display: flex; gap: 12px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="checkbox" name="custom-course" value="MAT303F" checked onchange="window.updateCustomGeneratorSummary()" style="margin-top: 4px;">
-                <div>
-                  <div style="font-weight: 700; color: #34d399;">📈 MAT 303F · Differential Geometry</div>
-                  <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Space curves, Serret-Frenet, curvature, torsion, fundamental forms, geodesics</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">3 Credits Theory · 150 Qs Pool</div>
-                </div>
-              </label>
-
-              <label class="topic-checkbox-card" style="display: flex; gap: 12px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="checkbox" name="custom-course" value="PHY301F" checked onchange="window.updateCustomGeneratorSummary()" style="margin-top: 4px;">
-                <div>
-                  <div style="font-weight: 700; color: #fbbf24;">⚙️ PHY 301F · Classical &amp; Statistical Mech</div>
-                  <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Lagrangian, Hamiltonian, Poisson brackets, microcanonical/canonical ensembles, MB/BE/FD</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">4 Credits Theory · 150 Qs Pool</div>
-                </div>
-              </label>
-
-              <label class="topic-checkbox-card" style="display: flex; gap: 12px; padding: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--radius-md); cursor: pointer;">
-                <input type="checkbox" name="custom-course" value="PHY302F" checked onchange="window.updateCustomGeneratorSummary()" style="margin-top: 4px;">
-                <div>
-                  <div style="font-weight: 700; color: #c084fc;">⚛️ PHY 302F · Quantum Mech &amp; Spectroscopy</div>
-                  <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Schrödinger eq, 1D box &amp; oscillator, vector atom, Zeeman effect, Raman effect</div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">4 Credits Theory · 150 Qs Pool</div>
-                </div>
-              </label>
-
-            </div>
-          </div>
-
-          <!-- Step 2: Configuration Options -->
-          <div class="custom-card" style="margin-top: 16px;">
-            <div class="custom-card-header">
-              <div class="custom-step-pill">Step 2</div>
-              <h3 class="custom-card-title">Configure Test Parameters</h3>
-            </div>
-
-            <div class="custom-config-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 14px;">
-              
-              <!-- Academic Year Filter -->
-              <div class="config-item">
-                <label class="config-label">Academic Year Scope:</label>
-                <div class="radio-pill-group" style="display: flex; gap: 8px; flex-wrap: wrap;">
-                  <label class="radio-pill">
-                    <input type="radio" name="custom-year" value="ALL" checked onchange="window.updateCustomGeneratorSummary()">
-                    <span>🌐 All Years (2023–2026)</span>
-                  </label>
-                  <label class="radio-pill">
-                    <input type="radio" name="custom-year" value="2025-26" onchange="window.updateCustomGeneratorSummary()">
-                    <span>2025–26</span>
-                  </label>
-                  <label class="radio-pill">
-                    <input type="radio" name="custom-year" value="2024-25" onchange="window.updateCustomGeneratorSummary()">
-                    <span>2024–25</span>
-                  </label>
-                  <label class="radio-pill">
-                    <input type="radio" name="custom-year" value="2023-24" onchange="window.updateCustomGeneratorSummary()">
-                    <span>2023–24</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Question Count Slider -->
-              <div class="config-item">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                  <label class="config-label" style="margin-bottom: 0;">Number of Questions:</label>
-                  <span id="custom-q-count-display" style="font-weight: 800; color: var(--accent); font-size: 0.95rem;">50 Questions</span>
-                </div>
-                <input type="range" id="custom-q-slider" min="10" max="100" step="5" value="50" oninput="window.updateCustomGeneratorSummary()" style="width: 100%; accent-color: var(--accent);">
-                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
-                  <span>10 Qs (Drill)</span>
-                  <span>50 Qs (Standard Paper)</span>
-                  <span>100 Qs (Grand Mock)</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Step 3: Live Summary & Actions -->
-          <div class="custom-card custom-summary-card" style="margin-top: 16px;">
-            <div class="custom-card-header">
-              <div class="custom-step-pill">Step 3</div>
-              <h3 class="custom-card-title">Live Test Paper Summary &amp; Actions</h3>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="custom-summary-metrics">
-              <div class="summary-metric-box">
-                <span class="metric-label">COURSES SELECTED</span>
-                <span class="metric-val" id="summary-topics-count" style="color: #38bdf8;">5 / 5 Courses</span>
-              </div>
-              <div class="summary-metric-box">
-                <span class="metric-label">AVAILABLE POOL</span>
-                <span class="metric-val" id="summary-pool-count" style="color: #06b6d4;">750 Qs</span>
-              </div>
-              <div class="summary-metric-box">
-                <span class="metric-label">PAPER QUESTIONS</span>
-                <span class="metric-val" id="summary-questions-count" style="color: #818cf8;">50 Qs</span>
-              </div>
-              <div class="summary-metric-box">
-                <span class="metric-label">ESTIMATED MARKS</span>
-                <span class="metric-val" id="summary-marks-count" style="color: #10b981;">75.0 Marks</span>
-              </div>
-              <div class="summary-metric-box">
-                <span class="metric-label">RECOMMENDED TIME</span>
-                <span class="metric-val" id="summary-time-count" style="color: #f59e0b;">90 Mins</span>
-              </div>
-              <div class="summary-metric-box">
-                <span class="metric-label">MARKING SCHEME</span>
-                <span class="metric-val" style="font-size: 11px; color: #a78bfa;">+1.5 Marks | 0 Neg.</span>
-              </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="custom-actions-row" style="margin-top: 20px;">
-              <button type="button" class="btn-custom-action btn-generate-pdf" id="btn-generate-custom-pdf" onclick="window.triggerCustomPdfGeneration()">
-                <span class="action-icon">📥</span>
-                <span class="action-text">
-                  <strong>Generate &amp; Download PDF</strong>
-                  <small>University Formatted • High-Res Screenshots • Master Key Table</small>
-                </span>
-              </button>
-
-              <button type="button" class="btn-custom-action btn-start-cbt" id="btn-start-custom-cbt" onclick="window.triggerCustomOnlineTest()">
-                <span class="action-icon">⚡</span>
-                <span class="action-text">
-                  <strong>Start Interactive CBT Test</strong>
-                  <small>Virtual Calculator • Timers • Instant Score Card &amp; Solutions</small>
-                </span>
-              </button>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -963,24 +778,6 @@
     </div>
   </main>
 
-  <!-- PDF Generation Progress Modal -->
-  <div id="pdf-progress-modal" class="modal-backdrop hidden">
-    <div class="modal-card pdf-progress-card">
-      <div class="modal-header">
-        <div class="modal-title" id="pdf-progress-title">📑 Compiling Semester Mock Test PDF...</div>
-      </div>
-      <div class="modal-body" style="text-align: center; padding: 24px 16px;">
-        <div class="progress-spinner" id="pdf-spinner"></div>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="pdf-progress-fill" style="width: 0%;"></div>
-        </div>
-        <div class="progress-percent" id="pdf-progress-pct">0%</div>
-        <p class="progress-status-text" id="pdf-progress-status">Preparing question datasets...</p>
-        <p class="progress-note">🌐 Rendering high-resolution examination screenshots and compiling PDF in browser.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -996,9 +793,6 @@
 
   <!-- Core JavaScript Libraries -->
   <script src="mock-test/js/questions_data.js"></script>
-  <script src="js/jspdf.umd.min.js"></script>
-  <script src="js/jspdf.plugin.autotable.min.js"></script>
-  <script src="js/custom_pdf_generator.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /**
  * UNPG Padrauna & DDUGU B.Sc. Semester Exams Portal - Main Script
- * Manages Tab Switching, Dynamic Test Grid Rendering, Filters & Theme Toggle
+ * Manages Tab Switching, Exam Paper Grid Rendering, Filters & Theme Toggle
  */
 
 (function() {
@@ -18,14 +18,13 @@
     'PHY302F': { name: 'Quantum Mechanics & Spectroscopy', icon: '⚛️', credits: '4 Credits', color: '#c084fc' }
   };
 
-  // Tab Switcher
+  // Tab Switcher between Exam Papers and Study Materials Hub
   window.switchMainTab = function(tabId, btn) {
     document.querySelectorAll('.main-tab-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
 
     const panels = {
-      'year-tests': document.getElementById('tab-panel-year-tests'),
-      'custom-generator': document.getElementById('tab-panel-custom-generator'),
+      'exam-papers': document.getElementById('tab-panel-exam-papers'),
       'resources': document.getElementById('tab-panel-resources')
     };
 
@@ -39,30 +38,26 @@
         }
       }
     });
-
-    if (tabId === 'custom-generator' && window.updateCustomGeneratorSummary) {
-      window.updateCustomGeneratorSummary();
-    }
   };
 
-  // Filter Mock Tests by Course or Year
+  // Filter Exam Papers by Course or Year
   window.filterCourses = function(courseCode, btn) {
     currentCourseFilter = courseCode;
     document.querySelectorAll('.course-filter-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    renderMockTests();
+    renderExamPapers();
   };
 
   window.filterYears = function(year, btn) {
     currentYearFilter = year;
     document.querySelectorAll('.year-filter-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    renderMockTests();
+    renderExamPapers();
   };
 
-  // Render Mock Test Cards from window.MOCK_TESTS_DATA
-  function renderMockTests() {
-    const container = document.getElementById('year-tests-container');
+  // Render Exam Paper Cards from window.MOCK_TESTS_DATA
+  function renderExamPapers() {
+    const container = document.getElementById('exam-papers-container');
     if (!container) return;
 
     if (!window.MOCK_TESTS_DATA) {
@@ -90,7 +85,7 @@
       container.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; padding: 48px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
           <div style="font-size: 2rem; margin-bottom: 8px;">🔍</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">No Mock Tests Found</h3>
+          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">No Examination Papers Found</h3>
           <p style="color: var(--text-secondary); font-size: 0.9rem;">No question papers match the selected filter combination. Try selecting "All Courses" or "All Years".</p>
         </div>
       `;
@@ -104,6 +99,8 @@
       const qCount = t.total_questions || (t.questions ? t.questions.length : 50);
       const marksCount = t.total_marks || (qCount * 1.5);
       const minsCount = t.duration_minutes || 90;
+      const pdfFileName = `${t.id}_Official_Exam_Paper.pdf`;
+      const pdfPath = `assets/pdfs/${pdfFileName}`;
 
       html += `
         <div class="topic-card" style="border-top: 3px solid ${meta.color};">
@@ -122,7 +119,7 @@
             </h3>
 
             <p class="topic-card-desc" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 14px;">
-              DDUGU & UNPG Padrauna Official Semester Examination Paper with high-resolution question screenshots and master verified solutions.
+              Official University Examination Paper with all 50 MCQs, questions &amp; all 4 options clearly visible, plus master verified answer key table.
             </p>
 
             <div class="topic-meta-list" style="margin-bottom: 16px; background: rgba(0,0,0,0.15); padding: 10px; border-radius: 8px; border: 1px solid var(--border);">
@@ -145,12 +142,12 @@
             </div>
 
             <div style="display: flex; gap: 8px; flex-direction: column;">
-              <a href="mock-test/test.html?test=${t.id}" class="btn-action btn-save-next" style="text-decoration: none; text-align: center; justify-content: center; padding: 10px 14px; font-weight: 700; font-size: 0.88rem;">
-                ⚡ Start Interactive CBT Test
-              </a>
-              <button type="button" class="btn-action btn-secondary" onclick="window.downloadSinglePaperPdf('${t.id}')" style="justify-content: center; padding: 8px 14px; font-size: 0.82rem;">
+              <a href="${pdfPath}" download="${pdfFileName}" class="btn-test primary" style="width: 100%; padding: 10px 14px; font-size: 0.88rem;">
                 📥 Download Exam Paper (PDF)
-              </button>
+              </a>
+              <a href="${pdfPath}" target="_blank" class="btn-test secondary" style="width: 100%; padding: 8px 14px; font-size: 0.82rem;">
+                📄 View / Open PDF in Browser
+              </a>
             </div>
           </div>
         </div>
@@ -159,31 +156,6 @@
 
     container.innerHTML = html;
   }
-
-  // Download Single Paper PDF helper
-  window.downloadSinglePaperPdf = async function(testId) {
-    if (!window.MOCK_TESTS_DATA || !window.MOCK_TESTS_DATA[testId]) {
-      alert('Paper data not available yet.');
-      return;
-    }
-    const t = window.MOCK_TESTS_DATA[testId];
-    
-    // Check if custom PDF generator is available
-    if (window.triggerCustomPdfGeneration) {
-      // Set the course in generator
-      document.querySelectorAll('input[name="custom-course"]').forEach(cb => {
-        cb.checked = (cb.value === t.course_code);
-      });
-      const yearRadio = document.querySelector(`input[name="custom-year"][value="${t.year}"]`);
-      if (yearRadio) yearRadio.checked = true;
-      const countInput = document.getElementById('custom-q-slider');
-      if (countInput) countInput.value = 50;
-
-      window.triggerCustomPdfGeneration();
-    } else {
-      window.location.href = `mock-test/test.html?test=${testId}`;
-    }
-  };
 
   // Theme Toggling
   window.toggleTheme = function() {
@@ -205,11 +177,11 @@
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
-    renderMockTests();
+    renderExamPapers();
 
     // Re-check after small delay if questions_data was still loading
     if (!window.MOCK_TESTS_DATA) {
-      setTimeout(renderMockTests, 300);
+      setTimeout(renderExamPapers, 300);
     }
   }
 
