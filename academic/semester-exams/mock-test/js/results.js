@@ -133,6 +133,25 @@
                 🖨️ Print Result &amp; Solutions
               </button>
             </div>
+
+            ${test.videos && test.videos.length > 0 ? `
+              <div style="margin-top: 20px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 1.5rem;">🎥</span>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem; color: #f87171;">Complete Video Solution Available on YouTube</div>
+                    <div style="font-size: 0.82rem; color: var(--text-secondary, #94a3b8);">Watch step-by-step problem walkthroughs and option explanations for ${test.course_code || ''} (${test.year || ''})</div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  ${test.videos.map(v => `
+                    <a href="${v.url}" target="_blank" rel="noopener noreferrer" style="background: #ef4444; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.85rem; padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);">
+                      <span>▶</span> ${v.title}
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
           </div>
 
           <!-- Section: Detailed Solutions Review -->

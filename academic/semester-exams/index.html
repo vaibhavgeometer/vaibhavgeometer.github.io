@@ -297,11 +297,12 @@
         🏛️ UNPG Padrauna · DDU Gorakhpur University · NEP 2020
       </div>
       <h1>UNPG BSc Math <span class="accent">Semester Exams</span></h1>
-      <p class="hero-sub">Official Examination Question Papers (2023–2026) · 15 Papers · 750 MCQs</p>
-      <p class="hero-desc">Authentic UNPG Padrauna &amp; DDU Gorakhpur University B.Sc. Semester V examination question papers. Download complete, publication-grade PDFs for all 15 official papers with all 50 MCQs, full question statements, all four options clearly visible, and master verified answer keys across Mathematics &amp; Physics.</p>
+      <p class="hero-sub">Official Examination Question Papers (2023–2026) · 15 Papers · 750 MCQs · 16 YouTube Video Solutions</p>
+      <p class="hero-desc">Authentic UNPG Padrauna &amp; DDU Gorakhpur University B.Sc. Semester V examination question papers. Download complete, publication-grade PDFs for all 15 official papers with all 50 MCQs, full question statements, all four options clearly visible, master verified answer keys, and watch step-by-step YouTube video solutions across Mathematics &amp; Physics.</p>
 
       <div class="hero-badges" style="margin-top: 18px;">
         <span class="hero-pill">🏛 <strong>15</strong> Official Papers (PDFs)</span>
+        <a href="javascript:void(0)" onclick="window.switchMainTab('videos')" class="hero-pill" style="border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.08); color: #f87171; text-decoration: none; cursor: pointer;">🎥 <strong>16</strong> Video Solutions</a>
         <span class="hero-pill">🎯 <strong>750</strong> University MCQs</span>
         <span class="hero-pill">📐 <strong>5</strong> Core Subjects</span>
         <span class="hero-pill">⚡ <strong>+1.5 Marks</strong> / 0 Neg.</span>
@@ -317,6 +318,9 @@
     <div class="main-tab-switcher">
       <button class="main-tab-btn active" id="tab-btn-exam-papers" onclick="window.switchMainTab('exam-papers', this)">
         📑 15 Official Exam Question Papers (PDFs)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-videos" onclick="window.switchMainTab('videos', this)">
+        🎥 Complete Video Solutions (YouTube)
       </button>
       <button class="main-tab-btn" id="tab-btn-resources" onclick="window.switchMainTab('resources', this)">
         📚 Study Materials Hub
@@ -338,12 +342,12 @@
           <div>
             <div class="filter-label-text" style="margin-bottom: 6px;">Filter by Semester Course:</div>
             <div class="filter-pill-bar">
-              <button class="filter-btn-pill course-filter-btn active" onclick="window.filterCourses('ALL', this)">All Courses (5)</button>
-              <button class="filter-btn-pill course-filter-btn" onclick="window.filterCourses('MAT301F', this)">📐 MAT 301F (Ring Theory &amp; Linear Alg)</button>
-              <button class="filter-btn-pill course-filter-btn" onclick="window.filterCourses('MAT302F', this)">🌐 MAT 302F (Tensor Analysis)</button>
-              <button class="filter-btn-pill course-filter-btn" onclick="window.filterCourses('MAT303F', this)">📈 MAT 303F (Differential Geometry)</button>
-              <button class="filter-btn-pill course-filter-btn" onclick="window.filterCourses('PHY301F', this)">⚙️ PHY 301F (Classical &amp; Stat Mech)</button>
-              <button class="filter-btn-pill course-filter-btn" onclick="window.filterCourses('PHY302F', this)">⚛️ PHY 302F (Quantum &amp; Spectroscopy)</button>
+              <button class="filter-btn-pill course-filter-btn active" data-course="ALL" onclick="window.filterCourses('ALL', this)">All Courses (5)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="MAT301F" onclick="window.filterCourses('MAT301F', this)">📐 MAT 301F (Ring Theory &amp; Linear Alg)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="MAT302F" onclick="window.filterCourses('MAT302F', this)">🌐 MAT 302F (Tensor Analysis)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="MAT303F" onclick="window.filterCourses('MAT303F', this)">📈 MAT 303F (Differential Geometry)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="PHY301F" onclick="window.filterCourses('PHY301F', this)">⚙️ PHY 301F (Classical &amp; Stat Mech)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="PHY302F" onclick="window.filterCourses('PHY302F', this)">⚛️ PHY 302F (Quantum &amp; Spectroscopy)</button>
             </div>
           </div>
 
@@ -351,16 +355,72 @@
           <div>
             <div class="filter-label-text" style="margin-bottom: 6px;">Filter by Academic Year:</div>
             <div class="filter-pill-bar">
-              <button class="filter-btn-pill year-filter-btn active" onclick="window.filterYears('ALL', this)">All Years (3 Years)</button>
-              <button class="filter-btn-pill year-filter-btn" onclick="window.filterYears('2025-26', this)">2025–26 (Latest Session)</button>
-              <button class="filter-btn-pill year-filter-btn" onclick="window.filterYears('2024-25', this)">2024–25 (Previous Session)</button>
-              <button class="filter-btn-pill year-filter-btn" onclick="window.filterYears('2023-24', this)">2023–24 (Inaugural CBCS)</button>
+              <button class="filter-btn-pill year-filter-btn active" data-year="ALL" onclick="window.filterYears('ALL', this)">All Years (3 Years)</button>
+              <button class="filter-btn-pill year-filter-btn" data-year="2025-26" onclick="window.filterYears('2025-26', this)">2025–26 (Latest Session)</button>
+              <button class="filter-btn-pill year-filter-btn" data-year="2024-25" onclick="window.filterYears('2024-25', this)">2024–25 (Previous Session)</button>
+              <button class="filter-btn-pill year-filter-btn" data-year="2023-24" onclick="window.filterYears('2023-24', this)">2023–24 (Inaugural CBCS)</button>
             </div>
           </div>
         </div>
 
         <!-- Topics Grid for Exam Papers (Injected by main.js) -->
         <div class="topics-grid" id="exam-papers-container">
+          <!-- Dynamically populated by main.js -->
+        </div>
+      </div>
+
+      <!-- ==========================================
+           Panel 2: Complete Video Solutions (YouTube)
+           ========================================== -->
+      <div id="tab-panel-videos" class="tab-content-panel hidden">
+        
+        <div class="sem-banner" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%); border-color: rgba(239, 68, 68, 0.35);">
+          <div class="sem-banner-left">
+            <span style="font-size: 1.6rem;">🎥</span>
+            <div>
+              <div style="font-weight: 700; color: #f87171; font-size: 0.95rem;">
+                Official University PYQ Video Solutions · 15 Exam Papers · 16 Complete Videos
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                Watch comprehensive, question-by-question walkthroughs on YouTube with verified mathematical steps &amp; explanations.
+              </div>
+            </div>
+          </div>
+          <div>
+            <a href="https://www.youtube.com/@VaibhavGeometer" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4); color: #f87171;">
+              ▶ Visit YouTube Channel
+            </a>
+          </div>
+        </div>
+
+        <div class="filter-group-row">
+          <!-- Course Filter Buttons for Videos -->
+          <div>
+            <div class="filter-label-text" style="margin-bottom: 6px;">Filter by Semester Course:</div>
+            <div class="filter-pill-bar">
+              <button class="filter-btn-pill course-filter-btn active" data-course="ALL" onclick="window.filterCourses('ALL', this)">All Courses (5)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="MAT301F" onclick="window.filterCourses('MAT301F', this)">📐 MAT 301F (Ring Theory &amp; Linear Alg)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="MAT302F" onclick="window.filterCourses('MAT302F', this)">🌐 MAT 302F (Tensor Analysis)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="MAT303F" onclick="window.filterCourses('MAT303F', this)">📈 MAT 303F (Differential Geometry)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="PHY301F" onclick="window.filterCourses('PHY301F', this)">⚙️ PHY 301F (Classical &amp; Stat Mech)</button>
+              <button class="filter-btn-pill course-filter-btn" data-course="PHY302F" onclick="window.filterCourses('PHY302F', this)">⚛️ PHY 302F (Quantum &amp; Spectroscopy)</button>
+            </div>
+          </div>
+
+          <!-- Year Filter Buttons for Videos -->
+          <div>
+            <div class="filter-label-text" style="margin-bottom: 6px;">Filter by Academic Year:</div>
+            <div class="filter-pill-bar">
+              <button class="filter-btn-pill year-filter-btn active" data-year="ALL" onclick="window.filterYears('ALL', this)">All Years (3 Years)</button>
+              <button class="filter-btn-pill year-filter-btn" data-year="2025-26" onclick="window.filterYears('2025-26', this)">2025–26 (Latest Session)</button>
+              <button class="filter-btn-pill year-filter-btn" data-year="2024-25" onclick="window.filterYears('2024-25', this)">2024–25 (Previous Session)</button>
+              <button class="filter-btn-pill year-filter-btn" data-year="2023-24" onclick="window.filterYears('2023-24', this)">2023–24 (Inaugural CBCS)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Topics Grid for Videos (Injected by main.js) -->
+        <div class="topics-grid" id="video-solutions-container">
           <!-- Dynamically populated by main.js -->
         </div>
       </div>
@@ -481,9 +541,25 @@
                   </div>
                 </div>
                 <div>
-                  <a href="5th-sem/MAT301F/MAT301F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
-                    📥 MAT301F MCQs (UPH) PDF (~5.6 MB)
-                  </a>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/MAT301F/MAT301F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
+                      📥 MAT301F MCQs (UPH) PDF (~5.6 MB)
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/vtPakqCDVsw?si=r47XJSuNFpQkeMvp" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/9Jz4dCNDlQo?si=plSN4jsnFQu9aRQr" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/VdhPVBk58oE?si=0fRnZcUPTTW8APHX" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24 (P1)
+                      </a>
+                      <a href="https://youtu.be/t9ccXShpBmo" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24 (P2)
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -504,9 +580,22 @@
                   </div>
                 </div>
                 <div>
-                  <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center; background: rgba(255, 255, 255, 0.04); color: var(--text-secondary); border-color: var(--border);">
-                    📄 View Syllabus Specification
-                  </a>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center; background: rgba(255, 255, 255, 0.04); color: var(--text-secondary); border-color: var(--border);">
+                      📄 View Syllabus Specification
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/QPEpeHTDXts?si=0PDAuFH_JrxGC6n7" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/R5UB1kpwxvU?si=E8z9fVNaoKrycdPV" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/5WT-EHUHqwU?si=N3fqcVGZlR9VBGG1" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -527,9 +616,22 @@
                   </div>
                 </div>
                 <div>
-                  <a href="5th-sem/MAT303F/MAT303F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
-                    📥 MAT303F MCQs (UPH) PDF (~10.7 MB)
-                  </a>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/MAT303F/MAT303F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
+                      📥 MAT303F MCQs (UPH) PDF (~10.7 MB)
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/YAl3rCR_rAs?si=TaS-tMuImEhSlkcS" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/APNuKsRE5cg?si=BF-4oPKyxO4crcy2" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/-EeWR6O-ThE?si=I8fSUk7YzQkp3_vH" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -573,6 +675,17 @@
                       📖 Stat Book
                     </a>
                   </div>
+                  <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                    <a href="https://youtu.be/8UwrLbAMHtI?si=VwjWBf-JlF_J5Z0J" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                      ▶ 2025–26
+                    </a>
+                    <a href="https://youtu.be/_9Prr8JCEGI?si=SADtdvc745bCGjx5" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                      ▶ 2024–25
+                    </a>
+                    <a href="https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                      ▶ 2023–24
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -593,9 +706,22 @@
                   </div>
                 </div>
                 <div>
-                  <a href="5th-sem/PHY302F/PHY302F%20PYQ%202024-25.pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
-                    📥 PYQ Paper 2024–25 (~3.1 MB)
-                  </a>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/PHY302F/PHY302F%20PYQ%202024-25.pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
+                      📥 PYQ Paper 2024–25 (~3.1 MB)
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/UMe_PLIXbbU?si=5pdVrbHFNTSAoURe" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/tT7uTM35S-c?si=vM4AfTrw08Ty2qSv" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/NkKJqyDoyyI?si=SqhArrjuLzvfMMMQ" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -767,6 +893,133 @@
                       📥 Download PDF
                     </a>
                   </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Video Solutions Vault Table -->
+        <section style="margin-top: 2.5rem; margin-bottom: 3rem;" id="videos-repo">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.25rem;">🎥</span>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-main); font-weight: 700;">
+                University PYQ Video Solutions Directory (16 Videos)
+              </h2>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">15 Exam Papers · YouTube Solutions</span>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="resource-table">
+              <thead>
+                <tr>
+                  <th>Course &amp; Paper Session</th>
+                  <th>Topic Coverage</th>
+                  <th>Session</th>
+                  <th>YouTube Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>📐 MAT 301F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory and Linear Algebra</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #38bdf8;">2025–26</span></td>
+                  <td><a href="https://youtu.be/vtPakqCDVsw?si=r47XJSuNFpQkeMvp" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📐 MAT 301F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory and Linear Algebra</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #38bdf8;">2024–25</span></td>
+                  <td><a href="https://youtu.be/9Jz4dCNDlQo?si=plSN4jsnFQu9aRQr" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📐 MAT 301F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory and Linear Algebra</span></td>
+                  <td>Part 1 (Q1–Q25) &amp; Part 2 (Q26–Q50)</td>
+                  <td><span class="course-badge" style="color: #38bdf8;">2023–24</span></td>
+                  <td>
+                    <div style="display: flex; gap: 6px;">
+                      <a href="https://youtu.be/VdhPVBk58oE?si=0fRnZcUPTTW8APHX" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171; font-size: 0.75rem;">▶ Part 1</a>
+                      <a href="https://youtu.be/t9ccXShpBmo" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171; font-size: 0.75rem;">▶ Part 2</a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>🌐 MAT 302F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #818cf8;">2025–26</span></td>
+                  <td><a href="https://youtu.be/QPEpeHTDXts?si=0PDAuFH_JrxGC6n7" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>🌐 MAT 302F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #818cf8;">2024–25</span></td>
+                  <td><a href="https://youtu.be/R5UB1kpwxvU?si=E8z9fVNaoKrycdPV" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>🌐 MAT 302F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #818cf8;">2023–24</span></td>
+                  <td><a href="https://youtu.be/5WT-EHUHqwU?si=N3fqcVGZlR9VBGG1" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>📈 MAT 303F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #34d399;">2025–26</span></td>
+                  <td><a href="https://youtu.be/YAl3rCR_rAs?si=TaS-tMuImEhSlkcS" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📈 MAT 303F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #34d399;">2024–25</span></td>
+                  <td><a href="https://youtu.be/APNuKsRE5cg?si=BF-4oPKyxO4crcy2" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📈 MAT 303F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #34d399;">2023–24</span></td>
+                  <td><a href="https://youtu.be/-EeWR6O-ThE?si=I8fSUk7YzQkp3_vH" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #fbbf24;">2025–26</span></td>
+                  <td><a href="https://youtu.be/8UwrLbAMHtI?si=VwjWBf-JlF_J5Z0J" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #fbbf24;">2024–25</span></td>
+                  <td><a href="https://youtu.be/_9Prr8JCEGI?si=SADtdvc745bCGjx5" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #fbbf24;">2023–24</span></td>
+                  <td><a href="https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #c084fc;">2025–26</span></td>
+                  <td><a href="https://youtu.be/UMe_PLIXbbU?si=5pdVrbHFNTSAoURe" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #c084fc;">2024–25</span></td>
+                  <td><a href="https://youtu.be/tT7uTM35S-c?si=vM4AfTrw08Ty2qSv" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #c084fc;">2023–24</span></td>
+                  <td><a href="https://youtu.be/NkKJqyDoyyI?si=SqhArrjuLzvfMMMQ" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
                 </tr>
               </tbody>
             </table>

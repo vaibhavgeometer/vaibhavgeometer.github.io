@@ -17,17 +17,17 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Part 1 (Q1–Q25)",
-        "url": "https://youtu.be/VdhPVBk58oE",
-        "yt_id": "VdhPVBk58oE"
-      },
-      {
-        "title": "Part 2 (Q26–Q50)",
-        "url": "https://youtu.be/t9ccXShpBmo",
-        "yt_id": "t9ccXShpBmo"
-      }
-    ],
+            {
+                  "title": "Part 1 (Q1–Q25)",
+                  "url": "https://youtu.be/VdhPVBk58oE?si=0fRnZcUPTTW8APHX",
+                  "yt_id": "VdhPVBk58oE"
+            },
+            {
+                  "title": "Part 2 (Q26–Q50)",
+                  "url": "https://youtu.be/t9ccXShpBmo",
+                  "yt_id": "t9ccXShpBmo"
+            }
+      ],
     "questions": [
       {
         "id": "MAT301F_2023-24_Q1",
@@ -993,12 +993,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/9Jz4dCNDlQo",
-        "yt_id": "9Jz4dCNDlQo"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/9Jz4dCNDlQo?si=plSN4jsnFQu9aRQr",
+                  "yt_id": "9Jz4dCNDlQo"
+            }
+      ],
     "questions": [
       {
         "id": "MAT301F_2024-25_Q1",
@@ -1964,12 +1964,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/vtPakqCDVsw",
-        "yt_id": "vtPakqCDVsw"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/vtPakqCDVsw?si=r47XJSuNFpQkeMvp",
+                  "yt_id": "vtPakqCDVsw"
+            }
+      ],
     "questions": [
       {
         "id": "MAT301F_2025-26_Q1",
@@ -2935,12 +2935,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/5WT-EHUHqwU",
-        "yt_id": "5WT-EHUHqwU"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/5WT-EHUHqwU?si=N3fqcVGZlR9VBGG1",
+                  "yt_id": "5WT-EHUHqwU"
+            }
+      ],
     "questions": [
       {
         "id": "MAT302F_2023-24_Q1",
@@ -3906,12 +3906,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/R5UB1kpwxvU",
-        "yt_id": "R5UB1kpwxvU"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/R5UB1kpwxvU?si=E8z9fVNaoKrycdPV",
+                  "yt_id": "R5UB1kpwxvU"
+            }
+      ],
     "questions": [
       {
         "id": "MAT302F_2024-25_Q1",
@@ -4877,12 +4877,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/QPEpeHTDXts",
-        "yt_id": "QPEpeHTDXts"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/QPEpeHTDXts?si=0PDAuFH_JrxGC6n7",
+                  "yt_id": "QPEpeHTDXts"
+            }
+      ],
     "questions": [
       {
         "id": "MAT302F_2025-26_Q1",
@@ -5848,12 +5848,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/-EeWR6O-ThE",
-        "yt_id": "-EeWR6O-ThE"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/-EeWR6O-ThE?si=I8fSUk7YzQkp3_vH",
+                  "yt_id": "-EeWR6O-ThE"
+            }
+      ],
     "questions": [
       {
         "id": "MAT303F_2023-24_Q1",
@@ -6819,12 +6819,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/APNuKsRE5cg",
-        "yt_id": "APNuKsRE5cg"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/APNuKsRE5cg?si=BF-4oPKyxO4crcy2",
+                  "yt_id": "APNuKsRE5cg"
+            }
+      ],
     "questions": [
       {
         "id": "MAT303F_2024-25_Q1",
@@ -7790,12 +7790,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/YAl3rCR_rAs",
-        "yt_id": "YAl3rCR_rAs"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/YAl3rCR_rAs?si=TaS-tMuImEhSlkcS",
+                  "yt_id": "YAl3rCR_rAs"
+            }
+      ],
     "questions": [
       {
         "id": "MAT303F_2025-26_Q1",
@@ -8761,12 +8761,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/4bfSW7rHfxU",
-        "yt_id": "4bfSW7rHfxU"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL",
+                  "yt_id": "4bfSW7rHfxU"
+            }
+      ],
     "questions": [
       {
         "id": "PHY301F_2023-24_Q1",
@@ -9732,12 +9732,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/_9Prr8JCEGI",
-        "yt_id": "_9Prr8JCEGI"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/_9Prr8JCEGI?si=SADtdvc745bCGjx5",
+                  "yt_id": "_9Prr8JCEGI"
+            }
+      ],
     "questions": [
       {
         "id": "PHY301F_2024-25_Q1",
@@ -10703,12 +10703,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/8UwrLbAMHtI",
-        "yt_id": "8UwrLbAMHtI"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/8UwrLbAMHtI?si=VwjWBf-JlF_J5Z0J",
+                  "yt_id": "8UwrLbAMHtI"
+            }
+      ],
     "questions": [
       {
         "id": "PHY301F_2025-26_Q1",
@@ -11674,12 +11674,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/NkKJqyDoyyI",
-        "yt_id": "NkKJqyDoyyI"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/NkKJqyDoyyI?si=SqhArrjuLzvfMMMQ",
+                  "yt_id": "NkKJqyDoyyI"
+            }
+      ],
     "questions": [
       {
         "id": "PHY302F_2023-24_Q1",
@@ -12645,12 +12645,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/tT7uTM35S-c",
-        "yt_id": "tT7uTM35S-c"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/tT7uTM35S-c?si=vM4AfTrw08Ty2qSv",
+                  "yt_id": "tT7uTM35S-c"
+            }
+      ],
     "questions": [
       {
         "id": "PHY302F_2024-25_Q1",
@@ -13616,12 +13616,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-      {
-        "title": "Full Paper Solution (Q1–Q50)",
-        "url": "https://youtu.be/UMe_PLIXbbU",
-        "yt_id": "UMe_PLIXbbU"
-      }
-    ],
+            {
+                  "title": "Full Paper Solution (Q1–Q50)",
+                  "url": "https://youtu.be/UMe_PLIXbbU?si=5pdVrbHFNTSAoURe",
+                  "yt_id": "UMe_PLIXbbU"
+            }
+      ],
     "questions": [
       {
         "id": "PHY302F_2025-26_Q1",
