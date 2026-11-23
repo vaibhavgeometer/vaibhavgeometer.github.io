@@ -522,6 +522,11 @@ This compiles all 15 PDFs into `academic/semester-exams/assets/pdfs/` and regene
 
 ## 🚀 Recent Updates
 
+### November 2026 — GitHub Integration, Open Source Showcase & Profile Enhancement
+- **GitHub Software Projects Showcase (`index.html`)**: Added dedicated open-source repository cards highlighting `vaibhavgeometer.github.io`, `DDU-Result-Finder`, and `Vaibhav-Learns-Coding` with language indicators and direct repository links.
+- **GitHub Profile & Bio Integration**: Enriched homepage hero and contact hubs with verified GitHub profile metadata (`@vaibhavgeometer`, location, university affiliation, and interests).
+- **Interactive Contact & Nav Channels**: Added GitHub profile links across top navigation bars, contact cards, and site footers.
+
 ### November 2026 — Art Gallery, Contact Portal & Portfolio Personalization
 - **Art Gallery (`art/` & `images/art/`)**: Deployed dedicated digital art gallery showcasing original digital illustrations and designs: Geometric Color Partition, Sunny Landscape & Tower, and Cosmic Orbits & Planetary System.
 - **Contact Portal (`contact/`)**: Integrated direct contact information with interactive email links (`vaibhav27182@gmail.com`) and Linktree connection (`linktr.ee/vaibhavgeometer`).
