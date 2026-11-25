@@ -109,6 +109,7 @@
     syncStatus: 'idle', // 'idle' | 'syncing' | 'synced' | 'error' | 'offline'
     statusMessage: '',
     debounceTimer: null,
+    isApplyingRemote: false,
     activeTab: 'my-code' // 'my-code' | 'link-device' | 'settings'
   };
 
@@ -527,28 +528,24 @@
   function applyUnifiedPayloadLocally(payload, silent = false) {
     if (!payload || typeof payload !== 'object') return;
 
-    // 1. Apply JAM Tracker
-    if (payload.jam && payload.jam.tracker) {
-      const jt = payload.jam.tracker;
-      if (window.JAM_TRACKER && typeof window.JAM_TRACKER.loadUserDataFromBackup === 'function' && !silent) {
-        window.JAM_TRACKER.loadUserDataFromBackup({
+    state.isApplyingRemote = true;
+    try {
+      // 1. Apply JAM Tracker
+      if (payload.jam && payload.jam.tracker) {
+        const jt = payload.jam.tracker;
+        const jamPayload = {
           questions: jt.questions || {},
           oosMarkedUnnecessary: !!jt.oosMarkedUnnecessary,
           lastUpdated: jt.lastUpdated || new Date().toISOString()
-        });
-      } else {
-        try {
-          localStorage.setItem(KEYS.JAM_TRACKER, JSON.stringify({
-            questions: jt.questions || {},
-            oosMarkedUnnecessary: !!jt.oosMarkedUnnecessary,
-            lastUpdated: jt.lastUpdated || new Date().toISOString()
-          }));
-          if (window.JAM_TRACKER && typeof window.JAM_TRACKER.loadUserDataFromBackup === 'function') {
-            window.JAM_TRACKER.loadUserDataFromBackup(jt);
-          }
-        } catch (e) {}
+        };
+        if (window.JAM_TRACKER && typeof window.JAM_TRACKER.loadUserDataFromBackup === 'function') {
+          window.JAM_TRACKER.loadUserDataFromBackup(jamPayload, { silent: !!silent, skipSync: true });
+        } else {
+          try {
+            localStorage.setItem(KEYS.JAM_TRACKER, JSON.stringify(jamPayload));
+          } catch (e) {}
+        }
       }
-    }
 
     // 2. Apply JAM Mock Scores
     if (payload.jam && payload.jam.scores) {
@@ -594,6 +591,9 @@
         window.updateCustomGeneratorSummary();
       }
     } catch (e) {}
+    } finally {
+      state.isApplyingRemote = false;
+    }
   }
 
   // ==========================================================================
@@ -719,7 +719,7 @@
           const remote = await apiFetchCloudData(state.syncCode);
           if (remote.found && remote.data) {
             finalPayload = mergeUnifiedPayloads(localPayload, remote.data);
-            applyUnifiedPayloadLocally(finalPayload);
+            applyUnifiedPayloadLocally(finalPayload, true);
           }
         } catch (fetchErr) {
           // Offline or worker unreachable: still save locally
@@ -767,7 +767,7 @@
   }
 
   function triggerAutoSync() {
-    if (!state.syncCode || !state.autoSyncEnabled) return;
+    if (!state.syncCode || !state.autoSyncEnabled || state.isApplyingRemote) return;
     state.syncStatus = 'syncing';
     updateNavButtonsUI();
 

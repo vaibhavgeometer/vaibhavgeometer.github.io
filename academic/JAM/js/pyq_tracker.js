@@ -288,11 +288,11 @@
     }
   }
 
-  function saveUserData() {
+  function saveUserData(skipCloudSync = false) {
     try {
       state.userData.lastUpdated = new Date().toISOString();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.userData));
-      if (window.JAM_CLOUD_SYNC && typeof window.JAM_CLOUD_SYNC.triggerAutoSync === 'function') {
+      if (!skipCloudSync && window.JAM_CLOUD_SYNC && typeof window.JAM_CLOUD_SYNC.triggerAutoSync === 'function') {
         window.JAM_CLOUD_SYNC.triggerAutoSync();
       }
     } catch (e) {
@@ -1551,18 +1551,21 @@
       return state.userData;
     },
 
-    loadUserDataFromBackup: function(backupData) {
+    loadUserDataFromBackup: function(backupData, options = {}) {
       if (!backupData || typeof backupData.questions !== 'object') {
         throw new Error('Invalid backup data structure');
       }
+      const opts = typeof options === 'boolean' ? { silent: options, skipSync: options } : (options || {});
       state.userData = {
         questions: backupData.questions,
         oosMarkedUnnecessary: !!backupData.oosMarkedUnnecessary,
         lastUpdated: backupData.lastUpdated || new Date().toISOString()
       };
-      saveUserData();
+      saveUserData(!!opts.skipSync);
       applyFiltersAndRender();
-      showToast('Progress successfully restored from backup!');
+      if (!opts.silent) {
+        showToast('Progress successfully restored from backup!');
+      }
     },
 
     formatSolvedDateTime: formatSolvedDateTime,
