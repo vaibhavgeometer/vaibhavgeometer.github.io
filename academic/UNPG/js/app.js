@@ -54,7 +54,7 @@
   }
 
   // --- TAB SWITCHING ---
-  function switchTab(tabId) {
+  function switchTab(tabId, opts) {
     currentTab = tabId;
     document.querySelectorAll('.portal-tab-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.tab === tabId);
@@ -62,8 +62,11 @@
     document.querySelectorAll('.tab-panel').forEach(panel => {
       panel.classList.toggle('active', panel.id === `tab-${tabId}`);
     });
-    window.location.hash = tabId;
+    if (!opts || !opts.skipHash) {
+      window.location.hash = tabId;
+    }
   }
+  window.UNPG_RESULTS = { switchTab };
 
   // --- SEARCH & FILTER LOGIC ---
   function filterStudents() {
@@ -891,14 +894,20 @@
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
 
-    if (hash.startsWith('student=')) {
+    if (hash === 'results') {
+      if (window.switchPortalMode) window.switchPortalMode('results', { skipHash: true });
+      switchTab('search', { skipHash: true });
+    } else if (hash.startsWith('student=')) {
+      if (window.switchPortalMode) window.switchPortalMode('results', { skipHash: true });
       const roll = hash.split('=')[1];
       window.showStudentProfile(roll);
     } else if (hash.startsWith('subject=')) {
+      if (window.switchPortalMode) window.switchPortalMode('results', { skipHash: true });
       const code = hash.split('=')[1];
       window.showSubjectProfile(code);
     } else if (['search', 'toppers', 'semesters', 'subjects', 'downloads'].includes(hash)) {
-      switchTab(hash);
+      if (window.switchPortalMode) window.switchPortalMode('results', { skipHash: true });
+      switchTab(hash, { skipHash: true });
     }
   }
 

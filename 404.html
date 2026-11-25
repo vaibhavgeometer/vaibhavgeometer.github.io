@@ -48,19 +48,43 @@
         return;
       }
 
+      if (lower === '/academic/semester-exams' || lower === '/academic/semester-exams/' || lower.indexOf('/academic/semester-exams/') === 0) {
+        sub = path.replace(/^\/academic\/semester-exams\/?/i, '');
+        window.location.replace('/academic/UNPG/' + sub + search + hash);
+        return;
+      }
+
+      if (lower === '/academic/unpg-results' || lower === '/academic/unpg-results/' || lower.indexOf('/academic/unpg-results/') === 0) {
+        sub = path.replace(/^\/academic\/unpg-results\/?/i, '');
+        window.location.replace('/academic/UNPG/' + sub + search + ((sub === '' && !hash) ? '#results' : hash));
+        return;
+      }
+
+      if ((lower === '/academic/unpg' || lower === '/academic/unpg/' || lower.indexOf('/academic/unpg/') === 0) &&
+          path.indexOf('/academic/UNPG') !== 0) {
+        sub = path.replace(/^\/academic\/unpg\/?/i, '');
+        window.location.replace('/academic/UNPG/' + sub + search + hash);
+        return;
+      }
+
       if (lower === '/semester-exams' || lower === '/semester-exams/' || lower.indexOf('/semester-exams/') === 0 ||
           lower === '/semester' || lower === '/semester/' || lower.indexOf('/semester/') === 0 ||
           lower === '/sem-exams' || lower === '/sem-exams/' || lower.indexOf('/sem-exams/') === 0) {
         sub = path.replace(/^\/(?:semester-exams|semester|sem-exams)\/?/i, '');
-        window.location.replace('/academic/semester-exams/' + sub + search + hash);
+        window.location.replace('/academic/UNPG/' + sub + search + hash);
         return;
       }
 
       if (lower === '/unpg-results' || lower === '/unpg-results/' || lower.indexOf('/unpg-results/') === 0 ||
-          lower === '/results' || lower === '/results/' || lower.indexOf('/results/') === 0 ||
-          lower === '/unpg' || lower === '/unpg/' || lower.indexOf('/unpg/') === 0) {
-        sub = path.replace(/^\/(?:unpg-results|results|unpg)\/?/i, '');
-        window.location.replace('/academic/unpg-results/' + sub + search + hash);
+          lower === '/results' || lower === '/results/' || lower.indexOf('/results/') === 0) {
+        sub = path.replace(/^\/(?:unpg-results|results)\/?/i, '');
+        window.location.replace('/academic/UNPG/' + sub + search + ((sub === '' && !hash) ? '#results' : hash));
+        return;
+      }
+
+      if (lower === '/unpg' || lower === '/unpg/' || lower.indexOf('/unpg/') === 0) {
+        sub = path.replace(/^\/unpg\/?/i, '');
+        window.location.replace('/academic/UNPG/' + sub + search + hash);
         return;
       }
 
@@ -143,11 +167,8 @@
       <a href="academic/" class="btn-secondary">
         <span>🎓</span> <span>Academic Portals Hub</span>
       </a>
-      <a href="academic/semester-exams/" class="btn-secondary">
-        <span>📚</span> <span>Semester Exams</span>
-      </a>
-      <a href="academic/unpg-results/" class="btn-secondary">
-        <span>🏛️</span> <span>UNPG BSc Results</span>
+      <a href="academic/UNPG/" class="btn-secondary">
+        <span>🏛️</span> <span>UNPG BSc Math Portal</span>
       </a>
       <a href="art/" class="btn-secondary">
         <span>🎨</span> <span>Art Gallery</span>

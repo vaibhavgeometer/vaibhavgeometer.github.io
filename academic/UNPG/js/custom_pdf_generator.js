@@ -425,7 +425,7 @@
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(7.5);
       doc.setTextColor(148, 163, 184);
-      doc.text('UNPG B.Sc. Semester V Archive · vaibhavgeometer.github.io/academic/semester-exams', margin, pageH - 8);
+      doc.text('UNPG B.Sc. Semester V Archive · vaibhavgeometer.github.io/academic/UNPG', margin, pageH - 8);
       doc.text(`Page ${p} of ${pageCount}`, pageW - margin, pageH - 8, { align: 'right' });
     }
 

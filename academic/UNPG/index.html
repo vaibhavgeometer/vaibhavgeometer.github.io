@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNPG BSc Math (2024–2028) Portal — Semester Exams, CBT, PYQ Tracker &amp; Results | Vaibhav Priyadarshi</title>
+  <meta name="description" content="Unified UNPG Padrauna &amp; DDU Gorakhpur University B.Sc. Mathematics (2024–2028) Portal: 15 official Semester V papers (2023–2026), 750-question PYQ tracker, CBT mock tests, custom PDF generator, 16 video solutions, and complete Semesters I–IV cohort results &amp; merit rankings.">
+  <meta name="keywords" content="UNPG Padrauna, DDU Gorakhpur University, BSc Maths, Semester Exams, MAT301F, MAT302F, MAT303F, PHY301F, PHY302F, Exam Question Papers, Question Paper PDFs, NEP 2020">
+  <meta name="author" content="Vaibhav Priyadarshi">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- MathJax 3 -->
+  <script src="mock-test/js/mathjax_config.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- Master Stylesheets -->
+  <link rel="stylesheet" href="../../css/portfolio.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tracker.css" />
+  <link rel="stylesheet" href="css/results.css" />
+
+  <style>
+    /* Custom Semester Exam Portal Enhancements */
+    .sem-banner {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(56, 189, 248, 0.1) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .sem-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .sem-pulse-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+    }
+    .sem-roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .sem-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.75rem;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .sem-pill.completed {
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.04);
+    }
+    .sem-pill.active {
+      border-color: rgba(34, 197, 94, 0.6);
+      background: rgba(34, 197, 94, 0.1);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.15);
+      position: relative;
+    }
+    .sem-pill.upcoming {
+      opacity: 0.65;
+    }
+    .sem-pill-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .sem-pill-status {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      font-weight: 600;
+    }
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .course-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .course-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .course-code {
+      font-family: var(--font-heading, sans-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .course-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #38bdf8;
+    }
+    .course-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .course-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .course-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .course-meta span {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .resource-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .resource-table th, .resource-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .resource-table th {
+      background: rgba(255, 255, 255, 0.03);
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .resource-table tr:last-child td {
+      border-bottom: none;
+    }
+    .resource-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-download:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    .filter-group-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .filter-label-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .filter-pill-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn-pill:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+    }
+    .filter-btn-pill.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .portal-mode-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem 0.25rem;
+      flex-wrap: wrap;
+    }
+    .portal-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 1.35rem;
+      border-radius: var(--radius-full, 9999px);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-family: var(--font-heading, sans-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .portal-mode-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+    .portal-mode-btn.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2));
+      border-color: var(--accent);
+      color: var(--text-main);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.2);
+    }
+    .portal-mode-badge {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="../../" class="brand-logo" title="Vaibhav Priyadarshi Academic Portal">
+        <span class="brand-icon">📐</span>
+        <span class="brand-name">
+          <span class="brand-full">UNPG BSc Math (2024–2028)</span>
+          <span class="brand-short">UNPG Portal</span>
+        </span>
+      </a>
+
+      <div class="nav-actions">
+        <button class="nav-link-btn nav-tracker-btn" onclick="window.switchMainTab('pyq-tracker')" title="Search &amp; Track 750 University PYQs">
+          <span class="nav-btn-icon">🎯</span>
+          <span class="nav-btn-label">PYQ Tracker</span>
+          <span class="nav-tracker-pill" id="nav-tracker-progress-pill">0/750</span>
+        </button>
+        <a href="../../" class="nav-link-btn" title="Return to Vaibhav Priyadarshi Homepage">
+          <span class="nav-btn-icon">🏠</span>
+          <span class="nav-btn-label">Home</span>
+        </a>
+        <a href="../" class="nav-link-btn" title="Academic Hub">
+          <span class="nav-btn-icon">🎓</span>
+          <span class="nav-btn-label">Academic</span>
+        </a>
+        <button type="button" class="nav-link-btn" onclick="window.switchPortalMode('results')" title="UNPG Cohort Results (Sem I-IV)">
+          <span class="nav-btn-icon">📊</span>
+          <span class="nav-btn-label">Results</span>
+        </button>
+        <a href="../JAM/" class="nav-link-btn" title="IIT JAM Portal">
+          <span class="nav-btn-icon">🧭</span>
+          <span class="nav-btn-label">IIT JAM</span>
+        </a>
+        <button class="icon-btn" onclick="window.togglePortalTheme()" title="Toggle Theme" id="theme-btn" aria-label="Toggle Theme">☀️</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Unified Portal Mode Switcher -->
+  <div class="portal-mode-bar">
+    <button type="button" id="portal-mode-exams-btn" class="portal-mode-btn active" onclick="window.switchPortalMode('exams')">
+      <span>📚 Semester V Exams &amp; CBT</span>
+      <span class="portal-mode-badge">15 Papers · 750 Qs</span>
+    </button>
+    <button type="button" id="portal-mode-results-btn" class="portal-mode-btn" onclick="window.switchPortalMode('results')">
+      <span>🎓 Cohort Results (Sem I–IV)</span>
+      <span class="portal-mode-badge">70 Students · 4 Sems</span>
+    </button>
+  </div>
+
+  <div id="unpg-exams-section">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+        <a href="../../" style="color: var(--text-secondary); text-decoration: none;">Home</a> &nbsp;/&nbsp;
+        <a href="../" style="color: var(--text-secondary); text-decoration: none;">Academic</a> &nbsp;/&nbsp;
+        <span style="color: var(--accent);">UNPG BSc Math (2024–2028)</span>
+      </div>
+      <div class="jam-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); margin-bottom: 0.75rem;">
+        🏛️ UNPG Padrauna · DDU Gorakhpur University · NEP 2020
+      </div>
+      <h1>UNPG BSc Semester V <span class="accent">Exam &amp; CBT Portal</span></h1>
+      <p class="hero-sub">Official Question Papers (2023–2026) · Interactive CBT Mock Tests · 750-Question PYQ Tracker · Custom PDF Builder</p>
+      <p class="hero-desc">Attempt authentic UNPG / DDUGU B.Sc. Semester V papers (MAT301F, MAT302F, MAT303F, PHY301F, PHY302F) in official 90-minute CBT mode or untimed Practice mode, search &amp; track every single PYQ with zero-login 6-digit Cloud Sync, build custom mixed PDFs, download all 15 static official papers, and watch 16 YouTube video solutions.</p>
+
+      <!-- Hero Quick Search Bar -->
+      <div class="hero-search-wrap">
+        <div class="hero-search-box">
+          <span class="tracker-search-icon">🔍</span>
+          <input type="text" id="hero-quick-search-input" class="hero-search-input" placeholder="Quick search 750 PYQs (e.g. 'MAT301F 2025 Q1', 'Christoffel', '2024 Q15', 'Zeeman')..." onkeydown="if(event.key==='Enter'){window.switchMainTab('pyq-tracker'); window.SEM_TRACKER && window.SEM_TRACKER.setSearchQuery(this.value);}" />
+          <button type="button" class="hero-search-btn" onclick="window.switchMainTab('pyq-tracker'); window.SEM_TRACKER && window.SEM_TRACKER.setSearchQuery(document.getElementById('hero-quick-search-input').value);">Search PYQs</button>
+        </div>
+      </div>
+
+      <div class="hero-badges" style="margin-top: 18px;">
+        <a href="javascript:void(0)" onclick="window.switchMainTab('year-tests')" class="hero-pill" style="text-decoration:none;">🏛 <strong>15</strong> CBT Mock Tests &amp; PDFs</a>
+        <a href="javascript:void(0)" onclick="window.switchMainTab('pyq-tracker')" class="hero-pill" style="text-decoration:none; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">
+          🎯 <strong>750 Qs</strong> Tracker: <span id="hero-progress-pill" style="color:var(--green); margin-left:4px;">0 / 750 (0.0%)</span>
+        </a>
+        <a href="javascript:void(0)" onclick="window.switchMainTab('custom-generator')" class="hero-pill" style="text-decoration:none;">🛠️ <strong>Custom</strong> Test &amp; PDF Builder</a>
+        <a href="javascript:void(0)" onclick="window.switchMainTab('videos')" class="hero-pill" style="border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.08); color: #f87171; text-decoration: none;">🎥 <strong>16</strong> Video Solutions</a>
+        <span class="hero-pill">⚡ <strong>+1.5 Marks</strong> / 0 Neg.</span>
+        <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="hero-pill" title="Download Official CBCS 5th Sem Syllabus PDF">📜 <strong>5th Sem</strong> Syllabus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Tab Switcher -->
+  <section class="container">
+    <div class="main-tab-switcher">
+      <button class="main-tab-btn active" id="tab-btn-year-tests" onclick="window.switchMainTab('year-tests')">
+        🏛 15 Mock Tests &amp; Papers (2023–2026)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-pyq-tracker" onclick="window.switchMainTab('pyq-tracker')">
+        🎯 PYQ Tracker &amp; Search (750 Qs)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-custom-generator" onclick="window.switchMainTab('custom-generator')">
+        🛠️ Custom Test &amp; PDF Generator
+      </button>
+      <button class="main-tab-btn" id="tab-btn-videos" onclick="window.switchMainTab('videos')">
+        🎥 Video Solutions (16 Lectures)
+      </button>
+      <button class="main-tab-btn" id="tab-btn-resources" onclick="window.switchMainTab('resources')">
+        📚 Study Materials Hub
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content Areas -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- ==========================================
+           Panel 1: Official Mock Tests & Exam Papers (15 Papers)
+           ========================================== -->
+      <div id="tab-panel-year-tests" class="tab-content-panel">
+
+        <!-- Quick Difficulty Drill Launcher -->
+        <div class="quick-drill-banner">
+          <div class="quick-drill-left">
+            <span class="quick-drill-icon">⚡</span>
+            <div>
+              <div class="quick-drill-title">Quick Adaptive PYQ Drill (25 Random MCQs · Untimed CBT)</div>
+              <div class="quick-drill-desc">Launch an instant mixed CBT drill across all 5 Semester V courses filtered by calibrated difficulty tier.</div>
+            </div>
+          </div>
+          <div class="quick-drill-actions">
+            <button type="button" class="quick-drill-btn drill-easy" onclick="window.quickLaunchDifficultyDrill('easy')">🟢 Easy Warmup</button>
+            <button type="button" class="quick-drill-btn drill-medium" onclick="window.quickLaunchDifficultyDrill('medium')">🟡 Medium Mix</button>
+            <button type="button" class="quick-drill-btn drill-hard" onclick="window.quickLaunchDifficultyDrill('hard')">🔴 Hard Challenge</button>
+            <button type="button" class="quick-drill-btn drill-custom" onclick="window.switchMainTab('custom-generator')">🛠️ Custom Mix →</button>
+          </div>
+        </div>
+
+        <!-- Year & Course Filters -->
+        <div class="topic-filters-wrapper" style="margin-bottom: 20px;">
+          <div class="year-filter-tabs" id="mock-year-filter-tabs" style="margin-bottom: 12px;">
+            <button class="year-filter-btn active" onclick="window.setYearFilter('ALL', this)">All Years (15)</button>
+            <button class="year-filter-btn" onclick="window.setYearFilter('2025-26', this)">2025–26 (Latest · 5)</button>
+            <button class="year-filter-btn" onclick="window.setYearFilter('2024-25', this)">2024–25 (5)</button>
+            <button class="year-filter-btn" onclick="window.setYearFilter('2023-24', this)">2023–24 (5)</button>
+          </div>
+          <div class="filter-tabs" id="mock-course-filter-tabs" style="justify-content: flex-start; margin-bottom: 0;">
+            <button class="filter-btn active" onclick="window.setCourseFilter('ALL', this)">All 5 Courses</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('SUBJECT_MATH', this)">📐 Mathematics (9)</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('SUBJECT_PHY', this)">⚛️ Physics (6)</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('MAT301F', this)">💍 MAT301F</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('MAT302F', this)">∇ MAT302F</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('MAT303F', this)">🌀 MAT303F</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('PHY301F', this)">⚙️ PHY301F</button>
+            <button class="filter-btn" onclick="window.setCourseFilter('PHY302F', this)">⚛️ PHY302F</button>
+          </div>
+        </div>
+
+        <div class="topics-grid" id="year-tests-container">
+          <!-- Injected by main.js -->
+        </div>
+      </div>
+
+      <!-- ==========================================
+           Panel 2: PYQ Tracker & Search (750 Qs)
+           ========================================== -->
+      <div id="tab-panel-pyq-tracker" class="tab-content-panel hidden">
+
+        <!-- Header & Action Buttons -->
+        <div class="tracker-header-box">
+          <div class="tracker-title-row">
+            <div class="tracker-title-group">
+              <h2 class="tracker-title">🎯 UNPG Semester V PYQ Tracker &amp; Search</h2>
+              <p class="tracker-subtitle">Search, solve, tag difficulty, and track every official MCQ across all 15 papers (2023–2026) with zero-login 6-digit Cloud Sync.</p>
+            </div>
+            <div class="tracker-actions-bar">
+              <button class="cloud-sync-action-btn" id="btn-cloud-sync" onclick="window.SEM_CLOUD_SYNC && window.SEM_CLOUD_SYNC.openModal()" title="Zero-Login 6-Character Cross-Device Cloud Sync">
+                <span class="cloud-status-indicator" id="cloud-sync-quick-dot"></span>
+                <span>☁️</span>
+                <span id="btn-cloud-sync-text">Cloud Sync</span>
+              </button>
+              <button class="stats-action-btn" id="btn-tracker-stats" onclick="window.SEM_STATS && window.SEM_STATS.openStatsModal()" title="Detailed Study Analytics, Streak &amp; Target Simulator">
+                <span>📊 Study Stats</span>
+                <span class="stats-today-badge" id="stats-today-pill">Analytics</span>
+              </button>
+              <button class="tracker-action-btn" onclick="window.SEM_TRACKER && window.SEM_TRACKER.exportProgress()" title="Export progress &amp; tags to JSON backup">
+                <span>💾 Export</span>
+              </button>
+              <button class="tracker-action-btn" onclick="window.SEM_TRACKER && window.SEM_TRACKER.importProgress()" title="Restore progress from JSON backup">
+                <span>📂 Import</span>
+              </button>
+              <button class="tracker-action-btn danger" onclick="window.SEM_TRACKER && window.SEM_TRACKER.resetAllProgress()" title="Reset all progress back to 0%">
+                <span>🔄 Reset</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Overall Progress Card -->
+        <div class="progress-card">
+          <div class="progress-main-row">
+            <div class="progress-percentage-display" id="tracker-overall-percentage">0 / 750</div>
+            <div style="flex:1;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; gap:8px; flex-wrap:wrap;">
+                <span class="progress-percentage-label">Total Semester V PYQ Mastery</span>
+                <span id="tracker-exact-percentage" style="font-size:0.85rem; font-weight:700; color:var(--text-main);">0.0% Completed</span>
+              </div>
+              <div class="progress-bar-outer">
+                <div class="progress-bar-fill" id="tracker-overall-bar" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Stats Quick-Grid -->
+          <div class="stats-quick-grid" id="stats-quick-grid" onclick="window.SEM_STATS && window.SEM_STATS.openStatsModal()" title="Click to open full Study Analytics &amp; Completion Simulator">
+            <div class="stats-quick-card">
+              <div class="stats-quick-label">📅 Solved Today</div>
+              <div class="stats-quick-val highlight-green" id="stat-quick-today">0 Qs</div>
+              <div class="stats-quick-sub" id="stat-quick-today-sub">Start solving today!</div>
+            </div>
+            <div class="stats-quick-card">
+              <div class="stats-quick-label">🔥 Active Streak</div>
+              <div class="stats-quick-val highlight-streak" id="stat-quick-streak">0 Days</div>
+              <div class="stats-quick-sub" id="stat-quick-streak-sub">Best: 0 days</div>
+            </div>
+            <div class="stats-quick-card">
+              <div class="stats-quick-label">📆 Last 7 Days</div>
+              <div class="stats-quick-val" id="stat-quick-week">0 Qs</div>
+              <div class="stats-quick-sub" id="stat-quick-week-sub">Avg: 0 / day</div>
+            </div>
+            <div class="stats-quick-card">
+              <div class="stats-quick-label">⏳ Completion Forecast</div>
+              <div class="stats-quick-val" id="stat-quick-forecast">Click to simulate</div>
+              <div class="stats-quick-sub" id="stat-quick-remaining">750 of 750 remaining</div>
+            </div>
+          </div>
+
+          <div class="progress-stats-pills">
+            <span class="tracker-stat-pill solved" id="stat-pill-solved">0 Solved</span>
+            <span class="tracker-stat-pill unsolved" id="stat-pill-unsolved">750 Remaining</span>
+          </div>
+
+          <!-- Subject Mini-Cards -->
+          <div class="topic-progress-grid" id="topic-progress-mini-grid">
+            <!-- Injected by pyq_tracker.js -->
+          </div>
+
+          <!-- Collapsible 5-Course Progress Breakdown -->
+          <div class="subtopic-progress-wrapper" id="subtopic-progress-wrapper">
+            <div class="subtopic-progress-header">
+              <div class="subtopic-progress-title-wrap">
+                <span class="subtopic-progress-title">📚 Course-Wise Progress</span>
+                <span class="subtopic-badge" id="subtopic-total-badge">5 Courses</span>
+              </div>
+              <div class="subtopic-header-controls">
+                <div class="subtopic-filter-tabs" id="subtopic-filter-tabs">
+                  <button type="button" class="subtopic-tab active" onclick="window.SEM_TRACKER && window.SEM_TRACKER.setCourseTabSubject('ALL', this)">All (5)</button>
+                  <button type="button" class="subtopic-tab" onclick="window.SEM_TRACKER && window.SEM_TRACKER.setCourseTabSubject('Mathematics', this)">Mathematics (3)</button>
+                  <button type="button" class="subtopic-tab" onclick="window.SEM_TRACKER && window.SEM_TRACKER.setCourseTabSubject('Physics', this)">Physics (2)</button>
+                </div>
+                <button type="button" class="subtopic-collapse-btn" id="btn-subtopic-collapse" onclick="window.SEM_TRACKER && window.SEM_TRACKER.toggleCourseCollapse()">
+                  <span id="subtopic-collapse-icon">▾</span>
+                  <span id="subtopic-collapse-text">Collapse</span>
+                </button>
+              </div>
+            </div>
+            <div class="subtopic-progress-grid" id="subtopic-progress-mini-grid">
+              <!-- Injected by pyq_tracker.js -->
+            </div>
+          </div>
+
+          <!-- Difficulty Tier Distribution -->
+          <div class="difficulty-dist-row">
+            <span class="difficulty-dist-label">Difficulty Tiers (Click to filter):</span>
+            <div id="difficulty-dist-pills" style="display:flex; gap:8px; flex-wrap:wrap; flex:1;"></div>
+          </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="tracker-search-section">
+          <div class="tracker-search-bar">
+            <span class="tracker-search-icon">🔍</span>
+            <input type="text" id="tracker-search-input" class="tracker-search-input" placeholder="Search by ID (MAT301F_2025-26_Q1), Course+Q# (PHY302F Q10), Year+Q# (2024 Q15), or topic keyword (Christoffel, Ideal, Zeeman)..." oninput="window.SEM_TRACKER && window.SEM_TRACKER.setSearchQuery(this.value)" />
+            <button type="button" id="tracker-search-clear-btn" class="tracker-search-clear-btn" onclick="window.SEM_TRACKER && window.SEM_TRACKER.setSearchQuery('')" title="Clear Search">✕</button>
+          </div>
+          <div class="tracker-search-chips">
+            <span class="search-chips-label">Try:</span>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('MAT301F Q1')">MAT301F Q1</button>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('2025 Q25')">2025 Q25</button>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('Christoffel')">Christoffel</button>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('Lagrangian')">Lagrangian</button>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('Schrodinger')">Schrodinger</button>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('Ideal')">Ideal</button>
+            <button type="button" class="search-chip" onclick="window.SEM_TRACKER && window.SEM_TRACKER.quickChip('Curvature')">Curvature</button>
+          </div>
+        </div>
+
+        <div class="tracker-filter-bar">
+          <div class="filter-control-group">
+            <label class="filter-control-label" for="filter-year-select">Academic Year</label>
+            <select id="filter-year-select" class="filter-control-select" onchange="window.SEM_TRACKER && window.SEM_TRACKER.setFilter('year', this.value)">
+              <option value="ALL">All Years (2023–26)</option>
+              <option value="2025-26">2025-26 (Latest)</option>
+              <option value="2024-25">2024-25</option>
+              <option value="2023-24">2023-24</option>
+            </select>
+          </div>
+          <div class="filter-control-group">
+            <label class="filter-control-label" for="filter-subject-select">Subject</label>
+            <select id="filter-subject-select" class="filter-control-select" onchange="window.SEM_TRACKER && window.SEM_TRACKER.setFilter('subject', this.value)">
+              <option value="ALL">All Subjects (750)</option>
+              <option value="Mathematics">Mathematics (450)</option>
+              <option value="Physics">Physics (300)</option>
+            </select>
+          </div>
+          <div class="filter-control-group">
+            <label class="filter-control-label" for="filter-course-select">Course Paper</label>
+            <select id="filter-course-select" class="filter-control-select" onchange="window.SEM_TRACKER && window.SEM_TRACKER.setFilter('course', this.value)">
+              <option value="ALL">All 5 Courses</option>
+            </select>
+          </div>
+          <div class="filter-control-group">
+            <label class="filter-control-label" for="filter-status-select">Status</label>
+            <select id="filter-status-select" class="filter-control-select" onchange="window.SEM_TRACKER && window.SEM_TRACKER.setFilter('status', this.value)">
+              <option value="ALL">All Status</option>
+              <option value="unsolved">Unsolved Only</option>
+              <option value="solved">Solved Only</option>
+            </select>
+          </div>
+          <div class="filter-control-group">
+            <label class="filter-control-label" for="filter-diff-select">Difficulty</label>
+            <select id="filter-diff-select" class="filter-control-select" onchange="window.SEM_TRACKER && window.SEM_TRACKER.setFilter('difficulty', this.value)">
+              <option value="ALL">All Tiers</option>
+              <option value="EASY_OR_LESS">🟢🔵 Easy &amp; Very Easy</option>
+              <option value="very_easy">🟢 Very Easy</option>
+              <option value="easy">🔵 Easy</option>
+              <option value="medium">🟡 Medium</option>
+              <option value="hard">🔴 Hard</option>
+              <option value="hardest">🟣 Very Hard</option>
+              <option value="HARD_OR_MORE">🔴🟣 Hard &amp; Very Hard</option>
+            </select>
+          </div>
+          <div class="filter-control-group">
+            <label class="filter-control-label" for="filter-sort-select">Sort By</label>
+            <select id="filter-sort-select" class="filter-control-select" onchange="window.SEM_TRACKER && window.SEM_TRACKER.setFilter('sort', this.value)">
+              <option value="year_desc">Year (Newest First)</option>
+              <option value="year_asc">Year (Oldest First)</option>
+              <option value="course_asc">Course Code (MAT301F → PHY302F)</option>
+              <option value="unsolved_first">Unsolved First</option>
+              <option value="diff_asc">Difficulty (Easiest First)</option>
+              <option value="diff_desc">Difficulty (Hardest First)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Bulk Actions Ribbon -->
+        <div class="tracker-bulk-ribbon" id="tracker-bulk-ribbon">
+          <div class="bulk-results-count">
+            Showing <strong id="tracker-results-count">750</strong> Matching Questions
+            <span id="tracker-results-notice" style="margin-left:8px;"></span>
+          </div>
+          <div class="bulk-btn-group">
+            <button type="button" class="bulk-btn solve-all" onclick="window.SEM_TRACKER && window.SEM_TRACKER.bulkMarkFiltered('solve')">✓ Mark Filtered Solved</button>
+            <button type="button" class="bulk-btn unsolve-all" onclick="window.SEM_TRACKER && window.SEM_TRACKER.bulkMarkFiltered('unsolve')">○ Mark Filtered Unsolved</button>
+            <button type="button" class="bulk-btn" onclick="window.SEM_TRACKER && window.SEM_TRACKER.clearAllFilters()">↺ Reset Filters</button>
+          </div>
+        </div>
+
+        <!-- Question Cards Grid -->
+        <div class="tracker-questions-grid" id="tracker-questions-container">
+          <!-- Injected by pyq_tracker.js -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="tracker-pagination" id="tracker-pagination-container">
+          <!-- Injected by pyq_tracker.js -->
+        </div>
+      </div>
+
+      <!-- ==========================================
+           Panel 3: Custom Test & PDF Generator
+           ========================================== -->
+      <div id="tab-panel-custom-generator" class="tab-content-panel hidden">
+
+        <div id="custom-offline-banner" class="offline-warning-banner hidden">
+          <span class="offline-icon">⚠️</span>
+          <div class="offline-text">
+            <strong>You appear to be offline</strong>
+            <span>PDF compilation requires fetching local/hosted question screenshot images. Interactive CBT Practice will only render cached images while offline.</span>
+          </div>
+        </div>
+
+        <div class="custom-generator-badges">
+          <span class="custom-badge">🎨 Custom Mix Across 5 Papers</span>
+          <span class="custom-badge">📑 High-Res A4 PDF Booklet + Master Key</span>
+          <span class="custom-badge">🖥️ Instant CBT Simulator Mode</span>
+          <span class="custom-badge">⚡ UNPG +1.5 / 0 Neg Marking</span>
+        </div>
+
+        <div class="custom-generator-container">
+
+          <!-- Step 1: Select Courses -->
+          <div class="custom-card">
+            <div class="custom-card-header">
+              <div>
+                <span class="custom-step-pill">STEP 1 OF 3</span>
+                <h3 class="custom-card-title">Select Semester V Courses &amp; Papers</h3>
+              </div>
+              <div class="custom-topic-presets">
+                <button type="button" class="chip-btn" onclick="window.customGeneratorSelectAll('all')">Select All (5)</button>
+                <button type="button" class="chip-btn" onclick="window.customGeneratorSelectAll('math')">Mathematics Only (3)</button>
+                <button type="button" class="chip-btn" onclick="window.customGeneratorSelectAll('physics')">Physics Only (2)</button>
+                <button type="button" class="chip-btn" onclick="window.customGeneratorSelectAll('none')">Clear All</button>
+              </div>
+            </div>
+
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">📐 B.Sc. Semester V — Mathematics (450 PYQs)</div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item">
+                  <input type="checkbox" name="custom_course" value="MAT301F" checked onchange="window.handleCustomGeneratorChange()" />
+                  <span class="custom-topic-icon">💍</span>
+                  <span class="custom-topic-info">
+                    <span class="custom-topic-name">MAT301F — Ring Theory &amp; Linear Algebra</span>
+                    <span class="custom-topic-sub">3 Papers (2023–26) · 150 Official MCQs</span>
+                  </span>
+                  <span class="custom-topic-count" id="count-MAT301F">150 Qs</span>
+                </label>
+
+                <label class="custom-topic-item">
+                  <input type="checkbox" name="custom_course" value="MAT302F" checked onchange="window.handleCustomGeneratorChange()" />
+                  <span class="custom-topic-icon">∇</span>
+                  <span class="custom-topic-info">
+                    <span class="custom-topic-name">MAT302F — Tensor Analysis</span>
+                    <span class="custom-topic-sub">3 Papers (2023–26) · 150 Official MCQs</span>
+                  </span>
+                  <span class="custom-topic-count" id="count-MAT302F">150 Qs</span>
+                </label>
+
+                <label class="custom-topic-item">
+                  <input type="checkbox" name="custom_course" value="MAT303F" checked onchange="window.handleCustomGeneratorChange()" />
+                  <span class="custom-topic-icon">🌀</span>
+                  <span class="custom-topic-info">
+                    <span class="custom-topic-name">MAT303F — Differential Geometry</span>
+                    <span class="custom-topic-sub">3 Papers (2023–26) · 150 Official MCQs</span>
+                  </span>
+                  <span class="custom-topic-count" id="count-MAT303F">150 Qs</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="custom-subject-group">
+              <div class="custom-subject-title">⚛️ B.Sc. Semester V — Physics (300 PYQs)</div>
+              <div class="custom-topics-list">
+                <label class="custom-topic-item">
+                  <input type="checkbox" name="custom_course" value="PHY301F" checked onchange="window.handleCustomGeneratorChange()" />
+                  <span class="custom-topic-icon">⚙️</span>
+                  <span class="custom-topic-info">
+                    <span class="custom-topic-name">PHY301F — Classical &amp; Statistical Mechanics</span>
+                    <span class="custom-topic-sub">3 Papers (2023–26) · 150 Official MCQs</span>
+                  </span>
+                  <span class="custom-topic-count" id="count-PHY301F">150 Qs</span>
+                </label>
+
+                <label class="custom-topic-item">
+                  <input type="checkbox" name="custom_course" value="PHY302F" checked onchange="window.handleCustomGeneratorChange()" />
+                  <span class="custom-topic-icon">⚛️</span>
+                  <span class="custom-topic-info">
+                    <span class="custom-topic-name">PHY302F — Quantum Mechanics &amp; Spectroscopy</span>
+                    <span class="custom-topic-sub">3 Papers (2023–26) · 150 Official MCQs</span>
+                  </span>
+                  <span class="custom-topic-count" id="count-PHY302F">150 Qs</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Configure -->
+          <div class="custom-card">
+            <div class="custom-card-header">
+              <div>
+                <span class="custom-step-pill">STEP 2 OF 3</span>
+                <h3 class="custom-card-title">Configure Length, Year Scope &amp; Difficulty Filters</h3>
+              </div>
+            </div>
+
+            <div class="config-grid">
+              <div class="config-item">
+                <div class="config-label-row">
+                  <label class="config-label" for="custom-q-input">Target Number of Questions (1–100)</label>
+                  <div class="count-input-wrapper">
+                    <input type="number" id="custom-q-input" min="1" max="100" value="50" oninput="window.syncQuestionCount(this.value)" />
+                    <span class="count-unit">MCQs</span>
+                  </div>
+                </div>
+                <div class="slider-row">
+                  <input type="range" id="custom-q-slider" class="custom-range-slider" min="1" max="100" value="50" aria-label="Target Number of Questions" oninput="window.syncQuestionCount(this.value)" />
+                </div>
+                <div class="count-preset-chips">
+                  <button type="button" class="chip-btn" data-q="10" onclick="window.syncQuestionCount(10)">10 Qs</button>
+                  <button type="button" class="chip-btn" data-q="20" onclick="window.syncQuestionCount(20)">20 Qs</button>
+                  <button type="button" class="chip-btn" data-q="30" onclick="window.syncQuestionCount(30)">30 Qs</button>
+                  <button type="button" class="chip-btn active" data-q="50" onclick="window.syncQuestionCount(50)">50 Qs (Standard Paper)</button>
+                  <button type="button" class="chip-btn" data-q="75" onclick="window.syncQuestionCount(75)">75 Qs</button>
+                  <button type="button" class="chip-btn" data-q="100" onclick="window.syncQuestionCount(100)">100 Qs</button>
+                </div>
+              </div>
+
+              <div class="config-item">
+                <label class="config-label" for="custom-test-title">Custom Mock Paper Title</label>
+                <input type="text" id="custom-test-title" class="custom-text-input" placeholder="e.g., Semester V Mixed Revision Test #1" maxlength="80" />
+              </div>
+
+              <div class="config-row-2col">
+                <div class="config-item">
+                  <span class="config-label">Academic Year Scope</span>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill"><input type="radio" name="custom_year" value="ALL" checked onchange="window.handleCustomGeneratorChange()" /> All Years (2023–26)</label>
+                    <label class="radio-pill"><input type="radio" name="custom_year" value="2025-26" onchange="window.handleCustomGeneratorChange()" /> 2025–26 Only</label>
+                    <label class="radio-pill"><input type="radio" name="custom_year" value="2024-25" onchange="window.handleCustomGeneratorChange()" /> 2024–25 Only</label>
+                    <label class="radio-pill"><input type="radio" name="custom_year" value="2023-24" onchange="window.handleCustomGeneratorChange()" /> 2023–24 Only</label>
+                  </div>
+                </div>
+
+                <div class="config-item">
+                  <span class="config-label">PYQ Tracker Status Filter</span>
+                  <div class="radio-pill-group">
+                    <label class="radio-pill"><input type="radio" name="custom_solved" value="ALL" checked onchange="window.handleCustomGeneratorChange()" /> All Questions</label>
+                    <label class="radio-pill"><input type="radio" name="custom_solved" value="unsolved" onchange="window.handleCustomGeneratorChange()" /> ○ Unsolved Only</label>
+                    <label class="radio-pill"><input type="radio" name="custom_solved" value="solved" onchange="window.handleCustomGeneratorChange()" /> ✓ Solved Revision</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="config-item">
+                <div class="config-label-row">
+                  <span class="config-label">Difficulty Tiers Filter</span>
+                  <div class="custom-diff-presets">
+                    <button type="button" class="preset-chip-btn active" onclick="window.applyCustomDifficultyPreset('all', this)">All Tiers</button>
+                    <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('easy', this)">Easy Warmup</button>
+                    <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('standard', this)">Standard Mix</button>
+                    <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('hard', this)">Hard Challenge</button>
+                  </div>
+                </div>
+                <div class="diff-pill-select-group">
+                  <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="very_easy" checked onchange="window.handleCustomGeneratorChange()" /><span>🟢 Very Easy</span></label>
+                  <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="easy" checked onchange="window.handleCustomGeneratorChange()" /><span>🔵 Easy</span></label>
+                  <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="medium" checked onchange="window.handleCustomGeneratorChange()" /><span>🟡 Medium</span></label>
+                  <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="hard" checked onchange="window.handleCustomGeneratorChange()" /><span>🔴 Hard</span></label>
+                  <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="hardest" checked onchange="window.handleCustomGeneratorChange()" /><span>🟣 Very Hard</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Live Summary & Launch Actions -->
+          <div class="custom-card">
+            <div class="custom-card-header">
+              <div>
+                <span class="custom-step-pill">STEP 3 OF 3</span>
+                <h3 class="custom-card-title">Live Summary &amp; Generate</h3>
+              </div>
+            </div>
+
+            <div class="custom-summary-metrics">
+              <div class="summary-metric-box">
+                <span class="metric-label">Selected Courses</span>
+                <span class="metric-val" id="summary-topics-count">5 / 5</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">Matching Pool</span>
+                <span class="metric-val" id="summary-pool-count">750 Qs</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">Test Length</span>
+                <span class="metric-val" id="summary-questions-count">50</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">Maximum Marks</span>
+                <span class="metric-val" id="summary-marks-count">75.0</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">CBT Timer</span>
+                <span class="metric-val" id="summary-time-count">90 Mins</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">Marking Pattern</span>
+                <span class="metric-val" id="summary-structure-label" style="font-size:0.95rem;">MCQ (+1.5 / 0 Neg)</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">Status Scope</span>
+                <span class="metric-val" id="summary-solved-label" style="font-size:0.95rem;">All Questions</span>
+              </div>
+              <div class="summary-metric-box">
+                <span class="metric-label">Difficulty Scope</span>
+                <span class="metric-val" id="summary-diff-label" style="font-size:0.95rem;">All 5 Tiers</span>
+              </div>
+            </div>
+
+            <div class="custom-actions-row">
+              <button type="button" id="btn-generate-custom-pdf" class="btn-custom-action btn-generate-pdf" onclick="window.triggerCustomPdfGeneration()">
+                <span class="action-icon">📄</span>
+                <span class="action-text">
+                  <strong>Generate &amp; Download PDF</strong>
+                  <small>High-res A4 booklet + Master Answer Key</small>
+                </span>
+              </button>
+              <button type="button" id="btn-start-custom-cbt" class="btn-custom-action btn-start-cbt" onclick="window.triggerCustomOnlineTest()">
+                <span class="action-icon">🖥️</span>
+                <span class="action-text">
+                  <strong>Start Interactive CBT Test</strong>
+                  <small>Live exam interface with instant scorecard</small>
+                </span>
+              </button>
+              <button type="button" id="btn-preview-custom-qs" class="btn-custom-action btn-preview-qs" onclick="window.openCustomQuestionsPreview()">
+                <span class="action-icon">👁️</span>
+                <span class="action-text">
+                  <strong>Preview Sampled Questions</strong>
+                  <small>Inspect selected pool before launching</small>
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==========================================
+           Panel 4: Complete Video Solutions (YouTube)
+           ========================================== -->
+      <div id="tab-panel-videos" class="tab-content-panel hidden">
+        <div class="topic-filters-wrapper" style="margin-bottom: 20px;">
+          <div class="year-filter-tabs" id="video-year-filter-tabs" style="margin-bottom: 12px;">
+            <button class="year-filter-btn active" onclick="window.setVideoYearFilter('ALL', this)">All Years (16 Videos)</button>
+            <button class="year-filter-btn" onclick="window.setVideoYearFilter('2025-26', this)">2025–26 (5)</button>
+            <button class="year-filter-btn" onclick="window.setVideoYearFilter('2024-25', this)">2024–25 (5)</button>
+            <button class="year-filter-btn" onclick="window.setVideoYearFilter('2023-24', this)">2023–24 (6)</button>
+          </div>
+          <div class="filter-tabs" id="video-course-filter-tabs" style="justify-content: flex-start; margin-bottom: 0;">
+            <button class="filter-btn active" onclick="window.setVideoCourseFilter('ALL', this)">All Courses</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('SUBJECT_MATH', this)">📐 Mathematics</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('SUBJECT_PHY', this)">⚛️ Physics</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('MAT301F', this)">💍 MAT301F</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('MAT302F', this)">∇ MAT302F</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('MAT303F', this)">🌀 MAT303F</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('PHY301F', this)">⚙️ PHY301F</button>
+            <button class="filter-btn" onclick="window.setVideoCourseFilter('PHY302F', this)">⚛️ PHY302F</button>
+          </div>
+        </div>
+
+        <div class="topics-grid" id="video-solutions-container">
+          <!-- Injected by main.js -->
+        </div>
+      </div>
+
+      <!-- ==========================================
+           Panel 5: Study Materials Hub (Preserved Resources & Matrix)
+           ========================================== -->
+      <div id="tab-panel-resources" class="tab-content-panel hidden">
+        
+        <!-- Active Semester Status Banner -->
+        <div class="sem-banner">
+          <div class="sem-banner-left">
+            <div class="sem-pulse-dot" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight: 700; color: #4ade80; font-size: 0.95rem;">
+                Current Session: Semester V In Progress
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                Academic Session 2026–2027 · 3rd Year (Mathematics &amp; Physics Core Group)
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="btn-download" style="padding: 0.5rem 0.9rem;">
+              📥 Download 5th Sem Syllabus (PDF)
+            </a>
+            <a href="#results" onclick="window.switchPortalMode('results'); return false;" class="btn-download" style="padding: 0.5rem 0.9rem; background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">
+              🎓 Past Results (Sem I–IV)
+            </a>
+          </div>
+        </div>
+
+        <!-- 8-Semester Curriculum Roadmap -->
+        <section style="margin-top: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+            <h2 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--text-main); font-weight: 700;">
+              🗺️ 8-Semester Degree Roadmap (NEP 2020)
+            </h2>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">4-Year B.Sc. (Research / Honours)</span>
+          </div>
+
+          <div class="sem-roadmap">
+            <div class="sem-pill completed">
+              <div class="sem-pill-title">Sem I</div>
+              <div class="sem-pill-status" style="color: #38bdf8;">✅ Completed</div>
+            </div>
+            <div class="sem-pill completed">
+              <div class="sem-pill-title">Sem II</div>
+              <div class="sem-pill-status" style="color: #38bdf8;">✅ Completed</div>
+            </div>
+            <div class="sem-pill completed">
+              <div class="sem-pill-title">Sem III</div>
+              <div class="sem-pill-status" style="color: #38bdf8;">✅ Completed</div>
+            </div>
+            <div class="sem-pill completed">
+              <div class="sem-pill-title">Sem IV</div>
+              <div class="sem-pill-status" style="color: #38bdf8;">✅ Completed</div>
+            </div>
+            <div class="sem-pill active">
+              <div class="sem-pill-title" style="color: #4ade80;">Sem V</div>
+              <div class="sem-pill-status" style="color: #4ade80;">⚡ Ongoing</div>
+            </div>
+            <div class="sem-pill upcoming">
+              <div class="sem-pill-title">Sem VI</div>
+              <div class="sem-pill-status" style="color: var(--text-muted);">⏳ Upcoming</div>
+            </div>
+            <div class="sem-pill upcoming">
+              <div class="sem-pill-title">Sem VII</div>
+              <div class="sem-pill-status" style="color: var(--text-muted);">⏳ Upcoming</div>
+            </div>
+            <div class="sem-pill upcoming">
+              <div class="sem-pill-title">Sem VIII</div>
+              <div class="sem-pill-status" style="color: var(--text-muted);">⏳ Upcoming</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Semester V Courses Section -->
+        <section style="margin-top: 2rem;" id="courses">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-main); font-weight: 700;">
+                📖 Semester V Course Matrix (Current)
+              </h2>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Total 20 Credits across 6 courses (5 Theory + 1 Practical). University Evaluation: 25 Internal + 75 External per theory course.
+              </p>
+            </div>
+            <span class="course-badge" style="font-size: 0.85rem; padding: 0.3rem 0.75rem;">
+              20 Credits Total
+            </span>
+          </div>
+
+          <!-- Section: Mathematics Core -->
+          <div style="margin-top: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.1rem;">📐</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-main);">
+                Mathematics Core Courses (10 Credits)
+              </h3>
+            </div>
+
+            <div class="course-grid" style="margin-top: 0.75rem;">
+              <!-- MAT 301F -->
+              <div class="course-card">
+                <div>
+                  <div class="course-header">
+                    <span class="course-code">MAT 301F</span>
+                    <span class="course-badge">Core · 4 Credits</span>
+                  </div>
+                  <div class="course-title">Ring Theory and Linear Algebra</div>
+                  <p class="course-desc">
+                    Advanced abstract algebra covering rings, integral domains, ideals, homomorphisms, quotient rings, followed by vector spaces, linear transformations, rank-nullity theorem, dual spaces, and quadratic forms.
+                  </p>
+                  <div class="course-meta">
+                    <span>Theory (L-T-P: 4-0-0)</span>
+                    <span>25 Internal + 75 External</span>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/MAT301F/MAT301F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
+                      📥 MAT301F MCQs (UPH) PDF (~5.6 MB)
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/vtPakqCDVsw?si=r47XJSuNFpQkeMvp" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/9Jz4dCNDlQo?si=plSN4jsnFQu9aRQr" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/VdhPVBk58oE?si=0fRnZcUPTTW8APHX" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24 (P1)
+                      </a>
+                      <a href="https://youtu.be/t9ccXShpBmo" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24 (P2)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MAT 302F -->
+              <div class="course-card">
+                <div>
+                  <div class="course-header">
+                    <span class="course-code">MAT 302F</span>
+                    <span class="course-badge">Core · 3 Credits</span>
+                  </div>
+                  <div class="course-title">Tensor Analysis</div>
+                  <p class="course-desc">
+                    Curvilinear coordinates, transformation of coordinates, covariant and contravariant tensors, metric tensors, Christoffel symbols, covariant differentiation, and Riemann-Christoffel curvature tensors.
+                  </p>
+                  <div class="course-meta">
+                    <span>Theory (L-T-P: 3-0-0)</span>
+                    <span>25 Internal + 75 External</span>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center; background: rgba(255, 255, 255, 0.04); color: var(--text-secondary); border-color: var(--border);">
+                      📄 View Syllabus Specification
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/QPEpeHTDXts?si=0PDAuFH_JrxGC6n7" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/R5UB1kpwxvU?si=E8z9fVNaoKrycdPV" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/5WT-EHUHqwU?si=N3fqcVGZlR9VBGG1" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MAT 303F -->
+              <div class="course-card">
+                <div>
+                  <div class="course-header">
+                    <span class="course-code">MAT 303F</span>
+                    <span class="course-badge">Core · 3 Credits</span>
+                  </div>
+                  <div class="course-title">Differential Geometry</div>
+                  <p class="course-desc">
+                    Theory of space curves, arc length, Serret-Frenet formulas, curvature and torsion, helices, evolutes and involutes, first and second fundamental forms of surfaces, and geodesics.
+                  </p>
+                  <div class="course-meta">
+                    <span>Theory (L-T-P: 3-0-0)</span>
+                    <span>25 Internal + 75 External</span>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/MAT303F/MAT303F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
+                      📥 MAT303F MCQs (UPH) PDF (~10.7 MB)
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/YAl3rCR_rAs?si=TaS-tMuImEhSlkcS" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/APNuKsRE5cg?si=BF-4oPKyxO4crcy2" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/-EeWR6O-ThE?si=I8fSUk7YzQkp3_vH" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Physics Core -->
+          <div style="margin-top: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.1rem;">⚛️</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-main);">
+                Physics Core Courses &amp; Laboratory (10 Credits)
+              </h3>
+            </div>
+
+            <div class="course-grid" style="margin-top: 0.75rem;">
+              <!-- PHY 301F -->
+              <div class="course-card">
+                <div>
+                  <div class="course-header">
+                    <span class="course-code">PHY 301F</span>
+                    <span class="course-badge">Theory · 4 Credits</span>
+                  </div>
+                  <div class="course-title">Classical Mechanics &amp; Statistical Mechanics</div>
+                  <p class="course-desc">
+                    Lagrangian and Hamiltonian dynamics, canonical transformations, Poisson brackets, microcanonical/canonical ensembles, Maxwell-Boltzmann, Bose-Einstein, and Fermi-Dirac quantum statistics.
+                  </p>
+                  <div class="course-meta">
+                    <span>Theory (L-T-P: 4-0-0)</span>
+                    <span>25 Internal + 75 External</span>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                  <a href="5th-sem/PHY301F/PHY301F%20PYQ%202024-25.pdf" target="_blank" class="btn-download" style="justify-content: center;">
+                    📥 PYQ Paper 2024–25 (~4.1 MB)
+                  </a>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <a href="5th-sem/PHY301F/PHY%20301F%20Classical%20Book%20(Pearson).pdf" target="_blank" class="btn-download" style="flex: 1; justify-content: center; font-size: 0.75rem;">
+                      📖 Classical Book
+                    </a>
+                    <a href="5th-sem/PHY301F/PHY%20301F%20Statistical%20Book%20(Pearson).pdf" target="_blank" class="btn-download" style="flex: 1; justify-content: center; font-size: 0.75rem;">
+                      📖 Stat Book
+                    </a>
+                  </div>
+                  <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                    <a href="https://youtu.be/8UwrLbAMHtI?si=VwjWBf-JlF_J5Z0J" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                      ▶ 2025–26
+                    </a>
+                    <a href="https://youtu.be/_9Prr8JCEGI?si=SADtdvc745bCGjx5" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                      ▶ 2024–25
+                    </a>
+                    <a href="https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                      ▶ 2023–24
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PHY 302F -->
+              <div class="course-card">
+                <div>
+                  <div class="course-header">
+                    <span class="course-code">PHY 302F</span>
+                    <span class="course-badge">Theory · 4 Credits</span>
+                  </div>
+                  <div class="course-title">Quantum Mechanics &amp; Spectroscopy</div>
+                  <p class="course-desc">
+                    Wave mechanics, Schrödinger equation, 1D potential wells and harmonic oscillators, vector atom model, Zeeman effect, molecular vibrational-rotational spectra, and Raman spectroscopy.
+                  </p>
+                  <div class="course-meta">
+                    <span>Theory (L-T-P: 4-0-0)</span>
+                    <span>25 Internal + 75 External</span>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="5th-sem/PHY302F/PHY302F%20PYQ%202024-25.pdf" target="_blank" class="btn-download" style="width: 100%; justify-content: center;">
+                      📥 PYQ Paper 2024–25 (~3.1 MB)
+                    </a>
+                    <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                      <a href="https://youtu.be/UMe_PLIXbbU?si=5pdVrbHFNTSAoURe" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2025–26
+                      </a>
+                      <a href="https://youtu.be/tT7uTM35S-c?si=vM4AfTrw08Ty2qSv" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2024–25
+                      </a>
+                      <a href="https://youtu.be/NkKJqyDoyyI?si=SqhArrjuLzvfMMMQ" target="_blank" rel="noopener noreferrer" class="btn-download" style="flex: 1; min-width: 80px; justify-content: center; font-size: 0.75rem; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">
+                        ▶ 2023–24
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PHY 303F -->
+              <div class="course-card">
+                <div>
+                  <div class="course-header">
+                    <span class="course-code">PHY 303F</span>
+                    <span class="course-badge" style="background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">Practical · 2 Credits</span>
+                  </div>
+                  <div class="course-title">Practical: Demonstrative Aspects of Optics &amp; Lasers</div>
+                  <p class="course-desc">
+                    Laboratory experimental study: Michelson interferometer, polarimeter, Babinet compensator, semiconductor laser diffraction experiments, and optical resolving power tests.
+                  </p>
+                  <div class="course-meta">
+                    <span>Practical Lab (0-0-4)</span>
+                    <span>Continuous Lab Evaluation</span>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="5th-sem/PHY303F/PHY%20303F%20Practical%20Copy.pdf" target="_blank" class="btn-download" style="flex: 2; justify-content: center;">
+                    📥 Practical Copy (~15.3 MB)
+                  </a>
+                  <a href="5th-sem/PHY303F/Notice%231.jpg" target="_blank" class="btn-download" style="flex: 1; justify-content: center;">
+                    🖼️ Notice #1
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Resource Vault Table -->
+        <section style="margin-top: 2.5rem; margin-bottom: 3rem;" id="materials">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.25rem;">📁</span>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-main); font-weight: 700;">
+                Semester V Academic Resource Repository
+              </h2>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">6 Files Available</span>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="resource-table">
+              <thead>
+                <tr>
+                  <th>Document / File Name</th>
+                  <th>Course / Category</th>
+                  <th>File Size</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>📄 5th Sem Official Syllabus (DDUGU)</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Complete CBCS NEP 2020 syllabus for Mathematics, Physics &amp; Chemistry</span>
+                  </td>
+                  <td><span class="course-badge">Official Syllabus</span></td>
+                  <td>1.05 MB</td>
+                  <td>
+                    <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" class="btn-download">
+                      📥 Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>📝 MAT 301F MCQs (UPH)</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory &amp; Linear Algebra Multiple Choice Question Bank</span>
+                  </td>
+                  <td><span class="course-badge">MAT 301F</span></td>
+                  <td>5.56 MB</td>
+                  <td>
+                    <a href="5th-sem/MAT301F/MAT301F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download">
+                      📥 Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>📝 MAT 303F MCQs (UPH)</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry Multiple Choice Question Bank</span>
+                  </td>
+                  <td><span class="course-badge">MAT 303F</span></td>
+                  <td>10.71 MB</td>
+                  <td>
+                    <a href="5th-sem/MAT303F/MAT303F%20MCQs%20(UPH).pdf" target="_blank" class="btn-download">
+                      📥 Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>📑 PHY 301F PYQ 2024–25</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics University Question Paper</span>
+                  </td>
+                  <td><span class="course-badge">PHY 301F</span></td>
+                  <td>4.07 MB</td>
+                  <td>
+                    <a href="5th-sem/PHY301F/PHY301F%20PYQ%202024-25.pdf" target="_blank" class="btn-download">
+                      📥 Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>📑 PHY 302F PYQ 2024–25</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy University Question Paper</span>
+                  </td>
+                  <td><span class="course-badge">PHY 302F</span></td>
+                  <td>3.06 MB</td>
+                  <td>
+                    <a href="5th-sem/PHY302F/PHY302F%20PYQ%202024-25.pdf" target="_blank" class="btn-download">
+                      📥 Download PDF
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>🔬 PHY 303F Practical Copy</strong><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">Optics &amp; Lasers Complete Laboratory Practical Record &amp; Observations</span>
+                  </td>
+                  <td><span class="course-badge" style="background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">PHY 303F Lab</span></td>
+                  <td>15.34 MB</td>
+                  <td>
+                    <a href="5th-sem/PHY303F/PHY%20303F%20Practical%20Copy.pdf" target="_blank" class="btn-download">
+                      📥 Download PDF
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Official Exam Question Papers Vault Table -->
+        <section style="margin-top: 2.5rem; margin-bottom: 3rem;" id="exam-papers-repo">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.25rem;">📑</span>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-main); font-weight: 700;">
+                15 Official Exam Question Papers (PDFs)
+              </h2>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">15 PDFs Available · 5 Courses × 3 Sessions</span>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="resource-table">
+              <thead>
+                <tr>
+                  <th>Course &amp; Paper Session</th>
+                  <th>Questions / Marks</th>
+                  <th>File Size</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>📐 MAT 301F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory &amp; Linear Algebra</span></td>
+                  <td><span class="course-badge" style="color: #38bdf8;">50 MCQs · 75 Marks</span></td>
+                  <td>57.37 MB</td>
+                  <td><a href="assets/pdfs/MAT301F_2025-26_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📐 MAT 301F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory &amp; Linear Algebra</span></td>
+                  <td><span class="course-badge" style="color: #38bdf8;">50 MCQs · 75 Marks</span></td>
+                  <td>22.14 MB</td>
+                  <td><a href="assets/pdfs/MAT301F_2024-25_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📐 MAT 301F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory &amp; Linear Algebra</span></td>
+                  <td><span class="course-badge" style="color: #38bdf8;">50 MCQs · 75 Marks</span></td>
+                  <td>68.60 MB</td>
+                  <td><a href="assets/pdfs/MAT301F_2023-24_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>🌐 MAT 302F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td><span class="course-badge" style="color: #818cf8;">50 MCQs · 75 Marks</span></td>
+                  <td>45.51 MB</td>
+                  <td><a href="assets/pdfs/MAT302F_2025-26_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>🌐 MAT 302F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td><span class="course-badge" style="color: #818cf8;">50 MCQs · 75 Marks</span></td>
+                  <td>18.67 MB</td>
+                  <td><a href="assets/pdfs/MAT302F_2024-25_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>🌐 MAT 302F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td><span class="course-badge" style="color: #818cf8;">50 MCQs · 75 Marks</span></td>
+                  <td>9.35 MB</td>
+                  <td><a href="assets/pdfs/MAT302F_2023-24_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>📈 MAT 303F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td><span class="course-badge" style="color: #34d399;">50 MCQs · 75 Marks</span></td>
+                  <td>39.44 MB</td>
+                  <td><a href="assets/pdfs/MAT303F_2025-26_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📈 MAT 303F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td><span class="course-badge" style="color: #34d399;">50 MCQs · 75 Marks</span></td>
+                  <td>26.45 MB</td>
+                  <td><a href="assets/pdfs/MAT303F_2024-25_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📈 MAT 303F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td><span class="course-badge" style="color: #34d399;">50 MCQs · 75 Marks</span></td>
+                  <td>11.68 MB</td>
+                  <td><a href="assets/pdfs/MAT303F_2023-24_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical &amp; Statistical Mechanics</span></td>
+                  <td><span class="course-badge" style="color: #fbbf24;">50 MCQs · 75 Marks</span></td>
+                  <td>41.74 MB</td>
+                  <td><a href="assets/pdfs/PHY301F_2025-26_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical &amp; Statistical Mechanics</span></td>
+                  <td><span class="course-badge" style="color: #fbbf24;">50 MCQs · 75 Marks</span></td>
+                  <td>12.75 MB</td>
+                  <td><a href="assets/pdfs/PHY301F_2024-25_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical &amp; Statistical Mechanics</span></td>
+                  <td><span class="course-badge" style="color: #fbbf24;">50 MCQs · 75 Marks</span></td>
+                  <td>15.71 MB</td>
+                  <td><a href="assets/pdfs/PHY301F_2023-24_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td><span class="course-badge" style="color: #c084fc;">50 MCQs · 75 Marks</span></td>
+                  <td>10.94 MB</td>
+                  <td><a href="assets/pdfs/PHY302F_2025-26_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td><span class="course-badge" style="color: #c084fc;">50 MCQs · 75 Marks</span></td>
+                  <td>13.24 MB</td>
+                  <td><a href="assets/pdfs/PHY302F_2024-25_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td><span class="course-badge" style="color: #c084fc;">50 MCQs · 75 Marks</span></td>
+                  <td>11.08 MB</td>
+                  <td><a href="assets/pdfs/PHY302F_2023-24_Official_Exam_Paper.pdf" target="_blank" class="btn-download">📥 Download PDF</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Video Solutions Vault Table -->
+        <section style="margin-top: 2.5rem; margin-bottom: 3rem;" id="videos-repo">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.25rem;">🎥</span>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--text-main); font-weight: 700;">
+                University PYQ Video Solutions Directory (16 Videos)
+              </h2>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">15 Exam Papers · YouTube Solutions</span>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="resource-table">
+              <thead>
+                <tr>
+                  <th>Course &amp; Paper Session</th>
+                  <th>Topic Coverage</th>
+                  <th>Session</th>
+                  <th>YouTube Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>📐 MAT 301F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory and Linear Algebra</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #38bdf8;">2025–26</span></td>
+                  <td><a href="https://youtu.be/vtPakqCDVsw?si=r47XJSuNFpQkeMvp" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📐 MAT 301F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory and Linear Algebra</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #38bdf8;">2024–25</span></td>
+                  <td><a href="https://youtu.be/9Jz4dCNDlQo?si=plSN4jsnFQu9aRQr" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📐 MAT 301F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Ring Theory and Linear Algebra</span></td>
+                  <td>Part 1 (Q1–Q25) &amp; Part 2 (Q26–Q50)</td>
+                  <td><span class="course-badge" style="color: #38bdf8;">2023–24</span></td>
+                  <td>
+                    <div style="display: flex; gap: 6px;">
+                      <a href="https://youtu.be/VdhPVBk58oE?si=0fRnZcUPTTW8APHX" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171; font-size: 0.75rem;">▶ Part 1</a>
+                      <a href="https://youtu.be/t9ccXShpBmo" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171; font-size: 0.75rem;">▶ Part 2</a>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>🌐 MAT 302F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #818cf8;">2025–26</span></td>
+                  <td><a href="https://youtu.be/QPEpeHTDXts?si=0PDAuFH_JrxGC6n7" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>🌐 MAT 302F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #818cf8;">2024–25</span></td>
+                  <td><a href="https://youtu.be/R5UB1kpwxvU?si=E8z9fVNaoKrycdPV" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>🌐 MAT 302F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Tensor Analysis</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #818cf8;">2023–24</span></td>
+                  <td><a href="https://youtu.be/5WT-EHUHqwU?si=N3fqcVGZlR9VBGG1" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>📈 MAT 303F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #34d399;">2025–26</span></td>
+                  <td><a href="https://youtu.be/YAl3rCR_rAs?si=TaS-tMuImEhSlkcS" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📈 MAT 303F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #34d399;">2024–25</span></td>
+                  <td><a href="https://youtu.be/APNuKsRE5cg?si=BF-4oPKyxO4crcy2" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>📈 MAT 303F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Differential Geometry</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #34d399;">2023–24</span></td>
+                  <td><a href="https://youtu.be/-EeWR6O-ThE?si=I8fSUk7YzQkp3_vH" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #fbbf24;">2025–26</span></td>
+                  <td><a href="https://youtu.be/8UwrLbAMHtI?si=VwjWBf-JlF_J5Z0J" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #fbbf24;">2024–25</span></td>
+                  <td><a href="https://youtu.be/_9Prr8JCEGI?si=SADtdvc745bCGjx5" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚙️ PHY 301F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Classical Mechanics &amp; Statistical Mechanics</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #fbbf24;">2023–24</span></td>
+                  <td><a href="https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2025–26)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #c084fc;">2025–26</span></td>
+                  <td><a href="https://youtu.be/UMe_PLIXbbU?si=5pdVrbHFNTSAoURe" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2024–25)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #c084fc;">2024–25</span></td>
+                  <td><a href="https://youtu.be/tT7uTM35S-c?si=vM4AfTrw08Ty2qSv" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+                <tr>
+                  <td><strong>⚛️ PHY 302F (2023–24)</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Mechanics &amp; Spectroscopy</span></td>
+                  <td>Full Paper Solution (Q1–Q50)</td>
+                  <td><span class="course-badge" style="color: #c084fc;">2023–24</span></td>
+                  <td><a href="https://youtu.be/NkKJqyDoyyI?si=SqhArrjuLzvfMMMQ" target="_blank" rel="noopener noreferrer" class="btn-download" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">▶ Watch Solution</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+    </div>
+  </main>
+  </div>
+
+  <div id="unpg-results-section" class="hidden">
+    <main class="main-content">
+      <div class="results-container">
+      
+      <!-- Hero -->
+      <section class="unpg-hero">
+        <div class="unpg-badge">🏛️ UNPG Padrauna · DDU Gorakhpur University</div>
+        <h1 class="unpg-title">UNPG BSc Math 2024–2028 Results</h1>
+        <p class="unpg-subtitle">
+          Comprehensive student grade sheets, 4-semester combined scorecards, merit rankings, and in-depth subject analytics for Bachelor of Science (Mathematics Group).
+        </p>
+      </section>
+
+      <!-- Key Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric-pill-card">
+          <div class="metric-icon">👥</div>
+          <div class="metric-data">
+            <span class="metric-val">70</span>
+            <span class="metric-label">Total Students</span>
+          </div>
+        </div>
+
+        <div class="metric-pill-card">
+          <div class="metric-icon emerald">🎓</div>
+          <div class="metric-data">
+            <span class="metric-val">62</span>
+            <span class="metric-label">Completed 4 Sems</span>
+          </div>
+        </div>
+
+        <div class="metric-pill-card">
+          <div class="metric-icon gold">👑</div>
+          <div class="metric-data">
+            <span class="metric-val">7.88</span>
+            <span class="metric-label">Highest CGPA (Ravi)</span>
+          </div>
+        </div>
+
+        <div class="metric-pill-card">
+          <div class="metric-icon purple">📊</div>
+          <div class="metric-data">
+            <span class="metric-val">8.26</span>
+            <span class="metric-label">Peak SGPA (Sem 3)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="portal-tabs" role="tablist">
+        <button class="portal-tab-btn active" data-tab="search" role="tab">
+          <span>🔍 Find Student Result</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="toppers" role="tab">
+          <span>🏆 Toppers &amp; Rankings</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="semesters" role="tab">
+          <span>📅 Semester Overviews</span>
+          <span class="tab-badge">4 Sems</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="subjects" role="tab">
+          <span>📚 Subject Profiles</span>
+          <span class="tab-badge">42 Courses</span>
+        </button>
+        <button class="portal-tab-btn" data-tab="downloads" role="tab">
+          <span>📁 Master PDFs</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Search & Find Results -->
+      <section id="tab-search" class="tab-panel active">
+        <div class="search-box-wrap">
+          <div class="search-form">
+            <div class="search-input-group">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" class="search-input" placeholder="Enter last 3 digits of roll no (e.g. 387), full roll number, or student name..." autocomplete="off">
+              <button id="search-clear-btn" class="search-clear-btn" title="Clear search">✕</button>
+            </div>
+            <button id="search-btn" class="search-btn">
+              <span>Search</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="search-chips">
+            <span style="color:var(--text-muted);font-weight:600;">Quick searches:</span>
+            <button class="search-chip" data-query="387">Suffix #387</button>
+            <button class="search-chip" data-query="004">Suffix #004</button>
+            <button class="search-chip" data-query="043">Suffix #043</button>
+            <button class="search-chip" data-query="359">Suffix #359</button>
+            <button class="search-chip" data-query="388">Suffix #388</button>
+            <button class="search-chip" data-query="Vaibhav">Vaibhav</button>
+            <button class="search-chip" data-query="Aastha">Aastha</button>
+            <button class="search-chip" data-query="Divyanka">Divyanka</button>
+            <button class="search-chip" data-query="Ravi">Ravi</button>
+          </div>
+        </div>
+
+        <div class="results-header-bar">
+          <div id="search-results-count" class="results-count">Loading students...</div>
+          <div>
+            <select id="status-filter" class="filter-select" title="Filter students by status" aria-label="Filter students by status">
+              <option value="all">All Students (70)</option>
+              <option value="completed">Completed 4 Semesters (62)</option>
+              <option value="discontinued">Discontinued / Left (8)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Student Cards Grid -->
+        <div id="students-grid" class="students-grid"></div>
+
+        <!-- Empty State -->
+        <div id="search-empty" class="empty-results" style="display:none;">
+          <div class="empty-icon">🔎</div>
+          <h3 style="color:var(--text-primary);font-size:1.25rem;margin-bottom:0.5rem;">No matching student found</h3>
+          <p>Please double-check the 3-digit suffix, full roll number, or spelling of the name.</p>
+        </div>
+      </section>
+
+      <!-- Tab 2: Toppers & Rankings -->
+      <section id="tab-toppers" class="tab-panel">
+        <div class="topper-subtabs">
+          <button class="subtab-btn active" data-subtab="overall">👑 Overall CGPA Toppers</button>
+          <button class="subtab-btn" data-subtab="sem-1">Semester 1 SGPA</button>
+          <button class="subtab-btn" data-subtab="sem-2">Semester 2 SGPA</button>
+          <button class="subtab-btn" data-subtab="sem-3">Semester 3 SGPA</button>
+          <button class="subtab-btn" data-subtab="sem-4">Semester 4 SGPA</button>
+          <button class="subtab-btn" data-subtab="subjects">📚 Subject-wise Toppers</button>
+        </div>
+
+        <div id="toppers-view-container"></div>
+      </section>
+
+      <!-- Tab 3: Semester Overviews -->
+      <section id="tab-semesters" class="tab-panel">
+        <div class="semester-selector-grid">
+          <div class="sem-select-card active" data-sem="1">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester I</span>
+              <span class="sem-pill completed">70 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2024–25</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>5.25</strong> · Top: <strong style="color:#f59e0b;">8.13</strong></div>
+          </div>
+
+          <div class="sem-select-card" data-sem="2">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester II</span>
+              <span class="sem-pill completed">65 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2024–25</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>5.99</strong> · Top: <strong style="color:#f59e0b;">7.74</strong></div>
+          </div>
+
+          <div class="sem-select-card" data-sem="3">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester III</span>
+              <span class="sem-pill completed">62 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2025–26</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>6.40</strong> · Top: <strong style="color:#f59e0b;">8.26</strong></div>
+          </div>
+
+          <div class="sem-select-card" data-sem="4">
+            <div class="sem-card-header">
+              <span class="sem-card-title">Semester IV</span>
+              <span class="sem-pill completed">62 Students</span>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin:0.25rem 0 0.5rem;">Session 2025–26</p>
+            <div style="font-size:0.85rem;">Avg SGPA: <strong>6.86</strong> · Top: <strong style="color:#f59e0b;">8.13</strong></div>
+          </div>
+        </div>
+
+        <div id="semester-detail-container"></div>
+      </section>
+
+      <!-- Tab 4: Subject Profiles -->
+      <section id="tab-subjects" class="tab-panel">
+        <div class="subject-filter-bar">
+          <select id="subject-sem-filter" class="filter-select" title="Filter subjects by semester" aria-label="Filter subjects by semester">
+            <option value="all">All Semesters (1 to 4)</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+          </select>
+
+          <select id="subject-group-filter" class="filter-select" title="Filter subjects by discipline" aria-label="Filter subjects by discipline">
+            <option value="all">All Disciplines</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Physical Education">Physical Education</option>
+            <option value="General">Ability Enhancement (AEC)</option>
+            <option value="Computer Science">Skill Enhancement (SEC)</option>
+            <option value="Botany">Botany</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Zoology">Zoology</option>
+            <option value="Environmental Science">Environmental Science</option>
+          </select>
+        </div>
+
+        <div id="subject-cards-grid" class="subject-cards-grid"></div>
+      </section>
+
+      <!-- Tab 5: Master Downloads -->
+      <section id="tab-downloads" class="tab-panel">
+        <div style="margin-bottom:2rem;text-align:center;">
+          <h2 style="font-family:var(--font-heading);font-size:1.75rem;color:var(--text-primary);margin-bottom:0.5rem;">
+            Official Semester Master PDFs
+          </h2>
+          <p style="color:var(--text-secondary);max-width:640px;margin:0 auto;">
+            Original compilation PDFs downloaded directly from the Deen Dayal Upadhyaya Gorakhpur University result portal.
+          </p>
+        </div>
+
+        <div class="downloads-grid">
+          <!-- Sem 1 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester I</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2024–25 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>70 Students</strong></span>
+                <span>• File Size: <strong>~7.29 MB</strong></span>
+                <span>• Declared: <strong>29-03-2025</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_1.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+
+          <!-- Sem 2 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester II</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2024–25 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>65 Students</strong></span>
+                <span>• File Size: <strong>~6.79 MB</strong></span>
+                <span>• Declared: <strong>27-06-2025</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_2.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+
+          <!-- Sem 3 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester III</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2025–26 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>62 Students</strong></span>
+                <span>• File Size: <strong>~6.42 MB</strong></span>
+                <span>• Declared: <strong>27-02-2026</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_3.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+
+          <!-- Sem 4 -->
+          <div class="download-master-card">
+            <div>
+              <div class="download-card-icon">📑</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.35rem;color:var(--text-primary);margin-bottom:0.25rem;">Semester IV</h3>
+              <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;">Session 2025–26 Examination</p>
+              <div style="font-size:0.85rem;color:var(--text-muted);display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem;">
+                <span>• Pages: <strong>62 Students</strong></span>
+                <span>• File Size: <strong>~6.57 MB</strong></span>
+                <span>• Declared: <strong>31-07-2026</strong></span>
+              </div>
+            </div>
+            <a href="assets/semesters/Semester_4.pdf" target="_blank" class="search-btn" style="text-decoration:none;justify-content:center;">
+              <span>📥 Download Master PDF</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    </main>
+  </div>
+
+  <!-- PDF Generation Progress Modal -->
+  <div id="pdf-progress-modal" class="modal-backdrop hidden">
+    <div class="modal-card pdf-progress-card">
+      <div class="modal-header">
+        <div class="modal-title" id="pdf-progress-title">Generating Custom Mock Test PDF...</div>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 24px 16px;">
+        <div class="progress-spinner" id="pdf-spinner"></div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="pdf-progress-fill" style="width: 0%;"></div>
+        </div>
+        <div class="progress-percent" id="pdf-progress-pct">0%</div>
+        <p class="progress-status-text" id="pdf-progress-status">Preparing question datasets...</p>
+        <p class="progress-note">Compiling official question screenshots and Master Answer Key locally in your browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Questions Preview Modal -->
+  <div id="custom-preview-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.closeCustomQuestionsPreview()">
+    <div class="modal-card preview-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">👁️ Preview Sampled Questions (<span id="preview-total-count">0 Questions</span>)</div>
+        <button class="modal-close-btn" onclick="window.closeCustomQuestionsPreview()" title="Close Modal">✕</button>
+      </div>
+      <div class="modal-body" id="custom-preview-body" style="max-height: 68vh; overflow-y: auto;"></div>
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--border); flex-wrap: wrap;">
+        <button type="button" class="btn-test secondary" onclick="window.closeCustomQuestionsPreview()">Close</button>
+        <button type="button" class="btn-test primary" onclick="window.closeCustomQuestionsPreview(); window.triggerCustomOnlineTest();">🖥️ Start CBT</button>
+        <button type="button" class="btn-test primary" onclick="window.closeCustomQuestionsPreview(); window.triggerCustomPdfGeneration();">📥 Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- High-Res Question Modal (PYQ Tracker) -->
+  <div id="tracker-question-modal" class="q-modal-overlay hidden" onclick="if(event.target===this) window.SEM_TRACKER && window.SEM_TRACKER.closeModal()">
+    <div class="q-modal-dialog">
+      <div class="q-modal-header">
+        <div class="q-modal-title">Question Viewer</div>
+        <button class="q-modal-close-btn" onclick="window.SEM_TRACKER && window.SEM_TRACKER.closeModal()" title="Close">✕</button>
+      </div>
+      <div class="q-modal-body"></div>
+      <div class="q-modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- Study Analytics & Stats Modal -->
+  <div id="stats-analytics-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.SEM_STATS && window.SEM_STATS.closeStatsModal()">
+    <div class="modal-card stats-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">📊 Study Progress &amp; Pace Analytics</div>
+        <button class="modal-close-btn" onclick="window.SEM_STATS && window.SEM_STATS.closeStatsModal()" title="Close">✕</button>
+      </div>
+      <div class="modal-body stats-modal-body" style="max-height: 78vh; overflow-y: auto;"></div>
+    </div>
+  </div>
+
+  <!-- 6-Digit Cloud Sync Modal -->
+  <div id="cloud-sync-modal" class="modal-backdrop hidden" onclick="if(event.target===this) window.SEM_CLOUD_SYNC && window.SEM_CLOUD_SYNC.closeModal()">
+    <div class="modal-card cloud-sync-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">☁️ Cross-Device Cloud Sync</div>
+        <button class="modal-close-btn" onclick="window.SEM_CLOUD_SYNC && window.SEM_CLOUD_SYNC.closeModal()" title="Close">✕</button>
+      </div>
+      <div class="modal-body cloud-modal-body" style="max-height: 78vh; overflow-y: auto;"></div>
+    </div>
+  </div>
+
+  <!-- Profile Modal Backdrop -->
+  <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true">
+    <div id="modal-content" class="modal-window"></div>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Vaibhav Priyadarshi · UNPG BSc Math 2024–2028 Unified Portal</p>
+      <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../">Academic Hub</a>
+        <a href="../JAM/">IIT JAM</a>
+      </div>
+      <p id="last-updated-text" style="font-size: 0.78rem; opacity: 0.8; margin-top: 6px;">Last updated: 25 Nov 2026, 02:42 pm IST</p>
+    </div>
+  </footer>
+  <script src="../../js/last-updated.js"></script>
+
+  <!-- Core JavaScript Libraries -->  <script src="js/jspdf.umd.min.js"></script>
+  <script src="js/jspdf.plugin.autotable.min.js"></script>
+  <script src="mock-test/js/questions_data.js"></script>
+  <script src="js/pyq_difficulty.js"></script>
+  <script src="js/cloud_sync.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/pyq_tracker.js"></script>
+  <script src="js/custom_pdf_generator.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/results_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

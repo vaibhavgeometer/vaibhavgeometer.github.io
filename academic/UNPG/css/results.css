@@ -464,7 +464,7 @@
   flex-wrap: wrap;
 }
 
-.sem-pill {
+#unpg-results-section .sem-pill {
   font-size: 0.75rem;
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-full);
@@ -473,13 +473,13 @@
   color: var(--text-secondary);
 }
 
-.sem-pill.completed {
+#unpg-results-section .sem-pill.completed {
   background: rgba(16, 185, 129, 0.12);
   border-color: rgba(16, 185, 129, 0.3);
   color: #34d399;
 }
 
-.sem-pill.discontinued {
+#unpg-results-section .sem-pill.discontinued {
   background: rgba(244, 63, 94, 0.12);
   border-color: rgba(244, 63, 94, 0.3);
   color: #fb7185;
@@ -1020,13 +1020,13 @@
    Modal / Overlay: Student & Subject Profiles
    ========================================================================== */
 
-.modal-backdrop {
+#modal-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 100;
+  z-index: 1000;
   display: none;
   align-items: center;
   justify-content: center;
@@ -1034,7 +1034,7 @@
   animation: fadeIn 0.2s ease;
 }
 
-.modal-backdrop.open {
+#modal-backdrop.open {
   display: flex;
 }
 
@@ -1052,7 +1052,7 @@
   position: relative;
 }
 
-.modal-header {
+#modal-backdrop .modal-header {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--border);
   display: flex;
@@ -1077,7 +1077,7 @@
   margin-top: 0.2rem;
 }
 
-.modal-close-btn {
+#modal-backdrop .modal-close-btn {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -1092,13 +1092,13 @@
   transition: all 0.15s ease;
 }
 
-.modal-close-btn:hover {
+#modal-backdrop .modal-close-btn:hover {
   background: rgba(244, 63, 94, 0.2);
   color: #f43f5e;
   border-color: rgba(244, 63, 94, 0.4);
 }
 
-.modal-body {
+#modal-backdrop .modal-body {
   padding: 2rem;
 }
 

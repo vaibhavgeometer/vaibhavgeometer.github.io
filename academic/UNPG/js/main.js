@@ -585,19 +585,58 @@
     if (modal) modal.classList.add('hidden');
   };
 
+  // --- Top-Level Portal Mode Switcher (Exams vs Results) ---
+  window.switchPortalMode = function (mode, opts) {
+    const targetMode = mode === 'results' ? 'results' : 'exams';
+    const examsSec = document.getElementById('unpg-exams-section');
+    const resultsSec = document.getElementById('unpg-results-section');
+    const examsBtn = document.getElementById('portal-mode-exams-btn');
+    const resultsBtn = document.getElementById('portal-mode-results-btn');
+
+    if (examsSec) examsSec.classList.toggle('hidden', targetMode !== 'exams');
+    if (resultsSec) resultsSec.classList.toggle('hidden', targetMode !== 'results');
+    if (examsBtn) examsBtn.classList.toggle('active', targetMode === 'exams');
+    if (resultsBtn) resultsBtn.classList.toggle('active', targetMode === 'results');
+
+    if (!opts || !opts.skipHash) {
+      window.location.hash = targetMode;
+    }
+
+    if (!opts || !opts.skipScroll) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   // --- Hash Navigation ---
   function handleHash() {
     const raw = (window.location.hash || '').replace('#', '').trim().toLowerCase();
     if (!raw) return;
+
+    if (['results', 'search', 'toppers', 'semesters', 'subjects', 'downloads'].includes(raw) ||
+        raw.startsWith('student=') || raw.startsWith('subject=')) {
+      window.switchPortalMode('results', { skipHash: true, skipScroll: true });
+      return;
+    }
+
+    if (raw === 'exams') {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
+      return;
+    }
+
     if (['pyq-tracker', 'tracker'].includes(raw)) {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
       window.switchMainTab('pyq-tracker');
     } else if (['custom-generator', 'custom', 'custom-pdf'].includes(raw)) {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
       window.switchMainTab('custom-generator');
     } else if (['videos', 'video-solutions'].includes(raw)) {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
       window.switchMainTab('videos');
     } else if (['courses', 'materials', 'resources', 'exam-papers-repo', 'videos-repo'].includes(raw)) {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
       window.switchMainTab(raw);
     } else if (['year-tests', 'mock-tests', 'exam-papers'].includes(raw)) {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
       window.switchMainTab('year-tests');
     }
   }

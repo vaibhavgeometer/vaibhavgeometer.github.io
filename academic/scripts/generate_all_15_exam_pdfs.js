@@ -10,8 +10,8 @@ const cp = require('child_process');
 
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const WORKSPACE_ROOT = path.resolve(__dirname, '..', '..');
-const QUESTIONS_DATA_PATH = path.join(WORKSPACE_ROOT, 'academic', 'semester-exams', 'mock-test', 'js', 'questions_data.js');
-const OUTPUT_DIR = path.join(WORKSPACE_ROOT, 'academic', 'semester-exams', 'assets', 'pdfs');
+const QUESTIONS_DATA_PATH = path.join(WORKSPACE_ROOT, 'academic', 'UNPG', 'mock-test', 'js', 'questions_data.js');
+const OUTPUT_DIR = path.join(WORKSPACE_ROOT, 'academic', 'UNPG', 'assets', 'pdfs');
 
 if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -69,7 +69,7 @@ function generateHtmlForExam(testId, test) {
   questions.forEach((q, idx) => {
     const qNum = idx + 1;
     const relImg = q.image ? q.image.replace(/^[./\\]+/, '') : '';
-    const absImgPath = path.join(WORKSPACE_ROOT, 'academic', 'semester-exams', relImg);
+    const absImgPath = path.join(WORKSPACE_ROOT, 'academic', 'UNPG', relImg);
     const fileUrl = 'file:///' + absImgPath.replace(/\\/g, '/');
 
     questionCardsHtml += `
