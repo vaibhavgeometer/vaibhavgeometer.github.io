@@ -110,7 +110,7 @@
     statusMessage: '',
     debounceTimer: null,
     isApplyingRemote: false,
-    activeTab: 'my-code' // 'my-code' | 'link-device' | 'settings'
+    activeTab: 'my-code' // 'my-code' | 'link-device'
   };
 
   // ==========================================================================
@@ -1297,76 +1297,7 @@
     const unpgScores = Object.keys(payload.unpg.scores || {}).length;
 
     let bodyHtml = '';
-    if (state.activeTab === 'my-code') {
-      if (isLinked) {
-        bodyHtml = `
-          <div class="vp-card">
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-              <span style="color:#34d399;font-weight:700;font-size:0.86rem;">🟢 All-in-One Session Active</span>
-              <span style="font-size:0.78rem;color:#94a3b8;">Last synced: ${escapeHtml(formatRelativeTime(state.lastSyncTime))}</span>
-            </div>
-
-            <div class="vp-code-box">
-              <span class="vp-code-val">${escapeHtml(currentCode)}</span>
-              <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.copyCode('${escapeHtml(currentCode)}')">📋 Copy Pass</button>
-            </div>
-
-            <div class="vp-portal-stats">
-              <div class="vp-stat-pill">
-                <strong>🎯 IIT JAM Mathematics</strong><br>
-                <span>${jamSolved} / 885 PYQs solved · ${jamScores} mock scores</span>
-              </div>
-              <div class="vp-stat-pill">
-                <strong>📚 UNPG B.Sc. Sem V</strong><br>
-                <span>${unpgSolved} / 750 PYQs solved · ${unpgScores} mock scores</span>
-              </div>
-            </div>
-
-            <div class="vp-qr-row">
-              <img src="${qrUrl}" alt="QR Code" class="vp-qr-img" onerror="this.style.display='none'">
-              <div style="flex:1;min-width:200px;font-size:0.82rem;">
-                <strong>📱 Instant Phone / Device Sync</strong>
-                <p style="margin:4px 0 8px;color:#94a3b8;">Scan with your camera or share the magic link to log in across the entire website in one click.</p>
-                <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                  <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.copyLink('${escapeHtml(shareUrl)}')">🔗 Copy Link</button>
-                  <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.shareLink('${escapeHtml(shareUrl)}')">📤 Share</button>
-                </div>
-              </div>
-            </div>
-
-            <label style="display:flex;align-items:center;gap:8px;font-size:0.84rem;cursor:pointer;margin-top:8px;">
-              <input type="checkbox" ${state.autoSyncEnabled ? 'checked' : ''} onchange="window.VAIBHAV_CLOUD_SYNC.toggleAutoSync(this.checked)">
-              <span>⚡ Real-Time Auto-Sync across all portals (JAM + UNPG + Preferences)</span>
-            </label>
-
-            <div class="vp-actions-grid">
-              <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.syncNow()">🔄 Sync Now</button>
-              <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.pullFromCloud()">📥 Pull Latest</button>
-              <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.createNewCode()">✨ New Pass</button>
-              <button type="button" class="vp-btn danger" onclick="window.VAIBHAV_CLOUD_SYNC.unlinkDevice()">🔌 Log Out</button>
-            </div>
-          </div>
-        `;
-      } else {
-        bodyHtml = `
-          <div class="vp-card" style="text-align:center;padding:24px 18px;">
-            <div style="font-size:2.4rem;margin-bottom:8px;">☁️</div>
-            <h3 style="margin-bottom:8px;">All-in-One Website Login</h3>
-            <p style="font-size:0.88rem;color:#94a3b8;max-width:440px;margin:0 auto 16px;">
-              One 6-character pass syncs your IIT JAM PYQs, UNPG Semester V tracker, and mock test scores across every page and device — no password needed.
-            </p>
-            <div class="vp-portal-stats" style="text-align:left;margin-bottom:18px;">
-              <div class="vp-stat-pill"><strong>🎯 Local JAM:</strong> ${jamSolved} solved · ${jamScores} scores</div>
-              <div class="vp-stat-pill"><strong>📚 Local UNPG:</strong> ${unpgSolved} solved · ${unpgScores} scores</div>
-            </div>
-            <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-              <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.createNewCode()">✨ Generate All-in-One Pass</button>
-              <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.switchTab('link-device')">📱 I Already Have a Code</button>
-            </div>
-          </div>
-        `;
-      }
-    } else if (state.activeTab === 'link-device') {
+    if (state.activeTab === 'link-device') {
       bodyHtml = `
         <div class="vp-card">
           <h4 style="margin-bottom:6px;">Log In with Your 6-Character Pass</h4>
@@ -1387,20 +1318,71 @@
           </label>
         </div>
       `;
-    } else {
-      const isCustom = !!localStorage.getItem(KEYS.API_URL);
+    } else if (isLinked) {
       bodyHtml = `
         <div class="vp-card">
-          <h4 style="margin-bottom:6px;">⚙️ Cloudflare Worker Backend</h4>
-          <p style="font-size:0.82rem;color:#94a3b8;margin-bottom:12px;">
-            Powered by Cloudflare Workers + KV storage. Leave default unless self-hosting.
-          </p>
-          <div style="display:flex;gap:8px;margin-bottom:8px;">
-            <input type="text" id="vp-cloud-api-input" class="vp-input" style="font-size:0.82rem;letter-spacing:0;" value="${escapeHtml(state.apiUrl)}">
-            <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.saveApiUrlInput()">Save</button>
-            ${isCustom ? '<button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.resetApiUrl()">Reset</button>' : ''}
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <span style="color:#34d399;font-weight:700;font-size:0.86rem;">🟢 All-in-One Session Active</span>
+            <span style="font-size:0.78rem;color:#94a3b8;">Last synced: ${escapeHtml(formatRelativeTime(state.lastSyncTime))}</span>
           </div>
-          <div style="font-size:0.74rem;color:#94a3b8;">Default: <code>${escapeHtml(DEFAULT_API_URL)}</code></div>
+
+          <div class="vp-code-box">
+            <span class="vp-code-val">${escapeHtml(currentCode)}</span>
+            <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.copyCode('${escapeHtml(currentCode)}')">📋 Copy Pass</button>
+          </div>
+
+          <div class="vp-portal-stats">
+            <div class="vp-stat-pill">
+              <strong>🎯 IIT JAM Mathematics</strong><br>
+              <span>${jamSolved} / 885 PYQs solved · ${jamScores} mock scores</span>
+            </div>
+            <div class="vp-stat-pill">
+              <strong>📚 UNPG B.Sc. Sem V</strong><br>
+              <span>${unpgSolved} / 750 PYQs solved · ${unpgScores} mock scores</span>
+            </div>
+          </div>
+
+          <div class="vp-qr-row">
+            <img src="${qrUrl}" alt="QR Code" class="vp-qr-img" onerror="this.style.display='none'">
+            <div style="flex:1;min-width:200px;font-size:0.82rem;">
+              <strong>📱 Instant Phone / Device Sync</strong>
+              <p style="margin:4px 0 8px;color:#94a3b8;">Scan with your camera or share the magic link to log in across the entire website in one click.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.copyLink('${escapeHtml(shareUrl)}')">🔗 Copy Link</button>
+                <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.shareLink('${escapeHtml(shareUrl)}')">📤 Share</button>
+              </div>
+            </div>
+          </div>
+
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.84rem;cursor:pointer;margin-top:8px;">
+            <input type="checkbox" ${state.autoSyncEnabled ? 'checked' : ''} onchange="window.VAIBHAV_CLOUD_SYNC.toggleAutoSync(this.checked)">
+            <span>⚡ Real-Time Auto-Sync across all portals (JAM + UNPG + Preferences)</span>
+          </label>
+
+          <div class="vp-actions-grid">
+            <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.syncNow()">🔄 Sync Now</button>
+            <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.pullFromCloud()">📥 Pull Latest</button>
+            <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.createNewCode()">✨ New Pass</button>
+            <button type="button" class="vp-btn danger" onclick="window.VAIBHAV_CLOUD_SYNC.unlinkDevice()">🔌 Log Out</button>
+          </div>
+        </div>
+      `;
+    } else {
+      bodyHtml = `
+        <div class="vp-card" style="text-align:center;padding:24px 18px;">
+          <div style="font-size:2.4rem;margin-bottom:8px;">☁️</div>
+          <h3 style="margin-bottom:8px;">All-in-One Website Login</h3>
+          <p style="font-size:0.88rem;color:#94a3b8;max-width:440px;margin:0 auto 16px;">
+            One 6-character pass syncs your IIT JAM PYQs, UNPG Semester V tracker, and mock test scores across every page and device — no password needed.
+          </p>
+          <div class="vp-portal-stats" style="text-align:left;margin-bottom:18px;">
+            <div class="vp-stat-pill"><strong>🎯 Local JAM:</strong> ${jamSolved} solved · ${jamScores} scores</div>
+            <div class="vp-stat-pill"><strong>📚 Local UNPG:</strong> ${unpgSolved} solved · ${unpgScores} scores</div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.createNewCode()">✨ Generate All-in-One Pass</button>
+            <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.switchTab('link-device')">📱 I Already Have a Code</button>
+          </div>
         </div>
       `;
     }
@@ -1412,9 +1394,8 @@
           <button type="button" class="vp-modal-close" onclick="window.VAIBHAV_CLOUD_SYNC.closeModal()" title="Close (Esc)">✕</button>
         </div>
         <div class="vp-modal-tabs">
-          <button type="button" class="vp-tab-btn ${state.activeTab === 'my-code' ? 'active' : ''}" onclick="window.VAIBHAV_CLOUD_SYNC.switchTab('my-code')">🔑 ${isLinked ? 'My Sync Pass' : 'Get Pass'}</button>
+          <button type="button" class="vp-tab-btn ${state.activeTab !== 'link-device' ? 'active' : ''}" onclick="window.VAIBHAV_CLOUD_SYNC.switchTab('my-code')">🔑 ${isLinked ? 'My Sync Pass' : 'Get Pass'}</button>
           <button type="button" class="vp-tab-btn ${state.activeTab === 'link-device' ? 'active' : ''}" onclick="window.VAIBHAV_CLOUD_SYNC.switchTab('link-device')">📱 Link Device</button>
-          <button type="button" class="vp-tab-btn ${state.activeTab === 'settings' ? 'active' : ''}" onclick="window.VAIBHAV_CLOUD_SYNC.switchTab('settings')">⚙️ Backend</button>
         </div>
         <div class="vp-modal-body">${bodyHtml}</div>
         <div class="vp-modal-footer">
@@ -1433,10 +1414,16 @@
     }
   }
 
+  function resolveTabName(tabName) {
+    return tabName === 'link' || tabName === 'link-device' ? 'link-device' : 'my-code';
+  }
+
   function openModal(tab) {
     injectStyles();
     if (tab) {
-      state.activeTab = tab === 'overview' ? 'my-code' : tab === 'link' ? 'link-device' : tab;
+      state.activeTab = resolveTabName(tab);
+    } else if (state.activeTab !== 'link-device') {
+      state.activeTab = 'my-code';
     }
     const modal = ensureModalElement();
     renderModalContent();
@@ -1449,7 +1436,7 @@
   }
 
   function switchTab(tabName) {
-    state.activeTab = tabName === 'overview' ? 'my-code' : tabName === 'link' ? 'link-device' : tabName;
+    state.activeTab = resolveTabName(tabName);
     renderModalContent();
   }
 
