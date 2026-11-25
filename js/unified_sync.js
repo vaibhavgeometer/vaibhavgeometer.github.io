@@ -7,7 +7,7 @@
  *   - Site-wide Theme & Preferences
  *
  * 100% Backwards-Compatible:
- *   - Automatically migrates existing `jam_cloud_sync_code` (e.g. JAM-K4M-9P2)
+ *   - Automatically migrates existing `jam_cloud_sync_code` (e.g. K4M9P2X7H3)
  *     and `sem_cloud_sync_code` without deleting any progress.
  *   - Reads legacy JAM v1.2 and UNPG v2 cloud payloads seamlessly and upgrades
  *     them via conflict-free Smart Merge.
@@ -780,7 +780,7 @@
   async function linkWithCode(inputCode, mergeMode = 'merge', isAutoFromUrl = false) {
     const code = normalizeCode(inputCode);
     if (!code) {
-      showToast('Please enter a valid 6-character Sync Code (e.g. JAM-K4M-9P2 or VP-R7N-3X5).');
+      showToast('Please enter a valid Sync Code (4-24 characters, e.g. K4M9P2X7H3 or R7N3X5B9).');
       return;
     }
 
@@ -1371,10 +1371,10 @@
         <div class="vp-card">
           <h4 style="margin-bottom:6px;">Log In with Your 6-Character Pass</h4>
           <p style="font-size:0.84rem;color:#94a3b8;margin-bottom:14px;">
-            Enter your existing JAM code (e.g. <code>JAM-K4M-9P2</code>), UNPG code (<code>SEM-...</code>), or unified pass (<code>VP-...</code>).
+            Enter your existing sync code (e.g. <code>K4M9P2X7H3</code> or <code>R7N3X5B9</code>).
           </p>
           <div style="display:flex;gap:8px;margin-bottom:14px;">
-            <input type="text" id="vp-cloud-code-input" class="vp-input" placeholder="e.g. JAM-K4M-9P2 or VP-R7N-3X5" value="${escapeHtml(currentCode)}" onkeydown="if(event.key==='Enter') window.VAIBHAV_CLOUD_SYNC.submitLinkCode()">
+            <input type="text" id="vp-cloud-code-input" class="vp-input" placeholder="e.g. K4M9P2X7H3 or R7N3X5B9" value="${escapeHtml(currentCode)}" onkeydown="if(event.key==='Enter') window.VAIBHAV_CLOUD_SYNC.submitLinkCode()">
             <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.submitLinkCode()">⚡ Connect</button>
           </div>
           <label style="display:flex;gap:8px;align-items:flex-start;font-size:0.82rem;margin-bottom:8px;cursor:pointer;">
