@@ -201,6 +201,9 @@
     const prevBest = parseFloat(localStorage.getItem(storageKey) || '-999');
     if (totalMarksEarned > prevBest) {
       localStorage.setItem(storageKey, totalMarksEarned);
+      if (window.JAM_CLOUD_SYNC && typeof window.JAM_CLOUD_SYNC.triggerAutoSync === 'function') {
+        window.JAM_CLOUD_SYNC.triggerAutoSync();
+      }
     }
 
     // Build Results View HTML

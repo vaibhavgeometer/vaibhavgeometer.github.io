@@ -9,6 +9,12 @@
 (function () {
   'use strict';
 
+  // Delegate to site-wide All-in-One Cloud Sync when loaded
+  if (window.VAIBHAV_CLOUD_SYNC && window.VAIBHAV_CLOUD_SYNC.__initialized) {
+    window.SEM_CLOUD_SYNC = window.VAIBHAV_CLOUD_SYNC;
+    return;
+  }
+
   const STORAGE_KEYS = {
     TRACKER: 'sem_pyq_user_tracker_v1',
     SYNC_CODE: 'sem_cloud_sync_code',

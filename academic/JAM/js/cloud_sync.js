@@ -14,6 +14,12 @@
 (function() {
   'use strict';
 
+  // Delegate to site-wide All-in-One Cloud Sync when loaded
+  if (window.VAIBHAV_CLOUD_SYNC && window.VAIBHAV_CLOUD_SYNC.__initialized) {
+    window.JAM_CLOUD_SYNC = window.VAIBHAV_CLOUD_SYNC;
+    return;
+  }
+
   // Storage Keys
   const STORAGE_SYNC_CODE = 'jam_cloud_sync_code';
   const STORAGE_API_URL = 'jam_cloud_sync_api_url';
