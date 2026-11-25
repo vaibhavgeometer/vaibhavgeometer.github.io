@@ -1,4 +1,4 @@
-# Vaibhav Geometer — Academic & Examination Portals (IIT JAM, Semester Exams & UNPG Results) 📐🎓
+# Vaibhav Priyadarshi — Academic & Examination Portals (IIT JAM, Semester Exams & UNPG Results) 📐🎓
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Main Portfolio](https://img.shields.io/badge/Portfolio-vaibhavgeometer.github.io-blue?logo=github)](https://vaibhavgeometer.github.io/)
@@ -19,7 +19,7 @@
 [![PYQ Archive](https://img.shields.io/badge/PYQs-885%20Official%20Questions-brightgreen.svg)](academic/JAM/assets/iit_jam_pyqs_categorized.json)
 [![CUET-PG Archive](https://img.shields.io/badge/CUET--PG-2024--2026%20Papers-teal.svg)](academic/CUET-PG/)
 
-> **Official academic and examination portal by [Vaibhav Geometer](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics across three core pillars:
+> **Official academic and examination portal by [Vaibhav Priyadarshi](https://vaibhavgeometer.github.io/)**, featuring comprehensive resources for higher mathematics across three core pillars:
 > 1. **[Academic Portals — IIT JAM Mathematics (MA) & CUET-PG](https://vaibhavgeometer.github.io/academic/)**: Complete [IIT JAM Study Portal](https://vaibhavgeometer.github.io/JAM/) featuring 885 official PYQs (2005–2026), 5-tier difficulty taxonomy (Very Easy $\to$ Hardest), universal question bank search with semantic query aliasing, daily study tracking with streaks & topic mastery forecasting, zero-login 6-digit edge sync via Cloudflare KV worker and Google Drive / JSON backups, 58 mock test suites, 56 publication-quality LaTeX test PDFs, 14 formula cheat sheets, authentic CBT examination simulator with virtual scientific calculator, the definitive [22-Year Project Statistics & Analytics Report](academic/JAM/analytics/) (and [PDF Report](academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf)), alongside official [CUET-PG Mathematics Archive](academic/CUET-PG/) question papers (2024–2026).
 > 2. **[UNPG BSc Math & Physics Semester Exams Portal (2024–2028 • Semester V Ongoing)](academic/semester-exams/)**: Official university semester examination study portal for UNPG Padrauna (affiliated with Deen Dayal Upadhyaya Gorakhpur University, NEP 2020), featuring 15 official examination papers (2023–2026), 750 high-resolution university MCQs across Mathematics and Physics (`MAT301F`, `MAT302F`, `MAT303F`, `PHY301F`, `PHY302F`), 16 complete YouTube video solution walkthroughs, official syllabi regulations, authentic CBT mock test simulator with interactive palette and instantaneous evaluation, custom PDF generator, and batch PDF generation scripts.
 > 3. **[UNPG BSc Mathematics Results Portal (2024–2028)](academic/unpg-results/)**: Official university examination records, instant roll/name finder, merit leaderboards, 42 course toppers, 4 semester master compilation PDFs, and consolidated individual student scorecards across Semesters I–IV for UNPG Padrauna (DDU Gorakhpur University).
@@ -574,4 +574,4 @@ This compiles all 15 PDFs into `academic/semester-exams/assets/pdfs/` and regene
   - **IIT JAM**: Official examination papers conducted by various Indian Institutes of Technology (2005–2026).
   - **UNPG & DDUGU**: Official end-semester examination papers and curricula of Udit Narayan Post Graduate College (UNPG) Padrauna & Deen Dayal Upadhyaya Gorakhpur University (NEP 2020).
   - **CUET-PG**: National Testing Agency (NTA) official postgraduate question papers (2024–2026).
-- **Curated & Developed with ❤️ by [Vaibhav Geometer](https://github.com/vaibhavgeometer)**.
+- **Curated & Developed with ❤️ by [Vaibhav Priyadarshi](https://github.com/vaibhavgeometer)**.

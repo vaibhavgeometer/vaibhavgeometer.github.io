@@ -629,7 +629,7 @@
     doc.setFont('helvetica', 'italic');
     doc.setFontSize(8.5);
     doc.setTextColor(100, 116, 139);
-    doc.text('IIT JAM Mathematics Custom Practice Series • Curated by Vaibhav Geometer', pageWidth / 2, instructionsBoxY + instructionsHeight + 20, { align: 'center' });
+    doc.text('IIT JAM Mathematics Custom Practice Series • Curated by Vaibhav Priyadarshi', pageWidth / 2, instructionsBoxY + instructionsHeight + 20, { align: 'center' });
 
     // -------------------------------------------------------------
     // QUESTIONS SECTION (Cards with Badges & High-Res Screenshots)

@@ -225,7 +225,7 @@ def generate_typst_code(test_id, test_data):
 
 #align(center)[
   #text(size: 8.5pt, style: "italic", fill: rgb("#64748b"))[
-    IIT JAM Mathematics Mock Test Series • Curated by Vaibhav Geometer
+    IIT JAM Mathematics Mock Test Series • Curated by Vaibhav Priyadarshi
   ]
 ]
 """)

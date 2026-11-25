@@ -242,7 +242,7 @@
       docInstance.setFont('helvetica', 'normal');
       docInstance.setFontSize(8);
       docInstance.setTextColor(100, 116, 139);
-      docInstance.text('Vaibhav Geometer Academic Portal · vaibhavgeometer.github.io', marginX, footerY);
+      docInstance.text('Vaibhav Priyadarshi Academic Portal · vaibhavgeometer.github.io', marginX, footerY);
       docInstance.text(`Page ${pageNum} of ${totalPages}`, pageWidth - marginX, footerY, { align: 'right' });
     }
 
@@ -437,7 +437,7 @@
       doc.setFontSize(7.5);
       doc.setTextColor(71, 85, 105);
       doc.text('All answers have been rigorously mathematically and physically verified against standard academic theorems & university syllabi.', marginX, currentY + 12);
-      doc.text('You can also take this test interactively with virtual calculator and timers on the Vaibhav Geometer Academic Portal.', marginX, currentY + 22);
+      doc.text('You can also take this test interactively with virtual calculator and timers on the Vaibhav Priyadarshi Academic Portal.', marginX, currentY + 22);
     }
 
     // Apply Running Headers and Footers

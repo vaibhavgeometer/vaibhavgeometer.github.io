@@ -450,7 +450,7 @@ function generateHtmlForExam(testId, test) {
     <div class="ak-note-card">
       <strong>Verification &amp; Academic Integrity Note:</strong><br>
       All 50 answer keys in this document have been mathematically and physically cross-verified against standard university syllabi, standard reference textbooks, and official departmental examination solutions.<br>
-      Published and curated for academic reference by <strong>Vaibhav Geometer Academic Portal</strong> (<em>vaibhavgeometer.github.io</em>).
+      Published and curated for academic reference by <strong>Vaibhav Priyadarshi Academic Portal</strong> (<em>vaibhavgeometer.github.io</em>).
     </div>
   </div>
 
