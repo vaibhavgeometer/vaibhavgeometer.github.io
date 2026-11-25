@@ -1,245 +1,421 @@
-/**
- * UNPG Padrauna & DDUGU Semester Exams Mock Test - Results & Detailed Solution Analytics
- * Screenshot-First Solution Review with Verified Master Answer Keys & Explanations
- */
+/* ============================================
+   UNPG B.Sc. Semester V — CBT Evaluation & Analytics Engine
+   ============================================
+   - Calculates exact Semester V marks (+1.5 MCQ, 0 Negative)
+   - Saves Best Score in localStorage ('sem_score_<testId>') + triggers Cloud Sync
+   - Renders Difficulty Tier Breakdown & Solution Review Filters
+   - Preserves official YouTube Video Solutions links & explanations
+   ============================================ */
+(function () {
+  'use strict';
 
-(function() {
+  let lastResultContext = null;
 
-  window.renderResults = function(state) {
-    const appEl = document.querySelector('.exam-app');
-    if (!appEl) return;
-    appEl.classList.add('results-mode');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
 
-    const test = state.test;
-    const questions = test.questions || [];
-    const totalQs = test.total_questions || questions.length;
-    
-    let totalMarksEarned = 0;
-    let maxMarks = test.total_marks || (totalQs * 1.5);
+  function resolveImgPath(imgPath) {
+    if (!imgPath) return '';
+    if (/^(https?:|data:|\/|\.\.)/.test(imgPath)) return imgPath;
+    return `../${imgPath}`;
+  }
+
+  function formatDuration(sec) {
+    const s = Math.max(0, Math.round(sec));
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return `${m}m ${String(r).padStart(2, '0')}s`;
+  }
+
+  function saveBestScore(testId, score, totalMarks, pct) {
+    if (!testId || testId === 'custom') return false;
+    const key = `sem_score_${testId}`;
+    let isNewBest = true;
+    try {
+      const prevRaw = localStorage.getItem(key);
+      if (prevRaw) {
+        let prevPct = 0;
+        try {
+          const parsed = JSON.parse(prevRaw);
+          prevPct = Number(parsed.percentage !== undefined ? parsed.percentage : (parsed.score / totalMarks) * 100);
+        } catch (e) {
+          prevPct = (Number(prevRaw) / totalMarks) * 100;
+        }
+        if (pct < prevPct) isNewBest = false;
+      }
+      if (isNewBest) {
+        localStorage.setItem(key, JSON.stringify({
+          score: Number(score.toFixed(2)),
+          total: Number(totalMarks.toFixed(2)),
+          percentage: Number(pct.toFixed(1)),
+          date: new Date().toISOString()
+        }));
+      }
+    } catch (e) {}
+
+    if (window.SEM_CLOUD_SYNC && typeof window.SEM_CLOUD_SYNC.scheduleAutoPush === 'function') {
+      window.SEM_CLOUD_SYNC.scheduleAutoPush();
+    }
+    return isNewBest;
+  }
+
+  window.renderTestResults = function (state, isAutoSubmit) {
+    const questions = state.questions || [];
+    const totalQ = questions.length;
+    const diffLevels = window.SEM_DIFFICULTY ? window.SEM_DIFFICULTY.LEVELS : {};
+    const diffOrder = window.SEM_DIFFICULTY ? window.SEM_DIFFICULTY.ORDER : ['very_easy', 'easy', 'medium', 'hard', 'hardest'];
+
+    const diffStats = {};
+    diffOrder.forEach((k) => {
+      diffStats[k] = { total: 0, correct: 0, incorrect: 0, unattempted: 0, earned: 0, max: 0 };
+    });
+
     let correctCount = 0;
     let incorrectCount = 0;
     let unattemptedCount = 0;
+    let totalMarksEarned = 0;
+    let totalPossibleMarks = 0;
 
-    const evaluatedQuestions = questions.map((q, idx) => {
-      const userResp = state.responses[idx];
-      const key = (q.answer_key || q.answer || '').trim().toUpperCase();
-      let status = 'unattempted';
-      let earned = 0;
-      const qMarks = q.marks || 1.5;
+    const evaluatedItems = questions.map((q, idx) => {
+      const m = Number(q.marks !== undefined ? q.marks : 1.5);
+      const neg = Number(q.negative_marks !== undefined ? q.negative_marks : 0);
+      totalPossibleMarks += m;
 
-      const hasAttempted = userResp !== null && userResp !== undefined && String(userResp).trim().length > 0;
+      const userAns = state.responses[idx] || null;
+      const officialKey = String(q.answer_key || 'A').trim().toUpperCase();
+      let outcome = 'unattempted';
+      let delta = 0;
 
-      if (key === 'MTA' || key.includes('MARKS TO ALL')) {
-        status = 'mta';
-        earned = qMarks;
-        correctCount++;
-      } else if (hasAttempted) {
-        const u = String(userResp).trim().toUpperCase();
-        if (u === key) {
-          status = 'correct';
-          earned = qMarks;
-          correctCount++;
-        } else {
-          status = 'incorrect';
-          earned = 0; // No negative marking in semester exams
-          incorrectCount++;
-        }
-      } else {
+      if (!userAns) {
+        outcome = 'unattempted';
         unattemptedCount++;
-        earned = 0;
+      } else if (userAns === officialKey) {
+        outcome = 'correct';
+        delta = m;
+        totalMarksEarned += m;
+        correctCount++;
+      } else {
+        outcome = 'incorrect';
+        delta = -neg;
+        totalMarksEarned -= neg;
+        incorrectCount++;
       }
 
-      totalMarksEarned += earned;
+      const diffInfo = window.SEM_DIFFICULTY
+        ? window.SEM_DIFFICULTY.getQuestionDifficulty(q, state.testObj)
+        : { level: 'medium', meta: { label: 'Medium', shortLabel: 'Medium', emoji: '🟡', color: '#f59e0b', cssClass: 'diff-medium' }, isUserTagged: false };
+
+      const lvl = diffInfo.level || 'medium';
+      if (diffStats[lvl]) {
+        diffStats[lvl].total++;
+        diffStats[lvl].max += m;
+        if (outcome === 'correct') {
+          diffStats[lvl].correct++;
+          diffStats[lvl].earned += m;
+        } else if (outcome === 'incorrect') {
+          diffStats[lvl].incorrect++;
+          diffStats[lvl].earned -= neg;
+        } else {
+          diffStats[lvl].unattempted++;
+        }
+      }
 
       return {
-        q,
         idx,
-        userResp,
-        key,
-        status,
-        earned,
-        qMarks
+        q,
+        userAns,
+        officialKey,
+        outcome,
+        delta,
+        marks: m,
+        diffInfo
       };
     });
 
-    const percentage = maxMarks > 0 ? ((totalMarksEarned / maxMarks) * 100).toFixed(1) : 0;
     const attemptedCount = correctCount + incorrectCount;
-    const accuracy = attemptedCount > 0 ? ((correctCount / attemptedCount) * 100).toFixed(1) : 0;
+    const accuracy = attemptedCount > 0 ? ((correctCount / attemptedCount) * 100) : 0;
+    const pct = totalPossibleMarks > 0 ? ((Math.max(0, totalMarksEarned) / totalPossibleMarks) * 100) : 0;
+    const savedNewBest = !state.isCustom
+      ? saveBestScore(state.testId, totalMarksEarned, totalPossibleMarks, pct)
+      : false;
 
-    // Time spent calculation
-    const timeSpentSecs = state.mode === 'practice' ? state.timeRemaining : (((test.duration_minutes || 90) * 60) - state.timeRemaining);
-    const spentMins = Math.floor(timeSpentSecs / 60);
-    const spentSecs = timeSpentSecs % 60;
-    const timeString = `${spentMins}m ${spentSecs}s`;
+    lastResultContext = { state, evaluatedItems };
 
-    // Replace exam workspace with Results View
-    const workspace = document.querySelector('.exam-workspace');
-    const footer = document.querySelector('.exam-footer');
-    if (footer) footer.style.display = 'none';
+    const mainEl = document.querySelector('.test-workspace') || document.body;
 
-    if (workspace) {
-      workspace.innerHTML = `
-        <div class="results-container" style="max-width: 1000px; margin: 0 auto; padding: 24px 16px; width: 100%;">
-          
-          <!-- Score Header Card -->
-          <div class="results-header-card" style="background: var(--bg-card, #1e293b); border: 1px solid var(--border, #334155); border-radius: 16px; padding: 28px; margin-bottom: 24px; text-align: center; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);">
-            <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-cyan, #38bdf8); font-weight: 700; margin-bottom: 6px;">
-              Semester Examination Performance Report
-            </div>
-            <h1 style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 0 0 8px 0; color: var(--text-primary, #f8fafc);">
-              ${test.name || 'B.Sc. Semester Mock Test'}
-            </h1>
-            <p style="color: var(--text-secondary, #94a3b8); font-size: 0.95rem; margin-bottom: 24px;">
-              CBCS NEP 2020 Pattern • 50 MCQs • External Examination Simulator
-            </p>
-
-            <!-- Score Metric Highlights -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; margin-bottom: 24px;">
-              <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 16px 12px;">
-                <div style="font-size: 0.75rem; color: #38bdf8; font-weight: 700; text-transform: uppercase;">Total Score</div>
-                <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin: 4px 0;">${totalMarksEarned.toFixed(1)} <span style="font-size: 1rem; font-weight: 500; color: var(--text-secondary, #94a3b8);">/ ${maxMarks}</span></div>
-                <div style="font-size: 0.8rem; color: #38bdf8; font-weight: 600;">${percentage}% Score</div>
-              </div>
-
-              <div style="background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.25); border-radius: 12px; padding: 16px 12px;">
-                <div style="font-size: 0.75rem; color: #4ade80; font-weight: 700; text-transform: uppercase;">Correct</div>
-                <div style="font-size: 1.8rem; font-weight: 800; color: #4ade80; margin: 4px 0;">${correctCount} <span style="font-size: 1rem; font-weight: 500; color: var(--text-secondary, #94a3b8);">/ ${totalQs}</span></div>
-                <div style="font-size: 0.8rem; color: #4ade80; font-weight: 600;">Accuracy: ${accuracy}%</div>
-              </div>
-
-              <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 12px; padding: 16px 12px;">
-                <div style="font-size: 0.75rem; color: #f87171; font-weight: 700; text-transform: uppercase;">Incorrect</div>
-                <div style="font-size: 1.8rem; font-weight: 800; color: #f87171; margin: 4px 0;">${incorrectCount}</div>
-                <div style="font-size: 0.8rem; color: #f87171; font-weight: 600;">0 Neg. Lost</div>
-              </div>
-
-              <div style="background: rgba(148, 163, 184, 0.08); border: 1px solid rgba(148, 163, 184, 0.25); border-radius: 12px; padding: 16px 12px;">
-                <div style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase;">Unattempted</div>
-                <div style="font-size: 1.8rem; font-weight: 800; color: #94a3b8; margin: 4px 0;">${unattemptedCount}</div>
-                <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">Time: ${timeString}</div>
-              </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-              <button onclick="window.location.reload()" class="btn-action btn-save-next" style="padding: 10px 20px; font-size: 0.9rem;">
-                🔄 Retake Test
-              </button>
-              <a href="../index.html" class="btn-action btn-secondary" style="padding: 10px 20px; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                ← Back to Semester Portal
+    // YouTube Videos Card (if official paper has videos)
+    const videos = Array.isArray(state.testObj.videos) ? state.testObj.videos : [];
+    const videosHtml = videos.length
+      ? `
+        <div class="results-diff-section" style="border-color:rgba(239,68,68,0.35);">
+          <div class="results-diff-header">
+            <span class="results-diff-title">🎥 Video Solution Lectures for This Paper</span>
+            <span style="font-size:0.82rem; color:var(--text-secondary);">Step-by-step walkthroughs by Vaibhav</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            ${videos.map((v) => `
+              <a href="${escapeHtml(v.url)}" target="_blank" rel="noopener" class="btn-action btn-save-next" style="text-decoration:none; background:#dc2626; border-color:#dc2626;">
+                ▶ ${escapeHtml(v.title || 'Watch Solution on YouTube')} ↗
               </a>
-              <button onclick="window.print()" class="btn-action btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">
-                🖨️ Print Result &amp; Solutions
-              </button>
-            </div>
-
-            ${test.videos && test.videos.length > 0 ? `
-              <div style="margin-top: 20px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <span style="font-size: 1.5rem;">🎥</span>
-                  <div>
-                    <div style="font-weight: 700; font-size: 0.95rem; color: #f87171;">Complete Video Solution Available on YouTube</div>
-                    <div style="font-size: 0.82rem; color: var(--text-secondary, #94a3b8);">Watch step-by-step problem walkthroughs and option explanations for ${test.course_code || ''} (${test.year || ''})</div>
-                  </div>
-                </div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                  ${test.videos.map(v => `
-                    <a href="${v.url}" target="_blank" rel="noopener noreferrer" style="background: #ef4444; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.85rem; padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);">
-                      <span>▶</span> ${v.title}
-                    </a>
-                  `).join('')}
-                </div>
-              </div>
-            ` : ''}
+            `).join('')}
           </div>
+        </div>
+      `
+      : '';
 
-          <!-- Section: Detailed Solutions Review -->
-          <div style="margin-top: 32px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
-              <h2 style="font-size: 1.35rem; color: var(--text-primary, #f8fafc); margin: 0; font-family: var(--font-heading, sans-serif);">
-                📖 Question-by-Question Verified Solutions &amp; Explanations
-              </h2>
-              <span style="font-size: 0.85rem; color: var(--text-secondary, #94a3b8);">All 50 Master Answers Rigorously Verified</span>
-            </div>
-
-            <!-- Solutions List -->
-            <div class="solutions-list" style="display: flex; flex-direction: column; gap: 20px;">
-              ${evaluatedQuestions.map((item) => {
-                const q = item.q;
-                const imgPath = q.image ? (q.image.startsWith('../') ? q.image : `../${q.image}`) : '';
-                
-                let statusBadge = '';
-                let statusBorder = 'var(--border, #334155)';
-                if (item.status === 'correct' || item.status === 'mta') {
-                  statusBadge = '<span style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700;">✓ Correct (+1.5)</span>';
-                  statusBorder = 'rgba(34, 197, 94, 0.3)';
-                } else if (item.status === 'incorrect') {
-                  statusBadge = '<span style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700;">✗ Incorrect (0)</span>';
-                  statusBorder = 'rgba(239, 68, 68, 0.3)';
-                } else {
-                  statusBadge = '<span style="background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.4); padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700;">○ Unattempted</span>';
-                }
-
-                return `
-                  <div class="solution-card" style="background: var(--bg-card, #1e293b); border: 1px solid ${statusBorder}; border-radius: 12px; padding: 20px;">
-                    <!-- Question Header -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-                      <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-weight: 800; font-size: 1rem; color: var(--accent-cyan, #38bdf8);">Q.${item.idx + 1}</span>
-                        <span style="font-size: 0.8rem; color: var(--text-secondary, #94a3b8); background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px;">${test.course_code || 'CBCS'} • ${test.year || ''}</span>
-                      </div>
-                      <div>${statusBadge}</div>
-                    </div>
-
-                    <!-- Official Screenshot if present -->
-                    ${imgPath ? `
-                      <div style="margin: 12px 0; border: 1px solid var(--border, #334155); border-radius: 8px; overflow: hidden; background: #000; text-align: center;">
-                        <img src="${imgPath}" alt="Question ${item.idx + 1}" style="max-width: 100%; max-height: 480px; object-fit: contain;" />
-                      </div>
-                    ` : ''}
-
-                    <!-- Question Text if present -->
-                    ${q.question ? `
-                      <div style="font-size: 0.95rem; line-height: 1.5; color: var(--text-primary, #f8fafc); margin: 12px 0;">
-                        ${q.question}
-                      </div>
-                    ` : ''}
-
-                    <!-- User Answer vs Correct Key -->
-                    <div style="display: flex; gap: 14px; margin: 14px 0; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 8px; flex-wrap: wrap;">
-                      <div style="font-size: 0.85rem;">
-                        <span style="color: var(--text-secondary, #94a3b8);">Your Selected Answer:</span> 
-                        <strong style="color: ${item.userResp ? (item.status === 'correct' ? '#4ade80' : '#f87171') : '#94a3b8'};">
-                          ${item.userResp ? `Option (${item.userResp})` : 'Not Attempted'}
-                        </strong>
-                      </div>
-                      <div style="font-size: 0.85rem;">
-                        <span style="color: var(--text-secondary, #94a3b8);">Master Verified Key:</span> 
-                        <strong style="color: #4ade80;">Option (${item.key})</strong>
-                      </div>
-                    </div>
-
-                    <!-- Verified Detailed Explanation -->
-                    <div style="background: rgba(56, 189, 248, 0.05); border-left: 3px solid var(--accent-cyan, #38bdf8); padding: 12px 14px; border-radius: 0 8px 8px 0; font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary, #cbd5e1);">
-                      <div style="font-weight: 700; color: var(--accent-cyan, #38bdf8); margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
-                        <span>💡 Verified Mathematical / Physical Solution:</span>
-                      </div>
-                      <div>${q.explanation || `The verified correct answer according to standard course theorems is <strong>Option (${item.key})</strong>.`}</div>
-                    </div>
-                  </div>
-                `;
-              }).join('')}
-            </div>
+    // Difficulty Tier Breakdown
+    const diffCardsHtml = diffOrder.map((lvl) => {
+      const ds = diffStats[lvl];
+      if (!ds || ds.total === 0) return '';
+      const meta = diffLevels[lvl] || { emoji: '•', label: lvl, color: '#6366f1' };
+      const acc = ds.total > 0 ? Math.round((ds.correct / ds.total) * 100) : 0;
+      return `
+        <div class="diff-stat-card">
+          <div class="diff-stat-top">
+            <span class="diff-stat-name">${meta.emoji} ${meta.label}</span>
+            <span class="diff-stat-score">${ds.correct}/${ds.total}</span>
           </div>
-
+          <div class="diff-stat-meta">
+            <span>Marks: ${ds.earned.toFixed(1)} / ${ds.max.toFixed(1)}</span>
+            <span>${acc}%</span>
+          </div>
+          <div class="diff-stat-bar">
+            <div class="diff-stat-fill" style="width:${acc}%; background:${meta.color};"></div>
+          </div>
         </div>
       `;
+    }).join('');
 
+    const diffSectionHtml = diffCardsHtml
+      ? `
+        <div class="results-diff-section">
+          <div class="results-diff-header">
+            <span class="results-diff-title">📊 Difficulty Tier Performance</span>
+            <span style="font-size:0.82rem; color:var(--text-secondary);">Calibrated to UNPG Semester V 5-tier model</span>
+          </div>
+          <div class="results-diff-grid">${diffCardsHtml}</div>
+        </div>
+      `
+      : '';
+
+    const reviewCardsHtml = buildReviewCardsHtml(evaluatedItems, 'ALL');
+
+    mainEl.outerHTML = `
+      <div class="results-container" id="results-root">
+        <div class="scorecard-hero">
+          <div class="scorecard-title">${escapeHtml(state.testObj.name || state.testId)}</div>
+          <div class="scorecard-subtitle">
+            ${isAutoSubmit ? '⏰ Time Expired — Auto-Submitted · ' : ''}
+            ${state.mode === 'practice' ? 'Practice Mode' : 'Official CBT Mode'} · Time Taken: ${formatDuration(state.elapsedSeconds)}
+            ${savedNewBest && !state.isCustom ? ' · ★ Personal Best Saved!' : ''}
+          </div>
+          <div class="score-circle">
+            <span class="score-val">${totalMarksEarned.toFixed(1)}</span>
+            <span class="score-max">/ ${totalPossibleMarks.toFixed(1)}</span>
+          </div>
+          <div style="font-size:1.05rem; font-weight:700; opacity:0.95;">
+            Overall Percentage: ${pct.toFixed(1)}% &nbsp;|&nbsp; Accuracy: ${accuracy.toFixed(1)}%
+          </div>
+        </div>
+
+        <div class="results-actions-bar">
+          <a href="../index.html" class="btn-action btn-secondary" style="text-decoration:none;">← Return to Portal</a>
+          <button type="button" class="btn-action btn-save-next" onclick="window.reattemptCurrentTest()">🔄 Reattempt Paper</button>
+          ${correctCount > 0 ? `<button type="button" id="btn-sync-correct-tracker" class="btn-action btn-secondary" style="border-color:var(--brand-primary); color:var(--brand-primary);" onclick="window.markCorrectInPyqTracker()">✅ Mark ${correctCount} Correct Solved in Tracker</button>` : ''}
+        </div>
+
+        <div class="results-stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-val val-total">${totalQ}</div>
+            <div class="stat-card-lbl">Total Questions</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-val val-correct">${correctCount}</div>
+            <div class="stat-card-lbl">Correct (+1.5 each)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-val val-incorrect">${incorrectCount}</div>
+            <div class="stat-card-lbl">Incorrect (0 Neg)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-val val-unattempted">${unattemptedCount}</div>
+            <div class="stat-card-lbl">Unattempted</div>
+          </div>
+        </div>
+
+        ${videosHtml}
+        ${diffSectionHtml}
+
+        <div class="solution-review-section">
+          <div class="solution-header-row">
+            <div class="solution-title">📝 Detailed Question &amp; Answer Key Review</div>
+            <div class="solution-filter-tabs">
+              <button type="button" class="sol-filter-btn active" onclick="window.filterSolutions('ALL', this)">All (${totalQ})</button>
+              <button type="button" class="sol-filter-btn" onclick="window.filterSolutions('correct', this)">Correct (${correctCount})</button>
+              <button type="button" class="sol-filter-btn" onclick="window.filterSolutions('incorrect', this)">Incorrect (${incorrectCount})</button>
+              <button type="button" class="sol-filter-btn" onclick="window.filterSolutions('unattempted', this)">Skipped (${unattemptedCount})</button>
+              <button type="button" class="sol-filter-btn" onclick="window.filterSolutions('diff_easy', this)">🟢🔵 Easy Tiers</button>
+              <button type="button" class="sol-filter-btn" onclick="window.filterSolutions('diff_medium', this)">🟡 Medium</button>
+              <button type="button" class="sol-filter-btn" onclick="window.filterSolutions('diff_hard', this)">🔴🟣 Hard Tiers</button>
+            </div>
+          </div>
+          <div class="solution-cards-list" id="solution-cards-list">
+            ${reviewCardsHtml}
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Hide CBT header bar footer actions if outside .test-workspace
+    const bottomFooter = document.querySelector('.test-footer');
+    if (bottomFooter) bottomFooter.style.display = 'none';
+
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      const root = document.getElementById('results-root');
+      if (root) window.MathJax.typesetPromise([root]).catch(() => {});
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  function buildReviewCardsHtml(items, filterKey) {
+    const filtered = items.filter((it) => {
+      if (filterKey === 'correct') return it.outcome === 'correct';
+      if (filterKey === 'incorrect') return it.outcome === 'incorrect';
+      if (filterKey === 'unattempted') return it.outcome === 'unattempted';
+      if (filterKey === 'diff_easy') return it.diffInfo.level === 'very_easy' || it.diffInfo.level === 'easy';
+      if (filterKey === 'diff_medium') return it.diffInfo.level === 'medium';
+      if (filterKey === 'diff_hard') return it.diffInfo.level === 'hard' || it.diffInfo.level === 'hardest';
+      return true;
+    });
+
+    if (!filtered.length) {
+      return '<div class="stat-card" style="padding:30px;">No questions match this filter category.</div>';
+    }
+
+    return filtered.map((it) => {
+      const q = it.q;
+      const origNum = q.q_num || it.idx + 1;
+      const imgSrc = resolveImgPath(q.image);
+      const pillCls = it.outcome === 'correct' ? 'pill-correct' : (it.outcome === 'incorrect' ? 'pill-incorrect' : 'pill-unattempted');
+      const pillTxt = it.outcome === 'correct'
+        ? `✅ Correct (+${it.delta})`
+        : (it.outcome === 'incorrect' ? '❌ Incorrect (0)' : '⚪ Unattempted (0)');
+
+      const diffBadge = window.SEM_DIFFICULTY
+        ? window.SEM_DIFFICULTY.getDifficultyBadgeHtml(it.diffInfo, { short: true })
+        : '';
+
+      const explClean = (q.explanation && !String(q.explanation).startsWith('Verified according to standard university curriculum'))
+        ? `
+          <div class="solution-box" style="margin:0 20px 16px;">
+            <div class="solution-title" style="font-size:0.9rem; margin-bottom:4px;">💡 Explanation</div>
+            <div style="font-size:0.9rem; line-height:1.5;">${escapeHtml(q.explanation)}</div>
+          </div>
+        `
+        : '';
+
+      return `
+        <div class="review-q-card">
+          <div class="review-q-header">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span class="review-q-num">Q${it.idx + 1}</span>
+              <span style="font-size:0.82rem; color:var(--text-secondary);">${escapeHtml(q.course_code || '')} · ${escapeHtml(q.year || '')} (Paper Q${origNum})</span>
+              ${diffBadge}
+            </div>
+            <span class="review-status-pill ${pillCls}">${pillTxt}</span>
+          </div>
+
+          <div class="review-q-body">
+            ${imgSrc
+              ? `<div class="review-screenshot-box"><img src="${escapeHtml(imgSrc)}" alt="Q${origNum}" class="review-screenshot-img" loading="lazy" /></div>`
+              : `<div style="font-size:0.95rem; color:var(--text-primary);">${escapeHtml(q.question)}</div>`}
+          </div>
+
+          <div class="review-answers-box">
+            <div class="review-answer-item">
+              <span class="ans-label">Your Answer</span>
+              <span class="ans-val user-val">${it.userAns ? `Option (${it.userAns})` : '— Not Attempted —'}</span>
+            </div>
+            <div class="review-answer-item">
+              <span class="ans-label">Official Answer Key</span>
+              <span class="ans-val key-val">Option (${escapeHtml(it.officialKey)})</span>
+            </div>
+            <div class="review-answer-item">
+              <span class="ans-label">Marks Awarded</span>
+              <span class="ans-val ${it.delta > 0 ? 'pos' : (it.delta < 0 ? 'neg' : 'zero')}">${it.delta > 0 ? '+' + it.delta : it.delta} / ${it.marks}</span>
+            </div>
+          </div>
+          ${explClean}
+        </div>
+      `;
+    }).join('');
+  }
+
+  window.filterSolutions = function (filterKey, btnEl) {
+    if (!lastResultContext) return;
+    document.querySelectorAll('.sol-filter-btn').forEach((b) => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    const listEl = document.getElementById('solution-cards-list');
+    if (listEl) {
+      listEl.innerHTML = buildReviewCardsHtml(lastResultContext.evaluatedItems, filterKey);
       if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([workspace]).catch(err => console.warn(err));
+        window.MathJax.typesetPromise([listEl]).catch(() => {});
       }
     }
   };
 
+  window.markCorrectInPyqTracker = function () {
+    if (!lastResultContext) return;
+    const correctItems = lastResultContext.evaluatedItems.filter((it) => it.outcome === 'correct');
+    if (!correctItems.length) return;
+    try {
+      const key = 'sem_pyq_user_tracker_v1';
+      let store = { solved: {}, difficulty: {}, lastUpdated: new Date().toISOString() };
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (p && typeof p === 'object') {
+          store.solved = p.solved || {};
+          store.difficulty = p.difficulty || {};
+        }
+      }
+      const nowIso = new Date().toISOString();
+      correctItems.forEach((it) => {
+        store.solved[it.q.id] = {
+          solvedAt: nowIso,
+          course_code: it.q.course_code || '',
+          year: it.q.year || ''
+        };
+      });
+      store.lastUpdated = nowIso;
+      localStorage.setItem(key, JSON.stringify(store));
+      if (window.SEM_CLOUD_SYNC && typeof window.SEM_CLOUD_SYNC.scheduleAutoPush === 'function') {
+        window.SEM_CLOUD_SYNC.scheduleAutoPush();
+      }
+      const btn = document.getElementById('btn-sync-correct-tracker');
+      if (btn) {
+        btn.textContent = `✅ Synced ${correctItems.length} Qs to Tracker`;
+        btn.disabled = true;
+      }
+      let toast = document.querySelector('.diff-toast-notification');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'diff-toast-notification';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = `Synced ${correctItems.length} correct question(s) to PYQ Tracker!`;
+      toast.classList.add('show');
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => toast.classList.remove('show'), 2600);
+    } catch (e) {}
+  };
+
+  window.reattemptCurrentTest = function () {
+    window.location.reload();
+  };
 })();

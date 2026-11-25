@@ -1,577 +1,598 @@
-/**
- * UNPG Padrauna & DDUGU Semester Exams Mock Test - Core Test Engine
- * Screenshot-First Question Display with Interactive MCQ (A, B, C, D) Option Selectors
- */
+/* ============================================
+   UNPG B.Sc. Semester V — CBT Simulator Engine
+   ============================================
+   - Supports Official 90-min Timed Mode & Unlimited Practice Mode
+   - Supports URL params: ?test=..., ?course=...&year=..., ?q=..., ?mode=official|practice
+   - Supports Custom Tests via sessionStorage 'semester_custom_test' (?test=custom)
+   - Screenshot-first question rendering with high-res zoom viewer
+   - Live 5-tier Difficulty Tagging & Hide Suggested toggle (SEM_DIFFICULTY)
+   - Full keyboard shortcuts & shared dark/light theme ('jam_theme')
+   ============================================ */
+(function () {
+  'use strict';
 
-(function() {
+  const params = new URLSearchParams(window.location.search);
+  let requestedId = params.get('test') || params.get('id') || '';
+  const courseParam = params.get('course') || '';
+  const yearParam = params.get('year') || '';
+  const modeParam = (params.get('mode') || 'official').toLowerCase();
+  const initialQParam = parseInt(params.get('q') || '1', 10);
+
+  if (!requestedId && courseParam && yearParam) {
+    requestedId = `${courseParam}_${yearParam}`;
+  }
+  if (!requestedId) {
+    requestedId = 'MAT301F_2025-26';
+  }
+
+  let currentTest = null;
+  let isCustomTest = false;
+
+  if (requestedId === 'custom') {
+    try {
+      const rawCustom = sessionStorage.getItem('semester_custom_test');
+      if (rawCustom) {
+        currentTest = JSON.parse(rawCustom);
+        isCustomTest = true;
+      }
+    } catch (e) {}
+  }
+
+  if (!currentTest && window.MOCK_TESTS_DATA) {
+    currentTest = window.MOCK_TESTS_DATA[requestedId] || Object.values(window.MOCK_TESTS_DATA)[0];
+  }
+
+  if (!currentTest) {
+    document.body.innerHTML = '<div style="padding:40px;font-family:sans-serif;text-align:center;"><h2>Mock Test Data Not Loaded</h2><p><a href="../index.html">Return to Semester Exams Portal</a></p></div>';
+    return;
+  }
+
+  const questions = Array.isArray(currentTest.questions) ? currentTest.questions : [];
+  const totalQ = questions.length;
+  const startIdx = (Number.isFinite(initialQParam) && initialQParam >= 1 && initialQParam <= totalQ)
+    ? (initialQParam - 1)
+    : 0;
+
+  const isPractice = modeParam === 'practice';
+  const durationSeconds = (Number(currentTest.duration_minutes) || 90) * 60;
+
   const state = {
-    testId: 'MAT301F_2024-25',
-    test: null,
-    currentIndex: 0,
-    responses: {},       // { [index]: "A" | "B" | "C" | "D" }
-    status: {},          // { [index]: "not_visited" | "not_answered" | "answered" | "review" | "ans_review" }
-    timeRemaining: 0,    // in seconds
+    testId: currentTest.id || requestedId,
+    testObj: currentTest,
+    isCustom: isCustomTest,
+    mode: isPractice ? 'practice' : 'official',
+    questions,
+    totalQ,
+    currentIdx: startIdx,
+    responses: {}, // index -> 'A' | 'B' | 'C' | 'D'
+    status: {},    // index -> 'not_visited' | 'not_answered' | 'answered' | 'marked' | 'answered_marked'
     timerInterval: null,
-    filter: 'ALL',
-    isSubmitted: false,
-    mode: 'official',    // 'official' or 'practice'
-    startTime: 0
+    remainingSeconds: isPractice ? 0 : durationSeconds,
+    elapsedSeconds: 0,
+    submitted: false
   };
 
-  // Initialize Engine
-  function init() {
-    state.startTime = Date.now();
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramTest = urlParams.get('test') || urlParams.get('topic') || urlParams.get('id');
-    const paramCourse = urlParams.get('course');
-    const paramYear = urlParams.get('year');
-    const paramMode = urlParams.get('mode') || 'official';
-    
-    let resolvedId = paramTest;
-    if (!resolvedId && paramCourse && paramYear) {
-      resolvedId = `${paramCourse}_${paramYear}`;
-    }
-    if (!resolvedId) {
-      resolvedId = 'MAT301F_2024-25';
-    }
+  for (let i = 0; i < totalQ; i++) {
+    state.status[i] = i === startIdx ? 'not_answered' : 'not_visited';
+  }
 
-    state.testId = resolvedId;
-    state.mode = paramMode;
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
 
-    if (state.testId === 'custom') {
-      try {
-        const customJson = sessionStorage.getItem('semester_custom_test');
-        if (customJson) {
-          state.test = JSON.parse(customJson);
-        }
-      } catch (e) {
-        console.error('Error parsing custom test from sessionStorage:', e);
-      }
-    }
+  function resolveScreenshotSrc(imgPath) {
+    if (!imgPath) return '';
+    if (/^(https?:|data:|\/|\.\.)/.test(imgPath)) return imgPath;
+    return `../${imgPath}`;
+  }
 
-    if (!state.test) {
-      if (window.MOCK_TESTS_DATA && window.MOCK_TESTS_DATA[state.testId]) {
-        state.test = window.MOCK_TESTS_DATA[state.testId];
-      } else if (window.MOCK_TESTS_DATA) {
-        // Fallback to first available test
-        const firstKey = Object.keys(window.MOCK_TESTS_DATA)[0];
-        if (firstKey) {
-          state.testId = firstKey;
-          state.test = window.MOCK_TESTS_DATA[firstKey];
-        }
-      }
-    }
+  // --- Theme Initialization (shared site-wide key 'jam_theme') ---
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('jam_theme', theme);
+    } catch (e) {}
+    const btn = document.getElementById('theme-toggle-btn');
+    if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
 
-    if (!state.test || !state.test.questions || state.test.questions.length === 0) {
-      alert('Unable to load test paper. Redirecting to Semester Exams Portal.');
-      window.location.href = '../index.html';
-      return;
-    }
-    
-    // Set initial question statuses
-    for (let i = 0; i < state.test.questions.length; i++) {
-      state.status[i] = 'not_visited';
-      state.responses[i] = null;
-    }
+  function initTheme() {
+    let saved = 'light';
+    try {
+      saved = localStorage.getItem('jam_theme') || 'dark';
+    } catch (e) {}
+    applyTheme(saved);
+  }
 
-    // Set first question as visited
-    state.status[0] = 'not_answered';
+  window.toggleTheme = function () {
+    const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(cur === 'dark' ? 'light' : 'dark');
+  };
 
-    // Set timer duration
-    state.timeRemaining = (state.test.duration_minutes || 90) * 60;
-    if (state.mode === 'practice') {
-      state.timeRemaining = 0; // untimed count-up
-    }
-
-    // Update Header Meta
-    const titleEl = document.getElementById('exam-topic-title');
-    const subEl = document.getElementById('exam-topic-sub');
-    if (titleEl) titleEl.innerText = state.test.name;
-    if (subEl) {
-      const qCount = state.test.total_questions || state.test.questions.length;
-      const marksCount = state.test.total_marks || (qCount * 1.5);
-      const minsCount = state.test.duration_minutes || 90;
-      subEl.innerText = `${qCount} MCQs • ${marksCount} Marks • ${minsCount} Mins • ${state.mode === 'practice' ? 'Practice Mode' : 'Official CBT'}`;
-    }
-
-    // Start Timer
-    startTimer();
-
-    // Render First Question and Question Palette
-    renderQuestion();
-    renderPalette();
-    updateSummaryStats();
-
-    // Setup Theme
-    const savedTheme = localStorage.getItem('jam_theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon();
-
-    // Setup Keyboard Shortcuts
-    setupKeyboardShortcuts();
+  // --- Timer Logic ---
+  function formatClock(sec) {
+    const s = Math.max(0, Math.floor(sec));
+    const hrs = Math.floor(s / 3600);
+    const mins = Math.floor((s % 3600) / 60);
+    const rem = s % 60;
+    const pad = (n) => String(n).padStart(2, '0');
+    return hrs > 0 ? `${pad(hrs)}:${pad(mins)}:${pad(rem)}` : `${pad(mins)}:${pad(rem)}`;
   }
 
   function startTimer() {
-    if (state.timerInterval) clearInterval(state.timerInterval);
-    
     const timerBox = document.getElementById('exam-timer');
-
-    state.timerInterval = setInterval(() => {
-      if (state.isSubmitted) {
-        clearInterval(state.timerInterval);
-        return;
-      }
-
-      if (state.mode === 'official') {
-        if (state.timeRemaining > 0) {
-          state.timeRemaining--;
-        } else {
-          clearInterval(state.timerInterval);
-          alert('Time is up! Submitting your semester mock test automatically.');
-          submitTest();
-          return;
-        }
-
-        // Warning state when less than 5 minutes left
-        if (timerBox) {
-          if (state.timeRemaining <= 300) {
-            timerBox.className = 'timer-box timer-warning';
-          } else {
-            timerBox.className = 'timer-box timer-normal';
-          }
-        }
-      } else {
-        // Practice count-up
-        state.timeRemaining++;
-        if (timerBox) timerBox.className = 'timer-box timer-normal';
-      }
-
-      updateTimerDisplay();
-    }, 1000);
-
-    updateTimerDisplay();
-  }
-
-  function updateTimerDisplay() {
     const disp = document.getElementById('timer-display');
-    if (!disp) return;
 
-    const totalSecs = state.timeRemaining;
-    const hours = Math.floor(totalSecs / 3600);
-    const mins = Math.floor((totalSecs % 3600) / 60);
-    const secs = totalSecs % 60;
+    const tick = () => {
+      if (state.submitted) return;
+      state.elapsedSeconds++;
+      if (state.mode === 'practice') {
+        if (disp) disp.textContent = `Elapsed: ${formatClock(state.elapsedSeconds)}`;
+      } else {
+        state.remainingSeconds = Math.max(0, state.remainingSeconds - 1);
+        if (disp) disp.textContent = formatClock(state.remainingSeconds);
+        if (timerBox) {
+          timerBox.classList.toggle('warning', state.remainingSeconds <= 600 && state.remainingSeconds > 120);
+          timerBox.classList.toggle('danger', state.remainingSeconds <= 120);
+        }
+        if (state.remainingSeconds <= 0) {
+          clearInterval(state.timerInterval);
+          window.submitTest(true);
+        }
+      }
+    };
 
-    const pad = (n) => String(n).padStart(2, '0');
-    if (hours > 0) {
-      disp.innerText = `${pad(hours)}:${pad(mins)}:${pad(secs)}`;
-    } else {
-      disp.innerText = `${pad(mins)}:${pad(secs)}`;
+    if (disp) {
+      disp.textContent = state.mode === 'practice'
+        ? `Practice · ${formatClock(0)}`
+        : formatClock(state.remainingSeconds);
     }
+    state.timerInterval = setInterval(tick, 1000);
   }
 
-  function renderQuestion() {
-    const q = state.test.questions[state.currentIndex];
-    const qBodyEl = document.getElementById('q-body-text');
-    if (!q) return;
+  // --- Difficulty Integration ---
+  function renderDifficultyUI() {
+    const q = state.questions[state.currentIdx];
+    if (!q || !window.SEM_DIFFICULTY) return;
 
-    const qNumEl = document.getElementById('q-num-display');
-    const qTypeEl = document.getElementById('q-type-badge');
-    const qMarksEl = document.getElementById('q-marks-pill');
-    const qOptionsEl = document.getElementById('q-options-container');
+    const info = window.SEM_DIFFICULTY.getQuestionDifficulty(q, state.testObj);
+    const levels = window.SEM_DIFFICULTY.LEVELS;
+    const suggestedMeta = levels[info.suggestedLevel] || levels.medium;
 
-    const totalQs = state.test.total_questions || state.test.questions.length;
-    if (qNumEl) qNumEl.innerText = `Question ${state.currentIndex + 1} of ${totalQs}`;
-    
-    const qYearEl = document.getElementById('q-year-display');
-    if (qYearEl) {
-      qYearEl.innerText = `${state.test.course_code || 'CBCS'} • Q.${q.q_num || (state.currentIndex + 1)}`;
+    const btn = document.getElementById('q-diff-btn');
+    const icon = document.getElementById('q-diff-btn-icon');
+    const txt = document.getElementById('q-diff-btn-text');
+    const sugEl = document.getElementById('q-diff-info-suggested');
+    const usrEl = document.getElementById('q-diff-info-user');
+
+    if (btn) {
+      btn.className = `q-diff-badge-btn ${info.meta.cssClass} ${info.isUserTagged ? 'is-user-tagged' : 'is-suggested'}`;
+    }
+    if (icon) icon.textContent = info.meta.emoji;
+    if (txt) txt.textContent = info.meta.label;
+
+    if (sugEl) {
+      sugEl.textContent = `${suggestedMeta.emoji} ${suggestedMeta.label} (Auto)`;
+    }
+    if (usrEl) {
+      usrEl.textContent = info.isUserTagged
+        ? `${info.meta.emoji} ${info.meta.label}`
+        : '⚪ Unrated';
     }
 
-    if (qTypeEl) {
-      qTypeEl.innerText = 'MCQ';
-      qTypeEl.className = 'q-type-badge q-type-mcq';
-    }
+    document.querySelectorAll('.q-diff-dropdown-item').forEach((item) => {
+      const val = item.getAttribute('data-diff-val') || '';
+      const active = info.isUserTagged ? (val === info.level) : (val === '');
+      item.classList.toggle('active', active);
+    });
 
-    if (qMarksEl) {
-      const m = q.marks || 1.5;
-      qMarksEl.innerText = `Marks: +${m} | Neg: 0`;
-    }
-
-    // Render Question Statement & Screenshot
-    if (qBodyEl) {
-      let html = '';
-      const imgPath = q.image ? (q.image.startsWith('../') ? q.image : `../${q.image}`) : '';
-      
-      if (imgPath) {
-        html += `
-          <div class="q-screenshot-wrapper">
-            <div class="q-screenshot-toolbar">
-              <span class="q-screenshot-pill">📸 Official University Examination Paper (Question ${q.q_num || (state.currentIndex + 1)})</span>
-              <button class="btn-screenshot-zoom" onclick="window.viewCurrentQuestionScreenshot()" title="View full size in modal">
-                🔍 Enlarge Image
-              </button>
-            </div>
-            <div class="q-screenshot-img-container">
-              <img class="q-screenshot-img" src="${imgPath}" alt="Question ${q.q_num}" onclick="window.viewCurrentQuestionScreenshot()" onerror="this.style.display='none'" />
-            </div>
-          </div>
-        `;
-      }
-
-      if (q.question) {
-        html += `
-          <div class="q-text-statement" style="margin-top: ${imgPath ? '14px' : '0'};">
-            ${q.question}
-          </div>
-        `;
-      }
-
-      qBodyEl.innerHTML = html;
-
-      // Typeset MathJax if available
-      if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([qBodyEl]).catch(err => console.warn('MathJax render error:', err));
-      }
-    }
-
-    // Render Options Container (4 Choices: A, B, C, D)
-    if (qOptionsEl) {
-      qOptionsEl.innerHTML = '';
-      const currentResp = state.responses[state.currentIndex];
-
-      const optionWrapper = document.createElement('div');
-      optionWrapper.className = 'mcq-choices-container';
-
-      const banner = document.createElement('div');
-      banner.className = 'choices-header-banner';
-      banner.innerHTML = '<span>Select your chosen option:</span><span class="shortcut-tip">Keyboard: Press <strong>A</strong>, <strong>B</strong>, <strong>C</strong>, or <strong>D</strong> (or 1, 2, 3, 4)</span>';
-      optionWrapper.appendChild(banner);
-
-      const listDiv = document.createElement('div');
-      listDiv.className = 'choice-tiles-grid';
-
-      ['A', 'B', 'C', 'D'].forEach(optKey => {
-        const isSelected = currentResp === optKey;
-        const optText = (q.options && q.options[optKey]) ? q.options[optKey] : '';
-        
-        const tile = document.createElement('button');
-        tile.type = 'button';
-        tile.className = `choice-tile ${isSelected ? 'selected' : ''}`;
-        tile.onclick = () => selectOption(optKey);
-
-        const keyBadge = document.createElement('span');
-        keyBadge.className = 'choice-key-badge';
-        keyBadge.innerText = optKey;
-
-        const textSpan = document.createElement('span');
-        textSpan.className = 'choice-text';
-        textSpan.innerHTML = optText ? optText : `Option (${optKey})`;
-
-        tile.appendChild(keyBadge);
-        tile.appendChild(textSpan);
-        listDiv.appendChild(tile);
-      });
-
-      optionWrapper.appendChild(listDiv);
-      qOptionsEl.appendChild(optionWrapper);
-
-      if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([qOptionsEl]).catch(err => console.warn('MathJax error:', err));
-      }
-    }
+    window.SEM_DIFFICULTY.updateToggleButtonsUI();
   }
 
-  function selectOption(optKey) {
-    if (state.isSubmitted) return;
-    state.responses[state.currentIndex] = optKey;
-    
-    // Update question status to answered (or ans_review if it was review)
-    if (state.status[state.currentIndex] === 'review' || state.status[state.currentIndex] === 'ans_review') {
-      state.status[state.currentIndex] = 'ans_review';
-    } else {
-      state.status[state.currentIndex] = 'answered';
+  function showDifficultyToast(msg) {
+    let el = document.querySelector('.diff-toast-notification');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'diff-toast-notification';
+      document.body.appendChild(el);
     }
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.remove('show'), 2200);
+  }
 
-    renderQuestion();
-    renderPalette();
-    updateSummaryStats();
+  window.toggleDifficultyMenu = function (ev) {
+    if (ev) ev.stopPropagation();
+    const wrap = document.getElementById('q-diff-selector-wrap');
+    const dd = document.getElementById('q-diff-dropdown');
+    if (!dd || !wrap) return;
+    const isHidden = dd.classList.contains('hidden');
+    dd.classList.toggle('hidden', !isHidden);
+    wrap.classList.toggle('open', isHidden);
+  };
+
+  window.selectCurrentQuestionDifficulty = function (levelKey) {
+    const q = state.questions[state.currentIdx];
+    if (!q || !window.SEM_DIFFICULTY) return;
+    const res = window.SEM_DIFFICULTY.setQuestionDifficulty(q.id, levelKey);
+    const dd = document.getElementById('q-diff-dropdown');
+    const wrap = document.getElementById('q-diff-selector-wrap');
+    if (dd) dd.classList.add('hidden');
+    if (wrap) wrap.classList.remove('open');
+    renderDifficultyUI();
+    showDifficultyToast(levelKey
+      ? `Tagged Q${q.q_num || state.currentIdx + 1}: ${res.meta.emoji} ${res.meta.label}`
+      : `Cleared personal tag (reverted to ${res.meta.label})`);
+  };
+
+  // --- Palette & Question Rendering ---
+  function updatePaletteCounts() {
+    let ans = 0;
+    let notAns = 0;
+    let notVis = 0;
+    let rev = 0;
+    let ansRev = 0;
+    for (let i = 0; i < totalQ; i++) {
+      const st = state.status[i];
+      if (st === 'answered') ans++;
+      else if (st === 'not_answered') notAns++;
+      else if (st === 'marked') rev++;
+      else if (st === 'answered_marked') ansRev++;
+      else notVis++;
+    }
+    const setT = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    setT('count-answered', ans);
+    setT('count-not-answered', notAns);
+    setT('count-not-visited', notVis);
+    setT('count-review', rev);
+    setT('count-ans-review', ansRev);
   }
 
   function renderPalette() {
     const grid = document.getElementById('palette-grid');
     if (!grid) return;
-    grid.innerHTML = '';
 
-    const questions = state.test.questions;
-    for (let i = 0; i < questions.length; i++) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      const statusClass = state.status[i] || 'not_visited';
-      btn.className = `palette-btn btn-${statusClass} ${i === state.currentIndex ? 'current' : ''}`;
-      btn.innerText = i + 1;
-      btn.title = `Question ${i + 1} (${statusClass.replace('_', ' ')})`;
-      btn.onclick = () => jumpToQuestion(i);
-      grid.appendChild(btn);
-    }
+    grid.innerHTML = state.questions.map((q, idx) => {
+      const st = state.status[idx];
+      let cls = 'q-num-btn ';
+      if (st === 'answered') cls += 'st-answered';
+      else if (st === 'not_answered') cls += 'st-not-answered';
+      else if (st === 'marked') cls += 'st-marked';
+      else if (st === 'answered_marked') cls += 'st-ans-marked';
+      else cls += 'st-not-visited';
+      if (idx === state.currentIdx) cls += ' current';
+
+      return `<button type="button" class="${cls}" onclick="window.jumpToQuestion(${idx})" title="Question ${idx + 1}">${idx + 1}</button>`;
+    }).join('');
+
+    updatePaletteCounts();
   }
 
-  function jumpToQuestion(index) {
-    if (index < 0 || index >= state.test.questions.length) return;
-    
-    // If current was not visited, mark it as not answered
-    if (state.status[state.currentIndex] === 'not_visited') {
-      state.status[state.currentIndex] = 'not_answered';
-    } else if (state.status[state.currentIndex] === 'answered' && state.responses[state.currentIndex] === null) {
-      state.status[state.currentIndex] = 'not_answered';
+  function renderQuestion() {
+    const q = state.questions[state.currentIdx];
+    if (!q) return;
+
+    if (state.status[state.currentIdx] === 'not_visited') {
+      state.status[state.currentIdx] = 'not_answered';
     }
 
-    state.currentIndex = index;
-    if (state.status[state.currentIndex] === 'not_visited') {
-      state.status[state.currentIndex] = 'not_answered';
+    const qNumDisplay = document.getElementById('q-num-display');
+    const qYearDisplay = document.getElementById('q-year-display');
+    const qTypeBadge = document.getElementById('q-type-badge');
+    const qMarksPill = document.getElementById('q-marks-pill');
+    const bodyEl = document.getElementById('q-body-text');
+    const optsContainer = document.getElementById('q-options-container');
+    const btnShot = document.getElementById('btn-view-screenshot');
+
+    const dispNum = state.currentIdx + 1;
+    const origNum = q.q_num || dispNum;
+    const courseLabel = q.course_code || state.testObj.course_code || '';
+    const yearLabel = q.year || state.testObj.year || '';
+
+    if (qNumDisplay) qNumDisplay.textContent = `Question ${dispNum} of ${totalQ}`;
+    if (qYearDisplay) {
+      qYearDisplay.textContent = state.isCustom
+        ? `${courseLabel} · ${yearLabel} (Q${origNum})`
+        : `${yearLabel} Official · Q${origNum}`;
+    }
+    if (qTypeBadge) qTypeBadge.textContent = q.type || 'MCQ';
+    if (qMarksPill) {
+      const m = q.marks !== undefined ? q.marks : 1.5;
+      const neg = q.negative_marks !== undefined ? q.negative_marks : 0;
+      qMarksPill.textContent = `Marks: +${m} | Neg: ${neg > 0 ? '-' + neg : '0'}`;
     }
 
-    renderQuestion();
-    renderPalette();
-    updateSummaryStats();
-    closePaletteDrawer();
-  }
+    const imgSrc = resolveScreenshotSrc(q.image);
+    if (btnShot) {
+      btnShot.style.display = imgSrc ? 'inline-flex' : 'none';
+    }
 
-  function saveAndNext() {
-    if (state.responses[state.currentIndex] !== null) {
-      if (state.status[state.currentIndex] === 'ans_review') {
-        state.status[state.currentIndex] = 'ans_review';
+    // Screenshot-first clean display
+    if (bodyEl) {
+      if (imgSrc) {
+        bodyEl.innerHTML = `
+          <div class="q-screenshot-wrapper">
+            <img src="${escapeHtml(imgSrc)}" alt="Question ${origNum} (${escapeHtml(courseLabel)} ${escapeHtml(yearLabel)})" class="q-screenshot-img" onclick="window.viewCurrentQuestionScreenshot()" title="Click to enlarge question image" />
+          </div>
+        `;
       } else {
-        state.status[state.currentIndex] = 'answered';
-      }
-    } else {
-      if (state.status[state.currentIndex] !== 'review') {
-        state.status[state.currentIndex] = 'not_answered';
+        bodyEl.innerHTML = `<div class="q-text-fallback">${escapeHtml(q.question || 'Question image unavailable.')}</div>`;
       }
     }
 
-    if (state.currentIndex < state.test.questions.length - 1) {
-      jumpToQuestion(state.currentIndex + 1);
-    } else {
-      renderPalette();
-      updateSummaryStats();
-      showSubmitModal();
+    // Choice Tiles matching app.css
+    const keys = ['A', 'B', 'C', 'D'];
+    const selected = state.responses[state.currentIdx] || null;
+    if (optsContainer) {
+      optsContainer.innerHTML = `
+        <div class="choice-tiles-grid">
+          ${keys.map((k) => {
+            const rawOpt = q.options && q.options[k] ? String(q.options[k]).trim() : '';
+            const isPlaceholder = !rawOpt || rawOpt === `Option (${k})` || rawOpt === `(${k})`;
+            const isSel = selected === k;
+            return `
+              <div class="choice-tile ${isSel ? 'selected' : ''}" role="button" tabindex="0" onclick="window.selectMCQOption('${k}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.selectMCQOption('${k}');}">
+                <div class="choice-tile-badge">${k}</div>
+                <div class="choice-tile-content">
+                  <div class="choice-tile-title">Option (${k})</div>
+                  ${!isPlaceholder ? `<div class="choice-tile-text">${escapeHtml(rawOpt)}</div>` : ''}
+                </div>
+                <div class="choice-tile-radio"><div class="radio-inner"></div></div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    renderDifficultyUI();
+    renderPalette();
+
+    if (window.MathJax && window.MathJax.typesetPromise && bodyEl) {
+      window.MathJax.typesetPromise([bodyEl, optsContainer]).catch(() => {});
     }
   }
 
-  function prevQuestion() {
-    if (state.currentIndex > 0) {
-      jumpToQuestion(state.currentIndex - 1);
-    }
-  }
+  // --- Navigation & Response Actions ---
+  window.selectMCQOption = function (optKey) {
+    if (state.submitted) return;
+    state.responses[state.currentIdx] = optKey;
+    const prevSt = state.status[state.currentIdx];
+    state.status[state.currentIdx] = (prevSt === 'marked' || prevSt === 'answered_marked')
+      ? 'answered_marked'
+      : 'answered';
+    renderQuestion();
+  };
 
-  function markForReviewAndNext() {
-    if (state.responses[state.currentIndex] !== null) {
-      state.status[state.currentIndex] = 'ans_review';
-    } else {
-      state.status[state.currentIndex] = 'review';
-    }
+  window.jumpToQuestion = function (idx) {
+    if (idx < 0 || idx >= totalQ) return;
+    state.currentIdx = idx;
+    renderQuestion();
+    window.closePaletteDrawer();
+  };
 
-    if (state.currentIndex < state.test.questions.length - 1) {
-      jumpToQuestion(state.currentIndex + 1);
-    } else {
-      renderPalette();
-      updateSummaryStats();
-    }
-  }
-
-  function clearResponse() {
-    state.responses[state.currentIndex] = null;
-    if (state.status[state.currentIndex] === 'ans_review') {
-      state.status[state.currentIndex] = 'review';
-    } else {
-      state.status[state.currentIndex] = 'not_answered';
+  window.saveAndNext = function () {
+    const hasResp = Boolean(state.responses[state.currentIdx]);
+    state.status[state.currentIdx] = hasResp ? 'answered' : 'not_answered';
+    if (state.currentIdx < totalQ - 1) {
+      state.currentIdx++;
     }
     renderQuestion();
-    renderPalette();
-    updateSummaryStats();
-  }
+  };
 
-  function updateSummaryStats() {
-    let answered = 0;
-    let notAnswered = 0;
-    let notVisited = 0;
-    let review = 0;
-    let ansReview = 0;
+  window.markForReviewAndNext = function () {
+    const hasResp = Boolean(state.responses[state.currentIdx]);
+    state.status[state.currentIdx] = hasResp ? 'answered_marked' : 'marked';
+    if (state.currentIdx < totalQ - 1) {
+      state.currentIdx++;
+    }
+    renderQuestion();
+  };
 
-    for (let i = 0; i < state.test.questions.length; i++) {
+  window.clearResponse = function () {
+    delete state.responses[state.currentIdx];
+    state.status[state.currentIdx] = 'not_answered';
+    renderQuestion();
+  };
+
+  window.prevQuestion = function () {
+    if (state.currentIdx > 0) {
+      state.currentIdx--;
+      renderQuestion();
+    }
+  };
+
+  // --- Palette Drawer (Mobile) ---
+  window.togglePaletteDrawer = function () {
+    const pane = document.getElementById('palette-pane');
+    const backdrop = document.getElementById('palette-backdrop');
+    if (!pane) return;
+    const opening = !pane.classList.contains('drawer-open');
+    pane.classList.toggle('drawer-open', opening);
+    if (backdrop) backdrop.classList.toggle('active', opening);
+  };
+
+  window.closePaletteDrawer = function () {
+    const pane = document.getElementById('palette-pane');
+    const backdrop = document.getElementById('palette-backdrop');
+    if (pane) pane.classList.remove('drawer-open');
+    if (backdrop) backdrop.classList.remove('active');
+  };
+
+  // --- Modals ---
+  window.showSubmitModal = function () {
+    let ans = 0;
+    let notAns = 0;
+    let rev = 0;
+    let notVis = 0;
+    for (let i = 0; i < totalQ; i++) {
       const st = state.status[i];
-      if (st === 'answered') answered++;
-      else if (st === 'not_answered') notAnswered++;
-      else if (st === 'not_visited') notVisited++;
-      else if (st === 'review') review++;
-      else if (st === 'ans_review') ansReview++;
+      if (st === 'answered' || st === 'answered_marked') ans++;
+      if (st === 'marked' || st === 'answered_marked') rev++;
+      if (st === 'not_answered') notAns++;
+      if (st === 'not_visited') notVis++;
     }
+    const setT = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    setT('modal-summary-answered', ans);
+    setT('modal-summary-not-answered', notAns);
+    setT('modal-summary-review', rev);
+    setT('modal-summary-not-visited', notVis);
 
-    const setTxt = (id, val) => {
-      const el = document.getElementById(id);
-      if (el) el.innerText = val;
-    };
-
-    setTxt('count-answered', answered);
-    setTxt('count-not-answered', notAnswered);
-    setTxt('count-not-visited', notVisited);
-    setTxt('count-review', review);
-    setTxt('count-ans-review', ansReview);
-
-    setTxt('modal-summary-answered', answered + ansReview);
-    setTxt('modal-summary-not-answered', notAnswered);
-    setTxt('modal-summary-review', review);
-    setTxt('modal-summary-not-visited', notVisited);
-  }
-
-  function setupKeyboardShortcuts() {
-    window.addEventListener('keydown', (e) => {
-      if (state.isSubmitted) return;
-      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
-
-      const key = e.key.toUpperCase();
-      if (['A', '1'].includes(key)) {
-        selectOption('A');
-      } else if (['B', '2'].includes(key)) {
-        selectOption('B');
-      } else if (['C', '3'].includes(key)) {
-        selectOption('C');
-      } else if (['D', '4'].includes(key)) {
-        selectOption('D');
-      } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
-        saveAndNext();
-      } else if (e.key === 'ArrowLeft') {
-        prevQuestion();
-      }
-    });
-  }
-
-  // Modals & Navigation Helpers
-  window.saveAndNext = saveAndNext;
-  window.prevQuestion = prevQuestion;
-  window.markForReviewAndNext = markForReviewAndNext;
-  window.clearResponse = clearResponse;
-  window.jumpToQuestion = jumpToQuestion;
-
-  window.togglePaletteDrawer = function() {
-    const pane = document.getElementById('palette-pane');
-    const bdrop = document.getElementById('palette-backdrop');
-    if (pane) pane.classList.toggle('open');
-    if (bdrop) bdrop.classList.toggle('show');
+    const modal = document.getElementById('submit-modal');
+    if (modal) modal.classList.remove('hidden');
   };
 
-  window.closePaletteDrawer = function() {
-    const pane = document.getElementById('palette-pane');
-    const bdrop = document.getElementById('palette-backdrop');
-    if (pane) pane.classList.remove('open');
-    if (bdrop) bdrop.classList.remove('show');
+  window.closeSubmitModal = function () {
+    const modal = document.getElementById('submit-modal');
+    if (modal) modal.classList.add('hidden');
   };
 
-  window.showSubmitModal = function() {
-    updateSummaryStats();
-    const m = document.getElementById('submit-modal');
-    if (m) m.classList.remove('hidden');
-  };
+  window.submitTest = function (isAuto) {
+    if (state.submitted) return;
+    state.submitted = true;
+    clearInterval(state.timerInterval);
+    window.closeSubmitModal();
+    window.closePaletteDrawer();
 
-  window.closeSubmitModal = function() {
-    const m = document.getElementById('submit-modal');
-    if (m) m.classList.add('hidden');
-  };
-
-  window.submitTest = function() {
-    state.isSubmitted = true;
-    closeSubmitModal();
-    if (state.timerInterval) clearInterval(state.timerInterval);
-    if (window.renderResults) {
-      window.renderResults(state);
+    if (typeof window.renderTestResults === 'function') {
+      window.renderTestResults(state, Boolean(isAuto));
     }
   };
 
-  window.showQuestionPaperModal = function() {
-    const m = document.getElementById('qpaper-modal');
+  window.showQuestionPaperModal = function () {
+    const modal = document.getElementById('qpaper-modal');
     const list = document.getElementById('qpaper-list');
-    if (!m || !list) return;
+    if (!modal || !list) return;
 
-    list.innerHTML = '';
-    state.test.questions.forEach((q, idx) => {
-      const row = document.createElement('div');
-      row.className = 'qpaper-item';
-      const imgPath = q.image ? (q.image.startsWith('../') ? q.image : `../${q.image}`) : '';
-
-      row.innerHTML = `
-        <div class="qpaper-item-header">
-          <strong>Question ${idx + 1}</strong>
-          <span style="font-size: 0.8rem; color: var(--text-secondary);">Marks: +${q.marks || 1.5} | Neg: 0</span>
-          <button type="button" class="btn-jump-q" onclick="window.closeQuestionPaperModal(); window.jumpToQuestion(${idx});">Jump to Question</button>
+    list.innerHTML = state.questions.map((q, idx) => {
+      const st = state.status[idx];
+      const badge = state.responses[idx]
+        ? `<span style="color:var(--brand-primary);font-weight:700;">Answered: (${state.responses[idx]})</span>`
+        : `<span style="color:var(--text-muted);">${st === 'marked' ? 'Marked for Review' : 'Unattempted'}</span>`;
+      const imgSrc = resolveScreenshotSrc(q.image);
+      return `
+        <div class="qpaper-item" style="padding:14px;border:1px solid var(--border-color);border-radius:8px;margin-bottom:12px;cursor:pointer;" onclick="window.closeQuestionPaperModal();window.jumpToQuestion(${idx});">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <strong>Q${idx + 1} · ${escapeHtml(q.course_code || state.testObj.course_code)} (${escapeHtml(q.year || state.testObj.year)})</strong>
+            ${badge}
+          </div>
+          ${imgSrc
+            ? `<img src="${escapeHtml(imgSrc)}" alt="Q${idx + 1}" style="max-width:100%;height:auto;border-radius:4px;background:#fff;padding:4px;" loading="lazy" />`
+            : `<p style="font-size:0.88rem;color:var(--text-secondary);">${escapeHtml(q.question)}</p>`}
         </div>
-        ${imgPath ? `<img src="${imgPath}" alt="Question ${idx + 1}" style="max-width: 100%; border-radius: 6px; margin: 8px 0;" />` : ''}
-        ${q.question ? `<div style="margin: 6px 0;">${q.question}</div>` : ''}
       `;
-      list.appendChild(row);
-    });
+    }).join('');
 
-    m.classList.remove('hidden');
-    if (window.MathJax && window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise([list]).catch(err => console.warn(err));
-    }
+    modal.classList.remove('hidden');
   };
 
-  window.closeQuestionPaperModal = function() {
-    const m = document.getElementById('qpaper-modal');
-    if (m) m.classList.add('hidden');
+  window.closeQuestionPaperModal = function () {
+    const modal = document.getElementById('qpaper-modal');
+    if (modal) modal.classList.add('hidden');
   };
 
-  window.showInstructionsModal = function() {
-    const m = document.getElementById('instructions-modal');
-    if (m) m.classList.remove('hidden');
-  };
-
-  window.closeInstructionsModal = function() {
-    const m = document.getElementById('instructions-modal');
-    if (m) m.classList.add('hidden');
-  };
-
-  window.viewCurrentQuestionScreenshot = function() {
-    const q = state.test.questions[state.currentIndex];
-    if (!q || !q.image) {
-      alert('Official question paper screenshot not available for this question.');
-      return;
-    }
-
-    const imgPath = q.image.startsWith('../') ? q.image : `../${q.image}`;
+  window.viewCurrentQuestionScreenshot = function () {
+    const q = state.questions[state.currentIdx];
+    if (!q || !q.image) return;
+    const src = resolveScreenshotSrc(q.image);
     const modal = document.getElementById('screenshot-modal');
     const img = document.getElementById('screenshot-modal-img');
     const title = document.getElementById('screenshot-modal-title');
-    const openTab = document.getElementById('screenshot-open-tab');
+    const link = document.getElementById('screenshot-open-tab');
+    const loading = document.getElementById('screenshot-loading');
 
-    if (modal && img) {
-      img.src = imgPath;
-      if (title) title.innerText = `📸 Official Examination Paper — Question ${q.q_num || (state.currentIndex + 1)}`;
-      if (openTab) openTab.href = imgPath;
-      modal.classList.remove('hidden');
+    if (title) title.textContent = `${q.course_code || state.testObj.course_code} ${q.year || state.testObj.year} — Question ${q.q_num || state.currentIdx + 1}`;
+    if (link) link.href = src;
+    if (loading) loading.classList.remove('hidden');
+    if (img) {
+      img.onload = () => { if (loading) loading.classList.add('hidden'); };
+      img.onerror = () => { if (loading) loading.classList.add('hidden'); };
+      img.src = src;
     }
+    if (modal) modal.classList.remove('hidden');
   };
 
-  window.closeScreenshotModal = function() {
+  window.closeScreenshotModal = function () {
     const modal = document.getElementById('screenshot-modal');
     if (modal) modal.classList.add('hidden');
   };
 
-  window.toggleTheme = function() {
-    const curr = document.documentElement.getAttribute('data-theme') || 'dark';
-    const next = curr === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('jam_theme', next);
-    updateThemeIcon();
+  window.showInstructionsModal = function () {
+    const modal = document.getElementById('instructions-modal');
+    if (modal) modal.classList.remove('hidden');
   };
 
-  function updateThemeIcon() {
-    const btn = document.getElementById('theme-toggle-btn');
-    const curr = document.documentElement.getAttribute('data-theme') || 'dark';
-    if (btn) btn.innerText = curr === 'dark' ? '☀' : '🌙';
+  window.closeInstructionsModal = function () {
+    const modal = document.getElementById('instructions-modal');
+    if (modal) modal.classList.add('hidden');
+  };
+
+  // --- Initialization ---
+  function init() {
+    initTheme();
+
+    const titleEl = document.getElementById('exam-topic-title');
+    const subEl = document.getElementById('exam-topic-sub');
+    if (titleEl) titleEl.textContent = currentTest.name || `${currentTest.course_code} ${currentTest.year}`;
+    if (subEl) {
+      const modeTxt = state.mode === 'practice' ? 'Practice Mode (Untimed)' : `Official Timed Mode (${currentTest.duration_minutes || 90} Mins)`;
+      const marksTotal = currentTest.total_marks || (totalQ * 1.5);
+      subEl.textContent = `UNPG / DDUGU Semester V · ${totalQ} MCQs · ${marksTotal} Marks · ${modeTxt}`;
+    }
+
+    document.title = `${currentTest.name || currentTest.id} — CBT Mock Test`;
+
+    document.addEventListener('click', (ev) => {
+      const wrap = document.getElementById('q-diff-selector-wrap');
+      const dd = document.getElementById('q-diff-dropdown');
+      if (wrap && dd && !wrap.contains(ev.target)) {
+        dd.classList.add('hidden');
+        wrap.classList.remove('open');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (state.submitted) return;
+      const tag = e.target && e.target.tagName ? e.target.tagName.toLowerCase() : '';
+      if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+
+      const key = e.key;
+      if (key === 'Escape') {
+        window.closeScreenshotModal();
+        window.closeQuestionPaperModal();
+        window.closeSubmitModal();
+        window.closeInstructionsModal();
+        window.closePaletteDrawer();
+        const dd = document.getElementById('q-diff-dropdown');
+        const wrap = document.getElementById('q-diff-selector-wrap');
+        if (dd) dd.classList.add('hidden');
+        if (wrap) wrap.classList.remove('open');
+        return;
+      }
+
+      if (key === 'a' || key === 'A' || key === '1') window.selectMCQOption('A');
+      else if (key === 'b' || key === 'B' || key === '2') window.selectMCQOption('B');
+      else if (key === 'c' || key === 'C' || key === '3') window.selectMCQOption('C');
+      else if (key === 'd' || key === 'D' || key === '4') window.selectMCQOption('D');
+      else if (key === 'ArrowRight') window.saveAndNext();
+      else if (key === 'ArrowLeft') window.prevQuestion();
+      else if (key === 'Enter') window.saveAndNext();
+      else if (key === 'r' || key === 'R' || key === 'm' || key === 'M') window.markForReviewAndNext();
+      else if (key === 'x' || key === 'X' || key === 'Delete') window.clearResponse();
+    });
+
+    window.addEventListener('sem-difficulty-updated', renderDifficultyUI);
+    window.addEventListener('sem-difficulty-visibility-changed', renderDifficultyUI);
+
+    renderQuestion();
+    startTimer();
   }
 
-  // Auto-init on DOM load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

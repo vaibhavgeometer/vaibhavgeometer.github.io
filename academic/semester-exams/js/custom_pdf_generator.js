@@ -1,620 +1,440 @@
-/**
- * UNPG Padrauna & DDUGU B.Sc. Semester Exams — Offline Custom Mock Test & PDF Generator
- * Client-Side Generator supporting Multi-Course Selection, Year Range, 5–100 Questions,
- * University-styled PDF compilation with High-Res Screenshots & Master Key, and Interactive CBT Test launching.
- */
-
-(function() {
+/* ============================================
+   UNPG B.Sc. Semester V — Custom Mock Test & High-Res PDF Generator
+   ============================================
+   - Filters across Courses (MAT301F-PHY302F), Years, Solved Status, and 5-Tier Difficulty
+   - Supports Difficulty Source mode (Combined / User Tags Only / Pre-Suggested Only)
+   - Generates multi-page A4 Exam Paper Booklet PDFs with cover page, stats,
+     framed high-res PYQ screenshots, and Multi-Column Master Answer Key
+   - Launches Instant Interactive CBT Mode via sessionStorage ('semester_custom_test')
+   ============================================ */
+(function () {
   'use strict';
 
-  // Course Metadata Definition
-  const COURSES_DATA = [
-    {
-      id: "MAT301F",
-      name: "Ring Theory & Linear Algebra",
-      code: "MAT 301F",
-      subject: "Mathematics",
-      icon: "📐",
-      credits: 4,
-      desc: "Rings, ideals, quotient rings, Euclidean domains, vector spaces, linear transformations, Cayley-Hamilton, eigenvalues"
-    },
-    {
-      id: "MAT302F",
-      name: "Tensor Analysis",
-      code: "MAT 302F",
-      subject: "Mathematics",
-      icon: "🌐",
-      credits: 3,
-      desc: "Curvilinear coordinates, tensors, metric tensor, Christoffel symbols, covariant differentiation, Riemann-Christoffel curvature"
-    },
-    {
-      id: "MAT303F",
-      name: "Differential Geometry",
-      code: "MAT 303F",
-      subject: "Mathematics",
-      icon: "📈",
-      credits: 3,
-      desc: "Space curves, Serret-Frenet formulas, curvature, torsion, fundamental forms of surfaces, Gaussian curvature, geodesics"
-    },
-    {
-      id: "PHY301F",
-      name: "Classical & Statistical Mechanics",
-      code: "PHY 301F",
-      subject: "Physics",
-      icon: "⚙️",
-      credits: 4,
-      desc: "Lagrangian & Hamiltonian dynamics, Poisson brackets, canonical ensembles, Maxwell-Boltzmann, Bose-Einstein, Fermi-Dirac"
-    },
-    {
-      id: "PHY302F",
-      name: "Quantum Mechanics & Spectroscopy",
-      code: "PHY 302F",
-      subject: "Physics",
-      icon: "⚛️",
-      credits: 4,
-      desc: "Schrödinger equation, 1D harmonic oscillator & box, vector atom model, Zeeman effect, vibrational-rotational spectra, Raman effect"
-    }
+  const TRACKER_KEY = 'sem_pyq_user_tracker_v1';
+
+  const COURSE_CATALOG = [
+    { id: 'MAT301F', title: 'Ring Theory & Linear Algebra', subject: 'Mathematics' },
+    { id: 'MAT302F', title: 'Tensor Analysis', subject: 'Mathematics' },
+    { id: 'MAT303F', title: 'Differential Geometry', subject: 'Mathematics' },
+    { id: 'PHY301F', title: 'Classical & Statistical Mechanics', subject: 'Physics' },
+    { id: 'PHY302F', title: 'Quantum Mechanics & Spectroscopy', subject: 'Physics' }
   ];
 
-  window.SEMESTER_COURSES_METADATA = COURSES_DATA;
+  const DIFF_DISPLAY = {
+    very_easy: { label: 'Very Easy', rgb: [16, 185, 129] },
+    easy: { label: 'Easy', rgb: [6, 182, 212] },
+    medium: { label: 'Medium', rgb: [245, 158, 11] },
+    hard: { label: 'Hard', rgb: [239, 68, 68] },
+    hardest: { label: 'Very Hard', rgb: [168, 85, 247] }
+  };
 
-  // Pre-load an Image for HTML5 Canvas / jsPDF
-  function preloadImage(src) {
-    return new Promise((resolve) => {
-      if (!src) return resolve(null);
-      const img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.onload = () => resolve(img);
-      img.onerror = () => {
-        console.warn('Could not load question screenshot:', src);
-        resolve(null);
-      };
-      img.src = src;
-    });
+  function getSolvedMap() {
+    try {
+      const raw = localStorage.getItem(TRACKER_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.solved && typeof parsed.solved === 'object') {
+          return parsed.solved;
+        }
+      }
+    } catch (e) {}
+    return {};
   }
 
-  // Filter and gather questions from MOCK_TESTS_DATA based on course selections & options
-  function collectMatchingQuestions(options) {
-    if (!window.MOCK_TESTS_DATA) return [];
+  function collectMatchingQuestions(config) {
+    const cfg = config || {};
+    const selectedCourses = Array.isArray(cfg.courseIds) ? cfg.courseIds : [];
+    if (!selectedCourses.length) return [];
 
-    const selectedCourseIds = options.courseIds || ['MAT301F', 'MAT302F', 'MAT303F', 'PHY301F', 'PHY302F'];
-    const yearFilter = options.yearFilter || 'ALL'; // 'ALL', '2025-26', '2024-25', '2023-24'
+    const yearFilter = cfg.yearFilter || 'ALL';
+    const solvedStatus = cfg.solvedStatus || 'ALL';
+    const diffList = Array.isArray(cfg.difficulties) ? cfg.difficulties : null;
+    const diffSource = cfg.difficultySource || 'combined';
 
-    const allData = window.MOCK_TESTS_DATA;
+    const solvedMap = getSolvedMap();
+    const tests = window.MOCK_TESTS_DATA || {};
     const matched = [];
-    const seenIds = new Set();
 
-    Object.keys(allData).forEach(testKey => {
-      const test = allData[testKey];
-      if (!test || !Array.isArray(test.questions)) return;
+    Object.values(tests).forEach((t) => {
+      if (!selectedCourses.includes(t.course_code)) return;
+      if (yearFilter !== 'ALL' && t.year !== yearFilter) return;
 
-      const courseCode = (test.course_code || '').replace(/\s+/g, '').toUpperCase();
-      const testYear = (test.year || '').trim();
+      (t.questions || []).forEach((q) => {
+        const isSolved = Boolean(solvedMap[q.id]);
+        if (solvedStatus === 'solved' && !isSolved) return;
+        if (solvedStatus === 'unsolved' && isSolved) return;
 
-      // Check course match
-      const courseMatch = selectedCourseIds.some(cid => courseCode.includes(cid.toUpperCase()));
-      if (!courseMatch) return;
+        const diffInfo = window.SEM_DIFFICULTY
+          ? window.SEM_DIFFICULTY.getQuestionDifficulty(q, t)
+          : { level: 'medium', isUserTagged: false, suggestedLevel: 'medium' };
 
-      // Check year match
-      if (yearFilter !== 'ALL' && testYear !== yearFilter) {
-        return;
-      }
+        if (diffSource === 'user_only' && !diffInfo.isUserTagged) return;
+        if (diffSource === 'suggested_only' && diffInfo.isUserTagged) return;
 
-      test.questions.forEach(q => {
-        const qId = q.id || `${testKey}_Q${q.q_num}`;
-        if (!seenIds.has(qId)) {
-          seenIds.add(qId);
-          matched.push({
-            ...q,
-            id: qId,
-            course_code: test.course_code,
-            course_title: test.course_title || test.name,
-            year: test.year,
-            testName: test.name
-          });
-        }
+        if (diffList && diffList.length > 0 && !diffList.includes(diffInfo.level)) return;
+
+        matched.push(Object.assign({}, q, {
+          course_code: q.course_code || t.course_code,
+          course_title: t.course_title || '',
+          subject: t.subject || '',
+          year: q.year || t.year,
+          marks: Number(q.marks !== undefined ? q.marks : 1.5),
+          negative_marks: Number(q.negative_marks !== undefined ? q.negative_marks : 0),
+          diffInfo,
+          isSolved
+        }));
       });
     });
 
     return matched;
   }
 
-  // Seeded / Shuffle Sample of N questions
-  function sampleQuestions(pool, count, seed) {
-    if (pool.length <= count) {
-      return [...pool];
+  function shuffleArray(arr) {
+    const copy = arr.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = copy[i];
+      copy[i] = copy[j];
+      copy[j] = tmp;
     }
-
-    let rng = Math.random;
-    if (typeof seed === 'number' && !isNaN(seed)) {
-      let s = seed % 2147483647;
-      if (s <= 0) s += 2147483646;
-      rng = function() {
-        s = (s * 16807) % 2147483647;
-        return (s - 1) / 2147483646;
-      };
-    }
-
-    const shuffled = [...pool];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(rng() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-
-    const selected = shuffled.slice(0, count);
-
-    // Sort by course then question number
-    selected.sort((a, b) => {
-      const codeA = a.course_code || '';
-      const codeB = b.course_code || '';
-      if (codeA !== codeB) return codeA.localeCompare(codeB);
-      return (a.q_num || 0) - (b.q_num || 0);
-    });
-
-    return selected;
+    return copy;
   }
 
-  /**
-   * Generates a Publication-Quality PDF using jsPDF.
-   */
-  async function generateCustomPdf(config, onProgress) {
-    const { jsPDF } = window.jspdf;
-    if (!jsPDF) {
-      throw new Error('jsPDF library not loaded. Ensure jspdf.umd.min.js is included.');
-    }
-
-    onProgress = onProgress || (() => {});
-    onProgress(5, "Filtering questions dataset...");
-
-    const courseIds = config.courseIds || ['MAT301F'];
-    const questionCount = Math.min(100, Math.max(1, parseInt(config.questionCount) || 50));
-    const seed = config.seed !== undefined ? config.seed : Math.floor(Math.random() * 100000);
-    const paperTitle = config.title || `UNPG BSc Mathematics & Physics Semester Examination`;
-
-    // 1. Gather pool & sample
-    const pool = collectMatchingQuestions({
-      courseIds: courseIds,
-      yearFilter: config.yearFilter || 'ALL'
+  function sampleQuestions(pool, desiredCount) {
+    const list = Array.isArray(pool) ? pool : [];
+    const target = Math.max(1, Math.min(list.length, Number(desiredCount) || list.length));
+    const sampled = shuffleArray(list).slice(0, target);
+    // Organize cleanly by Course Code -> Year desc -> Paper Q#
+    sampled.sort((a, b) => {
+      if (a.course_code !== b.course_code) return a.course_code.localeCompare(b.course_code);
+      if (a.year !== b.year) return String(b.year).localeCompare(String(a.year));
+      return Number(a.q_num || 0) - Number(b.q_num || 0);
     });
+    return sampled;
+  }
 
-    if (pool.length === 0) {
-      throw new Error('No questions found matching your selected courses and filters. Please select at least one course.');
-    }
-
-    const actualCount = Math.min(questionCount, pool.length);
-    const questions = sampleQuestions(pool, actualCount, seed);
-
-    onProgress(15, `Selected ${questions.length} questions. Loading question assets...`);
-
-    // 2. Preload question screenshots
-    const loadedImages = [];
-    for (let i = 0; i < questions.length; i++) {
-      const q = questions[i];
-      const imgPath = q.image ? (q.image.startsWith('../') ? q.image.replace('../', '') : q.image) : null;
-      const img = await preloadImage(imgPath);
-      loadedImages.push(img);
-      const pct = 15 + Math.round((i / questions.length) * 35);
-      onProgress(pct, `Loaded question ${i + 1}/${questions.length}...`);
-    }
-
-    onProgress(55, "Assembling document structure & styling...");
-
-    // 3. Initialize PDF document (A4 in points: 595.28 x 841.89 pt)
-    const doc = new jsPDF({
-      orientation: 'portrait',
-      unit: 'pt',
-      format: 'a4',
-      compress: true
-    });
-
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const marginX = 42;
-    const marginTop = 50;
-    const marginBottom = 45;
-    const contentWidth = pageWidth - (marginX * 2);
-
-    const totalMarks = (questions.length * 1.5).toFixed(1);
-    const durationMins = Math.round(questions.length * 1.8);
-
-    function drawHeaderAndFooter(docInstance, pageNum, totalPages) {
-      if (pageNum > 1) {
-        docInstance.setFont('helvetica', 'bold');
-        docInstance.setFontSize(8);
-        docInstance.setTextColor(71, 85, 105);
-        docInstance.text('UNPG PADRAUNA · DDU GORAKHPUR UNIVERSITY · B.Sc. SEMESTER EXAMS', marginX, 28);
-
-        docInstance.setFont('helvetica', 'normal');
-        docInstance.setFontSize(8);
-        const titleShort = docInstance.splitTextToSize(paperTitle, 200)[0] || paperTitle;
-        docInstance.text(titleShort, pageWidth - marginX, 28, { align: 'right' });
-
-        docInstance.setDrawColor(203, 213, 225);
-        docInstance.setLineWidth(0.5);
-        docInstance.line(marginX, 34, pageWidth - marginX, 34);
+  function loadImageAsDataUrl(srcPath) {
+    return new Promise((resolve) => {
+      if (!srcPath) {
+        resolve(null);
+        return;
       }
-
-      const footerY = pageHeight - 24;
-      docInstance.setDrawColor(203, 213, 225);
-      docInstance.setLineWidth(0.5);
-      docInstance.line(marginX, footerY - 8, pageWidth - marginX, footerY - 8);
-
-      docInstance.setFont('helvetica', 'normal');
-      docInstance.setFontSize(8);
-      docInstance.setTextColor(100, 116, 139);
-      docInstance.text('Vaibhav Priyadarshi Academic Portal · vaibhavgeometer.github.io', marginX, footerY);
-      docInstance.text(`Page ${pageNum} of ${totalPages}`, pageWidth - marginX, footerY, { align: 'right' });
-    }
-
-    let currentY = marginTop;
-
-    // --- Page 1 Header Banner ---
-    doc.setFillColor(248, 250, 252);
-    doc.roundedRect(marginX, currentY, contentWidth, 75, 4, 4, 'F');
-    doc.setDrawColor(203, 213, 225);
-    doc.setLineWidth(0.8);
-    doc.roundedRect(marginX, currentY, contentWidth, 75, 4, 4, 'D');
-
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(13);
-    doc.setTextColor(15, 23, 42);
-    doc.text('UNPG PADRAUNA · DDU GORAKHPUR UNIVERSITY', pageWidth / 2, currentY + 20, { align: 'center' });
-
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(11);
-    doc.setTextColor(2, 132, 199);
-    doc.text(paperTitle.toUpperCase(), pageWidth / 2, currentY + 36, { align: 'center' });
-
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8.5);
-    doc.setTextColor(71, 85, 105);
-    doc.text(`CBCS NEP 2020 Examination Pattern · Total Questions: ${questions.length} · Max Marks: ${totalMarks} · Time: ${durationMins} Mins`, pageWidth / 2, currentY + 52, { align: 'center' });
-    doc.text(`Marking Scheme: +1.5 Marks per correct answer · Zero Negative Marking (0 Penalty)`, pageWidth / 2, currentY + 65, { align: 'center' });
-
-    currentY += 88;
-
-    // --- Instructions Box ---
-    doc.setFillColor(241, 245, 249);
-    doc.roundedRect(marginX, currentY, contentWidth, 34, 3, 3, 'F');
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(8);
-    doc.setTextColor(15, 23, 42);
-    doc.text('IMPORTANT INSTRUCTIONS:', marginX + 8, currentY + 12);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(7.5);
-    doc.setTextColor(51, 65, 85);
-    doc.text('1. All questions are multiple choice (MCQs) carrying 1.5 marks each. Exactly one option is correct out of (A), (B), (C), (D).', marginX + 8, currentY + 22);
-    doc.text('2. A verified Master Answer Key Table with rigorous mathematical & physical solutions is appended at the end of this paper.', marginX + 8, currentY + 30);
-
-    currentY += 46;
-
-    // Render Questions
-    for (let i = 0; i < questions.length; i++) {
-      const q = questions[i];
-      const img = loadedImages[i];
-      const qNum = i + 1;
-
-      // Estimate needed height
-      let neededHeight = 35;
-      if (img) {
-        const aspect = img.width > 0 ? (img.height / img.width) : 0.5;
-        const targetW = Math.min(contentWidth - 20, 480);
-        const imgH = Math.min(220, targetW * aspect);
-        neededHeight += imgH + 20;
-      } else {
-        neededHeight += 40;
-      }
-
-      // Page break check
-      if (currentY + neededHeight > pageHeight - marginBottom) {
-        doc.addPage();
-        currentY = marginTop;
-      }
-
-      // Question Container Box
-      const boxStartY = currentY;
-      doc.setFillColor(255, 255, 255);
-      doc.setDrawColor(226, 232, 240);
-      doc.setLineWidth(0.6);
-
-      // Question Title Line
-      doc.setFillColor(248, 250, 252);
-      doc.rect(marginX, currentY, contentWidth, 18, 'F');
-      doc.setDrawColor(203, 213, 225);
-      doc.line(marginX, currentY + 18, marginX + contentWidth, currentY + 18);
-
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(8.5);
-      doc.setTextColor(15, 23, 42);
-      doc.text(`Question ${qNum}`, marginX + 6, currentY + 12);
-
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(7.5);
-      doc.setTextColor(100, 116, 139);
-      doc.text(`${q.course_code || 'CBCS'} (${q.year || 'PYQ'}) · Original Q.${q.q_num || qNum}`, marginX + 70, currentY + 12);
-      doc.text(`[+1.5 Marks | Neg: 0]`, marginX + contentWidth - 6, currentY + 12, { align: 'right' });
-
-      currentY += 24;
-
-      // Draw Screenshot Image if available
-      if (img && img.width > 0) {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
         try {
-          const maxW = contentWidth - 24;
-          const aspect = img.height / img.width;
-          let drawW = maxW;
-          let drawH = drawW * aspect;
-          if (drawH > 220) {
-            drawH = 220;
-            drawW = drawH / aspect;
-          }
-          const drawX = marginX + (contentWidth - drawW) / 2;
-
-          doc.addImage(img, 'PNG', drawX, currentY, drawW, drawH, undefined, 'FAST');
-          currentY += drawH + 10;
-        } catch (e) {
-          console.warn('Error adding image to PDF:', e);
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth || img.width;
+          canvas.height = img.naturalHeight || img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+          resolve({
+            dataUrl: canvas.toDataURL('image/png'),
+            width: canvas.width,
+            height: canvas.height
+          });
+        } catch (err) {
+          resolve(null);
         }
-      }
+      };
+      img.onerror = () => resolve(null);
+      img.src = srcPath;
+    });
+  }
 
-      // Fallback or auxiliary question text
-      if (q.question) {
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8);
-        doc.setTextColor(30, 41, 59);
-        const splitText = doc.splitTextToSize(q.question, contentWidth - 16);
-        doc.text(splitText, marginX + 8, currentY);
-        currentY += (splitText.length * 10) + 6;
-      }
+  function slugify(str) {
+    return String(str || 'UNPG_Semester_V_Custom_Test')
+      .trim()
+      .replace(/[^a-zA-Z0-9_-]+/g, '_')
+      .replace(/^_+|_+$/g, '')
+      .slice(0, 64) || 'UNPG_Semester_V_Custom_Test';
+  }
 
-      currentY += 6;
-      doc.roundedRect(marginX, boxStartY, contentWidth, currentY - boxStartY, 3, 3, 'D');
-      currentY += 10;
+  async function generateCustomPdf(config, progressCb) {
+    const notify = typeof progressCb === 'function' ? progressCb : () => {};
 
-      const pct = 55 + Math.round((i / questions.length) * 35);
-      onProgress(pct, `Compiling document page (${i + 1}/${questions.length})...`);
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      throw new Error('jsPDF library is not loaded.');
     }
 
-    // --- Master Answer Key Page ---
-    onProgress(92, "Generating Master Answer Key Table...");
-    doc.addPage();
-    currentY = marginTop;
+    const pool = collectMatchingQuestions(config);
+    if (!pool.length) {
+      throw new Error('No questions match your selected filters. Try broadening courses, years, or difficulty.');
+    }
 
+    const selected = sampleQuestions(pool, config.questionCount || 50);
+    const totalQ = selected.length;
+    const totalMarks = selected.reduce((sum, q) => sum + Number(q.marks || 1.5), 0);
+    const durationMins = Math.max(15, Math.round(totalQ * 1.8));
+    const titleText = (config.customTitle && config.customTitle.trim())
+      ? config.customTitle.trim()
+      : 'UNPG B.Sc. Semester V — Custom Mock Paper';
+
+    notify(5, `Preparing ${totalQ} screenshots...`);
+
+    // Preload images in modest batches so progress bar updates smoothly
+    const loadedImgs = new Array(totalQ).fill(null);
+    const batchSize = 6;
+    for (let i = 0; i < totalQ; i += batchSize) {
+      const slice = selected.slice(i, i + batchSize);
+      const res = await Promise.all(slice.map((q) => loadImageAsDataUrl(q.image)));
+      res.forEach((r, idx) => { loadedImgs[i + idx] = r; });
+      const pct = 5 + Math.round(((Math.min(totalQ, i + batchSize)) / totalQ) * 65);
+      notify(pct, `Loading question images (${Math.min(totalQ, i + batchSize)} / ${totalQ})...`);
+    }
+
+    notify(75, 'Composing cover page and question sheets...');
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const pageW = 210;
+    const pageH = 297;
+    const margin = 14;
+    const contentW = pageW - margin * 2;
+
+    // --- Page 1: Cover Page ---
+    doc.setFillColor(15, 23, 42);
+    doc.rect(0, 0, pageW, 56, 'F');
+
+    doc.setFillColor(99, 102, 241);
+    doc.rect(0, 54, pageW, 2.5, 'F');
+
+    doc.setTextColor(165, 180, 252);
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(13);
-    doc.setTextColor(15, 23, 42);
-    doc.text('OFFICIAL MASTER ANSWER KEY & VERIFIED SOLUTIONS', pageWidth / 2, currentY, { align: 'center' });
+    doc.setFontSize(9.5);
+    doc.text('UNPG / DDUGU B.SC. SEMESTER V (NEP) · CUSTOM PRACTICE MOCK TEST', margin, 17);
 
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(18);
+    const splitTitle = doc.splitTextToSize(titleText, contentW);
+    doc.text(splitTitle.slice(0, 2), margin, 28);
+
+    doc.setTextColor(203, 213, 225);
     doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8.5);
-    doc.setTextColor(71, 85, 105);
-    doc.text(`${paperTitle} · Total Questions: ${questions.length}`, pageWidth / 2, currentY + 14, { align: 'center' });
+    doc.setFontSize(9);
+    const dateStr = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    doc.text(`Generated on ${dateStr}  |  Source Pool: 2023-24, 2024-25 & 2025-26 PYQs`, margin, 46);
 
-    currentY += 28;
+    // 4 Stat Metric Cards
+    const cardY = 66;
+    const cardGap = 4;
+    const cardW = (contentW - cardGap * 3) / 4;
+    const metrics = [
+      { label: 'TOTAL QUESTIONS', val: `${totalQ} MCQs` },
+      { label: 'MAX MARKS', val: `${totalMarks.toFixed(1)}` },
+      { label: 'RECOMMENDED TIME', val: `${durationMins} Mins` },
+      { label: 'NEGATIVE MARKING', val: 'Zero (0)' }
+    ];
+    metrics.forEach((m, idx) => {
+      const cx = margin + idx * (cardW + cardGap);
+      doc.setFillColor(248, 250, 252);
+      doc.setDrawColor(226, 232, 240);
+      doc.roundedRect(cx, cardY, cardW, 22, 2.5, 2.5, 'FD');
 
-    // Build Key Grid Data
-    const tableBody = [];
-    const columnsCount = 5;
-    const rowsCount = Math.ceil(questions.length / columnsCount);
+      doc.setTextColor(100, 116, 139);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.2);
+      doc.text(m.label, cx + cardW / 2, cardY + 7.5, { align: 'center' });
 
-    for (let r = 0; r < rowsCount; r++) {
-      const row = [];
-      for (let c = 0; c < columnsCount; c++) {
-        const qIdx = r + (c * rowsCount);
-        if (qIdx < questions.length) {
-          const qObj = questions[qIdx];
-          const ansKey = (qObj.answer_key || qObj.answer || 'N/A').toUpperCase();
-          row.push(`Q.${qIdx + 1}`);
-          row.push(`(${ansKey})`);
-        } else {
-          row.push('');
-          row.push('');
-        }
+      doc.setTextColor(30, 41, 59);
+      doc.setFontSize(12);
+      doc.text(m.val, cx + cardW / 2, cardY + 16.5, { align: 'center' });
+    });
+
+    // Course Breakdown Table
+    const byCourse = {};
+    selected.forEach((q) => {
+      if (!byCourse[q.course_code]) {
+        byCourse[q.course_code] = {
+          code: q.course_code,
+          title: q.course_title || q.course_code,
+          subject: q.subject || '—',
+          count: 0,
+          marks: 0
+        };
       }
-      tableBody.push(row);
-    }
+      byCourse[q.course_code].count++;
+      byCourse[q.course_code].marks += Number(q.marks || 1.5);
+    });
+    const tableBody = Object.values(byCourse).map((c) => [
+      c.code,
+      c.title,
+      c.subject,
+      `${c.count}`,
+      `${c.marks.toFixed(1)}`
+    ]);
 
-    if (doc.autoTable) {
+    let nextY = 98;
+    if (typeof doc.autoTable === 'function') {
       doc.autoTable({
-        startY: currentY,
-        head: [['Q#', 'Key', 'Q#', 'Key', 'Q#', 'Key', 'Q#', 'Key', 'Q#', 'Key']],
+        startY: nextY,
+        margin: { left: margin, right: margin },
+        head: [['Course Code', 'Paper Title', 'Subject', 'Questions', 'Marks']],
         body: tableBody,
         theme: 'grid',
-        styles: { fontSize: 7.5, cellPadding: 3, halign: 'center' },
-        headStyles: { fillColor: [15, 23, 42], textColor: [255, 255, 255], fontStyle: 'bold' },
-        alternateRowStyles: { fillColor: [248, 250, 252] },
-        margin: { left: marginX, right: marginX }
+        headStyles: { fillColor: [30, 41, 59], textColor: 255, fontSize: 9, fontStyle: 'bold' },
+        bodyStyles: { fontSize: 8.8, textColor: [30, 41, 59] },
+        alternateRowStyles: { fillColor: [248, 250, 252] }
       });
-      currentY = doc.lastAutoTable.finalY + 20;
+      nextY = doc.lastAutoTable.finalY + 10;
     }
 
-    // Explanations Section
-    if (currentY + 60 < pageHeight - marginBottom) {
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(9);
+    // Instructions Box
+    const instY = Math.min(nextY, 210);
+    doc.setFillColor(239, 246, 255);
+    doc.setDrawColor(191, 219, 254);
+    doc.roundedRect(margin, instY, contentW, 48, 3, 3, 'FD');
+
+    doc.setTextColor(30, 58, 138);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.text('Candidate Instructions (UNPG / DDUGU NEP Marking Scheme)', margin + 5, instY + 8.5);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.7);
+    doc.setTextColor(30, 41, 59);
+    const instructions = [
+      '1. All questions are Multiple Choice Questions (MCQs) with four options: (A), (B), (C), and (D).',
+      '2. Each correct response awards +1.5 marks. There is ZERO negative marking for incorrect answers.',
+      '3. Standard university benchmark: 50 MCQs carry 75 Marks in 90 Minutes (~1.8 mins per question).',
+      '4. Do not inspect the Master Answer Key at the end until you finish solving all questions.'
+    ];
+    instructions.forEach((line, i) => {
+      doc.text(line, margin + 5, instY + 17 + i * 7);
+    });
+
+    // --- Question Pages ---
+    doc.addPage();
+    let curY = 20;
+
+    selected.forEach((q, idx) => {
+      const qNo = idx + 1;
+      const imgObj = loadedImgs[idx];
+      const maxImgW = contentW - 8;
+      let imgDrawW = maxImgW;
+      let imgDrawH = 22;
+
+      if (imgObj && imgObj.width && imgObj.height) {
+        const aspect = imgObj.height / imgObj.width;
+        imgDrawH = imgDrawW * aspect;
+        if (imgDrawH > 110) {
+          imgDrawH = 110;
+          imgDrawW = imgDrawH / aspect;
+        }
+      }
+
+      const cardH = 12 + imgDrawH + 6;
+      if (curY + cardH > pageH - 18) {
+        doc.addPage();
+        curY = 20;
+      }
+
+      // Outer Card Border
+      doc.setFillColor(255, 255, 255);
+      doc.setDrawColor(203, 213, 225);
+      doc.roundedRect(margin, curY, contentW, cardH, 2, 2, 'FD');
+
+      // Header Strip
+      doc.setFillColor(241, 245, 249);
+      doc.rect(margin, curY, contentW, 8.5, 'F');
+
       doc.setTextColor(15, 23, 42);
-      doc.text('Note on Verification:', marginX, currentY);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9.5);
+      doc.text(`Q${qNo}.`, margin + 3.5, curY + 5.8);
+
+      doc.setTextColor(71, 85, 105);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.text(`${q.course_code} · ${q.year} · Paper Q${q.q_num || qNo}`, margin + 15, curY + 5.8);
+
+      const dLvl = (q.diffInfo && q.diffInfo.level) || 'medium';
+      const dMeta = DIFF_DISPLAY[dLvl] || DIFF_DISPLAY.medium;
+      doc.setTextColor(dMeta.rgb[0], dMeta.rgb[1], dMeta.rgb[2]);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.8);
+      doc.text(`[${dMeta.label}]  +${q.marks} Marks`, margin + contentW - 3.5, curY + 5.8, { align: 'right' });
+
+      if (imgObj && imgObj.dataUrl) {
+        const imgX = margin + (contentW - imgDrawW) / 2;
+        doc.addImage(imgObj.dataUrl, 'PNG', imgX, curY + 11, imgDrawW, imgDrawH);
+      } else {
+        doc.setTextColor(30, 41, 59);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        const fallback = doc.splitTextToSize(q.question || 'Official screenshot unavailable.', contentW - 8);
+        doc.text(fallback.slice(0, 3), margin + 4, curY + 15);
+      }
+
+      curY += cardH + 5;
+    });
+
+    notify(90, 'Building Master Answer Key...');
+
+    // --- Final Page: Master Answer Key ---
+    doc.addPage();
+    doc.setFillColor(15, 23, 42);
+    doc.rect(0, 0, pageW, 24, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.text('MASTER ANSWER KEY & SCORING SUMMARY', margin, 15.5);
+
+    const keyRows = selected.map((q, idx) => {
+      const dMeta = DIFF_DISPLAY[(q.diffInfo && q.diffInfo.level) || 'medium'] || DIFF_DISPLAY.medium;
+      return [
+        `Q${idx + 1}`,
+        `${q.course_code} (${q.year} Q${q.q_num || idx + 1})`,
+        `Option (${q.answer_key || 'A'})`,
+        dMeta.label,
+        `+${q.marks}`
+      ];
+    });
+
+    if (typeof doc.autoTable === 'function') {
+      doc.autoTable({
+        startY: 32,
+        margin: { left: margin, right: margin },
+        head: [['Q. No', 'Paper Reference', 'Answer Key', 'Difficulty', 'Marks']],
+        body: keyRows,
+        theme: 'striped',
+        headStyles: { fillColor: [79, 70, 229], textColor: 255, fontSize: 8.5, fontStyle: 'bold' },
+        bodyStyles: { fontSize: 8.2, textColor: [30, 41, 59] },
+        alternateRowStyles: { fillColor: [248, 250, 252] }
+      });
+    }
+
+    // Running Headers & Footers on pages 2..N
+    const pageCount = doc.getNumberOfPages();
+    for (let p = 1; p <= pageCount; p++) {
+      doc.setPage(p);
+      if (p > 1 && p < pageCount) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.8);
+        doc.setTextColor(100, 116, 139);
+        doc.text(titleText.slice(0, 72), margin, 11);
+        doc.line(margin, 13, pageW - margin, 13);
+      }
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(7.5);
-      doc.setTextColor(71, 85, 105);
-      doc.text('All answers have been rigorously mathematically and physically verified against standard academic theorems & university syllabi.', marginX, currentY + 12);
-      doc.text('You can also take this test interactively with virtual calculator and timers on the Vaibhav Priyadarshi Academic Portal.', marginX, currentY + 22);
+      doc.setTextColor(148, 163, 184);
+      doc.text('UNPG B.Sc. Semester V Archive · vaibhavgeometer.github.io/academic/semester-exams', margin, pageH - 8);
+      doc.text(`Page ${p} of ${pageCount}`, pageW - margin, pageH - 8, { align: 'right' });
     }
 
-    // Apply Running Headers and Footers
-    const totalPages = doc.internal.getNumberOfPages();
-    for (let p = 1; p <= totalPages; p++) {
-      doc.setPage(p);
-      drawHeaderAndFooter(doc, p, totalPages);
-    }
+    notify(100, 'Saving PDF file...');
+    const fileName = `${slugify(titleText)}.pdf`;
+    doc.save(fileName);
 
-    onProgress(100, "Finalizing PDF file download...");
-    const cleanFileName = `UNPG_Semester_Mock_Test_${questions.length}Q.pdf`;
-    doc.save(cleanFileName);
-    return true;
+    return { fileName, totalQuestions: totalQ, totalMarks };
   }
 
-  /**
-   * Launch Interactive CBT Test in Browser
-   */
-  function launchCustomCbt(config) {
-    const courseIds = config.courseIds || ['MAT301F'];
-    const questionCount = Math.min(100, Math.max(1, parseInt(config.questionCount) || 50));
-    const seed = config.seed !== undefined ? config.seed : Math.floor(Math.random() * 100000);
-
-    const pool = collectMatchingQuestions({
-      courseIds: courseIds,
-      yearFilter: config.yearFilter || 'ALL'
-    });
-
-    if (pool.length === 0) {
-      alert('No questions found matching your selected courses. Please select at least one course.');
-      return;
-    }
-
-    const actualCount = Math.min(questionCount, pool.length);
-    const questions = sampleQuestions(pool, actualCount, seed);
-
-    const customTest = {
-      id: "custom",
-      name: config.title || `Custom Semester Mock Test (${actualCount} Questions)`,
-      course_code: courseIds.length === 1 ? courseIds[0] : "Multi-Course",
-      subject: "B.Sc. Semester Core",
-      total_questions: actualCount,
-      total_marks: (actualCount * 1.5).toFixed(1),
-      duration_minutes: Math.round(actualCount * 1.8),
-      pattern: "50 MCQs (+1.5 Marks, No Negative Marking)",
-      questions: questions
-    };
-
-    try {
-      sessionStorage.setItem('semester_custom_test', JSON.stringify(customTest));
-      window.location.href = 'mock-test/test.html?test=custom';
-    } catch (e) {
-      console.error('Error saving custom test to sessionStorage:', e);
-      alert('Could not start custom test due to storage limit. Try selecting fewer questions.');
-    }
-  }
-
-  // UI Interactive Handlers
-  window.updateCustomGeneratorSummary = function() {
-    const checkboxes = document.querySelectorAll('input[name="custom-course"]:checked');
-    const selectedCourseIds = Array.from(checkboxes).map(cb => cb.value);
-
-    const yearRadio = document.querySelector('input[name="custom-year"]:checked');
-    const selectedYear = yearRadio ? yearRadio.value : 'ALL';
-
-    const countInput = document.getElementById('custom-q-slider');
-    const qCount = countInput ? parseInt(countInput.value) : 30;
-
-    const countDisplay = document.getElementById('custom-q-count-display');
-    if (countDisplay) countDisplay.innerText = `${qCount} Questions`;
-
-    // Filter available pool
-    const pool = collectMatchingQuestions({
-      courseIds: selectedCourseIds,
-      yearFilter: selectedYear
-    });
-
-    // Update UI Summary Elements
-    const topicsCountEl = document.getElementById('summary-topics-count');
-    if (topicsCountEl) topicsCountEl.innerText = `${selectedCourseIds.length} / 5 Courses`;
-
-    const poolCountEl = document.getElementById('summary-pool-count');
-    if (poolCountEl) poolCountEl.innerText = `${pool.length} Qs Available`;
-
-    const questionsCountEl = document.getElementById('summary-questions-count');
-    if (questionsCountEl) {
-      const actualSelected = Math.min(qCount, pool.length);
-      questionsCountEl.innerText = `${actualSelected} Qs`;
-    }
-
-    const marksCountEl = document.getElementById('summary-marks-count');
-    if (marksCountEl) {
-      const actualSelected = Math.min(qCount, pool.length);
-      marksCountEl.innerText = `${(actualSelected * 1.5).toFixed(1)} Marks`;
-    }
-
-    const timeCountEl = document.getElementById('summary-time-count');
-    if (timeCountEl) {
-      const actualSelected = Math.min(qCount, pool.length);
-      timeCountEl.innerText = `${Math.round(actualSelected * 1.8)} Mins`;
-    }
+  window.SEM_CUSTOM_GENERATOR = {
+    COURSE_CATALOG,
+    collectMatchingQuestions,
+    sampleQuestions,
+    generateCustomPdf
   };
-
-  window.triggerCustomPdfGeneration = async function() {
-    const checkboxes = document.querySelectorAll('input[name="custom-course"]:checked');
-    const selectedCourseIds = Array.from(checkboxes).map(cb => cb.value);
-
-    if (selectedCourseIds.length === 0) {
-      alert('Please select at least one semester course to include in your practice test.');
-      return;
-    }
-
-    const yearRadio = document.querySelector('input[name="custom-year"]:checked');
-    const selectedYear = yearRadio ? yearRadio.value : 'ALL';
-
-    const countInput = document.getElementById('custom-q-slider');
-    const qCount = countInput ? parseInt(countInput.value) : 30;
-
-    const modal = document.getElementById('pdf-progress-modal');
-    const fill = document.getElementById('pdf-progress-fill');
-    const pctEl = document.getElementById('pdf-progress-pct');
-    const statusEl = document.getElementById('pdf-progress-status');
-
-    if (modal) modal.classList.remove('hidden');
-
-    function onProg(percent, msg) {
-      if (fill) fill.style.width = `${percent}%`;
-      if (pctEl) pctEl.innerText = `${percent}%`;
-      if (statusEl) statusEl.innerText = msg;
-    }
-
-    try {
-      await generateCustomPdf({
-        courseIds: selectedCourseIds,
-        yearFilter: selectedYear,
-        questionCount: qCount,
-        title: `UNPG B.Sc. Semester Examination Practice Test`
-      }, onProg);
-
-      setTimeout(() => {
-        if (modal) modal.classList.add('hidden');
-      }, 1000);
-    } catch (err) {
-      console.error('PDF Generation failed:', err);
-      alert('Error generating PDF: ' + err.message);
-      if (modal) modal.classList.add('hidden');
-    }
-  };
-
-  window.triggerCustomOnlineTest = function() {
-    const checkboxes = document.querySelectorAll('input[name="custom-course"]:checked');
-    const selectedCourseIds = Array.from(checkboxes).map(cb => cb.value);
-
-    if (selectedCourseIds.length === 0) {
-      alert('Please select at least one semester course.');
-      return;
-    }
-
-    const yearRadio = document.querySelector('input[name="custom-year"]:checked');
-    const selectedYear = yearRadio ? yearRadio.value : 'ALL';
-
-    const countInput = document.getElementById('custom-q-slider');
-    const qCount = countInput ? parseInt(countInput.value) : 30;
-
-    launchCustomCbt({
-      courseIds: selectedCourseIds,
-      yearFilter: selectedYear,
-      questionCount: qCount,
-      title: `Custom Semester Mock Test (${selectedCourseIds.join(', ')})`
-    });
-  };
-
-  window.selectAllCourses = function(select) {
-    document.querySelectorAll('input[name="custom-course"]').forEach(cb => {
-      cb.checked = select;
-    });
-    window.updateCustomGeneratorSummary();
-  };
-
 })();
