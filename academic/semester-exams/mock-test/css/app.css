@@ -3170,21 +3170,6 @@ mjx-container[jax="SVG"][display="true"] {
   border-color: var(--border-color) !important;
 }
 
-.q-diff-badge-btn.is-suggested {
-  border-style: dashed !important;
-}
-
-html.hide-suggested-difficulty .q-diff-badge.is-suggested,
-body.hide-suggested-difficulty .q-diff-badge.is-suggested {
-  display: none !important;
-}
-
-.btn-mock-toggle-diff.active {
-  background: rgba(56, 189, 248, 0.2) !important;
-  border-color: rgba(56, 189, 248, 0.5) !important;
-  color: var(--accent) !important;
-}
-
 .q-diff-badge-btn.is-user-tagged {
   border-style: solid !important;
   box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25);

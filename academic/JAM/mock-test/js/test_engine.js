@@ -201,39 +201,22 @@
         type: q.type,
         qNum: q.q_num,
         year: q.year
-      }) : { label: 'Medium', icon: '🟡', class: 'diff-medium', isUserTagged: false, suggestedLevel: { label: 'Medium', icon: '🟡' } };
-
-      const sug = qDiff.suggestedLevel || qDiff;
-      const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
+      }) : { label: 'Unrated', icon: '⚪', class: 'diff-unrated', isUserTagged: false };
 
       if (qDiff.isUserTagged) {
         diffBtn.className = `q-diff-badge-btn ${qDiff.class} is-user-tagged`;
         diffIcon.textContent = qDiff.icon;
         diffText.innerHTML = `<strong>${qDiff.label}</strong> <span class="diff-badge-pill user">★ My Tag</span>`;
-        const sugNote = isHiddenSug ? '' : ` (Suggested by Exam: ${sug.label})`;
-        diffBtn.title = `Your Custom Tag: ${qDiff.label}${sugNote} — Click to change or unrate`;
-      } else if (isHiddenSug) {
-        diffBtn.className = `q-diff-badge-btn diff-unrated is-suggested`;
+        diffBtn.title = `Your Custom Tag: ${qDiff.label} — Click to change or unrate`;
+      } else {
+        diffBtn.className = `q-diff-badge-btn diff-unrated`;
         diffIcon.textContent = `⚪`;
         diffText.innerHTML = `<strong>Unrated</strong> <span class="diff-badge-pill unrated">(Tag)</span>`;
         diffBtn.title = `Difficulty: Unrated — Click to tag difficulty`;
-      } else {
-        diffBtn.className = `q-diff-badge-btn ${sug.class} is-suggested`;
-        diffIcon.textContent = sug.icon;
-        diffText.innerHTML = `<span class="diff-badge-prefix">Suggested:</span> <strong>${sug.label}</strong> <span class="diff-badge-pill unrated">(Unrated)</span>`;
-        diffBtn.title = `Suggested Difficulty: ${sug.label} (Exam Benchmark) • You have not rated this question yet (Unrated) — Click to tag`;
       }
 
       // Update dropdown info box
-      const sugInfoEl = document.getElementById('q-diff-info-suggested');
       const userInfoEl = document.getElementById('q-diff-info-user');
-      if (sugInfoEl) {
-        if (isHiddenSug) {
-          sugInfoEl.innerHTML = `<span style="opacity:0.6;">Hidden</span>`;
-        } else {
-          sugInfoEl.innerHTML = `${sug.icon} ${sug.label} <small style="opacity:0.75;">(Exam)</small>`;
-        }
-      }
       if (userInfoEl) {
         if (qDiff.isUserTagged) {
           userInfoEl.innerHTML = `<span style="font-weight:700;">${qDiff.icon} ${qDiff.label} ★</span>`;

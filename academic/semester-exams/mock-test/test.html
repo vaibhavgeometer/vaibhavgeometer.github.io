@@ -88,10 +88,6 @@
                 <div class="q-diff-dropdown hidden" id="q-diff-dropdown">
                   <div class="q-diff-status-box">
                     <div class="q-diff-status-row">
-                      <span class="q-diff-status-label">Suggested:</span>
-                      <span class="q-diff-status-val" id="q-diff-info-suggested">🟡 Medium (Auto)</span>
-                    </div>
-                    <div class="q-diff-status-row">
                       <span class="q-diff-status-label">Your Tag:</span>
                       <span class="q-diff-status-val" id="q-diff-info-user">⚪ Unrated</span>
                     </div>
@@ -103,11 +99,6 @@
                   <button type="button" class="q-diff-dropdown-item diff-opt-medium" data-diff-val="medium" onclick="window.selectCurrentQuestionDifficulty('medium')">🟡 Medium</button>
                   <button type="button" class="q-diff-dropdown-item diff-opt-hard" data-diff-val="hard" onclick="window.selectCurrentQuestionDifficulty('hard')">🔴 Hard</button>
                   <button type="button" class="q-diff-dropdown-item diff-opt-hardest" data-diff-val="hardest" onclick="window.selectCurrentQuestionDifficulty('hardest')">🟣 Very Hard</button>
-                  <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 8px; padding-top: 8px;">
-                    <button type="button" class="btn-mock-toggle-diff" id="btn-mock-toggle-diff" data-diff-toggle-suggested="true" onclick="window.SEM_DIFFICULTY && window.SEM_DIFFICULTY.toggleHideSuggested()" style="width: 100%; font-size: 0.75rem; font-weight: 600; padding: 6px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: var(--text); cursor: pointer; text-align: center;">
-                      🙈 Hide Suggested
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>

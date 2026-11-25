@@ -374,10 +374,6 @@
       difficulties = ['ALL'];
     }
 
-    // Difficulty source mode selection (combined vs user_tagged vs suggested)
-    const diffSourceRadio = document.querySelector('input[name="custom-diff-source"]:checked');
-    const diffSource = diffSourceRadio ? diffSourceRadio.value : 'combined';
-
     const titleInput = document.getElementById('custom-test-title');
     const title = titleInput && titleInput.value.trim() ? titleInput.value.trim() : 'IIT JAM Mathematics Custom Practice Test';
 
@@ -388,23 +384,8 @@
       types: types,
       solvedStatus: solvedStatus,
       difficulties: difficulties,
-      difficultySource: diffSource,
       title: title
     };
-  };
-
-  window.onDiffSourceChange = function(val) {
-    const noteEl = document.getElementById('custom-diff-help-note');
-    if (noteEl) {
-      if (val === 'user_tagged') {
-        noteEl.innerHTML = '★ <strong>User Tagged Only:</strong> Only questions you personally rated (★ My Tag) will be included in the pool. Questions without your rating are excluded.';
-      } else if (val === 'suggested') {
-        noteEl.innerHTML = '🏛️ <strong>Pre-Suggested Only:</strong> Questions are evaluated purely using the official IIT JAM pre-suggested exam benchmarks (ignoring personal tags).';
-      } else {
-        noteEl.innerHTML = '🔄 <strong>Combined Mode (Default):</strong> Matches questions using your personal rating (★ My Tag) when tagged; otherwise falls back to the pre-suggested exam benchmark.';
-      }
-    }
-    window.updateCustomGeneratorSummary();
   };
 
   window.handleDifficultyFilterChange = function(clickedCb) {
@@ -483,7 +464,7 @@
     }
 
     let userTaggedCount = 0;
-    let preSuggestedCount = 0;
+    let unratedCount = 0;
     let solvedCount = 0;
     let unsolvedCount = 0;
 
@@ -501,7 +482,7 @@
         qNum: num,
         year: yr
       }) : null;
-      if (qDiff && qDiff.isUserTagged) userTaggedCount++; else preSuggestedCount++;
+      if (qDiff && qDiff.isUserTagged) userTaggedCount++; else unratedCount++;
     });
 
     // Estimate marks
@@ -520,7 +501,7 @@
     const poolCountEl = document.getElementById('summary-pool-count');
     if (poolCountEl) {
       poolCountEl.textContent = `${pool.length} Qs`;
-      poolCountEl.title = `Available pool: ${pool.length} questions (${solvedCount} Solved, ${unsolvedCount} Unsolved • ${userTaggedCount} User-Tagged, ${preSuggestedCount} Pre-Suggested)`;
+      poolCountEl.title = `Available pool: ${pool.length} questions (${solvedCount} Solved, ${unsolvedCount} Unsolved • ${userTaggedCount} Rated, ${unratedCount} Unrated)`;
     }
 
     const qCountEl = document.getElementById('summary-questions-count');
@@ -568,9 +549,7 @@
         diffNames = config.difficulties.map(d => diffMap[d] || d).join(', ');
       }
 
-      const sourceTag = config.difficultySource === 'user_tagged' ? ' (★ User Tagged)' 
-        : (config.difficultySource === 'suggested' ? ' (🏛️ Pre-Suggested)' : ' (Combined)');
-      diffLabelEl.textContent = `${diffNames}${sourceTag}`;
+      diffLabelEl.textContent = diffNames;
     }
 
     // Toggle button disabled state
@@ -683,7 +662,6 @@
       category: "Custom Topic Practice Test",
       era: config.eraFilter || "cbt",
       solved_status: config.solvedStatus || "ALL",
-      difficulty_source: config.difficultySource || "combined",
       total_questions: enrichedSampled.length,
       total_marks: totalMarks,
       duration_minutes: durationMins,
@@ -751,12 +729,11 @@
           type: q.type,
           qNum: qNumVal,
           year: yr
-        }) : { label: 'Medium', class: 'diff-medium', icon: '🟡', isUserTagged: false };
+        }) : { label: 'Unrated', class: 'diff-unrated', icon: '⚪', isUserTagged: false };
 
-        // Explicitly clear difficulty badge showing whether it's User Tagged or Pre-Suggested
         const diffBadgeHtml = qDiff.isUserTagged
           ? `<span class="q-diff-badge ${qDiff.class} size-sm is-user-tagged" style="background:${qDiff.bg}; color:${qDiff.color}; border:1px solid ${qDiff.border};" title="Your Custom Rating: ${qDiff.label}"><span>${qDiff.icon}</span> <span>${qDiff.label}</span> <span class="diff-tag-pill user">★ My Tag</span></span>`
-          : `<span class="q-diff-badge ${qDiff.class} size-sm is-suggested" style="background:${qDiff.bg}; color:${qDiff.color}; border:1px dashed ${qDiff.border};" title="Official Pre-Suggested Exam Benchmark: ${qDiff.label}"><span>${qDiff.icon}</span> <span>${qDiff.label}</span> <span class="diff-tag-pill unrated">(Pre-Suggested)</span></span>`;
+          : '';
 
         const solvedBadge = isSolved
           ? `<span class="preview-status-pill solved">✓ Solved</span>`

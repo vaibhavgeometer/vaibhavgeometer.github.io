@@ -265,8 +265,7 @@
       courseIds: ALL_COURSE_IDS,
       yearFilter: 'ALL',
       solvedStatus: 'ALL',
-      difficulties: diffs,
-      difficultySource: 'combined'
+      difficulties: diffs
     });
 
     const sampled = window.SEM_CUSTOM_GENERATOR.sampleQuestions(pool, Math.min(25, pool.length));
@@ -412,7 +411,6 @@
     const yearRadio = document.querySelector('input[name="custom_year"]:checked');
     const solvedRadio = document.querySelector('input[name="custom_solved"]:checked');
     const diffCbs = Array.from(document.querySelectorAll('input[name="custom_diff"]:checked')).map((el) => el.value);
-    const diffSrcRadio = document.querySelector('input[name="custom_diff_source"]:checked');
 
     return {
       courseIds,
@@ -420,8 +418,7 @@
       customTitle: titleInp ? titleInp.value.trim() : '',
       yearFilter: yearRadio ? yearRadio.value : 'ALL',
       solvedStatus: solvedRadio ? solvedRadio.value : 'ALL',
-      difficulties: diffCbs,
-      difficultySource: diffSrcRadio ? diffSrcRadio.value : 'combined'
+      difficulties: diffCbs
     };
   }
 

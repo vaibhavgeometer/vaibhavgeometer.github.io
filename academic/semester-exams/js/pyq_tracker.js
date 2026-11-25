@@ -511,7 +511,7 @@
                 ${isSolved ? '✅ Solved' : '○ Mark Solved'}
               </button>
               <select class="q-diff-select ${q.diff.isUserTagged ? 'is-user-tagged' : ''}" aria-label="Tag difficulty for ${escapeHtml(q.id)}" onchange="SEM_TRACKER.setDifficulty('${q.id}', this.value)">
-                <option value="clear" ${!q.diff.isUserTagged ? 'selected' : ''}>Suggested (${escapeHtml(q.diff.meta.shortLabel)})</option>
+                <option value="clear" ${!q.diff.isUserTagged ? 'selected' : ''}>🏷️ Unrated</option>
                 ${diffOptionsHtml}
               </select>
             </div>
@@ -612,7 +612,7 @@
     refreshDifficultyMetadata();
     renderAll();
     if (state.modalQId === qId) renderModalBody();
-    const label = val === 'clear' ? 'Suggested default' : ((window.SEM_DIFFICULTY && window.SEM_DIFFICULTY.LEVELS[val] && window.SEM_DIFFICULTY.LEVELS[val].label) || val);
+    const label = val === 'clear' ? 'Unrated' : ((window.SEM_DIFFICULTY && window.SEM_DIFFICULTY.LEVELS[val] && window.SEM_DIFFICULTY.LEVELS[val].label) || val);
     showToast(`Difficulty updated: ${label}`);
   }
 
@@ -971,7 +971,7 @@
             ${isSolved ? '✅ Solved' : '○ Mark Solved'}
           </button>
           <select class="q-diff-select ${q.diff.isUserTagged ? 'is-user-tagged' : ''}" onchange="SEM_TRACKER.setDifficulty('${q.id}', this.value)">
-            <option value="clear" ${!q.diff.isUserTagged ? 'selected' : ''}>Suggested (${escapeHtml(q.diff.meta.label)})</option>
+            <option value="clear" ${!q.diff.isUserTagged ? 'selected' : ''}>🏷️ Unrated</option>
             ${diffOpts}
           </select>
           <button class="btn-reveal-key" onclick="SEM_TRACKER.toggleModalAnswer()">${state.modalRevealed ? '🙈 Hide Key' : '🔑 Reveal Answer Key'}</button>

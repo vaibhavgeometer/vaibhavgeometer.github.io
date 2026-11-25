@@ -11,7 +11,6 @@
 
   const STORAGE_KEYS = {
     TRACKER: 'sem_pyq_user_tracker_v1',
-    HIDE_SUGGESTED: 'sem_hide_suggested_difficulty',
     SYNC_CODE: 'sem_cloud_sync_code',
     API_URL: 'sem_cloud_sync_api_url',
     LAST_SYNC: 'sem_cloud_sync_last_time',
@@ -120,10 +119,7 @@
       syncCode: currentCode,
       updatedAt: new Date().toISOString(),
       tracker,
-      scores: collectAllScores(),
-      settings: {
-        hideSuggested: localStorage.getItem(STORAGE_KEYS.HIDE_SUGGESTED) === 'true'
-      }
+      scores: collectAllScores()
     };
   }
 
@@ -170,8 +166,7 @@
         difficulty: mergedDifficulty,
         lastUpdated: new Date().toISOString()
       },
-      scores: mergedScores,
-      settings: localData.settings || remoteData.settings || { hideSuggested: false }
+      scores: mergedScores
     };
   }
 
@@ -195,15 +190,6 @@
       });
     }
 
-    if (payload.settings && typeof payload.settings.hideSuggested === 'boolean') {
-      try {
-        localStorage.setItem(STORAGE_KEYS.HIDE_SUGGESTED, payload.settings.hideSuggested ? 'true' : 'false');
-      } catch (e) {}
-    }
-
-    if (window.SEM_DIFFICULTY && typeof window.SEM_DIFFICULTY.updateToggleButtonsUI === 'function') {
-      window.SEM_DIFFICULTY.updateToggleButtonsUI();
-    }
     if (window.SEM_TRACKER && typeof window.SEM_TRACKER.refreshFromStorage === 'function') {
       window.SEM_TRACKER.refreshFromStorage();
     }

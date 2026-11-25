@@ -486,7 +486,6 @@
 
     // Difficulty Distribution
     const diffContainer = document.getElementById('difficulty-dist-pills');
-    const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
     if (diffContainer) {
       diffContainer.innerHTML = `
         <span class="difficulty-dist-label">Tagged Difficulty:</span>
@@ -496,9 +495,6 @@
         <span class="diff-pill diff-hard">🟠 Hard: ${stats.diffCounts.hard}</span>
         <span class="diff-pill diff-hardest">🟣 Hardest: ${stats.diffCounts.hardest}</span>
         <span class="diff-pill diff-unrated">⚪ Unrated: ${stats.diffCounts.unrated}</span>
-        <button type="button" class="btn-diff-toggle-mini ${isHiddenSug ? 'active' : ''}" id="btn-diff-toggle-mini" onclick="window.JAM_DIFFICULTY.toggleHideSuggested()" title="Toggle visibility of suggested difficulty tags">
-          ${isHiddenSug ? '👁️ Show Suggested' : '🙈 Hide Suggested'}
-        </button>
       `;
     }
 
@@ -633,21 +629,12 @@
     if (u && u.difficulty && DIFFICULTY_CONFIG[u.difficulty]) {
       return u.difficulty;
     }
-    if (window.getJAMQuestionDifficulty) {
-      const d = window.getJAMQuestionDifficulty(q.id, {
-        marks: q.marks,
-        type: q.type,
-        qNum: q.q_num,
-        year: q.year
-      });
-      if (d && (d.key || d.id)) return d.key || d.id;
-    }
-    return 'medium';
+    return 'unrated';
   }
 
   function getEffectiveDifficultyOrder(q) {
     const diffKey = getEffectiveQuestionDifficulty(q);
-    return DIFFICULTY_CONFIG[diffKey]?.order || 3;
+    return DIFFICULTY_CONFIG[diffKey]?.order || 0;
   }
 
   function filterQuestions() {
@@ -788,9 +775,8 @@
     const diffBadgeHtml = (qDiff && window.JAM_DIFFICULTY)
       ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' })
       : '';
-    const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
-    const suggestedLabel = qDiff?.suggestedLevel?.label || 'Medium';
-    const unratedOptionLabel = isHiddenSug ? '🏷️ Unrated' : `🏷️ Unrated (Suggested: ${suggestedLabel})`;
+    const isHiddenSug = false;
+    const unratedOptionLabel = '🏷️ Unrated';
 
     const qType = (q.type || 'MCQ').toUpperCase();
     const typeClass = qType.toLowerCase();
@@ -999,9 +985,8 @@
     const diffBadgeHtml = (qDiff && window.JAM_DIFFICULTY)
       ? window.JAM_DIFFICULTY.getBadgeHtml(qDiff, { size: 'sm' })
       : '';
-    const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
-    const suggestedLabel = qDiff?.suggestedLevel?.label || 'Medium';
-    const unratedOptionLabel = isHiddenSug ? '🏷️ Unrated' : `🏷️ Unrated (Suggested: ${suggestedLabel})`;
+    const isHiddenSug = false;
+    const unratedOptionLabel = '🏷️ Unrated';
 
     if (modal) {
       modal.innerHTML = `

@@ -4,14 +4,12 @@
    ============================================
    - Separate isolated storage namespace (`sem_pyq_user_tracker_v1`)
    - Supports 5-tier classification: very_easy, easy, medium, hard, hardest
-   - Deterministic curriculum-calibrated baseline heuristics across Q1-Q50
-   - Supports user custom override & Hide Suggested Difficulty toggle
+   - User custom difficulty tagging & localStorage persistence
    ============================================ */
 (function () {
   'use strict';
 
   const STORAGE_KEY = 'sem_pyq_user_tracker_v1';
-  const HIDE_SUGGESTED_KEY = 'sem_hide_suggested_difficulty';
 
   const LEVELS = {
     very_easy: {
@@ -61,6 +59,16 @@
     }
   };
 
+  const UNRATED_META = {
+    key: 'unrated',
+    label: 'Unrated',
+    shortLabel: 'Unrated',
+    emoji: '⚪',
+    color: '#94a3b8',
+    cssClass: 'diff-unrated',
+    order: 0
+  };
+
   const ORDER = ['very_easy', 'easy', 'medium', 'hard', 'hardest'];
 
   function loadStoreRaw() {
@@ -99,62 +107,25 @@
     saveStoreRaw(store);
   }
 
-  function hashString(str) {
-    let h = 2166136261;
-    for (let i = 0; i < str.length; i++) {
-      h ^= str.charCodeAt(i);
-      h = Math.imul(h, 16777619);
-    }
-    return h >>> 0;
-  }
-
-  /**
-   * Deterministic suggested difficulty calibrated across all 750 semester MCQs.
-   * Ensures reproducible ~14% V.Easy, ~24% Easy, ~34% Medium, ~18% Hard, ~10% Hardest spread
-   * with slight progression across paper question ordering (conceptual -> computational -> proofs).
-   */
-  function inferBaselineDifficulty(q) {
-    const qId = String((q && q.id) || '');
-    const qNum = Number((q && (q.q_num || q.qNum)) || 0) ||
-      (() => {
-        const m = qId.match(/_Q(\d+)$/i);
-        return m ? parseInt(m[1], 10) : 25;
-      })();
-
-    const bucket = hashString(qId || `Q${qNum}`) % 100;
-    // Slight progression shift: earlier questions slightly lighter, later questions slightly deeper
-    const posBias = qNum <= 10 ? -8 : qNum >= 41 ? 10 : qNum >= 31 ? 4 : 0;
-    const score = Math.max(0, Math.min(99, bucket + posBias));
-
-    if (score < 14) return 'very_easy';
-    if (score < 38) return 'easy';
-    if (score < 72) return 'medium';
-    if (score < 90) return 'hard';
-    return 'hardest';
-  }
-
-  function getQuestionDifficulty(q, testObj) {
+  function getQuestionDifficulty(q) {
     const qId = typeof q === 'string' ? q : (q && q.id) || '';
     const map = getUserDifficultyMap();
     const userLevel = map[qId];
-    const suggestedLevel = inferBaselineDifficulty(typeof q === 'object' ? q : { id: qId }, testObj);
 
     if (userLevel && LEVELS[userLevel]) {
       return {
         level: userLevel,
         meta: LEVELS[userLevel],
         source: 'user',
-        isUserTagged: true,
-        suggestedLevel
+        isUserTagged: true
       };
     }
 
     return {
-      level: suggestedLevel,
-      meta: LEVELS[suggestedLevel] || LEVELS.medium,
-      source: 'suggested',
-      isUserTagged: false,
-      suggestedLevel
+      level: 'unrated',
+      meta: UNRATED_META,
+      source: 'unrated',
+      isUserTagged: false
     };
   }
 
@@ -185,20 +156,17 @@
 
   function getAllStats(questions) {
     const list = Array.isArray(questions) ? questions : [];
-    const counts = { very_easy: 0, easy: 0, medium: 0, hard: 0, hardest: 0 };
+    const counts = { very_easy: 0, easy: 0, medium: 0, hard: 0, hardest: 0, unrated: 0 };
     const userCounts = { very_easy: 0, easy: 0, medium: 0, hard: 0, hardest: 0 };
-    const suggestedCounts = { very_easy: 0, easy: 0, medium: 0, hard: 0, hardest: 0 };
     const map = getUserDifficultyMap();
 
     list.forEach((q) => {
       const userLvl = map[q.id];
-      const sugLvl = inferBaselineDifficulty(q);
-      const effective = (userLvl && LEVELS[userLvl]) ? userLvl : sugLvl;
-      if (counts[effective] !== undefined) counts[effective]++;
       if (userLvl && LEVELS[userLvl]) {
+        counts[userLvl]++;
         userCounts[userLvl]++;
-      } else if (suggestedCounts[sugLvl] !== undefined) {
-        suggestedCounts[sugLvl]++;
+      } else {
+        counts.unrated++;
       }
     });
 
@@ -206,101 +174,35 @@
       total: list.length,
       counts,
       userCounts,
-      suggestedCounts,
       userTotal: Object.keys(map).length
     };
   }
 
-  function isHideSuggested() {
-    try {
-      return localStorage.getItem(HIDE_SUGGESTED_KEY) === 'true';
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function applyHideSuggestedClass(hide) {
-    const action = hide ? 'add' : 'remove';
-    if (document.documentElement) {
-      document.documentElement.classList[action]('hide-suggested-difficulty');
-    }
-    if (document.body) {
-      document.body.classList[action]('hide-suggested-difficulty');
-    }
-  }
-
-  function updateToggleButtonsUI() {
-    const hide = isHideSuggested();
-    applyHideSuggestedClass(hide);
-    document.querySelectorAll('[data-diff-toggle-suggested]').forEach((btn) => {
-      btn.classList.toggle('active', hide);
-      btn.setAttribute('aria-pressed', hide ? 'true' : 'false');
-      const labelEl = btn.querySelector('.toggle-label');
-      if (labelEl) {
-        labelEl.textContent = hide ? 'Suggested Hidden' : 'Hide Suggested';
-      } else {
-        btn.textContent = hide ? '🙈 Suggested Hidden' : '👁️ Hide Suggested';
-      }
-    });
-  }
-
-  function setHideSuggested(val) {
-    const hide = Boolean(val);
-    try {
-      localStorage.setItem(HIDE_SUGGESTED_KEY, hide ? 'true' : 'false');
-    } catch (e) {}
-    updateToggleButtonsUI();
-    try {
-      window.dispatchEvent(new CustomEvent('sem-difficulty-visibility-changed', {
-        detail: { hideSuggested: hide }
-      }));
-    } catch (e) {}
-    return hide;
-  }
-
-  function toggleHideSuggested() {
-    return setHideSuggested(!isHideSuggested());
-  }
-
   function getDifficultyBadgeHtml(diffInfo, opts) {
     const options = opts || {};
-    const info = diffInfo || { level: 'medium', meta: LEVELS.medium, isUserTagged: false };
-    const meta = info.meta || LEVELS[info.level] || LEVELS.medium;
-    const sourceClass = info.isUserTagged ? 'is-user-tagged' : 'is-suggested';
-    const pillTypeClass = info.isUserTagged ? 'user' : 'suggested';
-    const sourceLabel = info.isUserTagged ? 'My Tag' : 'Suggested';
+    const info = diffInfo || { level: 'unrated', meta: UNRATED_META, isUserTagged: false };
+    if (!info.isUserTagged) {
+      return '';
+    }
+    const meta = info.meta || LEVELS[info.level] || UNRATED_META;
     const text = options.short ? meta.shortLabel : meta.label;
     const sizeClass = options.size ? `size-${options.size}` : '';
 
-    return `<span class="q-diff-badge ${meta.cssClass} ${sourceClass} ${sizeClass}" title="Difficulty: ${meta.label} (${sourceLabel})">` +
+    return `<span class="q-diff-badge ${meta.cssClass} is-user-tagged ${sizeClass}" title="Difficulty: ${meta.label} (My Tag)">` +
       `<span>${meta.emoji} ${text}</span>` +
-      (options.hideSourcePill ? '' : `<span class="diff-tag-pill ${pillTypeClass}">${sourceLabel}</span>`) +
+      (options.hideSourcePill ? '' : `<span class="diff-tag-pill user">My Tag</span>`) +
       `</span>`;
-  }
-
-  // Initialize visibility class early
-  applyHideSuggestedClass(isHideSuggested());
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateToggleButtonsUI);
-  } else {
-    updateToggleButtonsUI();
   }
 
   window.SEM_DIFFICULTY = {
     STORAGE_KEY,
-    HIDE_SUGGESTED_KEY,
     LEVELS,
     ORDER,
     getUserDifficultyMap,
     saveUserDifficultyMap,
-    inferBaselineDifficulty,
     getQuestionDifficulty,
     setQuestionDifficulty,
     getAllStats,
-    isHideSuggested,
-    setHideSuggested,
-    toggleHideSuggested,
-    updateToggleButtonsUI,
     getDifficultyBadgeHtml
   };
 

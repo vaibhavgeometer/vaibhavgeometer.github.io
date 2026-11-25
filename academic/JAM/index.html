@@ -137,10 +137,6 @@
               <button class="tracker-action-btn" id="btn-mark-oos-unnecessary" onclick="window.JAM_TRACKER.markAllOOSAsUnnecessary()" title="Toggle whether out of syllabus questions are marked unnecessary">
                 <span>🚫</span> <span>Mark Out of Syllabus as Unnecessary (87 Qs)</span>
               </button>
-              <button class="tracker-action-btn" id="btn-toggle-suggested-diff" onclick="window.JAM_DIFFICULTY.toggleHideSuggested()" title="Toggle visibility of suggested difficulty tags across the website">
-                <span id="btn-toggle-suggested-diff-icon">🙈</span>
-                <span id="btn-toggle-suggested-diff-text">Hide Suggested Difficulty</span>
-              </button>
               <button class="tracker-action-btn stats-action-btn" id="btn-tracker-stats" onclick="window.JAM_STATS.openModal()" title="View Day-by-Day solving stats, streaks, velocity and analytics">
                 <span style="font-size:1.05rem;">📊</span>
                 <span>Study Stats</span>
@@ -730,7 +726,7 @@
                     <div>
                       <label class="config-label" style="margin-bottom: 2px;">Question Difficulty Level:</label>
                       <div style="font-size: 0.75rem; color: var(--text-muted);">
-                        Filter questions by difficulty (Choose whether to evaluate by your custom tags or exam pre-suggestions)
+                        Filter questions by your personal difficulty tags
                       </div>
                     </div>
                     <div class="custom-diff-presets">
@@ -740,25 +736,6 @@
                       <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('medium')">🟡 Medium Drill</button>
                       <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('hard')">🟠 Hard Drill</button>
                       <button type="button" class="preset-chip-btn" onclick="window.applyCustomDifficultyPreset('challenging')">⚡ Hard &amp; Hardest</button>
-                    </div>
-                  </div>
-
-                  <!-- Difficulty Source Selector (User Tagged vs Pre-Suggested) -->
-                  <div class="diff-source-selector-bar" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 8px 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-sm); flex-wrap: wrap;">
-                    <span style="font-size: 0.76rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Difficulty Source:</span>
-                    <div class="radio-pill-group" style="display: flex; gap: 6px; flex-wrap: wrap;">
-                      <label class="radio-pill mini" title="Uses your custom tag (★ My Tag) if you rated it; otherwise falls back to the pre-suggested exam benchmark">
-                        <input type="radio" name="custom-diff-source" value="combined" checked onchange="window.onDiffSourceChange(this.value)">
-                        <span>🔄 Combined (My Tag or Suggested)</span>
-                      </label>
-                      <label class="radio-pill mini" title="Only matches questions where you personally tagged that difficulty (skips unrated questions)">
-                        <input type="radio" name="custom-diff-source" value="user_tagged" onchange="window.onDiffSourceChange(this.value)">
-                        <span>★ User Tagged Only</span>
-                      </label>
-                      <label class="radio-pill mini" title="Matches by official IIT JAM pre-suggested exam pattern ratings only, ignoring personal tags">
-                        <input type="radio" name="custom-diff-source" value="suggested" onchange="window.onDiffSourceChange(this.value)">
-                        <span>🏛️ Pre-Suggested Only</span>
-                      </label>
                     </div>
                   </div>
 
@@ -792,7 +769,7 @@
 
                   <!-- Dynamic Helper Note -->
                   <div id="custom-diff-help-note" style="margin-top: 8px; font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">
-                    ℹ️ <strong>Combined Mode:</strong> Matches questions using your personal rating (★ My Tag) when tagged; defaults to IIT JAM pre-suggested benchmark for unrated questions.
+                    ℹ️ Matches questions using your personal rating (★ My Tag) when specific difficulty levels are selected.
                   </div>
                 </div>
               </div>

@@ -422,9 +422,6 @@
                 <span>📊 Study Stats</span>
                 <span class="stats-today-badge" id="stats-today-pill">Analytics</span>
               </button>
-              <button class="tracker-action-btn" id="btn-toggle-suggested-diff" data-diff-toggle-suggested="true" onclick="window.SEM_DIFFICULTY && window.SEM_DIFFICULTY.toggleHideSuggested()" title="Show or hide suggested difficulty badges">
-                <span class="toggle-label">Hide Suggested</span>
-              </button>
               <button class="tracker-action-btn" onclick="window.SEM_TRACKER && window.SEM_TRACKER.exportProgress()" title="Export progress &amp; tags to JSON backup">
                 <span>💾 Export</span>
               </button>
@@ -515,9 +512,6 @@
           <div class="difficulty-dist-row">
             <span class="difficulty-dist-label">Difficulty Tiers (Click to filter):</span>
             <div id="difficulty-dist-pills" style="display:flex; gap:8px; flex-wrap:wrap; flex:1;"></div>
-            <button type="button" class="btn-diff-toggle-mini" data-diff-toggle-suggested="true" onclick="window.SEM_DIFFICULTY && window.SEM_DIFFICULTY.toggleHideSuggested()">
-              <span class="toggle-label">Hide Suggested</span>
-            </button>
           </div>
         </div>
 
@@ -793,15 +787,6 @@
                   <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="medium" checked onchange="window.handleCustomGeneratorChange()" /><span>🟡 Medium</span></label>
                   <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="hard" checked onchange="window.handleCustomGeneratorChange()" /><span>🔴 Hard</span></label>
                   <label class="checkbox-pill mini diff-pill-item"><input type="checkbox" name="custom_diff" value="hardest" checked onchange="window.handleCustomGeneratorChange()" /><span>🟣 Very Hard</span></label>
-                </div>
-
-                <div class="diff-source-selector-bar" style="padding:10px 12px; margin-top:8px;">
-                  <span style="font-size:0.78rem; font-weight:700; color:var(--text-secondary); display:block; margin-bottom:6px;">Difficulty Tag Source:</span>
-                  <div class="radio-pill-group">
-                    <label class="radio-pill mini"><input type="radio" name="custom_diff_source" value="combined" checked onchange="window.handleCustomGeneratorChange()" /> Combined (Your Tags + Suggested)</label>
-                    <label class="radio-pill mini"><input type="radio" name="custom_diff_source" value="user_only" onchange="window.handleCustomGeneratorChange()" /> My Personal Tags Only</label>
-                    <label class="radio-pill mini"><input type="radio" name="custom_diff_source" value="suggested_only" onchange="window.handleCustomGeneratorChange()" /> Suggested Auto Tiers Only</label>
-                  </div>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@
    - Supports URL params: ?test=..., ?course=...&year=..., ?q=..., ?mode=official|practice
    - Supports Custom Tests via sessionStorage 'semester_custom_test' (?test=custom)
    - Screenshot-first question rendering with high-res zoom viewer
-   - Live 5-tier Difficulty Tagging & Hide Suggested toggle (SEM_DIFFICULTY)
+   - Live 5-tier Difficulty Tagging (SEM_DIFFICULTY)
    - Full keyboard shortcuts & shared dark/light theme ('jam_theme')
    ============================================ */
 (function () {
@@ -160,24 +160,18 @@
     if (!q || !window.SEM_DIFFICULTY) return;
 
     const info = window.SEM_DIFFICULTY.getQuestionDifficulty(q, state.testObj);
-    const levels = window.SEM_DIFFICULTY.LEVELS;
-    const suggestedMeta = levels[info.suggestedLevel] || levels.medium;
 
     const btn = document.getElementById('q-diff-btn');
     const icon = document.getElementById('q-diff-btn-icon');
     const txt = document.getElementById('q-diff-btn-text');
-    const sugEl = document.getElementById('q-diff-info-suggested');
     const usrEl = document.getElementById('q-diff-info-user');
 
     if (btn) {
-      btn.className = `q-diff-badge-btn ${info.meta.cssClass} ${info.isUserTagged ? 'is-user-tagged' : 'is-suggested'}`;
+      btn.className = `q-diff-badge-btn ${info.meta.cssClass} ${info.isUserTagged ? 'is-user-tagged' : ''}`;
     }
     if (icon) icon.textContent = info.meta.emoji;
     if (txt) txt.textContent = info.meta.label;
 
-    if (sugEl) {
-      sugEl.textContent = `${suggestedMeta.emoji} ${suggestedMeta.label} (Auto)`;
-    }
     if (usrEl) {
       usrEl.textContent = info.isUserTagged
         ? `${info.meta.emoji} ${info.meta.label}`
@@ -189,8 +183,6 @@
       const active = info.isUserTagged ? (val === info.level) : (val === '');
       item.classList.toggle('active', active);
     });
-
-    window.SEM_DIFFICULTY.updateToggleButtonsUI();
   }
 
   function showDifficultyToast(msg) {

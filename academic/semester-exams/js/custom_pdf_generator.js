@@ -2,7 +2,6 @@
    UNPG B.Sc. Semester V — Custom Mock Test & High-Res PDF Generator
    ============================================
    - Filters across Courses (MAT301F-PHY302F), Years, Solved Status, and 5-Tier Difficulty
-   - Supports Difficulty Source mode (Combined / User Tags Only / Pre-Suggested Only)
    - Generates multi-page A4 Exam Paper Booklet PDFs with cover page, stats,
      framed high-res PYQ screenshots, and Multi-Column Master Answer Key
    - Launches Instant Interactive CBT Mode via sessionStorage ('semester_custom_test')
@@ -49,7 +48,6 @@
     const yearFilter = cfg.yearFilter || 'ALL';
     const solvedStatus = cfg.solvedStatus || 'ALL';
     const diffList = Array.isArray(cfg.difficulties) ? cfg.difficulties : null;
-    const diffSource = cfg.difficultySource || 'combined';
 
     const solvedMap = getSolvedMap();
     const tests = window.MOCK_TESTS_DATA || {};
@@ -66,12 +64,11 @@
 
         const diffInfo = window.SEM_DIFFICULTY
           ? window.SEM_DIFFICULTY.getQuestionDifficulty(q, t)
-          : { level: 'medium', isUserTagged: false, suggestedLevel: 'medium' };
+          : { level: 'unrated', isUserTagged: false };
 
-        if (diffSource === 'user_only' && !diffInfo.isUserTagged) return;
-        if (diffSource === 'suggested_only' && diffInfo.isUserTagged) return;
-
-        if (diffList && diffList.length > 0 && !diffList.includes(diffInfo.level)) return;
+        if (diffList && diffList.length > 0 && diffList.length < 5) {
+          if (!diffInfo.isUserTagged || !diffList.includes(diffInfo.level)) return;
+        }
 
         matched.push(Object.assign({}, q, {
           course_code: q.course_code || t.course_code,
@@ -350,12 +347,18 @@
       doc.setFontSize(8);
       doc.text(`${q.course_code} · ${q.year} · Paper Q${q.q_num || qNo}`, margin + 15, curY + 5.8);
 
-      const dLvl = (q.diffInfo && q.diffInfo.level) || 'medium';
-      const dMeta = DIFF_DISPLAY[dLvl] || DIFF_DISPLAY.medium;
-      doc.setTextColor(dMeta.rgb[0], dMeta.rgb[1], dMeta.rgb[2]);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(7.8);
-      doc.text(`[${dMeta.label}]  +${q.marks} Marks`, margin + contentW - 3.5, curY + 5.8, { align: 'right' });
+      if (q.diffInfo && q.diffInfo.isUserTagged && DIFF_DISPLAY[q.diffInfo.level]) {
+        const dMeta = DIFF_DISPLAY[q.diffInfo.level];
+        doc.setTextColor(dMeta.rgb[0], dMeta.rgb[1], dMeta.rgb[2]);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.8);
+        doc.text(`[${dMeta.label}]  +${q.marks} Marks`, margin + contentW - 3.5, curY + 5.8, { align: 'right' });
+      } else {
+        doc.setTextColor(71, 85, 105);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.8);
+        doc.text(`+${q.marks} Marks`, margin + contentW - 3.5, curY + 5.8, { align: 'right' });
+      }
 
       if (imgObj && imgObj.dataUrl) {
         const imgX = margin + (contentW - imgDrawW) / 2;
@@ -383,12 +386,14 @@
     doc.text('MASTER ANSWER KEY & SCORING SUMMARY', margin, 15.5);
 
     const keyRows = selected.map((q, idx) => {
-      const dMeta = DIFF_DISPLAY[(q.diffInfo && q.diffInfo.level) || 'medium'] || DIFF_DISPLAY.medium;
+      const dLabel = (q.diffInfo && q.diffInfo.isUserTagged && DIFF_DISPLAY[q.diffInfo.level])
+        ? DIFF_DISPLAY[q.diffInfo.level].label
+        : '—';
       return [
         `Q${idx + 1}`,
         `${q.course_code} (${q.year} Q${q.q_num || idx + 1})`,
         `Option (${q.answer_key || 'A'})`,
-        dMeta.label,
+        dLabel,
         `+${q.marks}`
       ];
     });

@@ -206,9 +206,8 @@
     // Solved status filter ('ALL', 'unsolved', 'solved')
     const solvedFilter = options.solvedStatus || options.statusFilter || 'ALL';
 
-    // Difficulty filter & source mode
+    // Difficulty filter
     const diffFilter = options.difficulties || options.difficultyFilter || ['ALL'];
-    const diffSource = options.difficultySource || 'combined'; // 'combined', 'user_tagged', 'suggested'
     const hasDiffFilter = Array.isArray(diffFilter) 
       ? (!diffFilter.includes('ALL') && diffFilter.length > 0) 
       : (diffFilter !== 'ALL' && diffFilter !== '');
@@ -262,20 +261,10 @@
           type: q.type,
           qNum: qNumVal,
           year: yr
-        }) : { id: 'medium', key: 'medium', isUserTagged: false, suggestedDifficulty: 'medium' };
+        }) : { id: 'unrated', key: 'unrated', isUserTagged: false };
 
-        let evalKey = null;
-        if (diffSource === 'user_tagged') {
-          // Only match if user personally tagged this question
-          if (!qDiff.isUserTagged) return false;
-          evalKey = qDiff.userDifficulty || qDiff.key || qDiff.id;
-        } else if (diffSource === 'suggested') {
-          // Match purely by pre-suggested exam benchmark
-          evalKey = qDiff.suggestedDifficulty || qDiff.suggestedLevel?.id || 'medium';
-        } else {
-          // 'combined' (default): User tag if set, otherwise suggested
-          evalKey = qDiff.key || qDiff.id || 'medium';
-        }
+        if (!qDiff.isUserTagged) return false;
+        const evalKey = qDiff.userDifficulty || qDiff.key || qDiff.id;
 
         if (Array.isArray(diffFilter)) {
           if (!diffFilter.includes(evalKey)) return false;
@@ -362,7 +351,6 @@
       types: config.types || ['MCQ', 'MSQ', 'NAT'],
       eraFilter: config.eraFilter || 'ALL',
       difficulties: config.difficulties || config.difficultyFilter || ['ALL'],
-      difficultySource: config.difficultySource || 'combined',
       solvedStatus: config.solvedStatus || 'ALL'
     });
 
@@ -492,12 +480,10 @@
     else if (config.solvedStatus === 'solved') filterMetaParts.push('Status: Solved Only');
     else filterMetaParts.push('Status: All Questions');
 
-    const diffSourceTitle = config.difficultySource === 'user_tagged' ? 'User Tagged Only'
-      : (config.difficultySource === 'suggested' ? 'Pre-Suggested Only' : 'Combined');
     if (config.difficulties && !config.difficulties.includes('ALL')) {
-      filterMetaParts.push(`Difficulty: ${config.difficulties.join(', ')} (${diffSourceTitle})`);
+      filterMetaParts.push(`Difficulty: ${config.difficulties.join(', ')}`);
     } else {
-      filterMetaParts.push(`Difficulty: All Levels (${diffSourceTitle})`);
+      filterMetaParts.push(`Difficulty: All Levels`);
     }
 
     doc.setFont('helvetica', 'italic');
@@ -775,15 +761,14 @@
       doc.text(qType, rightBadgeX + (typeBadgeWidth / 2), cardTopY + 14, { align: 'center' });
 
       // Difficulty Badge
-      const isHiddenSug = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
       const qDiff = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(q.id, {
         marks: qMarks,
         type: qType,
         qNum: origQNum,
         year: q.year
-      }) : { label: 'Medium', shortLabel: 'Medium', id: 'medium' };
+      }) : { label: 'Unrated', shortLabel: 'Unrated', id: 'unrated', isUserTagged: false };
 
-      if (qDiff.isUserTagged || !isHiddenSug) {
+      if (qDiff.isUserTagged) {
         const diffBadgeWidth = 38;
         rightBadgeX -= (diffBadgeWidth + 4);
         let diffBg = [254, 243, 199];
@@ -940,17 +925,16 @@
         cellX += keySubCols[2];
 
         // Diff
-        const isHiddenSugInChunk = window.JAM_DIFFICULTY ? window.JAM_DIFFICULTY.isHideSuggested() : false;
         const qDiffObj = window.getJAMQuestionDifficulty ? window.getJAMQuestionDifficulty(qInChunk.id, {
           marks: qInChunk.marks,
           type: qInChunk.type,
           qNum: qInChunk.q_num,
           year: qInChunk.year
-        }) : { shortLabel: 'Med' };
+        }) : { shortLabel: '—', isUserTagged: false };
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(6.8);
         doc.setTextColor(71, 85, 105);
-        const diffText = (qDiffObj.isUserTagged || !isHiddenSugInChunk) ? (qDiffObj.shortLabel || qDiffObj.label || 'Med') : '—';
+        const diffText = qDiffObj.isUserTagged ? (qDiffObj.shortLabel || qDiffObj.label || '—') : '—';
         doc.text(diffText, cellX + (keySubCols[3] / 2), chunkY + 11, { align: 'center' });
         cellX += keySubCols[3];
 
