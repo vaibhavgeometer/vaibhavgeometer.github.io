@@ -148,6 +148,7 @@ a {
   align-items: center;
   gap: 6px;
   background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   padding: 6px 14px;
   border-radius: var(--radius-full);
@@ -183,6 +184,7 @@ a {
   background: rgba(0, 0, 0, 0.2);
   padding: 12px 20px;
   border-radius: var(--radius-md);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
@@ -699,6 +701,7 @@ a {
   line-height: 1.7;
   color: var(--text-primary);
   margin-bottom: 24px;
+  -webkit-user-select: text;
   user-select: text;
 }
 
@@ -708,6 +711,7 @@ a {
   min-width: 80px;
   border-bottom: 2.5px solid var(--brand-primary);
   color: transparent;
+  -webkit-user-select: none;
   user-select: none;
   margin: 0 4px;
   vertical-align: baseline;
@@ -786,6 +790,7 @@ mjx-container[jax="SVG"][display="true"] {
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1237,6 +1242,7 @@ mjx-container[jax="SVG"][display="true"] {
   position: relative;
   transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
   color: #ffffff;
+  -webkit-user-select: none;
   user-select: none;
   background: #64748b; /* Fallback */
 }
@@ -1422,6 +1428,7 @@ mjx-container[jax="SVG"][display="true"] {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   z-index: 100;
   display: flex;
@@ -2068,8 +2075,8 @@ mjx-container[jax="SVG"][display="true"] {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
     z-index: 45;
     opacity: 0;
     pointer-events: none;
@@ -2583,6 +2590,7 @@ mjx-container[jax="SVG"][display="true"] {
   text-align: left;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  -webkit-user-select: none;
   user-select: none;
   font-family: inherit;
   width: 100%;
@@ -2784,6 +2792,7 @@ mjx-container[jax="SVG"][display="true"] {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s ease;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -3057,6 +3066,7 @@ mjx-container[jax="SVG"][display="true"] {
   background: var(--bg-card);
   color: var(--text-primary);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-user-select: none;
   user-select: none;
 }
 
