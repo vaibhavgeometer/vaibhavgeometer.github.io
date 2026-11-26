@@ -204,7 +204,7 @@
     selectedYear: 'ALL',
     selectedTopic: 'ALL',
     selectedSubtopic: 'ALL',
-    selectedStatus: 'ALL', // ALL | solved | unsolved | unnecessary
+    selectedStatus: 'ALL', // ALL | solved | unsolved | necessary | unnecessary
     selectedDifficulty: 'ALL', // ALL | very_easy | easy | medium | hard | hardest | unrated
     selectedSort: 'default', // default (year desc, q_num asc) | year_asc | diff_desc | diff_asc
     revealedKeys: new Set(),
@@ -668,10 +668,11 @@
         return false;
       }
 
-      // 4. Status Filter (solved / unsolved / unnecessary)
+      // 4. Status Filter (solved / unsolved / necessary / unnecessary)
       const u = getQuestionState(q.id);
       if (state.selectedStatus === 'solved' && !u.solved) return false;
       if (state.selectedStatus === 'unsolved' && u.solved) return false;
+      if (state.selectedStatus === 'necessary' && u.unnecessary) return false;
       if (state.selectedStatus === 'unnecessary' && !u.unnecessary) return false;
 
       // 5. Difficulty Filter
