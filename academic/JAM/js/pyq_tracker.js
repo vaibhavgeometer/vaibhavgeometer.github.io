@@ -651,6 +651,10 @@
       if (state.selectedYear !== 'ALL') {
         if (state.selectedYear === 'cbt') {
           if (q.year < 2015) return false;
+        } else if (state.selectedYear === '2022-2026') {
+          if (q.year < 2022 || q.year > 2026) return false;
+        } else if (state.selectedYear === '2015-2021') {
+          if (q.year < 2015 || q.year > 2021) return false;
         } else if (state.selectedYear === 'classic') {
           if (q.year >= 2015) return false;
         } else {
