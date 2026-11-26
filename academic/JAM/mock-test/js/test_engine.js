@@ -950,8 +950,8 @@
 
   // Sync difficulty visibility changes
   window.addEventListener('jam-difficulty-visibility-changed', function() {
-    if (typeof renderCurrentQuestion === 'function') {
-      renderCurrentQuestion();
+    if (typeof renderQuestion === 'function') {
+      renderQuestion();
     }
   });
 

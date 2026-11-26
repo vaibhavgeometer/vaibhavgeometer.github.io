@@ -101,22 +101,22 @@
         return;
       }
 
-      if (lower === '/contact' || lower === '/contact/' || lower.indexOf('/contact/') === 0) {
-        sub = path.replace(/^\/contact\/?/i, '');
-        window.location.replace('/contact/' + sub + search + hash);
+      if ((lower === '/contact' || lower === '/contact/' || lower === '/contact/index.html') &&
+          path !== '/contact/' && path !== '/contact/index.html') {
+        window.location.replace('/contact/' + search + hash);
         return;
       }
 
-      if (lower === '/art' || lower === '/art/' || lower.indexOf('/art/') === 0) {
-        sub = path.replace(/^\/art\/?/i, '');
-        window.location.replace('/art/' + sub + search + hash);
+      if ((lower === '/art' || lower === '/art/' || lower === '/art/index.html') &&
+          path !== '/art/' && path !== '/art/index.html') {
+        window.location.replace('/art/' + search + hash);
         return;
       }
 
-      if (lower === '/notes' || lower === '/notes/' || lower.indexOf('/notes/') === 0 ||
-          lower === '/blog' || lower === '/blog/') {
-        sub = path.replace(/^\/(?:notes|blog)\/?/i, '');
-        window.location.replace('/notes/' + sub + search + hash);
+      if (lower === '/notes' ||
+          ((lower === '/notes/' || lower === '/notes/index.html') && path !== '/notes/' && path !== '/notes/index.html') ||
+          lower === '/blog' || lower === '/blog/' || lower === '/blog/index.html') {
+        window.location.replace('/notes/' + search + hash);
         return;
       }
 

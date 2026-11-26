@@ -983,11 +983,16 @@
       if (e.key === 'Escape' && modalBackdrop.classList.contains('open')) {
         window.closeModal();
       }
-      // Keyboard shortcut '/' to search
-      if (e.key === '/' && document.activeElement !== searchInput) {
+      // Keyboard shortcut '/' to search (only when Results section is visible & user is not in an input/modal)
+      const resultsSection = document.getElementById('unpg-results-section');
+      const resultsVisible = resultsSection && !resultsSection.classList.contains('hidden');
+      const activeEl = document.activeElement;
+      const activeTag = activeEl && activeEl.tagName ? activeEl.tagName.toUpperCase() : '';
+      const isTyping = activeTag === 'INPUT' || activeTag === 'TEXTAREA' || activeTag === 'SELECT' || (activeEl && activeEl.isContentEditable);
+      if (e.key === '/' && resultsVisible && !isTyping && !modalBackdrop.classList.contains('open') && activeEl !== searchInput) {
         e.preventDefault();
         switchTab('search');
-        searchInput.focus();
+        if (searchInput) searchInput.focus();
       }
     });
 

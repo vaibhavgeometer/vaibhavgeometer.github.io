@@ -146,7 +146,11 @@
 
     lastResultContext = { state, evaluatedItems };
 
-    const mainEl = document.querySelector('.test-workspace') || document.body;
+    const appEl = document.querySelector('.exam-app');
+    const mainEl = appEl || document.querySelector('.exam-workspace') || document.body;
+    if (appEl) {
+      appEl.classList.add('results-mode');
+    }
 
     // YouTube Videos Card (if official paper has videos)
     const videos = Array.isArray(state.testObj.videos) ? state.testObj.videos : [];
@@ -205,7 +209,7 @@
 
     const reviewCardsHtml = buildReviewCardsHtml(evaluatedItems, 'ALL');
 
-    mainEl.outerHTML = `
+    const resultsHtml = `
       <div class="results-container" id="results-root">
         <div class="scorecard-hero">
           <div class="scorecard-title">${escapeHtml(state.testObj.name || state.testId)}</div>
@@ -271,9 +275,19 @@
       </div>
     `;
 
-    // Hide CBT header bar footer actions if outside .test-workspace
-    const bottomFooter = document.querySelector('.test-footer');
+    if (appEl) {
+      appEl.innerHTML = resultsHtml;
+    } else if (mainEl !== document.body) {
+      mainEl.outerHTML = resultsHtml;
+    } else {
+      document.body.innerHTML = resultsHtml;
+    }
+
+    // Hide CBT workspace/footer/drawer controls if rendered outside .exam-app replacement
+    const bottomFooter = document.querySelector('.exam-footer');
     if (bottomFooter) bottomFooter.style.display = 'none';
+    const drawerToggle = document.querySelector('.palette-drawer-toggle');
+    if (drawerToggle) drawerToggle.style.display = 'none';
 
     if (window.MathJax && window.MathJax.typesetPromise) {
       const root = document.getElementById('results-root');

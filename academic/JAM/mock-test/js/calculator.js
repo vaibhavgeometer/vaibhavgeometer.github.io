@@ -279,31 +279,45 @@
     return evalStack.length === 1 ? evalStack[0] : NaN;
   }
 
-  // Get current active numeric operand from display
-  function getCurrentOperand() {
-    let cur = calcState.display;
-    if (cur === 'Error' || !cur) return 0;
-    // Extract trailing number
-    const match = cur.match(/([+-]?\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s*$/i);
-    return match ? parseFloat(match[1]) : (parseFloat(cur) || 0);
+  // Extract trailing numeric operand along with its expression prefix
+  function getTrailingOperand(expr) {
+    const cur = expr !== undefined ? expr : calcState.display;
+    if (!cur || cur === 'Error') return null;
+    const match = cur.match(/(?:^|([+\-*/%^(]\s*|\s+))([+-]?\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s*$/i);
+    if (!match) return null;
+    const val = parseFloat(match[2]);
+    if (isNaN(val)) return null;
+    const fullLen = match[0].length;
+    const delimLen = match[1] ? match[1].length : 0;
+    const prefix = cur.slice(0, cur.length - fullLen + delimLen);
+    return { prefix, raw: match[2], value: val };
   }
 
-  // Apply single-argument function to current operand
+  // Get current active numeric operand from display
+  function getCurrentOperand() {
+    const tr = getTrailingOperand(calcState.display);
+    if (tr) return tr.value;
+    const cur = calcState.display;
+    if (cur === 'Error' || !cur) return 0;
+    return parseFloat(cur) || 0;
+  }
+
+  // Apply single-argument function to trailing operand (preserving pending expression prefix)
   function applyUnaryFunction(fnName, computeFn) {
-    let val = getCurrentOperand();
-    if (isNaN(val)) {
+    const tr = getTrailingOperand(calcState.display);
+    if (!tr || isNaN(tr.value)) {
       calcState.display = 'Error';
       updateCalcScreen();
       return;
     }
-    const res = computeFn(val);
+    const res = computeFn(tr.value);
     if (!Number.isFinite(res) || isNaN(res)) {
       calcState.display = 'Error';
     } else {
       const formatted = formatNumber(res);
-      calcState.history = `${fnName}(${val})`;
-      calcState.display = formatted;
-      calcState.shouldResetDisplay = true;
+      calcState.history = `${fnName}(${tr.value})`;
+      calcState.display = tr.prefix + formatted;
+      calcState.shouldResetDisplay = (tr.prefix === '');
     }
     updateCalcScreen();
   }
@@ -365,14 +379,11 @@
 
       case '+/-':
         if (cur !== '0' && cur !== 'Error') {
-          let val = getCurrentOperand();
-          let flipped = -val;
-          let formatted = formatNumber(flipped);
-          // If display is a single number, replace directly
-          if (!/[\s+\-*/%^]/.test(cur)) {
-            calcState.display = formatted;
-          } else {
-            calcState.display = cur.replace(/([+-]?\d+(?:\.\d+)?)\s*$/, formatted);
+          const tr = getTrailingOperand(cur);
+          if (tr) {
+            const flipped = -tr.value || 0;
+            const formatted = formatNumber(flipped);
+            calcState.display = tr.prefix + formatted;
           }
         }
         break;
@@ -405,14 +416,23 @@
         break;
 
       case 'pi':
-        calcState.display = Math.PI.toString();
-        calcState.shouldResetDisplay = true;
+      case 'e': {
+        const constStr = action === 'pi' ? Math.PI.toString() : Math.E.toString();
+        if (cur === '0' || cur === 'Error') {
+          calcState.display = constStr;
+        } else {
+          const trimmed = cur.trimEnd();
+          const lastChar = trimmed.slice(-1);
+          if ('+-*/%^('.includes(lastChar)) {
+            calcState.display = (lastChar === '(' ? trimmed : cur) + constStr;
+          } else {
+            const tr = getTrailingOperand(cur);
+            calcState.display = tr ? (tr.prefix + constStr) : (cur + ' * ' + constStr);
+          }
+        }
+        calcState.shouldResetDisplay = false;
         break;
-
-      case 'e':
-        calcState.display = Math.E.toString();
-        calcState.shouldResetDisplay = true;
-        break;
+      }
 
       case 'abs':
         applyUnaryFunction('abs', v => Math.abs(v));
