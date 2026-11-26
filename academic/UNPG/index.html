@@ -300,6 +300,115 @@
       color: #38bdf8;
       font-weight: 700;
     }
+    .timetable-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.35rem;
+      box-shadow: var(--shadow);
+    }
+    .timetable-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .timetable-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .timetable-title {
+      font-family: var(--font-heading, sans-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .timetable-sub {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+    .timetable-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .timetable-badge-confirmed {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: var(--green-dim);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--green);
+      white-space: nowrap;
+    }
+    .timetable-badge-tba {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.22rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: rgba(148, 163, 184, 0.12);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .timetable-toggle-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .timetable-toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+    }
+    .timetable-row-confirmed td {
+      background: rgba(16, 185, 129, 0.06);
+    }
+    .timetable-row-confirmed:hover td {
+      background: rgba(16, 185, 129, 0.1) !important;
+    }
+    .timetable-details-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.84rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    .timetable-details-list li + li {
+      margin-top: 0.3rem;
+    }
+    .timetable-source-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+    @media (max-width: 640px) {
+      .timetable-card {
+        padding: 1rem;
+      }
+      .resource-table th, .resource-table td {
+        padding: 0.65rem 0.7rem;
+        font-size: 0.82rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -389,6 +498,98 @@
         <a href="javascript:void(0)" onclick="window.switchMainTab('videos')" class="hero-pill" style="border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.08); color: #f87171; text-decoration: none;">🎥 <strong>16</strong> Video Solutions</a>
         <span class="hero-pill">⚡ <strong>+1.5 Marks</strong> / 0 Neg.</span>
         <a href="5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="hero-pill" title="Download Official CBCS 5th Sem Syllabus PDF">📜 <strong>5th Sem</strong> Syllabus</a>
+        <a href="#exam-timetable" onclick="window.scrollToTimetable && window.scrollToTimetable(); return false;" class="hero-pill" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08); color: var(--green); text-decoration: none;">📅 <strong>5th Sem</strong> Exam Time Table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5th Sem End Term Exam Time Table -->
+  <section class="container" id="exam-timetable" style="margin-top: 1.25rem; margin-bottom: 1.5rem;">
+    <div class="timetable-card">
+      <div class="timetable-header">
+        <div class="timetable-title-wrap">
+          <h2 class="timetable-title">
+            <span>📅 5th Sem End Term Exam Time Table</span>
+            <span class="timetable-badge-confirmed">PHY303F Practical: 02 Dec 2026</span>
+          </h2>
+          <p class="timetable-sub">UNPG Padrauna · DDU Gorakhpur University · Academic Session 2026–27 (MAT301F – PHY303F)</p>
+        </div>
+        <div class="timetable-header-actions">
+          <button type="button" class="timetable-toggle-btn" id="timetable-toggle-btn" onclick="window.toggleExamTimetable && window.toggleExamTimetable()" aria-expanded="true" aria-controls="exam-timetable-body">
+            ▲ Hide Time Table
+          </button>
+        </div>
+      </div>
+
+      <div id="exam-timetable-body" style="overflow-x: auto; margin-top: 0.75rem;">
+        <table class="resource-table" style="margin-top: 0;">
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Course Title</th>
+              <th>Type / Credits</th>
+              <th>Exam Date</th>
+              <th>Timing</th>
+              <th>Schedule &amp; Instructions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>💍 MAT301F</strong></td>
+              <td>Ring Theory and Linear Algebra</td>
+              <td><span class="course-badge">Theory · 4 Cr</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+            </tr>
+            <tr>
+              <td><strong>∇ MAT302F</strong></td>
+              <td>Tensor Analysis</td>
+              <td><span class="course-badge">Theory · 3 Cr</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+            </tr>
+            <tr>
+              <td><strong>🌀 MAT303F</strong></td>
+              <td>Differential Geometry</td>
+              <td><span class="course-badge">Theory · 3 Cr</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+            </tr>
+            <tr>
+              <td><strong>⚙️ PHY301F</strong></td>
+              <td>Classical Mechanics &amp; Statistical Mechanics</td>
+              <td><span class="course-badge">Theory · 4 Cr</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+            </tr>
+            <tr>
+              <td><strong>⚛️ PHY302F</strong></td>
+              <td>Quantum Mechanics &amp; Spectroscopy</td>
+              <td><span class="course-badge">Theory · 4 Cr</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><span class="timetable-badge-tba">TBA</span></td>
+            </tr>
+            <tr class="timetable-row-confirmed">
+              <td><strong>🔬 PHY303F</strong></td>
+              <td>Practical: Demonstrative Aspects of Optics &amp; Lasers</td>
+              <td><span class="course-badge" style="background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">Practical · 2 Cr</span></td>
+              <td><span class="timetable-badge-confirmed">02 Dec 2026 (Wed)</span></td>
+              <td><strong>8:00 AM</strong></td>
+              <td>
+                <ul class="timetable-details-list">
+                  <li><strong>Practical Exam (02 Dec 2026):</strong> 1st &amp; 5th Semester Physics Practical; everyone must report at <strong>8:00 AM</strong>.</li>
+                  <li><strong>Pre-Exam Attendance (30 Nov &amp; 01 Dec 2026):</strong> All students must be present in college at <strong>10:00 AM</strong> along with their <strong>Practical File</strong>.</li>
+                </ul>
+                <div class="timetable-source-note">Notice by Rohit Kumar Jha Sir (26 Nov 2026, 1:56 PM · B.Sc. 5th Sem Physics)</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -1271,6 +1472,7 @@
                   <div class="course-meta">
                     <span>Practical Lab (0-0-4)</span>
                     <span>Continuous Lab Evaluation</span>
+                    <span style="border-color: rgba(16, 185, 129, 0.35); color: var(--green);">📅 Exam: 02 Dec 2026 · 8:00 AM</span>
                   </div>
                 </div>
                 <div style="display: flex; gap: 0.5rem;">

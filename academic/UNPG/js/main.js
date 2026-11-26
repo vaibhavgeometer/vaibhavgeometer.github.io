@@ -664,10 +664,40 @@
     }
   };
 
+  // --- Exam Time Table Toggle & Scroll ---
+  window.toggleExamTimetable = function () {
+    const body = document.getElementById('exam-timetable-body');
+    const btn = document.getElementById('timetable-toggle-btn');
+    if (!body || !btn) return;
+    const isHidden = body.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isHidden));
+    btn.textContent = isHidden ? '▼ Show Time Table' : '▲ Hide Time Table';
+  };
+
+  window.scrollToTimetable = function () {
+    const body = document.getElementById('exam-timetable-body');
+    const btn = document.getElementById('timetable-toggle-btn');
+    if (body && body.classList.contains('hidden')) {
+      body.classList.remove('hidden');
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = '▲ Hide Time Table';
+      }
+    }
+    const sec = document.getElementById('exam-timetable');
+    if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   // --- Hash Navigation ---
   function handleHash() {
     const raw = (window.location.hash || '').replace('#', '').trim().toLowerCase();
     if (!raw) return;
+
+    if (['timetable', 'exam-timetable'].includes(raw)) {
+      window.switchPortalMode('exams', { skipHash: true, skipScroll: true });
+      setTimeout(() => window.scrollToTimetable(), 60);
+      return;
+    }
 
     if (['results', 'search', 'toppers', 'semesters', 'subjects', 'downloads'].includes(raw) ||
         raw.startsWith('student=') || raw.startsWith('subject=')) {
