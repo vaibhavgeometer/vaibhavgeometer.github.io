@@ -875,40 +875,6 @@ select:focus-visible {
   }
 }
 
-/* About Grid & Highlights */
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin: 0 0 1.75rem;
-}
-
-.about-item {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.1rem 1.15rem;
-}
-
-.about-item-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent-cyan);
-  margin-bottom: 0.35rem;
-}
-
-.about-item-val {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.about-item-val strong {
-  color: var(--text-primary);
-}
-
 /* Copy Email Button Feedback */
 button.btn-secondary {
   cursor: pointer;
