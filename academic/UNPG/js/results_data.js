@@ -21,7 +21,6 @@ window.RESULTS_DATA = {
       "mother_name": "SANGEETA JAISWAL",
       "enrollment_no": "DDU5162500598",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-04-2006",
       "semesters_present": [
         1,
         2,
@@ -571,7 +570,6 @@ window.RESULTS_DATA = {
       "mother_name": "RITA DEVI",
       "enrollment_no": "DDU5162500637",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-02-2007",
       "semesters_present": [
         1,
         2,
@@ -1121,7 +1119,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUGANDH",
       "enrollment_no": "DDU5162500641",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "18-11-2008",
       "semesters_present": [
         1,
         2,
@@ -1669,7 +1666,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUNITA DEVI",
       "enrollment_no": "DDU5162500675",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-08-2007",
       "semesters_present": [
         1,
         2,
@@ -2219,7 +2215,6 @@ window.RESULTS_DATA = {
       "mother_name": "TARA DEVI",
       "enrollment_no": "DDU5162500681",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "17-07-1999",
       "semesters_present": [
         1,
         2,
@@ -2769,7 +2764,6 @@ window.RESULTS_DATA = {
       "mother_name": "ASHA DEVI",
       "enrollment_no": "DDU5162500685",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "10-03-2006",
       "semesters_present": [
         1,
         2
@@ -3058,7 +3052,6 @@ window.RESULTS_DATA = {
       "mother_name": "SANGITA DEVI",
       "enrollment_no": "DDU5162500723",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "04-05-2005",
       "semesters_present": [
         1,
         2,
@@ -3611,7 +3604,6 @@ window.RESULTS_DATA = {
       "mother_name": "URMILA DEVI",
       "enrollment_no": "DDU5162500731",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-03-2007",
       "semesters_present": [
         1,
         2,
@@ -4161,7 +4153,6 @@ window.RESULTS_DATA = {
       "mother_name": "NIRMALA DEVI",
       "enrollment_no": "DDU5162500735",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-06-2006",
       "semesters_present": [
         1,
         2,
@@ -4709,7 +4700,6 @@ window.RESULTS_DATA = {
       "mother_name": "POONAM DUBEY",
       "enrollment_no": "DDU5162500743",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "15-08-2007",
       "semesters_present": [
         1,
         2,
@@ -5257,7 +5247,6 @@ window.RESULTS_DATA = {
       "mother_name": "SANGEETA SINGH",
       "enrollment_no": "DDU5162500752",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "25-03-2006",
       "semesters_present": [
         1,
         2,
@@ -5807,7 +5796,6 @@ window.RESULTS_DATA = {
       "mother_name": "UMA DEVI",
       "enrollment_no": "DDU5162500754",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -6357,7 +6345,6 @@ window.RESULTS_DATA = {
       "mother_name": "SAROJ DEVI",
       "enrollment_no": "DDU5162500768",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -6908,7 +6895,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHASHIKALA DEVI",
       "enrollment_no": "DDU5162500778",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "27-01-2007",
       "semesters_present": [
         1,
         2,
@@ -7456,7 +7442,6 @@ window.RESULTS_DATA = {
       "mother_name": "VIMALA DEVI",
       "enrollment_no": "DDU5162500784",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -8006,7 +7991,6 @@ window.RESULTS_DATA = {
       "mother_name": "TAIRUN NESHA",
       "enrollment_no": "DDU5162500793",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "05-11-2005",
       "semesters_present": [
         1,
         2,
@@ -8554,7 +8538,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHAHIDA BANO",
       "enrollment_no": "DDU5162500795",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-05-2008",
       "semesters_present": [
         1,
         2,
@@ -9104,7 +9087,6 @@ window.RESULTS_DATA = {
       "mother_name": "LALMATI DEVI",
       "enrollment_no": "DDU5162500810",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -9654,7 +9636,6 @@ window.RESULTS_DATA = {
       "mother_name": "SARITA DEVI",
       "enrollment_no": "DDU5162500841",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "12-01-2007",
       "semesters_present": [
         1,
         2,
@@ -10202,7 +10183,6 @@ window.RESULTS_DATA = {
       "mother_name": "JEERAMATI DEVI",
       "enrollment_no": "DDU5162500844",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "15-08-2007",
       "semesters_present": [
         1,
         2,
@@ -10755,7 +10735,6 @@ window.RESULTS_DATA = {
       "mother_name": "NEETU MISHRA",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "27-08-2006",
       "semesters_present": [
         1
       ],
@@ -10912,7 +10891,6 @@ window.RESULTS_DATA = {
       "mother_name": "MEENA DEVI",
       "enrollment_no": "DDU5162500868",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -11460,7 +11438,6 @@ window.RESULTS_DATA = {
       "mother_name": "AASHA DEVI",
       "enrollment_no": "DDU5162500870",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-01-2003",
       "semesters_present": [
         1,
         2,
@@ -12008,7 +11985,6 @@ window.RESULTS_DATA = {
       "mother_name": "URMILA KUSHWAHA",
       "enrollment_no": "DDU5162500872",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "24-07-2007",
       "semesters_present": [
         1,
         2,
@@ -12559,7 +12535,6 @@ window.RESULTS_DATA = {
       "mother_name": "RINKU DEVI",
       "enrollment_no": "DDU5162500873",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "29-07-2007",
       "semesters_present": [
         1,
         2
@@ -12848,7 +12823,6 @@ window.RESULTS_DATA = {
       "mother_name": "KALPANA SRIVASTAVA",
       "enrollment_no": "DDU5162500875",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "30-04-2004",
       "semesters_present": [
         1,
         2,
@@ -13396,7 +13370,6 @@ window.RESULTS_DATA = {
       "mother_name": "SEEMA DEVI",
       "enrollment_no": "DDU5162500876",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -13946,7 +13919,6 @@ window.RESULTS_DATA = {
       "mother_name": "RENU PANDEY",
       "enrollment_no": "DDU5162500877",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "07-12-2003",
       "semesters_present": [
         1,
         2,
@@ -14496,7 +14468,6 @@ window.RESULTS_DATA = {
       "mother_name": "JYOTI DEVI",
       "enrollment_no": "DDU5162500878",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-12-2007",
       "semesters_present": [
         1,
         2,
@@ -15044,7 +15015,6 @@ window.RESULTS_DATA = {
       "mother_name": "USHA DEVI",
       "enrollment_no": "DDU5162500881",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "06-11-2006",
       "semesters_present": [
         1,
         2,
@@ -15592,7 +15562,6 @@ window.RESULTS_DATA = {
       "mother_name": "PUNAM DEVI",
       "enrollment_no": "DDU5162500886",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -16142,7 +16111,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUBHAWATI DEIV",
       "enrollment_no": "DDU5162500890",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-05-2003",
       "semesters_present": [
         1,
         2,
@@ -16690,7 +16658,6 @@ window.RESULTS_DATA = {
       "mother_name": "VIMLA DEVI",
       "enrollment_no": "DDU5162500893",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "05-03-2008",
       "semesters_present": [
         1,
         2,
@@ -17241,7 +17208,6 @@ window.RESULTS_DATA = {
       "mother_name": "RENU SINGH",
       "enrollment_no": "DDU5162500898",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "10-01-2007",
       "semesters_present": [
         1,
         2,
@@ -17792,7 +17758,6 @@ window.RESULTS_DATA = {
       "mother_name": "KISMATI DEVI",
       "enrollment_no": "DDU5162500900",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2004",
       "semesters_present": [
         1,
         2,
@@ -18344,7 +18309,6 @@ window.RESULTS_DATA = {
       "mother_name": "RINKI DEVI",
       "enrollment_no": "DDU5162500902",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "07-08-2005",
       "semesters_present": [
         1,
         2,
@@ -18892,7 +18856,6 @@ window.RESULTS_DATA = {
       "mother_name": "MEERA DEVI",
       "enrollment_no": "DDU5162500903",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "14-08-2006",
       "semesters_present": [
         1,
         2,
@@ -19440,7 +19403,6 @@ window.RESULTS_DATA = {
       "mother_name": "PRAMILA DEVI",
       "enrollment_no": "DDU5162500904",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "11-11-2005",
       "semesters_present": [
         1,
         2,
@@ -19988,7 +19950,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUCHITA DEVI",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "22-09-2006",
       "semesters_present": [
         1
       ],
@@ -20145,7 +20106,6 @@ window.RESULTS_DATA = {
       "mother_name": "SAVITRI DEVI",
       "enrollment_no": "DDU5162500912",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "17-06-2005",
       "semesters_present": [
         1,
         2,
@@ -20693,7 +20653,6 @@ window.RESULTS_DATA = {
       "mother_name": "JAISHUN NESHA",
       "enrollment_no": "DDU5162500914",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -21241,7 +21200,6 @@ window.RESULTS_DATA = {
       "mother_name": "REENA DEVI",
       "enrollment_no": "DDU5162500918",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "14-07-2005",
       "semesters_present": [
         1,
         2,
@@ -21791,7 +21749,6 @@ window.RESULTS_DATA = {
       "mother_name": "BINDA DEVI",
       "enrollment_no": "DDU5162500920",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "06-08-2005",
       "semesters_present": [
         1,
         2,
@@ -22339,7 +22296,6 @@ window.RESULTS_DATA = {
       "mother_name": "NAZAMA KHATOON",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-02-2006",
       "semesters_present": [
         1
       ],
@@ -22496,7 +22452,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUNITA DEVI",
       "enrollment_no": "DDU5162500926",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2008",
       "semesters_present": [
         1,
         2,
@@ -23046,7 +23001,6 @@ window.RESULTS_DATA = {
       "mother_name": "GAYATRI DEVI",
       "enrollment_no": "DDU5162500927",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "27-07-2007",
       "semesters_present": [
         1,
         2,
@@ -23594,7 +23548,6 @@ window.RESULTS_DATA = {
       "mother_name": "MANJU DEVI",
       "enrollment_no": "DDU5162500931",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -24146,7 +24099,6 @@ window.RESULTS_DATA = {
       "mother_name": "VIBHA DEVI",
       "enrollment_no": "DDU5162500939",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "16-12-2008",
       "semesters_present": [
         1,
         2,
@@ -24694,7 +24646,6 @@ window.RESULTS_DATA = {
       "mother_name": "RITA DEVI",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "14-04-2005",
       "semesters_present": [
         1
       ],
@@ -24851,7 +24802,6 @@ window.RESULTS_DATA = {
       "mother_name": "LALTI DEVI",
       "enrollment_no": "DDU5162500950",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -25399,7 +25349,6 @@ window.RESULTS_DATA = {
       "mother_name": "LALPATI DEVI",
       "enrollment_no": "DDU5162500951",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "29-03-2005",
       "semesters_present": [
         1,
         2,
@@ -25947,7 +25896,6 @@ window.RESULTS_DATA = {
       "mother_name": "ANITA DEVI",
       "enrollment_no": "DDU5162500953",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-12-2008",
       "semesters_present": [
         1,
         2,
@@ -26495,7 +26443,6 @@ window.RESULTS_DATA = {
       "mother_name": "NIGARA KHATOON",
       "enrollment_no": "DDU5162500957",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-07-2005",
       "semesters_present": [
         1,
         2
@@ -26784,7 +26731,6 @@ window.RESULTS_DATA = {
       "mother_name": "RAMBHA DEVI",
       "enrollment_no": "DDU5162500959",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2006",
       "semesters_present": [
         1,
         2,
@@ -27332,7 +27278,6 @@ window.RESULTS_DATA = {
       "mother_name": "RUKSHANA KHATUN",
       "enrollment_no": "DDU5162500960",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "20-11-2005",
       "semesters_present": [
         1,
         2,
@@ -27883,7 +27828,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHABNAM KHATOON",
       "enrollment_no": "DDU5162500961",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "17-11-2007",
       "semesters_present": [
         1,
         2,
@@ -28435,7 +28379,6 @@ window.RESULTS_DATA = {
       "mother_name": "MEERA DEVI",
       "enrollment_no": "DDU5162500965",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -28986,7 +28929,6 @@ window.RESULTS_DATA = {
       "mother_name": "ARCHANA TIWARI",
       "enrollment_no": "DDU5162500966",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "07-12-2005",
       "semesters_present": [
         1,
         2,
@@ -29536,7 +29478,6 @@ window.RESULTS_DATA = {
       "mother_name": "DURGAWATI DEVI",
       "enrollment_no": "DDU5162500967",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-06-2006",
       "semesters_present": [
         1,
         2,
@@ -30086,7 +30027,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHAIRA KHATOON",
       "enrollment_no": "DDU5162500968",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2006",
       "semesters_present": [
         1,
         2,
@@ -30637,7 +30577,6 @@ window.RESULTS_DATA = {
       "mother_name": "RABIYA KHATOON",
       "enrollment_no": "DDU5162500969",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "15-02-2005",
       "semesters_present": [
         1,
         2,
@@ -31185,7 +31124,6 @@ window.RESULTS_DATA = {
       "mother_name": "BACHCHI DEVI",
       "enrollment_no": "DDU5162500974",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "06-06-2006",
       "semesters_present": [
         1,
         2,
@@ -31735,7 +31673,6 @@ window.RESULTS_DATA = {
       "mother_name": "DROPATI DEVI",
       "enrollment_no": "DDU5162500976",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-04-2004",
       "semesters_present": [
         1,
         2,
@@ -32285,7 +32222,6 @@ window.RESULTS_DATA = {
       "mother_name": "POONAM DEVI",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1
       ],
@@ -32442,7 +32378,6 @@ window.RESULTS_DATA = {
       "mother_name": "ARCHANA DEVI",
       "enrollment_no": "DDU5162500979",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "22-09-2005",
       "semesters_present": [
         1,
         2,
@@ -32992,7 +32927,6 @@ window.RESULTS_DATA = {
       "mother_name": "WAHIDA KHATOON",
       "enrollment_no": "DDU5162500980",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "24-10-2007",
       "semesters_present": [
         1,
         2,
@@ -33542,7 +33476,6 @@ window.RESULTS_DATA = {
       "mother_name": "SAVITA KUMARI",
       "enrollment_no": "DDU5162500981",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "12-06-2003",
       "semesters_present": [
         1,
         2,
@@ -34090,7 +34023,6 @@ window.RESULTS_DATA = {
       "mother_name": "BINDU DEVI",
       "enrollment_no": "DDU5162500982",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -34638,7 +34570,6 @@ window.RESULTS_DATA = {
       "mother_name": "NEWALI DEVI",
       "enrollment_no": "DDU5162500983",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2004",
       "semesters_present": [
         1,
         2,
@@ -35188,7 +35119,6 @@ window.RESULTS_DATA = {
       "mother_name": "SALAHANTI DEVI",
       "enrollment_no": "DDU5162500988",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -35738,7 +35668,6 @@ window.RESULTS_DATA = {
       "mother_name": "ANITA DEVI",
       "enrollment_no": "DDU5162500953",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-12-2008",
       "semesters_present": [
         1,
         2,
@@ -36286,7 +36215,6 @@ window.RESULTS_DATA = {
       "mother_name": "SAVITA KUMARI",
       "enrollment_no": "DDU5162500981",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "12-06-2003",
       "semesters_present": [
         1,
         2,
@@ -36834,7 +36762,6 @@ window.RESULTS_DATA = {
       "mother_name": "BINDU DEVI",
       "enrollment_no": "DDU5162500982",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -37382,7 +37309,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUGANDH",
       "enrollment_no": "DDU5162500641",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "18-11-2008",
       "semesters_present": [
         1,
         2,
@@ -37930,7 +37856,6 @@ window.RESULTS_DATA = {
       "mother_name": "JAISHUN NESHA",
       "enrollment_no": "DDU5162500914",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -38478,7 +38403,6 @@ window.RESULTS_DATA = {
       "mother_name": "DURGAWATI DEVI",
       "enrollment_no": "DDU5162500967",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-06-2006",
       "semesters_present": [
         1,
         2,
@@ -39028,7 +38952,6 @@ window.RESULTS_DATA = {
       "mother_name": "MEENA DEVI",
       "enrollment_no": "DDU5162500868",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -39576,7 +39499,6 @@ window.RESULTS_DATA = {
       "mother_name": "RAMBHA DEVI",
       "enrollment_no": "DDU5162500959",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2006",
       "semesters_present": [
         1,
         2,
@@ -40124,7 +40046,6 @@ window.RESULTS_DATA = {
       "mother_name": "KALPANA SRIVASTAVA",
       "enrollment_no": "DDU5162500875",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "30-04-2004",
       "semesters_present": [
         1,
         2,
@@ -40672,7 +40593,6 @@ window.RESULTS_DATA = {
       "mother_name": "VIBHA DEVI",
       "enrollment_no": "DDU5162500939",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "16-12-2008",
       "semesters_present": [
         1,
         2,
@@ -41220,7 +41140,6 @@ window.RESULTS_DATA = {
       "mother_name": "AASHA DEVI",
       "enrollment_no": "DDU5162500870",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-01-2003",
       "semesters_present": [
         1,
         2,
@@ -41768,7 +41687,6 @@ window.RESULTS_DATA = {
       "mother_name": "USHA DEVI",
       "enrollment_no": "DDU5162500881",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "06-11-2006",
       "semesters_present": [
         1,
         2,
@@ -42316,7 +42234,6 @@ window.RESULTS_DATA = {
       "mother_name": "UMA DEVI",
       "enrollment_no": "DDU5162500754",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -42866,7 +42783,6 @@ window.RESULTS_DATA = {
       "mother_name": "LALTI DEVI",
       "enrollment_no": "DDU5162500950",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -43414,7 +43330,6 @@ window.RESULTS_DATA = {
       "mother_name": "RINKI DEVI",
       "enrollment_no": "DDU5162500902",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "07-08-2005",
       "semesters_present": [
         1,
         2,
@@ -43962,7 +43877,6 @@ window.RESULTS_DATA = {
       "mother_name": "SANGEETA SINGH",
       "enrollment_no": "DDU5162500752",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "25-03-2006",
       "semesters_present": [
         1,
         2,
@@ -44512,7 +44426,6 @@ window.RESULTS_DATA = {
       "mother_name": "LALPATI DEVI",
       "enrollment_no": "DDU5162500951",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "29-03-2005",
       "semesters_present": [
         1,
         2,
@@ -45060,7 +44973,6 @@ window.RESULTS_DATA = {
       "mother_name": "SANGEETA JAISWAL",
       "enrollment_no": "DDU5162500598",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-04-2006",
       "semesters_present": [
         1,
         2,
@@ -45610,7 +45522,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHAHIDA BANO",
       "enrollment_no": "DDU5162500795",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-05-2008",
       "semesters_present": [
         1,
         2,
@@ -46160,7 +46071,6 @@ window.RESULTS_DATA = {
       "mother_name": "PUNAM DEVI",
       "enrollment_no": "DDU5162500886",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -46710,7 +46620,6 @@ window.RESULTS_DATA = {
       "mother_name": "SARITA DEVI",
       "enrollment_no": "DDU5162500841",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "12-01-2007",
       "semesters_present": [
         1,
         2,
@@ -47258,7 +47167,6 @@ window.RESULTS_DATA = {
       "mother_name": "JYOTI DEVI",
       "enrollment_no": "DDU5162500878",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-12-2007",
       "semesters_present": [
         1,
         2,
@@ -47806,7 +47714,6 @@ window.RESULTS_DATA = {
       "mother_name": "GAYATRI DEVI",
       "enrollment_no": "DDU5162500927",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "27-07-2007",
       "semesters_present": [
         1,
         2,
@@ -48354,7 +48261,6 @@ window.RESULTS_DATA = {
       "mother_name": "SAVITRI DEVI",
       "enrollment_no": "DDU5162500912",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "17-06-2005",
       "semesters_present": [
         1,
         2,
@@ -48902,7 +48808,6 @@ window.RESULTS_DATA = {
       "mother_name": "RABIYA KHATOON",
       "enrollment_no": "DDU5162500969",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "15-02-2005",
       "semesters_present": [
         1,
         2,
@@ -49450,7 +49355,6 @@ window.RESULTS_DATA = {
       "mother_name": "SEEMA DEVI",
       "enrollment_no": "DDU5162500876",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -50000,7 +49904,6 @@ window.RESULTS_DATA = {
       "mother_name": "REENA DEVI",
       "enrollment_no": "DDU5162500918",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "14-07-2005",
       "semesters_present": [
         1,
         2,
@@ -50550,7 +50453,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHABNAM KHATOON",
       "enrollment_no": "DDU5162500961",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "17-11-2007",
       "semesters_present": [
         1,
         2,
@@ -51102,7 +51004,6 @@ window.RESULTS_DATA = {
       "mother_name": "TAIRUN NESHA",
       "enrollment_no": "DDU5162500793",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "05-11-2005",
       "semesters_present": [
         1,
         2,
@@ -51650,7 +51551,6 @@ window.RESULTS_DATA = {
       "mother_name": "MEERA DEVI",
       "enrollment_no": "DDU5162500965",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -52201,7 +52101,6 @@ window.RESULTS_DATA = {
       "mother_name": "MEERA DEVI",
       "enrollment_no": "DDU5162500903",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "14-08-2006",
       "semesters_present": [
         1,
         2,
@@ -52749,7 +52648,6 @@ window.RESULTS_DATA = {
       "mother_name": "SALAHANTI DEVI",
       "enrollment_no": "DDU5162500988",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -53297,7 +53195,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUNITA DEVI",
       "enrollment_no": "DDU5162500926",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2008",
       "semesters_present": [
         1,
         2,
@@ -53847,7 +53744,6 @@ window.RESULTS_DATA = {
       "mother_name": "RUKSHANA KHATUN",
       "enrollment_no": "DDU5162500960",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "20-11-2005",
       "semesters_present": [
         1,
         2,
@@ -54398,7 +54294,6 @@ window.RESULTS_DATA = {
       "mother_name": "POONAM DUBEY",
       "enrollment_no": "DDU5162500743",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "15-08-2007",
       "semesters_present": [
         1,
         2,
@@ -54946,7 +54841,6 @@ window.RESULTS_DATA = {
       "mother_name": "RENU PANDEY",
       "enrollment_no": "DDU5162500877",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "07-12-2003",
       "semesters_present": [
         1,
         2,
@@ -55496,7 +55390,6 @@ window.RESULTS_DATA = {
       "mother_name": "BACHCHI DEVI",
       "enrollment_no": "DDU5162500974",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "06-06-2006",
       "semesters_present": [
         1,
         2,
@@ -56046,7 +55939,6 @@ window.RESULTS_DATA = {
       "mother_name": "TARA DEVI",
       "enrollment_no": "DDU5162500681",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "17-07-1999",
       "semesters_present": [
         1,
         2,
@@ -56596,7 +56488,6 @@ window.RESULTS_DATA = {
       "mother_name": "BINDA DEVI",
       "enrollment_no": "DDU5162500920",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "06-08-2005",
       "semesters_present": [
         1,
         2,
@@ -57144,7 +57035,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUNITA DEVI",
       "enrollment_no": "DDU5162500675",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-08-2007",
       "semesters_present": [
         1,
         2,
@@ -57694,7 +57584,6 @@ window.RESULTS_DATA = {
       "mother_name": "ARCHANA TIWARI",
       "enrollment_no": "DDU5162500966",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "07-12-2005",
       "semesters_present": [
         1,
         2,
@@ -58244,7 +58133,6 @@ window.RESULTS_DATA = {
       "mother_name": "ARCHANA DEVI",
       "enrollment_no": "DDU5162500979",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "22-09-2005",
       "semesters_present": [
         1,
         2,
@@ -58794,7 +58682,6 @@ window.RESULTS_DATA = {
       "mother_name": "DROPATI DEVI",
       "enrollment_no": "DDU5162500976",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-04-2004",
       "semesters_present": [
         1,
         2,
@@ -59344,7 +59231,6 @@ window.RESULTS_DATA = {
       "mother_name": "PRAMILA DEVI",
       "enrollment_no": "DDU5162500904",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "11-11-2005",
       "semesters_present": [
         1,
         2,
@@ -59892,7 +59778,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHASHIKALA DEVI",
       "enrollment_no": "DDU5162500778",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "27-01-2007",
       "semesters_present": [
         1,
         2,
@@ -60440,7 +60325,6 @@ window.RESULTS_DATA = {
       "mother_name": "NEWALI DEVI",
       "enrollment_no": "DDU5162500983",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2004",
       "semesters_present": [
         1,
         2,
@@ -60990,7 +60874,6 @@ window.RESULTS_DATA = {
       "mother_name": "URMILA KUSHWAHA",
       "enrollment_no": "DDU5162500872",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "24-07-2007",
       "semesters_present": [
         1,
         2,
@@ -61541,7 +61424,6 @@ window.RESULTS_DATA = {
       "mother_name": "URMILA DEVI",
       "enrollment_no": "DDU5162500731",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-03-2007",
       "semesters_present": [
         1,
         2,
@@ -62091,7 +61973,6 @@ window.RESULTS_DATA = {
       "mother_name": "NIRMALA DEVI",
       "enrollment_no": "DDU5162500735",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-06-2006",
       "semesters_present": [
         1,
         2,
@@ -62639,7 +62520,6 @@ window.RESULTS_DATA = {
       "mother_name": "VIMALA DEVI",
       "enrollment_no": "DDU5162500784",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -63189,7 +63069,6 @@ window.RESULTS_DATA = {
       "mother_name": "SHAIRA KHATOON",
       "enrollment_no": "DDU5162500968",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2006",
       "semesters_present": [
         1,
         2,
@@ -63740,7 +63619,6 @@ window.RESULTS_DATA = {
       "mother_name": "RENU SINGH",
       "enrollment_no": "DDU5162500898",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "10-01-2007",
       "semesters_present": [
         1,
         2,
@@ -64291,7 +64169,6 @@ window.RESULTS_DATA = {
       "mother_name": "WAHIDA KHATOON",
       "enrollment_no": "DDU5162500980",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "24-10-2007",
       "semesters_present": [
         1,
         2,
@@ -64841,7 +64718,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUBHAWATI DEIV",
       "enrollment_no": "DDU5162500890",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "02-05-2003",
       "semesters_present": [
         1,
         2,
@@ -65389,7 +65265,6 @@ window.RESULTS_DATA = {
       "mother_name": "RITA DEVI",
       "enrollment_no": "DDU5162500637",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-02-2007",
       "semesters_present": [
         1,
         2,
@@ -65939,7 +65814,6 @@ window.RESULTS_DATA = {
       "mother_name": "VIMLA DEVI",
       "enrollment_no": "DDU5162500893",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "05-03-2008",
       "semesters_present": [
         1,
         2,
@@ -66490,7 +66364,6 @@ window.RESULTS_DATA = {
       "mother_name": "SAROJ DEVI",
       "enrollment_no": "DDU5162500768",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -67041,7 +66914,6 @@ window.RESULTS_DATA = {
       "mother_name": "MANJU DEVI",
       "enrollment_no": "DDU5162500931",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1,
         2,
@@ -67593,7 +67465,6 @@ window.RESULTS_DATA = {
       "mother_name": "LALMATI DEVI",
       "enrollment_no": "DDU5162500810",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2007",
       "semesters_present": [
         1,
         2,
@@ -68143,7 +68014,6 @@ window.RESULTS_DATA = {
       "mother_name": "JEERAMATI DEVI",
       "enrollment_no": "DDU5162500844",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "15-08-2007",
       "semesters_present": [
         1,
         2,
@@ -68696,7 +68566,6 @@ window.RESULTS_DATA = {
       "mother_name": "SANGITA DEVI",
       "enrollment_no": "DDU5162500723",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "04-05-2005",
       "semesters_present": [
         1,
         2,
@@ -69249,7 +69118,6 @@ window.RESULTS_DATA = {
       "mother_name": "KISMATI DEVI",
       "enrollment_no": "DDU5162500900",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2004",
       "semesters_present": [
         1,
         2,
@@ -69801,7 +69669,6 @@ window.RESULTS_DATA = {
       "mother_name": "NEETU MISHRA",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "27-08-2006",
       "semesters_present": [
         1
       ],
@@ -69958,7 +69825,6 @@ window.RESULTS_DATA = {
       "mother_name": "NAZAMA KHATOON",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-02-2006",
       "semesters_present": [
         1
       ],
@@ -70115,7 +69981,6 @@ window.RESULTS_DATA = {
       "mother_name": "ASHA DEVI",
       "enrollment_no": "DDU5162500685",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "10-03-2006",
       "semesters_present": [
         1,
         2
@@ -70404,7 +70269,6 @@ window.RESULTS_DATA = {
       "mother_name": "SUCHITA DEVI",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "22-09-2006",
       "semesters_present": [
         1
       ],
@@ -70561,7 +70425,6 @@ window.RESULTS_DATA = {
       "mother_name": "RINKU DEVI",
       "enrollment_no": "DDU5162500873",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "29-07-2007",
       "semesters_present": [
         1,
         2
@@ -70850,7 +70713,6 @@ window.RESULTS_DATA = {
       "mother_name": "NIGARA KHATOON",
       "enrollment_no": "DDU5162500957",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-07-2005",
       "semesters_present": [
         1,
         2
@@ -71139,7 +71001,6 @@ window.RESULTS_DATA = {
       "mother_name": "RITA DEVI",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "14-04-2005",
       "semesters_present": [
         1
       ],
@@ -71296,7 +71157,6 @@ window.RESULTS_DATA = {
       "mother_name": "POONAM DEVI",
       "enrollment_no": "",
       "college_name": "UDIT NARAYAN SNATAKOTTAR MAHAVIDYALAYA, PADRAUNA KUSHI NAGAR",
-      "dob": "01-01-2005",
       "semesters_present": [
         1
       ],

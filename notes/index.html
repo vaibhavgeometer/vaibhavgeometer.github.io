@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes &amp; Articles — Vaibhav Priyadarshi</title>
+  <meta name="description" content="Mathematical articles, empirical exam analytics, study resources, and open-source engineering notes by Vaibhav Priyadarshi.">
+  <link rel="canonical" href="https://vaibhavgeometer.github.io/notes/">
+  <meta property="og:title" content="Notes &amp; Articles — Vaibhav Priyadarshi">
+  <meta property="og:description" content="Mathematical articles, empirical exam analytics, and open-source engineering notes.">
+  <meta property="og:image" content="https://vaibhavgeometer.github.io/images/vaibhav.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vaibhavgeometer.github.io/images/vaibhav.jpg">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('jam_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/portfolio.css">
+</head>
+<body>
+
+  <div class="bg-mesh" aria-hidden="true"></div>
+
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="../" class="brand-wrap" title="Vaibhav Priyadarshi">
+        <div class="brand-icon-box">📐</div>
+        <span class="brand-text">Vaibhav Priyadarshi</span>
+      </a>
+
+      <button type="button" id="nav-menu-btn" class="nav-menu-btn" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+
+      <div id="site-nav-links" class="nav-controls">
+        <a href="../academic/" class="nav-link" title="Academic Portals Hub">Academic</a>
+        <a href="../academic/UNPG/" class="nav-link" title="UNPG BSc Math Portal">UNPG Portal</a>
+        <a href="../academic/JAM/" class="nav-link" title="IIT JAM Portal">IIT JAM</a>
+        <a href="./" class="nav-link" style="color: var(--accent-cyan);" title="Math Notes &amp; Articles">Notes</a>
+        <a href="../art/" class="nav-link" title="Art Gallery">Art</a>
+        <a href="../contact/" class="nav-link" title="Contact Me">Contact</a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="nav-link" title="GitHub Profile">GitHub ↗</a>
+        <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <section class="hero-simple">
+        <h1 class="hero-title">Notes &amp; Articles</h1>
+        <p class="hero-desc">Empirical exam research, mathematics study archives, and open-source engineering notes.</p>
+      </section>
+
+      <section class="projects-section">
+        <div class="projects-stack">
+
+          <!-- Featured Article -->
+          <div class="jam-card">
+            <div class="jam-card-header">
+              <div class="jam-badge">Research Article · Empirical Analytics</div>
+              <h2 class="jam-title">IIT JAM Mathematics (MA): 22-Year Statistics &amp; Analytics (2005–2026)</h2>
+              <p class="jam-summary">
+                Full empirical study covering 885 official examination questions and 2,000 marks across Real Analysis, Linear Algebra &amp; Groups, and Multivariable Calculus &amp; ODE—analyzing subject weightage shifts, era transitions, and cognitive difficulty distributions.
+              </p>
+            </div>
+            <div class="jam-actions">
+              <a href="../academic/JAM/analytics/" class="btn-primary">
+                <span>📊 Read Full Analytics Article</span>
+                <span>→</span>
+              </a>
+              <a href="../academic/JAM/assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <span>📄 Download Report PDF (0.2 MB)</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Study Resources & Technical Notes Grid -->
+          <div class="jam-card">
+            <div class="jam-card-header">
+              <div class="jam-badge">Curated Archives · Guides &amp; Tooling</div>
+              <h2 class="jam-title">Study Archives &amp; Engineering Notes</h2>
+              <p class="jam-summary">
+                Direct entry points to mathematics syllabi, university lecture walkthroughs, and software architecture.
+              </p>
+            </div>
+
+            <div class="notes-grid">
+              <div class="note-card">
+                <div>
+                  <div class="note-meta">IIT JAM MA · 2005–2026</div>
+                  <h3 class="note-title">Syllabus &amp; 22-Year PYQ Master Archive</h3>
+                  <p class="note-desc">
+                    Official IIT JAM syllabus PDF (0.66 MB), original 22-year paper compilation (33.6 MB), and 885 categorized questions with 5-tier difficulty tags.
+                  </p>
+                </div>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                  <a href="../academic/JAM/" class="btn-secondary">🎯 Open JAM Portal</a>
+                  <a href="../academic/JAM/assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">📜 Syllabus PDF</a>
+                </div>
+              </div>
+
+              <div class="note-card">
+                <div>
+                  <div class="note-meta">UNPG Padrauna · Semester V</div>
+                  <h3 class="note-title">B.Sc. Math &amp; Physics Walkthroughs</h3>
+                  <p class="note-desc">
+                    16 YouTube video solutions solving 750 university MCQs across Ring Theory, Tensor Analysis, Differential Geometry, Classical &amp; Quantum Mechanics.
+                  </p>
+                </div>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                  <a href="../academic/UNPG/#videos" class="btn-secondary">▶️ Video Solutions</a>
+                  <a href="../academic/UNPG/#courses" class="btn-secondary">📑 Course Matrix</a>
+                </div>
+              </div>
+
+              <div class="note-card">
+                <div>
+                  <div class="note-meta">Postgraduate Archive · SCQP19</div>
+                  <h3 class="note-title">CUET-PG Mathematics Papers (2024–2026)</h3>
+                  <p class="note-desc">
+                    Master question papers for Central Universities Entrance Test Postgraduate (CUET-PG) Mathematics.
+                  </p>
+                </div>
+                <div>
+                  <a href="../academic/CUET-PG/" class="btn-secondary">📄 Browse CUET-PG Papers</a>
+                </div>
+              </div>
+
+              <div class="note-card">
+                <div>
+                  <div class="note-meta">Architecture · Edge Sync &amp; Scrapers</div>
+                  <h3 class="note-title">Static CBT Engine &amp; Cloudflare KV Sync</h3>
+                  <p class="note-desc">
+                    Zero-login 6-character cross-device sync built with Cloudflare Workers KV + BroadcastChannel, alongside Python automation in DDU-Result-Finder.
+                  </p>
+                </div>
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                  <a href="https://github.com/vaibhavgeometer/DDU-Result-Finder" target="_blank" rel="noopener noreferrer" class="btn-secondary">🔍 DDU-Result-Finder ↗</a>
+                  <a href="https://github.com/vaibhavgeometer/vaibhavgeometer.github.io" target="_blank" rel="noopener noreferrer" class="btn-secondary">📦 Website Source ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Vaibhav Priyadarshi · Hosted on GitHub Pages</p>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../academic/">Academic Portals</a>
+        <a href="../academic/UNPG/">UNPG Portal</a>
+        <a href="../academic/JAM/">IIT JAM</a>
+        <a href="./">Notes</a>
+        <a href="../art/">Art Gallery</a>
+        <a href="../contact/">Contact</a>
+      </div>
+      <p id="last-updated-text" style="font-size: 0.78rem; opacity: 0.8; margin-top: 6px;">Last updated: 26 Nov 2026, 06:10 pm IST</p>
+    </div>
+  </footer>
+  <script src="../js/last-updated.js"></script>
+
+  <script>
+    function initTheme() {
+      const saved = localStorage.getItem('jam_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    }
+
+    window.toggleTheme = function() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('jam_theme', next);
+      updateThemeIcon(next);
+    };
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) {
+        btn.textContent = theme === 'dark' ? '☀' : '🌙';
+        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initTheme);
+  </script>
+  <script defer src="../js/portfolio-ui.js"></script>
+  <script defer src="../js/unified_sync.js"></script>
+</body>
+</html>

@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academic Portals &amp; Results — Vaibhav Priyadarshi</title>
   <meta name="description" content="Academic & Examination Hub: UNPG BSc Math 2024-2028 Semester Exams &amp; Results Portals, IIT JAM Mathematics (MA) 22-Year Archive (2005-2026), and CUET-PG Mathematics.">
+  <link rel="canonical" href="https://vaibhavgeometer.github.io/academic/">
+  <meta property="og:title" content="Academic Portals &amp; Results — Vaibhav Priyadarshi">
+  <meta property="og:description" content="UNPG BSc Math 2024-2028 Semester Exams &amp; Results Portals, IIT JAM Mathematics (MA) 22-Year Archive (2005-2026), and CUET-PG Mathematics.">
+  <meta property="og:image" content="https://vaibhavgeometer.github.io/images/vaibhav.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vaibhavgeometer.github.io/images/vaibhav.jpg">
   <script>
     (function() {
       try {
@@ -136,11 +142,16 @@
         <div class="brand-icon-box">📐</div>
         <span class="brand-text">Vaibhav Priyadarshi</span>
       </a>
-      <div class="nav-controls">
+      <button type="button" id="nav-menu-btn" class="nav-menu-btn" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+
+      <div id="site-nav-links" class="nav-controls">
+        <a href="./" class="nav-link" style="color: var(--accent-cyan);">Academic</a>
         <a href="UNPG/" class="nav-link">UNPG Portal</a>
-        <a href="UNPG/#results" class="nav-link">UNPG Results</a>
         <a href="JAM/" class="nav-link">IIT JAM</a>
-        <a href="../" class="nav-link">Home</a>
+        <a href="../notes/" class="nav-link">Notes</a>
+        <a href="../art/" class="nav-link">Art</a>
+        <a href="../contact/" class="nav-link">Contact</a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub ↗</a>
         <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
       </div>
     </div>
@@ -220,7 +231,7 @@
                   🛠️ Custom Test &amp; PDF
                 </a>
                 <a href="UNPG/5th-sem/5th%20Sem%20Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                  📥 5th Sem Syllabus
+                  📥 5th Sem Syllabus (1.05 MB)
                 </a>
                 <a href="UNPG/#videos" class="btn-secondary" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">
                   ▶️ Video Solutions
@@ -346,21 +357,21 @@
               <ul class="paper-list">
                 <li>
                   <span class="paper-name">CUET-PG 2026 Paper</span>
-                  <a href="CUET-PG/2026.pdf" target="_blank" rel="noopener noreferrer" class="text-link paper-link">📥 Download PDF</a>
+                  <a href="CUET-PG/2026.pdf" target="_blank" rel="noopener noreferrer" class="text-link paper-link">📥 PDF (4.8 MB)</a>
                 </li>
                 <li>
                   <span class="paper-name">CUET-PG 2025 Paper</span>
-                  <a href="CUET-PG/2025.pdf" target="_blank" rel="noopener noreferrer" class="text-link paper-link">📥 Download PDF</a>
+                  <a href="CUET-PG/2025.pdf" target="_blank" rel="noopener noreferrer" class="text-link paper-link">📥 PDF (9.1 MB)</a>
                 </li>
                 <li>
                   <span class="paper-name">CUET-PG 2024 Paper</span>
-                  <a href="CUET-PG/2024.pdf" target="_blank" rel="noopener noreferrer" class="text-link paper-link">📥 Download PDF</a>
+                  <a href="CUET-PG/2024.pdf" target="_blank" rel="noopener noreferrer" class="text-link paper-link">📥 PDF (3.8 MB)</a>
                 </li>
               </ul>
             </div>
             <div class="card-footer-action">
               <a href="CUET-PG/2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                <span>📄 View Latest 2026 Paper (PDF)</span>
+                <span>📄 View Latest 2026 Paper (4.8 MB PDF)</span>
               </a>
             </div>
           </div>
@@ -406,6 +417,7 @@
       updateThemeIcon(next);
     };
   </script>
-  <script src="../js/unified_sync.js"></script>
+  <script defer src="../js/portfolio-ui.js"></script>
+  <script defer src="../js/unified_sync.js"></script>
 </body>
 </html>

@@ -113,6 +113,13 @@
         return;
       }
 
+      if (lower === '/notes' || lower === '/notes/' || lower.indexOf('/notes/') === 0 ||
+          lower === '/blog' || lower === '/blog/') {
+        sub = path.replace(/^\/(?:notes|blog)\/?/i, '');
+        window.location.replace('/notes/' + sub + search + hash);
+        return;
+      }
+
     })();
   </script>
 

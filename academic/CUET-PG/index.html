@@ -33,12 +33,16 @@
         <div class="brand-icon-box">📐</div>
         <span class="brand-text">Vaibhav Priyadarshi</span>
       </a>
-      <div class="nav-controls">
+      <button type="button" id="nav-menu-btn" class="nav-menu-btn" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+
+      <div id="site-nav-links" class="nav-controls">
         <a href="../" class="nav-link" title="Academic Portals Hub">Academic</a>
         <a href="../UNPG/" class="nav-link" title="UNPG BSc Math Portal">UNPG Portal</a>
         <a href="../JAM/" class="nav-link" title="IIT JAM Portal">IIT JAM</a>
+        <a href="../../notes/" class="nav-link" title="Math Notes &amp; Articles">Notes</a>
         <a href="../../art/" class="nav-link" title="Art Gallery">Art</a>
         <a href="../../contact/" class="nav-link" title="Contact Me">Contact</a>
+        <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="nav-link" title="GitHub Profile">GitHub ↗</a>
         <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
       </div>
     </div>
@@ -173,6 +177,7 @@
 
     document.addEventListener('DOMContentLoaded', initTheme);
   </script>
-  <script src="../../js/unified_sync.js"></script>
+  <script defer src="../../js/portfolio-ui.js"></script>
+  <script defer src="../../js/unified_sync.js"></script>
 </body>
 </html>

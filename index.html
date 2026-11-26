@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaibhav Priyadarshi</title>
   <meta name="description" content="Vaibhav Priyadarshi — Projects and academic portals.">
+  <link rel="canonical" href="https://vaibhavgeometer.github.io/">
   <script>
     (function() {
       try {
@@ -40,7 +41,9 @@
         <span class="brand-text">Vaibhav Priyadarshi</span>
       </a>
 
-      <div class="nav-controls">
+      <button type="button" id="nav-menu-btn" class="nav-menu-btn" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+
+      <div id="site-nav-links" class="nav-controls">
         <a href="academic/" class="nav-link" title="Academic Portals Hub">
           Academic
         </a>
@@ -50,10 +53,13 @@
         <a href="academic/JAM/" class="nav-link" title="IIT JAM Portal">
           IIT JAM
         </a>
+        <a href="notes/" class="nav-link" title="Math Notes &amp; Articles">
+          Notes
+        </a>
         <a href="art/" class="nav-link" title="Art Gallery">
           Art
         </a>
-        <a href="#contact" class="nav-link" title="Contact Me">
+        <a href="contact/" class="nav-link" title="Contact Me">
           Contact
         </a>
         <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="nav-link" title="GitHub Profile">
@@ -86,6 +92,45 @@
       <!-- Featured Projects Stack -->
       <section class="projects-section">
         <div class="projects-stack">
+
+          <!-- About Me -->
+          <div class="jam-card" id="about">
+            <div class="jam-card-header">
+              <div class="jam-badge">About Me · Academic &amp; Engineering</div>
+              <h2 class="jam-title">Mathematics, Physics &amp; Open-Source Study Tools</h2>
+              <p class="jam-summary">
+                Undergraduate student in the <strong>B.Sc. Mathematics Group (2024–2028)</strong> at UNPG College, Padrauna (DDU Gorakhpur University), building open-access examination archives, CBT simulators, and empirical analytics for higher mathematics.
+              </p>
+            </div>
+
+            <div class="about-grid">
+              <div class="about-item">
+                <div class="about-item-label">Education</div>
+                <div class="about-item-val"><strong>B.Sc. (NEP 2020)</strong> · Mathematics &amp; Physics Group, UNPG Padrauna (Sem V ongoing).</div>
+              </div>
+              <div class="about-item">
+                <div class="about-item-label">Mathematical Focus</div>
+                <div class="about-item-val">Real Analysis, Linear Algebra, Ring &amp; Group Theory, Tensor Analysis, Differential Geometry &amp; ODEs.</div>
+              </div>
+              <div class="about-item">
+                <div class="about-item-label">Technical Stack</div>
+                <div class="about-item-val">Python automation, Vanilla ES6+ web apps, MathJax 3, jsPDF, and Cloudflare Workers KV.</div>
+              </div>
+            </div>
+
+            <div class="jam-actions">
+              <a href="notes/" class="btn-primary">
+                <span>📝 Notes &amp; Analytics Hub</span>
+                <span>→</span>
+              </a>
+              <a href="academic/JAM/analytics/" class="btn-secondary">
+                <span>📊 22-Year JAM Report</span>
+              </a>
+              <a href="contact/" class="btn-secondary">
+                <span>✉️ Get in Touch</span>
+              </a>
+            </div>
+          </div>
 
           <!-- Featured Project 1: Academic Portals -->
           <div class="jam-card">
@@ -200,16 +245,16 @@
             </div>
 
             <div class="art-preview-grid">
-              <a href="images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="art-preview-item" title="View Geometric Color Partition (Full Image)">
+              <a href="images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="art-preview-item" data-lightbox="art" data-title="Geometric Color Partition" data-tag="Geometric Art" data-desc="Curvilinear spherical partition with interlocking boundaries creating harmonic colored fields across the spectrum." title="Preview Geometric Color Partition">
                 <img src="images/art/artwork_1.jpg" alt="Geometric Color Partition" loading="lazy">
               </a>
-              <a href="images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="art-preview-item" title="View Sunny Landscape &amp; Tower (Full Image)">
+              <a href="images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="art-preview-item" data-lightbox="art" data-title="Sunny Landscape &amp; Tower" data-tag="Digital Illustration" data-desc="Bright sunny landscape with soaring birds, rolling green hills, hillside house, and an expressive colorful tower." title="Preview Sunny Landscape &amp; Tower">
                 <img src="images/art/artwork_2.jpg" alt="Sunny Landscape &amp; Tower" loading="lazy">
               </a>
-              <a href="images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="art-preview-item" title="View Cosmic Orbits &amp; Planets (Full Image)">
+              <a href="images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="art-preview-item" data-lightbox="art" data-title="Cosmic Orbits &amp; Planets" data-tag="Cosmic Digital Art" data-desc="Celestial system illustration with a radiant central sun, gravitational orbits, multi-hued planets, and starry void." title="Preview Cosmic Orbits &amp; Planets">
                 <img src="images/art/artwork_3.jpg" alt="Cosmic Orbits &amp; Planets" loading="lazy">
               </a>
-              <a href="images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="art-preview-item" title="View Geometric Lines &amp; Ellipses (Full Image)">
+              <a href="images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="art-preview-item" data-lightbox="art" data-title="Geometric Lines &amp; Ellipses" data-tag="Abstract Geometry" data-desc="Constructivist geometric composition of intersecting linear planes, overlapping ellipses, and vibrant chromatic partitions on an azure field." title="Preview Geometric Lines &amp; Ellipses">
                 <img src="images/art/artwork_4.png" alt="Geometric Lines &amp; Ellipses" loading="lazy">
               </a>
             </div>
@@ -219,16 +264,16 @@
                 <span>🎨 Open Art Gallery</span>
                 <span>→</span>
               </a>
-              <a href="images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <a href="images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-lightbox="art" data-title="Geometric Color Partition" data-tag="Geometric Art" data-desc="Curvilinear spherical partition with interlocking boundaries creating harmonic colored fields across the spectrum.">
                 <span>🔍 Geometric Art</span>
               </a>
-              <a href="images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <a href="images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-lightbox="art" data-title="Sunny Landscape &amp; Tower" data-tag="Digital Illustration" data-desc="Bright sunny landscape with soaring birds, rolling green hills, hillside house, and an expressive colorful tower.">
                 <span>🔍 Landscape</span>
               </a>
-              <a href="images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <a href="images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-lightbox="art" data-title="Cosmic Orbits &amp; Planets" data-tag="Cosmic Digital Art" data-desc="Celestial system illustration with a radiant central sun, gravitational orbits, multi-hued planets, and starry void.">
                 <span>🔍 Cosmic Orbits</span>
               </a>
-              <a href="images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <a href="images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-lightbox="art" data-title="Geometric Lines &amp; Ellipses" data-tag="Abstract Geometry" data-desc="Constructivist geometric composition of intersecting linear planes, overlapping ellipses, and vibrant chromatic partitions on an azure field.">
                 <span>🔍 Lines &amp; Ellipses</span>
               </a>
             </div>
@@ -275,6 +320,9 @@
                 <span>✉️ Send Email</span>
                 <span>→</span>
               </a>
+              <button type="button" class="btn-secondary js-copy-email" data-email="vaibhav27182@gmail.com" title="Copy vaibhav27182@gmail.com to clipboard">
+                <span>📋 Copy Email</span>
+              </button>
               <a href="https://linktr.ee/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <span>🌲 Open Linktree</span>
                 <span>↗</span>
@@ -300,8 +348,9 @@
         <a href="academic/UNPG/">UNPG Portal</a>
         <a href="academic/UNPG/#results">UNPG Results</a>
         <a href="academic/JAM/">IIT JAM</a>
+        <a href="notes/">Notes</a>
         <a href="art/">Art Gallery</a>
-        <a href="#contact">Contact</a>
+        <a href="contact/">Contact</a>
         <a href="https://github.com/vaibhavgeometer" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
       <p id="last-updated-text" style="font-size: 0.78rem; opacity: 0.8; margin-top: 6px;">Last updated: 25 Nov 2026, 02:42 pm IST</p>
@@ -334,6 +383,7 @@
 
     document.addEventListener('DOMContentLoaded', initTheme);
   </script>
-  <script src="js/unified_sync.js"></script>
+  <script defer src="js/portfolio-ui.js"></script>
+  <script defer src="js/unified_sync.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Gallery — Vaibhav Priyadarshi</title>
   <meta name="description" content="Original digital artwork, geometric partitions, landscapes, and cosmic illustrations by Vaibhav Priyadarshi.">
+  <link rel="canonical" href="https://vaibhavgeometer.github.io/art/">
   <script>
     (function() {
       try {
@@ -40,7 +41,9 @@
         <span class="brand-text">Vaibhav Priyadarshi</span>
       </a>
 
-      <div class="nav-controls">
+      <button type="button" id="nav-menu-btn" class="nav-menu-btn" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+
+      <div id="site-nav-links" class="nav-controls">
         <a href="../academic/" class="nav-link" title="Academic Portals Hub">
           Academic
         </a>
@@ -49,6 +52,9 @@
         </a>
         <a href="../academic/JAM/" class="nav-link" title="IIT JAM Portal">
           IIT JAM
+        </a>
+        <a href="../notes/" class="nav-link" title="Math Notes &amp; Articles">
+          Notes
         </a>
         <a href="./" class="nav-link" style="color: var(--accent-cyan);" title="Art Gallery">
           Art
@@ -81,7 +87,7 @@
           <!-- Artwork 1 -->
           <article class="art-card">
             <div class="art-card-img-wrap">
-              <a href="../images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" title="Click to view full image">
+              <a href="../images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" data-lightbox="art" data-title="Geometric Color Partition" data-tag="Geometric Art" data-desc="Curvilinear spherical partition with interlocking boundaries creating harmonic colored fields across the spectrum." title="Click to preview artwork">
                 <img src="../images/art/artwork_1.jpg" alt="Geometric Color Partition" loading="lazy">
               </a>
             </div>
@@ -92,7 +98,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Geometric Art</span>
-                <a href="../images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="text-link" data-lightbox="art" data-title="Geometric Color Partition" data-tag="Geometric Art" data-desc="Curvilinear spherical partition with interlocking boundaries creating harmonic colored fields across the spectrum.">Preview ↗</a>
               </div>
             </div>
           </article>
@@ -100,7 +106,7 @@
           <!-- Artwork 2 -->
           <article class="art-card">
             <div class="art-card-img-wrap">
-              <a href="../images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" title="Click to view full image">
+              <a href="../images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" data-lightbox="art" data-title="Sunny Landscape &amp; Tower" data-tag="Digital Illustration" data-desc="Bright sunny landscape with soaring birds, rolling green hills, hillside house, and an expressive colorful tower." title="Click to preview artwork">
                 <img src="../images/art/artwork_2.jpg" alt="Sunny Landscape &amp; Tower" loading="lazy">
               </a>
             </div>
@@ -111,7 +117,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Digital Illustration</span>
-                <a href="../images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="text-link" data-lightbox="art" data-title="Sunny Landscape &amp; Tower" data-tag="Digital Illustration" data-desc="Bright sunny landscape with soaring birds, rolling green hills, hillside house, and an expressive colorful tower.">Preview ↗</a>
               </div>
             </div>
           </article>
@@ -119,7 +125,7 @@
           <!-- Artwork 3 -->
           <article class="art-card">
             <div class="art-card-img-wrap">
-              <a href="../images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" title="Click to view full image">
+              <a href="../images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" data-lightbox="art" data-title="Cosmic Orbits &amp; Planets" data-tag="Cosmic Digital Art" data-desc="Celestial system illustration with a radiant central sun, gravitational orbits, multi-hued planets, and starry void." title="Click to preview artwork">
                 <img src="../images/art/artwork_3.jpg" alt="Cosmic Orbits &amp; Planetary System" loading="lazy">
               </a>
             </div>
@@ -130,7 +136,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Cosmic Digital Art</span>
-                <a href="../images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="text-link" data-lightbox="art" data-title="Cosmic Orbits &amp; Planets" data-tag="Cosmic Digital Art" data-desc="Celestial system illustration with a radiant central sun, gravitational orbits, multi-hued planets, and starry void.">Preview ↗</a>
               </div>
             </div>
           </article>
@@ -138,7 +144,7 @@
           <!-- Artwork 4 -->
           <article class="art-card">
             <div class="art-card-img-wrap">
-              <a href="../images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" title="Click to view full image">
+              <a href="../images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" data-lightbox="art" data-title="Geometric Lines &amp; Ellipses" data-tag="Abstract Geometry" data-desc="Constructivist geometric composition of intersecting linear planes, overlapping ellipses, and vibrant chromatic partitions on an azure field." title="Click to preview artwork">
                 <img src="../images/art/artwork_4.png" alt="Geometric Lines &amp; Ellipses" loading="lazy">
               </a>
             </div>
@@ -149,7 +155,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Abstract Geometry</span>
-                <a href="../images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="text-link" data-lightbox="art" data-title="Geometric Lines &amp; Ellipses" data-tag="Abstract Geometry" data-desc="Constructivist geometric composition of intersecting linear planes, overlapping ellipses, and vibrant chromatic partitions on an azure field.">Preview ↗</a>
               </div>
             </div>
           </article>
@@ -217,6 +223,7 @@
 
     document.addEventListener('DOMContentLoaded', initTheme);
   </script>
-  <script src="../js/unified_sync.js"></script>
+  <script defer src="../js/portfolio-ui.js"></script>
+  <script defer src="../js/unified_sync.js"></script>
 </body>
 </html>

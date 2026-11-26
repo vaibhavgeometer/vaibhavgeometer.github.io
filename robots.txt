@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /academic/UNPG/assets/students/
+Disallow: /academic/UNPG/assets/semesters/
+
+Sitemap: https://vaibhavgeometer.github.io/sitemap.xml

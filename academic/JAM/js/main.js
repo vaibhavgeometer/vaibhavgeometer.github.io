@@ -170,7 +170,7 @@
         : '';
 
       const mockPdfBtn = t.mock_pdf
-        ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
+        ? `<a href="${t.mock_pdf}" target="_blank" rel="noopener noreferrer" class="btn-test secondary btn-mock-pdf" title="Download Official Mock Test PDF with Question Screenshots & Answer Key">📥 Mock PDF</a>`
         : '';
 
       const eraBadgeLabel = t.era_label || (isComprehensive ? '2005–2026 Archive' : t.era);
@@ -804,11 +804,37 @@
     }
   }
 
+  function annotateMockPdfSizes() {
+    if (typeof fetch !== 'function') return;
+    fetch('assets/Mock%20Tests_PDF/mock_tests_manifest.json')
+      .then(r => (r.ok ? r.json() : null))
+      .then(list => {
+        if (!Array.isArray(list)) return;
+        const sizeMap = {};
+        list.forEach(item => {
+          if (item && item.filename && item.size_mb) {
+            sizeMap[item.filename] = Number(item.size_mb).toFixed(1);
+          }
+        });
+        document.querySelectorAll('.btn-mock-pdf').forEach(a => {
+          const href = a.getAttribute('href') || '';
+          const fname = decodeURIComponent(href.split('/').pop() || '');
+          const sz = sizeMap[fname];
+          if (sz && !a.dataset.sized) {
+            a.dataset.sized = '1';
+            a.textContent = `📥 Mock PDF (${sz} MB)`;
+          }
+        });
+      })
+      .catch(() => {});
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
     window.initTheme();
     window.renderYearMockTests();
     window.renderTopicMockTests();
+    annotateMockPdfSizes();
     window.initCustomGenerator();
     window.updateOnlineStatus();
     handleUrlHash();

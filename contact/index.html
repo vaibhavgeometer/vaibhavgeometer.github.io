@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact me — Vaibhav Priyadarshi</title>
   <meta name="description" content="Contact Vaibhav Priyadarshi: Email, Linktree, and academic connections.">
+  <link rel="canonical" href="https://vaibhavgeometer.github.io/contact/">
   <script>
     (function() {
       try {
@@ -40,7 +41,9 @@
         <span class="brand-text">Vaibhav Priyadarshi</span>
       </a>
 
-      <div class="nav-controls">
+      <button type="button" id="nav-menu-btn" class="nav-menu-btn" aria-expanded="false" aria-controls="site-nav-links" aria-label="Toggle navigation menu">☰</button>
+
+      <div id="site-nav-links" class="nav-controls">
         <a href="../academic/" class="nav-link" title="Academic Portals Hub">
           Academic
         </a>
@@ -49,6 +52,9 @@
         </a>
         <a href="../academic/JAM/" class="nav-link" title="IIT JAM Portal">
           IIT JAM
+        </a>
+        <a href="../notes/" class="nav-link" title="Math Notes &amp; Articles">
+          Notes
         </a>
         <a href="../art/" class="nav-link" title="Art Gallery">
           Art
@@ -86,7 +92,7 @@
               <div class="jam-badge">Get in Touch · Connect</div>
               <h2 class="jam-title">Connect with Me</h2>
               <p class="jam-summary">
-                Direct contact information and links as featured on the official blog and social profiles.
+                Direct contact information and social profiles across the portfolio and academic portals.
               </p>
             </div>
 
@@ -121,6 +127,9 @@
                 <span>✉️ Send Email</span>
                 <span>→</span>
               </a>
+              <button type="button" class="btn-secondary js-copy-email" data-email="vaibhav27182@gmail.com" title="Copy vaibhav27182@gmail.com to clipboard">
+                <span>📋 Copy Email</span>
+              </button>
               <a href="https://linktr.ee/vaibhavgeometer" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <span>🌲 Open Linktree</span>
                 <span>↗</span>
@@ -184,6 +193,7 @@
 
     document.addEventListener('DOMContentLoaded', initTheme);
   </script>
-  <script src="../js/unified_sync.js"></script>
+  <script defer src="../js/portfolio-ui.js"></script>
+  <script defer src="../js/unified_sync.js"></script>
 </body>
 </html>

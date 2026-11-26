@@ -166,7 +166,7 @@
             <button class="btn-card-profile" onclick="window.showStudentProfile('${s.roll}')">
               <span>👤 View Profile</span>
             </button>
-            <a href="${s.pdf_url}" target="_blank" class="btn-card-pdf" title="Download 4-Semester Grade Sheet PDF">
+            <a href="${s.pdf_url}" target="_blank" rel="noopener noreferrer" class="btn-card-pdf" title="Download 4-Semester Grade Sheet PDF">
               <span>📄 PDF</span>
             </a>
           </div>
@@ -286,10 +286,6 @@
             <div class="info-item-val">${student.mother_name || 'N/A'}</div>
           </div>
           <div>
-            <div class="info-item-label">Date of Birth</div>
-            <div class="info-item-val">${student.dob || 'N/A'}</div>
-          </div>
-          <div>
             <div class="info-item-label">College</div>
             <div class="info-item-val" style="font-size:0.85rem;">${student.college_name}</div>
           </div>
@@ -327,7 +323,7 @@
 
       <div class="modal-footer">
         <button class="btn-card-profile" onclick="window.closeModal()" style="flex:initial;padding:0.6rem 1.25rem;">Close</button>
-        <a href="${student.pdf_url}" target="_blank" class="search-btn" style="text-decoration:none;font-size:0.9rem;">
+        <a href="${student.pdf_url}" target="_blank" rel="noopener noreferrer" class="search-btn" style="text-decoration:none;font-size:0.9rem;">
           <span>📄 Download Combined 4-Semester PDF</span>
         </a>
       </div>
@@ -1008,6 +1004,10 @@
     handleHashChange();
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 

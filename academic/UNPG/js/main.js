@@ -22,6 +22,55 @@
   const ALL_COURSE_IDS = Object.keys(COURSE_META);
   const TAB_IDS = ['year-tests', 'pyq-tracker', 'custom-generator', 'videos', 'resources'];
 
+  const UNPG_PDF_SIZES_MB = {
+    'MAT301F_2023-24': '68.6 MB',
+    'MAT301F_2024-25': '22.1 MB',
+    'MAT301F_2025-26': '57.4 MB',
+    'MAT302F_2023-24': '9.4 MB',
+    'MAT302F_2024-25': '18.7 MB',
+    'MAT302F_2025-26': '45.5 MB',
+    'MAT303F_2023-24': '11.7 MB',
+    'MAT303F_2024-25': '26.5 MB',
+    'MAT303F_2025-26': '39.4 MB',
+    'PHY301F_2023-24': '3.5 MB',
+    'PHY301F_2024-25': '12.8 MB',
+    'PHY301F_2025-26': '41.7 MB',
+    'PHY302F_2023-24': '11.1 MB',
+    'PHY302F_2024-25': '13.2 MB',
+    'PHY302F_2025-26': '10.9 MB'
+  };
+
+  let resultsModulePromise = null;
+  function loadScriptOnce(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = false;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error('Failed to load ' + src));
+      document.body.appendChild(s);
+    });
+  }
+
+  function ensureResultsModuleLoaded() {
+    if (window.RESULTS_DATA && window.UNPG_RESULTS) {
+      return Promise.resolve();
+    }
+    if (resultsModulePromise) return resultsModulePromise;
+
+    const countEl = document.getElementById('search-results-count');
+    if (countEl) countEl.textContent = 'Loading student records (3.1 MB)...';
+
+    resultsModulePromise = loadScriptOnce('js/results_data.js')
+      .then(() => loadScriptOnce('js/app.js'))
+      .catch((err) => {
+        resultsModulePromise = null;
+        if (countEl) countEl.textContent = 'Failed to load student records. Please refresh and try again.';
+        console.error(err);
+      });
+    return resultsModulePromise;
+  }
+
   let currentYearFilter = 'ALL';
   let currentCourseFilter = 'ALL';
 
@@ -182,6 +231,8 @@
 
       const pdfFileName = `${t.id}_Official_Exam_Paper.pdf`;
       const pdfPath = `assets/pdfs/${pdfFileName}`;
+      const pdfSize = UNPG_PDF_SIZES_MB[t.id];
+      const pdfLabel = pdfSize ? `📥 Official Paper PDF (${pdfSize})` : '📥 Official Paper PDF';
 
       let videoHtml = '';
       if (t.videos && t.videos.length === 1) {
@@ -237,7 +288,7 @@
           <div class="topic-actions">
             <a href="mock-test/test.html?test=${encodeURIComponent(t.id)}&mode=official" class="btn-test primary">⚡ Start CBT Test</a>
             <a href="mock-test/test.html?test=${encodeURIComponent(t.id)}&mode=practice" class="btn-test secondary">📖 Practice</a>
-            <a href="${pdfPath}" target="_blank" class="btn-test cheat btn-mock-pdf" title="Open Official Printable Paper PDF (with Answer Key)">📥 Official Paper PDF</a>
+            <a href="${pdfPath}" target="_blank" rel="noopener noreferrer" class="btn-test cheat btn-mock-pdf" title="Open Official Printable Paper PDF (with Answer Key)">${pdfLabel}</a>
           </div>
           ${videoHtml}
         </div>
@@ -331,6 +382,8 @@
       const meta = COURSE_META[t.course_code] || { name: t.course_title, icon: '📚', color: '#38bdf8' };
       const thumbUrl = `https://img.youtube.com/vi/${v.yt_id}/mqdefault.jpg`;
       const pdfPath = `assets/pdfs/${t.id}_Official_Exam_Paper.pdf`;
+      const pdfSize = UNPG_PDF_SIZES_MB[t.id];
+      const pdfShortLabel = pdfSize ? `📥 PDF (${pdfSize})` : '📥 PDF';
       return `
         <div class="video-card topic-card" style="border-top: 3px solid ${meta.color}; padding: 16px;">
           <a href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer" class="video-thumb-link" title="Watch ${escapeHtml(t.course_code)} ${escapeHtml(t.year)} on YouTube">
@@ -349,7 +402,7 @@
           <div class="topic-actions" style="margin-top:auto;">
             <a href="${escapeHtml(v.url)}" target="_blank" rel="noopener noreferrer" class="btn-test btn-video-yt" style="flex:1.4;">▶ Watch on YouTube ↗</a>
             <a href="mock-test/test.html?test=${encodeURIComponent(t.id)}&mode=official" class="btn-test primary" style="flex:1;">⚡ CBT Mock</a>
-            <a href="${pdfPath}" target="_blank" class="btn-test cheat btn-mock-pdf" style="flex:1;">📥 PDF</a>
+            <a href="${pdfPath}" target="_blank" rel="noopener noreferrer" class="btn-test cheat btn-mock-pdf" style="flex:1;">${pdfShortLabel}</a>
           </div>
         </div>
       `;
@@ -597,6 +650,10 @@
     if (resultsSec) resultsSec.classList.toggle('hidden', targetMode !== 'results');
     if (examsBtn) examsBtn.classList.toggle('active', targetMode === 'exams');
     if (resultsBtn) resultsBtn.classList.toggle('active', targetMode === 'results');
+
+    if (targetMode === 'results') {
+      ensureResultsModuleLoaded();
+    }
 
     if (!opts || !opts.skipHash) {
       window.location.hash = targetMode;
