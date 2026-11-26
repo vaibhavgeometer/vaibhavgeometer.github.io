@@ -9293,8 +9293,8 @@ window.MOCK_TESTS_DATA = {
         "marks": 6,
         "negative_marks": 2.0,
         "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q9.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9"
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9"
       },
       {
         "id": "JAM_2009_Q10",
@@ -19982,8 +19982,8 @@ window.MOCK_TESTS_DATA = {
         "marks": 6,
         "negative_marks": 2.0,
         "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q9.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9",
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers",
         "era": "2005-2014"
@@ -23339,8 +23339,8 @@ window.MOCK_TESTS_DATA = {
         "marks": 6,
         "negative_marks": 2.0,
         "image": "assets/PYQs_Screenshots/2009/JAM_2009_Q9.png",
-        "answer_key": "C",
-        "explanation": "<strong>Official Key: (C)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9",
+        "answer_key": "D",
+        "explanation": "<strong>Official Key: (D)</strong><br>• IIT JAM 2009 Mathematics (MA) — Question 9",
         "topic_id": "1.1",
         "topic_name": "Sequences and Series of Real Numbers"
       },
