@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Gallery — Vaibhav Priyadarshi</title>
   <meta name="description" content="Original digital artwork, geometric partitions, landscapes, and cosmic illustrations by Vaibhav Priyadarshi.">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('jam_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
   <meta property="og:title" content="Art Gallery — Vaibhav Priyadarshi">
   <meta property="og:description" content="Original digital artwork, geometric partitions, landscapes, and cosmic illustrations by Vaibhav Priyadarshi.">
   <meta property="og:image" content="https://vaibhavgeometer.github.io/images/art/artwork_1.jpg">
@@ -84,7 +92,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Geometric Art</span>
-                <a href="../images/art/artwork_1.jpg" target="_blank" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
               </div>
             </div>
           </article>
@@ -103,7 +111,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Digital Illustration</span>
-                <a href="../images/art/artwork_2.jpg" target="_blank" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
               </div>
             </div>
           </article>
@@ -122,7 +130,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Cosmic Digital Art</span>
-                <a href="../images/art/artwork_3.jpg" target="_blank" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
               </div>
             </div>
           </article>
@@ -141,7 +149,7 @@
               </p>
               <div class="art-card-footer">
                 <span class="art-card-tag">Abstract Geometry</span>
-                <a href="../images/art/artwork_4.png" target="_blank" class="text-link">Full Image ↗</a>
+                <a href="../images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="text-link">Full Image ↗</a>
               </div>
             </div>
           </article>

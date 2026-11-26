@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaibhav Priyadarshi</title>
   <meta name="description" content="Vaibhav Priyadarshi — Projects and academic portals.">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('jam_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
   <meta property="og:title" content="Vaibhav Priyadarshi">
   <meta property="og:description" content="Personal website, research portals, and interactive engines.">
   <meta property="og:image" content="https://vaibhavgeometer.github.io/images/vaibhav.jpg">
@@ -211,16 +219,16 @@
                 <span>🎨 Open Art Gallery</span>
                 <span>→</span>
               </a>
-              <a href="images/art/artwork_1.jpg" target="_blank" class="btn-secondary">
+              <a href="images/art/artwork_1.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <span>🔍 Geometric Art</span>
               </a>
-              <a href="images/art/artwork_2.jpg" target="_blank" class="btn-secondary">
+              <a href="images/art/artwork_2.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <span>🔍 Landscape</span>
               </a>
-              <a href="images/art/artwork_3.jpg" target="_blank" class="btn-secondary">
+              <a href="images/art/artwork_3.jpg" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <span>🔍 Cosmic Orbits</span>
               </a>
-              <a href="images/art/artwork_4.png" target="_blank" class="btn-secondary">
+              <a href="images/art/artwork_4.png" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                 <span>🔍 Lines &amp; Ellipses</span>
               </a>
             </div>

@@ -4,8 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found — Vaibhav Priyadarshi</title>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('jam_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
-  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="/css/portfolio.css">
 
   <script>
     // Automatic routing for lowercase or legacy URLs on GitHub Pages
@@ -161,19 +169,22 @@
     </p>
 
     <div class="error-actions">
-      <a href="academic/JAM/" class="btn-primary">
+      <a href="/academic/JAM/" class="btn-primary">
         <span>🚀</span> <span>IIT JAM Mathematics Portal</span>
       </a>
-      <a href="academic/" class="btn-secondary">
+      <a href="/academic/" class="btn-secondary">
         <span>🎓</span> <span>Academic Portals Hub</span>
       </a>
-      <a href="academic/UNPG/" class="btn-secondary">
+      <a href="/academic/UNPG/" class="btn-secondary">
         <span>🏛️</span> <span>UNPG BSc Math Portal</span>
       </a>
-      <a href="art/" class="btn-secondary">
+      <a href="/academic/CUET-PG/" class="btn-secondary">
+        <span>📄</span> <span>CUET-PG Archive</span>
+      </a>
+      <a href="/art/" class="btn-secondary">
         <span>🎨</span> <span>Art Gallery</span>
       </a>
-      <a href="index.html" class="btn-secondary">
+      <a href="/" class="btn-secondary">
         <span>🏠</span> <span>Vaibhav Priyadarshi Home</span>
       </a>
     </div>

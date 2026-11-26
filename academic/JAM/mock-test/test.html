@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IIT JAM Mathematics Mock Test Simulator</title>
   <meta name="description" content="Authentic IIT JAM Mathematics (MA) Computer Based Test (CBT) Simulator with MathJax LaTeX equations, Question Palette, Scientific Calculator, and instant results.">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('jam_theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
   
@@ -245,7 +253,7 @@
         <div class="calc-header">
           <div class="calc-title" id="screenshot-modal-title">📸 Official Question Paper Screenshot</div>
           <div class="screenshot-header-actions">
-            <a id="screenshot-open-tab" href="#" target="_blank" class="nav-icon-btn screenshot-open-btn" title="Open Image Full Size in New Tab">↗ Full Size</a>
+            <a id="screenshot-open-tab" href="#" target="_blank" rel="noopener noreferrer" class="nav-icon-btn screenshot-open-btn" title="Open Image Full Size in New Tab">↗ Full Size</a>
             <button class="calc-close-btn" onclick="window.closeScreenshotModal()" title="Close Screenshot Modal">✕</button>
           </div>
         </div>
