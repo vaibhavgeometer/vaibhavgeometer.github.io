@@ -108,7 +108,8 @@
     COURSE_CATALOG.forEach((c) => { courseSolved[c.code] = 0; });
 
     Object.entries(solvedMap).forEach(([qId, entry]) => {
-      if (!entry) return;
+      if (!entry || (typeof entry === 'object' && entry.solved === false)) return;
+      if (allQuestions.length > 0 ? !qLookup[qId] : !/^(MAT|PHY)\d{3}F_20\d{2}-\d{2}_Q\d+$/.test(qId)) return;
       totalSolved++;
       const qObj = qLookup[qId];
       const courseCode = (qObj && qObj.course_code) || (entry && entry.course_code) || (qId.split('_')[0] || '');

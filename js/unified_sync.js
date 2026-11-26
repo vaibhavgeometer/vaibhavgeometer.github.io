@@ -229,6 +229,86 @@
   // Unified Payload Collector, Normalizer & Conflict-Free Smart Merge
   // ==========================================================================
 
+  const JAM_ID_RE = /^JAM_20\d{2}_Q\d+$/;
+  const UNPG_ID_RE = /^(MAT|PHY)\d{3}F_20\d{2}-\d{2}_Q\d+$/;
+
+  function getValidJamIdSet() {
+    if (Array.isArray(window.JAM_CATEGORIZED_DATA) && window.JAM_CATEGORIZED_DATA.length > 0) {
+      const set = new Set();
+      window.JAM_CATEGORIZED_DATA.forEach((q) => {
+        if (q && q.year && q.question_number) {
+          set.add(`JAM_${q.year}_Q${q.question_number}`);
+        }
+      });
+      return set;
+    }
+    return null;
+  }
+
+  function isValidJamQuestionId(qId) {
+    if (!qId || typeof qId !== 'string') return false;
+    const validSet = getValidJamIdSet();
+    if (validSet) return validSet.has(qId);
+    return JAM_ID_RE.test(qId);
+  }
+
+  function getValidUnpgIdSet() {
+    if (window.SEM_TRACKER && typeof window.SEM_TRACKER.getAllQuestions === 'function') {
+      const list = window.SEM_TRACKER.getAllQuestions();
+      if (Array.isArray(list) && list.length > 0) {
+        return new Set(list.map((q) => q.id));
+      }
+    }
+    return null;
+  }
+
+  function isValidUnpgQuestionId(qId) {
+    if (!qId || typeof qId !== 'string') return false;
+    const validSet = getValidUnpgIdSet();
+    if (validSet) return validSet.has(qId);
+    return UNPG_ID_RE.test(qId);
+  }
+
+  function isTruthyUnpgSolved(val) {
+    if (!val) return false;
+    if (val === true || typeof val === 'string') return true;
+    if (typeof val === 'object') return val.solved !== false;
+    return false;
+  }
+
+  function sanitizeJamQuestions(questionsMap) {
+    const clean = {};
+    if (!questionsMap || typeof questionsMap !== 'object') return clean;
+    Object.entries(questionsMap).forEach(([qId, val]) => {
+      if (isValidJamQuestionId(qId) && val && typeof val === 'object') {
+        clean[qId] = val;
+      }
+    });
+    return clean;
+  }
+
+  function sanitizeUnpgSolved(solvedMap) {
+    const clean = {};
+    if (!solvedMap || typeof solvedMap !== 'object') return clean;
+    Object.entries(solvedMap).forEach(([qId, val]) => {
+      if (isValidUnpgQuestionId(qId) && isTruthyUnpgSolved(val)) {
+        clean[qId] = val;
+      }
+    });
+    return clean;
+  }
+
+  function sanitizeUnpgDifficulty(diffMap) {
+    const clean = {};
+    if (!diffMap || typeof diffMap !== 'object') return clean;
+    Object.entries(diffMap).forEach(([qId, val]) => {
+      if (isValidUnpgQuestionId(qId) && typeof val === 'string' && val) {
+        clean[qId] = val;
+      }
+    });
+    return clean;
+  }
+
   function collectPrefixedScores(prefix, parseJson) {
     const scores = {};
     try {
@@ -262,7 +342,7 @@
       const ud = window.JAM_TRACKER.getUserData();
       if (ud && typeof ud === 'object') {
         jamTracker = {
-          questions: ud.questions || {},
+          questions: sanitizeJamQuestions(ud.questions),
           oosMarkedUnnecessary: !!ud.oosMarkedUnnecessary,
           lastUpdated: ud.lastUpdated || null
         };
@@ -274,7 +354,7 @@
           const parsed = JSON.parse(raw);
           if (parsed && typeof parsed === 'object') {
             jamTracker = {
-              questions: parsed.questions || {},
+              questions: sanitizeJamQuestions(parsed.questions),
               oosMarkedUnnecessary: !!parsed.oosMarkedUnnecessary,
               lastUpdated: parsed.lastUpdated || null
             };
@@ -294,8 +374,8 @@
         const parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object') {
           unpgTracker = {
-            solved: parsed.solved || {},
-            difficulty: parsed.difficulty || {},
+            solved: sanitizeUnpgSolved(parsed.solved),
+            difficulty: sanitizeUnpgDifficulty(parsed.difficulty),
             lastUpdated: parsed.lastUpdated || null
           };
         }
@@ -343,7 +423,7 @@
         updatedAt: src.updatedAt || src.serverSyncedAt || new Date().toISOString(),
         jam: {
           tracker: {
-            questions: (src.jam && src.jam.tracker && src.jam.tracker.questions) || {},
+            questions: sanitizeJamQuestions(src.jam && src.jam.tracker && src.jam.tracker.questions),
             oosMarkedUnnecessary: !!(src.jam && src.jam.tracker && src.jam.tracker.oosMarkedUnnecessary),
             lastUpdated: (src.jam && src.jam.tracker && src.jam.tracker.lastUpdated) || null
           },
@@ -351,8 +431,8 @@
         },
         unpg: {
           tracker: {
-            solved: (src.unpg && src.unpg.tracker && src.unpg.tracker.solved) || {},
-            difficulty: (src.unpg && src.unpg.tracker && src.unpg.tracker.difficulty) || {},
+            solved: sanitizeUnpgSolved(src.unpg && src.unpg.tracker && src.unpg.tracker.solved),
+            difficulty: sanitizeUnpgDifficulty(src.unpg && src.unpg.tracker && src.unpg.tracker.difficulty),
             lastUpdated: (src.unpg && src.unpg.tracker && src.unpg.tracker.lastUpdated) || null
           },
           scores: (src.unpg && src.unpg.scores) || {}
@@ -372,7 +452,7 @@
         updatedAt: src.lastUpdated || src.serverSyncedAt || new Date().toISOString(),
         jam: {
           tracker: {
-            questions: src.questions || {},
+            questions: sanitizeJamQuestions(src.questions),
             oosMarkedUnnecessary: !!src.oosMarkedUnnecessary,
             lastUpdated: src.lastUpdated || null
           },
@@ -399,8 +479,8 @@
         },
         unpg: {
           tracker: {
-            solved: (src.tracker && src.tracker.solved) || {},
-            difficulty: (src.tracker && src.tracker.difficulty) || {},
+            solved: sanitizeUnpgSolved(src.tracker && src.tracker.solved),
+            difficulty: sanitizeUnpgDifficulty(src.tracker && src.tracker.difficulty),
             lastUpdated: (src.tracker && src.tracker.lastUpdated) || null
           },
           scores: src.scores || {}
@@ -413,8 +493,8 @@
   }
 
   function mergeJamTrackers(localT, cloudT) {
-    const lQMap = (localT && localT.questions) || {};
-    const cQMap = (cloudT && cloudT.questions) || {};
+    const lQMap = sanitizeJamQuestions(localT && localT.questions);
+    const cQMap = sanitizeJamQuestions(cloudT && cloudT.questions);
     const mergedQ = { ...lQMap };
 
     Object.entries(cQMap).forEach(([qId, cQ]) => {
@@ -458,8 +538,8 @@
   }
 
   function mergeUnpgTrackers(localT, cloudT) {
-    const mergedSolved = { ...((cloudT && cloudT.solved) || {}) };
-    const localSolved = (localT && localT.solved) || {};
+    const mergedSolved = sanitizeUnpgSolved(cloudT && cloudT.solved);
+    const localSolved = sanitizeUnpgSolved(localT && localT.solved);
 
     Object.entries(localSolved).forEach(([qId, val]) => {
       if (!mergedSolved[qId]) {
@@ -474,8 +554,8 @@
     });
 
     const mergedDiff = {
-      ...((cloudT && cloudT.difficulty) || {}),
-      ...((localT && localT.difficulty) || {})
+      ...sanitizeUnpgDifficulty(cloudT && cloudT.difficulty),
+      ...sanitizeUnpgDifficulty(localT && localT.difficulty)
     };
 
     return {
@@ -534,7 +614,7 @@
       if (payload.jam && payload.jam.tracker) {
         const jt = payload.jam.tracker;
         const jamPayload = {
-          questions: jt.questions || {},
+          questions: sanitizeJamQuestions(jt.questions),
           oosMarkedUnnecessary: !!jt.oosMarkedUnnecessary,
           lastUpdated: jt.lastUpdated || new Date().toISOString()
         };
@@ -560,8 +640,8 @@
     if (payload.unpg && payload.unpg.tracker) {
       try {
         localStorage.setItem(KEYS.SEM_TRACKER, JSON.stringify({
-          solved: payload.unpg.tracker.solved || {},
-          difficulty: payload.unpg.tracker.difficulty || {},
+          solved: sanitizeUnpgSolved(payload.unpg.tracker.solved),
+          difficulty: sanitizeUnpgDifficulty(payload.unpg.tracker.difficulty),
           lastUpdated: payload.unpg.tracker.lastUpdated || new Date().toISOString()
         }));
       } catch (e) {}
@@ -1291,9 +1371,9 @@
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(shareUrl)}&margin=6&bgcolor=141825&color=818cf8`;
 
     const payload = getLocalUnifiedPayload();
-    const jamSolved = Object.values(payload.jam.tracker.questions || {}).filter((q) => q && q.solved).length;
+    const jamSolved = Object.entries(payload.jam.tracker.questions || {}).filter(([qId, q]) => isValidJamQuestionId(qId) && q && q.solved).length;
     const jamScores = Object.keys(payload.jam.scores || {}).length;
-    const unpgSolved = Object.keys(payload.unpg.tracker.solved || {}).length;
+    const unpgSolved = Object.entries(payload.unpg.tracker.solved || {}).filter(([qId, v]) => isValidUnpgQuestionId(qId) && isTruthyUnpgSolved(v)).length;
     const unpgScores = Object.keys(payload.unpg.scores || {}).length;
 
     let bodyHtml = '';

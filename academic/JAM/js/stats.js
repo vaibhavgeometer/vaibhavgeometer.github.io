@@ -110,10 +110,11 @@
     const currentWeekKey = getISOWeekKey(now);
     const currentMonthKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
-    // Collect solved items
+    // Collect solved items (only valid official question IDs)
     const solvedList = [];
     Object.entries(questions).forEach(([qId, uState]) => {
       if (uState && uState.solved) {
+        if (masterData.length > 0 ? !masterMap[qId] : !/^JAM_20\d{2}_Q\d+$/.test(qId)) return;
         const qMeta = masterMap[qId] || {};
         let solvedDate = null;
         if (uState.solvedAt) {

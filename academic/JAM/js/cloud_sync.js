@@ -156,10 +156,12 @@
       } catch (e) {}
     }
 
-    const questions = userData.questions || {};
+    const questions = {};
     let solvedCount = 0;
-    Object.values(questions).forEach(q => {
-      if (q && q.solved) solvedCount++;
+    Object.entries(userData.questions || {}).forEach(([qId, q]) => {
+      if (!/^JAM_20\d{2}_Q\d+$/.test(qId) || !q || typeof q !== 'object') return;
+      questions[qId] = q;
+      if (q.solved) solvedCount++;
     });
 
     return {

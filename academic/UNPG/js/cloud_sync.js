@@ -109,9 +109,20 @@
       if (raw) {
         const parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object') {
+          const rawSolved = (parsed.solved && typeof parsed.solved === 'object') ? parsed.solved : {};
+          const rawDiff = (parsed.difficulty && typeof parsed.difficulty === 'object') ? parsed.difficulty : {};
+          const cleanSolved = {};
+          const cleanDiff = {};
+          const unpgRe = /^(MAT|PHY)\d{3}F_20\d{2}-\d{2}_Q\d+$/;
+          Object.entries(rawSolved).forEach(([qId, v]) => {
+            if (unpgRe.test(qId) && v && (typeof v !== 'object' || v.solved !== false)) cleanSolved[qId] = v;
+          });
+          Object.entries(rawDiff).forEach(([qId, v]) => {
+            if (unpgRe.test(qId) && typeof v === 'string' && v) cleanDiff[qId] = v;
+          });
           tracker = {
-            solved: parsed.solved || {},
-            difficulty: parsed.difficulty || {},
+            solved: cleanSolved,
+            difficulty: cleanDiff,
             lastUpdated: parsed.lastUpdated || new Date().toISOString()
           };
         }
@@ -455,8 +466,12 @@
     `;
 
     const payload = getLocalPayload();
-    const solvedCount = Object.keys(payload.tracker.solved || {}).length;
-    const diffCount = Object.keys(payload.tracker.difficulty || {}).length;
+    const solvedCount = Object.entries(payload.tracker.solved || {}).filter(
+      ([qId, v]) => /^(MAT|PHY)\d{3}F_20\d{2}-\d{2}_Q\d+$/.test(qId) && v && (typeof v !== 'object' || v.solved !== false)
+    ).length;
+    const diffCount = Object.entries(payload.tracker.difficulty || {}).filter(
+      ([qId, v]) => /^(MAT|PHY)\d{3}F_20\d{2}-\d{2}_Q\d+$/.test(qId) && typeof v === 'string' && v
+    ).length;
     const scoresCount = Object.keys(payload.scores || {}).length;
     const lastSyncStr = formatRelativeTime(localStorage.getItem(STORAGE_KEYS.LAST_SYNC));
 
