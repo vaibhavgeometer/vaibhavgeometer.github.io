@@ -325,13 +325,21 @@
               </select>
             </div>
 
-            <!-- Status Filter -->
+            <!-- Status Filter (Solved / Unsolved) -->
             <div class="filter-control-group">
               <label class="filter-control-label" for="filter-status-select">Status</label>
               <select id="filter-status-select" class="filter-control-select" onchange="window.JAM_TRACKER.onStatusChange(this.value)">
                 <option value="ALL">All Statuses</option>
                 <option value="solved">✓ Solved Only</option>
                 <option value="unsolved">○ Unsolved Only</option>
+              </select>
+            </div>
+
+            <!-- Relevance Filter (Necessary / Unnecessary) -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-relevance-select">Relevance</label>
+              <select id="filter-relevance-select" class="filter-control-select" onchange="window.JAM_TRACKER.onRelevanceChange(this.value)">
+                <option value="ALL">All Questions</option>
                 <option value="necessary">🎯 Necessary Only</option>
                 <option value="unnecessary">🚫 Unnecessary Only</option>
               </select>
@@ -351,15 +359,32 @@
               </select>
             </div>
 
-            <!-- Sort By -->
+            <!-- Sort: Year Order -->
             <div class="filter-control-group">
-              <label class="filter-control-label" for="filter-sort-select">Sort Order</label>
-              <select id="filter-sort-select" class="filter-control-select" onchange="window.JAM_TRACKER.onSortChange(this.value)">
-                <option value="default">Newest Year First (2026 → 2005)</option>
-                <option value="year_asc">Oldest Year First (2005 → 2026)</option>
-                <option value="recently_solved">⏱️ Recently Solved (Newest Solved First)</option>
-                <option value="diff_desc">Difficulty (Hardest → Very Easy)</option>
-                <option value="diff_asc">Difficulty (Very Easy → Hardest)</option>
+              <label class="filter-control-label" for="filter-sort-year-select">Year Order</label>
+              <select id="filter-sort-year-select" class="filter-control-select" onchange="window.JAM_TRACKER.onSortYearChange(this.value)">
+                <option value="newest">Newest Year First (2026 → 2005)</option>
+                <option value="oldest">Oldest Year First (2005 → 2026)</option>
+              </select>
+            </div>
+
+            <!-- Sort: Difficulty -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-sort-diff-select">Difficulty Sort</label>
+              <select id="filter-sort-diff-select" class="filter-control-select" onchange="window.JAM_TRACKER.onSortDifficultyChange(this.value)">
+                <option value="none">Default (Off)</option>
+                <option value="desc">Hardest → Very Easy</option>
+                <option value="asc">Very Easy → Hardest</option>
+              </select>
+            </div>
+
+            <!-- Sort: Solved Time -->
+            <div class="filter-control-group">
+              <label class="filter-control-label" for="filter-sort-solved-select">Solved Time</label>
+              <select id="filter-sort-solved-select" class="filter-control-select" onchange="window.JAM_TRACKER.onSortSolvedChange(this.value)">
+                <option value="none">Default (Off)</option>
+                <option value="recent">⏱️ Recently Solved First</option>
+                <option value="oldest">⏱️ Oldest Solved First</option>
               </select>
             </div>
           </div>

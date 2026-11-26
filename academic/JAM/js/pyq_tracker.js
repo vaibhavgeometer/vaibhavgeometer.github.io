@@ -204,9 +204,12 @@
     selectedYear: 'ALL',
     selectedTopic: 'ALL',
     selectedSubtopic: 'ALL',
-    selectedStatus: 'ALL', // ALL | solved | unsolved | necessary | unnecessary
+    selectedStatus: 'ALL', // ALL | solved | unsolved
+    selectedRelevance: 'ALL', // ALL | necessary | unnecessary
     selectedDifficulty: 'ALL', // ALL | very_easy | easy | medium | hard | hardest | unrated
-    selectedSort: 'default', // default (year desc, q_num asc) | year_asc | diff_desc | diff_asc
+    sortYear: 'newest', // newest | oldest
+    sortDifficulty: 'none', // none | desc | asc
+    sortSolved: 'none', // none | recent | oldest
     revealedKeys: new Set(),
     customIdFilter: null,
     subtopicFilterView: 'ALL',
@@ -672,14 +675,16 @@
         return false;
       }
 
-      // 4. Status Filter (solved / unsolved / necessary / unnecessary)
+      // 4. Status Filter (solved / unsolved)
       const u = getQuestionState(q.id);
       if (state.selectedStatus === 'solved' && !u.solved) return false;
       if (state.selectedStatus === 'unsolved' && u.solved) return false;
-      if (state.selectedStatus === 'necessary' && u.unnecessary) return false;
-      if (state.selectedStatus === 'unnecessary' && !u.unnecessary) return false;
 
-      // 5. Difficulty Filter
+      // 5. Relevance Filter (necessary / unnecessary)
+      if (state.selectedRelevance === 'necessary' && u.unnecessary) return false;
+      if (state.selectedRelevance === 'unnecessary' && !u.unnecessary) return false;
+
+      // 6. Difficulty Filter
       if (state.selectedDifficulty !== 'ALL') {
         if (state.selectedDifficulty === 'unrated') {
           if (u.difficulty) return false;
@@ -730,34 +735,41 @@
       }
     }
 
-    // 7. Sorting
-    if (state.selectedSort === 'year_asc') {
-      pool.sort((a, b) => (a.year - b.year) || (a.q_num - b.q_num));
-    } else if (state.selectedSort === 'recently_solved') {
-      pool.sort((a, b) => {
+    // 7. Sorting (Difficulty -> Solved Time -> Year -> Question #)
+    pool.sort((a, b) => {
+      if (state.sortDifficulty !== 'none') {
+        const da = getEffectiveDifficultyOrder(a);
+        const db = getEffectiveDifficultyOrder(b);
+        if (state.sortDifficulty === 'desc') {
+          if (da !== db) return db - da;
+        } else {
+          const va = da || 99;
+          const vb = db || 99;
+          if (va !== vb) return va - vb;
+        }
+      }
+
+      if (state.sortSolved !== 'none') {
         const sa = getQuestionState(a.id);
         const sb = getQuestionState(b.id);
         const timeA = (sa.solved && sa.solvedAt) ? new Date(sa.solvedAt).getTime() : 0;
         const timeB = (sb.solved && sb.solvedAt) ? new Date(sb.solvedAt).getTime() : 0;
-        if (timeA !== timeB) return timeB - timeA;
-        return (b.year - a.year) || (a.q_num - b.q_num);
-      });
-    } else if (state.selectedSort === 'diff_desc') {
-      pool.sort((a, b) => {
-        const da = getEffectiveDifficultyOrder(a);
-        const db = getEffectiveDifficultyOrder(b);
-        return (db - da) || (b.year - a.year) || (a.q_num - b.q_num);
-      });
-    } else if (state.selectedSort === 'diff_asc') {
-      pool.sort((a, b) => {
-        const da = getEffectiveDifficultyOrder(a);
-        const db = getEffectiveDifficultyOrder(b);
-        return (da - db) || (b.year - a.year) || (a.q_num - b.q_num);
-      });
-    } else {
-      // Default: Year Descending, Q Number Ascending
-      pool.sort((a, b) => (b.year - a.year) || (a.q_num - b.q_num));
-    }
+
+        // Solved with timestamp (0) -> solved without timestamp (1) -> unsolved (2)
+        const tierA = timeA > 0 ? 0 : (sa.solved ? 1 : 2);
+        const tierB = timeB > 0 ? 0 : (sb.solved ? 1 : 2);
+        if (tierA !== tierB) return tierA - tierB;
+        if (timeA !== timeB) {
+          return state.sortSolved === 'recent' ? (timeB - timeA) : (timeA - timeB);
+        }
+      }
+
+      if (a.year !== b.year) {
+        return state.sortYear === 'oldest' ? (a.year - b.year) : (b.year - a.year);
+      }
+
+      return a.q_num - b.q_num;
+    });
 
     state.filteredQuestions = pool;
     state.currentNotice = fallbackNotice;
@@ -1377,6 +1389,15 @@
       applyFiltersAndRender();
     },
 
+    onRelevanceChange: function(val) {
+      state.selectedRelevance = val;
+      state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('FILTER_RELEVANCE', `Relevance filter changed to: ${val}`);
+      }
+      applyFiltersAndRender();
+    },
+
     onDifficultyChange: function(val) {
       state.selectedDifficulty = val;
       state.currentPage = 1;
@@ -1386,11 +1407,29 @@
       applyFiltersAndRender();
     },
 
-    onSortChange: function(val) {
-      state.selectedSort = val;
+    onSortYearChange: function(val) {
+      state.sortYear = val;
       state.currentPage = 1;
       if (window.JAM_LOGGER) {
-        window.JAM_LOGGER.logAction('SORT_CHANGE', `Sort order changed to: ${val}`);
+        window.JAM_LOGGER.logAction('SORT_CHANGE', `Year order changed to: ${val}`);
+      }
+      applyFiltersAndRender();
+    },
+
+    onSortDifficultyChange: function(val) {
+      state.sortDifficulty = val;
+      state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('SORT_CHANGE', `Difficulty sort changed to: ${val}`);
+      }
+      applyFiltersAndRender();
+    },
+
+    onSortSolvedChange: function(val) {
+      state.sortSolved = val;
+      state.currentPage = 1;
+      if (window.JAM_LOGGER) {
+        window.JAM_LOGGER.logAction('SORT_CHANGE', `Solved time sort changed to: ${val}`);
       }
       applyFiltersAndRender();
     },
@@ -1401,8 +1440,11 @@
       state.selectedTopic = 'ALL';
       state.selectedSubtopic = 'ALL';
       state.selectedStatus = 'ALL';
+      state.selectedRelevance = 'ALL';
       state.selectedDifficulty = 'ALL';
-      state.selectedSort = 'default';
+      state.sortYear = 'newest';
+      state.sortDifficulty = 'none';
+      state.sortSolved = 'none';
       state.customIdFilter = null;
       state.currentPage = 1;
       state.subtopicFilterView = 'ALL';
@@ -1426,11 +1468,20 @@
       const statSelect = document.getElementById('filter-status-select');
       if (statSelect) statSelect.value = 'ALL';
 
+      const relSelect = document.getElementById('filter-relevance-select');
+      if (relSelect) relSelect.value = 'ALL';
+
       const diffSelect = document.getElementById('filter-diff-select');
       if (diffSelect) diffSelect.value = 'ALL';
 
-      const sortSelect = document.getElementById('filter-sort-select');
-      if (sortSelect) sortSelect.value = 'default';
+      const sortYearSelect = document.getElementById('filter-sort-year-select');
+      if (sortYearSelect) sortYearSelect.value = 'newest';
+
+      const sortDiffSelect = document.getElementById('filter-sort-diff-select');
+      if (sortDiffSelect) sortDiffSelect.value = 'none';
+
+      const sortSolvedSelect = document.getElementById('filter-sort-solved-select');
+      if (sortSolvedSelect) sortSolvedSelect.value = 'none';
 
       updateSubtopicDropdown();
       applyFiltersAndRender();
