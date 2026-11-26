@@ -459,12 +459,15 @@
   align-items: center;
 }
 
-.tracker-action-btn {
+.tracker-action-btn,
+.cloud-sync-action-btn,
+.stats-action-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
   border-radius: var(--radius-sm);
+  font-family: inherit;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
@@ -1386,12 +1389,8 @@
 
 /* Header Action Button */
 .cloud-sync-action-btn {
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
   background: var(--bg-surface);
-  border: 1px solid var(--border);
-  transition: all var(--transition);
 }
 
 .cloud-sync-action-btn:hover {
@@ -1779,12 +1778,8 @@
 
 /* Action Button */
 .stats-action-btn {
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
   background: var(--bg-surface);
-  border: 1px solid var(--border);
-  transition: all var(--transition);
 }
 
 .stats-action-btn:hover {
