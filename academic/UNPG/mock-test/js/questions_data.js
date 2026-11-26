@@ -8761,12 +8761,12 @@ window.MOCK_TESTS_DATA = {
     "duration_minutes": 90,
     "pattern": "50 MCQs (+1.5 Marks, No Negative Marking)",
     "videos": [
-            {
-                  "title": "Full Paper Solution (Q1–Q50)",
-                  "url": "https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL",
-                  "yt_id": "4bfSW7rHfxU"
-            }
-      ],
+      {
+        "title": "Full Paper Solution (Q1–Q50)",
+        "url": "https://youtu.be/4bfSW7rHfxU?si=KY4mjSSSTpoAZaZL",
+        "yt_id": "4bfSW7rHfxU"
+      }
+    ],
     "questions": [
       {
         "id": "PHY301F_2023-24_Q1",
@@ -8777,7 +8777,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q01.png",
-        "question": "PHY 301 PHYSICS (Classical Mechanics and Statistical Mechanics) Date (fitfü) Roll Ney (In Figures)",
+        "question": "Lagrange's equation of motion is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -8785,7 +8785,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "B",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 1."
+        "explanation": "Euler-Lagrange equations of motion for a holonomic conservative system are $\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_j}\\right) - \\frac{\\partial L}{\\partial q_j} = 0$."
       },
       {
         "id": "PHY301F_2023-24_Q2",
@@ -8796,15 +8796,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q02.png",
-        "question": "PHY 301 PHYSICS (Classical Mechanics and Statistical Mechanics) Date (fitfü) Roll Ney (In Figures)",
+        "question": "If rotation coordinate is cyclic, the component of applied torque along axis of rotation has value :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 2."
+        "answer_key": "C",
+        "explanation": "If the rotational coordinate $\\theta$ is cyclic ($\\frac{\\partial L}{\\partial \\theta} = 0$), the generalized torque along the rotation axis is $\\tau = \\frac{dp_\\theta}{dt} = \\frac{\\partial L}{\\partial \\theta} = 0$."
       },
       {
         "id": "PHY301F_2023-24_Q3",
@@ -8815,15 +8815,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q03.png",
-        "question": "bigrange•s equation of motion is (A) (B (D) 2.",
+        "question": "For ignorable coordinates :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "If a generalized coordinate $q_j$ is cyclic (does not appear explicitly in the Lagrangian), the corresponding generalized momentum $p_j$ is conserved."
+        "answer_key": "A",
+        "explanation": "An ignorable (cyclic) coordinate $q_j$ does not appear explicitly in $L$, so $\\frac{\\partial L}{\\partial q_j} = 0 \\implies \\dot{p}_j = 0$; hence its conjugate generalized momentum $p_j$ is conserved."
       },
       {
         "id": "PHY301F_2023-24_Q4",
@@ -8834,15 +8834,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q04.png",
-        "question": "4 6. 1499 Lagrangtan for conservative system IS given by = T — V.",
+        "question": "Lagrangian for conservative system is given by L = T - V, where potential energy V is function of :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 4."
+        "answer_key": "A",
+        "explanation": "For a standard conservative system, the potential energy $V(q_1, \\dots, q_n)$ is a function of the generalized coordinates only."
       },
       {
         "id": "PHY301F_2023-24_Q5",
@@ -8853,15 +8853,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q05.png",
-        "question": "4 6, 1499 Lagrangtan for conservative system given by L = T — V.",
+        "question": "Lagrange's equation put special attention on _____",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 5."
+        "answer_key": "A",
+        "explanation": "Unlike Newtonian mechanics (force and acceleration), the Lagrangian formulation emphasizes scalar energies ($T, V$) in terms of generalized coordinates and velocities."
       },
       {
         "id": "PHY301F_2023-24_Q6",
@@ -8872,15 +8872,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q06.png",
-        "question": "4 6, 1499 Lagrangtan for conservative system given by L = T — V.",
+        "question": "A mass m, is sliding without friction down an inclined plane as shown in the figure. The equation of motion for this is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 6."
+        "answer_key": "D",
+        "explanation": "Using $L = \\frac{1}{2}m\\dot{x}^2 + mgx\\sin\\theta$ down the incline, Lagrange's equation gives $m\\ddot{x} = mg\\sin\\theta \\implies \\ddot{x} = g\\sin\\theta$."
       },
       {
         "id": "PHY301F_2023-24_Q7",
@@ -8891,15 +8891,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q07.png",
-        "question": "This •s not a central force (A) Newton •s gravitational force Van der Waal force",
+        "question": "This is not a central force :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "The reduced mass $\\mu$ of a two-body system is given by $\\frac{1}{\\mu} = \\frac{1}{m_1} + \\frac{1}{m_2} \\implies \\mu = \\frac{m_1 m_2}{m_1 + m_2}$."
+        "answer_key": "C",
+        "explanation": "Gravitational, electrostatic, and van der Waals forces between neutral atoms depend only on separation $r$ along $\\hat{r}$, whereas the magnetic force between two current-carrying loops depends on orientation and is non-central."
       },
       {
         "id": "PHY301F_2023-24_Q8",
@@ -8910,15 +8910,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q08.png",
-        "question": "This not a central force 9_ 1499 7 8.",
+        "question": "Reduced mass mu can be written as :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "The reduced mass $\\mu$ of a two-body system is given by $\\frac{1}{\\mu} = \\frac{1}{m_1} + \\frac{1}{m_2} \\implies \\mu = \\frac{m_1 m_2}{m_1 + m_2}$."
+        "answer_key": "D",
+        "explanation": "For a two-body system with masses $m_1$ and $m_2$, $\\frac{1}{\\mu} = \\frac{1}{m_1} + \\frac{1}{m_2} \\implies \\mu = \\frac{m_1 m_2}{m_1 + m_2}$."
       },
       {
         "id": "PHY301F_2023-24_Q9",
@@ -8929,7 +8929,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q09.png",
-        "question": "This not a central force 9_ 1499 7 8.",
+        "question": "Which Kepler's law is true for any central force ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -8937,7 +8937,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "B",
-        "explanation": "The reduced mass $\\mu$ of a two-body system is given by $\\frac{1}{\\mu} = \\frac{1}{m_1} + \\frac{1}{m_2} \\implies \\mu = \\frac{m_1 m_2}{m_1 + m_2}$."
+        "explanation": "Kepler's second law (constant areal velocity $\\frac{dA}{dt} = \\frac{L}{2m}$) follows directly from conservation of angular momentum, which holds for every central force."
       },
       {
         "id": "PHY301F_2023-24_Q10",
@@ -8948,15 +8948,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q10.png",
-        "question": "7 9, IO 1499 This ts not central force",
+        "question": "Under central force f(r) proportional to r^n, the condition for stability of circular orbits is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "The reduced mass $\\mu$ of a two-body system is given by $\\frac{1}{\\mu} = \\frac{1}{m_1} + \\frac{1}{m_2} \\implies \\mu = \\frac{m_1 m_2}{m_1 + m_2}$."
+        "answer_key": "D",
+        "explanation": "For an attractive power-law central force $f(r) = -k r^n$, small radial perturbations around a circular orbit are stable when $n + 3 > 0$, i.e., $n > -3$."
       },
       {
         "id": "PHY301F_2023-24_Q11",
@@ -8967,15 +8967,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q11.png",
-        "question": "11. 12. 13. 14. 1499",
+        "question": "According to Kepler, planets move around the Sun in which type of orbit ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 11."
+        "answer_key": "B",
+        "explanation": "Kepler's first law states that planets move around the Sun in elliptical orbits with the Sun at one focus."
       },
       {
         "id": "PHY301F_2023-24_Q12",
@@ -8986,15 +8986,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q12.png",
-        "question": "According to Kepler, move around the Sun type Of orbit ? (A) Circular Ellipse",
+        "question": "Under central force f(r) proportional to r^n, the closed orbits exist only for :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 12."
+        "answer_key": "B",
+        "explanation": "By Bertrand's theorem, bounded orbits are closed for all initial conditions only for Hooke's law ($n = 1$) and the inverse-square law ($n = -2$)."
       },
       {
         "id": "PHY301F_2023-24_Q13",
@@ -9005,15 +9005,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q13.png",
-        "question": "According to Kepler, move around the Sun type Of orbit ? (A) Circular Ellipse",
+        "question": "If a system has N particles, then the phase space has dimensions :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 13."
+        "answer_key": "D",
+        "explanation": "Each particle in 3D has 3 position coordinates and 3 momentum components, so $N$ particles require a $6N$-dimensional phase space."
       },
       {
         "id": "PHY301F_2023-24_Q14",
@@ -9024,7 +9024,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q14.png",
-        "question": "11 12. 13. 14. 1499",
+        "question": "Hamiltonian H = T + V = E total energy. This is true only for system which is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9032,7 +9032,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 14."
+        "explanation": "When constraints are scleronomic and forces are conservative ($V = V(q)$), the Hamiltonian equals the total energy: $H = T + V = E$."
       },
       {
         "id": "PHY301F_2023-24_Q15",
@@ -9043,15 +9043,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q15.png",
-        "question": "716. Hamilton's equation of motion Hamiltonian H is defined as : pjqj + L If q, is cyclic coordinate in",
+        "question": "Hamilton's equation of motion are :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$."
+        "answer_key": "B",
+        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_j = \\frac{\\partial H}{\\partial p_j}$ and $\\dot{p}_j = -\\frac{\\partial H}{\\partial q_j}$."
       },
       {
         "id": "PHY301F_2023-24_Q16",
@@ -9062,15 +9062,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q16.png",
-        "question": "716. Hamilton's equation of motion Hamiltonian H is defined as : pjqj + L If q, is cyclic coordinate in",
+        "question": "Hamiltonian H is defined as :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$."
+        "answer_key": "D",
+        "explanation": "The Hamiltonian is defined via the Legendre transform of the Lagrangian: $H = \\sum_j p_j \\dot{q}_j - L$."
       },
       {
         "id": "PHY301F_2023-24_Q17",
@@ -9081,7 +9081,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q17.png",
-        "question": "716. Hamilton's equation of motion Hamiltonian H is defined as : pjqj + L If q, is cyclic coordinate in",
+        "question": "If q_j is cyclic coordinate in Hamiltonian, then conjugate momentum p_j, to ignorable coordinate, must be :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9089,7 +9089,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "A",
-        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$."
+        "explanation": "If $q_j$ is cyclic in $H$ ($\\frac{\\partial H}{\\partial q_j} = 0$), Hamilton's equation gives $\\dot{p}_j = -\\frac{\\partial H}{\\partial q_j} = 0$, so $p_j$ is constant."
       },
       {
         "id": "PHY301F_2023-24_Q18",
@@ -9100,15 +9100,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q18.png",
-        "question": "18. 19. 20. 1499 At temperature '1\" a system of N",
+        "question": "At temperature 'T' a system of N particles has two energy states E_1 and E_2. What is the ratio of number of particles in the two states ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 18."
+        "answer_key": "B",
+        "explanation": "By the Boltzmann factor $n_i \\propto e^{-E_i / kT}$, the ratio is $\\frac{n_2}{n_1} = \\frac{e^{-E_2/kT}}{e^{-E_1/kT}} = \\exp\\left(\\frac{E_1 - E_2}{kT}\\right)$."
       },
       {
         "id": "PHY301F_2023-24_Q19",
@@ -9119,15 +9119,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q19.png",
-        "question": "18. 19. 20. 1499 At temperature '1\" a system of N",
+        "question": "Which of the following particles necessarily follows Bose-Einstein statistics ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 19."
+        "answer_key": "C",
+        "explanation": "Photons have integer spin ($s = 1$) and obey Bose-Einstein statistics, whereas protons and neutrons are spin-$1/2$ fermions."
       },
       {
         "id": "PHY301F_2023-24_Q20",
@@ -9138,15 +9138,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q20.png",
-        "question": "18. 19. 20. 1499 At temperature '1\" a system of N",
+        "question": "Quantum particles are :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 20."
+        "answer_key": "A",
+        "explanation": "Identical quantum particles have overlapping wave functions and are fundamentally indistinguishable."
       },
       {
         "id": "PHY301F_2023-24_Q21",
@@ -9157,15 +9157,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q21.png",
-        "question": "21. 22. 23. 24. 1499",
+        "question": "The representation of Bose - Einstein distribution is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Fermi-Dirac statistics applies to indistinguishable particles with half-integral spin (fermions) obeying the Pauli exclusion principle."
+        "answer_key": "D",
+        "explanation": "The Bose-Einstein distribution has $-1$ in the denominator: $n_i = \\frac{g_i}{e^{(E - \\mu N)/kT} - 1}$."
       },
       {
         "id": "PHY301F_2023-24_Q22",
@@ -9176,7 +9176,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q22.png",
-        "question": "21. 22. 23. 24. 1499",
+        "question": "For any non-zero temperature the probability of occupancy of states at Fermi energy is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9184,7 +9184,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "C",
-        "explanation": "Fermi-Dirac statistics applies to indistinguishable particles with half-integral spin (fermions) obeying the Pauli exclusion principle."
+        "explanation": "Evaluating the Fermi-Dirac distribution $f(E) = \\frac{1}{e^{(E - E_F)/kT} + 1}$ at $E = E_F$ for $T > 0$ gives $f(E_F) = \\frac{1}{1 + 1} = \\frac{1}{2}$."
       },
       {
         "id": "PHY301F_2023-24_Q23",
@@ -9195,15 +9195,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q23.png",
-        "question": "21. 22. 23. 24. 1499",
+        "question": "In a Fermi-Dirac system if all states with energy greater than Fermi energy are empty then the temperature will be :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Fermi-Dirac statistics applies to indistinguishable particles with half-integral spin (fermions) obeying the Pauli exclusion principle."
+        "answer_key": "A",
+        "explanation": "All states above the Fermi energy $E_F$ are completely empty only at absolute zero ($T = 0\\text{ K}$)."
       },
       {
         "id": "PHY301F_2023-24_Q24",
@@ -9214,15 +9214,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q24.png",
-        "question": "21. 22. 23. 24. 1499",
+        "question": "At very high energies, electrons follow the distribution ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Fermi-Dirac statistics applies to indistinguishable particles with half-integral spin (fermions) obeying the Pauli exclusion principle."
+        "answer_key": "B",
+        "explanation": "At very high energies ($E \\gg E_F, kT$), $e^{E/kT} \\gg 1$, so the Fermi-Dirac distribution approaches the classical Maxwell-Boltzmann limit $g e^{-E/kT}$."
       },
       {
         "id": "PHY301F_2023-24_Q25",
@@ -9233,15 +9233,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q25.png",
-        "question": "1499 25 26. 27. Consider Z to be the partitton",
+        "question": "Consider Z to be the partition function of a canonical ensemble. The average energy of the system will be : (beta = 1/kT)",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "C",
+        "explanation": "With $Z = \\sum_i e^{-\\beta E_i}$, the ensemble average energy is $\\langle E \\rangle = -\\frac{\\partial \\ln Z}{\\partial \\beta}$."
       },
       {
         "id": "PHY301F_2023-24_Q26",
@@ -9252,15 +9252,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q26.png",
-        "question": "1499 25 26. 27. Consider Z to be the partitton",
+        "question": "Concept of negative temperature is possible in systems that have :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "B",
+        "explanation": "Negative absolute temperature ($1/T = \\partial S/\\partial E < 0$) requires a finite upper bound on the allowed energy states so entropy can decrease with increasing energy."
       },
       {
         "id": "PHY301F_2023-24_Q27",
@@ -9271,7 +9271,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q27.png",
-        "question": "25 26. 27. 25 Consider Z to be the partition",
+        "question": "According to Planck's law, as the temperature of black body increases the peak of the curve shifts towards :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9279,7 +9279,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "D",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 27."
+        "explanation": "By Wien's displacement law ($\\lambda_{\\max} T = b$), increasing temperature shifts the blackbody radiation peak toward lower wavelength."
       },
       {
         "id": "PHY301F_2023-24_Q28",
@@ -9290,7 +9290,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q28.png",
-        "question": "28. 29. 30. 1499 The wave function of fermions is",
+        "question": "The wave function of fermions is not :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9298,7 +9298,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "A",
-        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$."
+        "explanation": "Because fermions obey the Pauli exclusion principle, their total wave function must be antisymmetric under particle exchange, never symmetric."
       },
       {
         "id": "PHY301F_2023-24_Q29",
@@ -9309,7 +9309,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q29.png",
-        "question": "28. 29. 30. 1499 The wave function of fermions is",
+        "question": "Hamilton's equation of motion is differential equation of the order of :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9317,7 +9317,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "A",
-        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$."
+        "explanation": "Hamilton's equations ($\\dot{q}_j = \\partial H/\\partial p_j$, $\\dot{p}_j = -\\partial H/\\partial q_j$) form a system of $2n$ first-order differential equations."
       },
       {
         "id": "PHY301F_2023-24_Q30",
@@ -9328,15 +9328,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q30.png",
-        "question": "28. 29. 30. 1499 The wave function of fermions is",
+        "question": "By definition, a virtual infinitesimal displacement is given by delta x_i = dx_i with ;",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Hamilton's canonical equations of motion are $\\dot{q}_i = \\frac{\\partial H}{\\partial p_i}$ and $\\dot{p}_i = -\\frac{\\partial H}{\\partial q_i}$."
+        "answer_key": "B",
+        "explanation": "A virtual displacement $\\delta x_i$ is an instantaneous imagined displacement consistent with constraints at fixed time, so $dt = 0$."
       },
       {
         "id": "PHY301F_2023-24_Q31",
@@ -9347,15 +9347,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q31.png",
-        "question": "32. The [Y Alembert's principle is expressed as - Gi) .87, = o The prmciple of virtual work is",
+        "question": "The D' Alembert's principle is expressed as :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "D'Alembert's principle states that the virtual work of the applied forces minus inertial forces is zero: $\\sum (F_i - \\dot{p}_i) \\cdot \\delta r_i = 0$."
+        "answer_key": "C",
+        "explanation": "D'Alembert's principle states that the virtual work of applied minus inertial forces vanishes: $\\sum_i (\\vec{F}_i - \\dot{\\vec{p}}_i) \\cdot \\delta\\vec{r}_i = 0$."
       },
       {
         "id": "PHY301F_2023-24_Q32",
@@ -9366,15 +9366,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q32.png",
-        "question": "32. The [Y Alembert's principle is expressed as - Gi) .87, = o The prmciple of virtual work is",
+        "question": "The principle of virtual work is expressed as sum_i F . delta r_i = 0, where F is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "D'Alembert's principle states that the virtual work of the applied forces minus inertial forces is zero: $\\sum (F_i - \\dot{p}_i) \\cdot \\delta r_i = 0$."
+        "answer_key": "A",
+        "explanation": "For ideal constraints whose constraint forces do zero virtual work, the principle of virtual work $\\sum_i \\vec{F}_i \\cdot \\delta\\vec{r}_i = 0$ involves only the applied forces $\\vec{F}$."
       },
       {
         "id": "PHY301F_2023-24_Q33",
@@ -9385,15 +9385,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q33.png",
-        "question": "32. D' Alembert's principle is expressed as - 4,) .Sö=o The principle of virtual work is",
+        "question": "If total work done is zero for a pendulum with fixed length, then the constraints are :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "B",
-        "explanation": "D'Alembert's principle states that the virtual work of the applied forces minus inertial forces is zero: $\\sum (F_i - \\dot{p}_i) \\cdot \\delta r_i = 0$."
+        "answer_key": "C",
+        "explanation": "A fixed-length pendulum satisfies $r - l = 0$ (holonomic, time-independent/scleronomic, bilateral equality, and conservative/workless)."
       },
       {
         "id": "PHY301F_2023-24_Q34",
@@ -9404,15 +9404,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q34.png",
-        "question": "34 u 36. 1499 For a system of subJected to k",
+        "question": "For a system of n particles, subjected to k independent constraints, the degree of freedom is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 34."
+        "answer_key": "D",
+        "explanation": "In 3D space, $n$ particles have $3n$ coordinates; $k$ independent holonomic constraints leave $3n - k$ degrees of freedom."
       },
       {
         "id": "PHY301F_2023-24_Q35",
@@ -9423,15 +9423,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q35.png",
-        "question": "34, 36. 1499 For a system Of subyectcd to k",
+        "question": "A generalized coordinate has dimensions of momentum. Then the generalized velocity will have dimensions of :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 35."
+        "answer_key": "C",
+        "explanation": "Generalized velocity is $\\dot{q} = \\frac{dq}{dt}$; if $q$ has dimensions of momentum ($MLT^{-1}$), then $\\dot{q}$ has dimensions of $MLT^{-2}$, i.e., Force."
       },
       {
         "id": "PHY301F_2023-24_Q36",
@@ -9442,7 +9442,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q36.png",
-        "question": "34, 36. 1499 For a system Of subyectcd to k",
+        "question": "The generalized coordinates can be :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9450,7 +9450,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "C",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 36."
+        "explanation": "Generalized coordinates may be curvilinear coordinates, angles, dimensionless parameters, or any independent combination specifying the configuration."
       },
       {
         "id": "PHY301F_2023-24_Q37",
@@ -9461,7 +9461,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q37.png",
-        "question": "Which of the following is not a 37 macroscopic observable ? (A) Temperature. T (B) Momentum. P",
+        "question": "Which of the following is not a macroscopic observable ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9469,7 +9469,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "B",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 37."
+        "explanation": "Temperature $T$, Entropy $S$, and Volume $V$ are macroscopic thermodynamic observables, whereas individual particle momentum $P$ is a microscopic mechanical quantity."
       },
       {
         "id": "PHY301F_2023-24_Q38",
@@ -9480,7 +9480,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q38.png",
-        "question": "Which of the following is not a 37 macroscopic observable ? (A) Temperature. T (B) Momentum. P",
+        "question": "'Studying all possible properties of a system in time is equivalent to studying a very large number of identical systems simultaneously.' This statement implies :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9488,7 +9488,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 38."
+        "explanation": "This states the ergodic hypothesis: the long-time average of a single system equals the ensemble average over many identical replicas."
       },
       {
         "id": "PHY301F_2023-24_Q39",
@@ -9499,15 +9499,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q39.png",
-        "question": "Which of the following is not a 37 macroscopic observable ? (A) Temperature. T (B) Momentum. P",
+        "question": "For a two particle system the unit of phase space element is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 39."
+        "answer_key": "C",
+        "explanation": "Each conjugate pair $(dq_i\\,dp_i)$ has units of $\\text{J}\\cdot\\text{s}$. Two particles in 3D have 6 coordinate-momentum pairs (12D phase space), giving units of $\\text{Joule}^6\\cdot\\text{Sec}^6$."
       },
       {
         "id": "PHY301F_2023-24_Q40",
@@ -9518,15 +9518,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q40.png",
-        "question": "4m The trajectory in phase space for a I.D simple harmonic oscillator (B Clockwise in ellipse Anticlockwise in ellipse",
+        "question": "The trajectory in phase space for a 1-D simple harmonic oscillator is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "A",
+        "explanation": "In the $(x, p)$ phase plane, $\\dot{x} = p/m > 0$ for $p > 0$ (rightward) and $\\dot{p} = -kx < 0$ for $x > 0$ (downward), so the elliptical trajectory runs clockwise."
       },
       {
         "id": "PHY301F_2023-24_Q41",
@@ -9537,7 +9537,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q41.png",
-        "question": "4m The trajectory in phase space for a I.D simple harmonic oscillator (B Clockwise in ellipse Anticlockwise in ellipse",
+        "question": "According to Liouville's Theorem the density of systems in phase space :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9545,7 +9545,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "explanation": "Liouville's theorem states that phase-space density $\\rho(q,p,t)$ remains invariant along dynamical trajectories ($\\frac{d\\rho}{dt} = 0$)."
       },
       {
         "id": "PHY301F_2023-24_Q42",
@@ -9556,7 +9556,7 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q42.png",
-        "question": "4(fY The traJectory in phase space for a I-D Simple harmonic oscillator (A) (B Clockwise in ellipse",
+        "question": "At equilibrium, volume remains constant in :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
@@ -9564,7 +9564,7 @@ window.MOCK_TESTS_DATA = {
           "D": "Option (D)"
         },
         "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "explanation": "In statistical mechanics, volume $V$ is fixed in all three standard ensembles: microcanonical $(N,V,E)$, canonical $(N,V,T)$, and grand canonical $(\\mu,V,T)$."
       },
       {
         "id": "PHY301F_2023-24_Q43",
@@ -9575,15 +9575,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q43.png",
-        "question": "43. 44. A system in which only energy exchange With surrounding is possible can be represented by",
+        "question": "A system in which only energy exchange with surrounding is possible can be represented by :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "B",
+        "explanation": "A closed system exchanging only energy (heat) with a thermal reservoir at fixed $N, V, T$ is represented by the Canonical Ensemble."
       },
       {
         "id": "PHY301F_2023-24_Q44",
@@ -9594,15 +9594,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q44.png",
-        "question": "43. 44. A system in which only energy exchange With surrounding is possible can be represented by",
+        "question": "The probability distribution of a system is expressed as : C.exp[(mu N - E)/kT] It is most likely to be :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "C",
+        "explanation": "The factor $\\exp[(\\mu N - E)/kT]$ allows both energy $E$ and particle number $N$ to fluctuate, characterizing the Grand Canonical Ensemble."
       },
       {
         "id": "PHY301F_2023-24_Q45",
@@ -9613,15 +9613,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q45.png",
-        "question": "43. 44. A system in which only energy exchange With surrounding is possible can be represented by",
+        "question": "The volume of a perfect gas of N atoms is increased 'e' times (e = 2.718), Keeping energy constant. What is the change in entropy ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "C",
+        "explanation": "At constant energy for an ideal gas, $\\Omega \\propto V^N$, so $\\Delta S / k_B = \\ln(V_2/V_1)^N = N\\ln(e) = N$."
       },
       {
         "id": "PHY301F_2023-24_Q46",
@@ -9632,15 +9632,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q46.png",
-        "question": "46. 47 48. 1499 For two systems in thermal",
+        "question": "For two systems in thermal contact if dS_1/dU_1 = dS_2/dU_2 then they have :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "A",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 46."
+        "answer_key": "D",
+        "explanation": "Since $\\frac{1}{T} = \\left(\\frac{\\partial S}{\\partial U}\\right)_{V,N}$, equality of $\\frac{\\partial S_1}{\\partial U_1}$ and $\\frac{\\partial S_2}{\\partial U_2}$ implies equal temperature ($T_1 = T_2$)."
       },
       {
         "id": "PHY301F_2023-24_Q47",
@@ -9651,15 +9651,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q47.png",
-        "question": "46. For two systems in thermal contact if then they have",
+        "question": "A random walker takes one step forward with probability 2/3 and one step backward with probability 1/3. For large number of steps 'n' taken by the walker what is his average displacement ?",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 47."
+        "answer_key": "A",
+        "explanation": "Mean displacement per step is $p - q = \\frac{2}{3} - \\frac{1}{3} = \\frac{1}{3}$ forward, so after $n$ steps the average displacement is $\\frac{n}{3}$ forward."
       },
       {
         "id": "PHY301F_2023-24_Q48",
@@ -9670,15 +9670,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q48.png",
-        "question": "46. 47 48. 1499 For two systems in thermal",
+        "question": "In equilibrium state the entropy of a system is :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "C",
-        "explanation": "Verified according to standard university curriculum and course theorems for PHY301F Question 48."
+        "answer_key": "A",
+        "explanation": "At thermodynamic equilibrium, an isolated system attains the macrostate of maximum multiplicity and therefore maximum entropy."
       },
       {
         "id": "PHY301F_2023-24_Q49",
@@ -9689,15 +9689,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q49.png",
-        "question": "49 Systems having constant energy (E), volume (V) and number of particles (N), are the part of ( A) Micro canonical Ensemble",
+        "question": "Systems having constant energy (E), volume (V) and number of particles (N), are the part of :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "A",
+        "explanation": "An isolated system with fixed $E$, $V$, and $N$ belongs to the Microcanonical Ensemble."
       },
       {
         "id": "PHY301F_2023-24_Q50",
@@ -9708,15 +9708,15 @@ window.MOCK_TESTS_DATA = {
         "marks": 1.5,
         "negative_marks": 0,
         "image": "assets/screenshots/PHY301F/2023-24/Q50.png",
-        "question": "49 Systems having constant energy (E), volume (V) and number of particles (N), are the part of ( A) Micro canonical Ensemble",
+        "question": "The Ergodic hypothesis implies :",
         "options": {
           "A": "Option (A)",
           "B": "Option (B)",
           "C": "Option (C)",
           "D": "Option (D)"
         },
-        "answer_key": "D",
-        "explanation": "A canonical ensemble represents a system in thermal equilibrium with a large heat reservoir at fixed temperature $T$ ($N, V, T$ are constant)."
+        "answer_key": "C",
+        "explanation": "The ergodic hypothesis implies that over time a system explores all accessible microstates consistent with its macroscopic constraints."
       }
     ]
   },
