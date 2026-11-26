@@ -664,7 +664,87 @@
     }
   };
 
-  // --- Exam Time Table Toggle & Scroll ---
+  // --- Exam Time Table Countdown, Toggle & Scroll ---
+  let examCountdownTimer = null;
+
+  function formatCountdownParts(diffMs) {
+    const totalSec = Math.max(0, Math.floor(diffMs / 1000));
+    const days = Math.floor(totalSec / 86400);
+    const hours = Math.floor((totalSec % 86400) / 3600);
+    const mins = Math.floor((totalSec % 3600) / 60);
+    const secs = totalSec % 60;
+    const pad = (n) => String(n).padStart(2, '0');
+    return {
+      days: pad(days),
+      hours: pad(hours),
+      mins: pad(mins),
+      secs: pad(secs)
+    };
+  }
+
+  function updateExamCountdowns() {
+    const slots = document.querySelectorAll('[data-exam-countdown]');
+    if (!slots.length) return;
+
+    const now = Date.now();
+    let nearestCode = null;
+    let nearestDiff = Infinity;
+
+    slots.forEach((slot) => {
+      const targetStr = (slot.getAttribute('data-exam-countdown') || '').trim();
+      const code = slot.getAttribute('data-exam-code') || '';
+      if (!targetStr) {
+        slot.innerHTML = '<span class="timetable-badge-tba">TBA</span>';
+        return;
+      }
+
+      const targetMs = Date.parse(targetStr);
+      if (isNaN(targetMs)) {
+        slot.innerHTML = '<span class="timetable-badge-tba">TBA</span>';
+        return;
+      }
+
+      const diffMs = targetMs - now;
+      if (diffMs <= 0) {
+        if (diffMs > -3 * 60 * 60 * 1000) {
+          slot.innerHTML = '<span class="timetable-badge-confirmed">🟢 Ongoing</span>';
+        } else {
+          slot.innerHTML = '<span class="timetable-badge-tba">✅ Completed</span>';
+        }
+        return;
+      }
+
+      if (diffMs < nearestDiff) {
+        nearestDiff = diffMs;
+        nearestCode = code;
+      }
+
+      const p = formatCountdownParts(diffMs);
+      slot.innerHTML = `
+        <div class="exam-cd-grid" aria-label="${escapeHtml(code)} countdown: ${p.days} days ${p.hours} hours ${p.mins} minutes ${p.secs} seconds remaining">
+          <div class="exam-cd-box"><span class="exam-cd-val">${p.days}</span><span class="exam-cd-lbl">Days</span></div>
+          <div class="exam-cd-box"><span class="exam-cd-val">${p.hours}</span><span class="exam-cd-lbl">Hrs</span></div>
+          <div class="exam-cd-box"><span class="exam-cd-val">${p.mins}</span><span class="exam-cd-lbl">Min</span></div>
+          <div class="exam-cd-box"><span class="exam-cd-val">${p.secs}</span><span class="exam-cd-lbl">Sec</span></div>
+        </div>
+      `;
+    });
+
+    const headerBadge = document.getElementById('timetable-header-countdown');
+    if (headerBadge && nearestCode && isFinite(nearestDiff)) {
+      const p = formatCountdownParts(nearestDiff);
+      headerBadge.textContent = `⏳ Next (${nearestCode}): ${p.days}d ${p.hours}h ${p.mins}m ${p.secs}s`;
+    } else if (headerBadge && !nearestCode) {
+      headerBadge.textContent = '📅 Session 2026–27';
+    }
+  }
+
+  function startExamCountdowns() {
+    updateExamCountdowns();
+    if (examCountdownTimer) clearInterval(examCountdownTimer);
+    examCountdownTimer = setInterval(updateExamCountdowns, 1000);
+  }
+
   window.toggleExamTimetable = function () {
     const body = document.getElementById('exam-timetable-body');
     const btn = document.getElementById('timetable-toggle-btn');
@@ -730,6 +810,7 @@
 
   function init() {
     initTheme();
+    startExamCountdowns();
     renderYearMockTests();
     renderVideoSolutions();
     updateCustomGeneratorSummary();

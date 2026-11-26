@@ -400,6 +400,39 @@
       white-space: nowrap;
       display: inline-block;
     }
+    .exam-cd-grid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: nowrap;
+    }
+    .exam-cd-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      padding: 0.28rem 0.38rem;
+      border-radius: 6px;
+      background: var(--bg-surface);
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      line-height: 1.1;
+    }
+    .exam-cd-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+    }
+    .exam-cd-lbl {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-top: 0.12rem;
+    }
     @media (max-width: 640px) {
       .timetable-card {
         padding: 1rem;
@@ -510,7 +543,7 @@
         <div class="timetable-title-wrap">
           <h2 class="timetable-title">
             <span>📅 5th Sem End Term Exam Time Table</span>
-            <span class="timetable-badge-confirmed">PHY303F Practical: 02 Dec 2026</span>
+            <span class="timetable-badge-confirmed" id="timetable-header-countdown">⏳ PHY303F: 02 Dec 2026</span>
           </h2>
           <p class="timetable-sub">UNPG Padrauna · DDU Gorakhpur University · Academic Session 2026–27 (MAT301F – PHY303F)</p>
         </div>
@@ -528,8 +561,8 @@
               <th>Course Code</th>
               <th>Course Title</th>
               <th>Type / Credits</th>
-              <th>Exam Date</th>
-              <th>Timing</th>
+              <th>Exam Date &amp; Time</th>
+              <th>Time Remaining</th>
               <th>Schedule &amp; Instructions</th>
             </tr>
           </thead>
@@ -539,7 +572,7 @@
               <td>Ring Theory and Linear Algebra</td>
               <td><span class="course-badge">Theory · 4 Cr</span></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
-              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><div class="exam-countdown-slot" data-exam-countdown="" data-exam-code="MAT301F"><span class="timetable-badge-tba">TBA</span></div></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
             </tr>
             <tr>
@@ -547,7 +580,7 @@
               <td>Tensor Analysis</td>
               <td><span class="course-badge">Theory · 3 Cr</span></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
-              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><div class="exam-countdown-slot" data-exam-countdown="" data-exam-code="MAT302F"><span class="timetable-badge-tba">TBA</span></div></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
             </tr>
             <tr>
@@ -555,7 +588,7 @@
               <td>Differential Geometry</td>
               <td><span class="course-badge">Theory · 3 Cr</span></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
-              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><div class="exam-countdown-slot" data-exam-countdown="" data-exam-code="MAT303F"><span class="timetable-badge-tba">TBA</span></div></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
             </tr>
             <tr>
@@ -563,7 +596,7 @@
               <td>Classical Mechanics &amp; Statistical Mechanics</td>
               <td><span class="course-badge">Theory · 4 Cr</span></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
-              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><div class="exam-countdown-slot" data-exam-countdown="" data-exam-code="PHY301F"><span class="timetable-badge-tba">TBA</span></div></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
             </tr>
             <tr>
@@ -571,15 +604,24 @@
               <td>Quantum Mechanics &amp; Spectroscopy</td>
               <td><span class="course-badge">Theory · 4 Cr</span></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
-              <td><span class="timetable-badge-tba">TBA</span></td>
+              <td><div class="exam-countdown-slot" data-exam-countdown="" data-exam-code="PHY302F"><span class="timetable-badge-tba">TBA</span></div></td>
               <td><span class="timetable-badge-tba">TBA</span></td>
             </tr>
             <tr class="timetable-row-confirmed">
               <td><strong>🔬 PHY303F</strong></td>
               <td>Practical: Demonstrative Aspects of Optics &amp; Lasers</td>
               <td><span class="course-badge" style="background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">Practical · 2 Cr</span></td>
-              <td><span class="timetable-badge-confirmed">02 Dec 2026 (Wed)</span></td>
-              <td><strong class="timetable-nowrap">8:00 AM</strong></td>
+              <td>
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem;">
+                  <span class="timetable-badge-confirmed">02 Dec 2026 (Wed)</span>
+                  <strong class="timetable-nowrap" style="font-size: 0.84rem;">8:00 AM IST</strong>
+                </div>
+              </td>
+              <td>
+                <div class="exam-countdown-slot" data-exam-countdown="2026-12-02T08:00:00+05:30" data-exam-code="PHY303F">
+                  <span class="timetable-badge-tba">Loading...</span>
+                </div>
+              </td>
               <td>
                 <ul class="timetable-details-list">
                   <li><strong>Practical Exam (02 Dec 2026):</strong> 1st &amp; 5th Semester Physics Practical; everyone must report at <strong>8:00 AM</strong>.</li>
