@@ -185,7 +185,7 @@ Located at [`academic/semester-exams/`](academic/semester-exams/), this dedicate
 
 #### 5. Academic Syllabus & Study Resources Repository (`5th-sem/`)
 - **Official NEP 2020 Syllabus**: Full curriculum regulations and course outlines (`5th-sem/5th Sem Syllabus.pdf`).
-- **Standard Textbooks & Supplementary Materials**: Authoritative references including Pearson Classical & Statistical Mechanics textbooks, practical copies (`PHY 303F Practical Copy.pdf`), and UPH supplementary MCQ repositories for `MAT301F` and `MAT303F`.
+- **Supplementary Materials & PYQs**: Practical copies (`PHY 303F Practical Copy.pdf`), `PHY301F` / `PHY302F` PYQs, and UPH supplementary MCQ repositories for `MAT301F` and `MAT303F`.
 
 ---
 
@@ -377,11 +377,11 @@ vaibhavgeometer.github.io/
 │   │   ├── js/                                # Main portal navigation & dynamic PDF generators:
 │   │   │   ├── main.js                        # Course filtering, paper cards & video solution rendering
 │   │   │   └── custom_pdf_generator.js        # In-browser test & PDF compiler
-│   │   ├── 5th-sem/                           # Syllabus PDF, textbook references & MCQ materials:
+│   │   ├── 5th-sem/                           # Syllabus PDF, PYQs & MCQ materials:
 │   │   │   ├── 5th Sem Syllabus.pdf           # Official university NEP 2020 syllabus regulation
 │   │   │   ├── MAT301F/                       # MAT301F MCQ repository
 │   │   │   ├── MAT303F/                       # MAT303F MCQ repository
-│   │   │   ├── PHY301F/                       # Classical & statistical mechanics standard textbooks & PYQ
+│   │   │   ├── PHY301F/                       # Classical & statistical mechanics PYQ
 │   │   │   ├── PHY302F/                       # Quantum mechanics PYQ
 │   │   │   └── PHY303F/                       # Practical copy & departmental notices
 │   │   ├── assets/
