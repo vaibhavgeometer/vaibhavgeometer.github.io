@@ -572,6 +572,7 @@ a.hero-pill:hover {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
@@ -1149,6 +1150,7 @@ a.hero-pill:hover {
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: var(--transition);
+  -webkit-user-select: none;
   user-select: none;
 }
 
