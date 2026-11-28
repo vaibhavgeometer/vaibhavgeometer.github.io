@@ -27,6 +27,8 @@
     LAST_SYNC: 'site_cloud_sync_last_time',
     AUTO_SYNC: 'site_cloud_sync_auto_enabled',
     LOCAL_SIM_DB: 'site_cloud_sync_sim_db',
+    WRITE_TOKENS: 'site_cloud_sync_write_tokens',
+    REVISIONS: 'site_cloud_sync_revisions',
     // Legacy & Portal Data Keys
     LEGACY_JAM_CODE: 'jam_cloud_sync_code',
     LEGACY_JAM_API: 'jam_cloud_sync_api_url',
@@ -49,6 +51,7 @@
     'https://jam-cloud-sync.vaibhav27182.workers.dev/api/sync';
 
   const SYNC_CHARS = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
+  const TOKEN_CHARS = '23456789ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz';
 
   // Cross-tab broadcast channel
   let broadcast = null;
@@ -106,25 +109,99 @@
     apiUrl: localStorage.getItem(KEYS.API_URL) || DEFAULT_API_URL,
     lastSyncTime: localStorage.getItem(KEYS.LAST_SYNC) || null,
     autoSyncEnabled: localStorage.getItem(KEYS.AUTO_SYNC) !== 'false',
-    syncStatus: 'idle', // 'idle' | 'syncing' | 'synced' | 'error' | 'offline'
+    syncStatus: 'idle', // 'idle' | 'syncing' | 'synced' | 'error' | 'offline' | 'readonly'
     statusMessage: '',
+    isReadOnly: false,
+    isProtectedRemote: false,
+    rateLimitedUntil: 0,
     debounceTimer: null,
     isApplyingRemote: false,
     activeTab: 'my-code' // 'my-code' | 'link-device'
   };
 
   // ==========================================================================
-  // Helper Utilities
+  // Helper Utilities & Cryptographic Token Storage
   // ==========================================================================
 
-  function generateRandomCode() {
-    let p1 = '';
-    let p2 = '';
-    for (let i = 0; i < 3; i++) {
-      p1 += SYNC_CHARS.charAt(Math.floor(Math.random() * SYNC_CHARS.length));
-      p2 += SYNC_CHARS.charAt(Math.floor(Math.random() * SYNC_CHARS.length));
+  function getSecureRandomIndex(max) {
+    if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+      const limit = Math.floor(0xffffffff / max) * max;
+      const arr = new Uint32Array(1);
+      let val;
+      do {
+        window.crypto.getRandomValues(arr);
+        val = arr[0];
+      } while (val >= limit);
+      return val % max;
     }
-    return `VP-${p1}-${p2}`;
+    return Math.floor(Math.random() * max);
+  }
+
+  function randomFromAlphabet(alphabet, length) {
+    let out = '';
+    for (let i = 0; i < length; i++) {
+      out += alphabet.charAt(getSecureRandomIndex(alphabet.length));
+    }
+    return out;
+  }
+
+  function generateRandomCode() {
+    // 8 random characters (~6.56e11 combinations) in readable VP-XXXX-XXXX format
+    return `VP-${randomFromAlphabet(SYNC_CHARS, 4)}-${randomFromAlphabet(SYNC_CHARS, 4)}`;
+  }
+
+  function generateWriteToken() {
+    return randomFromAlphabet(TOKEN_CHARS, 24);
+  }
+
+  function readJsonMap(storageKey) {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      const parsed = raw ? JSON.parse(raw) : {};
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function writeJsonMap(storageKey, map) {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(map));
+    } catch (e) {}
+  }
+
+  function getWriteToken(code) {
+    const key = getCleanCodeKey(code);
+    if (!key) return null;
+    const map = readJsonMap(KEYS.WRITE_TOKENS);
+    return typeof map[key] === 'string' && map[key].length >= 16 ? map[key] : null;
+  }
+
+  function setWriteToken(code, token) {
+    const key = getCleanCodeKey(code);
+    if (!key) return;
+    const map = readJsonMap(KEYS.WRITE_TOKENS);
+    if (token && token.length >= 16) {
+      map[key] = token;
+    } else {
+      delete map[key];
+    }
+    writeJsonMap(KEYS.WRITE_TOKENS, map);
+  }
+
+  function getStoredRevision(code) {
+    const key = getCleanCodeKey(code);
+    if (!key) return null;
+    const map = readJsonMap(KEYS.REVISIONS);
+    return Number.isInteger(map[key]) ? map[key] : null;
+  }
+
+  function setStoredRevision(code, revision) {
+    const key = getCleanCodeKey(code);
+    if (!key || !Number.isInteger(revision)) return;
+    const map = readJsonMap(KEYS.REVISIONS);
+    map[key] = revision;
+    writeJsonMap(KEYS.REVISIONS, map);
   }
 
   function normalizeCode(raw) {
@@ -132,11 +209,15 @@
     const cleaned = String(raw).trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
     if (cleaned.length < 4 || cleaned.length > 24) return '';
 
-    // Preserve known prefixes JAM-, SEM-, VP-
+    // Preserve known prefixes JAM-, SEM-, VP- (both 6-char legacy and 8-char hardened formats)
     for (const prefix of ['JAM', 'SEM', 'VP']) {
       if (cleaned.startsWith(prefix) && cleaned.length === prefix.length + 6) {
         const body = cleaned.slice(prefix.length);
         return `${prefix}-${body.slice(0, 3)}-${body.slice(3, 6)}`;
+      }
+      if (cleaned.startsWith(prefix) && cleaned.length === prefix.length + 8) {
+        const body = cleaned.slice(prefix.length);
+        return `${prefix}-${body.slice(0, 4)}-${body.slice(4, 8)}`;
       }
     }
     if (cleaned.length === 6) {
@@ -145,16 +226,43 @@
     return cleaned;
   }
 
+  function parseSyncInput(raw) {
+    const str = String(raw || '').trim();
+    if (!str) return { code: '', writeToken: null };
+    const dotIdx = str.indexOf('.');
+    if (dotIdx !== -1) {
+      const codePart = str.slice(0, dotIdx);
+      const tokenPart = str.slice(dotIdx + 1).trim();
+      const validToken = /^[A-Za-z0-9_-]{16,128}$/.test(tokenPart) ? tokenPart : null;
+      return {
+        code: normalizeCode(codePart),
+        writeToken: validToken
+      };
+    }
+    return {
+      code: normalizeCode(str),
+      writeToken: null
+    };
+  }
+
   function getCleanCodeKey(code) {
     const c = code || state.syncCode;
     return c ? String(c).toUpperCase().replace(/[^A-Z0-9]/g, '') : '';
+  }
+
+  function getFullSyncPass(code) {
+    const c = code || state.syncCode;
+    if (!c) return '';
+    const token = getWriteToken(c);
+    return token ? `${c}.${token}` : c;
   }
 
   function getShareableUrl(code) {
     const c = code || state.syncCode;
     const base = window.location.origin + window.location.pathname;
     if (!c) return base;
-    return `${base}?sync=${encodeURIComponent(c)}`;
+    // Use URL hash (#sync=...) so sync codes/tokens are never sent in HTTP query strings or Referer headers
+    return `${base}#sync=${encodeURIComponent(getFullSyncPass(c))}`;
   }
 
   function escapeHtml(str) {
@@ -708,24 +816,52 @@
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 7000);
+      const headers = { Accept: 'application/json' };
+      const token = getWriteToken(code);
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
       const resp = await fetch(endpoint, {
         method: 'GET',
-        headers: { Accept: 'application/json' },
+        headers,
         cache: 'no-store',
         signal: controller.signal
       });
       clearTimeout(timer);
 
+      if (resp.status === 429) {
+        state.rateLimitedUntil = Date.now() + 60000;
+        throw new Error('Rate limited. Please wait a minute before syncing again.');
+      }
       if (resp.status === 404) {
-        return { found: false, data: null };
+        state.isProtectedRemote = false;
+        return { found: false, data: null, protected: false, revision: 0 };
       }
       if (!resp.ok) {
         throw new Error(`Cloud API responded with status ${resp.status}`);
       }
+
+      const revHeader = Number(resp.headers.get('X-Sync-Revision'));
+      const protectedHeader = resp.headers.get('X-Sync-Protected') === 'true';
       const json = await resp.json();
+      const revision = Number.isInteger(revHeader) && revHeader > 0
+        ? revHeader
+        : (Number.isInteger(json?.revision) ? json.revision : 1);
+
+      setStoredRevision(rawCode, revision);
+      state.isProtectedRemote = protectedHeader;
+      if (protectedHeader && !token) {
+        state.isReadOnly = true;
+      } else if (token || !protectedHeader) {
+        state.isReadOnly = false;
+      }
+
       const normalized = normalizeCloudPayload(json);
-      return { found: !!normalized, data: normalized };
+      return { found: !!normalized, data: normalized, protected: protectedHeader, revision };
     } catch (err) {
+      if (err && String(err.message).includes('Rate limited')) {
+        throw err;
+      }
       const fallback = getFromLocalSimDb(rawCode);
       if (fallback) {
         return { found: true, data: normalizeCloudPayload(fallback), isLocalFallback: true };
@@ -734,32 +870,102 @@
     }
   }
 
-  async function apiPushCloudData(code, payload) {
+  async function apiPushCloudData(code, payload, options = {}) {
     const rawCode = getCleanCodeKey(code);
     const apiUrl = state.apiUrl.replace(/\/+$/, '');
     const endpoint = `${apiUrl}/${encodeURIComponent(rawCode)}`;
+    const allowClaimToken = options.allowClaimToken !== false;
+    const retryOnConflict = options.retryOnConflict !== false;
 
     saveToLocalSimDb(rawCode, payload);
+
+    if (Date.now() < state.rateLimitedUntil) {
+      return { success: false, rateLimited: true, error: 'Rate limit active. Saved locally.' };
+    }
+
+    let writeToken = getWriteToken(code);
+    // For new records or unprotected legacy records, generate & claim a write token automatically
+    if (!writeToken && !state.isProtectedRemote && allowClaimToken) {
+      writeToken = generateWriteToken();
+      setWriteToken(code, writeToken);
+    }
+
+    if (state.isProtectedRemote && !writeToken) {
+      state.isReadOnly = true;
+      return {
+        success: false,
+        readOnly: true,
+        protected: true,
+        error: 'Write token required for this protected sync pass.'
+      };
+    }
 
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 7000);
+      const headers = {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      };
+      if (writeToken) {
+        headers['Authorization'] = `Bearer ${writeToken}`;
+      }
+      const expectedRevision = getStoredRevision(rawCode);
+      if (Number.isInteger(expectedRevision) && expectedRevision > 0) {
+        headers['If-Match'] = `"${expectedRevision}"`;
+      }
+
       const resp = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
+        headers,
         body: JSON.stringify(payload),
         signal: controller.signal
       });
       clearTimeout(timer);
 
+      if (resp.status === 429) {
+        state.rateLimitedUntil = Date.now() + 60000;
+        return { success: false, rateLimited: true, error: 'Rate limit exceeded. Saved locally.' };
+      }
+
+      if (resp.status === 403) {
+        state.isProtectedRemote = true;
+        state.isReadOnly = true;
+        return {
+          success: false,
+          readOnly: true,
+          protected: true,
+          error: 'Sync pass is write-protected. Paste your Full Access Key or scan QR to enable writes.'
+        };
+      }
+
+      if (resp.status === 409 && retryOnConflict) {
+        const conflictJson = await resp.json().catch(() => ({}));
+        if (Number.isInteger(conflictJson.currentRevision)) {
+          setStoredRevision(rawCode, conflictJson.currentRevision);
+        }
+        const remote = await apiFetchCloudData(code);
+        if (remote.found && remote.data) {
+          const merged = mergeUnifiedPayloads(payload, remote.data);
+          applyUnifiedPayloadLocally(merged, true);
+          return await apiPushCloudData(code, merged, { ...options, retryOnConflict: false });
+        }
+      }
+
       if (!resp.ok) {
         const errText = await resp.text();
         throw new Error(`Cloud API push error (${resp.status}): ${errText}`);
       }
-      return await resp.json();
+
+      const result = await resp.json();
+      if (Number.isInteger(result?.revision)) {
+        setStoredRevision(rawCode, result.revision);
+      }
+      state.isReadOnly = false;
+      if (result?.protected) {
+        state.isProtectedRemote = true;
+      }
+      return result;
     } catch (err) {
       return { success: true, isLocalFallback: true, error: err.message };
     }
@@ -807,6 +1013,24 @@
       }
 
       const result = await apiPushCloudData(state.syncCode, finalPayload);
+
+      if (result.readOnly) {
+        state.syncStatus = 'readonly';
+        state.statusMessage = 'Read-Only (Write key needed)';
+        updateUI();
+        if (isManual) {
+          showToast('🔒 Linked in Read-Only mode. Paste your Full Key or scan QR to enable cloud saves.');
+        }
+        return false;
+      }
+
+      if (result.rateLimited) {
+        state.syncStatus = 'offline';
+        state.statusMessage = 'Rate limited — saved locally';
+        updateUI();
+        if (isManual) showToast('⏳ Sync rate limit reached. Saved locally — retry in 1 min.');
+        return false;
+      }
 
       state.lastSyncTime = new Date().toISOString();
       localStorage.setItem(KEYS.LAST_SYNC, state.lastSyncTime);
@@ -858,10 +1082,16 @@
   }
 
   async function linkWithCode(inputCode, mergeMode = 'merge', isAutoFromUrl = false) {
-    const code = normalizeCode(inputCode);
+    const parsed = parseSyncInput(inputCode);
+    const code = parsed.code;
     if (!code) {
-      showToast('Please enter a valid Sync Code (4-24 characters, e.g. K4M9P2X7H3 or R7N3X5B9).');
+      showToast('Please enter a valid Sync Code (4-24 characters, e.g. VP-7K9M-2P4X or K4M9P2X7H3).');
       return;
+    }
+
+    if (parsed.writeToken) {
+      setWriteToken(code, parsed.writeToken);
+      state.isReadOnly = false;
     }
 
     state.syncStatus = 'syncing';
@@ -870,26 +1100,41 @@
 
     try {
       const res = await apiFetchCloudData(code);
+      if (!res.found && getCleanCodeKey(code).length < 8) {
+        state.syncStatus = 'error';
+        state.statusMessage = 'Invalid new code length';
+        updateUI();
+        showToast('New sync codes must be at least 8 characters (or use "Generate All-in-One Pass").');
+        return;
+      }
+
       setStoredSyncCode(code);
 
+      let pushResult = { success: true };
       if (res.found && res.data) {
         const localData = getLocalUnifiedPayload();
         const finalData = mergeMode === 'merge' ? mergeUnifiedPayloads(localData, res.data) : res.data;
         applyUnifiedPayloadLocally(finalData);
-        await apiPushCloudData(code, finalData);
+        pushResult = await apiPushCloudData(code, finalData);
       } else {
         const localData = getLocalUnifiedPayload();
-        await apiPushCloudData(code, localData);
+        pushResult = await apiPushCloudData(code, localData);
       }
 
       state.lastSyncTime = new Date().toISOString();
       localStorage.setItem(KEYS.LAST_SYNC, state.lastSyncTime);
-      state.syncStatus = 'synced';
-      state.statusMessage = `Connected: ${code}`;
+      state.syncStatus = pushResult?.readOnly ? 'readonly' : 'synced';
+      state.statusMessage = pushResult?.readOnly
+        ? `Connected (Read-Only): ${code}`
+        : `Connected: ${code}`;
       state.activeTab = 'my-code';
       updateUI();
 
-      showToast(`✓ Logged in across whole website with Pass: ${code}`);
+      if (pushResult?.readOnly) {
+        showToast(`🔒 Pulled ${code} in Read-Only mode. Paste Full Key to enable writes.`);
+      } else {
+        showToast(`✓ Logged in across whole website with Pass: ${code}`);
+      }
       if (!isAutoFromUrl) closeModal();
     } catch (err) {
       setStoredSyncCode(code);
@@ -904,10 +1149,14 @@
 
   async function createNewCode() {
     const newCode = generateRandomCode();
+    const newToken = generateWriteToken();
+    setWriteToken(newCode, newToken);
+    state.isProtectedRemote = false;
+    state.isReadOnly = false;
     setStoredSyncCode(newCode);
     state.activeTab = 'my-code';
     await performSync(false, 'push');
-    showToast(`✓ New All-in-One Sync Pass created: ${newCode}`);
+    showToast(`✓ New Write-Protected Sync Pass created: ${newCode}`);
   }
 
   async function pullFromCloud() {
@@ -950,6 +1199,8 @@
     setStoredSyncCode(null);
     localStorage.removeItem(KEYS.LAST_SYNC);
     state.lastSyncTime = null;
+    state.isReadOnly = false;
+    state.isProtectedRemote = false;
     state.syncStatus = 'idle';
     state.statusMessage = 'Logged out';
     updateUI();
@@ -1374,12 +1625,14 @@
       globalBtn.classList.toggle('linked', !!state.syncCode);
       if (state.syncCode) {
         if (globalLabel) {
-          globalLabel.textContent = state.syncStatus === 'syncing' ? 'Syncing...' : state.syncCode;
+          globalLabel.textContent = state.syncStatus === 'syncing'
+            ? 'Syncing...'
+            : (state.isReadOnly ? `${state.syncCode} (RO)` : state.syncCode);
         }
         if (globalDot) {
-          globalDot.className = `vp-sync-dot ${state.syncStatus === 'syncing' ? 'syncing' : state.syncStatus === 'error' || state.syncStatus === 'offline' ? 'error' : 'synced'}`;
+          globalDot.className = `vp-sync-dot ${state.syncStatus === 'syncing' ? 'syncing' : state.syncStatus === 'error' || state.syncStatus === 'offline' || state.syncStatus === 'readonly' ? 'error' : 'synced'}`;
         }
-        globalBtn.title = `All-in-One Cloud Login Active (${state.syncCode}) • Last: ${formatFullDateTime(state.lastSyncTime)}`;
+        globalBtn.title = `All-in-One Cloud Login Active (${state.syncCode})${state.isReadOnly ? ' [Read-Only]' : ''} • Last: ${formatFullDateTime(state.lastSyncTime)}`;
       } else {
         if (globalLabel) globalLabel.textContent = 'Login / Sync';
         if (globalDot) globalDot.className = 'vp-sync-dot';
@@ -1396,9 +1649,9 @@
       if (state.syncCode) {
         if (portalLabel) portalLabel.textContent = state.syncStatus === 'syncing' ? 'Syncing...' : `Sync: ${state.syncCode}`;
         if (portalDot) {
-          portalDot.className = `cloud-status-indicator ${state.syncStatus === 'syncing' ? 'syncing' : state.syncStatus === 'error' || state.syncStatus === 'offline' ? 'error' : 'synced'}`;
+          portalDot.className = `cloud-status-indicator ${state.syncStatus === 'syncing' ? 'syncing' : state.syncStatus === 'error' || state.syncStatus === 'offline' || state.syncStatus === 'readonly' ? 'error' : 'synced'}`;
         }
-        portalBtn.title = `All-in-One Cloud Sync Active • Pass: ${state.syncCode} • Last: ${formatFullDateTime(state.lastSyncTime)}`;
+        portalBtn.title = `All-in-One Cloud Sync Active • Pass: ${state.syncCode}${state.isReadOnly ? ' [Read-Only]' : ''} • Last: ${formatFullDateTime(state.lastSyncTime)}`;
       } else {
         if (portalLabel) portalLabel.textContent = 'Cloud Sync';
         if (portalDot) portalDot.className = 'cloud-status-indicator';
@@ -1421,15 +1674,16 @@
     const unpgScores = Object.keys(payload.unpg.scores || {}).length;
 
     let bodyHtml = '';
+    const hasWriteToken = isLinked && !!getWriteToken(currentCode);
     if (state.activeTab === 'link-device') {
       bodyHtml = `
         <div class="vp-card">
-          <h4 style="margin-bottom:6px;">Log In with Your 6-Character Pass</h4>
+          <h4 style="margin-bottom:6px;">Log In with Your Sync Pass or Full Access Key</h4>
           <p style="font-size:0.84rem;color:#94a3b8;margin-bottom:14px;">
-            Enter your existing sync code (e.g. <code>K4M9P2X7H3</code> or <code>R7N3X5B9</code>).
+            Enter your Sync Code (e.g. <code>VP-7K9M-2P4X</code>, <code>K4M9P2X7H3</code>) or paste your Full Access Key (<code>CODE.TOKEN</code>) for read &amp; write access.
           </p>
           <div style="display:flex;gap:8px;margin-bottom:14px;">
-            <input type="text" id="vp-cloud-code-input" class="vp-input" placeholder="e.g. K4M9P2X7H3 or R7N3X5B9" value="${escapeHtml(currentCode)}" onkeydown="if(event.key==='Enter') window.VAIBHAV_CLOUD_SYNC.submitLinkCode()">
+            <input type="text" id="vp-cloud-code-input" class="vp-input" placeholder="e.g. VP-7K9M-2P4X or CODE.TOKEN" value="${escapeHtml(currentCode)}" onkeydown="if(event.key==='Enter') window.VAIBHAV_CLOUD_SYNC.submitLinkCode()">
             <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.submitLinkCode()">⚡ Connect</button>
           </div>
           <label style="display:flex;gap:8px;align-items:flex-start;font-size:0.82rem;margin-bottom:8px;cursor:pointer;">
@@ -1443,17 +1697,35 @@
         </div>
       `;
     } else if (isLinked) {
+      const readOnlyBanner = state.isReadOnly
+        ? `<div class="vp-card" style="border-color:rgba(245,158,11,0.45);background:rgba(245,158,11,0.08);margin-top:10px;">
+            <div style="font-weight:700;color:#fbbf24;font-size:0.84rem;margin-bottom:4px;">🔒 Read-Only Mode</div>
+            <p style="font-size:0.8rem;color:#94a3b8;margin-bottom:8px;">This pass is write-protected. Scan the QR code or paste your Full Access Key from your primary device to enable cloud saves here.</p>
+            <div style="display:flex;gap:8px;">
+              <input type="text" id="vp-unlock-key-input" class="vp-input" style="font-size:0.84rem;" placeholder="Paste Full Access Key (CODE.TOKEN)">
+              <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.submitUnlockKey()">Unlock</button>
+            </div>
+          </div>`
+        : '';
+
       bodyHtml = `
         <div class="vp-card">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-            <span style="color:#34d399;font-weight:700;font-size:0.86rem;">🟢 All-in-One Session Active</span>
+            <span style="color:${state.isReadOnly ? '#fbbf24' : '#34d399'};font-weight:700;font-size:0.86rem;">
+              ${state.isReadOnly ? '🔒 Session Active (Read-Only)' : (hasWriteToken ? '🛡️ Write-Protected Session Active' : '🟢 All-in-One Session Active')}
+            </span>
             <span style="font-size:0.78rem;color:#94a3b8;">Last synced: ${escapeHtml(formatRelativeTime(state.lastSyncTime))}</span>
           </div>
 
           <div class="vp-code-box">
             <span class="vp-code-val">${escapeHtml(currentCode)}</span>
-            <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.copyCode('${escapeHtml(currentCode)}')">📋 Copy Pass</button>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button type="button" class="vp-btn primary" onclick="window.VAIBHAV_CLOUD_SYNC.copyCode()">📋 Copy Pass</button>
+              ${hasWriteToken ? '<button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.copyFullKey()" title="Copy Sync Code + Write Token for full read/write access on another device">🔑 Copy Full Key</button>' : ''}
+            </div>
           </div>
+
+          ${readOnlyBanner}
 
           <div class="vp-portal-stats">
             <div class="vp-stat-pill">
@@ -1470,10 +1742,10 @@
             <img src="${qrUrl}" alt="QR Code" class="vp-qr-img" onerror="this.style.display='none'">
             <div style="flex:1;min-width:200px;font-size:0.82rem;">
               <strong>📱 Instant Phone / Device Sync</strong>
-              <p style="margin:4px 0 8px;color:#94a3b8;">Scan with your camera or share the magic link to log in across the entire website in one click.</p>
+              <p style="margin:4px 0 8px;color:#94a3b8;">Scan with your camera or copy the private Magic Link (includes write access via URL hash).</p>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.copyLink('${escapeHtml(shareUrl)}')">🔗 Copy Link</button>
-                <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.shareLink('${escapeHtml(shareUrl)}')">📤 Share</button>
+                <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.copyLink()">🔗 Copy Link</button>
+                <button type="button" class="vp-btn" onclick="window.VAIBHAV_CLOUD_SYNC.shareLink()">📤 Share</button>
               </div>
             </div>
           </div>
@@ -1497,7 +1769,7 @@
           <div style="font-size:2.4rem;margin-bottom:8px;">☁️</div>
           <h3 style="margin-bottom:8px;">All-in-One Website Login</h3>
           <p style="font-size:0.88rem;color:#94a3b8;max-width:440px;margin:0 auto 16px;">
-            One 6-character pass syncs your IIT JAM PYQs, UNPG Semester V tracker, and mock test scores across every page and device — no password needed.
+            One write-protected pass syncs your IIT JAM PYQs, UNPG Semester V tracker, and mock test scores across every page and device — no password needed.
           </p>
           <div class="vp-portal-stats" style="text-align:left;margin-bottom:18px;">
             <div class="vp-stat-pill"><strong>🎯 Local JAM:</strong> ${jamSolved} solved · ${jamScores} scores</div>
@@ -1571,12 +1843,30 @@
     if (inp) linkWithCode(inp.value, mode, false);
   }
 
+  function submitUnlockKey() {
+    const inp = document.getElementById('vp-unlock-key-input');
+    if (!inp || !inp.value.trim()) {
+      showToast('Paste your Full Access Key (CODE.TOKEN).');
+      return;
+    }
+    linkWithCode(inp.value.trim(), 'merge', false);
+  }
+
   function copyCode(code) {
     const c = code || state.syncCode;
     if (!c) return;
     navigator.clipboard?.writeText(c).then(
       () => showToast(`✓ Copied Pass "${c}"`),
       () => showToast(`Pass: ${c}`)
+    );
+  }
+
+  function copyFullKey() {
+    const full = getFullSyncPass();
+    if (!full) return;
+    navigator.clipboard?.writeText(full).then(
+      () => showToast('✓ Copied Full Access Key (keep private!)'),
+      () => prompt('Copy your Full Access Key:', full)
     );
   }
 
@@ -1620,16 +1910,22 @@
 
     try {
       const urlParams = new URLSearchParams(window.location.search);
-      let paramCode = urlParams.get('sync');
-      if (!paramCode && window.location.hash.startsWith('#sync=')) {
-        paramCode = window.location.hash.slice(6);
+      let paramCode = null;
+      let usedHash = false;
+      if (window.location.hash.startsWith('#sync=')) {
+        paramCode = decodeURIComponent(window.location.hash.slice(6));
+        usedHash = true;
+      } else if (urlParams.get('sync')) {
+        paramCode = urlParams.get('sync');
       }
+
       if (paramCode) {
-        const clean = normalizeCode(paramCode);
-        if (clean) {
-          setTimeout(() => linkWithCode(clean, 'merge', true), 250);
+        const parsed = parseSyncInput(paramCode);
+        if (parsed.code) {
+          setTimeout(() => linkWithCode(paramCode, 'merge', true), 250);
           urlParams.delete('sync');
-          const newUrl = window.location.pathname + (urlParams.toString() ? `?${urlParams.toString()}` : '') + window.location.hash;
+          const cleanHash = usedHash ? '' : window.location.hash;
+          const newUrl = window.location.pathname + (urlParams.toString() ? `?${urlParams.toString()}` : '') + cleanHash;
           window.history.replaceState({}, document.title, newUrl);
         }
       } else if (state.syncCode) {
@@ -1652,7 +1948,9 @@
     closeModal,
     switchTab,
     submitLinkCode,
+    submitUnlockKey,
     copyCode,
+    copyFullKey,
     copySyncCode: () => copyCode(state.syncCode),
     copyLink,
     copyShareableUrl: () => copyLink(getShareableUrl()),

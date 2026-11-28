@@ -3,10 +3,11 @@
 This Cloudflare Worker provides zero-login, instant 6-digit cloud sync for the IIT JAM Mathematics PYQ Tracker.
 
 ### Features
-* **Zero Authentication**: No Google login, no cookies, no privacy concerns.
+* **Zero-Login with Write Protection**: No Google login or cookies, paired with cryptographic write-token verification (SHA-256 hashes in KV metadata) and automatic legacy code upgrades.
+* **Edge Security & Rate Limiting**: Origin-restricted CORS allowlist, 512 KB payload cap, optimistic revision checks (`409` conflict guard), and per-IP burst rate limiting (plus optional Cloudflare Rate Limiting binding / WAF rule).
 * **Global Edge Performance**: Under 50ms latency worldwide via Cloudflare's CDN.
 * **100% Free**: Operates within Cloudflare's free tier (100,000 requests/day, 1 GB storage).
-* **Automatic TTL**: Retains progress for 180 days after the last study session, automatically renewed on every click.
+* **Automatic TTL**: Retains progress for 180 days after the last study session, automatically renewed on every sync.
 
 ---
 
