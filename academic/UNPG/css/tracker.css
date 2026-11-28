@@ -2502,6 +2502,263 @@
 
 .course-progress-subgrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(195px, 100%), 1fr));
   gap: 10px;
+}
+
+/* ============================================
+   Mobile Overflow & Narrow-Viewport Hardening
+   ============================================ */
+html, body {
+  overflow-x: clip;
+}
+
+.site-header {
+  max-width: 100%;
+}
+
+.site-header .nav-container {
+  min-width: 0;
+}
+
+.site-header .brand-logo {
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.site-header .brand-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-header .nav-actions {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.topic-card-top,
+.tracker-title,
+.q-controls-row,
+.site-footer .footer-links,
+.portal-mode-bar,
+.sem-roadmap,
+.course-card div[style*="display:flex"],
+.course-card div[style*="display: flex"] {
+  flex-wrap: wrap;
+}
+
+.topics-grid,
+.course-grid,
+#unpg-exams-section .course-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+.resources-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+}
+
+.custom-topics-list {
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}
+
+.config-row-2col {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+.topic-progress-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+}
+
+.subtopic-progress-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+}
+
+.tracker-filter-bar {
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+}
+
+.tracker-questions-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+.mastery-subtopics-list {
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+}
+
+.topic-card,
+.course-card,
+.resource-card,
+.custom-topic-item,
+.custom-topic-info,
+.filter-control-group,
+.q-tracker-card,
+.topic-progress-card,
+.subtopic-progress-card,
+.mastery-subtopic-item,
+.progress-card > div {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-search-input,
+.tracker-search-input,
+.filter-control-select,
+.q-diff-select,
+.cloud-code-input-field {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.filter-control-select,
+.cloud-code-input-field {
+  width: 100%;
+}
+
+.cloud-code-val {
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.stats-today-spotlight-left {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* UNPG Results Portal mobile responsiveness (overrides results.css specificity) */
+body #unpg-results-section .students-grid,
+body #unpg-results-section .subject-cards-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+body #unpg-results-section .student-card,
+body #unpg-results-section .subject-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+body #unpg-results-section .search-input-group {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+body #unpg-results-section .sem-scorecard-header,
+body #unpg-results-section .sem-scorecard-summary,
+body #unpg-results-section .leaderboard-wrap > div:first-child {
+  flex-wrap: wrap;
+}
+
+body #modal-backdrop .modal-window {
+  max-width: calc(100vw - 24px);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .site-header .nav-container {
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .site-header .brand-name {
+    font-size: 0.8rem;
+  }
+
+  .site-header .nav-actions {
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .site-header #header-pyq-progress-pill {
+    padding: 3px 6px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .site-header .nav-link-btn,
+  .site-header .icon-btn {
+    padding: 4px 5px;
+    min-width: 26px;
+    height: 28px;
+    font-size: 0.82rem;
+  }
+
+  .site-header .nav-actions .vp-nav-sync-btn {
+    padding: 4px 6px;
+    height: 28px;
+  }
+
+  .main-tab-switcher {
+    gap: 6px;
+  }
+
+  .main-tab-btn {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .progress-bar-outer {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-search-btn {
+    padding: 0 10px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .custom-summary-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .q-modal-overlay,
+  .cloud-sync-modal-overlay,
+  .stats-modal-overlay {
+    padding: 10px;
+  }
+
+  .cloud-code-val {
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-header .nav-container {
+    padding: 0 8px;
+    gap: 4px;
+  }
+
+  .site-header .brand-name {
+    font-size: 0.74rem;
+    max-width: 58px;
+  }
+
+  .site-header .nav-actions {
+    gap: 3px;
+  }
+
+  .site-header .nav-link-btn,
+  .site-header .icon-btn {
+    padding: 2px 4px;
+    min-width: 24px;
+    height: 26px;
+    font-size: 0.78rem;
+  }
+
+  .site-header #header-pyq-progress-pill {
+    padding: 2px 5px;
+    font-size: 0.68rem;
+  }
+
+  .site-header .nav-actions .vp-nav-sync-btn {
+    padding: 3px 5px;
+    height: 26px;
+  }
 }

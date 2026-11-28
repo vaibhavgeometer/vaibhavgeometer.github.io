@@ -2436,3 +2436,149 @@
   padding: 40px 20px;
   color: var(--text-secondary);
 }
+
+/* ============================================
+   Mobile Overflow & Narrow-Viewport Hardening
+   ============================================ */
+.topics-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+.resources-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+}
+
+.topic-progress-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+}
+
+.subtopic-progress-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+}
+
+.tracker-filter-bar {
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+}
+
+.tracker-questions-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+}
+
+.mastery-subtopics-list {
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+}
+
+.topic-card,
+.resource-card,
+.custom-topic-item,
+.custom-topic-info,
+.filter-control-group,
+.q-tracker-card,
+.topic-progress-card,
+.subtopic-progress-card,
+.mastery-subtopic-item,
+.progress-card > div {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-search-input,
+.tracker-search-input,
+.filter-control-select,
+.q-diff-select,
+.cloud-code-input-field {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.filter-control-select,
+.cloud-code-input-field {
+  width: 100%;
+}
+
+.tracker-title,
+.q-controls-row,
+.site-footer .footer-links {
+  flex-wrap: wrap;
+}
+
+.cloud-code-val {
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.stats-today-spotlight-left {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .site-header .nav-container {
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .site-header .brand-name {
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .site-header .nav-actions {
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .site-header .nav-link-btn,
+  .site-header .icon-btn {
+    padding: 4px 6px;
+    min-width: 28px;
+    height: 30px;
+  }
+
+  .main-tab-switcher {
+    gap: 6px;
+  }
+
+  .main-tab-btn {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .progress-bar-outer {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-search-btn {
+    padding: 0 12px;
+    flex-shrink: 0;
+  }
+
+  .custom-summary-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .q-modal-overlay,
+  .cloud-sync-modal-overlay,
+  .stats-modal-overlay {
+    padding: 10px;
+  }
+
+  .cloud-code-val {
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .brand-name {
+    font-size: 0.76rem;
+    max-width: 82px;
+  }
+}

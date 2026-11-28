@@ -514,21 +514,47 @@
     <div class="nav-inner">
       <a href="../index.html" class="brand-logo" title="IIT JAM Mathematics Portal">
         <span class="brand-icon">📐</span>
-        <span>IIT JAM Mathematics</span>
+        <span class="countdown-brand-text">IIT JAM Mathematics</span>
       </a>
-      <div style="display:flex; align-items:center; gap:8px;">
+      <div class="countdown-nav-actions" style="display:flex; align-items:center; gap:8px;">
         <a href="../../../" class="back-btn" title="Return to Vaibhav Priyadarshi Home">
           <span>🏠</span>
-          <span>Main Site</span>
+          <span class="nav-btn-label">Main Site</span>
         </a>
         <a href="../index.html" class="back-btn" title="Return to Main Mock Test Portal">
           <span>←</span>
-          <span>JAM Portal</span>
+          <span class="nav-btn-label">JAM Portal</span>
         </a>
         <button id="theme-toggle-btn" class="theme-btn" onclick="window.toggleTheme()" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">☀</button>
       </div>
     </div>
   </header>
+  <script>
+    (function(){
+      var s = document.createElement('style');
+      s.textContent = `
+        html, body { overflow-x: clip; }
+        .top-nav { max-width: 100%; }
+        .nav-inner { min-width: 0; }
+        .brand-logo { min-width: 0; flex-shrink: 1; overflow: hidden; }
+        .countdown-brand-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .countdown-nav-actions { min-width: 0; flex-shrink: 0; }
+        @media (max-width: 640px) {
+          .nav-inner { padding: 10px 12px !important; gap: 8px; }
+          .countdown-brand-text { font-size: 0.85rem; }
+          .countdown-nav-actions { gap: 5px !important; }
+          .countdown-nav-actions .back-btn { padding: 6px 9px !important; }
+          .countdown-nav-actions .nav-btn-label { display: none; }
+          .countdown-card, .hero-card { max-width: 100%; box-sizing: border-box; }
+          .stats-breakdown { grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr)) !important; }
+        }
+        @media (max-width: 380px) {
+          .countdown-brand-text { max-width: 115px; font-size: 0.8rem; }
+        }
+      `;
+      document.head.appendChild(s);
+    })();
+  </script>
 
   <!-- Main Countdown Container -->
   <main class="main-wrap">
