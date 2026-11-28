@@ -113,13 +113,6 @@
         return;
       }
 
-      if (lower === '/notes' ||
-          ((lower === '/notes/' || lower === '/notes/index.html') && path !== '/notes/' && path !== '/notes/index.html') ||
-          lower === '/blog' || lower === '/blog/' || lower === '/blog/index.html') {
-        window.location.replace('/notes/' + search + hash);
-        return;
-      }
-
     })();
   </script>
 
