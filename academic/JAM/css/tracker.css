@@ -1454,8 +1454,13 @@
   background: var(--bg-surface);
   overflow-x: auto;
   flex-shrink: 0;
-  scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+@supports (scrollbar-width: none) {
+  .cloud-modal-tabs {
+    scrollbar-width: none;
+  }
 }
 
 .cloud-modal-tabs::-webkit-scrollbar {
@@ -1949,8 +1954,13 @@
   background: var(--bg-surface);
   overflow-x: auto;
   flex-shrink: 0;
-  scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+@supports (scrollbar-width: none) {
+  .stats-modal-tabs {
+    scrollbar-width: none;
+  }
 }
 
 .stats-modal-tabs::-webkit-scrollbar {

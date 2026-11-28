@@ -97,8 +97,8 @@ body {
   z-index: 100;
   background: var(--bg-header);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   max-width: 100%;
 }
 
