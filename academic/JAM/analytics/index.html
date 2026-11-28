@@ -63,7 +63,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- MathJax 3 for Formula Rendering -->
-  <script src="../mock-test/js/mathjax_config.js"></script>
+  <script src="../../../js/mathjax_config.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <style>
@@ -973,7 +973,7 @@
         <a href="../assets/Syllabus.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" title="Open Official Syllabus PDF">📜 Syllabus</a>
         <a href="../assets/MA2005-2026_Original_PYQs.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn" title="Open 22-Year Consolidated PYQ Archive">🏛️ Archive</a>
         <a href="../assets/IIT_JAM_MA_Project_Statistics_and_Analytics_Report.pdf" target="_blank" rel="noopener noreferrer" class="nav-btn primary" title="Download Official Vector PDF Report">📄 PDF Report</a>
-        <button type="button" class="nav-btn theme-toggle" id="theme-toggle-btn" onclick="window.toggleTheme()" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">☀️ Theme</button>
+        <button type="button" class="nav-btn theme-toggle" id="theme-toggle-btn" data-theme-label="text" onclick="window.toggleTheme()" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">☀️ Theme</button>
         <button type="button" class="nav-btn" onclick="window.print()" title="Print or save as PDF">🖨️ Print</button>
       </nav>
     </div>
@@ -1759,25 +1759,6 @@
   <script src="../../../js/last-updated.js"></script>
 
   <script>
-    // --- Theme Management ---
-    window.toggleTheme = function() {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try {
-        localStorage.setItem('jam_theme', next);
-      } catch (e) {}
-      updateThemeBtn(next);
-    };
-
-    function updateThemeBtn(theme) {
-      const btn = document.getElementById('theme-toggle-btn');
-      if (btn) {
-        btn.innerHTML = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
-        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
-      }
-    }
-
     // --- Smooth Scroll to Top ---
     window.scrollToTop = function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1840,13 +1821,8 @@
         }
       }
     }, { passive: true });
-
-    // --- Initialize Theme Button State on DOM Ready ---
-    document.addEventListener('DOMContentLoaded', function() {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      updateThemeBtn(current);
-    });
   </script>
+  <script defer src="../../../js/theme.js"></script>
 
   <script>
     (function(){

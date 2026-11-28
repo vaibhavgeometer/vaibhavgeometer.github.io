@@ -195,31 +195,7 @@
   </footer>
   <script src="../js/last-updated.js"></script>
 
-  <script>
-    function initTheme() {
-      const saved = localStorage.getItem('jam_theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', saved);
-      updateThemeIcon(saved);
-    }
-
-    window.toggleTheme = function() {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('jam_theme', next);
-      updateThemeIcon(next);
-    };
-
-    function updateThemeIcon(theme) {
-      const btn = document.getElementById('theme-toggle-btn');
-      if (btn) {
-        btn.textContent = theme === 'dark' ? '☀' : '🌙';
-        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', initTheme);
-  </script>
+  <script defer src="../js/theme.js"></script>
   <script defer src="../js/portfolio-ui.js"></script>
   <script defer src="../js/unified_sync.js"></script>
 </body>

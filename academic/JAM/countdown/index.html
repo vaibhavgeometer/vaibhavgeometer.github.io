@@ -713,27 +713,8 @@
 
     updateTimer();
     setInterval(updateTimer, 1000);
-
-    function updateThemeIcon(theme) {
-      const btn = document.getElementById('theme-toggle-btn');
-      if (btn) {
-        btn.textContent = theme === 'dark' ? '☀' : '🌙';
-        btn.title = `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`;
-      }
-    }
-
-    window.toggleTheme = function() {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('jam_theme', next); } catch (e) {}
-      updateThemeIcon(next);
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-      updateThemeIcon(document.documentElement.getAttribute('data-theme') || 'dark');
-    });
   </script>
+  <script defer src="../../../js/theme.js"></script>
   <script src="../../../js/unified_sync.js"></script>
 </body>
 </html>

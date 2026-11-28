@@ -396,26 +396,7 @@
   </footer>
   <script src="../js/last-updated.js"></script>
 
-  <script>
-    (function() {
-      const saved = localStorage.getItem('jam_theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', saved);
-      updateThemeIcon(saved);
-    })();
-
-    function updateThemeIcon(theme) {
-      const btn = document.getElementById('theme-toggle-btn');
-      if (btn) btn.textContent = theme === 'dark' ? '☀' : '🌙';
-    }
-
-    window.toggleTheme = function() {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('jam_theme', next);
-      updateThemeIcon(next);
-    };
-  </script>
+  <script defer src="../js/theme.js"></script>
   <script defer src="../js/portfolio-ui.js"></script>
   <script defer src="../js/unified_sync.js"></script>
 </body>
